@@ -1,5 +1,10 @@
 extends control
 
+signal textbox_closed
+
+func_ready():
+    set_health($PlayerPanel/PlayerData/ProgressBar, state.current_health, state.max_health)
+
 func_ready():
   $Textbox.hide()
   $ActionPanel.hide()
@@ -7,6 +12,12 @@ func_ready():
   display_text("inserte texto generico de combate aqui")
   yield(self. "textbox_closed")
   $ActionsPanel.show()
+
+func set_health(progress_bar, health, max_health):
+     progress_bar.value = health
+     progress_bar.max_value = max_health
+     progress_bar.get_node("label").text = "HP:%d/%d" % [health, max_health]
+     pass
 
 func_input(event):
   if input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(BUTTON_LEFT)
