@@ -2,7 +2,10 @@ extends control
 
 signal textbox_closed
 
+export(Resource) var enemy = null
+
 func_ready():
+    set_health($EnemyContainer/ProgressBar, enemy.health, enemy.health)
     set_health($PlayerPanel/PlayerData/ProgressBar, state.current_health, state.max_health)
 
 func_ready():
