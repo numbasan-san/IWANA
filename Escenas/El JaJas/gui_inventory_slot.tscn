@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://duom6f2h3kxjk"]
+
+[ext_resource type="Texture2D" uid="uid://cls4pxglucv5u" path="res://Assets/inventory/inventory_slot.png" id="1_ccedt"]
+
+[node name="inventory_slot" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="sripte" type="Sprite2D" parent="."]
+texture = ExtResource("1_ccedt")
