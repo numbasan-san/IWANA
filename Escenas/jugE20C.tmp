@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://r5xe0lfs4uk1"]
+[gd_scene load_steps=16 format=3 uid="uid://r5xe0lfs4uk1"]
 
 [ext_resource type="Script" path="res://Script/jugador.gd" id="1_k8sy0"]
 [ext_resource type="Texture2D" uid="uid://cjh5y4chwurb0" path="res://Assets/walk_player/sprites originales/prota_frente_camina-Sheet48x96.png" id="2_lvppu"]
@@ -22,18 +22,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("prota_sprite:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("5_tjw5i")]
 }
 
 [sub_resource type="Animation" id="Animation_74tk0"]
@@ -226,126 +214,10 @@ tracks/2/keys = {
 "values": [Vector2(0, -3)]
 }
 
-[sub_resource type="Animation" id="Animation_pg6o5"]
-resource_name = "stop_player_up"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("prota_sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("prota_sprite:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("3_n1j7v")]
-}
-
-[sub_resource type="Animation" id="Animation_fero8"]
-resource_name = "stop_player_down"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("prota_sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("prota_sprite:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_lvppu")]
-}
-
-[sub_resource type="Animation" id="Animation_4xoc6"]
-resource_name = "stop_player_right"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("prota_sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("prota_sprite:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("5_tjw5i")]
-}
-
-[sub_resource type="Animation" id="Animation_p5lcu"]
-resource_name = "stop_player_left"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("prota_sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [2]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("prota_sprite:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("4_duj1f")]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ha3c"]
 _data = {
 "RESET": SubResource("Animation_1f7jw"),
 "anim": SubResource("Animation_74tk0"),
-"stop_player_down": SubResource("Animation_fero8"),
-"stop_player_left": SubResource("Animation_p5lcu"),
-"stop_player_right": SubResource("Animation_4xoc6"),
-"stop_player_up": SubResource("Animation_pg6o5"),
 "walk_player_down": SubResource("Animation_ephfq"),
 "walk_player_down_2": SubResource("Animation_nss50"),
 "walk_player_left_2": SubResource("Animation_x154a"),
@@ -354,11 +226,11 @@ _data = {
 "walk_player_up_2": SubResource("Animation_pyvec")
 }
 
-[node name="jugador" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_k8sy0")
 
 [node name="prota_sprite" type="Sprite2D" parent="."]
-texture = ExtResource("5_tjw5i")
+texture = ExtResource("2_lvppu")
 hframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

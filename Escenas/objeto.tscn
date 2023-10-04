@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://buuumumu582d" path="res://Assets/snapshot_133.jpg" id="2_pecb0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k55ce"]
-size = Vector2(44.375, 88.5)
+size = Vector2(192, 108)
 
 [sub_resource type="Animation" id="Animation_7ij86"]
 length = 0.001
@@ -76,7 +76,7 @@ scale = Vector2(0.15, 0.15)
 texture = ExtResource("2_pecb0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(580, 215)
+position = Vector2(580, 212)
 shape = SubResource("RectangleShape2D_k55ce")
 
 [node name="Animation" type="AnimationPlayer" parent="."]
