@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bltswxenwf6ac"]
+[gd_scene load_steps=3 format=3 uid="uid://bltswxenwf6ac"]
 
+[ext_resource type="Script" path="res://Escenas/El JaJas/slot_gui.gd" id="1_iiclp"]
 [ext_resource type="Texture2D" uid="uid://cls4pxglucv5u" path="res://Assets/inventory/inventory_slot.png" id="1_umd6w"]
 
 [node name="slot" type="Panel"]
@@ -7,7 +8,20 @@ self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(40, 40)
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_iiclp")
 
-[node name="sprite" type="Sprite2D" parent="."]
+[node name="background" type="Sprite2D" parent="."]
 texture = ExtResource("1_umd6w")
 centered = false
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Panel" type="Panel" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="item" type="Sprite2D" parent="CenterContainer/Panel"]
+scale = Vector2(0.045, 0.045)

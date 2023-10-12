@@ -1,6 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://r5xe0lfs4uk1"]
+[gd_scene load_steps=19 format=3 uid="uid://r5xe0lfs4uk1"]
 
 [ext_resource type="Script" path="res://Script/jugador.gd" id="1_k8sy0"]
+[ext_resource type="Resource" uid="uid://ilwg2p3fs6sh" path="res://Script/El JaJas/items/inventario.tres" id="2_lq8c3"]
 [ext_resource type="Texture2D" uid="uid://cjh5y4chwurb0" path="res://Assets/walk_player/sprites originales/prota_frente_camina-Sheet48x96.png" id="2_lvppu"]
 [ext_resource type="Texture2D" uid="uid://c1wu3mi22yyy1" path="res://Assets/walk_player/sprites originales/prota_de_culo_camina-Sheet48x96.png" id="3_n1j7v"]
 [ext_resource type="Texture2D" uid="uid://5xhf07lgcff5" path="res://Assets/walk_player/sprites originales/prota_camina_izquierda-Sheet48x96.png" id="4_duj1f"]
@@ -8,49 +9,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s06e1"]
 size = Vector2(11.7963, 38.445)
-
-[sub_resource type="Animation" id="Animation_1f7jw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("prota_sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("prota_sprite:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("5_tjw5i")]
-}
-
-[sub_resource type="Animation" id="Animation_74tk0"]
-resource_name = "anim"
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollisionShape2D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.141372, -0.141372]
-}
 
 [sub_resource type="Animation" id="Animation_fero8"]
 resource_name = "stop_player_down"
@@ -340,8 +298,6 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ha3c"]
 _data = {
-"RESET": SubResource("Animation_1f7jw"),
-"anim": SubResource("Animation_74tk0"),
 "stop_player_down": SubResource("Animation_fero8"),
 "stop_player_left": SubResource("Animation_p5lcu"),
 "stop_player_right": SubResource("Animation_4xoc6"),
@@ -356,10 +312,12 @@ _data = {
 
 [node name="jugador" type="CharacterBody2D"]
 script = ExtResource("1_k8sy0")
+inventory = ExtResource("2_lq8c3")
 
 [node name="prota_sprite" type="Sprite2D" parent="."]
-texture = ExtResource("5_tjw5i")
+texture = ExtResource("2_lvppu")
 hframes = 8
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
@@ -369,3 +327,11 @@ shape = SubResource("RectangleShape2D_s06e1")
 libraries = {
 "": SubResource("AnimationLibrary_3ha3c")
 }
+
+[node name="hurt_box" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurt_box"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_s06e1")
+
+[connection signal="area_entered" from="hurt_box" to="." method="_on_hurt_box_area_entered"]

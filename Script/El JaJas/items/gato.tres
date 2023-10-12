@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://bakvatncet6gu"]
+
+[ext_resource type="Script" path="res://Script/El JaJas/item.gd" id="1_s2m2u"]
+[ext_resource type="Texture2D" uid="uid://b73u7fbnmvy0g" path="res://Assets/Assests de Pruebas/b6b29edc2efc7b5d653319e5124f1e71.png" id="2_a5vql"]
+
+[resource]
+script = ExtResource("1_s2m2u")
+name = "gato"
+texture = ExtResource("2_a5vql")

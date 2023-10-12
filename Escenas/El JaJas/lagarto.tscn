@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://b5vmikbm0kax7"]
+
+[ext_resource type="PackedScene" uid="uid://dlbnfka3ekn43" path="res://Escenas/El JaJas/collectable.tscn" id="1_agjui"]
+[ext_resource type="Texture2D" uid="uid://c8knhlhrmgo4" path="res://Assets/Assests de Pruebas/__glavenus_monster_hunter_drawn_by_milkpanda__sample-b42e3db21a9939973e0e50a33878d1ec.jpg" id="2_h05hl"]
+[ext_resource type="Script" path="res://Script/El JaJas/lagarto.gd" id="2_rq8s8"]
+[ext_resource type="Resource" uid="uid://c22advxu20nil" path="res://Script/El JaJas/items/lagarto.tres" id="3_byd7s"]
+
+[node name="collectable" instance=ExtResource("1_agjui")]
+script = ExtResource("2_rq8s8")
+item_res = ExtResource("3_byd7s")
+
+[node name="Sprite2D" parent="CollisionShape2D" index="0"]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("2_h05hl")

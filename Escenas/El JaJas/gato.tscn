@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://mu4ut8suwjxv"]
+
+[ext_resource type="PackedScene" uid="uid://dlbnfka3ekn43" path="res://Escenas/El JaJas/collectable.tscn" id="1_14qcx"]
+[ext_resource type="Script" path="res://Script/El JaJas/gato.gd" id="2_woo43"]
+[ext_resource type="Resource" uid="uid://bakvatncet6gu" path="res://Script/El JaJas/items/gato.tres" id="3_6ythp"]
+[ext_resource type="Texture2D" uid="uid://b73u7fbnmvy0g" path="res://Assets/Assests de Pruebas/b6b29edc2efc7b5d653319e5124f1e71.png" id="3_l001c"]
+
+[node name="collectable" instance=ExtResource("1_14qcx")]
+script = ExtResource("2_woo43")
+item_res = ExtResource("3_6ythp")
+
+[node name="Sprite2D" parent="CollisionShape2D" index="0"]
+scale = Vector2(0.035, 0.035)
+texture = ExtResource("3_l001c")

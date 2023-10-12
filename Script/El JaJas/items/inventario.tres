@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Inventory" load_steps=5 format=3 uid="uid://ilwg2p3fs6sh"]
+
+[ext_resource type="Script" path="res://Script/El JaJas/inventory.gd" id="1_8lcop"]
+[ext_resource type="Resource" uid="uid://0nmwdi4yiwfw" path="res://Script/El JaJas/items/perro.tres" id="1_mw1j7"]
+[ext_resource type="Resource" uid="uid://bakvatncet6gu" path="res://Script/El JaJas/items/gato.tres" id="2_3y1s6"]
+[ext_resource type="Resource" uid="uid://c22advxu20nil" path="res://Script/El JaJas/items/lagarto.tres" id="3_381k1"]
+
+[resource]
+script = ExtResource("1_8lcop")
+items = Array[Resource("res://Script/El JaJas/item.gd")]([ExtResource("1_mw1j7"), null, ExtResource("2_3y1s6"), null, null, ExtResource("3_381k1"), ExtResource("3_381k1"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
