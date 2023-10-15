@@ -7,12 +7,12 @@ extends Panel
 
 func update(slot : InventorySlot):
 	if slot.item:
-		background_sprite.frame = 1
+		# background_sprite.frame = 1
 		item_sprite.visible = true
 		item_sprite.texture = slot.item.texture
-		amount_label.visible = true
+		amount_label.visible = (slot.amount > 1)
 		amount_label.text = str(slot.amount)
 	else:
-		background_sprite.frame = 0
+		# background_sprite.frame = 0
 		item_sprite.visible = false
 		amount_label.visible = false

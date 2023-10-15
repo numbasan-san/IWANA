@@ -7,3 +7,4 @@
 script = ExtResource("1_o18dh")
 name = "gato"
 texture = ExtResource("2_81hix")
+item = 3

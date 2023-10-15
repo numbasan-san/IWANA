@@ -7,3 +7,4 @@
 script = ExtResource("1_jecr0")
 name = "gato"
 texture = ExtResource("2_dmq8s")
+stack = 2

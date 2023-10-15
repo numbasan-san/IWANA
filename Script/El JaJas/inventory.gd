@@ -9,6 +9,8 @@ signal update
 func insert(item : Item):
 	for slot in slots:
 		if slot.item == item:
+			if slot.amount > slot.item.stack:
+				continue
 			slot.amount += 1
 			update.emit()
 			return
