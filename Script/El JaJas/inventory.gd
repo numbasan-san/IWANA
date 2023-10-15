@@ -3,12 +3,19 @@ extends Resource
 
 class_name Inventory
 
-@export var items : Array[Item]
+@export var slots : Array[InventorySlot]
 signal update
 
 func insert(item : Item):
-	for i in range(items.size()):
-		if !items[i]:
-			items[i] = item
-			break
-	update.emit()
+	for slot in slots:
+		if slot.item == item:
+			slot.amount += 1
+			update.emit()
+			return
+
+	for i in range(slots.size()):
+		if !slots[i].item:
+			slots[i].item = item
+			slots[i].amount = 1
+			update.emit()
+			return

@@ -4,37 +4,33 @@ extends CharacterBody2D
 var axis : Vector2
 var last_vector : String
 var sprite_in_turn : Texture
-var anim = ''
+var anim = 'stop_player_down'
 
 @export var inventory : Inventory
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$"Animation".play("stop_player_down")
+	$"Animation".play(anim)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-#	var direccion = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-#	velocity = direccion * 200
-#	move_and_slide()
-
 	velocity.x = get_axis().x * 200
 	velocity.y = get_axis().y * 200
 	move_and_slide()
 	
 	if get_axis().y == -1:
-		anim = "up_2"
+		anim = "walk_player_up_2"
 		last_vector = 'u'
 	if get_axis().y == 1:
-		anim = "down_2"
+		anim = "walk_player_down_2"
 		last_vector = 'd'
 	if get_axis().x == -1:
-		anim = "left_2"
+		anim = "walk_player_left_2"
 		last_vector = 'l'
 	if get_axis().x == 1:
-		anim = "right_2"
+		anim = "walk_player_right_2"
 		last_vector = 'r'
-	$"Animation".play("walk_player_" + anim)
+	$"Animation".play(anim)
 	
 	if  get_axis().x == 0 and get_axis().y == 0:
 		$"Animation".stop()
