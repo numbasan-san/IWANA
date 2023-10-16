@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1oo1y04ll6wi"]
+
+[ext_resource type="Texture2D" uid="uid://0m2jikbrgur0" path="res://Assets/2020-10-25 (4).png" id="1_rvqb6"]
+[ext_resource type="PackedScene" uid="uid://r5xe0lfs4uk1" path="res://Escenas/Personajes/jugador.tscn" id="2_j2q37"]
+[ext_resource type="PackedScene" uid="uid://biaksld7iryos" path="res://Escenas/objeto.tscn" id="3_n7j4n"]
+[ext_resource type="PackedScene" uid="uid://c27lwiurpirus" path="res://Escenas/El JaJas/gui_inventory.tscn" id="4_eoutw"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="fondo" type="Sprite2D" parent="."]
+position = Vector2(597, 339)
+texture = ExtResource("1_rvqb6")
+
+[node name="jugador" parent="." instance=ExtResource("2_j2q37")]
+position = Vector2(463, 325)
+
+[node name="obstaculo" type="Node" parent="."]
+
+[node name="StaticBody2D" parent="obstaculo" instance=ExtResource("3_n7j4n")]
+position = Vector2(221, 228)
+
+[node name="StaticBody2D2" parent="obstaculo" instance=ExtResource("3_n7j4n")]
+position = Vector2(-393, -41)
+
+[node name="StaticBody2D3" parent="obstaculo" instance=ExtResource("3_n7j4n")]
+position = Vector2(411, -7)
+
+[node name="StaticBody2D4" parent="obstaculo" instance=ExtResource("3_n7j4n")]
+position = Vector2(-119, 341)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="inventory_gui" parent="CanvasLayer" instance=ExtResource("4_eoutw")]
+offset_left = -345.0
+offset_top = -180.0
+offset_right = -345.0
+offset_bottom = -180.0
+scale = Vector2(2, 2)

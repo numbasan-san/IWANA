@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://oc5oqpk3nprt"]
+
+[ext_resource type="PackedScene" uid="uid://vxqn0thhdh6j" path="res://Escenas/Zonas/mundo.tscn" id="1_jlw57"]
+
+[node name="PantallaMundo" type="Node2D"]
+
+[node name="Mundo" parent="." instance=ExtResource("1_jlw57")]

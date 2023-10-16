@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c16aftr5qs7s6"]
+
+[ext_resource type="PackedScene" uid="uid://dfnbjn6yyb7iw" path="res://Escenas/Menus/menu_principal.tscn" id="1_pb7pq"]
+[ext_resource type="PackedScene" uid="uid://oc5oqpk3nprt" path="res://Escenas/Pantallas/pantalla_mundo.tscn" id="2_q31dv"]
+
+[node name="Juego" type="Node2D"]
+
+[node name="PantallaMenuPrincipal" parent="." instance=ExtResource("1_pb7pq")]
+
+[node name="Intro" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PantallaMundo" parent="." instance=ExtResource("2_q31dv")]
+
+[node name="PantallaCombate" type="Node2D" parent="."]
+
+[node name="PantallaDiálogo" type="Node2D" parent="."]
