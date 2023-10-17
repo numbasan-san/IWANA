@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmxpfsjjjvtsk"
-path="res://.godot/imported/prota Idle.png-195655a67abe7bcc29a9110a4274d0dc.ctex"
+uid="uid://b72a5sfu2q2uh"
+path="res://.godot/imported/ButtonNew.png-fe1442840962bffe3db816ac60049868.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/sprites originales/prota Idle.png"
-dest_files=["res://.godot/imported/prota Idle.png-195655a67abe7bcc29a9110a4274d0dc.ctex"]
+source_file="res://Assets/Menus/ButtonNew.png"
+dest_files=["res://.godot/imported/ButtonNew.png-fe1442840962bffe3db816ac60049868.ctex"]
 
 [params]
 

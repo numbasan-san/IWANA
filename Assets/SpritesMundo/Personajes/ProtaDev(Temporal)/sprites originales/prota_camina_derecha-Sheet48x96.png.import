@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cifm3cx8xmoiw"
-path="res://.godot/imported/prota_camina_derecha-Sheet48x96.png-d3cab57e3a55dffb747b1fbeda952121.ctex"
+path="res://.godot/imported/prota_camina_derecha-Sheet48x96.png-23855212cb6e6a06e14c20814b218ec3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpritesMundo/ProtaDev(Temporal)/sprites originales/prota_camina_derecha-Sheet48x96.png"
-dest_files=["res://.godot/imported/prota_camina_derecha-Sheet48x96.png-d3cab57e3a55dffb747b1fbeda952121.ctex"]
+source_file="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/sprites originales/prota_camina_derecha-Sheet48x96.png"
+dest_files=["res://.godot/imported/prota_camina_derecha-Sheet48x96.png-23855212cb6e6a06e14c20814b218ec3.ctex"]
 
 [params]
 

@@ -1,20 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://c16aftr5qs7s6"]
+[gd_scene load_steps=5 format=3 uid="uid://c16aftr5qs7s6"]
 
-[ext_resource type="PackedScene" uid="uid://dfnbjn6yyb7iw" path="res://Escenas/Menus/menu_principal.tscn" id="1_pb7pq"]
+[ext_resource type="PackedScene" uid="uid://c22nh78geuywp" path="res://Escenas/Pantallas/pantalla_inicial.tscn" id="1_abg3v"]
 [ext_resource type="PackedScene" uid="uid://oc5oqpk3nprt" path="res://Escenas/Pantallas/pantalla_mundo.tscn" id="2_q31dv"]
+[ext_resource type="Script" path="res://Script/ControladorPantallas.gd" id="3_k6kvy"]
+[ext_resource type="PackedScene" uid="uid://fpbj5k7vpvlw" path="res://Escenas/Pantallas/pantalla_intro.tscn" id="4_lxdqi"]
 
 [node name="Juego" type="Node2D"]
 
-[node name="PantallaMenuPrincipal" parent="." instance=ExtResource("1_pb7pq")]
-
-[node name="Intro" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="PantallaMenuInicial" parent="." instance=ExtResource("1_abg3v")]
+visible = false
 
 [node name="PantallaMundo" parent="." instance=ExtResource("2_q31dv")]
+visible = false
 
 [node name="PantallaCombate" type="Node2D" parent="."]
+visible = false
 
 [node name="PantallaDiálogo" type="Node2D" parent="."]
+visible = false
+
+[node name="ControladorPantallas" type="Node2D" parent="."]
+visible = false
+script = ExtResource("3_k6kvy")
+
+[node name="PantallaIntro" parent="." instance=ExtResource("4_lxdqi")]
+visible = false
+position = Vector2(-568, -320)

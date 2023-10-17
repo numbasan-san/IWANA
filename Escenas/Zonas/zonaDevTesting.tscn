@@ -1,5 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://b4dvh0kkkndo1"]
+[gd_scene load_steps=3 format=3 uid="uid://b4dvh0kkkndo1"]
 
 [ext_resource type="PackedScene" uid="uid://sdkrms3kp41p" path="res://Escenas/Zonas/zonaBase.tscn" id="1_ljxgf"]
+[ext_resource type="PackedScene" uid="uid://r5xe0lfs4uk1" path="res://Escenas/Personajes/jugador.tscn" id="2_ehex0"]
 
 [node name="ZonaDevTesting" instance=ExtResource("1_ljxgf")]
+
+[node name="jugador" parent="." index="1" instance=ExtResource("2_ehex0")]

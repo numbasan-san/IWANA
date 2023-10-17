@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://e2xfgjcerr0t"
-path="res://.godot/imported/walk_prota_up_1-Sheet48x96.png-9b943ba901fdb6956549169dc105cef3.ctex"
+path="res://.godot/imported/walk_prota_up_1-Sheet48x96.png-3fb205eceb3dcadf54ab7c62e834742e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/SpritesMundo/ProtaDev(Temporal)/up/walk_prota_up_1-Sheet48x96.png"
-dest_files=["res://.godot/imported/walk_prota_up_1-Sheet48x96.png-9b943ba901fdb6956549169dc105cef3.ctex"]
+source_file="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/up/walk_prota_up_1-Sheet48x96.png"
+dest_files=["res://.godot/imported/walk_prota_up_1-Sheet48x96.png-3fb205eceb3dcadf54ab7c62e834742e.ctex"]
 
 [params]
 
