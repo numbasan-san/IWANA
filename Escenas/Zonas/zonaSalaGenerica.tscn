@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://sdkrms3kp41p" path="res://Escenas/Zonas/zonaBase.tscn" id="1_mdu4p"]
 [ext_resource type="PackedScene" uid="uid://dpb4305ruxl8v" path="res://Escenas/Objetos/pupitre.tscn" id="2_ulqri"]
-[ext_resource type="PackedScene" uid="uid://8072ayb7i6jl" path="res://Escenas/Personajes/jugador.tscn" id="3_cuq8a"]
+[ext_resource type="PackedScene" uid="uid://r5xe0lfs4uk1" path="res://Escenas/Personajes/jugador.tscn" id="3_cuq8a"]
 
 [node name="Zona" instance=ExtResource("1_mdu4p")]
 
@@ -67,4 +67,4 @@ position = Vector2(140, 150)
 position = Vector2(60, 150)
 
 [node name="jugador" parent="." index="21" instance=ExtResource("3_cuq8a")]
-position = Vector2(-141, -213)
+position = Vector2(26, -228)

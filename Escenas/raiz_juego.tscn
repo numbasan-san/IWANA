@@ -25,4 +25,3 @@ script = ExtResource("3_k6kvy")
 
 [node name="PantallaIntro" parent="." instance=ExtResource("4_lxdqi")]
 visible = false
-position = Vector2(-568, -320)
