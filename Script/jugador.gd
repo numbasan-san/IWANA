@@ -2,41 +2,36 @@
 extends CharacterBody2D
 
 var axis : Vector2
-var last_vector : String
 var sprite_in_turn : Texture
+var anim = ''
+var stop_anim = 'stop_player_down'
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	$Animation.play(stop_anim)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-#	var direccion = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-#	velocity = direccion * 200
-#	move_and_slide()
-
 	velocity.x = get_axis().x * 200
 	velocity.y = get_axis().y * 200
 	move_and_slide()
 	
 	if get_axis().y == -1:
-		$"Animation".play("walk_player_up_2")
-		last_vector = 'u'
+		anim = "walk_player_up"
+		stop_anim = 'stop_player_up'
 	elif get_axis().y == 1:
-		$"Animation".play("walk_player_down_2")
-		last_vector = 'd'
+		anim = "walk_player_down"
+		stop_anim = 'stop_player_down'
 	elif get_axis().x == -1:
-		$"Animation".play("walk_player_left_2")
-		last_vector = 'l'
+		anim = "walk_player_left"
+		stop_anim = 'stop_player_left'
 	elif get_axis().x == 1:
-		$"Animation".play("walk_player_right_2")
-		last_vector = 'r'
-	elif  get_axis().x == 0 and get_axis().y == 0:
+		anim = "walk_player_right"
+		stop_anim = 'stop_player_right'
+	$"Animation".play(anim)
+	if  get_axis().x == 0 and get_axis().y == 0:
 		$"Animation".stop()
-		var stop_anim = {"u": "stop_player_up", "d": "stop_player_down", "r": "stop_player_right", 	"l": "stop_player_left"}
-		for i in stop_anim:
-			if last_vector == i:
-				$Animation.play(stop_anim[last_vector])
+		$Animation.play(stop_anim)
 	
 func get_axis() -> Vector2:
 	axis.x = int(Input.is_action_pressed('ui_right') or Input.is_key_pressed(KEY_D)) - int(Input.is_action_pressed('ui_left') or Input.is_key_pressed(KEY_A))
