@@ -11,7 +11,7 @@
 position = Vector2(597, 339)
 texture = ExtResource("1_rvqb6")
 
-[node name="Camera2D" type="Camera2D" parent="jugador"]
+[node name="jugador@Camera2D" type="Camera2D" parent="."]
 
 [node name="obstaculo" type="Node" parent="."]
 
