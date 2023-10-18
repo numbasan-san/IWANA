@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpb4305ruxl8v"]
+
+[ext_resource type="PackedScene" uid="uid://dh7lrjvhfark4" path="res://Escenas/Objetos/objeto_base.tscn" id="1_sjp4f"]
+[ext_resource type="Texture2D" uid="uid://cbuutm04kjedr" path="res://Assets/SpritesMundo/Objetos/tiles_jueguito_uwu.png" id="2_dvwma"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tq05f"]
+size = Vector2(34, 39)
+
+[node name="Pupitre" instance=ExtResource("1_sjp4f")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_dvwma")
+
+[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(-2, 0.5)
+shape = SubResource("RectangleShape2D_tq05f")

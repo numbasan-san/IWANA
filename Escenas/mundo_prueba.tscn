@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1oo1y04ll6wi"]
+[gd_scene load_steps=5 format=3 uid="uid://dt7nhsfbi8nq1"]
 
 [ext_resource type="Texture2D" uid="uid://0m2jikbrgur0" path="res://Assets/2020-10-25 (4).png" id="1_rvqb6"]
-[ext_resource type="PackedScene" uid="uid://r5xe0lfs4uk1" path="res://Escenas/Personajes/jugador.tscn" id="2_j2q37"]
+[ext_resource type="PackedScene" uid="uid://8072ayb7i6jl" path="res://Escenas/Personajes/jugador.tscn" id="2_j2q37"]
 [ext_resource type="PackedScene" uid="uid://biaksld7iryos" path="res://Escenas/objeto.tscn" id="3_n7j4n"]
 [ext_resource type="PackedScene" uid="uid://c27lwiurpirus" path="res://Escenas/El JaJas/gui_inventory.tscn" id="4_eoutw"]
 

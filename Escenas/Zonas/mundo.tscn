@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://vxqn0thhdh6j"]
 
-[ext_resource type="PackedScene" uid="uid://b4dvh0kkkndo1" path="res://Escenas/Zonas/zonaDevTesting.tscn" id="1_1q0ft"]
+[ext_resource type="PackedScene" uid="uid://0oo6xivh01bn" path="res://Escenas/Zonas/zonaSalaGenerica.tscn" id="1_qluv7"]
 
 [node name="Mundo" type="Node2D"]
 
-[node name="Zona" parent="." instance=ExtResource("1_1q0ft")]
+[node name="Zona2" parent="." instance=ExtResource("1_qluv7")]

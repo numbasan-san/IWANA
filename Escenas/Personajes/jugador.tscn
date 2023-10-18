@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://r5xe0lfs4uk1"]
+[gd_scene load_steps=20 format=3 uid="uid://8072ayb7i6jl"]
 
 [ext_resource type="Script" path="res://Script/jugador.gd" id="1_k8sy0"]
 [ext_resource type="Texture2D" uid="uid://crn58yfs6hpsw" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/arriba/noby_camina_arriba.png" id="2_8q33m"]
