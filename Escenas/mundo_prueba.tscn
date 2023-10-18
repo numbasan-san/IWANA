@@ -11,6 +11,8 @@
 position = Vector2(597, 339)
 texture = ExtResource("1_rvqb6")
 
+[node name="Camera2D" type="Camera2D" parent="jugador"]
+
 [node name="obstaculo" type="Node" parent="."]
 
 [node name="StaticBody2D" parent="obstaculo" instance=ExtResource("3_n7j4n")]
@@ -28,6 +30,7 @@ position = Vector2(-119, 341)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="inventory_gui" parent="CanvasLayer" instance=ExtResource("4_eoutw")]
+visible = false
 offset_left = -345.0
 offset_top = -180.0
 offset_right = -345.0
