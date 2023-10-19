@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://opd742w6udaq"]
+[gd_scene load_steps=6 format=3 uid="uid://opd742w6udaq"]
 
 [ext_resource type="PackedScene" uid="uid://c22nh78geuywp" path="res://Escenas/Pantallas/pantalla_inicial.tscn" id="1_abg3v"]
 [ext_resource type="PackedScene" uid="uid://oc5oqpk3nprt" path="res://Escenas/Pantallas/pantalla_mundo.tscn" id="2_q31dv"]
 [ext_resource type="Script" path="res://Script/ControladorPantallas.gd" id="3_k6kvy"]
 [ext_resource type="PackedScene" uid="uid://fpbj5k7vpvlw" path="res://Escenas/Pantallas/pantalla_intro.tscn" id="4_lxdqi"]
+[ext_resource type="PackedScene" uid="uid://cishwnhdv2l11" path="res://Escenas/Pantallas/pantalla_dialogo.tscn" id="5_aafk1"]
 
 [node name="Juego" type="Node2D"]
 
@@ -16,12 +17,11 @@ visible = false
 [node name="PantallaCombate" type="Node2D" parent="."]
 visible = false
 
-[node name="PantallaDiálogo" type="Node2D" parent="."]
-visible = false
-
-[node name="ControladorPantallas" type="Node2D" parent="."]
-visible = false
+[node name="ControladorPantallas" type="Node" parent="."]
 script = ExtResource("3_k6kvy")
 
 [node name="PantallaIntro" parent="." instance=ExtResource("4_lxdqi")]
+visible = false
+
+[node name="PantallaDialogo" parent="." instance=ExtResource("5_aafk1")]
 visible = false

@@ -12,4 +12,4 @@ func _process(delta):
 	pass
 
 func _on_pressed():
-	controladorPantalla.transicion(controladorPantalla.pantallaMundo)
+	controladorPantalla.transicion(controladorPantalla.pantallaDialogo)

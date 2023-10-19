@@ -1,9 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://c22nh78geuywp"]
+[gd_scene load_steps=5 format=3 uid="uid://c22nh78geuywp"]
 
-[ext_resource type="Texture2D" uid="uid://cpxuv88e6rvlh" path="res://Assets/Menus/PlaceholderBackground.png" id="1_74xpy"]
-[ext_resource type="Texture2D" uid="uid://b72a5sfu2q2uh" path="res://Assets/Menus/ButtonNew.png" id="2_x833n"]
-[ext_resource type="Texture2D" uid="uid://oac8swsgocb5" path="res://Assets/Menus/ButtonNewPressed.png" id="3_1a3xr"]
-[ext_resource type="Script" path="res://Script/BotonJuegoNuevo.gd" id="4_sv0p7"]
+[ext_resource type="PackedScene" uid="uid://dfnbjn6yyb7iw" path="res://Escenas/Menus/menu_principal.tscn" id="1_31nox"]
 
 [sub_resource type="Animation" id="Animation_ya7pr"]
 resource_name = "FadeIn"
@@ -11,7 +8,7 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath("MenuPrincipal:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -27,7 +24,7 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
+tracks/0/path = NodePath("MenuPrincipal:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -45,29 +42,10 @@ _data = {
 
 [node name="PantallaInicial" type="CanvasLayer"]
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 1152.0
-offset_bottom = 649.0
-texture = ExtResource("1_74xpy")
-
-[node name="BotonNuevoJuego" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TextureButton" type="TextureButton" parent="."]
-offset_left = 110.0
-offset_top = 332.0
-offset_right = 410.0
-offset_bottom = 392.0
-texture_normal = ExtResource("2_x833n")
-texture_pressed = ExtResource("3_1a3xr")
-script = ExtResource("4_sv0p7")
+[node name="MenuPrincipal" parent="." instance=ExtResource("1_31nox")]
+modulate = Color(1, 1, 1, 1)
 
 [node name="FadeAnimator" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_n7kc0")
 }
-
-[connection signal="pressed" from="TextureButton" to="TextureButton" method="_on_pressed"]
