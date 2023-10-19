@@ -14,5 +14,6 @@ func _process(delta):
 # Detectamos que teclas se estan presionando para continuar o
 # retroceder el dialogo
 func _input(event):
-	if event.is_action_pressed("ui_accept"):
+
+	if event.is_action_pressed("nv_avanzar_dialogo"):
 		controladorPantalla.transicion(controladorPantalla.pantallaMundo)
