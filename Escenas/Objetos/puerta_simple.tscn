@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://hed2eep7147o"]
+
+[ext_resource type="PackedScene" uid="uid://dh7lrjvhfark4" path="res://Escenas/Objetos/objeto_base.tscn" id="1_dibdu"]
+[ext_resource type="Texture2D" uid="uid://napjtu1uxlju" path="res://Assets/SpritesMundo/Objetos/tiles_puertitas_uwu.png" id="2_oga5m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_808ni"]
+size = Vector2(37, 32)
+
+[node name="PuertaSimple" instance=ExtResource("1_dibdu")]
+z_index = 1
+y_sort_enabled = true
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_oga5m")
+region_rect = Rect2(212, 52, 40, 68)
+
+[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(-0.5, 16)
+shape = SubResource("RectangleShape2D_808ni")

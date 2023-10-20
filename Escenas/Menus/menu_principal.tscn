@@ -17,6 +17,7 @@ grow_vertical = 2
 script = ExtResource("1_edbkt")
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 649.0
 texture = ExtResource("2_m1nr4")
@@ -28,6 +29,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 110.0
 offset_top = 332.0
 offset_right = 410.0

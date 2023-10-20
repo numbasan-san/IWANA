@@ -494,15 +494,18 @@ _data = {
 }
 
 [node name="jugador" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_k8sy0")
 
 [node name="prota_sprite" type="Sprite2D" parent="."]
+y_sort_enabled = true
 texture = ExtResource("2_lsnfh")
 hframes = 7
 frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 12)
+position = Vector2(-9, 12)
 scale = Vector2(1.7, 1)
 shape = SubResource("RectangleShape2D_s06e1")
 

@@ -3,6 +3,7 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_346tc"]
 
 [node name="ObjetoBase" type="Node2D"]
+z_index = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 region_enabled = true

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh17p5fy8gfxl"]
+
+[ext_resource type="PackedScene" uid="uid://dh7lrjvhfark4" path="res://Escenas/Objetos/objeto_base.tscn" id="1_6xx6l"]
+[ext_resource type="Texture2D" uid="uid://bh0g38w8vu70r" path="res://Assets/SpritesMundo/Objetos/parte_de_afuera_de_la_escuela_v3.png" id="2_qpdux"]
+
+[node name="VentanaSala" instance=ExtResource("1_6xx6l")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_qpdux")
+region_rect = Rect2(136, 68, 104, 52)
