@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://oc5oqpk3nprt"]
+
+[ext_resource type="PackedScene" uid="uid://vxqn0thhdh6j" path="res://Escenas/Zonas/mundo.tscn" id="1_jlw57"]
+[ext_resource type="PackedScene" uid="uid://cg87jy7chv1va" path="res://Escenas/inventario/items/lagarto.tscn" id="2_hbury"]
+[ext_resource type="PackedScene" uid="uid://bntylxciwrpvw" path="res://Escenas/inventario/items/toro.tscn" id="3_xaraj"]
+
+[node name="PantallaMundo" type="Node2D"]
+
+[node name="Mundo" parent="." instance=ExtResource("1_jlw57")]
+position = Vector2(2, 0)
+
+[node name="lagarto" parent="." instance=ExtResource("2_hbury")]
+position = Vector2(-8, -179)
+
+[node name="lagarto2" parent="." instance=ExtResource("2_hbury")]
+position = Vector2(-173, -72)
+
+[node name="lagarto3" parent="." instance=ExtResource("2_hbury")]
+position = Vector2(101, -12)
+
+[node name="toro" parent="." instance=ExtResource("3_xaraj")]
+position = Vector2(-106, -194)
+
+[node name="toro2" parent="." instance=ExtResource("3_xaraj")]
+position = Vector2(175, 153)
+
+[node name="toro3" parent="." instance=ExtResource("3_xaraj")]
+position = Vector2(-93, 116)

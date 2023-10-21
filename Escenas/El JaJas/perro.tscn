@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://cq01j56mj410e"]
+
+[ext_resource type="PackedScene" uid="uid://dlbnfka3ekn43" path="res://Escenas/El JaJas/collectable.tscn" id="1_kqsma"]
+[ext_resource type="Script" path="res://Script/El JaJas/perro.gd" id="2_v52bq"]
+[ext_resource type="Resource" uid="uid://0nmwdi4yiwfw" path="res://Script/El JaJas/items/perro.tres" id="3_24v0p"]
+[ext_resource type="Texture2D" uid="uid://j767v6f13kai" path="res://Assets/Assests de Pruebas/__zinogre_monster_hunter_drawn_by_milkpanda__sample-16d3404318c7aedb577ce1c900a7a272.jpg" id="3_u24c3"]
+
+[node name="collectable" instance=ExtResource("1_kqsma")]
+script = ExtResource("2_v52bq")
+item_res = ExtResource("3_24v0p")
+
+[node name="Sprite2D" parent="CollisionShape2D" index="0"]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_u24c3")
