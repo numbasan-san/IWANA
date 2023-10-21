@@ -9,6 +9,6 @@ script = ExtResource("1_hctep")
 [node name="GraficosNV" type="Node2D" parent="."]
 script = ExtResource("2_4e855")
 
-[node name="SpritesMundo" type="Node2D" parent="."]
+[node name="ModeloMundo" type="Node2D" parent="."]
 
-[node name="SpritesCombate" type="Node2D" parent="."]
+[node name="ModeloCombate" type="Node2D" parent="."]
