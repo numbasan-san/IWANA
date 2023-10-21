@@ -11,7 +11,11 @@ config_version=5
 [application]
 
 config/name="IWANA"
+<<<<<<< Updated upstream
 run/main_scene="res://Escenas/mundo.tscn"
+=======
+run/main_scene="res://Escenas/raiz_juego.tscn"
+>>>>>>> Stashed changes
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 

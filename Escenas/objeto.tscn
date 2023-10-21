@@ -34,7 +34,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_hcon3"]
-resource_name = "move"
+resource_name = "movei"
 loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -64,7 +64,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_h7q1v"]
 _data = {
 "RESET": SubResource("Animation_7ij86"),
-"move": SubResource("Animation_hcon3")
+"movei": SubResource("Animation_hcon3")
 }
 
 [node name="StaticBody2D" type="StaticBody2D"]

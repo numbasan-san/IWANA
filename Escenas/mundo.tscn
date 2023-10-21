@@ -1,9 +1,16 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=9 format=3 uid="uid://b0fijgk62kc4c"]
+=======
+[gd_scene load_steps=8 format=3 uid="uid://b0fijgk62kc4c"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Texture2D" uid="uid://0m2jikbrgur0" path="res://Assets/Assests de Pruebas/2020-10-25 (4).png" id="1_gjxul"]
 [ext_resource type="PackedScene" uid="uid://r5xe0lfs4uk1" path="res://Escenas/jugador.tscn" id="2_214j2"]
 [ext_resource type="PackedScene" uid="uid://biaksld7iryos" path="res://Escenas/objeto.tscn" id="3_2p8jq"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://c27lwiurpirus" path="res://Escenas/El JaJas/gui_inventory.tscn" id="4_5fv48"]
+=======
+>>>>>>> Stashed changes
 [ext_resource type="Script" path="res://Escenas/inventory_layer.gd" id="4_iv0pg"]
 [ext_resource type="PackedScene" uid="uid://b5vmikbm0kax7" path="res://Escenas/El JaJas/lagarto.tscn" id="6_jb3qb"]
 [ext_resource type="PackedScene" uid="uid://cq01j56mj410e" path="res://Escenas/El JaJas/perro.tscn" id="7_2p7xl"]
@@ -39,12 +46,15 @@ position = Vector2(-119, 341)
 process_mode = 3
 script = ExtResource("4_iv0pg")
 
+<<<<<<< Updated upstream
 [node name="inventory_gui" parent="inventory_layer" instance=ExtResource("4_5fv48")]
 visible = false
 offset_top = -320.0
 offset_right = -576.0
 offset_bottom = -320.0
 
+=======
+>>>>>>> Stashed changes
 [node name="perro" parent="." instance=ExtResource("7_2p7xl")]
 position = Vector2(585, 151)
 
@@ -80,6 +90,9 @@ position = Vector2(251, 58)
 
 [node name="lagarto7" parent="." instance=ExtResource("6_jb3qb")]
 position = Vector2(502, 116)
+<<<<<<< Updated upstream
 
 [connection signal="closed" from="inventory_layer/inventory_gui" to="inventory_layer" method="_on_inventory_gui_closed"]
 [connection signal="opened" from="inventory_layer/inventory_gui" to="inventory_layer" method="_on_inventory_gui_opened"]
+=======
+>>>>>>> Stashed changes
