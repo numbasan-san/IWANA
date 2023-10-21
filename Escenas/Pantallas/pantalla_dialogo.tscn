@@ -1,13 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cishwnhdv2l11"]
+[gd_scene load_steps=6 format=3 uid="uid://cishwnhdv2l11"]
 
-[ext_resource type="Texture2D" uid="uid://d0xij6lmlkfyc" path="res://Assets/DibujosNV/nobita2.png" id="1_u4vus"]
-[ext_resource type="Texture2D" uid="uid://c7lntb7mvpqt2" path="res://Assets/DibujosNV/daniladino2.png" id="2_x7um4"]
+[ext_resource type="PackedScene" uid="uid://dljth7jwfmjlx" path="res://Escenas/ContenidosDialogo.tscn" id="1_fds5q"]
 [ext_resource type="Script" path="res://Script/ControlDialogo.gd" id="3_njkpc"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_xeabs"]
-font_size = 20
-
-[sub_resource type="LabelSettings" id="LabelSettings_doqxg"]
 
 [sub_resource type="Animation" id="Animation_2y5oe"]
 resource_name = "FadeIn"
@@ -15,7 +9,7 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Contenidos:modulate")
+tracks/0/path = NodePath("ContenidosDialogo:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -31,7 +25,7 @@ length = 0.6
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Contenidos:modulate")
+tracks/0/path = NodePath("ContenidosDialogo:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -49,109 +43,7 @@ _data = {
 
 [node name="PantallaDialogo" type="CanvasLayer"]
 
-[node name="Contenidos" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="EscenaNV" type="Control" parent="Contenidos"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Fondo" type="TextureRect" parent="Contenidos/EscenaNV"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Personaje1" type="Control" parent="Contenidos/EscenaNV"]
-anchors_preset = 0
-
-[node name="TextureRect" type="TextureRect" parent="Contenidos/EscenaNV/Personaje1"]
-layout_mode = 0
-offset_left = 357.6
-offset_top = 148.0
-offset_right = 969.6
-offset_bottom = 1944.0
-scale = Vector2(-0.3, 0.3)
-texture = ExtResource("1_u4vus")
-
-[node name="Personaje2" type="Control" parent="Contenidos/EscenaNV"]
-anchors_preset = 0
-
-[node name="TextureRect" type="TextureRect" parent="Contenidos/EscenaNV/Personaje2"]
-layout_mode = 0
-offset_left = 817.0
-offset_top = 227.0
-offset_right = 1426.0
-offset_bottom = 1762.0
-scale = Vector2(0.3, 0.3)
-texture = ExtResource("2_x7um4")
-
-[node name="CuadroDiálogo" type="Panel" parent="Contenidos"]
-modulate = Color(1, 1, 1, 0.784314)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.1
-anchor_top = 1.0
-anchor_right = 0.9
-anchor_bottom = 1.0
-offset_top = -150.0
-size_flags_vertical = 0
-
-[node name="PanelNombre" type="Panel" parent="Contenidos/CuadroDiálogo"]
-layout_mode = 1
-offset_left = 36.0
-offset_top = -40.0
-offset_right = 236.0
-
-[node name="ColorRect" type="ColorRect" parent="Contenidos/CuadroDiálogo/PanelNombre"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0.278431, 0.478431, 1)
-
-[node name="LabelNombre" type="Label" parent="Contenidos/CuadroDiálogo/PanelNombre"]
-layout_mode = 1
-offset_right = 200.0
-offset_bottom = 40.0
-text = "Nombre"
-label_settings = SubResource("LabelSettings_xeabs")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ColorRect" type="ColorRect" parent="Contenidos/CuadroDiálogo"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0.4, 0.666667, 1)
-
-[node name="Texto" type="Label" parent="Contenidos/CuadroDiálogo"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.03
-anchor_top = 0.1
-anchor_right = 0.97
-anchor_bottom = 0.9
-grow_horizontal = 2
-grow_vertical = 2
-text = "Texto de ejemplo"
-label_settings = SubResource("LabelSettings_doqxg")
+[node name="ContenidosDialogo" parent="." instance=ExtResource("1_fds5q")]
 
 [node name="ControlDialogo" type="Node" parent="."]
 script = ExtResource("3_njkpc")

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3ltulgb5a8do"]
+
+[ext_resource type="PackedScene" uid="uid://dnx5re6stcy6a" path="res://Escenas/Personajes/personaje.tscn" id="1_poelq"]
+[ext_resource type="Texture2D" uid="uid://c7lntb7mvpqt2" path="res://Assets/DibujosNV/daniladino2.png" id="2_mrhog"]
+
+[node name="Daniela" instance=ExtResource("1_poelq")]
+
+[node name="GraficosNV" parent="." index="0"]
+scale = Vector2(0.3, 0.3)
+
+[node name="Neutral" type="Sprite2D" parent="GraficosNV" index="0"]
+position = Vector2(0, -768)
+texture = ExtResource("2_mrhog")
