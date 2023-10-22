@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://0oo6xivh01bn"]
 
-[ext_resource type="PackedScene" uid="uid://sdkrms3kp41p" path="res://Escenas/Zonas/zonaBase.tscn" id="1_mdu4p"]
+[ext_resource type="PackedScene" uid="uid://sdkrms3kp41p" path="res://Escenas/Zonas/zona_base.tscn" id="1_wnoea"]
 [ext_resource type="Texture2D" uid="uid://bi7hkidmy1wkf" path="res://Assets/SpritesMundo/Objetos/construccion_de_esenario.png" id="2_ixhd4"]
 [ext_resource type="PackedScene" uid="uid://dpb4305ruxl8v" path="res://Escenas/Objetos/pupitre.tscn" id="2_ulqri"]
 [ext_resource type="PackedScene" uid="uid://hed2eep7147o" path="res://Escenas/Objetos/puerta_simple.tscn" id="3_u8up4"]
@@ -421,7 +421,7 @@ texture = ExtResource("2_ixhd4")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_nrlfc")
 
-[node name="SalaGenerica" instance=ExtResource("1_mdu4p")]
+[node name="SalaGenerica" instance=ExtResource("1_wnoea")]
 y_sort_enabled = true
 
 [node name="TileMap" type="TileMap" parent="." index="0"]

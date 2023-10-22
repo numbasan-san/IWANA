@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://du31clkq6084d"]
 
-[ext_resource type="Texture2D" path="res://Assets/34g02emee4491.png" id="1_kkyhw"]
+[ext_resource type="Texture2D" uid="uid://c8lx45sx1te3y" path="res://Assets/Assests de Pruebas/34g02emee4491.png" id="1_kkyhw"]
 
 [sub_resource type="Animation" id="Animation_da24n"]
 resource_name = "FadeIn"

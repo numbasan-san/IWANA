@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dnx5re6stcy6a"]
 
 [ext_resource type="Script" path="res://Script/Personaje.gd" id="1_hctep"]
-[ext_resource type="Script" path="res://Script/GraficosNV.gd" id="2_4e855"]
+[ext_resource type="Script" path="res://Script/Dialogos/graficos_nv.gd" id="2_4e855"]
 
 [node name="Personaje" type="Node"]
 script = ExtResource("1_hctep")

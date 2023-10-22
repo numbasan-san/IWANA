@@ -1,15 +1,15 @@
 [gd_scene load_steps=22 format=3 uid="uid://r5xe0lfs4uk1"]
 
 [ext_resource type="Script" path="res://Script/jugador.gd" id="1_k8sy0"]
-[ext_resource type="Texture2D" uid="uid://crn58yfs6hpsw" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/arriba/noby_camina_arriba.png" id="2_8q33m"]
-[ext_resource type="Texture2D" uid="uid://dgvtrji2ul6rd" path="res://Assets/Assests de Pruebas/noby_frente.png" id="2_cax0a"]
-[ext_resource type="Texture2D" uid="uid://on5238yhixxd" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/izquierda/noby_camina_izquierda.png" id="2_ey215"]
 [ext_resource type="Resource" uid="uid://dfuucb5spinx8" path="res://Script/inventario_objetos/inventario/resourses/inventory.tres" id="2_f77ym"]
-[ext_resource type="Texture2D" uid="uid://cffxyhx37i11o" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/derecha/noby_camina_derecha.png" id="2_hijek"]
-[ext_resource type="Texture2D" uid="uid://2bgy8qjflmx3" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/izquierda/noby_izq.png" id="3_qtve8"]
-[ext_resource type="Texture2D" uid="uid://cp8xaiey3yfm3" path="res://Assets/Assests de Pruebas/noby_derecha.png" id="4_inkcb"]
-[ext_resource type="Texture2D" uid="uid://dhwsw5w7gobuo" path="res://Assets/Assests de Pruebas/noby_espa.png" id="5_6esrk"]
-[ext_resource type="Texture2D" uid="uid://cywi2xwg755hn" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/abajo/noby_camina_abajo.png" id="5_v6uxg"]
+[ext_resource type="Texture2D" uid="uid://dgvtrji2ul6rd" path="res://Assets/SpritesMundo/Personajes/Noby/abajo/noby_frente.png" id="3_iphp5"]
+[ext_resource type="Texture2D" uid="uid://2bgy8qjflmx3" path="res://Assets/SpritesMundo/Personajes/Noby/izquierda/noby_izq.png" id="4_yrj8y"]
+[ext_resource type="Texture2D" uid="uid://cp8xaiey3yfm3" path="res://Assets/SpritesMundo/Personajes/Noby/derecha/noby_derecha.png" id="5_v1rc3"]
+[ext_resource type="Texture2D" uid="uid://dhwsw5w7gobuo" path="res://Assets/SpritesMundo/Personajes/Noby/arriba/noby_espa.png" id="6_rqe6j"]
+[ext_resource type="Texture2D" uid="uid://cywi2xwg755hn" path="res://Assets/SpritesMundo/Personajes/Noby/abajo/noby_camina_abajo.png" id="7_7ic82"]
+[ext_resource type="Texture2D" uid="uid://on5238yhixxd" path="res://Assets/SpritesMundo/Personajes/Noby/izquierda/noby_camina_izquierda.png" id="8_vwuly"]
+[ext_resource type="Texture2D" uid="uid://cffxyhx37i11o" path="res://Assets/SpritesMundo/Personajes/Noby/derecha/noby_camina_derecha.png" id="9_hfb07"]
+[ext_resource type="Texture2D" uid="uid://crn58yfs6hpsw" path="res://Assets/SpritesMundo/Personajes/Noby/arriba/noby_camina_arriba.png" id="10_2qb5i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s06e1"]
 size = Vector2(12.0746, 37.7939)
@@ -90,7 +90,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_cax0a")]
+"values": [ExtResource("3_iphp5")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -166,7 +166,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_qtve8")]
+"values": [ExtResource("4_yrj8y")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -206,7 +206,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_inkcb")]
+"values": [ExtResource("5_v1rc3")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -270,7 +270,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_6esrk")]
+"values": [ExtResource("6_rqe6j")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -323,7 +323,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_v6uxg")]
+"values": [ExtResource("7_7ic82")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -364,7 +364,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_ey215")]
+"values": [ExtResource("8_vwuly")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -453,7 +453,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_hijek")]
+"values": [ExtResource("9_hfb07")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -554,7 +554,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_8q33m")]
+"values": [ExtResource("10_2qb5i")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ha3c"]

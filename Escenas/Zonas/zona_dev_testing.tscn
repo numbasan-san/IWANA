@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://b4dvh0kkkndo1"]
 
-[ext_resource type="PackedScene" uid="uid://sdkrms3kp41p" path="res://Escenas/Zonas/zonaBase.tscn" id="1_ljxgf"]
+[ext_resource type="PackedScene" uid="uid://sdkrms3kp41p" path="res://Escenas/Zonas/zona_base.tscn" id="1_ljxgf"]
 [ext_resource type="PackedScene" uid="uid://r5xe0lfs4uk1" path="res://Escenas/Personajes/jugador.tscn" id="2_ehex0"]
 [ext_resource type="Texture2D" uid="uid://ce1321k8qtew5" path="res://Assets/Tilesets/ZonaDev/tilesetDevTest.png" id="2_xemyy"]
 [ext_resource type="Script" path="res://Script/inventario_objetos/inventario/inventory_layer.gd" id="3_vijrr"]
