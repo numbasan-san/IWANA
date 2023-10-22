@@ -1,7 +1,4 @@
-
 extends CharacterBody2D
-
-
 
 var axis : Vector2
 var last_vector : String
@@ -21,16 +18,16 @@ func _process(delta):
 	move_and_slide()
 	
 	if get_axis().y == -1:
-		anim = "walk_player_up_2"
+		anim = "walk_player_up"
 		last_vector = 'u'
 	if get_axis().y == 1:
-		anim = "walk_player_down_2"
+		anim = "walk_player_down"
 		last_vector = 'd'
 	if get_axis().x == -1:
-		anim = "walk_player_left_2"
+		anim = "walk_player_left"
 		last_vector = 'l'
 	if get_axis().x == 1:
-		anim = "walk_player_right_2"
+		anim = "walk_player_right"
 		last_vector = 'r'
 	$"Animation".play(anim)
 	

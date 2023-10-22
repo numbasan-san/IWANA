@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://0oo6xivh01bn"]
+[gd_scene load_steps=11 format=3 uid="uid://0oo6xivh01bn"]
 
 [ext_resource type="PackedScene" uid="uid://sdkrms3kp41p" path="res://Escenas/Zonas/zonaBase.tscn" id="1_mdu4p"]
 [ext_resource type="Texture2D" uid="uid://bi7hkidmy1wkf" path="res://Assets/SpritesMundo/Objetos/construccion_de_esenario.png" id="2_ixhd4"]
 [ext_resource type="PackedScene" uid="uid://dpb4305ruxl8v" path="res://Escenas/Objetos/pupitre.tscn" id="2_ulqri"]
-[ext_resource type="PackedScene" uid="uid://r5xe0lfs4uk1" path="res://Escenas/Personajes/jugador.tscn" id="3_cuq8a"]
 [ext_resource type="PackedScene" uid="uid://hed2eep7147o" path="res://Escenas/Objetos/puerta_simple.tscn" id="3_u8up4"]
 [ext_resource type="PackedScene" uid="uid://btin7snlp0dhp" path="res://Escenas/Objetos/pizarron.tscn" id="4_ebl0c"]
 [ext_resource type="PackedScene" uid="uid://bmqahq0cv3h4o" path="res://Escenas/Objetos/reloj.tscn" id="5_p65in"]
@@ -422,7 +421,7 @@ texture = ExtResource("2_ixhd4")
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_nrlfc")
 
-[node name="Zona" instance=ExtResource("1_mdu4p")]
+[node name="SalaGenerica" instance=ExtResource("1_mdu4p")]
 y_sort_enabled = true
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
@@ -520,6 +519,3 @@ position = Vector2(433, 519)
 
 [node name="Pupitre20" parent="Pupitres" index="19" instance=ExtResource("2_ulqri")]
 position = Vector2(353, 519)
-
-[node name="jugador" parent="." index="7" instance=ExtResource("3_cuq8a")]
-position = Vector2(291, 125)

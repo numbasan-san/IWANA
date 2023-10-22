@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://4jpj8tqg88j5"]
+
+[ext_resource type="PackedScene" uid="uid://0oo6xivh01bn" path="res://Escenas/Zonas/zonaSalaGenerica.tscn" id="1_p0tah"]
+[ext_resource type="PackedScene" uid="uid://r5xe0lfs4uk1" path="res://Escenas/Personajes/jugador.tscn" id="2_0qwjf"]
+[ext_resource type="PackedScene" uid="uid://cg87jy7chv1va" path="res://Escenas/inventario/items/lagarto.tscn" id="3_dft04"]
+[ext_resource type="PackedScene" uid="uid://bntylxciwrpvw" path="res://Escenas/inventario/items/toro.tscn" id="4_ics7l"]
+
+[node name="SalaP1N1" instance=ExtResource("1_p0tah")]
+
+[node name="jugador" parent="." index="7" instance=ExtResource("2_0qwjf")]
+position = Vector2(291, 125)
+
+[node name="Items" type="Node2D" parent="." index="8"]
+z_index = 1
+y_sort_enabled = true
+
+[node name="lagarto" parent="Items" index="0" instance=ExtResource("3_dft04")]
+position = Vector2(397, 133)
+
+[node name="lagarto2" parent="Items" index="1" instance=ExtResource("3_dft04")]
+position = Vector2(504, 363)
+
+[node name="lagarto3" parent="Items" index="2" instance=ExtResource("3_dft04")]
+position = Vector2(488, 183)
+
+[node name="toro" parent="Items" index="3" instance=ExtResource("4_ics7l")]
+position = Vector2(223, 594)
+
+[node name="toro2" parent="Items" index="4" instance=ExtResource("4_ics7l")]
+position = Vector2(175, 153)
+
+[node name="toro3" parent="Items" index="5" instance=ExtResource("4_ics7l")]
+position = Vector2(48, 309)

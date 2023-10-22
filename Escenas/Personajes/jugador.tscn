@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://Script/jugador.gd" id="1_k8sy0"]
 [ext_resource type="Texture2D" uid="uid://crn58yfs6hpsw" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/arriba/noby_camina_arriba.png" id="2_8q33m"]
-[ext_resource type="Texture2D" uid="uid://dgvtrji2ul6rd" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/abajo/noby_frente.png" id="2_cax0a"]
+[ext_resource type="Texture2D" uid="uid://dgvtrji2ul6rd" path="res://Assets/Assests de Pruebas/noby_frente.png" id="2_cax0a"]
 [ext_resource type="Texture2D" uid="uid://on5238yhixxd" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/izquierda/noby_camina_izquierda.png" id="2_ey215"]
 [ext_resource type="Resource" uid="uid://dfuucb5spinx8" path="res://Script/inventario_objetos/inventario/resourses/inventory.tres" id="2_f77ym"]
 [ext_resource type="Texture2D" uid="uid://cffxyhx37i11o" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/derecha/noby_camina_derecha.png" id="2_hijek"]
 [ext_resource type="Texture2D" uid="uid://2bgy8qjflmx3" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/izquierda/noby_izq.png" id="3_qtve8"]
-[ext_resource type="Texture2D" uid="uid://cp8xaiey3yfm3" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/derecha/noby_derecha.png" id="4_inkcb"]
-[ext_resource type="Texture2D" uid="uid://dhwsw5w7gobuo" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/arriba/noby_espa.png" id="5_6esrk"]
+[ext_resource type="Texture2D" uid="uid://cp8xaiey3yfm3" path="res://Assets/Assests de Pruebas/noby_derecha.png" id="4_inkcb"]
+[ext_resource type="Texture2D" uid="uid://dhwsw5w7gobuo" path="res://Assets/Assests de Pruebas/noby_espa.png" id="5_6esrk"]
 [ext_resource type="Texture2D" uid="uid://cywi2xwg755hn" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/abajo/noby_camina_abajo.png" id="5_v6uxg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s06e1"]
@@ -571,8 +571,9 @@ _data = {
 }
 
 [node name="jugador" type="CharacterBody2D"]
+z_index = 1
 script = ExtResource("1_k8sy0")
-inventario = ExtResource("2_f77ym")
+inventory = ExtResource("2_f77ym")
 
 [node name="prota_sprite" type="Sprite2D" parent="."]
 position = Vector2(-4, -2)
