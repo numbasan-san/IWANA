@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://vxqn0thhdh6j" path="res://Escenas/Zonas/mundo.tscn" id="1_jlw57"]
 [ext_resource type="Script" path="res://Script/inventario_objetos/inventario/inventory_layer.gd" id="2_icu3e"]
-[ext_resource type="PackedScene" uid="uid://c6r4b6vsbtube" path="res://Escenas/inventario/inventory_gui.tscn" id="3_tjsd1"]
+[ext_resource type="PackedScene" uid="uid://c6r4b6vsbtube" path="res://Escenas/Inventario/inventory_gui.tscn" id="3_tjsd1"]
 
 [sub_resource type="Animation" id="Animation_aphk1"]
 resource_name = "FadeIn"

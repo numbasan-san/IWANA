@@ -8,6 +8,11 @@ extends Node
 # Un menú puede estar activo sobre una pantalla, la cual quedará parcialmente
 # cubierta y en pausa.
 
+# TODO: cambiar el sistema de transiciones. ¿Cada pantalla controla
+# sus propias transiciones o se controlan en un diccionario aca? ¿Tienen que tener
+# una estructura estandar para que se pueda cambiar las transiciones sin saber
+# lo específico de cada elemento, pero de cualquier manera funcione?
+
 # La primera pantalla, que contiene las imágenes del creador del juego y
 # herramientas, si es que corresponde
 @onready var pantallaIntro = $"../PantallaIntro"
@@ -44,8 +49,9 @@ func _ready():
 		pantallaActual.process_mode = Node.PROCESS_MODE_DISABLED
 		pantallaActual = pantallaMenuInicial
 		pantallaActual.process_mode = Node.PROCESS_MODE_INHERIT
-		pantallaActual.find_child("FadeAnimator", true).play("FadeIn")
+		var animator = pantallaActual.find_child("FadeAnimator", true)
 		pantallaActual.show()
+		animator.play("FadeIn")
 	)
 	
 

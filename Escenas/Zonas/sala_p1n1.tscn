@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://0oo6xivh01bn" path="res://Escenas/Zonas/zona_sala_generica.tscn" id="1_p0tah"]
 [ext_resource type="PackedScene" uid="uid://r5xe0lfs4uk1" path="res://Escenas/Personajes/jugador.tscn" id="2_0qwjf"]
-[ext_resource type="PackedScene" uid="uid://cg87jy7chv1va" path="res://Escenas/inventario/items/lagarto.tscn" id="3_dft04"]
-[ext_resource type="PackedScene" uid="uid://bntylxciwrpvw" path="res://Escenas/inventario/items/toro.tscn" id="4_ics7l"]
+[ext_resource type="PackedScene" uid="uid://cg87jy7chv1va" path="res://Escenas/Inventario/items/lagarto.tscn" id="3_dft04"]
+[ext_resource type="PackedScene" uid="uid://bntylxciwrpvw" path="res://Escenas/Inventario/items/toro.tscn" id="4_ics7l"]
 
 [node name="SalaP1N1" instance=ExtResource("1_p0tah")]
 

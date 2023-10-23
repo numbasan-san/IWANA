@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dfnbjn6yyb7iw"]
 
 [ext_resource type="Script" path="res://Script/menu_principal_cargar_imagen.gd" id="1_kevrv"]
-[ext_resource type="Texture2D" uid="uid://cpxuv88e6rvlh" path="res://Assets/Menus/PlaceholderBackground.png" id="2_m1nr4"]
+[ext_resource type="Texture2D" uid="uid://r7tgbmqa8nqo" path="res://Assets/Menus/menuPrincipal.png" id="2_xa41e"]
 [ext_resource type="Texture2D" uid="uid://b72a5sfu2q2uh" path="res://Assets/Menus/ButtonNew.png" id="3_3k246"]
 [ext_resource type="Texture2D" uid="uid://oac8swsgocb5" path="res://Assets/Menus/ButtonNewPressed.png" id="4_d6hem"]
 [ext_resource type="Script" path="res://Script/Botones/BotonJuegoNuevo.gd" id="5_h7c82"]
@@ -18,9 +18,12 @@ script = ExtResource("1_kevrv")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 0
-offset_right = 1152.0
-offset_bottom = 649.0
-texture = ExtResource("2_m1nr4")
+offset_left = -1.0
+offset_top = -8.0
+offset_right = 2159.0
+offset_bottom = 1232.0
+scale = Vector2(0.535, 0.535)
+texture = ExtResource("2_xa41e")
 
 [node name="NuevoJuego" type="TextureButton" parent="."]
 layout_mode = 0

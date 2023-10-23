@@ -1,7 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://fpbj5k7vpvlw"]
+[gd_scene load_steps=4 format=3 uid="uid://fpbj5k7vpvlw"]
 
 [ext_resource type="PackedScene" uid="uid://du31clkq6084d" path="res://Escenas/intro.tscn" id="1_tst8p"]
+
+[sub_resource type="Animation" id="Animation_1go8a"]
+resource_name = "Fade"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Intro:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.6, 2, 4, 5.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ggi3"]
+_data = {
+"Fade": SubResource("Animation_1go8a")
+}
 
 [node name="PantallaIntro" type="CanvasLayer"]
 
 [node name="Intro" parent="." instance=ExtResource("1_tst8p")]
+
+[node name="FadeAnimator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5ggi3")
+}

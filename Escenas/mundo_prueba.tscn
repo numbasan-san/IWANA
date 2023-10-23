@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://6j2cf5j310g"]
 
-[ext_resource type="Texture2D" uid="uid://cdj2itwtalnou" path="res://Assets/Assests de Pruebas/2020-10-25 (4).png" id="1_gjxul"]
+[ext_resource type="Texture2D" uid="uid://grho2osbx4hy" path="res://Assets/Assests de Pruebas/2020-10-25 (4).png" id="1_gjxul"]
 [ext_resource type="PackedScene" uid="uid://r5xe0lfs4uk1" path="res://Escenas/Personajes/jugador.tscn" id="2_214j2"]
 [ext_resource type="PackedScene" uid="uid://biaksld7iryos" path="res://Escenas/objeto.tscn" id="3_n7j4n"]
 [ext_resource type="PackedScene" uid="uid://c27lwiurpirus" path="res://Escenas/El JaJas/gui_inventory.tscn" id="4_eoutw"]
