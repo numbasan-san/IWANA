@@ -1,3 +1,6 @@
-[gd_scene format=3 uid="uid://sdkrms3kp41p"]
+[gd_scene load_steps=2 format=3 uid="uid://sdkrms3kp41p"]
+
+[ext_resource type="Script" path="res://Script/zona_base.gd" id="1_1ux3r"]
 
 [node name="Zona" type="Node2D"]
+script = ExtResource("1_1ux3r")

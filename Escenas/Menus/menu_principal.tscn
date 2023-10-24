@@ -1,13 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://dfnbjn6yyb7iw"]
+[gd_scene load_steps=9 format=3 uid="uid://dfnbjn6yyb7iw"]
 
 [ext_resource type="Script" path="res://Script/menu_principal_cargar_imagen.gd" id="1_kevrv"]
 [ext_resource type="Texture2D" uid="uid://r7tgbmqa8nqo" path="res://Assets/Menus/menuPrincipal.png" id="2_xa41e"]
 [ext_resource type="Texture2D" uid="uid://b72a5sfu2q2uh" path="res://Assets/Menus/ButtonNew.png" id="3_3k246"]
 [ext_resource type="Texture2D" uid="uid://oac8swsgocb5" path="res://Assets/Menus/ButtonNewPressed.png" id="4_d6hem"]
 [ext_resource type="Script" path="res://Script/Botones/BotonJuegoNuevo.gd" id="5_h7c82"]
+[ext_resource type="Texture2D" uid="uid://cybuob5hsagts" path="res://Assets/Menus/ButtonDev.png" id="6_0145x"]
+[ext_resource type="Texture2D" uid="uid://demu4blg7ne6m" path="res://Assets/Menus/ButtonDevPressed.png" id="7_1rljy"]
+[ext_resource type="Script" path="res://Script/Botones/BotonDevMode.gd" id="8_cuua8"]
 
 [node name="MenuPrincipal" type="Control"]
-modulate = Color(0, 0, 0, 1)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,4 +37,16 @@ texture_normal = ExtResource("3_3k246")
 texture_pressed = ExtResource("4_d6hem")
 script = ExtResource("5_h7c82")
 
+[node name="ModoDev" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 412.0
+offset_right = 410.0
+offset_bottom = 472.0
+toggle_mode = true
+texture_normal = ExtResource("6_0145x")
+texture_pressed = ExtResource("7_1rljy")
+script = ExtResource("8_cuua8")
+
 [connection signal="pressed" from="NuevoJuego" to="NuevoJuego" method="_on_pressed"]
+[connection signal="pressed" from="ModoDev" to="ModoDev" method="_on_pressed"]

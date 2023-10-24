@@ -13,6 +13,10 @@ extends Node
 # una estructura estandar para que se pueda cambiar las transiciones sin saber
 # lo específico de cada elemento, pero de cualquier manera funcione?
 
+# La pantalla del modo desarrollo, que permite ver información de las pantallas
+# y cambiair entre ellas libremente
+@onready var pantallaDev = $"../DevMode"
+
 # La primera pantalla, que contiene las imágenes del creador del juego y
 # herramientas, si es que corresponde
 @onready var pantallaIntro = $"../PantallaIntro"
@@ -65,6 +69,8 @@ func transicion(pantalla):
 	print("Llamada transicion sobre" + str(pantalla))
 	var anim: AnimationPlayer = pantallaActual.find_child("FadeAnimator", true)
 	anim.play("FadeOut")
+	if get_parent().devMode:
+		pantallaDev.hide()
 	anim.animation_finished.connect(func (anim_name) -> void:
 		pantallaActual.hide()
 		pantallaActual.process_mode = Node.PROCESS_MODE_DISABLED
@@ -73,4 +79,6 @@ func transicion(pantalla):
 		anim = pantallaActual.find_child("FadeAnimator", true)
 		anim.play("FadeIn")
 		pantallaActual.show()
+		if get_parent().devMode:
+			pantallaDev.show()
 	)
