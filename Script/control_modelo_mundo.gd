@@ -5,8 +5,6 @@ var last_vector : String
 var sprite_in_turn : Texture
 var anim = 'stop_player_down'
 
-@export var inventory : Inventory
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$"Animation".play(anim)
@@ -39,10 +37,7 @@ func _process(delta):
 				$Animation.play(stop_anim[last_vector])
 	
 func get_axis() -> Vector2:
-	axis.x = int(Input.is_action_pressed('ui_right') or Input.is_key_pressed(KEY_D)) - int(Input.is_action_pressed('ui_left') or Input.is_key_pressed(KEY_A))
-	axis.y =  int(Input.is_action_pressed('ui_down') or Input.is_key_pressed(KEY_S)) - int(Input.is_action_pressed('ui_up') or Input.is_key_pressed(KEY_W))
-	return axis.normalized()
+	return axis
 
-func _on_hurt_box_area_entered(area):
-	if area.has_method('collect'):
-		area.collect(inventory)
+func set_axis(x, y):
+	axis = Vector2(x, y).normalized()

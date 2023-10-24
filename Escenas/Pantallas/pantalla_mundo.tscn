@@ -46,6 +46,7 @@ _data = {
 follow_viewport_enabled = true
 
 [node name="Mundo" parent="." instance=ExtResource("1_jlw57")]
+modulate = Color(0, 0, 0, 1)
 position = Vector2(550, 552)
 
 [node name="FadeAnimator" type="AnimationPlayer" parent="."]
