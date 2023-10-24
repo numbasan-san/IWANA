@@ -8,7 +8,9 @@ func _on_hurt_box_area_entered(area):
 
 # TODO: cambiar esto para que lea una acción de movimiento custom, que no lea
 # teclas directamente
-func _input(event):
-	var x = int(event.is_action_pressed('rpg_right')) - int(event.is_action_pressed('rpg_left'))
-	var y = int(event.is_action_pressed('rpg_down')) - int(event.is_action_pressed('rpg_up'))
+func _process(delta):
+	var x = int(Input.is_action_pressed('rpg_right')) - int(Input.is_action_pressed('rpg_left'))
+	var y = int(Input.is_action_pressed('rpg_down')) - int(Input.is_action_pressed('rpg_up'))
 	set_axis(x, y)
+	
+	super._process(delta)

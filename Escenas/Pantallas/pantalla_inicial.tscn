@@ -43,7 +43,6 @@ _data = {
 [node name="PantallaInicial" type="CanvasLayer"]
 
 [node name="MenuPrincipal" parent="." instance=ExtResource("1_31nox")]
-modulate = Color(1, 1, 1, 1)
 
 [node name="FadeAnimator" type="AnimationPlayer" parent="."]
 libraries = {

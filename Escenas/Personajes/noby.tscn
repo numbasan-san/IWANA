@@ -612,3 +612,5 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ModeloMundo/Cuerpo/ControlJugador/hurt_box" index="0"]
 shape = SubResource("RectangleShape2D_rgtgd")
 debug_color = Color(0.803922, 0.419608, 0, 0.419608)
+
+[connection signal="area_entered" from="ModeloMundo/Cuerpo/ControlJugador/hurt_box" to="ModeloMundo/Cuerpo" method="_on_hurt_box_area_entered"]
