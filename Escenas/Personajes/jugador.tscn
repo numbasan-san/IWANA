@@ -5,11 +5,22 @@
 [ext_resource type="Texture2D" uid="uid://dgvtrji2ul6rd" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/abajo/noby_frente.png" id="2_cax0a"]
 [ext_resource type="Texture2D" uid="uid://on5238yhixxd" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/izquierda/noby_camina_izquierda.png" id="2_ey215"]
 [ext_resource type="Resource" uid="uid://dfuucb5spinx8" path="res://Script/inventario_objetos/inventario/resourses/inventory.tres" id="2_f77ym"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://cffxyhx37i11o" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/derecha/noby_camina_derecha.png" id="2_hijek"]
 [ext_resource type="Texture2D" uid="uid://2bgy8qjflmx3" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/izquierda/noby_izq.png" id="3_qtve8"]
 [ext_resource type="Texture2D" uid="uid://cp8xaiey3yfm3" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/derecha/noby_derecha.png" id="4_inkcb"]
 [ext_resource type="Texture2D" uid="uid://dhwsw5w7gobuo" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/arriba/noby_espa.png" id="5_6esrk"]
 [ext_resource type="Texture2D" uid="uid://cywi2xwg755hn" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/abajo/noby_camina_abajo.png" id="5_v6uxg"]
+=======
+[ext_resource type="Texture2D" uid="uid://dmfoqipb8uj4h" path="res://Assets/SpritesMundo/Personajes/Noby/abajo/noby_frente.png" id="3_iphp5"]
+[ext_resource type="Texture2D" uid="uid://cj1ym1lg44gr1" path="res://Assets/SpritesMundo/Personajes/Noby/izquierda/noby_izq.png" id="4_yrj8y"]
+[ext_resource type="Texture2D" uid="uid://cosdglnbtsfek" path="res://Assets/SpritesMundo/Personajes/Noby/derecha/noby_derecha.png" id="5_v1rc3"]
+[ext_resource type="Texture2D" uid="uid://csnnmubkjcvo8" path="res://Assets/SpritesMundo/Personajes/Noby/arriba/noby_espa.png" id="6_rqe6j"]
+[ext_resource type="Texture2D" uid="uid://cj05d1rbi11qt" path="res://Assets/SpritesMundo/Personajes/Noby/abajo/noby_camina_abajo.png" id="7_7ic82"]
+[ext_resource type="Texture2D" uid="uid://con8s752og6ys" path="res://Assets/SpritesMundo/Personajes/Noby/izquierda/noby_camina_izquierda.png" id="8_vwuly"]
+[ext_resource type="Texture2D" uid="uid://c000kdlm1kxpf" path="res://Assets/SpritesMundo/Personajes/Noby/derecha/noby_camina_derecha.png" id="9_hfb07"]
+[ext_resource type="Texture2D" uid="uid://buauofgs814c4" path="res://Assets/SpritesMundo/Personajes/Noby/arriba/noby_camina_arriba.png" id="10_2qb5i"]
+>>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s06e1"]
 size = Vector2(11.7963, 38.445)
