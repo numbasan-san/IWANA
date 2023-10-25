@@ -1,19 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://4jpj8tqg88j5"]
+[gd_scene load_steps=4 format=3 uid="uid://4jpj8tqg88j5"]
 
 [ext_resource type="PackedScene" uid="uid://0oo6xivh01bn" path="res://Escenas/Zonas/zona_sala_generica.tscn" id="1_p0tah"]
-[ext_resource type="PackedScene" uid="uid://r5xe0lfs4uk1" path="res://Escenas/Personajes/jugador.tscn" id="2_0qwjf"]
 [ext_resource type="PackedScene" uid="uid://cg87jy7chv1va" path="res://Escenas/Inventario/items/lagarto.tscn" id="3_dft04"]
 [ext_resource type="PackedScene" uid="uid://bntylxciwrpvw" path="res://Escenas/Inventario/items/toro.tscn" id="4_ics7l"]
 
-[node name="SalaP1N1" instance=ExtResource("1_p0tah")]
+[node name="SalaP1N1" groups=["zonas"] instance=ExtResource("1_p0tah")]
 
 [node name="PuertaSimple" parent="." index="1"]
 escena = "zona_dev_testing"
 
-[node name="jugador" parent="." index="7" instance=ExtResource("2_0qwjf")]
-position = Vector2(291, 125)
-
-[node name="Items" type="Node2D" parent="." index="8"]
+[node name="Items" type="Node2D" parent="." index="7"]
 z_index = 1
 y_sort_enabled = true
 

@@ -1,14 +1,14 @@
 [gd_scene load_steps=21 format=3 uid="uid://r5xe0lfs4uk1"]
 
 [ext_resource type="Script" path="res://Script/control_modelo_mundo.gd" id="1_h13m3"]
-[ext_resource type="Texture2D" uid="uid://dgvtrji2ul6rd" path="res://Assets/SpritesMundo/Personajes/Noby/abajo/noby_frente.png" id="3_iphp5"]
-[ext_resource type="Texture2D" uid="uid://2bgy8qjflmx3" path="res://Assets/SpritesMundo/Personajes/Noby/izquierda/noby_izq.png" id="4_yrj8y"]
-[ext_resource type="Texture2D" uid="uid://cp8xaiey3yfm3" path="res://Assets/SpritesMundo/Personajes/Noby/derecha/noby_derecha.png" id="5_v1rc3"]
-[ext_resource type="Texture2D" uid="uid://dhwsw5w7gobuo" path="res://Assets/SpritesMundo/Personajes/Noby/arriba/noby_espa.png" id="6_rqe6j"]
-[ext_resource type="Texture2D" uid="uid://cywi2xwg755hn" path="res://Assets/SpritesMundo/Personajes/Noby/abajo/noby_camina_abajo.png" id="7_7ic82"]
-[ext_resource type="Texture2D" uid="uid://on5238yhixxd" path="res://Assets/SpritesMundo/Personajes/Noby/izquierda/noby_camina_izquierda.png" id="8_vwuly"]
-[ext_resource type="Texture2D" uid="uid://cffxyhx37i11o" path="res://Assets/SpritesMundo/Personajes/Noby/derecha/noby_camina_derecha.png" id="9_hfb07"]
-[ext_resource type="Texture2D" uid="uid://crn58yfs6hpsw" path="res://Assets/SpritesMundo/Personajes/Noby/arriba/noby_camina_arriba.png" id="10_2qb5i"]
+[ext_resource type="Texture2D" uid="uid://7g745n7ila1f" path="res://Assets/SpritesMundo/Personajes/Noby/abajo/noby_frente.png" id="3_iphp5"]
+[ext_resource type="Texture2D" uid="uid://dcmakqvfslp4s" path="res://Assets/SpritesMundo/Personajes/Noby/izquierda/noby_izq.png" id="4_yrj8y"]
+[ext_resource type="Texture2D" uid="uid://cq3x5ttsley8y" path="res://Assets/SpritesMundo/Personajes/Noby/derecha/noby_derecha.png" id="5_v1rc3"]
+[ext_resource type="Texture2D" uid="uid://didj3ub8c6haa" path="res://Assets/SpritesMundo/Personajes/Noby/arriba/noby_espa.png" id="6_rqe6j"]
+[ext_resource type="Texture2D" uid="uid://bo1wwsqd18esq" path="res://Assets/SpritesMundo/Personajes/Noby/abajo/noby_camina_abajo.png" id="7_7ic82"]
+[ext_resource type="Texture2D" uid="uid://cyxvulilwfkhj" path="res://Assets/SpritesMundo/Personajes/Noby/izquierda/noby_camina_izquierda.png" id="8_vwuly"]
+[ext_resource type="Texture2D" uid="uid://beqkcmrhycjmc" path="res://Assets/SpritesMundo/Personajes/Noby/derecha/noby_camina_derecha.png" id="9_hfb07"]
+[ext_resource type="Texture2D" uid="uid://dwsebyxyqpiq7" path="res://Assets/SpritesMundo/Personajes/Noby/arriba/noby_camina_arriba.png" id="10_2qb5i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s06e1"]
 size = Vector2(12.0746, 37.7939)

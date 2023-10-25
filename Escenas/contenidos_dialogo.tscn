@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dljth7jwfmjlx"]
 
 [ext_resource type="Script" path="res://Script/Dialogos/contenidos_dialogo.gd" id="1_6cnco"]
-[ext_resource type="Texture2D" uid="uid://brsmrivsye5c0" path="res://Assets/DibujosNV/Fondos/bosquejoIntro1.png" id="2_ibggc"]
+[ext_resource type="Texture2D" uid="uid://brsmrivsye5c0" path="res://Assets/Assests de Pruebas/bosquejoIntro1.png" id="2_ibggc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xeabs"]
 font_size = 20
