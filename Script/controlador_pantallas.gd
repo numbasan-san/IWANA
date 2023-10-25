@@ -66,7 +66,6 @@ func _process(delta):
 # Un script externo puede llamar a esta función pasando como argumento la
 # pantalla a la que desea cambiar.
 func transicion(pantalla):
-	print("Llamada transicion sobre" + str(pantalla))
 	var anim: AnimationPlayer = pantallaActual.find_child("FadeAnimator", true)
 	anim.play("FadeOut")
 	if get_parent().devMode:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=25 format=3 uid="uid://4sbuc3c6hmin"]
 
-[ext_resource type="PackedScene" uid="uid://dnx5re6stcy6a" path="res://Escenas/Personajes/personaje.tscn" id="1_mrvoi"]
+[ext_resource type="PackedScene" path="res://Escenas/Personajes/personaje.tscn" id="1_mrvoi"]
 [ext_resource type="Texture2D" uid="uid://d0xij6lmlkfyc" path="res://Assets/DibujosNV/Personajes/nobita2.png" id="2_l1yky"]
 [ext_resource type="Texture2D" uid="uid://7g745n7ila1f" path="res://Assets/SpritesMundo/Personajes/Noby/abajo/noby_frente.png" id="4_lc6a3"]
 [ext_resource type="Resource" uid="uid://dfuucb5spinx8" path="res://Script/inventario_objetos/inventario/resourses/inventory.tres" id="4_y772p"]
@@ -575,7 +575,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rgtgd"]
 size = Vector2(12.0746, 37.7939)
 
-[node name="Noby" groups=["personajes"] instance=ExtResource("1_mrvoi")]
+[node name="Noby" instance=ExtResource("1_mrvoi")]
 
 [node name="GraficosNV" parent="." index="0"]
 scale = Vector2(0.3, 0.3)

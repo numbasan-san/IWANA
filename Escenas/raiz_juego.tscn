@@ -1,13 +1,13 @@
 [gd_scene load_steps=9 format=3 uid="uid://opd742w6udaq"]
 
-[ext_resource type="PackedScene" uid="uid://c22nh78geuywp" path="res://Escenas/Pantallas/pantalla_inicial.tscn" id="1_abg3v"]
-[ext_resource type="Script" path="res://Escenas/raiz_juego.gd" id="1_bydot"]
+[ext_resource type="PackedScene" path="res://Escenas/Pantallas/pantalla_inicial.tscn" id="1_abg3v"]
+[ext_resource type="Script" path="res://Script/raiz_juego.gd" id="1_bydot"]
 [ext_resource type="PackedScene" uid="uid://oc5oqpk3nprt" path="res://Escenas/Pantallas/pantalla_mundo.tscn" id="2_q31dv"]
 [ext_resource type="Script" path="res://Script/controlador_pantallas.gd" id="3_exd4n"]
-[ext_resource type="PackedScene" uid="uid://fpbj5k7vpvlw" path="res://Escenas/Pantallas/pantalla_intro.tscn" id="4_lxdqi"]
-[ext_resource type="PackedScene" uid="uid://cishwnhdv2l11" path="res://Escenas/Pantallas/pantalla_dialogo.tscn" id="5_aafk1"]
+[ext_resource type="PackedScene" path="res://Escenas/Pantallas/pantalla_intro.tscn" id="4_lxdqi"]
+[ext_resource type="PackedScene" path="res://Escenas/Pantallas/pantalla_dialogo.tscn" id="5_aafk1"]
 [ext_resource type="Script" path="res://Script/parser_dialogos.gd" id="6_6xq5g"]
-[ext_resource type="PackedScene" uid="uid://dsihg6mcq4ysb" path="res://Escenas/dev_mode.tscn" id="8_fgo5h"]
+[ext_resource type="PackedScene" uid="uid://dsihg6mcq4ysb" path="res://Escenas/Pantallas/dev_mode.tscn" id="8_fgo5h"]
 
 [node name="Juego" type="Node2D"]
 script = ExtResource("1_bydot")
