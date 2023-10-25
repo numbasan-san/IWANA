@@ -4,22 +4,22 @@ El árbol podría verse algo como esto (solo ejemplo):
 Raíz
 |- PantallaMenuPrincipal
    |- MenuPrincipal
-      |- BotonJuegoNuevo
-      |- BotonCargar
+	  |- BotonJuegoNuevo
+	  |- BotonCargar
 
 |- PantallaDiálogo
    |- EscenaDiálogoActual
 
 |- PantallaMundo
    |- Mundo (Referencia a zona actual)
-      |- Zona1
-      |- Zona2
+	  |- Zona1
+	  |- Zona2
 
 |- PantallaCombate
    |- CombatePasillo
-      |- Background (Pasillo)
-      |- Party (Agregar personajes al iniciar)
-         |- Personaje1
-         |- Personaje2
-      |- Enemigos (Agregar personajes al iniciar)
-         |- Personaje3
+	  |- Background (Pasillo)
+	  |- Party (Agregar personajes al iniciar)
+		 |- Personaje1
+		 |- Personaje2
+	  |- Enemigos (Agregar personajes al iniciar)
+		 |- Personaje3
