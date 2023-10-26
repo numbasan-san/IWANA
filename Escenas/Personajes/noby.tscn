@@ -595,7 +595,7 @@ hframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ModeloMundo/Cuerpo" index="1"]
 position = Vector2(0, 15)
-scale = Vector2(-1.34998, -0.727657)
+scale = Vector2(-2.14998, -0.727657)
 shape = SubResource("RectangleShape2D_bncsu")
 
 [node name="Animation" type="AnimationPlayer" parent="ModeloMundo/Cuerpo" index="2"]

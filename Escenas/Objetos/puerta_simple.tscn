@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://hed2eep7147o"]
 
 [ext_resource type="Script" path="res://Script/puerta/puerta_simple.gd" id="1_4dytc"]
-[ext_resource type="Texture2D" path="res://Assets/SpritesMundo/Objetos/tiles_puertitas_uwu.png" id="2_oga5m"]
+[ext_resource type="Texture2D" uid="uid://bcsipbdv6e4h1" path="res://Assets/SpritesMundo/Objetos/tiles_puertitas_uwu.png" id="2_oga5m"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_346tc"]
 
@@ -15,6 +15,7 @@ size = Vector2(37, 32)
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_4dytc")
+escena = "zona_dev_testing"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_oga5m")

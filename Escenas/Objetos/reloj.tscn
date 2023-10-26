@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmqahq0cv3h4o"]
+[gd_scene load_steps=3 format=3 uid="uid://h7mki2t1blv5"]
 
-[ext_resource type="PackedScene" uid="uid://dh7lrjvhfark4" path="res://Escenas/Objetos/objeto_base.tscn" id="1_3fpm7"]
-[ext_resource type="Texture2D" uid="uid://cbuutm04kjedr" path="res://Assets/SpritesMundo/Objetos/tiles_jueguito_uwu.png" id="2_uscl3"]
+[ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://Escenas/Objetos/objeto_base.tscn" id="1_3fpm7"]
+[ext_resource type="Texture2D" uid="uid://dtk4eewqiis4m" path="res://Assets/SpritesMundo/Objetos/tiles_b.png" id="2_07tpr"]
 
 [node name="Reloj" instance=ExtResource("1_3fpm7")]
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_uscl3")
-region_rect = Rect2(148, 124, 20, 20)
+texture = ExtResource("2_07tpr")
+region_rect = Rect2(288, 16, 15, 15)
