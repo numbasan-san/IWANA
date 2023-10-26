@@ -2,12 +2,6 @@ extends "res://Script/control_modelo_mundo.gd"
 
 @export var inventory : Inventory
 
-func _on_hurt_box_area_entered(area):
-	if area.has_method('collect'):
-		area.collect(inventory)
-	if area.has_method('change_zone'):
-		area.change_zone()
-
 # TODO: cambiar esto para que lea una acción de movimiento custom, que no lea
 # teclas directamente
 func _process(delta):
@@ -16,3 +10,9 @@ func _process(delta):
 	set_axis(x, y)
 	
 	super._process(delta)
+
+func _on_hurt_box_area_entered(area):
+	if area.has_method('collect'):
+		area.collect(inventory)
+	if area.has_method('change_zone'):
+		area.change_zone()
