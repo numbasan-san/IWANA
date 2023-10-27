@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://d3ltulgb5a8do"]
 
-[ext_resource type="PackedScene" path="res://Escenas/Personajes/personaje.tscn" id="1_poelq"]
+[ext_resource type="PackedScene" uid="uid://br2cpyrgrt01f" path="res://Escenas/Personajes/personaje.tscn" id="1_poelq"]
 [ext_resource type="Texture2D" uid="uid://c7lntb7mvpqt2" path="res://Assets/DibujosNV/Personajes/daniladino2.png" id="2_mrhog"]
 
 [node name="Daniela" instance=ExtResource("1_poelq")]

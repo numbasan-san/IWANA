@@ -1,11 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://b4dvh0kkkndo1"]
+[gd_scene load_steps=11 format=3 uid="uid://c0vpj0bm2dlof"]
 
-[ext_resource type="PackedScene" uid="uid://sdkrms3kp41p" path="res://Escenas/Zonas/zona_base.tscn" id="1_ljxgf"]
+[ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://Escenas/Zonas/zona_base.tscn" id="1_ljxgf"]
 [ext_resource type="PackedScene" uid="uid://r5xe0lfs4uk1" path="res://Escenas/Personajes/jugador.tscn" id="2_ehex0"]
 [ext_resource type="Texture2D" uid="uid://drteclr64kg31" path="res://Assets/Tilesets/ZonaDev/tilesetDevTest.png" id="2_xemyy"]
 [ext_resource type="Script" path="res://Script/inventario_objetos/inventario/inventory_layer.gd" id="3_vijrr"]
 [ext_resource type="PackedScene" uid="uid://c6r4b6vsbtube" path="res://Escenas/Inventario/inventory_gui.tscn" id="4_bkqd2"]
 [ext_resource type="PackedScene" uid="uid://hed2eep7147o" path="res://Escenas/Objetos/puerta_simple.tscn" id="6_fagjd"]
+[ext_resource type="PackedScene" uid="uid://cg87jy7chv1va" path="res://Escenas/Inventario/items/lagarto.tscn" id="7_a5m8c"]
+[ext_resource type="PackedScene" uid="uid://bntylxciwrpvw" path="res://Escenas/Inventario/items/toro.tscn" id="8_1s1lq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ptxj"]
 resource_name = "DevTest"
@@ -50,5 +52,28 @@ scale = Vector2(2, 2)
 metadata/_edit_use_anchors_ = true
 
 [node name="PuertaSimple" parent="." index="3" instance=ExtResource("6_fagjd")]
-position = Vector2(19, 256)
+position = Vector2(-49, 309)
 escena = "sala_p1n1"
+
+[node name="Items" type="Node2D" parent="." index="4"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-272, -268)
+
+[node name="lagarto" parent="Items" index="0" instance=ExtResource("7_a5m8c")]
+position = Vector2(397, 133)
+
+[node name="lagarto2" parent="Items" index="1" instance=ExtResource("7_a5m8c")]
+position = Vector2(433, 352)
+
+[node name="lagarto3" parent="Items" index="2" instance=ExtResource("7_a5m8c")]
+position = Vector2(488, 183)
+
+[node name="toro" parent="Items" index="3" instance=ExtResource("8_1s1lq")]
+position = Vector2(143, 420)
+
+[node name="toro2" parent="Items" index="4" instance=ExtResource("8_1s1lq")]
+position = Vector2(175, 153)
+
+[node name="toro3" parent="Items" index="5" instance=ExtResource("8_1s1lq")]
+position = Vector2(48, 309)
