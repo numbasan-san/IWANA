@@ -16,7 +16,8 @@ func toggleDevMode():
 # TODO: cambiar las funciones de carga para que vean si el elemento ya existe
 # en los contenedores, y en caso que sea así retorne ese mismo. Si no, considerar
 # hacer funciones distintas exclusivas para obtener los elementos ya cargados
-
+# Esta función está parcialmente reemplazada por la función cargar en el nodo
+# Zonas. Cuando el mismo código esté listo para personajes, hay que borrar esto
 # Agrega el elemento a una lista global
 func cargar(elemento: Variant):
 	if elemento is Personaje:
@@ -36,8 +37,5 @@ func cargar_personaje(nombre_personaje: String):
 
 
 func cargar_zona(nombre_zona: String):
-	print("Agregando zona: " + str(nombre_zona))
-	var zona = load("res://" + path_zonas + "/" + nombre_zona + ".tscn").instantiate()
-	print("Cargada instancia: " + str(zona) + " con nombre " + zona.name)
-	return cargar(zona)
+	return $Zonas.cargar(nombre_zona)
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://opd742w6udaq"]
+[gd_scene load_steps=10 format=3 uid="uid://opd742w6udaq"]
 
 [ext_resource type="PackedScene" path="res://Escenas/Pantallas/pantalla_inicial.tscn" id="1_abg3v"]
 [ext_resource type="Script" path="res://Script/raiz_juego.gd" id="1_bydot"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" path="res://Escenas/Pantallas/pantalla_dialogo.tscn" id="5_aafk1"]
 [ext_resource type="Script" path="res://Script/parser_dialogos.gd" id="6_6xq5g"]
 [ext_resource type="PackedScene" uid="uid://dsihg6mcq4ysb" path="res://Escenas/Pantallas/dev_mode.tscn" id="8_fgo5h"]
+[ext_resource type="Script" path="res://Script/control_zonas.gd" id="9_fuif0"]
 
 [node name="Juego" type="Node2D"]
 script = ExtResource("1_bydot")
@@ -42,3 +43,5 @@ visible = false
 [node name="Personajes" type="Node" parent="."]
 
 [node name="Zonas" type="Node" parent="."]
+script = ExtResource("9_fuif0")
+path_zonas = "Escenas/Zonas"
