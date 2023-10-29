@@ -166,7 +166,7 @@ size = Vector2(38, 27)
 y_sort_enabled = true
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
-position = Vector2(293, 336)
+position = Vector2(30, 200)
 tile_set = SubResource("TileSet_23sgx")
 format = 2
 layer_0/name = "Layer 0"
@@ -180,29 +180,27 @@ layer_1/z_index = 2
 layer_1/tile_data = PackedInt32Array(-983057, 327682, 2, -917521, 327682, 3, -851985, 327682, 2, -786449, 327682, 3, -720913, 327682, 2, -655377, 327682, 3, -589841, 327682, 2, -524305, 327682, 3, -458769, 327682, 2, -393233, 327682, 3, -327697, 327682, 2, -262161, 327682, 3, -196625, 327682, 2, -131089, 327682, 3, -65553, 327682, 2, -17, 327682, 3, 65519, 327682, 2, 131055, 327682, 3, 196591, 327682, 2, 262127, 327682, 3, 327663, 327682, 2, 393199, 327682, 3, 458735, 327682, 2, 524271, 327682, 3, 589807, 327682, 2, 655343, 327682, 3, 720879, 327682, 2, 786415, 327682, 3, 851951, 327682, 2, 917487, 327682, 3, 983023, 327682, 2, 1048559, 327682, 3, -1048564, 458754, 2, -983028, 458754, 2, -917492, 458754, 2, -851956, 458754, 2, -786420, 458754, 2, -720884, 458754, 2, -655348, 458754, 2, -589812, 458754, 2, -524276, 458754, 2, -458740, 458754, 2, -393204, 458754, 2, -327668, 458754, 2, -262132, 458754, 2, -196596, 458754, 2, -131060, 458754, 2, -65524, 458754, 2, 12, 458754, 2, 65548, 458754, 2, 131084, 458754, 2, 196620, 458754, 2, 262156, 458754, 2, 327692, 458754, 2, 393228, 458754, 2, 458764, 458754, 2, 524300, 458754, 2, 589836, 458754, 2, 655372, 458754, 2, 720908, 458754, 2, 786444, 458754, 2, 851980, 458754, 2, 917516, 458754, 2, 983052, 458754, 2, 1245167, 327682, 4, 1245168, 393218, 4, 1245169, 393218, 4, 1245170, 393218, 4, 1245171, 393218, 4, 1245172, 393218, 4, 1245173, 393218, 4, 1245174, 393218, 4, 1245175, 393218, 4, 1245176, 393218, 4, 1245177, 393218, 4, 1245178, 393218, 4, 1245179, 393218, 4, 1245180, 393218, 4, 1245181, 393218, 4, 1245182, 393218, 4, 1245183, 393218, 4, 1179648, 393218, 4, 1179649, 393218, 4, 1179650, 393218, 4, 1179653, 393218, 4, 1179654, 393218, 4, 1179655, 393218, 4, 1179656, 393218, 4, 1179657, 393218, 4, 1179658, 393218, 4, 1179659, 393218, 4, 1179660, 458754, 4, 1114095, 327682, 2, 1179631, 327682, 3, 1048588, 458754, 2, 1114124, 458754, 2)
 
 [node name="Puerta" type="Area2D" parent="." index="1"]
-position = Vector2(357, 695)
+position = Vector2(94, 491)
 script = ExtResource("3_b1rv7")
-escena = "zona_dev_testing"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Puerta" index="0"]
-position = Vector2(0, -62)
 shape = SubResource("RectangleShape2D_uq543")
 
 [node name="Pizarron" parent="." index="2" instance=ExtResource("4_ebl0c")]
 y_sort_enabled = true
-position = Vector2(262, 40)
+position = Vector2(-1, -96)
 
 [node name="Reloj" parent="." index="3" instance=ExtResource("5_p65in")]
 y_sort_enabled = true
-position = Vector2(344, 27)
+position = Vector2(81, -109)
 
 [node name="VentanaSala" parent="." index="4" instance=ExtResource("6_tkoyl")]
 y_sort_enabled = true
-position = Vector2(427, 39)
+position = Vector2(164, -97)
 
 [node name="Pupitres" type="Node2D" parent="." index="5"]
 y_sort_enabled = true
-position = Vector2(-6, -38)
+position = Vector2(-269, -174)
 
 [node name="Par1" type="Node2D" parent="Pupitres" index="0"]
 position = Vector2(110, 250)
@@ -365,7 +363,7 @@ position = Vector2(430, 520)
 position = Vector2(0, 34)
 
 [node name="MesaProfesor" parent="." index="6" instance=ExtResource("10_8e6d3")]
-position = Vector2(152, 117)
+position = Vector2(-111, -19)
 
 [node name="TablonInfoSala" parent="." index="7" instance=ExtResource("10_ey3pn")]
-position = Vector2(99, 43)
+position = Vector2(-164, -93)

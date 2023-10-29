@@ -15,4 +15,4 @@ func _on_hurt_box_area_entered(area):
 	if area.has_method('collect'):
 		area.collect(inventory)
 	if area.has_method('change_zone'):
-		area.change_zone()
+		area.change_zone(personaje)

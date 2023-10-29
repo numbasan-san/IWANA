@@ -584,33 +584,32 @@ scale = Vector2(0.3, 0.3)
 position = Vector2(0, -899)
 texture = ExtResource("2_l1yky")
 
-[node name="Cuerpo" type="CharacterBody2D" parent="ModeloMundo" index="0"]
-z_index = 1
+[node name="ModeloMundo" parent="." index="1"]
 script = ExtResource("12_csb43")
 inventory = ExtResource("4_y772p")
 
-[node name="prota_sprite" type="Sprite2D" parent="ModeloMundo/Cuerpo" index="0"]
+[node name="prota_sprite" type="Sprite2D" parent="ModeloMundo" index="0"]
 position = Vector2(-4, -2)
 hframes = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ModeloMundo/Cuerpo" index="1"]
-position = Vector2(0, 15)
-scale = Vector2(-2.14998, -0.727657)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ModeloMundo" index="1"]
+position = Vector2(0, 10)
+scale = Vector2(2.14998, 0.727657)
 shape = SubResource("RectangleShape2D_bncsu")
 
-[node name="Animation" type="AnimationPlayer" parent="ModeloMundo/Cuerpo" index="2"]
+[node name="Animation" type="AnimationPlayer" parent="ModeloMundo" index="2"]
 libraries = {
 "": SubResource("AnimationLibrary_3ha3c")
 }
 
-[node name="ControlJugador" type="Node2D" parent="ModeloMundo/Cuerpo" index="3"]
+[node name="ControlJugador" type="Node2D" parent="ModeloMundo" index="3"]
 
-[node name="Camera2D" type="Camera2D" parent="ModeloMundo/Cuerpo/ControlJugador" index="0"]
+[node name="Camera2D" type="Camera2D" parent="ModeloMundo/ControlJugador" index="0"]
 
-[node name="hurt_box" type="Area2D" parent="ModeloMundo/Cuerpo/ControlJugador" index="1"]
+[node name="hurt_box" type="Area2D" parent="ModeloMundo/ControlJugador" index="1"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ModeloMundo/Cuerpo/ControlJugador/hurt_box" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ModeloMundo/ControlJugador/hurt_box" index="0"]
 shape = SubResource("RectangleShape2D_rgtgd")
 debug_color = Color(0.803922, 0.419608, 0, 0.419608)
 
-[connection signal="area_entered" from="ModeloMundo/Cuerpo/ControlJugador/hurt_box" to="ModeloMundo/Cuerpo" method="_on_hurt_box_area_entered"]
+[connection signal="area_entered" from="ModeloMundo/ControlJugador/hurt_box" to="ModeloMundo" method="_on_hurt_box_area_entered"]

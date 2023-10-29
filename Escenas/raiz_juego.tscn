@@ -11,6 +11,8 @@
 
 [node name="Juego" type="Node2D"]
 script = ExtResource("1_bydot")
+path_personajes = "Escenas/Personajes"
+path_zonas = "Escenas/Zonas"
 
 [node name="PantallaMenuInicial" parent="." instance=ExtResource("1_abg3v")]
 visible = false
@@ -36,3 +38,7 @@ dir = [null, null, null]
 
 [node name="DevMode" parent="." instance=ExtResource("8_fgo5h")]
 visible = false
+
+[node name="Personajes" type="Node" parent="."]
+
+[node name="Zonas" type="Node" parent="."]

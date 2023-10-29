@@ -1,7 +1,11 @@
 
 extends Area2D
 
-@export var escena : String
+@export var zona : String
+@export var posicion_def: Vector2
+@export var direccion_def: String
 
-func change_zone():
-	get_tree().change_scene_to_file("res://Escenas/Zonas/" + escena + ".tscn")
+func change_zone(personaje: Personaje):
+	var mundo = $/root/Juego/ControladorPantallas.pantallaMundo.get_node("Mundo")
+	var zona_objetivo = $/root/Juego.cargar_zona(zona)
+	mundo.recolocar_personaje(personaje, zona_objetivo, posicion_def, direccion_def)

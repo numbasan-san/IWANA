@@ -1,12 +1,14 @@
 class_name Personaje extends Node
 
-var zona: Zona
+# TODO: cambiar esto por un sistema que no permita varios personajes controlados
+# al mismo tiempo por el jugador
+var control_jugador: bool = false
+
+@onready var graficosNV = $GraficosNV
+@onready var modeloMundo = $ModeloMundo
+@onready var modeloCombate = $ModeloCombate
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+	#modeloMundo.get_node("Cuerpo").personaje = self
 	pass

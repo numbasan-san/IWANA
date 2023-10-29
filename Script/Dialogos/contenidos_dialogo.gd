@@ -7,15 +7,6 @@ enum Posicion { IZQUIERDA, CENTRO, DERECHA }
 @onready var areaCentro: Control = $EscenaNV/AreaPersonajes/Centro
 @onready var areaDerecha: Control = $EscenaNV/AreaPersonajes/Derecha
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 # Agrega el grafico asociado a un personaje a la izquierda, centro o derecha
 # del area de personajes.
 # Si el personaje ya había sido agregado en ese lado, no hace nada
@@ -39,6 +30,7 @@ func agregarPersonaje(personaje, pos: Posicion):
 			if graficoDerecha:
 				areaDerecha.remove_child(graficoDerecha)
 			if not graficoIzquierda:
+				copiaGrafico.show()
 				copiaGrafico.mirarDerecha()
 				areaIzquierda.add_child(copiaGrafico)
 				copiaGrafico.position.x = 2 * areaIzquierda.size.x / 3
@@ -49,6 +41,7 @@ func agregarPersonaje(personaje, pos: Posicion):
 			if graficoDerecha:
 				areaDerecha.remove_child(graficoDerecha)
 			if not graficoCentro:
+				copiaGrafico.show()
 				copiaGrafico.mirarDerecha()
 				areaCentro.add_child(copiaGrafico)
 				copiaGrafico.position.x = areaIzquierda.size.x / 2
@@ -59,6 +52,7 @@ func agregarPersonaje(personaje, pos: Posicion):
 			if graficoCentro:
 				areaCentro.remove_child(graficoCentro)
 			if not graficoDerecha:
+				copiaGrafico.show()
 				copiaGrafico.mirarIzquierda()
 				areaDerecha.add_child(copiaGrafico)
 				copiaGrafico.position.x = areaIzquierda.size.x / 3

@@ -6,9 +6,15 @@
 
 [node name="SalaP1N1" groups=["zonas"] instance=ExtResource("1_p0tah")]
 
+[node name="Puerta" parent="." index="1"]
+zona = "zona_dev_testing"
+posicion_def = Vector2(-50, 250)
+direccion_def = "u"
+
 [node name="Items" type="Node2D" parent="." index="7"]
 z_index = 1
 y_sort_enabled = true
+position = Vector2(-263, -136)
 
 [node name="lagarto" parent="Items" index="0" instance=ExtResource("3_dft04")]
 position = Vector2(397, 133)
@@ -23,7 +29,7 @@ position = Vector2(223, 261)
 position = Vector2(223, 594)
 
 [node name="toro2" parent="Items" index="4" instance=ExtResource("4_ics7l")]
-position = Vector2(175, 153)
+position = Vector2(232, 111)
 
 [node name="toro3" parent="Items" index="5" instance=ExtResource("4_ics7l")]
 position = Vector2(63, 348)

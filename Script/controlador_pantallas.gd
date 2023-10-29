@@ -59,10 +59,6 @@ func _ready():
 	)
 	
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
 # Un script externo puede llamar a esta función pasando como argumento la
 # pantalla a la que desea cambiar.
 func transicion(pantalla):

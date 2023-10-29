@@ -3,17 +3,41 @@ extends Node2D
 # Aca van algunas variables globales que afectarían todo el juego
 # de manera que sea fácil encontrarlas y cambiarlas
 
+@export var path_personajes: String
+@export var path_zonas: String
+
 # Funciones para cambiar el modo dev. Probablemente van a ser temporales
 var devMode = false
 
 func toggleDevMode():
 	devMode = not devMode
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass
+
+# TODO: cambiar las funciones de carga para que vean si el elemento ya existe
+# en los contenedores, y en caso que sea así retorne ese mismo. Si no, considerar
+# hacer funciones distintas exclusivas para obtener los elementos ya cargados
+
+# Agrega el elemento a una lista global
+func cargar(elemento: Variant):
+	if elemento is Personaje:
+		get_node("Personajes").add_child(elemento)
+		for e in elemento.get_children():
+			if e is Node2D:
+				e.hide()
+	elif elemento is Zona:
+		get_node("Zonas").add_child(elemento)
+		elemento.desactivar()
+	elemento.process_mode = Node.PROCESS_MODE_DISABLED
+	return elemento
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func cargar_personaje(nombre_personaje: String):
+	return cargar(load("res://" + path_personajes + "/" + nombre_personaje + ".tscn").instantiate())
+
+
+func cargar_zona(nombre_zona: String):
+	print("Agregando zona: " + str(nombre_zona))
+	var zona = load("res://" + path_zonas + "/" + nombre_zona + ".tscn").instantiate()
+	print("Cargada instancia: " + str(zona) + " con nombre " + zona.name)
+	return cargar(zona)
+	
