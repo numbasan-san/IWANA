@@ -19,7 +19,7 @@ func recolocar_personaje(
 		personaje: Personaje,
 		zona: Zona,
 		posicion: Vector2 = Vector2(0, 0),
-		direccion: String = 'd'):
+		direccion: String = 'down'):
 	
 	# Primero cambiamos al personaje de zona
 	personaje.recolocar(zona, posicion, direccion)

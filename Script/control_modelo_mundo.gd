@@ -6,7 +6,7 @@ var personaje: Personaje
 var axis : Vector2
 var sprite_in_turn : Texture
 var anim = ''
-var stop_anim = 'stop_player_down'
+var stop_anim = 'stop_down'
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,17 +22,17 @@ func _process(_delta):
 	
 	# Las animaciones según por donde se mueva el personaje.
 	if get_axis().y == -1:
-		anim = 'walk_player_up'
-		stop_anim = 'stop_player_up'
+		anim = 'walk_up'
+		stop_anim = 'stop_up'
 	if get_axis().y == 1:
-		anim = 'walk_player_down'
-		stop_anim = 'stop_player_down'
+		anim = 'walk_down'
+		stop_anim = 'stop_down'
 	if get_axis().x == -1:
-		anim = 'walk_player_left'
-		stop_anim = 'stop_player_left'
+		anim = 'walk_left'
+		stop_anim = 'stop_left'
 	if get_axis().x == 1:
-		anim = 'walk_player_right'
-		stop_anim = 'stop_player_right'
+		anim = 'walk_right'
+		stop_anim = 'stop_right'
 	$Animation.play(anim)
 	if  get_axis().x == 0 and get_axis().y == 0:
 		# La "animación" de "parado" según la última dirección a la que se movió el jugador.
@@ -65,7 +65,8 @@ func recolocar(zona_nueva: Zona, posicion: Vector2, direccion: String):
 		zona_nueva.call_deferred("add_child", self)
 	
 	self.position = posicion
-	last_vector = direccion
+	anim = "walk_" + direccion
+	stop_anim = "stop_" + direccion
 
 # Quita a este modelo de la zona actual y lo devuelve a su contenedor Personaje
 func quitar_zona():

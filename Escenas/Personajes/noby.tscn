@@ -563,14 +563,14 @@ tracks/3/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ha3c"]
 _data = {
 "RESET": SubResource("Animation_1f7jw"),
-"stop_player_down": SubResource("Animation_fero8"),
-"stop_player_left": SubResource("Animation_p5lcu"),
-"stop_player_right": SubResource("Animation_4xoc6"),
-"stop_player_up": SubResource("Animation_pg6o5"),
-"walk_player_down": SubResource("Animation_nss50"),
-"walk_player_left": SubResource("Animation_x154a"),
-"walk_player_right": SubResource("Animation_4rh25"),
-"walk_player_up": SubResource("Animation_w3qrm")
+"stop_down": SubResource("Animation_fero8"),
+"stop_left": SubResource("Animation_p5lcu"),
+"stop_right": SubResource("Animation_4xoc6"),
+"stop_up": SubResource("Animation_pg6o5"),
+"walk_down": SubResource("Animation_nss50"),
+"walk_left": SubResource("Animation_x154a"),
+"walk_right": SubResource("Animation_4rh25"),
+"walk_up": SubResource("Animation_w3qrm")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rgtgd"]

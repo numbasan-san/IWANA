@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://4jpj8tqg88j5"]
 
 [ext_resource type="PackedScene" uid="uid://bqvxhi7wt87t" path="res://Escenas/Zonas/zona_sala_generica.tscn" id="1_p0tah"]
-[ext_resource type="PackedScene" uid="uid://ulwb3176yswv" path="res://Escenas/Inventario/items/perro.tscn" id="2_u841v"]
+[ext_resource type="PackedScene" path="res://Escenas/Inventario/items/perro.tscn" id="2_u841v"]
 [ext_resource type="PackedScene" uid="uid://cg87jy7chv1va" path="res://Escenas/Inventario/items/lagarto.tscn" id="3_dft04"]
 [ext_resource type="PackedScene" uid="uid://bntylxciwrpvw" path="res://Escenas/Inventario/items/toro.tscn" id="4_ics7l"]
 
@@ -10,7 +10,7 @@
 [node name="Puerta" parent="." index="1"]
 zona = "zona_dev_testing"
 posicion_def = Vector2(-50, 150)
-direccion_def = "u"
+direccion_def = "up"
 
 [node name="Par1" parent="Pupitres" index="0"]
 y_sort_enabled = true
