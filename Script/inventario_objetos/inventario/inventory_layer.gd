@@ -4,7 +4,7 @@ extends CanvasLayer
 @onready var inventory = $inventory_gui
 
 func _input(event): # Verifica la activación y visualización del inventario.
-	if event.is_action_released("toggle_inventory") or event.is_action_released("ui_accept"):
+	if event.is_action_released("toggle_inventory"):
 		if inventory.is_open:
 			inventory.close()
 		else :
