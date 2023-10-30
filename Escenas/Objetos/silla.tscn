@@ -7,6 +7,7 @@
 size = Vector2(20, 14)
 
 [node name="Silla" instance=ExtResource("1_wa5bf")]
+y_sort_enabled = true
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_gkhfr")
