@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://br2cpyrgrt01f"]
+
+[ext_resource type="Script" path="res://Script/Personaje.gd" id="1_hctep"]
+[ext_resource type="Script" path="res://Script/Dialogos/graficos_nv.gd" id="2_4e855"]
+
+[node name="Personaje" type="Node"]
+script = ExtResource("1_hctep")
+
+[node name="GraficosNV" type="Node2D" parent="."]
+script = ExtResource("2_4e855")
+
+[node name="ModeloMundo" type="CharacterBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+
+[node name="ModeloCombate" type="Node2D" parent="."]

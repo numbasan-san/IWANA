@@ -1,18 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://6j2cf5j310g"]
+[gd_scene load_steps=9 format=3 uid="uid://6j2cf5j310g"]
 
-[ext_resource type="Texture2D" uid="uid://0m2jikbrgur0" path="res://Assets/2020-10-25 (4).png" id="1_rvqb6"]
-[ext_resource type="PackedScene" uid="uid://r5xe0lfs4uk1" path="res://Escenas/Personajes/jugador.tscn" id="2_j2q37"]
+[ext_resource type="Texture2D" uid="uid://grho2osbx4hy" path="res://Assets/Assests de Pruebas/2020-10-25 (4).png" id="1_gjxul"]
+[ext_resource type="PackedScene" uid="uid://r5xe0lfs4uk1" path="res://Escenas/Personajes/jugador.tscn" id="2_214j2"]
 [ext_resource type="PackedScene" uid="uid://biaksld7iryos" path="res://Escenas/objeto.tscn" id="3_n7j4n"]
-[ext_resource type="PackedScene" uid="uid://c27lwiurpirus" path="res://Escenas/El JaJas/gui_inventory.tscn" id="4_eoutw"]
+[ext_resource type="PackedScene" uid="uid://c27lwiurpirus" path="res://Escenas/Inventario/inventory_gui.tscn" id="4_eoutw"]
+[ext_resource type="Script" path="res://Script/inventario_objetos/inventario/inventory_layer.gd" id="4_iv0pg"]
+[ext_resource type="PackedScene" uid="uid://b5vmikbm0kax7" path="res://Escenas/Inventario/items/lagarto.tscn" id="6_jb3qb"]
+[ext_resource type="PackedScene" uid="uid://cq01j56mj410e" path="res://Escenas/Inventario/items/toro.tscn" id="7_2p7xl"]
 
 [node name="Node2D" type="Node2D"]
 
-[node name="fondo" type="Sprite2D" parent="."]
-position = Vector2(597, 339)
-texture = ExtResource("1_rvqb6")
+[node name="jugador" parent="." instance=ExtResource("2_214j2")]
+z_index = 0
+position = Vector2(575, 325)
 
-[node name="jugador" parent="." instance=ExtResource("2_j2q37")]
-position = Vector2(463, 325)
+[node name="fondo" type="Sprite2D" parent="jugador"]
+show_behind_parent = true
+position = Vector2(22, 14)
+texture = ExtResource("1_gjxul")
 
 [node name="obstaculo" type="Node" parent="."]
 
@@ -28,11 +33,42 @@ position = Vector2(411, -7)
 [node name="StaticBody2D4" parent="obstaculo" instance=ExtResource("3_n7j4n")]
 position = Vector2(-119, 341)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="inventory_layer" type="CanvasLayer" parent="."]
+process_mode = 3
+script = ExtResource("4_iv0pg")
 
-[node name="inventory_gui" parent="CanvasLayer" instance=ExtResource("4_eoutw")]
-offset_left = -345.0
-offset_top = -180.0
-offset_right = -345.0
-offset_bottom = -180.0
-scale = Vector2(2, 2)
+[node name="inventory_gui" parent="inventory_layer" instance=ExtResource("4_eoutw")]
+visible = false
+offset_top = -320.0
+offset_right = -576.0
+offset_bottom = -320.0
+
+[node name="perro" parent="." instance=ExtResource("7_2p7xl")]
+position = Vector2(585, 151)
+
+[node name="perro2" parent="." instance=ExtResource("7_2p7xl")]
+position = Vector2(904, 345)
+
+[node name="lagarto" parent="." instance=ExtResource("6_jb3qb")]
+position = Vector2(685, 207)
+
+[node name="lagarto3" parent="." instance=ExtResource("6_jb3qb")]
+position = Vector2(324, 429)
+
+[node name="lagarto2" parent="." instance=ExtResource("6_jb3qb")]
+position = Vector2(381, 128)
+
+[node name="lagarto4" parent="." instance=ExtResource("6_jb3qb")]
+position = Vector2(771, 102)
+
+[node name="lagarto5" parent="." instance=ExtResource("6_jb3qb")]
+position = Vector2(218, 333)
+
+[node name="lagarto6" parent="." instance=ExtResource("6_jb3qb")]
+position = Vector2(251, 58)
+
+[node name="lagarto7" parent="." instance=ExtResource("6_jb3qb")]
+position = Vector2(502, 116)
+
+[connection signal="closed" from="inventory_layer/inventory_gui" to="inventory_layer" method="_on_inventory_gui_closed"]
+[connection signal="opened" from="inventory_layer/inventory_gui" to="inventory_layer" method="_on_inventory_gui_opened"]

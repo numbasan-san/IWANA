@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://mxj2l2ctogvy"]
 
-[ext_resource type="Texture2D" uid="uid://cls4pxglucv5u" path="res://Assets/inventory/inventory_slot.png" id="1_grm04"]
 [ext_resource type="Script" path="res://Script/inventario_objetos/slot_gui.gd" id="1_q4u2l"]
+[ext_resource type="Texture2D" uid="uid://i77qfkg5q4nc" path="res://Assets/Inventario/inventory_slot.png" id="2_5xxl4"]
 
 [node name="slot" type="Panel"]
 custom_minimum_size = Vector2(40, 40)
@@ -9,7 +9,7 @@ script = ExtResource("1_q4u2l")
 
 [node name="background" type="Sprite2D" parent="."]
 position = Vector2(21, 20)
-texture = ExtResource("1_grm04")
+texture = ExtResource("2_5xxl4")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
 layout_mode = 0

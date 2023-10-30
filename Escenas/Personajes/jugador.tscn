@@ -1,29 +1,17 @@
-[gd_scene load_steps=22 format=3 uid="uid://r5xe0lfs4uk1"]
+[gd_scene load_steps=21 format=3 uid="uid://r5xe0lfs4uk1"]
 
-[ext_resource type="Script" path="res://Script/jugador.gd" id="1_k8sy0"]
-[ext_resource type="Texture2D" uid="uid://crn58yfs6hpsw" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/arriba/noby_camina_arriba.png" id="2_8q33m"]
-[ext_resource type="Texture2D" uid="uid://dgvtrji2ul6rd" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/abajo/noby_frente.png" id="2_cax0a"]
-[ext_resource type="Texture2D" uid="uid://on5238yhixxd" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/izquierda/noby_camina_izquierda.png" id="2_ey215"]
-[ext_resource type="Resource" uid="uid://dfuucb5spinx8" path="res://Script/inventario_objetos/inventario/resourses/inventory.tres" id="2_f77ym"]
-<<<<<<< Updated upstream
-[ext_resource type="Texture2D" uid="uid://cffxyhx37i11o" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/derecha/noby_camina_derecha.png" id="2_hijek"]
-[ext_resource type="Texture2D" uid="uid://2bgy8qjflmx3" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/izquierda/noby_izq.png" id="3_qtve8"]
-[ext_resource type="Texture2D" uid="uid://cp8xaiey3yfm3" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/derecha/noby_derecha.png" id="4_inkcb"]
-[ext_resource type="Texture2D" uid="uid://dhwsw5w7gobuo" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/arriba/noby_espa.png" id="5_6esrk"]
-[ext_resource type="Texture2D" uid="uid://cywi2xwg755hn" path="res://Assets/SpritesMundo/Personajes/ProtaDev(Temporal)/abajo/noby_camina_abajo.png" id="5_v6uxg"]
-=======
-[ext_resource type="Texture2D" uid="uid://dmfoqipb8uj4h" path="res://Assets/SpritesMundo/Personajes/Noby/abajo/noby_frente.png" id="3_iphp5"]
-[ext_resource type="Texture2D" uid="uid://cj1ym1lg44gr1" path="res://Assets/SpritesMundo/Personajes/Noby/izquierda/noby_izq.png" id="4_yrj8y"]
-[ext_resource type="Texture2D" uid="uid://cosdglnbtsfek" path="res://Assets/SpritesMundo/Personajes/Noby/derecha/noby_derecha.png" id="5_v1rc3"]
-[ext_resource type="Texture2D" uid="uid://csnnmubkjcvo8" path="res://Assets/SpritesMundo/Personajes/Noby/arriba/noby_espa.png" id="6_rqe6j"]
-[ext_resource type="Texture2D" uid="uid://cj05d1rbi11qt" path="res://Assets/SpritesMundo/Personajes/Noby/abajo/noby_camina_abajo.png" id="7_7ic82"]
-[ext_resource type="Texture2D" uid="uid://con8s752og6ys" path="res://Assets/SpritesMundo/Personajes/Noby/izquierda/noby_camina_izquierda.png" id="8_vwuly"]
-[ext_resource type="Texture2D" uid="uid://c000kdlm1kxpf" path="res://Assets/SpritesMundo/Personajes/Noby/derecha/noby_camina_derecha.png" id="9_hfb07"]
-[ext_resource type="Texture2D" uid="uid://buauofgs814c4" path="res://Assets/SpritesMundo/Personajes/Noby/arriba/noby_camina_arriba.png" id="10_2qb5i"]
->>>>>>> Stashed changes
+[ext_resource type="Script" path="res://Script/control_modelo_mundo.gd" id="1_h13m3"]
+[ext_resource type="Texture2D" uid="uid://7g745n7ila1f" path="res://Assets/SpritesMundo/Personajes/Noby/abajo/noby_frente.png" id="3_iphp5"]
+[ext_resource type="Texture2D" uid="uid://dcmakqvfslp4s" path="res://Assets/SpritesMundo/Personajes/Noby/izquierda/noby_izq.png" id="4_yrj8y"]
+[ext_resource type="Texture2D" uid="uid://cq3x5ttsley8y" path="res://Assets/SpritesMundo/Personajes/Noby/derecha/noby_derecha.png" id="5_v1rc3"]
+[ext_resource type="Texture2D" uid="uid://didj3ub8c6haa" path="res://Assets/SpritesMundo/Personajes/Noby/arriba/noby_espa.png" id="6_rqe6j"]
+[ext_resource type="Texture2D" uid="uid://bo1wwsqd18esq" path="res://Assets/SpritesMundo/Personajes/Noby/abajo/noby_camina_abajo.png" id="7_7ic82"]
+[ext_resource type="Texture2D" uid="uid://cyxvulilwfkhj" path="res://Assets/SpritesMundo/Personajes/Noby/izquierda/noby_camina_izquierda.png" id="8_vwuly"]
+[ext_resource type="Texture2D" uid="uid://beqkcmrhycjmc" path="res://Assets/SpritesMundo/Personajes/Noby/derecha/noby_camina_derecha.png" id="9_hfb07"]
+[ext_resource type="Texture2D" uid="uid://dwsebyxyqpiq7" path="res://Assets/SpritesMundo/Personajes/Noby/arriba/noby_camina_arriba.png" id="10_2qb5i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s06e1"]
-size = Vector2(11.7963, 38.445)
+size = Vector2(12.0746, 37.7939)
 
 [sub_resource type="Animation" id="Animation_1f7jw"]
 length = 0.001
@@ -101,7 +89,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_cax0a")]
+"values": [ExtResource("3_iphp5")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -137,7 +125,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(0, 10)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -177,7 +165,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_qtve8")]
+"values": [ExtResource("4_yrj8y")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -217,7 +205,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("4_inkcb")]
+"values": [ExtResource("5_v1rc3")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -281,7 +269,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_6esrk")]
+"values": [ExtResource("6_rqe6j")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -334,7 +322,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_v6uxg")]
+"values": [ExtResource("7_7ic82")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -375,7 +363,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_ey215")]
+"values": [ExtResource("8_vwuly")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -423,7 +411,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(0, 15)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -452,7 +440,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(0, 15)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -464,7 +452,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_hijek")]
+"values": [ExtResource("9_hfb07")]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -565,7 +553,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_8q33m")]
+"values": [ExtResource("10_2qb5i")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3ha3c"]
@@ -582,14 +570,16 @@ _data = {
 }
 
 [node name="jugador" type="CharacterBody2D"]
-script = ExtResource("1_k8sy0")
-inventario = ExtResource("2_f77ym")
+z_index = 1
+script = ExtResource("1_h13m3")
 
 [node name="prota_sprite" type="Sprite2D" parent="."]
 position = Vector2(-4, -2)
 hframes = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 15)
+scale = Vector2(-1.34998, -0.727657)
 shape = SubResource("RectangleShape2D_s06e1")
 
 [node name="Animation" type="AnimationPlayer" parent="."]

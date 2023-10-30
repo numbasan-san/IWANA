@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdhq7xoysevqv"]
+
+[ext_resource type="Texture2D" uid="uid://dygwd3t18b2vp" path="res://Assets/Assests de Pruebas/2020-10-25 (4).png" id="1_3scli"]
+[ext_resource type="Texture2D" uid="uid://dsohdplm5xns6" path="res://Assets/Assests de Pruebas/Sin título.jpg" id="2_wh37s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_81bya"]
+bg_color = Color(1, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7m82y"]
+bg_color = Color(0, 1, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+
+[node name="pantalla_combate" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="2020-10-25(4)" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_3scli")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 124.0
+offset_top = -130.0
+offset_right = 341.0
+offset_bottom = 130.0
+grow_vertical = 2
+alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_styles/background = SubResource("StyleBoxFlat_81bya")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7m82y")
+value = 50.0
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_wh37s")

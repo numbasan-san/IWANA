@@ -1,10 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://c6r4b6vsbtube"]
 
-[ext_resource type="Texture2D" uid="uid://cjsjt6tultlba" path="res://Assets/inventory/asset_inventario_marco-removebg-preview.png" id="1_eja77"]
+[ext_resource type="Texture2D" uid="uid://bhqbs3yb3j2x5" path="res://Assets/Inventario/asset_inventario_marco-removebg-preview.png" id="1_eja77"]
 [ext_resource type="Script" path="res://Script/inventario_objetos/inventario/inventory_gui.gd" id="1_x4ji1"]
-[ext_resource type="PackedScene" uid="uid://mxj2l2ctogvy" path="res://Escenas/inventario/slot.tscn" id="2_y5jdi"]
+[ext_resource type="PackedScene" uid="uid://mxj2l2ctogvy" path="res://Escenas/Inventario/slot.tscn" id="2_y5jdi"]
 
 [node name="inventory_gui" type="Control"]
+z_index = 10
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_x4ji1")
