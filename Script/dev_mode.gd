@@ -4,10 +4,7 @@ extends Node
 
 var activado = false
 
-# Antes de que se ag
-var _jugador_asignado = false
-
-func _process(delta):
+func _process(_delta):
 	if activado:
 		if $"../Personajes".jugador and $"../Personajes".jugador.zona:
 			$DetallesUbicacion/NombreZona.text = $"../Personajes".jugador.zona.name

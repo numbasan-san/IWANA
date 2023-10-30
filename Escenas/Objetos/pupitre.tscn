@@ -16,4 +16,5 @@ region_rect = Rect2(155, 80, 42, 32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(0, 4.16667)
+scale = Vector2(0.8, 1)
 shape = SubResource("RectangleShape2D_x1oey")

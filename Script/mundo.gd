@@ -21,6 +21,9 @@ func recolocar_personaje(
 		posicion: Vector2 = Vector2(0, 0),
 		direccion: String = 'd'):
 	
+	# Primero cambiamos al personaje de zona
+	personaje.recolocar(zona, posicion, direccion)
+	
 	# Si el personaje está controlado por el jugador, la zona en la que está
 	# es la zona hija del nodo mundo, y hay que cambiarla
 	if personaje.control_jugador:
@@ -29,21 +32,20 @@ func recolocar_personaje(
 		# Debe removerse y devolverse al contenedor Zonas
 		if (get_child_count() > 0) and (get_child(0) != zona):
 			var zona_actual = get_child(0)
-			zona_actual.desactivar()
-			remove_child(zona_actual)
-			$/root/Juego/Zonas.add_child(zona_actual)
+			call_deferred("remove_child", zona_actual)
+			$/root/Juego/Zonas.call_deferred("add_child", zona_actual)
+			zona_actual.call_deferred("desactivar")
 		
 		# Si Mundo no tiene hijos o tiene pero es distinto a la zona nueva,
 		# esta se debe sacar del contenedor Zonas
 		if get_child_count() == 0 or get_child(0) != zona:
-			$/root/Juego/Zonas.remove_child(zona)
-			add_child(zona)
+			$/root/Juego/Zonas.call_deferred("remove_child", zona)
+			call_deferred("add_child", zona)
 			zona.activar()
 		
 		# Si no, se está moviendo al personaje dentro
 		# de la misma zona, no hay que cambiar nada
 		
-	# En cualquier caso, el personaje debe recolocarse
-	personaje.recolocar(zona, posicion, direccion)
+	
 	
 	

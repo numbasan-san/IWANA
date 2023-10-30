@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Script/raiz_juego.gd" id="1_bydot"]
 [ext_resource type="PackedScene" uid="uid://oc5oqpk3nprt" path="res://Escenas/Pantallas/pantalla_mundo.tscn" id="2_q31dv"]
 [ext_resource type="Script" path="res://Script/controlador_pantallas.gd" id="3_exd4n"]
-[ext_resource type="PackedScene" path="res://Escenas/Pantallas/pantalla_intro.tscn" id="4_lxdqi"]
+[ext_resource type="PackedScene" uid="uid://fpbj5k7vpvlw" path="res://Escenas/Pantallas/pantalla_intro.tscn" id="4_lxdqi"]
 [ext_resource type="PackedScene" uid="uid://daav23mkgp6gf" path="res://Escenas/Pantallas/pantalla_dialogo.tscn" id="5_aafk1"]
 [ext_resource type="Script" path="res://Script/parser_dialogos.gd" id="6_6xq5g"]
 [ext_resource type="PackedScene" uid="uid://dsihg6mcq4ysb" path="res://Escenas/Pantallas/dev_mode.tscn" id="8_fgo5h"]

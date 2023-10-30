@@ -62,8 +62,8 @@ func recolocar(zona_nueva: Zona, posicion: Vector2, direccion: String):
 	
 	# Si estamos moviendo a una zona distinta, cambiamos el padre de este nodo
 	if zona_nueva != zona_actual:
-		zona_actual.remove_child(self)
-		zona_nueva.add_child(self)
+		zona_actual.call_deferred("remove_child", self)
+		zona_nueva.call_deferred("add_child", self)
 	
 	self.position = posicion
 	last_vector = direccion
@@ -71,8 +71,8 @@ func recolocar(zona_nueva: Zona, posicion: Vector2, direccion: String):
 # Quita a este modelo de la zona actual y lo devuelve a su contenedor Personaje
 func quitar_zona():
 	hide()
-	get_parent().remove_child(self)
-	personaje.add_child(self)
+	get_parent().call_deferred("remove_child", self)
+	personaje.call_deferred("add_child", self)
 
 # Activa proceso, fisica, visibilidad y otras funcionalidades de un personaje
 func activar():
