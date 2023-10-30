@@ -73,3 +73,16 @@ func quitar_zona():
 	hide()
 	get_parent().remove_child(self)
 	personaje.add_child(self)
+
+# Activa proceso, fisica, visibilidad y otras funcionalidades de un personaje
+func activar():
+	process_mode = Node.PROCESS_MODE_INHERIT
+	set_physics_process(true)
+	show()
+
+# Desactiva proceso, fisica, visibilidad y otras funcionalidades de un personaje
+func desactivar():
+	hide()
+	set_physics_process(false)
+	process_mode = Node.PROCESS_MODE_DISABLED
+

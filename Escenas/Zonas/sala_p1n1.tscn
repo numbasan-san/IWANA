@@ -8,8 +8,68 @@
 
 [node name="Puerta" parent="." index="1"]
 zona = "zona_dev_testing"
-posicion_def = Vector2(-50, 250)
+posicion_def = Vector2(-50, 150)
 direccion_def = "u"
+
+[node name="Silla" parent="Pupitres/Par1" index="1"]
+position = Vector2(0, 45)
+
+[node name="Silla" parent="Pupitres/Par2" index="1"]
+position = Vector2(0, 45)
+
+[node name="Silla" parent="Pupitres/Par3" index="1"]
+position = Vector2(0, 45)
+
+[node name="Silla" parent="Pupitres/Par4" index="1"]
+position = Vector2(0, 45)
+
+[node name="Silla" parent="Pupitres/Par5" index="1"]
+position = Vector2(0, 45)
+
+[node name="Silla" parent="Pupitres/Par6" index="1"]
+position = Vector2(0, 45)
+
+[node name="Silla" parent="Pupitres/Par7" index="1"]
+position = Vector2(0, 45)
+
+[node name="Silla" parent="Pupitres/Par8" index="1"]
+position = Vector2(0, 45)
+
+[node name="Silla" parent="Pupitres/Par9" index="1"]
+position = Vector2(0, 45)
+
+[node name="Silla" parent="Pupitres/Par10" index="1"]
+position = Vector2(0, 45)
+
+[node name="Silla" parent="Pupitres/Par11" index="1"]
+position = Vector2(0, 45)
+
+[node name="Silla" parent="Pupitres/Par12" index="1"]
+position = Vector2(0, 45)
+
+[node name="Silla" parent="Pupitres/Par13" index="1"]
+position = Vector2(0, 45)
+
+[node name="Silla" parent="Pupitres/Par14" index="1"]
+position = Vector2(0, 45)
+
+[node name="Silla" parent="Pupitres/Par15" index="1"]
+position = Vector2(0, 45)
+
+[node name="Silla" parent="Pupitres/Par16" index="1"]
+position = Vector2(0, 45)
+
+[node name="Silla" parent="Pupitres/Par17" index="1"]
+position = Vector2(0, 45)
+
+[node name="Silla" parent="Pupitres/Par18" index="1"]
+position = Vector2(0, 45)
+
+[node name="Silla" parent="Pupitres/Par19" index="1"]
+position = Vector2(0, 45)
+
+[node name="Silla" parent="Pupitres/Par20" index="1"]
+position = Vector2(0, 45)
 
 [node name="Items" type="Node2D" parent="." index="7"]
 z_index = 1

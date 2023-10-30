@@ -78,7 +78,7 @@ position = Vector2(48, 309)
 position = Vector2(-53, 305)
 script = ExtResource("7_gdu17")
 zona = "sala_p1n1"
-posicion_def = Vector2(100, 450)
+posicion_def = Vector2(100, 250)
 direccion_def = "u"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Puerta" index="0"]

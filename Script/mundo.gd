@@ -44,6 +44,6 @@ func recolocar_personaje(
 		# de la misma zona, no hay que cambiar nada
 		
 	# En cualquier caso, el personaje debe recolocarse
-	personaje.modeloMundo.recolocar(zona, posicion, direccion)
+	personaje.recolocar(zona, posicion, direccion)
 	
 	

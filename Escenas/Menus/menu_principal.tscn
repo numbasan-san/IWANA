@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Script/menu_principal_cargar_imagen.gd" id="1_kevrv"]
 [ext_resource type="Texture2D" uid="uid://r7tgbmqa8nqo" path="res://Assets/Menus/menuPrincipal.png" id="2_xa41e"]
-[ext_resource type="Texture2D" uid="uid://b72a5sfu2q2uh" path="res://Assets/Menus/ButtonNew.png" id="3_3k246"]
-[ext_resource type="Texture2D" uid="uid://oac8swsgocb5" path="res://Assets/Menus/ButtonNewPressed.png" id="4_d6hem"]
+[ext_resource type="Texture2D" uid="uid://cr4r7o2jdcxwr" path="res://Assets/Menus/ButtonNew.png" id="3_3k246"]
+[ext_resource type="Texture2D" uid="uid://x1e27yyemxpk" path="res://Assets/Menus/ButtonNewPressed.png" id="4_d6hem"]
 [ext_resource type="Script" path="res://Script/Botones/BotonJuegoNuevo.gd" id="5_h7c82"]
 [ext_resource type="Texture2D" uid="uid://cybuob5hsagts" path="res://Assets/Menus/ButtonDev.png" id="6_0145x"]
 [ext_resource type="Texture2D" uid="uid://demu4blg7ne6m" path="res://Assets/Menus/ButtonDevPressed.png" id="7_1rljy"]
