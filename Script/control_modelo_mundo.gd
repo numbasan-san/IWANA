@@ -4,41 +4,40 @@ extends CharacterBody2D
 var personaje: Personaje
 
 var axis : Vector2
-var last_vector : String
 var sprite_in_turn : Texture
-var anim = 'stop_player_down'
+var anim = ''
+var stop_anim = 'stop_player_down'
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	personaje = $".."
-	$"Animation".play(anim)
+	$Animation.play(stop_anim) # Animación de "parado" inicial.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	# Se establece la velocidad de movimiento del avatar del jugador.
 	velocity.x = get_axis().x * 200
 	velocity.y = get_axis().y * 200
 	move_and_slide()
 	
+	# Las animaciones según por donde se mueva el personaje.
 	if get_axis().y == -1:
-		anim = "walk_player_up"
-		last_vector = 'u'
+		anim = 'walk_player_up'
+		stop_anim = 'stop_player_up'
 	if get_axis().y == 1:
-		anim = "walk_player_down"
-		last_vector = 'd'
+		anim = 'walk_player_down'
+		stop_anim = 'stop_player_down'
 	if get_axis().x == -1:
-		anim = "walk_player_left"
-		last_vector = 'l'
+		anim = 'walk_player_left'
+		stop_anim = 'stop_player_left'
 	if get_axis().x == 1:
-		anim = "walk_player_right"
-		last_vector = 'r'
-	$"Animation".play(anim)
-	
+		anim = 'walk_player_right'
+		stop_anim = 'stop_player_right'
+	$Animation.play(anim)
 	if  get_axis().x == 0 and get_axis().y == 0:
-		$"Animation".stop()
-		var stop_anim = {"u": "stop_player_up", "d": "stop_player_down", "r": "stop_player_right", 	"l": "stop_player_left"}
-		for i in stop_anim:
-			if last_vector == i:
-				$Animation.play(stop_anim[last_vector])
+		# La "animación" de "parado" según la última dirección a la que se movió el jugador.
+		# Se establece en las condicionales anteriores.
+		$Animation.play(stop_anim)
 	
 func get_axis() -> Vector2:
 	return axis
