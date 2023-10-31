@@ -13,8 +13,24 @@
 
 [node name="Juego" type="Node2D"]
 script = ExtResource("1_bydot")
+
+[node name="Personajes" type="Node" parent="."]
+script = ExtResource("9_65q0v")
 path_personajes = "Escenas/Personajes"
+
+[node name="Zonas" type="Node" parent="."]
+script = ExtResource("9_fuif0")
 path_zonas = "Escenas/Zonas"
+
+[node name="ParserDialogo" type="Node" parent="."]
+script = ExtResource("6_6xq5g")
+dir = [null, null, null]
+
+[node name="ControladorPantallas" type="Node" parent="."]
+script = ExtResource("3_exd4n")
+
+[node name="PantallaIntro" parent="." instance=ExtResource("4_lxdqi")]
+visible = false
 
 [node name="PantallaMenuInicial" parent="." instance=ExtResource("1_abg3v")]
 visible = false
@@ -25,27 +41,9 @@ visible = false
 [node name="PantallaCombate" type="Node2D" parent="."]
 visible = false
 
-[node name="ControladorPantallas" type="Node" parent="."]
-script = ExtResource("3_exd4n")
-
-[node name="PantallaIntro" parent="." instance=ExtResource("4_lxdqi")]
-visible = false
-
 [node name="PantallaDialogo" parent="." instance=ExtResource("5_aafk1")]
 visible = false
-
-[node name="ParserDialogo" type="Node" parent="."]
-script = ExtResource("6_6xq5g")
-dir = [null, null, null]
 
 [node name="DevMode" parent="." instance=ExtResource("8_fgo5h")]
 visible = false
 todas_las_zonas = Array[String](["sala_p1n1", "zona_dev_testing"])
-
-[node name="Personajes" type="Node" parent="."]
-script = ExtResource("9_65q0v")
-path_personajes = "Escenas/Personajes"
-
-[node name="Zonas" type="Node" parent="."]
-script = ExtResource("9_fuif0")
-path_zonas = "Escenas/Zonas"

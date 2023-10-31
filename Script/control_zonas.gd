@@ -1,7 +1,10 @@
 extends Node
 
+# La ruta donde se deben buscar las zonas
 @export var path_zonas: String
 
+# Todas las zonas que se han cargado. La llave es el nombre de la escena y
+# el valor es el nodo instanciado
 var zonas: Dictionary
 
 # Obtiene una referencia a una zona cargada previamente, o agrega la zona si no
