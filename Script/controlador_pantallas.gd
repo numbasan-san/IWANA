@@ -14,7 +14,7 @@ extends Node
 # lo específico de cada elemento, pero de cualquier manera funcione?
 
 # La pantalla del modo desarrollo, que permite ver información de las pantallas
-# y cambiair entre ellas libremente
+# y cambiar entre ellas libremente
 @onready var pantallaDev = $"../DevMode"
 
 # La primera pantalla, que contiene las imágenes del creador del juego y

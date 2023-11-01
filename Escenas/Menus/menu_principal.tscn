@@ -18,7 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_kevrv")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Fondo" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = -1.0
 offset_top = -8.0

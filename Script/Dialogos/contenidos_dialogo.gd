@@ -3,9 +3,9 @@ extends Control
 enum Posicion { IZQUIERDA, CENTRO, DERECHA }
 
 @onready var areaPersonajes = $EscenaNV/AreaPersonajes
-@onready var areaIzquierda: Control = $EscenaNV/AreaPersonajes/Izquierda
-@onready var areaCentro: Control = $EscenaNV/AreaPersonajes/Centro
-@onready var areaDerecha: Control = $EscenaNV/AreaPersonajes/Derecha
+@onready var areaIzquierda: Control = areaPersonajes.get_node("Izquierda")
+@onready var areaCentro: Control = areaPersonajes.get_node("Centro")
+@onready var areaDerecha: Control = areaPersonajes.get_node("Derecha")
 
 # Agrega el grafico asociado a un personaje a la izquierda, centro o derecha
 # del area de personajes.
@@ -14,10 +14,16 @@ enum Posicion { IZQUIERDA, CENTRO, DERECHA }
 func agregarPersonaje(personaje, pos: Posicion):
 	var grafico: Node2D = personaje.get_node("GraficosNV")
 	
+	# Si el personaje no tiene un gráfico de diálogo, en general porque no debe
+	# aparecer en diálogos, no se hace nada
 	if not grafico:
 		return
 	
+	# Considerar mover el gráfico sin duplicarlo
 	var copiaGrafico = grafico.duplicate() as Node2D
+	
+	# Si el personaje ya ha sido agregado, solo uno de estas 3 variables debe
+	# ser distinta de null
 	var graficoIzquierda = areaIzquierda.find_child(grafico.name)
 	var graficoCentro = areaCentro.find_child(grafico.name)
 	var graficoDerecha = areaDerecha.find_child(grafico.name)
