@@ -19,7 +19,7 @@ y_sort_enabled = true
 
 [node name="BañoP1M" parent="." instance=ExtResource("4_io0q7")]
 y_sort_enabled = false
-position = Vector2(2099, -197)
+position = Vector2(1859, -197)
 
 [node name="BañoP1H" parent="." instance=ExtResource("5_ygbv7")]
 y_sort_enabled = false

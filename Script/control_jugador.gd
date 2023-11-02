@@ -1,4 +1,6 @@
-extends "res://Script/control_modelo_mundo.gd"
+extends Node2D
+
+class_name ControlJugador
 
 @export var inventory : Inventory
 
@@ -6,15 +8,13 @@ extends "res://Script/control_modelo_mundo.gd"
 # teclas directamente
 
 # Movimiento del avatar.
-func _process(delta):
+func _process(_delta):
 	var x = int(Input.is_action_pressed('rpg_right')) - int(Input.is_action_pressed('rpg_left'))
 	var y = int(Input.is_action_pressed('rpg_down')) - int(Input.is_action_pressed('rpg_up'))
-	set_axis(x, y)
+	get_parent().set_axis(x, y)
 	
-	super._process(delta)
-
 # Las colisiones con objetos cuya colisión tenga una función o evento en especial.
-func _on_hurt_box_area_entered(area):
+func _on_interaccion(area):
 	if area.has_method('collect'): # La colisión del avatar del jugador con un objeto.
 		if inventory.count_empty_slot() >= 1: # En caso de que haya espacio en el inventario.
 			area.collect(inventory)
@@ -22,7 +22,14 @@ func _on_hurt_box_area_entered(area):
 			# Se verifica si en el último espacio del inventario hay espacio en el stack del ítem en turno.
 			if inventory.count_stacks():
 				area.collect(inventory)
-
 	# La colisión del avatar del jugador con una "puerta".
 	if area.has_method('change_zone'):
-		area.change_zone(personaje)
+		area.change_zone(get_parent().personaje)
+
+func _on_entrar_transparencia(area):
+	if area is ControlTransparencia and area.global_position.y > get_parent().global_position.y:
+		area.activar_transparencia()
+		
+func _on_salir_transparencia(area):
+	if area is ControlTransparencia:
+		area.desactivar_transparencia()

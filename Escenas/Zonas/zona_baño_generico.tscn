@@ -144,7 +144,7 @@ position = Vector2(35, 129)
 position = Vector2(35, 166)
 
 [node name="SpawnPasillo" type="Node2D" parent="Spawns" index="0"]
-position = Vector2(160, 238)
+position = Vector2(160, 230)
 
 [node name="Area2D" type="Area2D" parent="." index="4"]
 position = Vector2(160, 275)
