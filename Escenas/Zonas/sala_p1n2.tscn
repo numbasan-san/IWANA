@@ -1,11 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://4jpj8tqg88j5"]
+[gd_scene load_steps=2 format=3 uid="uid://dt44crya5spso"]
 
-[ext_resource type="PackedScene" uid="uid://bqvxhi7wt87t" path="res://Escenas/Zonas/zona_sala_generica.tscn" id="1_p0tah"]
+[ext_resource type="PackedScene" uid="uid://bqvxhi7wt87t" path="res://Escenas/Zonas/zona_sala_generica.tscn" id="1_6swfk"]
 
-[node name="SalaP1N1" groups=["zonas"] instance=ExtResource("1_p0tah")]
+[node name="SalaP1N2" groups=["zonas"] instance=ExtResource("1_6swfk")]
 
 [node name="Puerta" parent="." index="1"]
-spawn = "SpawnSP1N1"
+spawn = "SpawnSP1N2"
 
 [node name="Par1" parent="Pupitres" index="0"]
 y_sort_enabled = true
@@ -131,5 +131,3 @@ position = Vector2(0, 40)
 z_index = 1
 y_sort_enabled = true
 position = Vector2(-263, -136)
-
-[node name="Default" type="Node2D" parent="Spawns" index="1"]

@@ -1,0 +1,157 @@
+[gd_scene load_steps=19 format=3 uid="uid://dvs7a5k1ejf15"]
+
+[ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://Escenas/Zonas/zona_base.tscn" id="1_d7yta"]
+[ext_resource type="Texture2D" uid="uid://0ukamifjeqvd" path="res://Assets/SpritesMundo/Terreno/suelo_y_pared.png" id="2_xdoda"]
+[ext_resource type="Texture2D" uid="uid://dwgsvdhxasp3f" path="res://Assets/SpritesMundo/Objetos/tiles_c.png" id="3_bg17i"]
+[ext_resource type="PackedScene" uid="uid://b1qlrlui53qis" path="res://Escenas/Objetos/Baño/lavamanos_abajo.tscn" id="5_2dmbg"]
+[ext_resource type="PackedScene" uid="uid://dbrpal8fvvdd" path="res://Escenas/Objetos/Baño/lavamanos_medio.tscn" id="6_kvbx5"]
+[ext_resource type="PackedScene" uid="uid://ccr8u24afsy6l" path="res://Escenas/Objetos/Baño/lavamanos_arriba.tscn" id="7_583db"]
+[ext_resource type="Script" path="res://Script/puerta/puerta_base.gd" id="8_7wlqn"]
+[ext_resource type="PackedScene" uid="uid://ddajwcewdj5gy" path="res://Escenas/Objetos/Baño/segmento_baño.tscn" id="8_vfj2d"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_5veu2"]
+tile_data = PackedInt32Array(0, 65537, 6, 65536, 65537, 7, 131072, 65537, 8, 196608, 65537, 9, 1, 131073, 6, 65537, 131073, 7, 131073, 131073, 8, 196609, 131073, 9, 2, 196609, 6, 65538, 196609, 7, 131074, 196609, 8, 196610, 196609, 9, 3, 262145, 6, 65539, 262145, 7, 131075, 262145, 8, 196611, 262145, 9)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_pa4ye"]
+tile_data = PackedInt32Array(0, 327680, 1, 65536, 327680, 2, 131072, 327680, 2, 196608, 327680, 2, 262144, 327680, 2)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_fd31p"]
+tile_data = PackedInt32Array(0, 393216, 1, 65536, 393216, 2, 131072, 393216, 2, 196608, 393216, 2, 262144, 393216, 3, 1, 393216, 1, 65537, 393216, 2, 131073, 393216, 2, 196609, 393216, 2, 262145, 393216, 3, 2, 393216, 1, 65538, 393216, 2, 131074, 393216, 2, 196610, 393216, 2, 262146, 393216, 3)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_idm66"]
+tile_data = PackedInt32Array(0, 458752, 1, 65536, 458752, 2, 131072, 458752, 2, 196608, 458752, 2, 262144, 458752, 2)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_2gc4b"]
+tile_data = PackedInt32Array(0, 327680, 2, 65536, 327680, 2, 131072, 327680, 2, 196608, 327680, 2)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_nv177"]
+tile_data = PackedInt32Array(0, 458752, 2, 65536, 458752, 2, 131072, 458752, 2, 196608, 458752, 2)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qksvo"]
+texture = ExtResource("2_xdoda")
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ebr7j"]
+texture = ExtResource("3_bg17i")
+margins = Vector2i(0, 1)
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+1:8/0 = 0
+2:8/0 = 0
+3:8/0 = 0
+4:8/0 = 0
+1:9/0 = 0
+2:9/0 = 0
+3:9/0 = 0
+4:9/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_48t8y"]
+sources/0 = SubResource("TileSetAtlasSource_qksvo")
+sources/1 = SubResource("TileSetAtlasSource_ebr7j")
+pattern_0 = SubResource("TileMapPattern_5veu2")
+pattern_1 = SubResource("TileMapPattern_pa4ye")
+pattern_2 = SubResource("TileMapPattern_fd31p")
+pattern_3 = SubResource("TileMapPattern_idm66")
+pattern_4 = SubResource("TileMapPattern_2gc4b")
+pattern_5 = SubResource("TileMapPattern_nv177")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gesa0"]
+
+[node name="BañoGenerico" instance=ExtResource("1_d7yta")]
+y_sort_enabled = true
+
+[node name="TileMap" type="TileMap" parent="." index="0"]
+tile_set = SubResource("TileSet_48t8y")
+format = 2
+layer_0/name = "Layer 0"
+layer_0/tile_data = PackedInt32Array(4, 393216, 1, 65540, 393216, 2, 131076, 393216, 2, 196612, 393216, 2, 5, 393216, 1, 65541, 393216, 2, 131077, 393216, 2, 196613, 393216, 2, 6, 393216, 1, 65542, 393216, 2, 131078, 393216, 2, 196614, 393216, 2, 7, 393216, 1, 65543, 393216, 2, 131079, 393216, 2, 196615, 393216, 2, 262148, 393216, 3, 262149, 393216, 3, 262150, 393216, 3, 262151, 393216, 3, 8, 393216, 1, 65544, 393216, 2, 131080, 393216, 2, 196616, 393216, 2, 9, 393216, 1, 65545, 393216, 2, 131081, 393216, 2, 196617, 393216, 2, 10, 393216, 1, 65546, 393216, 2, 131082, 393216, 2, 196618, 393216, 2, 11, 393216, 1, 65547, 393216, 2, 131083, 393216, 2, 196619, 393216, 2, 262152, 393216, 3, 262153, 393216, 3, 262154, 393216, 3, 262155, 393216, 3, 12, 393216, 1, 65548, 393216, 2, 131084, 393216, 2, 196620, 393216, 2, 13, 393216, 1, 65549, 393216, 2, 131085, 393216, 2, 196621, 393216, 2, 14, 458752, 1, 65550, 458752, 2, 131086, 458752, 2, 262156, 393216, 3, 262157, 393216, 3, 0, 327680, 1, 1, 393216, 1, 65537, 393216, 2, 131073, 393216, 2, 196609, 393216, 2, 262145, 393216, 3, 2, 393216, 1, 65538, 393216, 2, 131074, 393216, 2, 196610, 393216, 2, 262146, 393216, 3, 3, 393216, 1, 65539, 393216, 2, 131075, 393216, 2, 196611, 393216, 2, 262147, 393216, 3, 65536, 327680, 2, 131072, 327680, 2, 196608, 327680, 2, 262144, 327680, 2, 327681, 65537, 6, 393217, 65537, 7, 458753, 65537, 8, 524289, 65537, 9, 327682, 131073, 6, 393218, 131073, 7, 458754, 131073, 8, 524290, 131073, 9, 327683, 196609, 6, 393219, 196609, 7, 458755, 196609, 8, 524291, 196609, 9, 327684, 262145, 6, 393220, 262145, 7, 458756, 262145, 8, 524292, 262145, 9, 589825, 65537, 6, 655361, 65537, 7, 720897, 65537, 8, 786433, 65537, 9, 589826, 131073, 6, 655362, 131073, 7, 720898, 131073, 8, 786434, 131073, 9, 589827, 196609, 6, 655363, 196609, 7, 720899, 196609, 8, 786435, 196609, 9, 589828, 262145, 6, 655364, 262145, 7, 720900, 262145, 8, 786436, 262145, 9, 851969, 65537, 6, 917505, 65537, 7, 983041, 65537, 8, 1048577, 65537, 9, 851970, 131073, 6, 917506, 131073, 7, 983042, 131073, 8, 1048578, 131073, 9, 851971, 196609, 6, 917507, 196609, 7, 983043, 196609, 8, 1048579, 196609, 9, 851972, 262145, 6, 917508, 262145, 7, 983044, 262145, 8, 1048580, 262145, 9, 327685, 65537, 6, 393221, 65537, 7, 458757, 65537, 8, 524293, 65537, 9, 327686, 131073, 6, 393222, 131073, 7, 458758, 131073, 8, 524294, 131073, 9, 327687, 196609, 6, 393223, 196609, 7, 458759, 196609, 8, 524295, 196609, 9, 327688, 262145, 6, 393224, 262145, 7, 458760, 262145, 8, 524296, 262145, 9, 589829, 65537, 6, 655365, 65537, 7, 720901, 65537, 8, 786437, 65537, 9, 589830, 131073, 6, 655366, 131073, 7, 720902, 131073, 8, 786438, 131073, 9, 589831, 196609, 6, 655367, 196609, 7, 720903, 196609, 8, 786439, 196609, 9, 589832, 262145, 6, 655368, 262145, 7, 720904, 262145, 8, 786440, 262145, 9, 851973, 65537, 6, 917509, 65537, 7, 983045, 65537, 8, 1048581, 65537, 9, 851974, 131073, 6, 917510, 131073, 7, 983046, 131073, 8, 1048582, 131073, 9, 851975, 196609, 6, 917511, 196609, 7, 983047, 196609, 8, 1048583, 196609, 9, 851976, 262145, 6, 917512, 262145, 7, 983048, 262145, 8, 1048584, 262145, 9, 327689, 65537, 6, 393225, 65537, 7, 458761, 65537, 8, 524297, 65537, 9, 327690, 131073, 6, 393226, 131073, 7, 458762, 131073, 8, 524298, 131073, 9, 327691, 196609, 6, 393227, 196609, 7, 458763, 196609, 8, 524299, 196609, 9, 327692, 262145, 6, 393228, 262145, 7, 458764, 262145, 8, 524300, 262145, 9, 589833, 65537, 6, 655369, 65537, 7, 720905, 65537, 8, 786441, 65537, 9, 589834, 131073, 6, 655370, 131073, 7, 720906, 131073, 8, 786442, 131073, 9, 589835, 196609, 6, 655371, 196609, 7, 720907, 196609, 8, 786443, 196609, 9, 589836, 262145, 6, 655372, 262145, 7, 720908, 262145, 8, 786444, 262145, 9, 851977, 65537, 6, 917513, 65537, 7, 983049, 65537, 8, 1048585, 65537, 9, 851978, 131073, 6, 917514, 131073, 7, 983050, 131073, 8, 1048586, 131073, 9, 851979, 196609, 6, 917515, 196609, 7, 983051, 196609, 8, 1048587, 196609, 9, 851980, 262145, 6, 917516, 262145, 7, 983052, 262145, 8, 1048588, 262145, 9, 327693, 65537, 6, 393229, 65537, 7, 458765, 65537, 8, 524301, 65537, 9, 589837, 65537, 6, 655373, 65537, 7, 720909, 65537, 8, 786445, 65537, 9, 851981, 65537, 6, 917517, 65537, 7, 983053, 65537, 8, 1048589, 65537, 9, 196622, 458752, 2, 262158, 458752, 2)
+layer_1/name = "Layer 1"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(327680, 327680, 2, 393216, 327680, 2, 458752, 327680, 2, 524288, 327680, 2, 589824, 327680, 2, 655360, 327680, 2, 720896, 327680, 2, 786432, 327680, 2, 851968, 327680, 2, 917504, 327680, 2, 983040, 327680, 2, 1048576, 327680, 2, 1114113, 393216, 4, 1114114, 393216, 4, 1114115, 393216, 4, 1114116, 393216, 4, 1114117, 393216, 4, 1114118, 393216, 4, 1114119, 393216, 4, 1114120, 393216, 4, 1114123, 393216, 4, 1114124, 393216, 4, 1114125, 393216, 4, 1114126, 458752, 4, 1114112, 327680, 4, 327694, 458752, 2, 393230, 458752, 2, 458766, 458752, 2, 524302, 458752, 2, 589838, 458752, 2, 655374, 458752, 2, 720910, 458752, 2, 786446, 458752, 2, 851982, 458752, 2, 917518, 458752, 2, 983054, 458752, 2, 1048590, 458752, 2)
+
+[node name="Lavamanos" type="Node2D" parent="." index="1"]
+position = Vector2(202, 101)
+
+[node name="LavamanosAbajo" parent="Lavamanos" index="0" instance=ExtResource("5_2dmbg")]
+position = Vector2(11, 114)
+
+[node name="LavamanosMedio" parent="Lavamanos" index="1" instance=ExtResource("6_kvbx5")]
+position = Vector2(11, 85)
+
+[node name="LavamanosMedio2" parent="Lavamanos" index="2" instance=ExtResource("6_kvbx5")]
+position = Vector2(11, 60)
+
+[node name="LavamanosMedio3" parent="Lavamanos" index="3" instance=ExtResource("6_kvbx5")]
+position = Vector2(11, 35)
+
+[node name="LavamanosArriba" parent="Lavamanos" index="4" instance=ExtResource("7_583db")]
+position = Vector2(11, 12)
+
+[node name="Segmentos" type="Node2D" parent="." index="2"]
+y_sort_enabled = true
+position = Vector2(-1, 66)
+
+[node name="SegmentoBaño" parent="Segmentos" index="0" instance=ExtResource("8_vfj2d")]
+position = Vector2(35, 18)
+
+[node name="SegmentoBaño2" parent="Segmentos" index="1" instance=ExtResource("8_vfj2d")]
+position = Vector2(35, 55)
+
+[node name="SegmentoBaño3" parent="Segmentos" index="2" instance=ExtResource("8_vfj2d")]
+position = Vector2(35, 92)
+
+[node name="SegmentoBaño4" parent="Segmentos" index="3" instance=ExtResource("8_vfj2d")]
+position = Vector2(35, 129)
+
+[node name="SegmentoBaño5" parent="Segmentos" index="4" instance=ExtResource("8_vfj2d")]
+position = Vector2(35, 166)
+
+[node name="SpawnPasillo" type="Node2D" parent="Spawns" index="0"]
+position = Vector2(160, 238)
+
+[node name="Area2D" type="Area2D" parent="." index="4"]
+position = Vector2(160, 275)
+script = ExtResource("8_7wlqn")
+zona = "pasillo_p1n"
+direccion_def = "down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+scale = Vector2(1.8, 1)
+shape = SubResource("RectangleShape2D_gesa0")
