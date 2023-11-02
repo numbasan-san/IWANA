@@ -2,9 +2,15 @@ extends TextureButton
 
 @onready var controladorPantalla = $"/root/Juego/ControladorPantallas"
 
+# Esto es una variable temporal para mostrar correctamente el modo
+# dev al comenzar el juego. Hay que reemprazarlo por mejor código despues
+@export var boton_dev: BaseButton
+
 func _on_pressed():
 	# Código temporal del prototipo para cargar personajes en modo dialogo
 	# Cambiar cuando esté listo el gestor de escenas
+	if boton_dev.is_pressed():
+		$/root/Juego/DevMode.activar()
 	var contenidosDialogo = controladorPantalla.pantallaDialogo.find_child("ContenidosDialogo")
 	var noby = $/root/Juego.cargar_personaje("noby")
 	$/root/Juego/Personajes.cambiar_jugador("noby")
