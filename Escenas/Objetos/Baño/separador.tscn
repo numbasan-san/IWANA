@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkcm47yl460pj"]
+
+[ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://Escenas/Objetos/objeto_base.tscn" id="1_dbihk"]
+[ext_resource type="Texture2D" uid="uid://dwgsvdhxasp3f" path="res://Assets/SpritesMundo/Objetos/tiles_c.png" id="2_mxwtg"]
+
+[node name="Separador" instance=ExtResource("1_dbihk")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_mxwtg")
+region_rect = Rect2(79, 23, 2, 53)
