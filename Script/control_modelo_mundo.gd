@@ -51,7 +51,6 @@ func set_axis(x, y):
 # esas zonas, solo afecta al personaje. Esta función solo debe ser llamada desde
 # la función recolocar_personaje en el script mundo, y hay que usar esa función
 # directamente para manejar el cambio de zonas en el juego
-
 func recolocar(zona_nueva: Zona, posicion: Vector2, direccion: String):
 	# Si el modelo no está en ninguna zona, el padre será el contenedor Personaje
 	var zona_actual = get_parent()

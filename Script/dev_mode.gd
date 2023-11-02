@@ -2,6 +2,8 @@ extends Node
 
 @export var todas_las_zonas: Array[String]
 
+@onready var mundo = $/root/Juego/PantallaMundo/Mundo
+
 var activado = false
 
 func _process(_delta):
@@ -29,6 +31,6 @@ func rellenar_lista_zonas():
 		boton.text = zona.name
 		boton.pressed.connect(func () -> void:
 			var jugador = $"../Personajes".jugador
-			$/root/Juego/PantallaMundo/Mundo.recolocar_personaje(jugador, zona)
+			mundo.spawn(jugador, zona, "Default", "down", mundo.SpawnFallback.FIRST)
 		)
 		$SeleccionEscena/PanelContainer/VBoxContainer/Zonas.add_child(boton)

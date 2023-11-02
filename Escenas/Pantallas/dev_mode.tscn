@@ -6,7 +6,6 @@
 [node name="DevMode" type="CanvasLayer"]
 layer = 100
 script = ExtResource("1_cqayl")
-todas_las_zonas = Array[String](["sala_p1n1", "zona_dev_testing", "", ""])
 
 [node name="DetallesUbicacion" type="VBoxContainer" parent="."]
 offset_left = 10.0
