@@ -2,14 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://Escenas/Zonas/zona_base.tscn" id="1_wnoea"]
 [ext_resource type="TileSet" uid="uid://clgr7qwoprumi" path="res://Escenas/Zonas/suelo_y_muros_base.tres" id="2_gy0nb"]
-[ext_resource type="PackedScene" uid="uid://bdpp468pqvrja" path="res://Escenas/Objetos/pupitre.tscn" id="2_ulqri"]
+[ext_resource type="PackedScene" uid="uid://bdpp468pqvrja" path="res://Escenas/Objetos/Sala/pupitre.tscn" id="2_ulqri"]
 [ext_resource type="Script" path="res://Script/puerta/puerta_base.gd" id="3_b1rv7"]
-[ext_resource type="PackedScene" uid="uid://uni0pknyk3u6" path="res://Escenas/Objetos/pizarron.tscn" id="4_ebl0c"]
-[ext_resource type="PackedScene" uid="uid://h7mki2t1blv5" path="res://Escenas/Objetos/reloj.tscn" id="5_p65in"]
-[ext_resource type="PackedScene" uid="uid://cfx0xnvbfch17" path="res://Escenas/Objetos/ventana_sala.tscn" id="6_tkoyl"]
-[ext_resource type="PackedScene" uid="uid://baymeuamqebgj" path="res://Escenas/Objetos/silla.tscn" id="9_8irrb"]
-[ext_resource type="PackedScene" uid="uid://bc0x6r1sqak4r" path="res://Escenas/Objetos/mesa_profesor.tscn" id="10_8e6d3"]
-[ext_resource type="PackedScene" uid="uid://dbui3px8bpm0h" path="res://Escenas/Objetos/tablon_info_sala.tscn" id="10_ey3pn"]
+[ext_resource type="PackedScene" uid="uid://uni0pknyk3u6" path="res://Escenas/Objetos/Sala/pizarron.tscn" id="4_ebl0c"]
+[ext_resource type="PackedScene" uid="uid://h7mki2t1blv5" path="res://Escenas/Objetos/Sala/reloj.tscn" id="5_p65in"]
+[ext_resource type="PackedScene" uid="uid://cfx0xnvbfch17" path="res://Escenas/Objetos/Sala/ventana_sala.tscn" id="6_tkoyl"]
+[ext_resource type="PackedScene" uid="uid://baymeuamqebgj" path="res://Escenas/Objetos/Sala/silla.tscn" id="9_8irrb"]
+[ext_resource type="PackedScene" uid="uid://bc0x6r1sqak4r" path="res://Escenas/Objetos/Sala/mesa_profesor.tscn" id="10_8e6d3"]
+[ext_resource type="PackedScene" uid="uid://dbui3px8bpm0h" path="res://Escenas/Objetos/Sala/tablon_info_sala.tscn" id="10_ey3pn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uq543"]
 size = Vector2(38, 27)

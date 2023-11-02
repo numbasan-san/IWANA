@@ -10,6 +10,10 @@ var zonas: Dictionary
 # Obtiene una referencia a una zona cargada previamente, o agrega la zona si no
 # se encuentra
 func cargar(nombre_zona: String):
+	# Nota: Esto solo funciona si todas las zonas están en la misma
+	# carpeta, no se pueden organizar en subcarpetas. Arreglarlo para que
+	# se busquen en subcarpetas	
+	
 	var zona: Zona
 	if zonas.has(nombre_zona):
 		zona = zonas[nombre_zona]
