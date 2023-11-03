@@ -53,7 +53,7 @@ libraries = {
 }
 
 [node name="inventory_layer" type="CanvasLayer" parent="."]
-process_mode = 3
+layer = 10
 script = ExtResource("2_icu3e")
 
 [node name="inventory_gui" parent="inventory_layer" instance=ExtResource("3_tjsd1")]
