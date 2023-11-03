@@ -2,20 +2,20 @@
 
 [ext_resource type="PackedScene" uid="uid://5t3grq5crsk8" path="res://Escenas/Pantallas/pantalla_inicial.tscn" id="1_abg3v"]
 [ext_resource type="Script" path="res://Script/raiz_juego.gd" id="1_bydot"]
+[ext_resource type="Script" path="res://Script/Personajes/control_personajes.gd" id="2_elau0"]
 [ext_resource type="PackedScene" uid="uid://oc5oqpk3nprt" path="res://Escenas/Pantallas/pantalla_mundo.tscn" id="2_q31dv"]
 [ext_resource type="Script" path="res://Script/controlador_pantallas.gd" id="3_exd4n"]
+[ext_resource type="Script" path="res://Script/Dialogos/parser_dialogos.gd" id="4_kwsf6"]
 [ext_resource type="PackedScene" uid="uid://fpbj5k7vpvlw" path="res://Escenas/Pantallas/pantalla_intro.tscn" id="4_lxdqi"]
 [ext_resource type="PackedScene" uid="uid://daav23mkgp6gf" path="res://Escenas/Pantallas/pantalla_dialogo.tscn" id="5_aafk1"]
-[ext_resource type="Script" path="res://Script/parser_dialogos.gd" id="6_6xq5g"]
 [ext_resource type="PackedScene" uid="uid://dsihg6mcq4ysb" path="res://Escenas/Pantallas/dev_mode.tscn" id="8_fgo5h"]
-[ext_resource type="Script" path="res://Script/control_personajes.gd" id="9_65q0v"]
 [ext_resource type="Script" path="res://Script/control_zonas.gd" id="9_fuif0"]
 
 [node name="Juego" type="Node2D"]
 script = ExtResource("1_bydot")
 
 [node name="Personajes" type="Node" parent="."]
-script = ExtResource("9_65q0v")
+script = ExtResource("2_elau0")
 path_personajes = "Escenas/Personajes"
 
 [node name="Zonas" type="Node" parent="."]
@@ -23,7 +23,7 @@ script = ExtResource("9_fuif0")
 path_zonas = "Escenas/Zonas"
 
 [node name="ParserDialogo" type="Node" parent="."]
-script = ExtResource("6_6xq5g")
+script = ExtResource("4_kwsf6")
 dir = [null, null, null]
 
 [node name="ControladorPantallas" type="Node" parent="."]

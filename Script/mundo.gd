@@ -1,7 +1,7 @@
 extends Node2D
 
 # Reconsiderar si esto va acá o en otra clase
-# Este enum se usa en la funcion spawn para determinar que se debe ahcer si el
+# Este enum se usa en la función spawn para determinar qué se debe hacer si el
 # punto de spawn entregado no existe. Si es ERROR, se imprime un error en la
 # consola y no se cambia la posición del personaje. Si es ZERO, se colocará el
 # personaje en el punto (0, 0). Uno debe asegurarse al diseñar la zona que ese
@@ -10,18 +10,6 @@ extends Node2D
 # ningún punto definido, se usará ZERO
 enum SpawnFallback{ ERROR, ZERO, FIRST }
 
-
-func _ready():
-	pass
-	# TODO: cambiar esto por un sistema que no permita varios personajes controlados
-	# al mismo tiempo por el jugador
-	#p.control_jugador = true
-	# root.cargar(p)
-	#var z = root.cargarZona("sala_p1n1") as Zona
-	#var z = $Escuela/SalaP1N1 as Zona
-	#root.cargar(z)
-	#add_child(z)
-	#moverPersonajeAZona(p, z, Vector2(200, 80), "d")
 
 # Remueve el personaje de la zona en la que está actualmente y lo coloca
 # en la zona nueva
