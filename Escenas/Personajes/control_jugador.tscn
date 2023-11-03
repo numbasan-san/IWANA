@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvwsbxa7kdgob"]
+
+[ext_resource type="Script" path="res://Script/Personajes/control_jugador.gd" id="1_cfkfe"]
+[ext_resource type="Resource" uid="uid://dfuucb5spinx8" path="res://Script/inventario_objetos/inventario/resourses/inventory.tres" id="2_ks6fo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1773"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4l3e"]
+size = Vector2(24, 32)
+
+[node name="ControlJugador" type="Node2D"]
+script = ExtResource("1_cfkfe")
+inventory = ExtResource("2_ks6fo")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ZonaInteraccion" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaInteraccion"]
+shape = SubResource("RectangleShape2D_c1773")
+debug_color = Color(0.803922, 0.419608, 0, 0.419608)
+
+[node name="ActivarTransparencia" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivarTransparencia"]
+shape = SubResource("RectangleShape2D_a4l3e")
+
+[connection signal="area_entered" from="ZonaInteraccion" to="." method="_on_interaccion"]
+[connection signal="area_entered" from="ActivarTransparencia" to="." method="_on_entrar_transparencia"]
+[connection signal="area_exited" from="ActivarTransparencia" to="." method="_on_salir_transparencia"]

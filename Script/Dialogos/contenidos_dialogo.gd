@@ -12,7 +12,7 @@ enum Posicion { IZQUIERDA, CENTRO, DERECHA }
 # Si el personaje ya había sido agregado en ese lado, no hace nada
 # Si el personaje ya había sido agregado en otro lado, lo cambia de lugar
 func agregarPersonaje(personaje, pos: Posicion):
-	var grafico: Node2D = personaje.get_node("GraficosNV")
+	var grafico: Node2D = personaje.modeloDialogo
 	
 	# Si el personaje no tiene un gráfico de diálogo, en general porque no debe
 	# aparecer en diálogos, no se hace nada

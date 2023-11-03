@@ -1,18 +1,17 @@
-[gd_scene load_steps=27 format=3 uid="uid://4sbuc3c6hmin"]
+[gd_scene load_steps=24 format=3 uid="uid://4sbuc3c6hmin"]
 
 [ext_resource type="PackedScene" uid="uid://br2cpyrgrt01f" path="res://Escenas/Personajes/personaje.tscn" id="1_mrvoi"]
 [ext_resource type="Texture2D" uid="uid://d0xij6lmlkfyc" path="res://Assets/DibujosNV/Personajes/nobita2.png" id="2_l1yky"]
 [ext_resource type="Script" path="res://Script/Personajes/control_modelo_mundo.gd" id="3_nn5b1"]
 [ext_resource type="Texture2D" uid="uid://7g745n7ila1f" path="res://Assets/SpritesMundo/Personajes/Noby/abajo/noby_frente.png" id="4_lc6a3"]
-[ext_resource type="Resource" uid="uid://dfuucb5spinx8" path="res://Script/inventario_objetos/inventario/resourses/inventory.tres" id="4_y772p"]
 [ext_resource type="Texture2D" uid="uid://dcmakqvfslp4s" path="res://Assets/SpritesMundo/Personajes/Noby/izquierda/noby_izq.png" id="5_cyj70"]
 [ext_resource type="Texture2D" uid="uid://cq3x5ttsley8y" path="res://Assets/SpritesMundo/Personajes/Noby/derecha/noby_derecha.png" id="6_8m5ow"]
 [ext_resource type="Texture2D" uid="uid://didj3ub8c6haa" path="res://Assets/SpritesMundo/Personajes/Noby/arriba/noby_espa.png" id="7_j1vu1"]
 [ext_resource type="Texture2D" uid="uid://bo1wwsqd18esq" path="res://Assets/SpritesMundo/Personajes/Noby/abajo/noby_camina_abajo.png" id="8_s16mt"]
 [ext_resource type="Texture2D" uid="uid://cyxvulilwfkhj" path="res://Assets/SpritesMundo/Personajes/Noby/izquierda/noby_camina_izquierda.png" id="9_ryd1s"]
 [ext_resource type="Texture2D" uid="uid://beqkcmrhycjmc" path="res://Assets/SpritesMundo/Personajes/Noby/derecha/noby_camina_derecha.png" id="10_86t0l"]
+[ext_resource type="PackedScene" uid="uid://dvwsbxa7kdgob" path="res://Escenas/Personajes/control_jugador.tscn" id="11_c5y00"]
 [ext_resource type="Texture2D" uid="uid://dwsebyxyqpiq7" path="res://Assets/SpritesMundo/Personajes/Noby/arriba/noby_camina_arriba.png" id="11_r4kqr"]
-[ext_resource type="Script" path="res://Script/Personajes/control_jugador.gd" id="12_mby8d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bncsu"]
 size = Vector2(12.0746, 28.5169)
@@ -574,19 +573,11 @@ _data = {
 "walk_up": SubResource("Animation_w3qrm")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rgtgd"]
-size = Vector2(40, 40)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4l3e"]
-size = Vector2(24, 32)
-
 [node name="Noby" instance=ExtResource("1_mrvoi")]
 
-[node name="GraficosNV" parent="." index="0"]
-scale = Vector2(0.3, 0.3)
-
-[node name="Neutral" type="Sprite2D" parent="GraficosNV" index="0"]
-position = Vector2(0, -899)
+[node name="Neutral" type="Sprite2D" parent="ModeloDialogo" index="0"]
+position = Vector2(0, -898)
+scale = Vector2(-1, 1)
 texture = ExtResource("2_l1yky")
 
 [node name="ModeloMundo" parent="." index="1"]
@@ -606,25 +597,5 @@ libraries = {
 "": SubResource("AnimationLibrary_3ha3c")
 }
 
-[node name="ControlJugador" type="Node2D" parent="ModeloMundo" index="3"]
-script = ExtResource("12_mby8d")
-inventory = ExtResource("4_y772p")
-
-[node name="Camera2D" type="Camera2D" parent="ModeloMundo/ControlJugador" index="0"]
-
-[node name="ZonaInteraccion" type="Area2D" parent="ModeloMundo/ControlJugador" index="1"]
+[node name="ControlJugador" parent="ModeloMundo" index="3" instance=ExtResource("11_c5y00")]
 position = Vector2(0, 14)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ModeloMundo/ControlJugador/ZonaInteraccion" index="0"]
-shape = SubResource("RectangleShape2D_rgtgd")
-debug_color = Color(0.803922, 0.419608, 0, 0.419608)
-
-[node name="ActivarTransparencia" type="Area2D" parent="ModeloMundo/ControlJugador" index="2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ModeloMundo/ControlJugador/ActivarTransparencia" index="0"]
-position = Vector2(0, 16)
-shape = SubResource("RectangleShape2D_a4l3e")
-
-[connection signal="area_entered" from="ModeloMundo/ControlJugador/ZonaInteraccion" to="ModeloMundo/ControlJugador" method="_on_interaccion"]
-[connection signal="area_entered" from="ModeloMundo/ControlJugador/ActivarTransparencia" to="ModeloMundo/ControlJugador" method="_on_entrar_transparencia"]
-[connection signal="area_exited" from="ModeloMundo/ControlJugador/ActivarTransparencia" to="ModeloMundo/ControlJugador" method="_on_salir_transparencia"]

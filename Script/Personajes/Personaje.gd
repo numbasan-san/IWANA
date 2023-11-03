@@ -9,7 +9,7 @@ var control_jugador = false
 # La zona en la que el personaje se encuentra actualmente
 var zona: Zona
 
-@onready var graficosNV = $GraficosNV
+@onready var modeloDialogo = $ModeloDialogo
 @onready var modeloMundo = $ModeloMundo
 @onready var modeloCombate = $ModeloCombate
 

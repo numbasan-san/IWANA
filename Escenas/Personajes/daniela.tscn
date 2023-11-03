@@ -5,9 +5,7 @@
 
 [node name="Daniela" instance=ExtResource("1_poelq")]
 
-[node name="GraficosNV" parent="." index="0"]
-scale = Vector2(0.3, 0.3)
-
-[node name="Neutral" type="Sprite2D" parent="GraficosNV" index="0"]
+[node name="Neutral" type="Sprite2D" parent="ModeloDialogo" index="0"]
 position = Vector2(0, -768)
+scale = Vector2(-1, 1)
 texture = ExtResource("2_mrhog")
