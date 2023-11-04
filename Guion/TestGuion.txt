@@ -1,0 +1,5 @@
+[Escena: Introducción]
+[Fondo: presentacion1.png]
+
+[Imagen: Rosaria -> enojada]
+[Derecha: Profe]
