@@ -4,5 +4,5 @@
 
 [node name="BañoP1H" instance=ExtResource("1_pdam1")]
 
-[node name="Area2D" parent="." index="4"]
+[node name="PuertaInvisible" parent="." index="4"]
 spawn = "SpawnBP1H"

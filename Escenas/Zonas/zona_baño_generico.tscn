@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dvs7a5k1ejf15"]
+[gd_scene load_steps=18 format=3 uid="uid://dvs7a5k1ejf15"]
 
 [ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://Escenas/Zonas/zona_base.tscn" id="1_d7yta"]
 [ext_resource type="Texture2D" uid="uid://0ukamifjeqvd" path="res://Assets/SpritesMundo/Terreno/suelo_y_pared.png" id="2_xdoda"]
@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b1qlrlui53qis" path="res://Escenas/Objetos/Baño/lavamanos_abajo.tscn" id="5_2dmbg"]
 [ext_resource type="PackedScene" uid="uid://dbrpal8fvvdd" path="res://Escenas/Objetos/Baño/lavamanos_medio.tscn" id="6_kvbx5"]
 [ext_resource type="PackedScene" uid="uid://ccr8u24afsy6l" path="res://Escenas/Objetos/Baño/lavamanos_arriba.tscn" id="7_583db"]
-[ext_resource type="Script" path="res://Script/puerta/puerta_base.gd" id="8_7wlqn"]
+[ext_resource type="PackedScene" uid="uid://bwqpwxoacpjai" path="res://Escenas/Objetos/Puertas/puerta_invisible.tscn" id="8_3ujkd"]
 [ext_resource type="PackedScene" uid="uid://ddajwcewdj5gy" path="res://Escenas/Objetos/Baño/segmento_baño.tscn" id="8_vfj2d"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_5veu2"]
@@ -189,8 +189,6 @@ pattern_3 = SubResource("TileMapPattern_idm66")
 pattern_4 = SubResource("TileMapPattern_2gc4b")
 pattern_5 = SubResource("TileMapPattern_nv177")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gesa0"]
-
 [node name="BañoGenerico" instance=ExtResource("1_d7yta")]
 y_sort_enabled = true
 
@@ -245,14 +243,9 @@ position = Vector2(35, 129)
 position = Vector2(35, 166)
 
 [node name="SpawnPasillo" type="Node2D" parent="Spawns" index="0"]
-position = Vector2(160, 230)
+position = Vector2(160, 242)
 
-[node name="Area2D" type="Area2D" parent="." index="4"]
-position = Vector2(160, 275)
-script = ExtResource("8_7wlqn")
+[node name="PuertaInvisible" parent="." index="4" instance=ExtResource("8_3ujkd")]
+position = Vector2(160, 274)
 zona = "pasillo_p1n"
 direccion_def = "down"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
-scale = Vector2(1.8, 1)
-shape = SubResource("RectangleShape2D_gesa0")

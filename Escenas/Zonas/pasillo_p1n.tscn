@@ -28,25 +28,21 @@ layer_1/tile_data = PackedInt32Array()
 position = Vector2(1038, 48)
 zona = "sala_p1n1"
 spawn = "SpawnPasillo"
-direccion_def = "up"
 
 [node name="PuertaSalaP1N2" parent="Puertas" index="1" instance=ExtResource("3_vgd84")]
 position = Vector2(1502, 48)
 zona = "sala_p1n2"
 spawn = "SpawnPasillo"
-direccion_def = "up"
 
 [node name="PuertaBañoHFuera" parent="Puertas" index="2" instance=ExtResource("5_sa3qh")]
 position = Vector2(1794, 48)
 zona = "baño_p1h"
 spawn = "SpawnPasillo"
-direccion_def = "up"
 
 [node name="PuertaBañoMFuera" parent="Puertas" index="3" instance=ExtResource("6_6gxcv")]
 position = Vector2(1939, 47)
 zona = "baño_p1m"
 spawn = "SpawnPasillo"
-direccion_def = "up"
 
 [node name="Lockers1" type="Node2D" parent="." index="2"]
 position = Vector2(720, 0)
@@ -91,13 +87,13 @@ position = Vector2(199, 68)
 position = Vector2(240, 68)
 
 [node name="SpawnSP1N1" type="Node2D" parent="Spawns" index="0"]
-position = Vector2(1038, 123)
+position = Vector2(1038, 83)
 
 [node name="SpawnSP1N2" type="Node2D" parent="Spawns" index="1"]
-position = Vector2(1502, 123)
+position = Vector2(1502, 83)
 
 [node name="SpawnBP1H" type="Node2D" parent="Spawns" index="2"]
-position = Vector2(1794, 123)
+position = Vector2(1794, 83)
 
 [node name="SpawnBP1M" type="Node2D" parent="Spawns" index="3"]
-position = Vector2(1939, 123)
+position = Vector2(1939, 83)

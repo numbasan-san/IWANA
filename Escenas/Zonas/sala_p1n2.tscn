@@ -4,7 +4,7 @@
 
 [node name="SalaP1N2" groups=["zonas"] instance=ExtResource("1_6swfk")]
 
-[node name="Puerta" parent="." index="1"]
+[node name="PuertaInvisible" parent="." index="1"]
 spawn = "SpawnSP1N2"
 
 [node name="Par1" parent="Pupitres" index="0"]

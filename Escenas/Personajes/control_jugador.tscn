@@ -1,13 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://dvwsbxa7kdgob"]
+[gd_scene load_steps=7 format=3 uid="uid://dvwsbxa7kdgob"]
 
 [ext_resource type="Script" path="res://Script/Personajes/control_jugador.gd" id="1_cfkfe"]
 [ext_resource type="Resource" uid="uid://dfuucb5spinx8" path="res://Script/inventario_objetos/inventario/resourses/inventory.tres" id="2_ks6fo"]
+[ext_resource type="Shape2D" path="re" id="3_7s0ee"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1773"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_jt2gw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gsopy"]
+resource_local_to_scene = true
 size = Vector2(40, 40)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4l3e"]
-size = Vector2(24, 32)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1773"]
+resource_local_to_scene = true
+size = Vector2(22, 24)
 
 [node name="ControlJugador" type="Node2D"]
 script = ExtResource("1_cfkfe")
@@ -15,17 +20,42 @@ inventory = ExtResource("2_ks6fo")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="ZonaInteraccion" type="Area2D" parent="."]
+[node name="TextureRect" type="TextureRect" parent="Camera2D"]
+modulate = Color(0.0784314, 0.0784314, 0.0784314, 1)
+z_index = -10
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1500.0
+offset_top = -1500.0
+offset_right = 1500.0
+offset_bottom = 1500.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_jt2gw")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ZonaInteraccion"]
-shape = SubResource("RectangleShape2D_c1773")
+[node name="ColeccionItem" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ColeccionItem"]
+shape = SubResource("RectangleShape2D_gsopy")
 debug_color = Color(0.803922, 0.419608, 0, 0.419608)
+
+[node name="InteraccionPuerta" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteraccionPuerta"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_c1773")
+debug_color = Color(0.235294, 0.705882, 0.235294, 0.419608)
 
 [node name="ActivarTransparencia" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActivarTransparencia"]
-shape = SubResource("RectangleShape2D_a4l3e")
+shape = ExtResource("3_7s0ee")
+debug_color = Color(0.705882, 0.705882, 0.705882, 0.419608)
 
-[connection signal="area_entered" from="ZonaInteraccion" to="." method="_on_interaccion"]
+[connection signal="area_entered" from="ColeccionItem" to="." method="_on_interaccion_item"]
+[connection signal="area_entered" from="InteraccionPuerta" to="." method="_on_interaccion_puerta"]
 [connection signal="area_entered" from="ActivarTransparencia" to="." method="_on_entrar_transparencia"]
 [connection signal="area_exited" from="ActivarTransparencia" to="." method="_on_salir_transparencia"]

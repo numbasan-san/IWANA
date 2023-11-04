@@ -17,8 +17,8 @@ position = Vector2(241, 66)
 scale = Vector2(-1, 1)
 
 [node name="SpawnPasillo" parent="Spawns" index="0"]
-position = Vector2(80, 230)
+position = Vector2(80, 242)
 
-[node name="Area2D" parent="." index="4"]
-position = Vector2(80, 275)
+[node name="PuertaInvisible" parent="." index="4"]
+position = Vector2(80, 274)
 spawn = "SpawnBP1M"
