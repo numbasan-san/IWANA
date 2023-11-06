@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dvorh4jj2xgb2" path="res://Assets/SpritesMundo/shadow.png" id="2_2j6go"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bfx45"]
-size = Vector2(38, 8)
+size = Vector2(38, 7)
 
 [node name="PuertaInvisible" type="Area2D"]
 z_index = 1

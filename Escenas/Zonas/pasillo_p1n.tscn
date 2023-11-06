@@ -40,7 +40,7 @@ zona = "baño_p1h"
 spawn = "SpawnPasillo"
 
 [node name="PuertaBañoMFuera" parent="Puertas" index="3" instance=ExtResource("6_6gxcv")]
-position = Vector2(1939, 47)
+position = Vector2(1939, 48)
 zona = "baño_p1m"
 spawn = "SpawnPasillo"
 

@@ -49,11 +49,11 @@ func recolocar_personaje(
 func spawn(
 		personaje: Personaje,
 		zona: Zona,
-		spawn: String = "Default",
+		punto_spawn: String = "Default",
 		direccion: String = 'down',
 		fallback: SpawnFallback = SpawnFallback.ERROR):
 	
-	var nodo_spawn = zona.get_node("Spawns").get_node(spawn)
+	var nodo_spawn = zona.get_node("Spawns").get_node(punto_spawn)
 	var posicion: Vector2
 	
 	# Trata de encontrar el punto de spawn especificado y colocar el
@@ -65,7 +65,7 @@ func spawn(
 		# Se imprime un error y se termina la ejecución, para encontrar el error
 		# más facilmente
 		if fallback == SpawnFallback.ERROR:
-			printerr("Punto de spawn " + "Spawns/" + spawn + " no encontrado")
+			printerr("Punto de spawn " + "Spawns/" + punto_spawn + " no encontrado")
 			return
 		# Se busca si hay algún punto de spawn definido y se elige el primero
 		elif fallback == SpawnFallback.FIRST:

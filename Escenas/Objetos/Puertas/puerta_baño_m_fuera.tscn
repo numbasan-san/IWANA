@@ -8,6 +8,3 @@
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_o3kwm")
 region_rect = Rect2(258, 96, 37, 65)
-
-[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0, 16.5)
