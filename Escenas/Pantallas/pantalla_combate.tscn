@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdhq7xoysevqv"]
+[gd_scene load_steps=14 format=3 uid="uid://bdhq7xoysevqv"]
 
 [ext_resource type="Texture2D" uid="uid://dygwd3t18b2vp" path="res://Assets/Assests de Pruebas/2020-10-25 (4).png" id="1_3scli"]
-[ext_resource type="Texture2D" uid="uid://dsohdplm5xns6" path="res://Assets/Assests de Pruebas/Sin título.jpg" id="2_wh37s"]
+[ext_resource type="Script" path="res://Script/combate/combate.gd" id="1_8k8bs"]
+[ext_resource type="Resource" uid="uid://ds5sdk8aw4l8r" path="res://Script/combate/personajes_stats/resource/Player.tres" id="2_0vdrc"]
+[ext_resource type="Resource" uid="uid://cyc3sn1p8bmn" path="res://Script/combate/personajes_stats/resource/Rajang.tres" id="2_5g6qo"]
+[ext_resource type="Texture2D" uid="uid://dvr6rfjo3dm5k" path="res://Assets/Assests de Pruebas/74f74dd65775e5ea2a87f76d39a596d8.png" id="2_lwywc"]
+[ext_resource type="Texture2D" uid="uid://c8knhlhrmgo4" path="res://Assets/Assests de Pruebas/__glavenus_monster_hunter_drawn_by_milkpanda__sample-b42e3db21a9939973e0e50a33878d1ec.jpg" id="3_7xk6f"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_81bya"]
 bg_color = Color(1, 0, 0, 1)
@@ -18,6 +22,21 @@ border_width_top = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agxvw"]
+bg_color = Color(0, 0, 0, 0.670588)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o0oek"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0316m"]
+bg_color = Color(0, 0, 0, 0.431373)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rafup"]
+bg_color = Color(0.294118, 0.294118, 0.294118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hg3jf"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="pantalla_combate" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -25,6 +44,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_8k8bs")
+player = ExtResource("2_0vdrc")
+enemy = ExtResource("2_5g6qo")
 
 [node name="2020-10-25(4)" type="TextureRect" parent="."]
 layout_mode = 1
@@ -35,27 +57,208 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_3scli")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="enemy_container" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -538.0
+offset_top = -116.0
+offset_right = 942.0
+offset_bottom = 1274.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+
+[node name="TextureRect" type="TextureRect" parent="enemy_container"]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 124.0
-offset_top = -130.0
-offset_right = 341.0
-offset_bottom = 130.0
+offset_top = -559.5
+offset_right = 1847.0
+offset_bottom = 1005.5
 grow_vertical = 2
-alignment = 1
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_lwywc")
 
-[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
-layout_mode = 2
+[node name="ProgressBar" type="ProgressBar" parent="enemy_container"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -694.0
+offset_right = -911.0
+offset_bottom = -637.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.60001, 2.4)
+size_flags_horizontal = 3
 theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 40
 theme_override_styles/background = SubResource("StyleBoxFlat_81bya")
 theme_override_styles/fill = SubResource("StyleBoxFlat_7m82y")
 value = 50.0
+show_percentage = false
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+[node name="Label" type="Label" parent="enemy_container/ProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = -30.5
+offset_right = 131.0
+offset_bottom = 30.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 42
+text = "Enemy: 25/50"
+
+[node name="player_container" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 241.0
+offset_top = -124.0
+offset_right = 1721.0
+offset_bottom = 1266.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+
+[node name="TextureRect" type="TextureRect" parent="player_container"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -559.5
+offset_right = 1847.0
+offset_bottom = 1005.5
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_7xk6f")
+
+[node name="ProgressBar" type="ProgressBar" parent="player_container"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -694.0
+offset_right = -911.0
+offset_bottom = -637.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.60001, 2.4)
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 40
+theme_override_styles/background = SubResource("StyleBoxFlat_81bya")
+theme_override_styles/fill = SubResource("StyleBoxFlat_7m82y")
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="player_container/ProgressBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = -30.5
+offset_right = 131.0
+offset_bottom = 30.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 42
+text = "Player: 25/50"
+
+[node name="player_actions" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -97.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_agxvw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="player_actions"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -23.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="attack" type="Button" parent="player_actions/HBoxContainer"]
 layout_mode = 2
-texture = ExtResource("2_wh37s")
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
+text = "Attack"
+
+[node name="defense" type="Button" parent="player_actions/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
+text = "Defense
+"
+
+[node name="run" type="Button" parent="player_actions/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
+text = "Run"
+
+[node name="text_box" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 10.0
+offset_right = 1142.0
+offset_bottom = 138.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hg3jf")
+
+[node name="label" type="Label" parent="text_box"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 5.0
+offset_right = 155.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 25
+text = "asdadasdas"
+
+[connection signal="pressed" from="player_actions/HBoxContainer/attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="player_actions/HBoxContainer/defense" to="." method="_on_defense_pressed"]
+[connection signal="pressed" from="player_actions/HBoxContainer/run" to="." method="_on_run_pressed"]

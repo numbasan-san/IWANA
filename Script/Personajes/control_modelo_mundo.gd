@@ -21,16 +21,16 @@ func _process(_delta):
 	move_and_slide()
 	
 	# Las animaciones según por donde se mueva el personaje.
-	if get_axis().y == -1:
+	if get_axis().y == -1: # Arriba.
 		anim = 'walk_up'
 		stop_anim = 'stop_up'
-	if get_axis().y == 1:
+	if get_axis().y == 1: # Abajo.
 		anim = 'walk_down'
 		stop_anim = 'stop_down'
-	if get_axis().x == -1:
+	if get_axis().x == -1: # Izquierda.
 		anim = 'walk_left'
 		stop_anim = 'stop_left'
-	if get_axis().x == 1:
+	if get_axis().x == 1: # Derecha.
 		anim = 'walk_right'
 		stop_anim = 'stop_right'
 	$Animation.play(anim)
