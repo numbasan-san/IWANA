@@ -5,7 +5,10 @@ extends Node
 	func (dict): return dict["name"]
 )
 
-var comandos: Array[Callable]
+var unidades: Dictionary
+
+# Separa el guion en unidades. 
+static var regex_unidad = RegEx.new()
 
 # Por ahora vamos a asumir que todo el guión está en un solo archivo. Más
 # adelante hay que permitir escribirlo en varios, lo que significa que se pueden
@@ -17,6 +20,12 @@ var comandos: Array[Callable]
 # guión. Si corremos el juego desde el editor, podemos copiar esos guiónes
 # en la carpeta de recursos
 func _ready():
+	# Separa el guion en unidades. Para que esto funcione todas las instrucciones
+	# tienen que estar escritas dentro de una unidad, y cada unidad debe tener una
+	# etiqueta inicial [Unidad: nombre] y una final [Fin: nombre] o [Fin: Unidad]
+	# Más adelante debe extenderse para poder aceptar escenas que contengan varias
+	# unidades, episodios que contengan varias escenas, etc.
+	regex_unidad.compile("\\[Unidad:(?: |\\t)*(?<nombre>.+)\\]\\n(?<contenido>(?:.*\\n)*?)\\[Fin:(?: |\\t)*(?:\\k<nombre>|(?:U|u)nidad)\\]")
 	var carpeta_guion: String
 	# Se ejecuta el juego desde el ejecutable
 	if OS.has_feature("debug") and not OS.has_feature("editor"):
@@ -31,19 +40,39 @@ func _ready():
 	print("Archivos guión: " + str(archivos_guion))
 	print("Lista de comandos: " + str(todos_los_comandos))
 	for archivo in archivos_guion:
-		parse(carpeta_guion.path_join(archivo))
+		parse_archivo(carpeta_guion.path_join(archivo))
 	print("Ejecutando comandos")
-	for com in comandos:
-		com.call()
+	print("Unidades creadas: " + str(unidades))
+	for unidad in unidades:
+		unidades[unidad].pausar(false)
+
+# Por ahora ejecuta todas las unidades intercaladas. Cambiar para que tenga que
+# terminar una antes de pasar a la siguiente
+func _process(_delta):
+	for unidad in unidades:
+		unidades[unidad].procesar()
 
 # Por ahora se usa FileAccess, porque asumimos que los archivos de texto se van
-# a leer de la misma manera si es un arhcivo externo o está en el pck. Si ese no
+# a leer de la misma manera si es un archivo externo o está en el pck. Si ese no
 # es el caso, hay que agregar una condición para verificar si el texto se lee
 # desde afuera del ejecutable o desde el pck
-func parse(nombre_archivo: String):
+func parse_archivo(nombre_archivo: String):
 	var archivo = FileAccess.open(nombre_archivo, FileAccess.READ)
 	var contenido = archivo.get_as_text(true)
-	var lineas = contenido.split("\n", false)
+	
+	for m in regex_unidad.search_all(contenido):
+		var nombre = m.get_string("nombre")
+		var contenidos = m.get_string("contenido").split("\n", false)
+		var unidad = crear_unidad(nombre, contenidos)
+		unidades[nombre] = unidad
+	
+	#var cl = Unidad
+	#var ins = cl.new([])
+	#print("¿Qué es esto? " + str(cl) + " | " + str(ins))
+	
+
+func crear_unidad(nombre: String, lineas: Array[String]) -> Unidad:
+	print("Creando unidad con nombre " + nombre)
 	
 	# La forma en que va a funcionar el parser es la siguiente:
 	# 1 - Se toma una linea
@@ -53,18 +82,25 @@ func parse(nombre_archivo: String):
 	#		escrita y se arroja un error.
 	# 4 - Si no comienza con [ y no termina con ], es una línea de diálogo
 	
+	var instrucciones: Array[Instruccion] = []
+	
 	for linea in lineas:
+		print("Linea a procesar: " + linea)
+		var instruccion: Instruccion
 		if linea.begins_with("[") and linea.ends_with("]"):
-			extraer_comando(linea.trim_prefix("[").trim_suffix("]").strip_edges())
+			instruccion = extraer_comando(linea.trim_prefix("[").trim_suffix("]").strip_edges())
 		elif not linea.begins_with("[") and not linea.ends_with("]"):
-			extraer_dialogo(linea)
+			instruccion = extraer_dialogo(linea.strip_edges())
 		else:
 			generar_error(linea)
+		if instruccion:
+			instrucciones.append(instruccion)
 	
+	return Unidad.new(nombre, instrucciones)
+	
+
 # Recibe una linea y extrae el comando a ejecutar y sus argumentos
-func extraer_comando(linea: String):
-	linea = linea.strip_edges()
-	print("Linea a procesar: " + linea)
+func extraer_comando(linea: String) -> Instruccion:
 	# Si la linea comienza con # es un comentario y se ignora
 	if linea.begins_with("#"):
 		return
@@ -72,29 +108,42 @@ func extraer_comando(linea: String):
 	var componentes = linea.split(":")
 	assert(componentes.size() <= 2, "El comando debe ser de al forma <nombre>: <args>")
 	# Como las funciones se escriben con minúscula, convertimos el nombre del comando
-	var com = componentes[0].strip_edges().to_lower()
+	var nombre = componentes[0].strip_edges().to_lower()
 	var args = componentes[1].strip_edges()
-	print("Comando: " + com)
-	print("Argumentos: " + str(args))
+	print("Comando: " + nombre)
+	print("Argumentos: " + args)
 	
 	# El comando especificado en el guión tiene que estar definido en la lista
 	# de comandos
-	if todos_los_comandos.find(com) >= 0:
+	if todos_los_comandos.find(nombre) >= 0:
 		# Separamos los argumentos en una lista
-		var split_args = args.split(",")
+		var split_args: Array[String]
+		split_args.append_array(args.split(","))
 		print("Despues de dividir argumentos: " + str(split_args))
 		# Creamos un delegado para ejecutar el comando más tarde con los
 		# argumentos entregados. Cada comando se encargará de verificar que
 		# estos sean los adecuados
-		comandos.append(Callable(script_comandos, com).bind(split_args))
+		return Instruccion.new(nombre, split_args)
 	else:
-		assert(false, "Comando " + com + " no encontrado")
+		assert(false, "Comando " + nombre + " no encontrado")
+		return
 
 # Recibe una linea y extrae una linea de diálogo y quien la dice, si aplica
 func extraer_dialogo(linea: String):
-	pass
+	# Se separa el nombre del personaje de lo que dice. Solo se permite un ':'
+	var componentes = linea.split(":")
+	assert(componentes.size() <= 2, "La linea debe ser de al forma <nombre>: <texto> o <texto>")
+	var nombre = ""
+	var texto = ""
+	
+	if componentes.size() == 1:
+		texto = componentes[0].strip_edges()
+	else:
+		nombre = componentes[0].strip_edges()
+		texto = componentes[1].strip_edges()
+	return Instruccion.new("dialogo", [nombre, texto])
 
 # Recibe una linea mal formada y genera un comando que al ejecutarlo arroja un
 # error
 func generar_error(linea: String):
-	pass
+	print("La linea '" + linea + "' está mal escrita y no se puede reconocer como un comando o una linea de diálogo")

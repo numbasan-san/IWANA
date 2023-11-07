@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bdhq7xoysevqv"]
 
-[ext_resource type="Texture2D" uid="uid://dygwd3t18b2vp" path="res://Assets/Assests de Pruebas/2020-10-25 (4).png" id="1_3scli"]
+[ext_resource type="Texture2D" uid="uid://nu4xj788vmww" path="res://Assets/Assests de Pruebas/2020-10-25 (4).png" id="1_3scli"]
 [ext_resource type="Script" path="res://Script/combate/combate.gd" id="1_8k8bs"]
 [ext_resource type="Resource" uid="uid://ds5sdk8aw4l8r" path="res://Script/combate/personajes_stats/resource/Player.tres" id="2_0vdrc"]
 [ext_resource type="Resource" uid="uid://cyc3sn1p8bmn" path="res://Script/combate/personajes_stats/resource/Rajang.tres" id="2_5g6qo"]

@@ -1,5 +1,22 @@
-[Escena: Introducción]
+[Unidad: a1]
 [Fondo: presentacion1.png]
 
 [Imagen: Rosaria -> enojada]
 [Derecha: Profe]
+
+???: ¡CALLENSE CARAJO!
+???: -Recupera la compostura-
+Profesora Rosaria: yo seré su profesora encargada este año, y deben llamarme profesora Rosaria.
+Noby: El salón está lleno de putos monstruos, parece un circo de deformes. 
+Amigos: (Reacción con emojis de sus amigos riéndose a carcajadas)
+
+[Fondo: presentacion2.png]
+[Imagen: Rosaria -> explicando(1)]
+
+[Error
+
+[Fin: a1]
+
+[Unidad: a2]
+asdasd
+[Fin: unidad]

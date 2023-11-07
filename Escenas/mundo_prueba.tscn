@@ -1,12 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://6j2cf5j310g"]
+[gd_scene load_steps=8 format=3 uid="uid://6j2cf5j310g"]
 
-[ext_resource type="Texture2D" uid="uid://grho2osbx4hy" path="res://Assets/Assests de Pruebas/2020-10-25 (4).png" id="1_gjxul"]
+[ext_resource type="Texture2D" uid="uid://nu4xj788vmww" path="res://Assets/Assests de Pruebas/2020-10-25 (4).png" id="1_gjxul"]
 [ext_resource type="PackedScene" uid="uid://r5xe0lfs4uk1" path="res://Escenas/Personajes/jugador.tscn" id="2_214j2"]
 [ext_resource type="PackedScene" uid="uid://biaksld7iryos" path="res://Escenas/objeto.tscn" id="3_n7j4n"]
-[ext_resource type="PackedScene" uid="uid://c27lwiurpirus" path="res://Escenas/Inventario/inventory_gui.tscn" id="4_eoutw"]
+[ext_resource type="PackedScene" uid="uid://c6r4b6vsbtube" path="res://Escenas/Inventario/inventory_gui.tscn" id="4_eoutw"]
 [ext_resource type="Script" path="res://Script/inventario_objetos/inventario/inventory_layer.gd" id="4_iv0pg"]
-[ext_resource type="PackedScene" uid="uid://b5vmikbm0kax7" path="res://Escenas/Inventario/items/lagarto.tscn" id="6_jb3qb"]
-[ext_resource type="PackedScene" uid="uid://cq01j56mj410e" path="res://Escenas/Inventario/items/toro.tscn" id="7_2p7xl"]
+[ext_resource type="PackedScene" uid="uid://cg87jy7chv1va" path="res://Escenas/Inventario/items/lagarto.tscn" id="6_jb3qb"]
+[ext_resource type="PackedScene" uid="uid://bntylxciwrpvw" path="res://Escenas/Inventario/items/toro.tscn" id="7_2p7xl"]
 
 [node name="Node2D" type="Node2D"]
 

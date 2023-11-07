@@ -48,4 +48,3 @@ texture_normal = ExtResource("6_0145x")
 texture_pressed = ExtResource("7_1rljy")
 
 [connection signal="pressed" from="NuevoJuego" to="NuevoJuego" method="_on_pressed"]
-[connection signal="pressed" from="ModoDev" to="ModoDev" method="_on_pressed"]

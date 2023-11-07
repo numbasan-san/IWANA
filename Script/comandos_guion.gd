@@ -1,9 +1,9 @@
-extends Node
+class_name Comandos
 
 # Crea una escena con el nombre especificado
-static func escena(nombre: Array[String]):
+static func unidad(nombre: Array[String]):
 	assert(nombre.size() == 1, "Número de argumentos incorrecto. Esperaba 1, recibió " + str(nombre))
-	print("Creando escena con nombre " + nombre[0])
+	print("Creando unidad con nombre " + nombre[0])
 
 # Asigna una imagen de fondo a la escena
 static func fondo(nombre_imagen: Array[String]):
@@ -19,3 +19,12 @@ static func imagen(args: Array[String]):
 	
 static func derecha(args: Array[String]):
 	print("Colocando a la derecha: " + str(args))
+
+static func dialogo(args: Array[String]):
+	if args[0]:
+		print(args[0] + ": " + args[1])
+	else:
+		print(args[1])
+
+static func error(nombre_erroneo: String):
+	print("No se encontró un comando con el nombre '" + nombre_erroneo + "'")
