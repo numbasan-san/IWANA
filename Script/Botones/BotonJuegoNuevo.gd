@@ -19,4 +19,5 @@ func _on_pressed():
 	$/root/Juego/PantallaMundo/Mundo.recolocar_personaje(noby, zona_ini)
 	contenidosDialogo.agregarPersonaje(noby, contenidosDialogo.Posicion.IZQUIERDA)
 	contenidosDialogo.agregarPersonaje(dani, contenidosDialogo.Posicion.DERECHA)
-	controladorPantalla.transicion(controladorPantalla.pantallaDialogo)
+	$/root/Juego/ControladorGuion.reiniciar()
+	disabled = true

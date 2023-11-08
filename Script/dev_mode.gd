@@ -1,4 +1,4 @@
-extends Node
+extends Pantalla
 
 @export var todas_las_zonas: Array[String]
 

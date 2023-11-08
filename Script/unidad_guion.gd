@@ -41,7 +41,7 @@ func _input(event):
 func _init(nombre: String, instrucciones: Array[Instruccion]):
 	self.nombre = nombre
 	self.instrucciones = instrucciones
-	reset()
+	reiniciar()
 
 # Ejecuta las instrucciones en secuencia. Hay que pensar en que hacer cuando la
 # instrucción pide esperar por un tiempo, ver si usar la  función wait detiene
@@ -63,7 +63,7 @@ func procesar():
 		if actual >= instrucciones.size():
 			listo = true
 
-func reset():
+func reiniciar():
 	actual = 0
 	linea_actual = 0
 	listo = instrucciones.size() == 0

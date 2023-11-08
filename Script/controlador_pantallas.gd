@@ -15,46 +15,45 @@ extends Node
 
 # La pantalla del modo desarrollo, que permite ver información de las pantallas
 # y cambiar entre ellas libremente
-@onready var pantallaDev = $"../DevMode"
+@onready var pantallaDev: Pantalla = $"../DevMode"
 
 # La primera pantalla, que contiene las imágenes del creador del juego y
 # herramientas, si es que corresponde
-@onready var pantallaIntro = $"../PantallaIntro"
+@onready var pantallaIntro: Pantalla = $"../PantallaIntro"
 
 # Despues de la intro se llega a esta pantalla, donde se muestra un menú
 # para iniciar juego nuevo, cargar un juego, etc.
-@onready var pantallaMenuInicial = $"../PantallaMenuInicial"
+@onready var pantallaMenuInicial: Pantalla = $"../PantallaMenuInicial"
 
 # La pantalla del modo rpg
-@onready var pantallaMundo = $"../PantallaMundo"
+@onready var pantallaMundo: Pantalla = $"../PantallaMundo"
 
 # La pantalla de dialogos. Hasta ahora, la seccion de dialogos funciona como en
 # una novela visual, ocupando completamente la pantalla y deberia tener un
 # fondo. Considerar si se debería tratar solo como un overlay, de manera que
 # pueda superponerse sobre la pantalla rpg.
-@onready var pantallaDialogo = $"../PantallaDialogo"
+@onready var pantallaDialogo: Pantalla = $"../PantallaDialogo"
 
 # La pantalla visible en este momento. 
-@onready var pantallaActual = pantallaIntro
+@onready var pantallaActual: Pantalla = pantallaIntro
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Cambiar esto para que no sea tan repetitivo y que funcione si queremos
 	# más pantallas
-	pantallaMenuInicial.process_mode = Node.PROCESS_MODE_DISABLED
-	pantallaDialogo.process_mode = Node.PROCESS_MODE_DISABLED
-	pantallaMundo.process_mode = Node.PROCESS_MODE_DISABLED
+	pantallaMenuInicial.desactivar()
+	pantallaDialogo.desactivar()
+	pantallaMundo.desactivar()
+	pantallaDev.desactivar()
+	pantallaActual.activar()
 	
-	pantallaActual.show()
 	var anim: AnimationPlayer = pantallaActual.find_child("FadeAnimator", true)
 	anim.play("Fade")
 	anim.animation_finished.connect(func (_anim_name) -> void:
-		pantallaActual.hide()
-		pantallaActual.process_mode = Node.PROCESS_MODE_DISABLED
+		pantallaActual.desactivar()
 		pantallaActual = pantallaMenuInicial
-		pantallaActual.process_mode = Node.PROCESS_MODE_INHERIT
+		pantallaActual.activar()
 		var animator = pantallaActual.find_child("FadeAnimator", true)
-		pantallaActual.show()
 		animator.play("FadeIn")
 	)
 	
@@ -64,16 +63,21 @@ func _ready():
 func transicion(pantalla):
 	var anim: AnimationPlayer = pantallaActual.find_child("FadeAnimator", true)
 	anim.play("FadeOut")
+	pantallaActual.pausar()
 	if $"../DevMode".activado:
-		pantallaDev.hide()
+		pantallaDev.desactivar()
 	anim.animation_finished.connect(func (_anim_name) -> void:
-		pantallaActual.hide()
-		pantallaActual.process_mode = Node.PROCESS_MODE_DISABLED
+		pantallaActual.desactivar()
 		pantallaActual = pantalla
-		pantallaActual.process_mode = Node.PROCESS_MODE_INHERIT
+		pantallaActual.activar()
+		pantallaActual.pausar()
 		anim = pantallaActual.find_child("FadeAnimator", true)
 		anim.play("FadeIn")
-		pantallaActual.show()
+		# Esto es un arreglo sucio para que uno pueda interactuar solo
+		# cuando la pantalla está totalmente visible. Hay que cambiarlo
+		anim.animation_finished.connect(func (_anim_name) -> void:
+			pantallaActual.pausar(false)
+		)
 		if $"../DevMode".activado:
 			pantallaDev.show()
 	)

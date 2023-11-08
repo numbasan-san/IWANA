@@ -1,11 +1,16 @@
 extends Node
 
-@export var script_comandos: Script
-@onready var todos_los_comandos = script_comandos.get_script_method_list().map(
+@onready var comandos: Comandos = $"../Comandos"
+@onready var nombres_comandos = comandos.get_script().get_script_method_list().map(
 	func (dict): return dict["name"]
 )
 
+@export var controlador_guion: ControladorGuion
+# TODO: considerar mover esto a otro nodo que se encargue exclusivamente de
+# ejecutar las instrucciones y que pueda recibir peticiones para cargar unidades
+# arbitrariamente o en orden, o volver hacia atras
 var unidades: Dictionary
+var puntero_unidad: int = 0
 
 # Separa el guion en unidades. 
 static var regex_unidad = RegEx.new()
@@ -38,19 +43,10 @@ func _ready():
 	var dir = DirAccess.open(carpeta_guion)
 	var archivos_guion = Array(dir.get_files())
 	print("Archivos guión: " + str(archivos_guion))
-	print("Lista de comandos: " + str(todos_los_comandos))
+	print("Lista de comandos: " + str(nombres_comandos))
 	for archivo in archivos_guion:
 		parse_archivo(carpeta_guion.path_join(archivo))
-	print("Ejecutando comandos")
-	print("Unidades creadas: " + str(unidades))
-	for unidad in unidades:
-		unidades[unidad].pausar(false)
-
-# Por ahora ejecuta todas las unidades intercaladas. Cambiar para que tenga que
-# terminar una antes de pasar a la siguiente
-func _process(_delta):
-	for unidad in unidades:
-		unidades[unidad].procesar()
+	
 
 # Por ahora se usa FileAccess, porque asumimos que los archivos de texto se van
 # a leer de la misma manera si es un archivo externo o está en el pck. Si ese no
@@ -64,12 +60,7 @@ func parse_archivo(nombre_archivo: String):
 		var nombre = m.get_string("nombre")
 		var contenidos = m.get_string("contenido").split("\n", false)
 		var unidad = crear_unidad(nombre, contenidos)
-		unidades[nombre] = unidad
-	
-	#var cl = Unidad
-	#var ins = cl.new([])
-	#print("¿Qué es esto? " + str(cl) + " | " + str(ins))
-	
+		controlador_guion.agregar(unidad)
 
 func crear_unidad(nombre: String, lineas: Array[String]) -> Unidad:
 	print("Creando unidad con nombre " + nombre)
@@ -92,7 +83,7 @@ func crear_unidad(nombre: String, lineas: Array[String]) -> Unidad:
 		elif not linea.begins_with("[") and not linea.ends_with("]"):
 			instruccion = extraer_dialogo(linea.strip_edges())
 		else:
-			generar_error(linea)
+			instruccion = Instruccion.new(comandos, "error", ["La instrucción estaba mal escrita.\n Linea: " + linea])
 		if instruccion:
 			instrucciones.append(instruccion)
 	
@@ -106,27 +97,35 @@ func extraer_comando(linea: String) -> Instruccion:
 		return
 	# Se separa el nombre del comando de sus argumentos. Solo se permite un ':'
 	var componentes = linea.split(":")
-	assert(componentes.size() <= 2, "El comando debe ser de al forma <nombre>: <args>")
+	assert(componentes.size() <= 2, "El comando debe ser de la forma <nombre>: <args>")
 	# Como las funciones se escriben con minúscula, convertimos el nombre del comando
 	var nombre = componentes[0].strip_edges().to_lower()
-	var args = componentes[1].strip_edges()
+	
+	# Todo el codigo a continuacion está feo porque args puede ser null
+	# o array de strings, y hay muchos ifs. Ver si se puede arreglar. Hay que
+	# obtener la información de los argumentos que reciben las funciones para
+	# saber como convertir los argumentos recibidos del guión
+	var args = null
+	if componentes.size() > 1:
+		args = componentes[1].strip_edges()
 	print("Comando: " + nombre)
-	print("Argumentos: " + args)
+	print("Argumentos: " + str(args))
 	
 	# El comando especificado en el guión tiene que estar definido en la lista
 	# de comandos
-	if todos_los_comandos.find(nombre) >= 0:
+	if nombres_comandos.find(nombre) >= 0:
 		# Separamos los argumentos en una lista
-		var split_args: Array[String]
-		split_args.append_array(args.split(","))
+		var split_args = null
+		if args != null:
+			split_args = [] as Array[String]
+			split_args.append_array(args.split(","))
 		print("Despues de dividir argumentos: " + str(split_args))
 		# Creamos un delegado para ejecutar el comando más tarde con los
 		# argumentos entregados. Cada comando se encargará de verificar que
 		# estos sean los adecuados
-		return Instruccion.new(nombre, split_args)
+		return Instruccion.new(comandos, nombre, split_args)
 	else:
-		assert(false, "Comando " + nombre + " no encontrado")
-		return
+		return Instruccion.new(comandos, "error", ["No existe un comando con el nombre: " + nombre])
 
 # Recibe una linea y extrae una linea de diálogo y quien la dice, si aplica
 func extraer_dialogo(linea: String):
@@ -141,9 +140,4 @@ func extraer_dialogo(linea: String):
 	else:
 		nombre = componentes[0].strip_edges()
 		texto = componentes[1].strip_edges()
-	return Instruccion.new("dialogo", [nombre, texto])
-
-# Recibe una linea mal formada y genera un comando que al ejecutarlo arroja un
-# error
-func generar_error(linea: String):
-	print("La linea '" + linea + "' está mal escrita y no se puede reconocer como un comando o una linea de diálogo")
+	return Instruccion.new(comandos, "dialogo", [nombre, texto] as Array[String])

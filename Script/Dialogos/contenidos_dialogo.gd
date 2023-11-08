@@ -2,10 +2,17 @@ extends Control
 
 enum Posicion { IZQUIERDA, CENTRO, DERECHA }
 
+@export var ruta_fondos: String
+
+@onready var fondo: TextureRect = $EscenaNV/Fondo
 @onready var areaPersonajes = $EscenaNV/AreaPersonajes
 @onready var areaIzquierda: Control = areaPersonajes.get_node("Izquierda")
 @onready var areaCentro: Control = areaPersonajes.get_node("Centro")
 @onready var areaDerecha: Control = areaPersonajes.get_node("Derecha")
+
+@onready var label_nombre = $"CuadroDiálogo/PanelNombre/LabelNombre"
+@onready var label_texto = $"CuadroDiálogo/Texto"
+
 
 # Agrega el grafico asociado a un personaje a la izquierda, centro o derecha
 # del area de personajes.
@@ -76,3 +83,18 @@ func quitarPersonaje(personaje):
 		return
 	
 	graficoEncontrado.get_parent().remove_child(graficoEncontrado)
+
+func cambiar_fondo(imagen: String):
+	# Si el nombre de imagen no tiene extensión, asumimos que se desea un png
+	if not imagen:
+		fondo.hide()
+	
+	if not imagen.get_extension():
+		imagen = imagen + ".png"
+	var ruta = "res://".path_join(ruta_fondos).path_join(imagen)
+	fondo.texture = load(ruta)
+	fondo.show()
+
+func cambiar_dialogo(texto: String, nombre: String = ""):
+	label_nombre.text = nombre
+	label_texto.text = texto

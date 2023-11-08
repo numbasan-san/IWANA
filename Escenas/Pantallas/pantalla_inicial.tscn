@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://5t3grq5crsk8"]
+[gd_scene load_steps=7 format=3 uid="uid://5t3grq5crsk8"]
 
 [ext_resource type="PackedScene" uid="uid://dfnbjn6yyb7iw" path="res://Escenas/Menus/menu_principal.tscn" id="1_31nox"]
+[ext_resource type="Script" path="res://Script/pantalla.gd" id="1_spph5"]
 [ext_resource type="AudioStream" uid="uid://b6a4mf0xkes4b" path="res://Assets/Audio/Fun classes and stupid teachers.wav" id="2_rjv87"]
 
 [sub_resource type="Animation" id="Animation_ya7pr"]
@@ -64,6 +65,7 @@ _data = {
 }
 
 [node name="PantallaInicial" type="CanvasLayer"]
+script = ExtResource("1_spph5")
 
 [node name="MenuPrincipal" parent="." instance=ExtResource("1_31nox")]
 modulate = Color(0, 0, 0, 1)

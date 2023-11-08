@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://fpbj5k7vpvlw"]
+[gd_scene load_steps=5 format=3 uid="uid://fpbj5k7vpvlw"]
 
+[ext_resource type="Script" path="res://Script/pantalla.gd" id="1_7a6pn"]
 [ext_resource type="PackedScene" uid="uid://du31clkq6084d" path="res://Escenas/intro.tscn" id="1_tst8p"]
 
 [sub_resource type="Animation" id="Animation_1go8a"]
@@ -24,6 +25,7 @@ _data = {
 }
 
 [node name="PantallaIntro" type="CanvasLayer"]
+script = ExtResource("1_7a6pn")
 
 [node name="Intro" parent="." instance=ExtResource("1_tst8p")]
 
