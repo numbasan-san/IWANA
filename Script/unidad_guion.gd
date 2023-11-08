@@ -67,6 +67,7 @@ func reiniciar():
 	actual = 0
 	linea_actual = 0
 	listo = instrucciones.size() == 0
+	pausar(false)
 
 func pausar(pausa = true):
 	en_ejecucion = not pausa

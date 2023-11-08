@@ -10,7 +10,7 @@ func _on_pressed():
 	# Código temporal del prototipo para cargar personajes en modo dialogo
 	# Cambiar cuando esté listo el gestor de escenas
 	if boton_dev.is_pressed():
-		$/root/Juego/DevMode.activar()
+		$/root/Juego/DevMode.habilitar()
 	var contenidosDialogo = controladorPantalla.pantallaDialogo.find_child("ContenidosDialogo")
 	var noby = $/root/Juego.cargar_personaje("noby")
 	$/root/Juego/Personajes.cambiar_jugador("noby")

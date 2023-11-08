@@ -6,11 +6,6 @@ extends Node
 )
 
 @export var controlador_guion: ControladorGuion
-# TODO: considerar mover esto a otro nodo que se encargue exclusivamente de
-# ejecutar las instrucciones y que pueda recibir peticiones para cargar unidades
-# arbitrariamente o en orden, o volver hacia atras
-var unidades: Dictionary
-var puntero_unidad: int = 0
 
 # Separa el guion en unidades. 
 static var regex_unidad = RegEx.new()
@@ -131,7 +126,7 @@ func extraer_comando(linea: String) -> Instruccion:
 func extraer_dialogo(linea: String):
 	# Se separa el nombre del personaje de lo que dice. Solo se permite un ':'
 	var componentes = linea.split(":")
-	assert(componentes.size() <= 2, "La linea debe ser de al forma <nombre>: <texto> o <texto>")
+	assert(componentes.size() <= 2, "La linea debe ser de la forma <nombre>: <texto> o <texto>")
 	var nombre = ""
 	var texto = ""
 	

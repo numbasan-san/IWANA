@@ -8,10 +8,6 @@ class_name Comandos
 @onready var contenidosDialogo = controladorPantallas.pantallaDialogo.get_node("ContenidosDialogo")
 @export var fondos: String
 
-# Crea una escena con el nombre especificado
-func unidad(nombre: String):
-	print("Creando unidad con nombre " + nombre)
-
 # Asigna una imagen de fondo a la escena
 func fondo(nombre_imagen: Array[String]):
 	assert(nombre_imagen.size() == 1, "Número de argumentos incorrecto. Esperaba 1, recibió " + str(nombre_imagen))

@@ -85,10 +85,10 @@ func quitarPersonaje(personaje):
 	graficoEncontrado.get_parent().remove_child(graficoEncontrado)
 
 func cambiar_fondo(imagen: String):
-	# Si el nombre de imagen no tiene extensión, asumimos que se desea un png
 	if not imagen:
 		fondo.hide()
 	
+	# Si el nombre de imagen no tiene extensión, asumimos que se desea un png
 	if not imagen.get_extension():
 		imagen = imagen + ".png"
 	var ruta = "res://".path_join(ruta_fondos).path_join(imagen)

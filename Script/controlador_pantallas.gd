@@ -64,7 +64,7 @@ func transicion(pantalla):
 	var anim: AnimationPlayer = pantallaActual.find_child("FadeAnimator", true)
 	anim.play("FadeOut")
 	pantallaActual.pausar()
-	if $"../DevMode".activado:
+	if $"../DevMode".habilitado:
 		pantallaDev.desactivar()
 	anim.animation_finished.connect(func (_anim_name) -> void:
 		pantallaActual.desactivar()
@@ -78,6 +78,6 @@ func transicion(pantalla):
 		anim.animation_finished.connect(func (_anim_name) -> void:
 			pantallaActual.pausar(false)
 		)
-		if $"../DevMode".activado:
-			pantallaDev.show()
+		if $"../DevMode".habilitado:
+			pantallaDev.activar()
 	)

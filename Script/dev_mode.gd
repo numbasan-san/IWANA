@@ -4,10 +4,10 @@ extends Pantalla
 
 @onready var mundo = $/root/Juego/PantallaMundo/Mundo
 
-var activado = false
+var habilitado = false
 
 func _process(_delta):
-	if activado:
+	if habilitado:
 		if $"../Personajes".jugador and $"../Personajes".jugador.zona:
 			$DetallesUbicacion/NombreZona.text = $"../Personajes".jugador.zona.name
 		else:
@@ -17,13 +17,13 @@ func _process(_delta):
 	else:
 		$DetallesDialogo.hide()
 
-func activar():
+func habilitar():
 	print("Dev Mode On")
-	activado = true
+	habilitado = true
 	rellenar_lista_zonas()
 
 func rellenar_lista_zonas():
-	if not activado:
+	if not habilitado:
 		return
 	for nombre_zona in todas_las_zonas:
 		var zona = $"../Zonas".cargar(nombre_zona)

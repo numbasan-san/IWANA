@@ -14,8 +14,6 @@ func _ready():
 	continuar.connect(_on_continuar)
 	unidad_actual = unidades.values()[puntero_unidad]
 
-# Por ahora ejecuta todas las unidades intercaladas. Cambiar para que tenga que
-# terminar una antes de pasar a la siguiente
 func _process(_delta):
 	if en_ejecucion:
 		if puntero_unidad >= unidades.size():
