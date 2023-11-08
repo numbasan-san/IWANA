@@ -11,7 +11,8 @@ var stop_anim = 'stop_down'
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	personaje = $".."
-	$Animation.play(stop_anim) # Animación de "parado" inicial.
+	if has_node("Animation"):
+		$Animation.play(stop_anim) # Animación de "parado" inicial.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -33,8 +34,9 @@ func _process(_delta):
 	if get_axis().x == 1: # Derecha.
 		anim = 'walk_right'
 		stop_anim = 'stop_right'
-	$Animation.play(anim)
-	if  get_axis().x == 0 and get_axis().y == 0:
+	if has_node("Animation"):
+		$Animation.play(anim)
+	if  get_axis().x == 0 and get_axis().y == 0 and has_node("Animation"):
 		# La "animación" de "parado" según la última dirección a la que se movió el jugador.
 		# Se establece en las condicionales anteriores.
 		$Animation.play(stop_anim)

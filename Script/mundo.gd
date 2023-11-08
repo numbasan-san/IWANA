@@ -51,7 +51,7 @@ func spawn(
 		zona: Zona,
 		punto_spawn: String = "Default",
 		direccion: String = 'down',
-		fallback: SpawnFallback = SpawnFallback.ERROR):
+		fallback: SpawnFallback = SpawnFallback.ZERO):
 	
 	var nodo_spawn = zona.get_node("Spawns").get_node(punto_spawn)
 	var posicion: Vector2

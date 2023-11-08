@@ -29,6 +29,7 @@ func rellenar_lista_zonas():
 		var zona = $"../Zonas".cargar(nombre_zona)
 		var boton = Button.new()
 		boton.text = zona.name
+		boton.focus_mode = Control.FOCUS_NONE
 		boton.pressed.connect(func () -> void:
 			var jugador = $"../Personajes".jugador
 			mundo.spawn(jugador, zona, "Default", "down", mundo.SpawnFallback.FIRST)

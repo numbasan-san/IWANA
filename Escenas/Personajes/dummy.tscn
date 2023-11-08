@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxhb1pbyx1uwh"]
+
+[ext_resource type="PackedScene" uid="uid://br2cpyrgrt01f" path="res://Escenas/Personajes/personaje.tscn" id="1_q8eqp"]
+[ext_resource type="Script" path="res://Script/Personajes/control_modelo_mundo.gd" id="2_akl4i"]
+[ext_resource type="Texture2D" uid="uid://dn7bewqtk2b2v" path="res://Assets/SpritesMundo/Personajes/Placeholder.png" id="2_sq6f4"]
+[ext_resource type="Script" path="res://Script/interaccion_dummy.gd" id="4_jgl8h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8fp8"]
+size = Vector2(20, 27)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtrvc"]
+size = Vector2(20, 27)
+
+[node name="Dummy" instance=ExtResource("1_q8eqp")]
+
+[node name="ModeloMundo" parent="." index="1"]
+script = ExtResource("2_akl4i")
+
+[node name="Sprite2D" type="Sprite2D" parent="ModeloMundo" index="0"]
+texture = ExtResource("2_sq6f4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ModeloMundo" index="1"]
+position = Vector2(0, 13.5)
+shape = SubResource("RectangleShape2D_d8fp8")
+
+[node name="InteracciónGeneral" type="Area2D" parent="ModeloMundo" index="2"]
+position = Vector2(0, 17)
+script = ExtResource("4_jgl8h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ModeloMundo/InteracciónGeneral" index="0"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_vtrvc")
+debug_color = Color(0.992157, 0, 0.254902, 0.419608)
