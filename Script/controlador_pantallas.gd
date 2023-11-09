@@ -28,6 +28,9 @@ extends Node
 # La pantalla del modo rpg
 @onready var pantallaMundo: Pantalla = $"../PantallaMundo"
 
+# La pantalla del modo combate
+@onready var pantallaCombate: Pantalla = $"../PantallaCombate"
+
 # La pantalla de dialogos. Hasta ahora, la seccion de dialogos funciona como en
 # una novela visual, ocupando completamente la pantalla y deberia tener un
 # fondo. Considerar si se debería tratar solo como un overlay, de manera que

@@ -77,7 +77,7 @@ func enemy_turn():
 		final_damage = (final_damage / 2)
 		await(textbox_closed)
 	
-	display_text($enemy_combat_container.stats.name + ' te ataca por ' + final_damage + '.')
+	display_text($enemy_combat_container.stats.name + ' te ataca por ' + str(final_damage) + '.')
 	await(textbox_closed)
 	''' Aquí debería ir una animación por el ataque, pero me da flojera  '''
 	$player_combat_container.stats.current_health = ($player_combat_container.stats.current_health - final_damage)
@@ -93,7 +93,7 @@ func _on_run_pressed():
 
 # El ataque del jugador.
 func _on_attack_pressed():
-	display_text('Atacas al ' + $enemy_combat_container.stats.name + ' por ' + $player_combat_container.stats.damage + '.')
+	display_text('Atacas al ' + $enemy_combat_container.stats.name + ' por ' + str($player_combat_container.stats.damage) + '.')
 	await(textbox_closed)
 	
 	# Se establece la vida que tendrá el enemigo después del ataque.

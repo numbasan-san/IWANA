@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://opd742w6udaq"]
+[gd_scene load_steps=14 format=3 uid="uid://opd742w6udaq"]
 
 [ext_resource type="PackedScene" uid="uid://5t3grq5crsk8" path="res://Escenas/Pantallas/pantalla_inicial.tscn" id="1_abg3v"]
 [ext_resource type="Script" path="res://Script/raiz_juego.gd" id="1_bydot"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Script/controlador_guion.gd" id="5_v2tx8"]
 [ext_resource type="PackedScene" uid="uid://dsihg6mcq4ysb" path="res://Escenas/Pantallas/dev_mode.tscn" id="8_fgo5h"]
 [ext_resource type="Script" path="res://Script/control_zonas.gd" id="9_fuif0"]
+[ext_resource type="PackedScene" uid="uid://ba3g3jujljxr3" path="res://Escenas/Pantallas/pantalla_combate.tscn" id="12_etfra"]
 
 [node name="Juego" type="Node2D"]
 script = ExtResource("1_bydot")
@@ -50,8 +51,7 @@ visible = false
 [node name="PantallaMundo" parent="." instance=ExtResource("2_q31dv")]
 visible = false
 
-[node name="PantallaCombate" type="Node2D" parent="."]
-visible = false
+[node name="PantallaCombate" parent="." instance=ExtResource("12_etfra")]
 
 [node name="DevMode" parent="." instance=ExtResource("8_fgo5h")]
 visible = false

@@ -1,0 +1,128 @@
+[gd_scene load_steps=11 format=3 uid="uid://bdhq7xoysevqv"]
+
+[ext_resource type="Script" path="res://Script/combate/combate.gd" id="1_rkgg8"]
+[ext_resource type="Texture2D" uid="uid://bs4mxs7fg1v73" path="res://Assets/Assests de Pruebas/2020-10-25 (4).png" id="2_8xs2e"]
+[ext_resource type="PackedScene" uid="uid://dbuixiuq0ijmx" path="res://Escenas/Personajes/combat_models/character_combat_container.tscn" id="3_gqdyn"]
+[ext_resource type="Resource" uid="uid://cyc3sn1p8bmn" path="res://Script/combate/personajes_stats/resource/Rajang.tres" id="4_bkh8x"]
+[ext_resource type="Resource" uid="uid://ds5sdk8aw4l8r" path="res://Script/combate/personajes_stats/resource/Player.tres" id="5_ntbyr"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_agxvw"]
+bg_color = Color(0, 0, 0, 0.670588)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o0oek"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0316m"]
+bg_color = Color(0, 0, 0, 0.431373)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rafup"]
+bg_color = Color(0.294118, 0.294118, 0.294118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hg3jf"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="ContenidosCombate" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rkgg8")
+
+[node name="2020-10-25(4)" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8xs2e")
+
+[node name="enemy_combat_container" parent="." instance=ExtResource("3_gqdyn")]
+layout_mode = 0
+offset_left = 43.0
+offset_top = 196.0
+offset_right = 1523.0
+offset_bottom = 1586.0
+stats = ExtResource("4_bkh8x")
+
+[node name="player_combat_container" parent="." instance=ExtResource("3_gqdyn")]
+layout_mode = 0
+offset_left = 817.0
+offset_top = 202.0
+offset_right = 2297.0
+offset_bottom = 1592.0
+stats = ExtResource("5_ntbyr")
+
+[node name="player_actions" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -97.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_agxvw")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="player_actions"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -23.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="attack" type="Button" parent="player_actions/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
+text = "Attack"
+
+[node name="defense" type="Button" parent="player_actions/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
+text = "Defense
+"
+
+[node name="run" type="Button" parent="player_actions/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
+text = "Run"
+
+[node name="text_box" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 10.0
+offset_right = 1142.0
+offset_bottom = 138.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hg3jf")
+
+[node name="label" type="Label" parent="text_box"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 5.0
+offset_right = 155.0
+offset_bottom = 43.0
+theme_override_font_sizes/font_size = 25
+text = "asdadasdas"
+
+[connection signal="pressed" from="player_actions/HBoxContainer/attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="player_actions/HBoxContainer/defense" to="." method="_on_defense_pressed"]
+[connection signal="pressed" from="player_actions/HBoxContainer/run" to="." method="_on_run_pressed"]
