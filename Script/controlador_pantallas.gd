@@ -72,13 +72,16 @@ func _ready():
 # esperar a que la animación termine antes de hacerlas invisibles, y habría que
 # saber si la pantalla nueva es parcialmente transparente para saber si hay que
 # ocultarlas o no
-func push(pantalla_nueva: Pantalla):
+func push(pantalla_nueva: Pantalla, animar: bool = true):
 	# La pantalla actual se desactiva pero se sigue mostrando, por lo que se
 	# puede desactivar antes que esté lista la transición. Como la referencia a
 	# la pantalla anterior ya no se necesita, pantalla actual ahora puede
 	# apuntar a la nueva 
 	if pantalla_actual:
 		pantalla_actual.desactivar(true)
+		if animar and pantalla_actual.transiciones.has_animation("Hide"):
+			pantalla_actual.transiciones.play("Hide")
+			await pantalla_actual.transiciones.animation_finished
 	stack_pantallas.push_back(pantalla_nueva)
 	# Desde este punto pantalla_actual se refiere a la pantalla nueva
 	pantalla_actual = pantalla_nueva
@@ -88,7 +91,7 @@ func push(pantalla_nueva: Pantalla):
 	# pantalla anterior
 	pantalla_actual.activar()
 	
-	if pantalla_actual.transiciones and pantalla_actual.transiciones.has_animation("In"):
+	if animar and pantalla_actual.transiciones and pantalla_actual.transiciones.has_animation("In"):
 		# Se pausa la pantalla siguiente para que no reaccione a
 		# inputs del usuario pero se siga viendo.
 		pantalla_actual.desactivar(true)
@@ -97,9 +100,15 @@ func push(pantalla_nueva: Pantalla):
 		pantalla_actual.activar()
 
 # Se puede llamar a esta función para sacar la pantalla del tope de la pila.
-func pop():
+# La pantalla que se desea remover debe pasarse como argumento para evitar casos
+# en que se llama repetidamente a pop y se vacía la pila. De esta manera, solo
+# se remueve la pantalla del tope de la pila si coincide con la que hace la
+# petición
+func pop(pantalla_removida: Pantalla, animar: bool = true):
+	if pantalla_actual != pantalla_removida:
+		return
 	# Si la pantalla actual tiene transición, se debe esperar a que termine
-	if pantalla_actual.transiciones and pantalla_actual.transiciones.has_animation("Out"):
+	if animar and pantalla_actual.transiciones and pantalla_actual.transiciones.has_animation("Out"):
 		# Se pausa la pantalla actual para que no reaccione a
 		# inputs del usuario pero siga mostrándose mientras se ejecuta la
 		# transición
@@ -116,3 +125,6 @@ func pop():
 	# hace que funcionen los inputs
 	pantalla_actual = stack_pantallas.back()
 	pantalla_actual.activar()
+	if animar and pantalla_actual.transiciones.has_animation("Show"):
+		pantalla_actual.transiciones.play("Show")
+		await pantalla_actual.transiciones.animation_finished

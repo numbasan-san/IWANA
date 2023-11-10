@@ -11,6 +11,7 @@ func _input(event):
 	if event.is_action_released("toggle_dev"):
 		if not pantallas.pantalla_dev.habilitado:
 			pantallas.pantalla_dev.habilitar()
+			return
 		if pantallas.pantalla_dev.activa:
 			pantallas.pantalla_dev.desactivar()
 		else:

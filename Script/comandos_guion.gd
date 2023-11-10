@@ -39,7 +39,7 @@ func abrir():
 # Quizas cuando se cambie el sistema de transiciones
 func cerrar():
 	print("Cerrando pantalla de dialogo")
-	pantallas.pop()
+	pantallas.pop(pantallas.pantalla_dialogo)
 
 func error(nombre_erroneo: Array[String]):
 	print("No se encontró un comando con el nombre '" + nombre_erroneo[0] + "'")
