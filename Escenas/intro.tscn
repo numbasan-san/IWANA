@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://du31clkq6084d"]
 
-[ext_resource type="Texture2D" uid="uid://o2frahe0fbq4" path="res://Assets/Assests de Pruebas/34g02emee4491.png" id="1_kkyhw"]
+[ext_resource type="Texture2D" uid="uid://d4mg4f6lmvh5v" path="res://Assets/Assests de Pruebas/34g02emee4491.png" id="1_kkyhw"]
 
 [node name="Intro" type="Control"]
 layout_mode = 3
@@ -11,11 +11,13 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 1154.0
 offset_bottom = 648.0
 color = Color(0, 0, 0, 1)
 
 [node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
 offset_left = 319.0
 offset_top = 127.0
 offset_right = 819.0

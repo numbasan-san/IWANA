@@ -1,12 +1,25 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfnbjn6yyb7iw"]
+[gd_scene load_steps=21 format=3 uid="uid://dfnbjn6yyb7iw"]
 
 [ext_resource type="Script" path="res://Script/menu_principal_cargar_imagen.gd" id="1_kevrv"]
-[ext_resource type="Texture2D" uid="uid://r7tgbmqa8nqo" path="res://Assets/Menus/menuPrincipal.png" id="2_xa41e"]
-[ext_resource type="Texture2D" uid="uid://cr4r7o2jdcxwr" path="res://Assets/Menus/ButtonNew.png" id="3_3k246"]
-[ext_resource type="Texture2D" uid="uid://x1e27yyemxpk" path="res://Assets/Menus/ButtonNewPressed.png" id="4_d6hem"]
+[ext_resource type="Texture2D" uid="uid://cfv7sniox6ss8" path="res://Assets/Menus/menuPrincipal.png" id="2_xa41e"]
+[ext_resource type="Texture2D" uid="uid://bdk8mjutstbh4" path="res://Assets/Menus/Botones/nueva_partida.png" id="3_8e8wm"]
+[ext_resource type="Texture2D" uid="uid://cexe2a2ftd3dj" path="res://Assets/Menus/Botones/nueva_partida2.png" id="4_7k65r"]
 [ext_resource type="Script" path="res://Script/Botones/BotonJuegoNuevo.gd" id="5_h7c82"]
-[ext_resource type="Texture2D" uid="uid://cybuob5hsagts" path="res://Assets/Menus/ButtonDev.png" id="6_0145x"]
-[ext_resource type="Texture2D" uid="uid://demu4blg7ne6m" path="res://Assets/Menus/ButtonDevPressed.png" id="7_1rljy"]
+[ext_resource type="Texture2D" uid="uid://pwsj8rnhhb52" path="res://Assets/Menus/Botones/nueva_partida3.png" id="5_nqi8q"]
+[ext_resource type="Texture2D" uid="uid://cyg6onlvm01yc" path="res://Assets/Menus/ButtonDev.png" id="6_0145x"]
+[ext_resource type="Texture2D" uid="uid://d4j12hui0ou5n" path="res://Assets/Menus/ButtonDevPressed.png" id="7_1rljy"]
+[ext_resource type="Texture2D" uid="uid://dg5h4a48cifvv" path="res://Assets/Menus/Botones/continuar.png" id="7_bjlkw"]
+[ext_resource type="Texture2D" uid="uid://cx4glu34qqsgj" path="res://Assets/Menus/Botones/continuar2.png" id="8_cenkl"]
+[ext_resource type="Texture2D" uid="uid://xlpvxwpmewvu" path="res://Assets/Menus/Botones/continuar3.png" id="9_81ose"]
+[ext_resource type="Texture2D" uid="uid://bkloae51dhino" path="res://Assets/Menus/Botones/opciones.png" id="10_o0fyd"]
+[ext_resource type="Texture2D" uid="uid://cvvftmy7ypckc" path="res://Assets/Menus/Botones/opciones2.png" id="11_tetsu"]
+[ext_resource type="Texture2D" uid="uid://dox5k2q6qdrd0" path="res://Assets/Menus/Botones/opciones3.png" id="12_mp32y"]
+[ext_resource type="Texture2D" uid="uid://b3pvr6kciisy" path="res://Assets/Menus/Botones/extras.png" id="13_s1jvh"]
+[ext_resource type="Texture2D" uid="uid://c4xsacjcerfw1" path="res://Assets/Menus/Botones/extras2.png" id="14_xf18f"]
+[ext_resource type="Texture2D" uid="uid://cbupdx04jrbgn" path="res://Assets/Menus/Botones/extras3.png" id="15_6p2ic"]
+[ext_resource type="Texture2D" uid="uid://buscmf5uya0ho" path="res://Assets/Menus/Botones/salir.png" id="16_fe8dm"]
+[ext_resource type="Texture2D" uid="uid://xlipj5c6rs88" path="res://Assets/Menus/Botones/salir2.png" id="17_h0ynq"]
+[ext_resource type="Texture2D" uid="uid://68vrhxuqwejq" path="res://Assets/Menus/Botones/salir3.png" id="18_1mkem"]
 
 [node name="MenuPrincipal" type="Control"]
 layout_mode = 3
@@ -21,30 +34,87 @@ script = ExtResource("1_kevrv")
 layout_mode = 0
 offset_left = -1.0
 offset_top = -8.0
-offset_right = 2159.0
-offset_bottom = 1232.0
-scale = Vector2(0.535, 0.535)
+offset_right = 3244.0
+offset_bottom = 1862.0
+scale = Vector2(0.355, 0.355)
 texture = ExtResource("2_xa41e")
 
 [node name="NuevoJuego" type="TextureButton" parent="." node_paths=PackedStringArray("boton_dev")]
 layout_mode = 0
-offset_left = 110.0
-offset_top = 332.0
-offset_right = 410.0
-offset_bottom = 392.0
-texture_normal = ExtResource("3_3k246")
-texture_pressed = ExtResource("4_d6hem")
+offset_left = 118.0
+offset_top = 249.0
+offset_right = 314.0
+offset_bottom = 288.0
+rotation = 0.0698132
+texture_normal = ExtResource("3_8e8wm")
+texture_pressed = ExtResource("4_7k65r")
+texture_hover = ExtResource("5_nqi8q")
+ignore_texture_size = true
+stretch_mode = 4
 script = ExtResource("5_h7c82")
 boton_dev = NodePath("../ModoDev")
 
-[node name="ModoDev" type="TextureButton" parent="."]
+[node name="Continuar" type="TextureButton" parent="."]
 layout_mode = 0
-offset_left = 110.0
-offset_top = 412.0
-offset_right = 410.0
-offset_bottom = 472.0
+offset_left = 113.0
+offset_top = 291.0
+offset_right = 318.0
+offset_bottom = 330.0
+rotation = 0.0698132
+texture_normal = ExtResource("7_bjlkw")
+texture_pressed = ExtResource("8_cenkl")
+texture_hover = ExtResource("9_81ose")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Opciones" type="TextureButton" parent="."]
+offset_left = 109.0
+offset_top = 334.0
+offset_right = 314.0
+offset_bottom = 372.0
+rotation = 0.0698132
+texture_normal = ExtResource("10_o0fyd")
+texture_pressed = ExtResource("11_tetsu")
+texture_hover = ExtResource("12_mp32y")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Extra" type="TextureButton" parent="."]
+offset_left = 109.0
+offset_top = 378.0
+offset_right = 314.0
+offset_bottom = 417.0
+rotation = 0.0698132
+texture_normal = ExtResource("13_s1jvh")
+texture_pressed = ExtResource("14_xf18f")
+texture_hover = ExtResource("15_6p2ic")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Salir" type="TextureButton" parent="."]
+offset_left = 105.0
+offset_top = 421.0
+offset_right = 249.0
+offset_bottom = 461.0
+rotation = 0.0698132
+texture_normal = ExtResource("16_fe8dm")
+texture_pressed = ExtResource("17_h0ynq")
+texture_hover = ExtResource("18_1mkem")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="ModoDev" type="TextureButton" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 138.0
+offset_top = 466.0
+offset_right = 341.0
+offset_bottom = 507.0
+rotation = 0.0698132
 toggle_mode = true
 texture_normal = ExtResource("6_0145x")
 texture_pressed = ExtResource("7_1rljy")
+ignore_texture_size = true
+stretch_mode = 4
 
 [connection signal="pressed" from="NuevoJuego" to="NuevoJuego" method="_on_pressed"]

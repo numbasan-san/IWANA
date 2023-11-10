@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dfnbjn6yyb7iw" path="res://Escenas/Menus/menu_principal.tscn" id="1_31nox"]
 [ext_resource type="Script" path="res://Script/pantalla.gd" id="1_spph5"]
-[ext_resource type="AudioStream" uid="uid://b6a4mf0xkes4b" path="res://Assets/Audio/Fun classes and stupid teachers.wav" id="2_rjv87"]
+[ext_resource type="AudioStream" uid="uid://pc3vv4r666eb" path="res://Assets/Audio/Fun classes and stupid teachers.wav" id="2_rjv87"]
 
 [sub_resource type="Animation" id="Animation_ya7pr"]
 resource_name = "FadeIn"
