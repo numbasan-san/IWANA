@@ -118,7 +118,3 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [connection signal="pressed" from="NuevoJuego" to="NuevoJuego" method="_on_pressed"]
-[connection signal="pressed" from="Continuar" to="Continuar" method="_on_pressed"]
-[connection signal="pressed" from="Opciones" to="Opciones" method="_on_pressed"]
-[connection signal="pressed" from="Extra" to="Extra" method="_on_pressed"]
-[connection signal="pressed" from="Salir" to="Salir" method="_on_pressed"]
