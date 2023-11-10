@@ -29,6 +29,7 @@ size_flags_vertical = 4
 script = ExtResource("1_78o6c")
 
 [node name="Panel" type="Panel" parent="."]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 

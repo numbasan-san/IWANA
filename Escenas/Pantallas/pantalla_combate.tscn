@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bdhq7xoysevqv"]
 
-[ext_resource type="Texture2D" uid="uid://nu4xj788vmww" path="res://Assets/Assests de Pruebas/2020-10-25 (4).png" id="1_3scli"]
+[ext_resource type="Texture2D" uid="uid://trytmw4kd4gn" path="res://Assets/Assests de Pruebas/2020-10-25 (4).png" id="1_3scli"]
 [ext_resource type="Script" path="res://Script/combate/combate.gd" id="1_8k8bs"]
 [ext_resource type="Resource" uid="uid://ds5sdk8aw4l8r" path="res://Script/combate/personajes_stats/resource/Player.tres" id="2_0vdrc"]
 [ext_resource type="Resource" uid="uid://cyc3sn1p8bmn" path="res://Script/combate/personajes_stats/resource/Rajang.tres" id="2_5g6qo"]
@@ -68,14 +68,17 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_agxvw")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="player_actions"]
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_top = -23.0
-offset_bottom = 23.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -554.0
+offset_top = -71.0
+offset_right = 558.0
+offset_bottom = -25.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 alignment = 1
 
 [node name="attack" type="Button" parent="player_actions/HBoxContainer"]
