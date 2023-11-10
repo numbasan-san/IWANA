@@ -14,14 +14,19 @@
 [ext_resource type="Script" path="res://Script/control_zonas.gd" id="9_fuif0"]
 [ext_resource type="PackedScene" uid="uid://ba3g3jujljxr3" path="res://Escenas/Pantallas/pantalla_combate.tscn" id="12_etfra"]
 
-[node name="Juego" type="Node2D"]
+[node name="Juego" type="Node2D" node_paths=PackedStringArray("personajes", "zonas", "pantallas")]
 script = ExtResource("1_bydot")
+personajes = NodePath("Personajes")
+zonas = NodePath("Zonas")
+pantallas = NodePath("ControladorPantallas")
 
 [node name="Personajes" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("2_elau0")
 path_personajes = "Escenas/Personajes"
 
 [node name="Zonas" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("9_fuif0")
 path_zonas = "Escenas/Zonas"
 
@@ -32,27 +37,34 @@ controlador_guion = NodePath("../ControladorGuion")
 [node name="ControladorGuion" type="Node" parent="."]
 script = ExtResource("5_v2tx8")
 
-[node name="ControladorPantallas" type="Node" parent="."]
+[node name="ControladorPantallas" type="Node" parent="." node_paths=PackedStringArray("pantalla_dev", "pantalla_intro", "pantalla_menu_inicial", "pantalla_mundo", "pantalla_combate", "pantalla_dialogo")]
+unique_name_in_owner = true
 script = ExtResource("3_exd4n")
+pantalla_dev = NodePath("DevMode")
+pantalla_intro = NodePath("PantallaIntro")
+pantalla_menu_inicial = NodePath("PantallaMenuInicial")
+pantalla_mundo = NodePath("PantallaMundo")
+pantalla_combate = NodePath("PantallaCombate")
+pantalla_dialogo = NodePath("PantallaDialogo")
+
+[node name="PantallaIntro" parent="ControladorPantallas" instance=ExtResource("4_lxdqi")]
+visible = false
+
+[node name="PantallaMenuInicial" parent="ControladorPantallas" instance=ExtResource("1_abg3v")]
+visible = false
+
+[node name="PantallaMundo" parent="ControladorPantallas" instance=ExtResource("2_q31dv")]
+visible = false
+
+[node name="PantallaCombate" parent="ControladorPantallas" instance=ExtResource("12_etfra")]
+
+[node name="PantallaDialogo" parent="ControladorPantallas" instance=ExtResource("5_aafk1")]
+visible = false
+
+[node name="DevMode" parent="ControladorPantallas" instance=ExtResource("8_fgo5h")]
+visible = false
+todas_las_zonas = Array[String](["zona_dev_testing", "sala_p1n1", "sala_p1n2", "baño_p1h", "baño_p1m", "pasillo_p1n"])
 
 [node name="Comandos" type="Node" parent="."]
 script = ExtResource("5_l47bj")
 fondos = "Assets/DibujosNV/Fondos"
-
-[node name="PantallaIntro" parent="." instance=ExtResource("4_lxdqi")]
-visible = false
-
-[node name="PantallaMenuInicial" parent="." instance=ExtResource("1_abg3v")]
-visible = false
-
-[node name="PantallaDialogo" parent="." instance=ExtResource("5_aafk1")]
-visible = false
-
-[node name="PantallaMundo" parent="." instance=ExtResource("2_q31dv")]
-visible = false
-
-[node name="PantallaCombate" parent="." instance=ExtResource("12_etfra")]
-
-[node name="DevMode" parent="." instance=ExtResource("8_fgo5h")]
-visible = false
-todas_las_zonas = Array[String](["zona_dev_testing", "sala_p1n1", "sala_p1n2", "baño_p1h", "baño_p1m", "pasillo_p1n"])

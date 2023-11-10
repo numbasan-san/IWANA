@@ -48,7 +48,8 @@ func activar(indice: int):
 		push_error("Indice fuera de rango")
 
 func _on_continuar():
-	unidades.values()[puntero_unidad].pausar(false)
+	if puntero_unidad < unidades.size():
+		unidades.values()[puntero_unidad].pausar(false)
 	
 func agregar(unidad: Unidad):
 	unidades[unidad.nombre] = unidad

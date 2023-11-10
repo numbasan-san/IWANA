@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://daav23mkgp6gf"]
+[gd_scene load_steps=7 format=3 uid="uid://daav23mkgp6gf"]
 
 [ext_resource type="Script" path="res://Script/pantalla_dialogo.gd" id="1_cic8y"]
 [ext_resource type="PackedScene" uid="uid://dljth7jwfmjlx" path="res://Escenas/Dialogos/contenidos_dialogo.tscn" id="1_fds5q"]
@@ -33,19 +33,37 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_p7lbl"]
-_data = {
-"FadeIn": SubResource("Animation_2y5oe"),
-"FadeOut": SubResource("Animation_xq246")
+[sub_resource type="Animation" id="Animation_2oa0e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ContenidosDialogo:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
 }
 
-[node name="PantallaDialogo" type="CanvasLayer"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_p7lbl"]
+_data = {
+"In": SubResource("Animation_2y5oe"),
+"Out": SubResource("Animation_xq246"),
+"RESET": SubResource("Animation_2oa0e")
+}
+
+[node name="PantallaDialogo" type="CanvasLayer" node_paths=PackedStringArray("contenidos", "transiciones")]
 script = ExtResource("1_cic8y")
+contenidos = NodePath("ContenidosDialogo")
+transiciones = NodePath("Transicion")
 
 [node name="ContenidosDialogo" parent="." instance=ExtResource("1_fds5q")]
 modulate = Color(0, 0, 0, 1)
 
-[node name="FadeAnimator" type="AnimationPlayer" parent="."]
+[node name="Transicion" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_p7lbl")
 }

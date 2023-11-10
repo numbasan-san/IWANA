@@ -1,21 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://ba3g3jujljxr3"]
+[gd_scene load_steps=8 format=3 uid="uid://ba3g3jujljxr3"]
 
 [ext_resource type="Script" path="res://Script/pantalla.gd" id="1_0d1to"]
 [ext_resource type="PackedScene" uid="uid://bdhq7xoysevqv" path="res://Escenas/Pantallas/contenidos_combate.tscn" id="2_sodoh"]
 
 [sub_resource type="Animation" id="Animation_p11p8"]
 resource_name = "FadeIn"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ContenidosCombate:modulate")
+tracks/0/path = NodePath("ContenidosCombate:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.9),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_4ckdj"]
@@ -33,20 +46,62 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_b33fy"]
-_data = {
-"FadeIn": SubResource("Animation_p11p8"),
-"FadeOut": SubResource("Animation_4ckdj")
+[sub_resource type="Animation" id="Animation_o2tsr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0.555556)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ContenidosCombate:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
-[node name="PantallaCombate" type="CanvasLayer"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b33fy"]
+_data = {
+"In": SubResource("Animation_p11p8"),
+"Out": SubResource("Animation_4ckdj"),
+"RESET": SubResource("Animation_o2tsr")
+}
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_aw2b8"]
+
+[node name="PantallaCombate" type="CanvasLayer" node_paths=PackedStringArray("contenidos", "transiciones")]
 visible = false
 script = ExtResource("1_0d1to")
+contenidos = NodePath("ContenidosCombate")
+transiciones = NodePath("Transicion")
 
 [node name="ContenidosCombate" parent="." instance=ExtResource("2_sodoh")]
+visible = false
 modulate = Color(0, 0, 0, 1)
 
-[node name="FadeAnimator" type="AnimationPlayer" parent="."]
+[node name="Transicion" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_b33fy")
 }
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 0.555556)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_aw2b8")

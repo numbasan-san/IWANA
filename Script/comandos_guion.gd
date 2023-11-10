@@ -4,15 +4,15 @@ extends Node
 
 class_name Comandos
 
-@onready var controladorPantallas = $"../ControladorPantallas"
-@onready var contenidosDialogo = controladorPantallas.pantallaDialogo.get_node("ContenidosDialogo")
+@onready var pantallas = $/root/Juego.pantallas
+@onready var contenidos_dialogo = pantallas.pantalla_dialogo.get_node("ContenidosDialogo")
 @export var fondos: String
 
 # Asigna una imagen de fondo a la escena
 func fondo(nombre_imagen: Array[String]):
 	assert(nombre_imagen.size() == 1, "Número de argumentos incorrecto. Esperaba 1, recibió " + str(nombre_imagen))
 	print("Cambiando fondo de la escena a " + nombre_imagen[0])
-	contenidosDialogo.cambiar_fondo(nombre_imagen[0])
+	contenidos_dialogo.cambiar_fondo(nombre_imagen[0])
 
 # Cambia la imagen a uno o más personajes
 func imagen(args: Array[String]):
@@ -29,17 +29,17 @@ func dialogo(args: Array[String]):
 		print(args[0] + ": " + args[1])
 	else:
 		print(args[1])
-	contenidosDialogo.cambiar_dialogo(args[1], args[0])
+	contenidos_dialogo.cambiar_dialogo(args[1], args[0])
 
 func abrir():
 	print("Abriendo pantalla de dialogo")
-	controladorPantallas.transicion(controladorPantallas.pantallaDialogo)
+	pantallas.push(pantallas.pantalla_dialogo)
 
 # TODO: cambiar esto para que pueda pasar a cualquier pantalla, no solo mundo.
 # Quizas cuando se cambie el sistema de transiciones
 func cerrar():
 	print("Cerrando pantalla de dialogo")
-	controladorPantallas.transicion(controladorPantallas.pantallaMundo)
+	pantallas.pop()
 
 func error(nombre_erroneo: Array[String]):
 	print("No se encontró un comando con el nombre '" + nombre_erroneo[0] + "'")
