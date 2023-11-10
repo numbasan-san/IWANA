@@ -53,7 +53,7 @@ func _process(delta):
 	if end_game:  # Cierre del combate.
 		await(textbox_closed)
 		await(get_tree().create_timer(0.5))
-		get_tree().quit()
+		$/root/Juego.pantallas.pop()
 		
 
 # Se establece la vida según qué barra de vida.
@@ -89,7 +89,7 @@ func _on_run_pressed():
 	display_text('Como buen cobarde, huiste.')
 	await(textbox_closed)
 	await(get_tree().create_timer(0.5))
-	get_tree().quit()
+	$/root/Juego.pantallas.pop()
 
 # El ataque del jugador.
 func _on_attack_pressed():

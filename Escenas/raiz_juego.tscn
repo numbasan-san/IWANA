@@ -44,10 +44,6 @@ pantalla_mundo = NodePath("PantallaMundo")
 pantalla_combate = NodePath("PantallaCombate")
 pantalla_dialogo = NodePath("PantallaDialogo")
 
-[node name="DevMode" parent="ControladorPantallas" instance=ExtResource("8_fgo5h")]
-visible = false
-todas_las_zonas = Array[String](["zona_dev_testing", "sala_p1n1", "sala_p1n2", "baño_p1h", "baño_p1m", "pasillo_p1n"])
-
 [node name="PantallaIntro" parent="ControladorPantallas" instance=ExtResource("4_lxdqi")]
 visible = false
 
@@ -61,6 +57,10 @@ visible = false
 
 [node name="PantallaDialogo" parent="ControladorPantallas" instance=ExtResource("5_aafk1")]
 visible = false
+
+[node name="DevMode" parent="ControladorPantallas" instance=ExtResource("8_fgo5h")]
+visible = false
+todas_las_zonas = Array[String](["zona_dev_testing", "sala_p1n1", "sala_p1n2", "baño_p1h", "baño_p1m", "pasillo_p1n"])
 
 [node name="Comandos" type="Node" parent="."]
 script = ExtResource("5_l47bj")
