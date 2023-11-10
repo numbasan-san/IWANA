@@ -58,6 +58,7 @@ func _ready():
 	pantalla_menu_inicial.desactivar()
 	pantalla_dialogo.desactivar()
 	pantalla_mundo.desactivar()
+	pantalla_combate.desactivar()
 	pantalla_dev.desactivar()
 	pantalla_intro.desactivar()
 	

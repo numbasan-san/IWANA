@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c0vpj0bm2dlof"]
+[gd_scene load_steps=9 format=3 uid="uid://c0vpj0bm2dlof"]
 
 [ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://Escenas/Zonas/zona_base.tscn" id="1_ljxgf"]
 [ext_resource type="Texture2D" uid="uid://drteclr64kg31" path="res://Assets/Tilesets/ZonaDev/tilesetDevTest.png" id="2_xemyy"]
 [ext_resource type="PackedScene" uid="uid://ulwb3176yswv" path="res://Escenas/Inventario/items/perro.tscn" id="5_0qu2l"]
+[ext_resource type="PackedScene" uid="uid://bwqpwxoacpjai" path="res://Escenas/Objetos/Puertas/puerta_invisible.tscn" id="6_vo0jc"]
 [ext_resource type="PackedScene" uid="uid://cg87jy7chv1va" path="res://Escenas/Inventario/items/lagarto.tscn" id="7_a5m8c"]
-[ext_resource type="Script" path="res://Script/puerta/puerta_base.gd" id="7_gdu17"]
 [ext_resource type="PackedScene" uid="uid://bntylxciwrpvw" path="res://Escenas/Inventario/items/toro.tscn" id="8_1s1lq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ptxj"]
@@ -26,9 +26,6 @@ terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/2 = SubResource("TileSetAtlasSource_5ptxj")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cj38y"]
-size = Vector2(102.5, 57.5)
 
 [node name="ZonaDevTesting" instance=ExtResource("1_ljxgf")]
 
@@ -69,12 +66,11 @@ position = Vector2(303, 165)
 [node name="perro3" parent="Items" index="8" instance=ExtResource("5_0qu2l")]
 position = Vector2(308, 469)
 
-[node name="Puerta" type="Area2D" parent="." index="2"]
-position = Vector2(-53, 305)
-script = ExtResource("7_gdu17")
-zona = "sala_p1n1"
-direccion_def = "up"
+[node name="SpawnPasillo" type="Node2D" parent="Spawns" index="0"]
+position = Vector2(-47, 223)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Puerta" index="0"]
-position = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_cj38y")
+[node name="PuertaInvisible" parent="." index="3" instance=ExtResource("6_vo0jc")]
+position = Vector2(-48, 296)
+zona = "pasillo_p1n"
+spawn = "SpawnDev"
+direccion_def = "down"

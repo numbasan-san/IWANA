@@ -1,25 +1,25 @@
 [gd_scene load_steps=21 format=3 uid="uid://dfnbjn6yyb7iw"]
 
 [ext_resource type="Script" path="res://Script/menu_principal_cargar_imagen.gd" id="1_kevrv"]
-[ext_resource type="Texture2D" uid="uid://cfv7sniox6ss8" path="res://Assets/Menus/menuPrincipal.png" id="2_xa41e"]
-[ext_resource type="Texture2D" uid="uid://bdk8mjutstbh4" path="res://Assets/Menus/Botones/nueva_partida.png" id="3_8e8wm"]
-[ext_resource type="Texture2D" uid="uid://cexe2a2ftd3dj" path="res://Assets/Menus/Botones/nueva_partida2.png" id="4_7k65r"]
+[ext_resource type="Texture2D" uid="uid://r7tgbmqa8nqo" path="res://Assets/Menus/menuPrincipal.png" id="2_xa41e"]
+[ext_resource type="Texture2D" uid="uid://e3iuc4vdg5d2" path="res://Assets/Menus/Botones/nueva_partida.png" id="3_8e8wm"]
+[ext_resource type="Texture2D" uid="uid://dfvf8fuivo4s4" path="res://Assets/Menus/Botones/nueva_partida2.png" id="4_7k65r"]
 [ext_resource type="Script" path="res://Script/Botones/BotonJuegoNuevo.gd" id="5_h7c82"]
-[ext_resource type="Texture2D" uid="uid://pwsj8rnhhb52" path="res://Assets/Menus/Botones/nueva_partida3.png" id="5_nqi8q"]
-[ext_resource type="Texture2D" uid="uid://cyg6onlvm01yc" path="res://Assets/Menus/ButtonDev.png" id="6_0145x"]
-[ext_resource type="Texture2D" uid="uid://d4j12hui0ou5n" path="res://Assets/Menus/ButtonDevPressed.png" id="7_1rljy"]
-[ext_resource type="Texture2D" uid="uid://dg5h4a48cifvv" path="res://Assets/Menus/Botones/continuar.png" id="7_bjlkw"]
-[ext_resource type="Texture2D" uid="uid://cx4glu34qqsgj" path="res://Assets/Menus/Botones/continuar2.png" id="8_cenkl"]
-[ext_resource type="Texture2D" uid="uid://xlpvxwpmewvu" path="res://Assets/Menus/Botones/continuar3.png" id="9_81ose"]
-[ext_resource type="Texture2D" uid="uid://bkloae51dhino" path="res://Assets/Menus/Botones/opciones.png" id="10_o0fyd"]
-[ext_resource type="Texture2D" uid="uid://cvvftmy7ypckc" path="res://Assets/Menus/Botones/opciones2.png" id="11_tetsu"]
-[ext_resource type="Texture2D" uid="uid://dox5k2q6qdrd0" path="res://Assets/Menus/Botones/opciones3.png" id="12_mp32y"]
-[ext_resource type="Texture2D" uid="uid://b3pvr6kciisy" path="res://Assets/Menus/Botones/extras.png" id="13_s1jvh"]
-[ext_resource type="Texture2D" uid="uid://c4xsacjcerfw1" path="res://Assets/Menus/Botones/extras2.png" id="14_xf18f"]
-[ext_resource type="Texture2D" uid="uid://cbupdx04jrbgn" path="res://Assets/Menus/Botones/extras3.png" id="15_6p2ic"]
-[ext_resource type="Texture2D" uid="uid://buscmf5uya0ho" path="res://Assets/Menus/Botones/salir.png" id="16_fe8dm"]
-[ext_resource type="Texture2D" uid="uid://xlipj5c6rs88" path="res://Assets/Menus/Botones/salir2.png" id="17_h0ynq"]
-[ext_resource type="Texture2D" uid="uid://68vrhxuqwejq" path="res://Assets/Menus/Botones/salir3.png" id="18_1mkem"]
+[ext_resource type="Texture2D" uid="uid://d2smgvjljr4wi" path="res://Assets/Menus/Botones/nueva_partida3.png" id="5_nqi8q"]
+[ext_resource type="Texture2D" uid="uid://cybuob5hsagts" path="res://Assets/Menus/ButtonDev.png" id="6_0145x"]
+[ext_resource type="Texture2D" uid="uid://demu4blg7ne6m" path="res://Assets/Menus/ButtonDevPressed.png" id="7_1rljy"]
+[ext_resource type="Texture2D" uid="uid://ovv855jflsvi" path="res://Assets/Menus/Botones/continuar.png" id="7_bjlkw"]
+[ext_resource type="Texture2D" uid="uid://byjdf7byk2bxi" path="res://Assets/Menus/Botones/continuar2.png" id="8_cenkl"]
+[ext_resource type="Texture2D" uid="uid://yn6hai34trd5" path="res://Assets/Menus/Botones/continuar3.png" id="9_81ose"]
+[ext_resource type="Texture2D" uid="uid://di6g3bvvhos8s" path="res://Assets/Menus/Botones/opciones.png" id="10_o0fyd"]
+[ext_resource type="Texture2D" uid="uid://uu7jh7wi8oqb" path="res://Assets/Menus/Botones/opciones2.png" id="11_tetsu"]
+[ext_resource type="Texture2D" uid="uid://bghflbowuo2lu" path="res://Assets/Menus/Botones/opciones3.png" id="12_mp32y"]
+[ext_resource type="Texture2D" uid="uid://ngweh02k37hx" path="res://Assets/Menus/Botones/extras.png" id="13_s1jvh"]
+[ext_resource type="Texture2D" uid="uid://dm64f0vm10mpg" path="res://Assets/Menus/Botones/extras2.png" id="14_xf18f"]
+[ext_resource type="Texture2D" uid="uid://b702836mq4wej" path="res://Assets/Menus/Botones/extras3.png" id="15_6p2ic"]
+[ext_resource type="Texture2D" uid="uid://c0feiv7ep20l3" path="res://Assets/Menus/Botones/salir.png" id="16_fe8dm"]
+[ext_resource type="Texture2D" uid="uid://bb3le4s4ohgel" path="res://Assets/Menus/Botones/salir2.png" id="17_h0ynq"]
+[ext_resource type="Texture2D" uid="uid://codi1p1mpht1w" path="res://Assets/Menus/Botones/salir3.png" id="18_1mkem"]
 
 [node name="MenuPrincipal" type="Control"]
 layout_mode = 3
@@ -68,6 +68,7 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="Opciones" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 109.0
 offset_top = 334.0
 offset_right = 314.0
@@ -80,6 +81,7 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="Extra" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 109.0
 offset_top = 378.0
 offset_right = 314.0
@@ -92,6 +94,7 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="Salir" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 105.0
 offset_top = 421.0
 offset_right = 249.0

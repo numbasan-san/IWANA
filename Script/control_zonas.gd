@@ -1,5 +1,7 @@
 extends Node
 
+class_name Zonas
+
 # La ruta donde se deben buscar las zonas
 @export var path_zonas: String
 

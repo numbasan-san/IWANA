@@ -1,5 +1,7 @@
 extends Node
 
+class_name Personajes
+
 # La ruta donde se deben buscar los personajes
 @export var path_personajes: String
 

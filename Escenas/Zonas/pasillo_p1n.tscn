@@ -44,6 +44,11 @@ position = Vector2(1939, 48)
 zona = "baño_p1m"
 spawn = "SpawnPasillo"
 
+[node name="PuertaDev" parent="Puertas" index="4" instance=ExtResource("3_vgd84")]
+position = Vector2(78, 48)
+zona = "zona_dev_testing"
+spawn = "SpawnPasillo"
+
 [node name="Lockers1" type="Node2D" parent="." index="2"]
 position = Vector2(720, 0)
 
@@ -97,3 +102,6 @@ position = Vector2(1794, 83)
 
 [node name="SpawnBP1M" type="Node2D" parent="Spawns" index="3"]
 position = Vector2(1939, 83)
+
+[node name="SpawnDev" type="Node2D" parent="Spawns" index="4"]
+position = Vector2(78, 83)
