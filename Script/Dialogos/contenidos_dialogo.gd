@@ -1,88 +1,72 @@
 extends Control
 
+class_name ContenidosDialogo
+
 enum Posicion { IZQUIERDA, CENTRO, DERECHA }
 
 @export var ruta_fondos: String
 
 @onready var fondo: TextureRect = $EscenaNV/Fondo
-@onready var areaPersonajes = $EscenaNV/AreaPersonajes
-@onready var areaIzquierda: Control = areaPersonajes.get_node("Izquierda")
-@onready var areaCentro: Control = areaPersonajes.get_node("Centro")
-@onready var areaDerecha: Control = areaPersonajes.get_node("Derecha")
+@onready var area_personajes = $EscenaNV/AreaPersonajes
+@onready var area_izquierda: Control = area_personajes.get_node("Izquierda")
+@onready var area_centro: Control = area_personajes.get_node("Centro")
+@onready var area_derecha: Control = area_personajes.get_node("Derecha")
 
 @onready var label_nombre = $"CuadroDiálogo/PanelNombre/LabelNombre"
 @onready var label_texto = $"CuadroDiálogo/Texto"
-
 
 # Agrega el grafico asociado a un personaje a la izquierda, centro o derecha
 # del area de personajes.
 # Si el personaje ya había sido agregado en ese lado, no hace nada
 # Si el personaje ya había sido agregado en otro lado, lo cambia de lugar
-func agregarPersonaje(personaje, pos: Posicion):
-	var grafico: Node2D = personaje.modeloDialogo
+func agregar_personaje(personaje: Personaje, pos: Posicion):
+	var grafico: ModeloDialogo = personaje.modelo_dialogo
 	
 	# Si el personaje no tiene un gráfico de diálogo, en general porque no debe
-	# aparecer en diálogos, no se hace nada
-	if not grafico:
+	# aparecer en diálogos, o ya está en la posición, no se hace nada
+	if not grafico or grafico.posicion == pos:
 		return
 	
-	# Considerar mover el gráfico sin duplicarlo
-	var copiaGrafico = grafico.duplicate() as Node2D
-	
-	# Si el personaje ya ha sido agregado, solo uno de estas 3 variables debe
-	# ser distinta de null
-	var graficoIzquierda = areaIzquierda.find_child(grafico.name)
-	var graficoCentro = areaCentro.find_child(grafico.name)
-	var graficoDerecha = areaDerecha.find_child(grafico.name)
-	
+	quitarPersonaje(personaje)
+	personaje.call_deferred("remove_child", grafico)
 	# TODO: agregar código para manejar transiciones
 	match pos:
 		Posicion.IZQUIERDA:
-			if graficoCentro:
-				areaCentro.remove_child(graficoCentro)
-			if graficoDerecha:
-				areaDerecha.remove_child(graficoDerecha)
-			if not graficoIzquierda:
-				copiaGrafico.show()
-				copiaGrafico.mirarDerecha()
-				areaIzquierda.add_child(copiaGrafico)
-				copiaGrafico.position.x = 2 * areaIzquierda.size.x / 3
-				copiaGrafico.position.y = areaIzquierda.size.y
+			area_izquierda.call_deferred("add_child", grafico)
+			grafico.posicion = Posicion.IZQUIERDA
+			grafico.mirar_derecha()
+			grafico.show()
+			var vector = Vector2(2 * area_izquierda.size.x / 3, area_izquierda.size.y)
+			grafico.set_deferred("position", vector)
+			
 		Posicion.CENTRO:
-			if graficoIzquierda:
-				areaIzquierda.remove_child(graficoIzquierda)
-			if graficoDerecha:
-				areaDerecha.remove_child(graficoDerecha)
-			if not graficoCentro:
-				copiaGrafico.show()
-				copiaGrafico.mirarDerecha()
-				areaCentro.add_child(copiaGrafico)
-				copiaGrafico.position.x = areaIzquierda.size.x / 2
-				copiaGrafico.position.y = areaIzquierda.size.y
+			area_centro.call_deferred("add_child", grafico)
+			grafico.posicion = Posicion.CENTRO
+			grafico.mirar_derecha()
+			grafico.show()
+			var vector = Vector2(area_izquierda.size.x / 2, area_izquierda.size.y)
+			grafico.set_deferred("position", vector)
+			
 		Posicion.DERECHA:
-			if graficoIzquierda:
-				areaIzquierda.remove_child(graficoIzquierda)
-			if graficoCentro:
-				areaCentro.remove_child(graficoCentro)
-			if not graficoDerecha:
-				copiaGrafico.show()
-				copiaGrafico.mirarIzquierda()
-				areaDerecha.add_child(copiaGrafico)
-				copiaGrafico.position.x = areaIzquierda.size.x / 3
-				copiaGrafico.position.y = areaIzquierda.size.y
+			area_derecha.call_deferred("add_child", grafico)
+			grafico.posicion = Posicion.DERECHA
+			grafico.mirar_izquierda()
+			grafico.show()
+			var vector = Vector2(area_izquierda.size.x / 3, area_izquierda.size.y)
+			grafico.set_deferred("position", vector)
 
 # Elimina el grafico asociado a un personaje, si es que ya está en el area de
 # personajes
-func quitarPersonaje(personaje):
-	var grafico: Node2D = personaje.get_node("GraficoNV")
-	if not grafico:
-		return
-		
-	var graficoEncontrado = areaPersonajes.find_child(grafico.name)
-	if not graficoEncontrado:
+func quitarPersonaje(personaje: Personaje):
+	var grafico: ModeloDialogo = personaje.modelo_dialogo
+	if not grafico or grafico.posicion == -1:
 		return
 	
-	graficoEncontrado.get_parent().remove_child(graficoEncontrado)
+	grafico.hide()
+	grafico.get_parent().call_deferred("remove_child", grafico)
+	personaje.call_deferred("add_child", grafico)
+	grafico.posicion = -1
+
 
 func cambiar_fondo(imagen: String):
 	if not imagen:

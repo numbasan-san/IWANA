@@ -3,12 +3,14 @@
 [Fondo: bosquejoIntro1.png]
 
 [Imagen: Rosaria -> enojada]
-[Derecha: Profe]
+[Izquierda: Noby, Daniela]
 
 ???: ¡CALLENSE CARAJO!
 [Fondo: bosquejoIntro2.png]
 Profesora Rosaria: yo seré su profesora encargada este año, y deben llamarme profesora Rosaria.
 Noby: El salón está lleno de putos monstruos, parece un circo de deformes. 
+
+[Derecha: Daniela]
 Amigos: (Reacción con emojis de sus amigos riéndose a carcajadas)
 
 [Imagen: Rosaria -> explicando(1)]

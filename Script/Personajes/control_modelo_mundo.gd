@@ -1,6 +1,8 @@
 
 extends CharacterBody2D
 
+class_name ModeloRPG
+
 var personaje: Personaje
 
 var axis : Vector2
@@ -58,7 +60,7 @@ func recolocar(zona_nueva: Zona, posicion: Vector2, direccion: String):
 	var zona_actual = get_parent()
 	# Si lo traemos a una zona por primera vez, hay que mostrar el nodo
 	if not zona_actual is Zona:
-		show()
+		activar()
 	
 	# Si estamos moviendo a una zona distinta, cambiamos el padre de este nodo
 	if zona_nueva != zona_actual:

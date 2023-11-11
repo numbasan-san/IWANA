@@ -5,7 +5,7 @@ extends Node2D
 
 @export var personajes: Personajes
 @export var zonas: Zonas
-@export var pantallas: ControladorPantallas
+@export var pantallas: Pantallas
 
 func _input(event):
 	if event.is_action_released("toggle_dev"):

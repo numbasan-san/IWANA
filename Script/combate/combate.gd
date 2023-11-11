@@ -35,13 +35,13 @@ func _ready():
 	await(textbox_closed)
 	$player_actions.show()
 
-func _input(event):
+func _input(_event):
 	# Para poder cerrar los cuadros de texto.
 	if (Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and $text_box.visible:
 		$text_box.hide()
 		emit_signal("textbox_closed")
 
-func _process(delta):
+func _process(_delta):
 	var end_game = false # Para cuando una de las partes está muerta.
 	if $enemy_combat_container.stats.current_health <= 0: # Gana el jugador.
 		display_text($enemy_combat_container.stats.name + ' fue derrotado.')
@@ -52,7 +52,7 @@ func _process(delta):
 	
 	if end_game:  # Cierre del combate.
 		await(textbox_closed)
-		await(get_tree().create_timer(0.5))
+		get_tree().create_timer(0.5)
 		$/root/Juego.pantallas.pop($/root/Juego.pantallas.pantalla_combate)
 		
 
@@ -88,7 +88,7 @@ func enemy_turn():
 func _on_run_pressed():
 	display_text('Como buen cobarde, huiste.')
 	await(textbox_closed)
-	await(get_tree().create_timer(0.5))
+	get_tree().create_timer(0.5)
 	$/root/Juego.pantallas.pop($/root/Juego.pantallas.pantalla_combate)
 
 # El ataque del jugador.

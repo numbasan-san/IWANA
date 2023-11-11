@@ -34,7 +34,7 @@ func _init(comandos: Comandos, nombre: String, args: Variant = null):
 	
 	if args == null:
 		contenido = Callable(comandos, nombre)
-	elif args is Array[String]:
+	else:
 		contenido = Callable(comandos, nombre).bind(args)
 
 

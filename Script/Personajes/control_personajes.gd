@@ -13,17 +13,21 @@ var jugador: Personaje
 var personajes: Dictionary
 
 # Obtiene una referencia a un personaje cargado previamente, o lo agrega si no
-# se encuentra
+# se encuentra. Si un personaje con ese nombre no existe se retorna null
 func cargar(nombre_personaje: String):
+	nombre_personaje = nombre_personaje.to_lower()
 	var personaje: Personaje
 	if personajes.has(nombre_personaje):
 		personaje = personajes[nombre_personaje]
 	else:
-		personaje = load("res://" + path_personajes + "/" + nombre_personaje + ".tscn").instantiate() as Personaje
+		var scn = load("res://" + path_personajes + "/" + nombre_personaje + ".tscn")
+		if not scn:
+			return null
+		personaje = scn.instantiate() as Personaje
 		personajes[nombre_personaje] = personaje
-		if personaje.modeloMundo:
+		if personaje.modelo_rpg:
 			# Se desactiva para evitar colisiones o uso de recursos
-			personaje.modeloMundo.desactivar()
+			personaje.modelo_rpg.desactivar()
 		add_child(personaje)
 		
 	return personaje

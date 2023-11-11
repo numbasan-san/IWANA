@@ -9,10 +9,11 @@ var control_jugador = false
 # La zona en la que el personaje se encuentra actualmente
 var zona: Zona
 
-@onready var modeloDialogo = $ModeloDialogo
-@onready var modeloMundo = $ModeloMundo
-@onready var modeloCombate = $ModeloCombate
+@export var modelo_dialogo: ModeloDialogo
+@export var modelo_rpg: ModeloRPG
+@export var modelo_combate: ModeloCombate
 
 func recolocar(zona_nueva: Zona, posicion: Vector2, direccion: String):
-	modeloMundo.recolocar(zona_nueva, posicion, direccion)
-	zona = zona_nueva
+	if modelo_rpg:
+		modelo_rpg.recolocar(zona_nueva, posicion, direccion)
+		zona = zona_nueva

@@ -1,6 +1,6 @@
 extends TextureButton
 
-@onready var controladorPantalla = $"/root/Juego/ControladorPantallas"
+@onready var pantallas = $/root/Juego.pantallas
 
 # Esto es una variable temporal para mostrar correctamente el modo
 # dev al comenzar el juego. Hay que reemprazarlo por mejor código despues
@@ -10,18 +10,14 @@ func _on_pressed():
 	# Código temporal del prototipo para cargar personajes en modo dialogo
 	# Cambiar cuando esté listo el gestor de escenas
 	if boton_dev.is_pressed():
-		controladorPantalla.pantalla_dev.habilitar()
-	var contenidosDialogo = controladorPantalla.pantalla_dialogo.find_child("ContenidosDialogo")
+		pantallas.pantalla_dev.habilitar()
 	var noby = $/root/Juego.cargar_personaje("noby")
 	$/root/Juego/Personajes.cambiar_jugador("noby")
-	var dani = $/root/Juego.cargar_personaje("daniela")
 	var zona_ini = $/root/Juego.cargar_zona("sala_p1n1")
-	controladorPantalla.pantalla_mundo.get_node("Mundo").recolocar_personaje(noby, zona_ini)
+	pantallas.pantalla_mundo.get_node("Mundo").recolocar_personaje(noby, zona_ini)
 	var dummy = $/root/Juego.cargar_personaje("dummy")
 	var zona_dev = $/root/Juego.cargar_zona("zona_dev_testing")
-	controladorPantalla.pantalla_mundo.get_node("Mundo").recolocar_personaje(dummy, zona_dev)
-	contenidosDialogo.agregarPersonaje(noby, contenidosDialogo.Posicion.IZQUIERDA)
-	contenidosDialogo.agregarPersonaje(dani, contenidosDialogo.Posicion.DERECHA)
-	controladorPantalla.push(controladorPantalla.pantalla_mundo)
+	pantallas.pantalla_mundo.get_node("Mundo").recolocar_personaje(dummy, zona_dev)
+	pantallas.push(pantallas.pantalla_mundo)
 	$/root/Juego/ControladorGuion.reiniciar()
 	disabled = true

@@ -5,5 +5,5 @@ extends Area2D
 
 class_name AreaInteraccionGeneral
 
-func interaccion(jugador: ControlJugador):
+func interaccion(_jugador: ControlJugador):
 	pass

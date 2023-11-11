@@ -10,5 +10,5 @@ func _input(event):
 		transiciones.seek(delta, true)
 
 func push_inicial(_anim_name):
-	var pantallas = $/root/Juego/ControladorPantallas
+	var pantallas: Pantallas = $/root/Juego.pantallas
 	pantallas.push(pantallas.pantalla_menu_inicial)

@@ -1,9 +1,7 @@
 extends Node
 
-@onready var comandos: Comandos = $"../Comandos"
-@onready var nombres_comandos = comandos.get_script().get_script_method_list().map(
-	func (dict): return dict["name"]
-)
+var script_comandos: Comandos
+var comandos: Dictionary = {}
 
 @export var controlador_guion: ControladorGuion
 
@@ -20,6 +18,13 @@ static var regex_unidad = RegEx.new()
 # guión. Si corremos el juego desde el editor, podemos copiar esos guiónes
 # en la carpeta de recursos
 func _ready():
+	script_comandos = $"../Comandos"
+	for dict in script_comandos.get_script().get_script_method_list():
+		if dict["args"].size() > 0:
+			comandos[dict["name"]] = dict["args"][0]["type"]
+		else:
+			comandos[dict["name"]] = 0
+	
 	# Separa el guion en unidades. Para que esto funcione todas las instrucciones
 	# tienen que estar escritas dentro de una unidad, y cada unidad debe tener una
 	# etiqueta inicial [Unidad: nombre] y una final [Fin: nombre] o [Fin: Unidad]
@@ -38,7 +43,7 @@ func _ready():
 	var dir = DirAccess.open(carpeta_guion)
 	var archivos_guion = Array(dir.get_files())
 	print("Archivos guión: " + str(archivos_guion))
-	print("Lista de comandos: " + str(nombres_comandos))
+	print("Lista de comandos: " + str(comandos))
 	for archivo in archivos_guion:
 		parse_archivo(carpeta_guion.path_join(archivo))
 	
@@ -78,7 +83,7 @@ func crear_unidad(nombre: String, lineas: Array[String]) -> Unidad:
 		elif not linea.begins_with("[") and not linea.ends_with("]"):
 			instruccion = extraer_dialogo(linea.strip_edges())
 		else:
-			instruccion = Instruccion.new(comandos, "error", ["La instrucción estaba mal escrita.\n Linea: " + linea])
+			instruccion = Instruccion.new(script_comandos, "error", "La instrucción estaba mal escrita.\n Linea: " + linea)
 		if instruccion:
 			instrucciones.append(instruccion)
 	
@@ -108,19 +113,35 @@ func extraer_comando(linea: String) -> Instruccion:
 	
 	# El comando especificado en el guión tiene que estar definido en la lista
 	# de comandos
-	if nombres_comandos.find(nombre) >= 0:
+	if comandos.keys().find(nombre) >= 0:
+		# Este es el caso para los comandos que no reciben parámetros
+		if comandos[nombre] == Variant.Type.TYPE_NIL:
+			if args == null:
+				return Instruccion.new(script_comandos, nombre)
+			else:
+				return Instruccion.new(script_comandos, "error", "El comando " + nombre + " no debe recibir parámetros, pero recibió " + args)
+		# Desde este punto los comandos deben recibir parámetros. Si no, es
+		# un error
+		if args == null:
+			return Instruccion.new(script_comandos, "error", "El comando " + nombre + " debe recibir parámetros")
 		# Separamos los argumentos en una lista
-		var split_args = null
-		if args != null:
-			split_args = [] as Array[String]
-			split_args.append_array(args.split(","))
-		print("Despues de dividir argumentos: " + str(split_args))
+		var split_args = args.split(",")
+		# Este es el caso para los comandos que solo reciben un parámetro
+		if comandos[nombre] == Variant.Type.TYPE_STRING:
+			if split_args.size() == 1:
+				return Instruccion.new(script_comandos, nombre, split_args[0] as String)
+			else:
+				return Instruccion.new(script_comandos, "error", "El comando " + nombre + " debe recibir un parámetro de tipo String, pero recibió " + split_args)
+		# Finalmente, este es el caso para los comandos que reciben varios parámetros
+		var temp: Array[String] = []
+		for string in split_args:
+			temp.append(string.strip_edges())
 		# Creamos un delegado para ejecutar el comando más tarde con los
 		# argumentos entregados. Cada comando se encargará de verificar que
 		# estos sean los adecuados
-		return Instruccion.new(comandos, nombre, split_args)
+		return Instruccion.new(script_comandos, nombre, temp)
 	else:
-		return Instruccion.new(comandos, "error", ["No existe un comando con el nombre: " + nombre])
+		return Instruccion.new(script_comandos, "error", "No existe un comando con el nombre: " + nombre)
 
 # Recibe una linea y extrae una linea de diálogo y quien la dice, si aplica
 func extraer_dialogo(linea: String):
@@ -135,4 +156,4 @@ func extraer_dialogo(linea: String):
 	else:
 		nombre = componentes[0].strip_edges()
 		texto = componentes[1].strip_edges()
-	return Instruccion.new(comandos, "dialogo", [nombre, texto] as Array[String])
+	return Instruccion.new(script_comandos, "dialogo", [nombre, texto] as Array[String])

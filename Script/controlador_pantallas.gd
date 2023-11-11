@@ -1,6 +1,6 @@
 extends Node
 
-class_name ControladorPantallas
+class_name Pantallas
 # Controla la transición entre pantallas y menus.
 # Solo una pantalla puede estar activa en cada momento, otras deben estar 
 # pausadas o cerradas.
