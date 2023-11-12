@@ -1,38 +1,55 @@
 
 extends Control
 
-#@onready var player = $player_combat_container # El resource del jugador.
-#@onready var enemy = $enemy_combat_container # El resource del enemigo.
 signal textbox_closed
 
-# La vida que tenga el personaje en turno.
-var current_playerhealth = 0
-var current_enemy_health = 0
+var player = null
+var retrato_player = null
+
+var enemy = null
 
 # Para cuando haya una defensa del jugador.
 var defending = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$player_actions/attacks.hide()
+	player = $player_actions/stats_screen.get_child(0)
+	retrato_player = $retratos_player.get_child(0)
+	enemy = $enemy_combat_container
+
 	# Se cargan los stats y sprite del jugador.
-	set_health($player_combat_container/Panel/ProgressBar, $player_combat_container.stats.health, $player_combat_container.stats.health, $player_combat_container.stats.name)
-	$player_combat_container/Panel/TextureRect.texture = $player_combat_container.stats.texture
+	set_health(
+		player.get_node("ProgressBar"), 
+		player.stats.health, 
+		player.stats.health,
+		player.stats.name
+	)
+	player.get_node("retrato").texture = (
+		player.stats.texture
+	)
+	player.get_node("etiqueta_nombre/Label").text = (
+		str(player.stats.name)
+	)
+	retrato_player.get_node("retrato").texture = player.stats.retrato
 
 	# Se cargan los stats y sprite del enemigo.
-	set_health($enemy_combat_container/Panel/ProgressBar, $enemy_combat_container.stats.health, $enemy_combat_container.stats.health, $enemy_combat_container.stats.name)
-	$enemy_combat_container/Panel/TextureRect.texture = $enemy_combat_container.stats.texture
-
-	# Se establece la vida del enemigo y el jugador que tengan en el momento de iniciar el combate.
-#	current_$player_combat_container_health = $player_combat_container.health
-#	current_enemy_health = enemy.health
+	set_health(
+		enemy.get_node("ProgressBar"),
+		enemy.stats.health,
+		enemy.stats.health,
+		enemy.stats.name
+	)
+	enemy.get_node('retrato').texture = enemy.stats.texture
 
 	# Para verificar que los cuadros de texto estén cerrados.
 	$text_box.hide()
 	$player_actions.hide()
 
 	# Cuadros de texto que avisan qué pasa.
-	display_text('Un ' + $enemy_combat_container.stats.name + ' de prueba quiere pelear!')
+	display_text('Un ' + enemy.stats.name + ' de prueba quiere pelear!')
 	await(textbox_closed)
+
 	$player_actions.show()
 
 func _input(_event):
@@ -43,11 +60,11 @@ func _input(_event):
 
 func _process(_delta):
 	var end_game = false # Para cuando una de las partes está muerta.
-	if $enemy_combat_container.stats.current_health <= 0: # Gana el jugador.
-		display_text($enemy_combat_container.stats.name + ' fue derrotado.')
+	if enemy.stats.current_health <= 0: # Gana el jugador.
+		display_text(enemy.stats.name + ' fue derrotado.')
 		end_game = !end_game
-	elif $player_combat_container.stats.current_health <= 0: # Gana el enemigo.
-		display_text($enemy_combat_container.stats.name + ' te derrotó.')
+	elif player.stats.current_health <= 0: # Gana el enemigo.
+		display_text(enemy.stats.name + ' te derrotó.')
 		end_game = !end_game
 	
 	if end_game:  # Cierre del combate.
@@ -60,7 +77,7 @@ func _process(_delta):
 func set_health(progress_bar, health, max_health, current_character):
 	progress_bar.value = health
 	progress_bar.max_value = max_health
-	progress_bar.get_node('Label').text = current_character + ": " + str(health) + "/" + str(max_health)
+	progress_bar.get_node('Label').text = str(health) + "/" + str(max_health)
 
 # Para mostrar el texto dentro de los cuadros de texto.
 func display_text(text):
@@ -69,22 +86,33 @@ func display_text(text):
 
 # Para que el enemigo haga algo.
 func enemy_turn():
-	var final_damage = $enemy_combat_container.stats.damage
-	
+	var final_damage = enemy.stats.damage
+
 	if defending: # En caso de que el jugador se esté defendiendo.
 		defending = false
 		display_text('Te defiendes exitosamente.')
 		final_damage = (final_damage / 2)
 		await(textbox_closed)
-	
-	display_text($enemy_combat_container.stats.name + ' te ataca por ' + str(final_damage) + '.')
-	await(textbox_closed)
-	''' Aquí debería ir una animación por el ataque, pero me da flojera  '''
-	$player_combat_container.stats.current_health = ($player_combat_container.stats.current_health - final_damage)
-	set_health($player_combat_container/Panel/ProgressBar, $player_combat_container.stats.current_health, $player_combat_container.stats.health, $player_combat_container.stats.name)
-	
 
-# Para terminar el combate por la fuerzza.
+	display_text(enemy.stats.name + ' te ataca por ' + str(final_damage) + '.')
+	await(textbox_closed)
+
+	# Animación para cuando se es herido.
+	retrato_player.get_node("animation").play('hurt')
+	await(retrato_player.get_node("animation").animation_finished)
+
+	player.stats.current_health = (player.stats.current_health - final_damage)
+	set_health(
+		player.get_node("ProgressBar"), 
+		player.stats.current_health, 
+		player.stats.health,
+		player.stats.name
+	)
+
+	$player_actions/attacks.hide()
+	$player_actions/actions.show()
+
+# Para terminar el combate por la fuerza.
 func _on_run_pressed():
 	display_text('Como buen cobarde, huiste.')
 	await(textbox_closed)
@@ -93,16 +121,8 @@ func _on_run_pressed():
 
 # El ataque del jugador.
 func _on_attack_pressed():
-	display_text('Atacas al ' + $enemy_combat_container.stats.name + ' por ' + str($player_combat_container.stats.damage) + '.')
-	await(textbox_closed)
-	
-	# Se establece la vida que tendrá el enemigo después del ataque.
-	$enemy_combat_container.stats.current_health = ($enemy_combat_container.stats.current_health - $player_combat_container.stats.damage)
-	set_health($enemy_combat_container/Panel/ProgressBar, $enemy_combat_container.stats.current_health, $enemy_combat_container.stats.health, $enemy_combat_container.stats.name)
-	
-	''' Aquí debería ir una animación por el ataque, pero me da flojera  '''
-	
-	enemy_turn() # Turno enemigo.
+	$player_actions/actions.hide()
+	$player_actions/attacks.show()
 
 # La defensa del jugador.
 func _on_defense_pressed():
@@ -110,3 +130,41 @@ func _on_defense_pressed():
 	display_text('Aprietas los dientes.')
 	await(textbox_closed)
 	enemy_turn()
+
+func _on_attack_1_pressed():
+	var text = 'ataque 1'
+	make_attack(text)
+
+func _on_attack_2_pressed():
+	var text = 'ataque 2'
+	make_attack(text)
+
+func _on_attack_3_pressed():
+	var text = 'ataque 3'
+	make_attack(text)
+
+func _on_attack_4_pressed():
+	var text = 'ataque 4'
+	make_attack(text)
+
+
+func make_attack(text):
+	display_text('Atacas al ' + enemy.stats.name + ' por ' + str(player.stats.damage) + ' con el ' + text + '.')
+	await(textbox_closed)
+
+	# Se establece la vida que tendrá el enemigo después del ataque.
+	enemy.stats.current_health = (
+		enemy.stats.current_health - player.stats.damage
+	)
+	set_health(
+		enemy.get_node("ProgressBar"),
+		enemy.stats.current_health,
+		enemy.stats.health,
+		enemy.stats.name
+	)
+
+	# Animación para cuando se es herido.
+	enemy.get_node("animation").play('hurt')
+	await(enemy.get_node("animation").animation_finished)
+
+	enemy_turn() # Turno enemigo.
