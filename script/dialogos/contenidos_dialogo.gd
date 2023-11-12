@@ -27,43 +27,50 @@ func agregar_personaje(personaje: Personaje, pos: Posicion):
 	if not grafico or grafico.posicion == pos:
 		return
 	
-	quitarPersonaje(personaje)
+	# Si llegamos acá entonces hay que sacar al personaje de algún area. Despues
+	# de llamar a esta función, el modelo va a estar fuera de la pantalla y
+	# de vuelta con su personaje
+	quitar_personaje(personaje)
 	personaje.call_deferred("remove_child", grafico)
 	# TODO: agregar código para manejar transiciones
+	var area_objetivo = Control
+	var posicion_objetivo: Posicion
 	match pos:
 		Posicion.IZQUIERDA:
-			area_izquierda.call_deferred("add_child", grafico)
-			grafico.posicion = Posicion.IZQUIERDA
+			area_objetivo = area_izquierda
+			posicion_objetivo = Posicion.IZQUIERDA
 			grafico.mirar_derecha()
-			grafico.show()
-			var vector = Vector2(2 * area_izquierda.size.x / 3, area_izquierda.size.y)
-			grafico.set_deferred("position", vector)
-			
 		Posicion.CENTRO:
-			area_centro.call_deferred("add_child", grafico)
-			grafico.posicion = Posicion.CENTRO
+			area_objetivo = area_centro
+			posicion_objetivo = Posicion.CENTRO
 			grafico.mirar_derecha()
-			grafico.show()
-			var vector = Vector2(area_izquierda.size.x / 2, area_izquierda.size.y)
-			grafico.set_deferred("position", vector)
-			
 		Posicion.DERECHA:
-			area_derecha.call_deferred("add_child", grafico)
-			grafico.posicion = Posicion.DERECHA
+			area_objetivo = area_derecha
+			posicion_objetivo = Posicion.DERECHA
 			grafico.mirar_izquierda()
-			grafico.show()
-			var vector = Vector2(area_izquierda.size.x / 3, area_izquierda.size.y)
-			grafico.set_deferred("position", vector)
+	
+	area_objetivo.call_deferred("add_child", grafico)
+	grafico.posicion = posicion_objetivo
+	grafico.show()
+	call_deferred("_reordenar", area_objetivo)
 
 # Elimina el grafico asociado a un personaje, si es que ya está en el area de
 # personajes
-func quitarPersonaje(personaje: Personaje):
+func quitar_personaje(personaje: Personaje):
 	var grafico: ModeloDialogo = personaje.modelo_dialogo
 	if not grafico or grafico.posicion == Posicion.NINGUNA:
 		return
-	
+	var area: Control
+	match grafico.posicion:
+		Posicion.IZQUIERDA:
+			area = area_izquierda
+		Posicion.CENTRO:
+			area = area_centro
+		Posicion.DERECHA:
+			area = area_derecha
 	grafico.hide()
 	grafico.get_parent().call_deferred("remove_child", grafico)
+	call_deferred("_reordenar", area)
 	personaje.call_deferred("add_child", grafico)
 	grafico.posicion = Posicion.NINGUNA
 
@@ -85,3 +92,16 @@ func cambiar_dialogo(texto: String, nombre: String = ""):
 	
 func cambiar_imagen(personaje: Personaje, imagen_objetivo: String):
 	personaje.modelo_dialogo.cambiar_imagen(imagen_objetivo)
+
+# Cambia la posición de los personajes en el area de la pantalla dependiendo de
+# cuantos hay. Los personajes ya deben haberse agregado o quitado antes de
+# llamar a esta función
+func _reordenar(area: Control):
+	# Vamos a mostrar a los personajes centrados en el area correspondiente,
+	# dejando los extremos izquierdo y derecho libres
+	var tamaño = area.get_child_count() + 2
+	var i = 1
+	while i < tamaño - 1:
+		var vector = Vector2(i * area.size.x / tamaño, area.size.y)
+		area.get_child(i - 1).position = vector
+		i += 1

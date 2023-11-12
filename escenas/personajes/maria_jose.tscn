@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://duhl2a4ymx2rp" path="res://Assets/DibujosNV/Personajes/josemaria2.png" id="4_hxba3"]
 [ext_resource type="Script" path="res://script/personajes/modelo_combate.gd" id="5_nsatu"]
 
-[node name="Daniela" type="Node" node_paths=PackedStringArray("modelo_dialogo", "modelo_rpg", "modelo_combate")]
+[node name="MariaJose" type="Node" node_paths=PackedStringArray("modelo_dialogo", "modelo_rpg", "modelo_combate")]
 script = ExtResource("1_plsk1")
 modelo_dialogo = NodePath("ModeloDialogo")
 modelo_rpg = NodePath("ModeloRPG")
