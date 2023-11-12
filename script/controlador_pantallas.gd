@@ -73,10 +73,13 @@ func _ready():
 # saber si la pantalla nueva es parcialmente transparente para saber si hay que
 # ocultarlas o no
 func push(pantalla_nueva: Pantalla, animar: bool = true):
+	if pantalla_nueva.push_solicitado:
+		return
 	# La pantalla actual se desactiva pero se sigue mostrando, por lo que se
 	# puede desactivar antes que esté lista la transición. Como la referencia a
 	# la pantalla anterior ya no se necesita, pantalla actual ahora puede
 	# apuntar a la nueva 
+	pantalla_nueva.push_solicitado = true
 	if pantalla_actual:
 		pantalla_actual.desactivar(true)
 		if animar and pantalla_actual.transiciones.has_animation("Hide"):
@@ -98,6 +101,7 @@ func push(pantalla_nueva: Pantalla, animar: bool = true):
 		pantalla_actual.transiciones.play("In")
 		await pantalla_actual.transiciones.animation_finished
 		pantalla_actual.activar()
+	pantalla_actual.push_solicitado = false
 
 # Se puede llamar a esta función para sacar la pantalla del tope de la pila.
 # La pantalla que se desea remover debe pasarse como argumento para evitar casos
@@ -105,8 +109,11 @@ func push(pantalla_nueva: Pantalla, animar: bool = true):
 # se remueve la pantalla del tope de la pila si coincide con la que hace la
 # petición
 func pop(pantalla_removida: Pantalla, animar: bool = true):
-	if pantalla_actual != pantalla_removida:
+	# Si alguna pantalla que no es la actual o una pantalla que ya está en
+	# proceso de ser removida solicitan removerse, deben ignorarse
+	if pantalla_actual != pantalla_removida or pantalla_actual.pop_solicitado:
 		return
+	pantalla_actual.pop_solicitado = true
 	# Si la pantalla actual tiene transición, se debe esperar a que termine
 	if animar and pantalla_actual.transiciones and pantalla_actual.transiciones.has_animation("Out"):
 		# Se pausa la pantalla actual para que no reaccione a
@@ -121,6 +128,9 @@ func pop(pantalla_removida: Pantalla, animar: bool = true):
 	# la pantalla actual
 	pantalla_actual.desactivar()
 	stack_pantallas.pop_back()
+	# En este punto se terminó la espera para remover la pantalla, así que se
+	# puede volver su estado de procesamiento a false
+	pantalla_actual.pop_solicitado = false
 	# Y activar la pantalla siguiente. Ya era visible, así que esto solo
 	# hace que funcionen los inputs
 	pantalla_actual = stack_pantallas.back()

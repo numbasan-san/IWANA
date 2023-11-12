@@ -9,8 +9,6 @@ extends TextureButton
 func _on_pressed():
 	# Código temporal del prototipo para cargar personajes en modo dialogo
 	# Cambiar cuando esté listo el gestor de escenas
-	if boton_dev.is_pressed():
-		pantallas.pantalla_dev.habilitar()
 	var noby = $/root/Juego.cargar_personaje("noby")
 	$/root/Juego/Personajes.cambiar_jugador("noby")
 	var zona_ini = $/root/Juego.cargar_zona("sala_p1n1")

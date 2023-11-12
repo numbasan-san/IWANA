@@ -11,6 +11,19 @@ class_name Pantalla
 
 var activa = false
 
+# A veces ocurre un error cuando se solicita un pop en una función _process,
+# mientras se espera a que termine la animación, _process vuelve a ejecutarse,
+# posiblemente en otro thread, y llama varias veces a la función pop, cada una
+# pasando como parámetro la misma pantalla, y todas esas ejecuciones se encolan.
+# Entonces a medida que todas las funciones terminan de esperar, eliminan la
+# pantalla del tope de la pila en secuencia, lo que hace que se vacíe.
+# Esta variable debe ser true despues que se llama a pop de esta pantalla por
+# primera vez y volver a hacerse false cuando termine de eliminarse. Entonces
+# el controlador de pantallas puede revisar si ya está en proceso de removerse e
+# ignorar otras peticiones
+var pop_solicitado = false
+var push_solicitado = false
+
 # Activa los procesos de los contenidos de esta pantalla y la muestra
 func activar():
 	show()
