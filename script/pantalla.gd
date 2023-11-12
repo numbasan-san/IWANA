@@ -23,11 +23,11 @@ func activar():
 # desactivada. El argumento visible determina si la pantalla seguirá siendo 
 # visible o se esconde. Esto es útil cuando se quiere dibujar un overlay sobre
 # la pantalla mientras está pausada, por ejemplo el menú de pausa
-func desactivar(visible: bool = false):
+func desactivar(_visible: bool = false):
 	activa = false
 	set_process_input(false)
 	contenidos.process_mode = Node.PROCESS_MODE_DISABLED
-	if visible:
+	if _visible:
 		show()
 	else:
 		hide()

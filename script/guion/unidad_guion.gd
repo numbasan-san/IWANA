@@ -38,9 +38,9 @@ func _input(event):
 		pausar(false)
 
 # Crea una nueva unidad con una lista de comandos a ejecutar
-func _init(nombre: String, instrucciones: Array[Instruccion]):
-	self.nombre = nombre
-	self.instrucciones = instrucciones
+func _init(_nombre: String, _instrucciones: Array[Instruccion]):
+	self.nombre = _nombre
+	self.instrucciones = _instrucciones
 	reiniciar()
 
 # Ejecuta las instrucciones en secuencia. Hay que pensar en que hacer cuando la

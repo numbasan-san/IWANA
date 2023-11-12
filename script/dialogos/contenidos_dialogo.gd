@@ -2,7 +2,7 @@ extends Control
 
 class_name ContenidosDialogo
 
-enum Posicion { IZQUIERDA, CENTRO, DERECHA }
+enum Posicion { IZQUIERDA, CENTRO, DERECHA, NINGUNA = -1 }
 
 @export var ruta_fondos: String
 
@@ -59,13 +59,13 @@ func agregar_personaje(personaje: Personaje, pos: Posicion):
 # personajes
 func quitarPersonaje(personaje: Personaje):
 	var grafico: ModeloDialogo = personaje.modelo_dialogo
-	if not grafico or grafico.posicion == -1:
+	if not grafico or grafico.posicion == Posicion.NINGUNA:
 		return
 	
 	grafico.hide()
 	grafico.get_parent().call_deferred("remove_child", grafico)
 	personaje.call_deferred("add_child", grafico)
-	grafico.posicion = -1
+	grafico.posicion = Posicion.NINGUNA
 
 
 func cambiar_fondo(imagen: String):

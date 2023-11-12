@@ -21,8 +21,8 @@ var tipo: int
 # Construye una nueva instrucción que puede ser ejecutada en el futuro. Si el
 # nombre de la instrucción no está definido en la lista de comandos, se crea un
 # comando especial que siempre imprime un error
-func _init(comandos: Comandos, nombre: String, args: Variant = null):
-	self.nombre = nombre
+func _init(comandos: Comandos, _nombre: String, args: Variant = null):
+	self.nombre = _nombre
 	self.argumentos = args
 	
 	if nombre == "dialogo":

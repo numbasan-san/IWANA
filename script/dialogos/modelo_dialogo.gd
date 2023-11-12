@@ -6,7 +6,7 @@ class_name ModeloDialogo
 
 @onready var personaje: Personaje = get_parent()
 
-var posicion: ContenidosDialogo.Posicion = -1
+var posicion: ContenidosDialogo.Posicion = ContenidosDialogo.Posicion.NINGUNA
 
 # El sprite se refleja para que mire hacia la izquierda.
 
