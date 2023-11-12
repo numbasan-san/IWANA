@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://maeacjbhexlb"]
+
+[ext_resource type="Script" path="res://script/personajes/personaje.gd" id="1_plsk1"]
+[ext_resource type="Script" path="res://script/dialogos/modelo_dialogo.gd" id="2_2oqlo"]
+[ext_resource type="Texture2D" uid="uid://b6b1hd1e1oi0x" path="res://Assets/DibujosNV/Personajes/mariajose.png" id="3_xswt3"]
+[ext_resource type="Script" path="res://script/personajes/modelo_rpg.gd" id="4_ahxtg"]
+[ext_resource type="Texture2D" uid="uid://duhl2a4ymx2rp" path="res://Assets/DibujosNV/Personajes/josemaria2.png" id="4_hxba3"]
+[ext_resource type="Script" path="res://script/personajes/modelo_combate.gd" id="5_nsatu"]
+
+[node name="Daniela" type="Node" node_paths=PackedStringArray("modelo_dialogo", "modelo_rpg", "modelo_combate")]
+script = ExtResource("1_plsk1")
+modelo_dialogo = NodePath("ModeloDialogo")
+modelo_rpg = NodePath("ModeloRPG")
+modelo_combate = NodePath("ModeloCombate")
+
+[node name="ModeloDialogo" type="Node2D" parent="."]
+script = ExtResource("2_2oqlo")
+
+[node name="Maria" type="Sprite2D" parent="ModeloDialogo"]
+position = Vector2(0, -768)
+scale = Vector2(-1, 1)
+texture = ExtResource("3_xswt3")
+
+[node name="Jose" type="Sprite2D" parent="ModeloDialogo"]
+position = Vector2(0, -768)
+scale = Vector2(-1, 1)
+texture = ExtResource("4_hxba3")
+
+[node name="ModeloRPG" type="CharacterBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("4_ahxtg")
+
+[node name="ModeloCombate" type="Node2D" parent="."]
+script = ExtResource("5_nsatu")

@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bo1wwsqd18esq" path="res://Assets/SpritesMundo/Personajes/Noby/abajo/noby_camina_abajo.png" id="8_s16mt"]
 [ext_resource type="Texture2D" uid="uid://cyxvulilwfkhj" path="res://Assets/SpritesMundo/Personajes/Noby/izquierda/noby_camina_izquierda.png" id="9_ryd1s"]
 [ext_resource type="Texture2D" uid="uid://beqkcmrhycjmc" path="res://Assets/SpritesMundo/Personajes/Noby/derecha/noby_camina_derecha.png" id="10_86t0l"]
-[ext_resource type="PackedScene" uid="uid://dvwsbxa7kdgob" path="res://Escenas/Personajes/control_jugador.tscn" id="11_c5y00"]
+[ext_resource type="PackedScene" uid="uid://dvwsbxa7kdgob" path="res://escenas/personajes/control_jugador.tscn" id="11_c5y00"]
 [ext_resource type="Texture2D" uid="uid://dwsebyxyqpiq7" path="res://Assets/SpritesMundo/Personajes/Noby/arriba/noby_camina_arriba.png" id="11_r4kqr"]
 [ext_resource type="Script" path="res://script/personajes/modelo_combate.gd" id="14_xlu3w"]
 
@@ -582,7 +582,6 @@ modelo_rpg = NodePath("ModeloRPG")
 modelo_combate = NodePath("ModeloCombate")
 
 [node name="ModeloDialogo" type="Node2D" parent="."]
-scale = Vector2(0.3, 0.3)
 script = ExtResource("2_ejphn")
 
 [node name="Neutral" type="Sprite2D" parent="ModeloDialogo"]

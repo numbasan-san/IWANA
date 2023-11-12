@@ -13,7 +13,6 @@ modelo_rpg = NodePath("ModeloRPG")
 modelo_combate = NodePath("ModeloCombate")
 
 [node name="ModeloDialogo" type="Node2D" parent="."]
-scale = Vector2(0.3, 0.3)
 script = ExtResource("2_wvk0c")
 
 [node name="Neutral" type="Sprite2D" parent="ModeloDialogo"]

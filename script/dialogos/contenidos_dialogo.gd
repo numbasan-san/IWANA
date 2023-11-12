@@ -82,3 +82,6 @@ func cambiar_fondo(imagen: String):
 func cambiar_dialogo(texto: String, nombre: String = ""):
 	label_nombre.text = nombre
 	label_texto.text = texto
+	
+func cambiar_imagen(personaje: Personaje, imagen_objetivo: String):
+	personaje.modelo_dialogo.cambiar_imagen(imagen_objetivo)

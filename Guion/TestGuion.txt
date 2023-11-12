@@ -2,8 +2,9 @@
 [Abrir]
 [Fondo: bosquejoIntro1.png]
 
-[Imagen: Rosaria -> enojada]
+[Imagen: Rosaria -> enojada, Maria Jose -> Maria]
 [Izquierda: Noby, Daniela]
+[Derecha: Maria Jose]
 [Derecha: Profe]
 
 ???: ¡CALLENSE CARAJO!
@@ -13,6 +14,8 @@ Noby: El salón está lleno de putos monstruos, parece un circo de deformes.
 
 [Derecha: Daniela]
 Amigos: (Reacción con emojis de sus amigos riéndose a carcajadas)
+
+[Imagen: Maria Jose -> Jose]
 
 [Imagen: Rosaria -> explicando(1)]
 

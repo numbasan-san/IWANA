@@ -20,7 +20,14 @@ func imagen(args: Array[String]):
 	print("Cambiando imagenes de:")
 	for par in args:
 		var split = par.split("->")
-		print(split[0].strip_edges() + " a " + split[1].strip_edges())
+		var nombre = split[0].strip_edges()
+		var personaje = personajes.cargar(nombre)
+		if not personaje:
+			error("No se encontró un personaje con el nombre " + nombre)
+			continue
+		var imagen = split[1].strip_edges()
+		print(nombre + " a " + imagen)
+		contenidos_dialogo.cambiar_imagen(personaje, imagen)
 	
 func derecha(args: Array[String]):
 	for nombre in args:

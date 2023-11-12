@@ -15,7 +15,7 @@ var personajes: Dictionary
 # Obtiene una referencia a un personaje cargado previamente, o lo agrega si no
 # se encuentra. Si un personaje con ese nombre no existe se retorna null
 func cargar(nombre_personaje: String):
-	nombre_personaje = nombre_personaje.to_lower()
+	nombre_personaje = nombre_personaje.to_lower().replace(" ", "_")
 	var personaje: Personaje
 	if personajes.has(nombre_personaje):
 		personaje = personajes[nombre_personaje]
