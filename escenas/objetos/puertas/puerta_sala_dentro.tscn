@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn0nlsq5wj8on"]
+
+[ext_resource type="PackedScene" uid="uid://hed2eep7147o" path="res://escenas/objetos/puertas/puerta_base.tscn" id="1_vyrhv"]
+[ext_resource type="Texture2D" uid="uid://cxlduayq0ajcx" path="res://Assets/SpritesMundo/Objetos/tiles_a.png" id="2_5tfpg"]
+
+[node name="PuertaSalaFuera" instance=ExtResource("1_vyrhv")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_5tfpg")
+region_rect = Rect2(176, 15, 37, 65)

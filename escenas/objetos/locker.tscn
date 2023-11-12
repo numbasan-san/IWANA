@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmda7enq2l0im"]
+
+[ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://escenas/objetos/objeto_base.tscn" id="1_mavtk"]
+[ext_resource type="Texture2D" uid="uid://cxlduayq0ajcx" path="res://Assets/SpritesMundo/Objetos/tiles_a.png" id="2_ub7i6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2wd2n"]
+size = Vector2(42, 45)
+
+[node name="Locker" instance=ExtResource("1_mavtk")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_ub7i6")
+region_rect = Rect2(118, 70, 42, 90)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0, 22.5)
+shape = SubResource("RectangleShape2D_2wd2n")
