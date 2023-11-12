@@ -4,6 +4,7 @@
 
 [Imagen: Rosaria -> enojada]
 [Izquierda: Noby, Daniela]
+[Derecha: Profe]
 
 ???: ¡CALLENSE CARAJO!
 [Fondo: bosquejoIntro2.png]

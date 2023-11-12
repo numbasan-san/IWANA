@@ -1,9 +1,9 @@
 [gd_scene load_steps=26 format=3 uid="uid://4sbuc3c6hmin"]
 
-[ext_resource type="Script" path="res://Script/Personajes/Personaje.gd" id="1_lyvmp"]
+[ext_resource type="Script" path="res://script/personajes/personaje.gd" id="1_n73ip"]
+[ext_resource type="Script" path="res://script/dialogos/modelo_dialogo.gd" id="2_ejphn"]
 [ext_resource type="Texture2D" uid="uid://d0xij6lmlkfyc" path="res://Assets/DibujosNV/Personajes/nobita2.png" id="2_l1yky"]
-[ext_resource type="Script" path="res://Script/Dialogos/modelo_dialogo.gd" id="2_tags0"]
-[ext_resource type="Script" path="res://Script/Personajes/control_modelo_mundo.gd" id="3_nn5b1"]
+[ext_resource type="Script" path="res://script/personajes/modelo_rpg.gd" id="4_f135x"]
 [ext_resource type="Texture2D" uid="uid://7g745n7ila1f" path="res://Assets/SpritesMundo/Personajes/Noby/abajo/noby_frente.png" id="4_lc6a3"]
 [ext_resource type="Texture2D" uid="uid://dcmakqvfslp4s" path="res://Assets/SpritesMundo/Personajes/Noby/izquierda/noby_izq.png" id="5_cyj70"]
 [ext_resource type="Texture2D" uid="uid://cq3x5ttsley8y" path="res://Assets/SpritesMundo/Personajes/Noby/derecha/noby_derecha.png" id="6_8m5ow"]
@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://beqkcmrhycjmc" path="res://Assets/SpritesMundo/Personajes/Noby/derecha/noby_camina_derecha.png" id="10_86t0l"]
 [ext_resource type="PackedScene" uid="uid://dvwsbxa7kdgob" path="res://Escenas/Personajes/control_jugador.tscn" id="11_c5y00"]
 [ext_resource type="Texture2D" uid="uid://dwsebyxyqpiq7" path="res://Assets/SpritesMundo/Personajes/Noby/arriba/noby_camina_arriba.png" id="11_r4kqr"]
-[ext_resource type="Script" path="res://Script/Personajes/modelo_combate.gd" id="14_kvl3b"]
+[ext_resource type="Script" path="res://script/personajes/modelo_combate.gd" id="14_xlu3w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bncsu"]
 size = Vector2(12.0746, 28.5169)
@@ -576,14 +576,14 @@ _data = {
 }
 
 [node name="Noby" type="Node" node_paths=PackedStringArray("modelo_dialogo", "modelo_rpg", "modelo_combate")]
-script = ExtResource("1_lyvmp")
+script = ExtResource("1_n73ip")
 modelo_dialogo = NodePath("ModeloDialogo")
 modelo_rpg = NodePath("ModeloRPG")
 modelo_combate = NodePath("ModeloCombate")
 
 [node name="ModeloDialogo" type="Node2D" parent="."]
 scale = Vector2(0.3, 0.3)
-script = ExtResource("2_tags0")
+script = ExtResource("2_ejphn")
 
 [node name="Neutral" type="Sprite2D" parent="ModeloDialogo"]
 position = Vector2(0, -898)
@@ -593,7 +593,7 @@ texture = ExtResource("2_l1yky")
 [node name="ModeloRPG" type="CharacterBody2D" parent="."]
 z_index = 1
 y_sort_enabled = true
-script = ExtResource("3_nn5b1")
+script = ExtResource("4_f135x")
 
 [node name="prota_sprite" type="Sprite2D" parent="ModeloRPG"]
 position = Vector2(-4, -2)
@@ -613,4 +613,4 @@ libraries = {
 position = Vector2(0, 14)
 
 [node name="ModeloCombate" type="Node2D" parent="."]
-script = ExtResource("14_kvl3b")
+script = ExtResource("14_xlu3w")

@@ -1,5 +1,5 @@
 
-extends "res://Script/inventario_objetos/items/collectable.gd"
+extends "res://script/inventario_objetos/items/collectable.gd"
 
 @onready var anim = $AnimationPlayer
 

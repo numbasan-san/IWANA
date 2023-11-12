@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://biaksld7iryos"]
 
-[ext_resource type="Script" path="res://Script/objeto.gd" id="1_xmhp3"]
+[ext_resource type="Script" path="res://script/objeto.gd" id="1_xmhp3"]
 [ext_resource type="Texture2D" uid="uid://buuumumu582d" path="res://Assets/Assests de Pruebas/snapshot_133.jpg" id="2_pecb0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k55ce"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dsihg6mcq4ysb"]
 
-[ext_resource type="Script" path="res://Script/dev_mode.gd" id="1_cqayl"]
+[ext_resource type="Script" path="res://script/dev_mode.gd" id="1_cqayl"]
 [ext_resource type="LabelSettings" uid="uid://jda8so48mgcw" path="res://Escenas/Pantallas/dev_mode_font.tres" id="2_0wr73"]
 
 [node name="DevMode" type="CanvasLayer" node_paths=PackedStringArray("contenidos")]

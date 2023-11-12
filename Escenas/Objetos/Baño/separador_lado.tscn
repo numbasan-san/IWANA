@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://Escenas/Objetos/objeto_base.tscn" id="1_sq6rw"]
 [ext_resource type="Texture2D" uid="uid://dwgsvdhxasp3f" path="res://Assets/SpritesMundo/Objetos/tiles_c.png" id="2_2b50v"]
-[ext_resource type="Script" path="res://Script/transparencia.gd" id="3_1n5ou"]
+[ext_resource type="Script" path="res://script/transparencia.gd" id="3_1n5ou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3jmb"]
 size = Vector2(64, 7)

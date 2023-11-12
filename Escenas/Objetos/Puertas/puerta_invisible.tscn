@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bwqpwxoacpjai"]
 
-[ext_resource type="Script" path="res://Script/puerta/puerta_base.gd" id="1_ex7iv"]
+[ext_resource type="Script" path="res://script/puerta/puerta_base.gd" id="1_ex7iv"]
 [ext_resource type="Texture2D" uid="uid://dvorh4jj2xgb2" path="res://Assets/SpritesMundo/shadow.png" id="2_2j6go"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bfx45"]

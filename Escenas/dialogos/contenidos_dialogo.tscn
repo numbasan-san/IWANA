@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dljth7jwfmjlx"]
 
-[ext_resource type="Script" path="res://Script/Dialogos/contenidos_dialogo.gd" id="1_6cnco"]
+[ext_resource type="Script" path="res://script/dialogos/contenidos_dialogo.gd" id="1_dahx1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_xeabs"]
 font_size = 20
@@ -14,7 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_6cnco")
+script = ExtResource("1_dahx1")
 ruta_fondos = "Assets/DibujosNV/Fondos"
 
 [node name="EscenaNV" type="Control" parent="."]

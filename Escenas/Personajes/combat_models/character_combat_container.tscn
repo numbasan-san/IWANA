@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dbuixiuq0ijmx"]
 
 [ext_resource type="Texture2D" uid="uid://dvr6rfjo3dm5k" path="res://Assets/Assests de Pruebas/74f74dd65775e5ea2a87f76d39a596d8.png" id="1_8dwnv"]
-[ext_resource type="Script" path="res://Script/combate/personajes_stats/stats_container.gd" id="1_78o6c"]
+[ext_resource type="Script" path="res://script/combate/personajes_stats/stats_container.gd" id="1_78o6c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h750l"]
 bg_color = Color(1, 0, 0, 1)

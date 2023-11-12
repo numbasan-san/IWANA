@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://daav23mkgp6gf"]
 
-[ext_resource type="Script" path="res://Script/pantalla_dialogo.gd" id="1_cic8y"]
-[ext_resource type="PackedScene" uid="uid://dljth7jwfmjlx" path="res://Escenas/Dialogos/contenidos_dialogo.tscn" id="1_fds5q"]
+[ext_resource type="Script" path="res://script/dialogos/pantalla_dialogo.gd" id="1_e4jc4"]
+[ext_resource type="PackedScene" uid="uid://dljth7jwfmjlx" path="res://Escenas/dialogos/contenidos_dialogo.tscn" id="1_fds5q"]
 
 [sub_resource type="Animation" id="Animation_2y5oe"]
 resource_name = "FadeIn"
@@ -56,7 +56,7 @@ _data = {
 }
 
 [node name="PantallaDialogo" type="CanvasLayer" node_paths=PackedStringArray("contenidos", "transiciones")]
-script = ExtResource("1_cic8y")
+script = ExtResource("1_e4jc4")
 contenidos = NodePath("ContenidosDialogo")
 transiciones = NodePath("Transicion")
 

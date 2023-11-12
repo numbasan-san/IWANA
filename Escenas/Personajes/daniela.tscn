@@ -1,20 +1,20 @@
 [gd_scene load_steps=6 format=3 uid="uid://d3ltulgb5a8do"]
 
-[ext_resource type="Script" path="res://Script/Personajes/Personaje.gd" id="1_r6s7s"]
-[ext_resource type="Script" path="res://Script/Dialogos/modelo_dialogo.gd" id="2_85np5"]
+[ext_resource type="Script" path="res://script/personajes/personaje.gd" id="1_3tumm"]
 [ext_resource type="Texture2D" uid="uid://c7lntb7mvpqt2" path="res://Assets/DibujosNV/Personajes/daniladino2.png" id="2_mrhog"]
-[ext_resource type="Script" path="res://Script/Personajes/control_modelo_mundo.gd" id="4_m8gam"]
-[ext_resource type="Script" path="res://Script/Personajes/modelo_combate.gd" id="5_50lfa"]
+[ext_resource type="Script" path="res://script/dialogos/modelo_dialogo.gd" id="2_wvk0c"]
+[ext_resource type="Script" path="res://script/personajes/modelo_rpg.gd" id="4_0i41p"]
+[ext_resource type="Script" path="res://script/personajes/modelo_combate.gd" id="5_daaau"]
 
 [node name="Daniela" type="Node" node_paths=PackedStringArray("modelo_dialogo", "modelo_rpg", "modelo_combate")]
-script = ExtResource("1_r6s7s")
+script = ExtResource("1_3tumm")
 modelo_dialogo = NodePath("ModeloDialogo")
 modelo_rpg = NodePath("ModeloRPG")
 modelo_combate = NodePath("ModeloCombate")
 
 [node name="ModeloDialogo" type="Node2D" parent="."]
 scale = Vector2(0.3, 0.3)
-script = ExtResource("2_85np5")
+script = ExtResource("2_wvk0c")
 
 [node name="Neutral" type="Sprite2D" parent="ModeloDialogo"]
 position = Vector2(0, -768)
@@ -24,7 +24,7 @@ texture = ExtResource("2_mrhog")
 [node name="ModeloRPG" type="CharacterBody2D" parent="."]
 z_index = 1
 y_sort_enabled = true
-script = ExtResource("4_m8gam")
+script = ExtResource("4_0i41p")
 
 [node name="ModeloCombate" type="Node2D" parent="."]
-script = ExtResource("5_50lfa")
+script = ExtResource("5_daaau")

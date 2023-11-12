@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://chkjnr1dgyveu"]
 
-[ext_resource type="Script" path="res://Script/inventario_objetos/items/item.gd" id="1_0xw5c"]
+[ext_resource type="Script" path="res://script/inventario_objetos/items/item.gd" id="1_0xw5c"]
 [ext_resource type="Texture2D" uid="uid://j767v6f13kai" path="res://Assets/Assests de Pruebas/__zinogre_monster_hunter_drawn_by_milkpanda__sample-16d3404318c7aedb577ce1c900a7a272.jpg" id="2_5cvil"]
 
 [resource]

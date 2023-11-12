@@ -5,7 +5,7 @@ var is_open : bool = false
 signal opened
 signal closed
 
-@onready var inventory : Inventory = preload("res://Script/inventario_objetos/inventario/resourses/inventory.tres")
+@onready var inventory : Inventory = preload("res://script/inventario_objetos/inventario/resourses/inventory.tres")
 @onready var slots : Array = $NinePatchRect/Container.get_children()
 
 # Se actualiza el inventario cada que este sea abierto.

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://u52geipnog1h"]
 
-[ext_resource type="Script" path="res://Script/inventario_objetos/items/collectable.gd" id="1_o03b7"]
+[ext_resource type="Script" path="res://script/inventario_objetos/items/collectable.gd" id="1_o03b7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_taxc2"]
 size = Vector2(35, 33.5)
