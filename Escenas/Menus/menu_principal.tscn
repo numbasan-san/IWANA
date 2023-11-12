@@ -68,6 +68,7 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="Opciones" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 109.0
 offset_top = 334.0
 offset_right = 314.0
@@ -80,6 +81,7 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="Extra" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 109.0
 offset_top = 378.0
 offset_right = 314.0
@@ -92,6 +94,7 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="Salir" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 105.0
 offset_top = 421.0
 offset_right = 249.0
@@ -104,7 +107,6 @@ ignore_texture_size = true
 stretch_mode = 4
 
 [node name="ModoDev" type="TextureButton" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 138.0
 offset_top = 466.0

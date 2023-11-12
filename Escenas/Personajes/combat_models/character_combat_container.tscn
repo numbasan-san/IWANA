@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbuixiuq0ijmx"]
+[gd_scene load_steps=10 format=3 uid="uid://bupdexrw2k4ya"]
 
 [ext_resource type="Texture2D" uid="uid://dvr6rfjo3dm5k" path="res://Assets/Assests de Pruebas/74f74dd65775e5ea2a87f76d39a596d8.png" id="1_8dwnv"]
 [ext_resource type="Script" path="res://Script/combate/personajes_stats/stats_container.gd" id="1_78o6c"]
+[ext_resource type="Texture2D" uid="uid://cqpaomx4jdpci" path="res://Assets/SpritesCombate/nombre_fondo2.png" id="3_31es1"]
+[ext_resource type="FontFile" uid="uid://b304xp3f1t5qy" path="res://Assets/SpritesCombate/Font/IWANA.ttf" id="4_e15tb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h750l"]
 bg_color = Color(1, 0, 0, 1)
@@ -18,71 +20,124 @@ border_width_top = 1
 border_width_bottom = 1
 border_color = Color(0, 0, 0, 1)
 
-[node name="character_combat_container" type="Control"]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 1480.0
-offset_bottom = 1390.0
-scale = Vector2(0.2, 0.2)
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[sub_resource type="Animation" id="Animation_p7abh"]
+resource_name = "hurt"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("retrato:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_saxj2"]
+resource_name = "hurt_2"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("retrato:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_anapf"]
+_data = {
+"hurt": SubResource("Animation_p7abh"),
+"hurt_2": SubResource("Animation_saxj2")
+}
+
+[node name="character_combat_container" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 650.0
+offset_bottom = 650.0
 script = ExtResource("1_78o6c")
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="TextureRect" type="TextureRect" parent="Panel"]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = 125.5
-offset_right = 1847.0
-offset_bottom = 1690.5
-grow_vertical = 2
-scale = Vector2(0.8, 0.8)
+[node name="retrato" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 650.0
+offset_bottom = 650.0
 texture = ExtResource("1_8dwnv")
+expand_mode = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="Panel"]
-layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = 1.0
-offset_top = -12.0
-offset_right = 529.0
-offset_bottom = 45.0
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 2
+offset_top = 570.0
+offset_right = 650.0
+offset_bottom = 650.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2.60001, 2.41521)
-size_flags_horizontal = 3
+size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
 theme_override_font_sizes/font_size = 40
 theme_override_styles/background = SubResource("StyleBoxFlat_h750l")
 theme_override_styles/fill = SubResource("StyleBoxFlat_i1idc")
-max_value = 1000.0
-value = 500.0
+value = 50.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="Panel/ProgressBar"]
+[node name="Label" type="Label" parent="ProgressBar"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -131.0
-offset_top = -30.5
-offset_right = 131.0
-offset_bottom = 30.5
+offset_left = -143.5
+offset_top = -39.0
+offset_right = 143.5
+offset_bottom = 39.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 7
-theme_override_font_sizes/font_size = 42
-text = "Enemy: 25/50"
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("4_e15tb")
+theme_override_font_sizes/font_size = 60
+text = "25/50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="etiqueta_nombre" type="TextureRect" parent="."]
+layout_mode = 2
+offset_right = 279.0
+offset_bottom = 153.0
+texture = ExtResource("3_31es1")
+
+[node name="Label" type="Label" parent="etiqueta_nombre"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -94.5
+offset_top = -32.5
+offset_right = 93.5
+offset_bottom = 32.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("4_e15tb")
+theme_override_font_sizes/font_size = 45
+text = "rajang"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="animation" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_anapf")
+}
