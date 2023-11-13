@@ -1,19 +1,19 @@
-[gd_scene load_steps=19 format=3 uid="uid://bawggm7en6wxs"]
+[gd_scene load_steps=19 format=3 uid="uid://bdhq7xoysevqv"]
 
-[ext_resource type="Texture2D" uid="uid://70eq1ipw5en0" path="res://Assets/Assests de Pruebas/2020-10-25 (4).png" id="1_3scli"]
-[ext_resource type="Script" path="res://script/combate/combate.gd" id="1_8k8bs"]
+[ext_resource type="Texture2D" uid="uid://trytmw4kd4gn" path="res://Assets/Assests de Pruebas/2020-10-25 (4).png" id="1_3scli"]
+[ext_resource type="Script" path="res://Script/combate/combate.gd" id="1_8k8bs"]
 [ext_resource type="Resource" uid="uid://ds5sdk8aw4l8r" path="res://script/combate/personajes_stats/resource/Player.tres" id="2_0vdrc"]
 [ext_resource type="Resource" uid="uid://cyc3sn1p8bmn" path="res://script/combate/personajes_stats/resource/Rajang.tres" id="2_5g6qo"]
-[ext_resource type="PackedScene" uid="uid://dbuixiuq0ijmx" path="res://escenas/personajes/combat_models/character_combat_container.tscn" id="5_58fqg"]
-[ext_resource type="Texture2D" uid="uid://b77atfgeienqu" path="res://Assets/SpritesCombate/hud_a.png" id="6_t2p1k"]
-[ext_resource type="Texture2D" uid="uid://divhgdyclosh2" path="res://Assets/SpritesCombate/botones/ataque_no_selecccionado.png" id="7_k3t3k"]
-[ext_resource type="Texture2D" uid="uid://bcpbwokyqcsbq" path="res://Assets/SpritesCombate/botones/ataque_selecccionado.png" id="8_fewc1"]
-[ext_resource type="Texture2D" uid="uid://chasp3710xxfs" path="res://Assets/SpritesCombate/botones/defensa_no_selecccionado.png" id="9_j2r3x"]
-[ext_resource type="Texture2D" uid="uid://btpp5yl8lebvr" path="res://Assets/SpritesCombate/botones/defensa_selecccionado.png" id="10_wpyws"]
-[ext_resource type="Texture2D" uid="uid://di4qe4dpmrbbs" path="res://Assets/SpritesCombate/botones/huir_no_selecccionado.png" id="11_wxol7"]
-[ext_resource type="Texture2D" uid="uid://bl8ep0i6kkfu3" path="res://Assets/SpritesCombate/botones/huir_selecccionado.png" id="12_1rras"]
-[ext_resource type="Texture2D" uid="uid://c8knhlhrmgo4" path="res://Assets/Assests de Pruebas/__glavenus_monster_hunter_drawn_by_milkpanda__sample-b42e3db21a9939973e0e50a33878d1ec.jpg" id="13_hu4eg"]
-[ext_resource type="FontFile" uid="uid://bvx3kwcljl1mv" path="res://Assets/SpritesCombate/Font/IWANA.ttf" id="15_5rv14"]
+[ext_resource type="PackedScene" uid="uid://bupdexrw2k4ya" path="res://escenas/personajes/combat_models/character_combat_container.tscn" id="5_58fqg"]
+[ext_resource type="Texture2D" uid="uid://e8ngdsv375gy" path="res://Assets/SpritesCombate/hud_a.png" id="6_t2p1k"]
+[ext_resource type="PackedScene" uid="uid://dbuixiuq0ijmx" path="res://escenas/personajes/combat_models/character_retrato.tscn" id="6_yd00d"]
+[ext_resource type="Texture2D" uid="uid://bj72dcbhltdaw" path="res://Assets/SpritesCombate/botones/ataque_no_selecccionado.png" id="7_k3t3k"]
+[ext_resource type="Texture2D" uid="uid://dfrjg48jrtmlp" path="res://Assets/SpritesCombate/botones/ataque_selecccionado.png" id="8_fewc1"]
+[ext_resource type="Texture2D" uid="uid://bnl4pn2juey1a" path="res://Assets/SpritesCombate/botones/defensa_no_selecccionado.png" id="9_j2r3x"]
+[ext_resource type="Texture2D" uid="uid://dd4gqhvwsk4w5" path="res://Assets/SpritesCombate/botones/defensa_selecccionado.png" id="10_wpyws"]
+[ext_resource type="Texture2D" uid="uid://bn11qwhyp2hrm" path="res://Assets/SpritesCombate/botones/huir_no_selecccionado.png" id="11_wxol7"]
+[ext_resource type="Texture2D" uid="uid://7asgr56msrbe" path="res://Assets/SpritesCombate/botones/huir_selecccionado.png" id="12_1rras"]
+[ext_resource type="FontFile" uid="uid://b304xp3f1t5qy" path="res://Assets/SpritesCombate/Font/IWANA.ttf" id="15_5rv14"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o0oek"]
 bg_color = Color(0, 0, 0, 0)
@@ -71,30 +71,26 @@ texture = ExtResource("6_t2p1k")
 
 [node name="retratos_player" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 748.0
-offset_top = 154.0
-offset_right = 2452.0
-offset_bottom = 1758.0
+offset_left = 815.0
+offset_top = 204.0
+offset_right = 2435.0
+offset_bottom = 1583.0
 scale = Vector2(0.2, 0.2)
+theme_override_constants/h_separation = 700
+theme_override_constants/v_separation = 700
 columns = 2
 
-[node name="character_retrato" parent="retratos_player" instance=ExtResource("5_58fqg")]
+[node name="character_retrato" parent="retratos_player" instance=ExtResource("6_yd00d")]
 layout_mode = 2
 
-[node name="retrato2" type="TextureRect" parent="retratos_player"]
-visible = false
+[node name="character_retrato2" parent="retratos_player" instance=ExtResource("6_yd00d")]
 layout_mode = 2
-texture = ExtResource("13_hu4eg")
 
-[node name="retrato3" type="TextureRect" parent="retratos_player"]
-visible = false
+[node name="character_retrato3" parent="retratos_player" instance=ExtResource("6_yd00d")]
 layout_mode = 2
-texture = ExtResource("13_hu4eg")
 
-[node name="retrato4" type="TextureRect" parent="retratos_player"]
-visible = false
+[node name="character_retrato4" parent="retratos_player" instance=ExtResource("6_yd00d")]
 layout_mode = 2
-texture = ExtResource("13_hu4eg")
 
 [node name="player_actions" type="TextureRect" parent="."]
 layout_mode = 1
