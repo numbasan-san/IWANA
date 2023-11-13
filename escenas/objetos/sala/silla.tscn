@@ -11,7 +11,7 @@ y_sort_enabled = true
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_gkhfr")
-region_rect = Rect2(166, 114, 20, 28)
+region_rect = Rect2(163, 110, 27, 42)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(0, 7)
