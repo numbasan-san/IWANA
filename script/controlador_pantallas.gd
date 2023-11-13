@@ -62,7 +62,7 @@ func _ready():
 	pantalla_dev.desactivar()
 	pantalla_intro.desactivar()
 	
-	push(pantalla_intro)
+	push(pantalla_intro, false)
 	
 
 # Se puede llamar a esta función para agregar a la pantalla al tope de la pila.

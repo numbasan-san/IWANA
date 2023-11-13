@@ -14,6 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_dahx1")
 ruta_fondos = "Assets/DibujosNV/Fondos"
 
@@ -24,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="Fondo" type="TextureRect" parent="EscenaNV"]
 layout_mode = 1
@@ -45,6 +47,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="Izquierda" type="Control" parent="EscenaNV/AreaPersonajes"]
 layout_mode = 1
@@ -52,6 +55,7 @@ anchor_right = 0.4
 anchor_bottom = 1.0
 offset_bottom = 60.0
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="Centro" type="Control" parent="EscenaNV/AreaPersonajes"]
 layout_mode = 1
@@ -59,6 +63,7 @@ anchor_left = 0.3
 anchor_right = 0.7
 anchor_bottom = 1.0
 offset_bottom = 60.0
+mouse_filter = 1
 
 [node name="Derecha" type="Control" parent="EscenaNV/AreaPersonajes"]
 layout_mode = 1
@@ -68,6 +73,7 @@ anchor_bottom = 1.0
 offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="CuadroDiálogo" type="Panel" parent="."]
 modulate = Color(1, 1, 1, 0.784314)
@@ -79,12 +85,14 @@ anchor_right = 0.9
 anchor_bottom = 1.0
 offset_top = -150.0
 size_flags_vertical = 0
+mouse_filter = 1
 
 [node name="PanelNombre" type="Panel" parent="CuadroDiálogo"]
 layout_mode = 1
 offset_left = 36.0
 offset_top = -40.0
 offset_right = 236.0
+mouse_filter = 1
 
 [node name="ColorRect" type="ColorRect" parent="CuadroDiálogo/PanelNombre"]
 layout_mode = 1

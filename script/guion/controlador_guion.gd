@@ -10,10 +10,6 @@ var unidad_actual: Unidad
 
 var en_ejecucion: bool = false
 
-func _ready():
-	continuar.connect(_on_continuar)
-	unidad_actual = unidades.values()[puntero_unidad]
-
 func _process(_delta):
 	if en_ejecucion:
 		if puntero_unidad >= unidades.size():
@@ -27,6 +23,8 @@ func _process(_delta):
 					unidad_actual.reiniciar()
 
 func reiniciar():
+	if not continuar.is_connected(_on_continuar):
+		continuar.connect(_on_continuar)
 	for unidad in unidades.values():
 		unidad.reiniciar()
 	activar(0)
