@@ -26,6 +26,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 script = ExtResource("1_fre31")
 
 [node name="Fondo" type="TextureRect" parent="."]
@@ -37,7 +38,7 @@ offset_bottom = 1862.0
 scale = Vector2(0.355, 0.355)
 texture = ExtResource("2_xa41e")
 
-[node name="NuevoJuego" type="TextureButton" parent="." node_paths=PackedStringArray("boton_dev")]
+[node name="NuevoJuego" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 118.0
 offset_top = 249.0
@@ -50,7 +51,6 @@ texture_hover = ExtResource("5_nqi8q")
 ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("6_ckwbc")
-boton_dev = NodePath("")
 
 [node name="Continuar" type="TextureButton" parent="."]
 layout_mode = 0
