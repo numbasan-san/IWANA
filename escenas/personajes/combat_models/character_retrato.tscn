@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dbuixiuq0ijmx"]
 
-[ext_resource type="Texture2D" uid="uid://cj7vak3u6an0x" path="res://Assets/Assests de Pruebas/__deviljho_monster_hunter_drawn_by_milkpanda__sample-11b8f7d11719f5d50750cc252eca5aad.jpg" id="1_hf0cm"]
+[ext_resource type="Texture2D" uid="uid://ba7n47pm247s" path="res://Assets/Assests de Pruebas/__deviljho_monster_hunter_drawn_by_milkpanda__sample-11b8f7d11719f5d50750cc252eca5aad.jpg" id="1_hf0cm"]
 
 [sub_resource type="Animation" id="Animation_p7abh"]
 resource_name = "hurt"
