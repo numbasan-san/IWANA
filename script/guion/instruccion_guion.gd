@@ -6,7 +6,7 @@ class_name Instruccion
 # Considerar si un comando que pausa la ejecución por un tiempo debe ser otro
 # tipo que va acá, o si solo es una función que llama a una función de espera
 # predefinida
-enum { COMANDO, DIALOGO, ERROR }
+enum { COMANDO, DIALOGO, ERROR, ESPERA }
 
 var nombre: String
 
@@ -29,6 +29,8 @@ func _init(comandos: Comandos, _nombre: String, args: Variant = null):
 		tipo = DIALOGO
 	elif nombre == "error":
 		tipo = ERROR
+	elif nombre == "esperar":
+		tipo = ESPERA
 	else:
 		tipo = COMANDO
 	

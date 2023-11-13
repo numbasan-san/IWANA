@@ -79,14 +79,13 @@ func crear_unidad(nombre: String, lineas: Array[String]) -> Unidad:
 		print("Linea a procesar: " + linea)
 		var instruccion: Instruccion
 		if linea.begins_with("[") and linea.ends_with("]"):
-			instruccion = extraer_comando(linea.trim_prefix("[").trim_suffix("]").strip_edges())
+			instrucciones.append(extraer_comando(linea.trim_prefix("[").trim_suffix("]").strip_edges()))
 		elif not linea.begins_with("[") and not linea.ends_with("]"):
-			instruccion = extraer_dialogo(linea.strip_edges())
+			instrucciones.append(extraer_dialogo(linea.strip_edges()))
+			instrucciones.append(Instruccion.new(script_comandos, "esperar"))
 		else:
-			instruccion = Instruccion.new(script_comandos, "error", "La instrucción estaba mal escrita.\n Linea: " + linea)
-		if instruccion:
-			instrucciones.append(instruccion)
-	
+			instrucciones.append(Instruccion.new(script_comandos, "error", "La instrucción estaba mal escrita.\n Linea: " + linea))
+		
 	return Unidad.new(nombre, instrucciones)
 	
 

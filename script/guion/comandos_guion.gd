@@ -41,6 +41,11 @@ func izquierda(args: Array[String]):
 	for nombre in args:
 		_colocar(nombre, ContenidosDialogo.Posicion.IZQUIERDA)
 
+func quitar(args: Array[String]):
+	for nombre in args:
+		var personaje = personajes.cargar(nombre)
+		contenidos_dialogo.quitar_personaje(personaje)
+
 func _colocar(nombre: String, posicion: ContenidosDialogo.Posicion):
 	var personaje = personajes.cargar(nombre)
 	if not personaje:
@@ -55,6 +60,12 @@ func dialogo(args: Array[String]):
 	else:
 		print(args[1])
 	contenidos_dialogo.cambiar_dialogo(args[1], args[0])
+
+# Esta instrucción no hace nada por si misma, pero el control de unidades la usa
+# como una marca para saber cuando detener la ejecución y esperar el input del
+# usuario
+func esperar():
+	pass
 
 func abrir():
 	print("Abriendo pantalla de dialogo")

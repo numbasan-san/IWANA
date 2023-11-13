@@ -19,6 +19,14 @@ Amigos: (Reacción con emojis de sus amigos riéndose a carcajadas)
 
 [Imagen: Rosaria -> explicando(1)]
 
+[Derecha: Guillermo]
+[Esperar]
+[Izquierda: Vicente]
+[Esperar]
+[Quitar: Vicente, Guillermo]
+[Esperar]
+[Centro: Lucia, Rebeca]
+
 
 [Fin: a1]
 

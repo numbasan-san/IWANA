@@ -58,6 +58,7 @@ func procesar():
 		# y el usuario puede interrumpirla con un input
 		if instrucciones[actual].tipo == Instruccion.DIALOGO:
 			linea_actual += 1
+		if instrucciones[actual].tipo == Instruccion.ESPERA:	
 			pausar()
 		actual += 1
 		if actual >= instrucciones.size():
