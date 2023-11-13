@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://ba3g3jujljxr3"]
 
 [ext_resource type="Script" path="res://script/pantalla.gd" id="1_0d1to"]
-[ext_resource type="PackedScene" uid="uid://bawggm7en6wxs" path="res://escenas/pantallas/contenidos_combate.tscn" id="2_sodoh"]
+[ext_resource type="PackedScene" uid="uid://bdhq7xoysevqv" path="res://escenas/pantallas/contenidos_combate.tscn" id="2_sodoh"]
 
 [sub_resource type="Animation" id="Animation_p11p8"]
 resource_name = "FadeIn"

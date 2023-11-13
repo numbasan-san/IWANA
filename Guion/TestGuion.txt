@@ -26,11 +26,8 @@ Amigos: (Reacción con emojis de sus amigos riéndose a carcajadas)
 [Quitar: Vicente, Guillermo]
 [Esperar]
 [Centro: Lucia, Rebeca]
+[Esperar]
 
 
-[Fin: a1]
-
-[Unidad: a2]
-asdasd
 [Cerrar]
-[Fin: unidad]
+[Fin: a1]
