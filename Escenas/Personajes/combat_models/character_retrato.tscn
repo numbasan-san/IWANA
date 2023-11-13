@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dbuixiuq0ijmx"]
 
-[ext_resource type="Texture2D" uid="uid://dvr6rfjo3dm5k" path="res://Assets/Assests de Pruebas/74f74dd65775e5ea2a87f76d39a596d8.png" id="2_estpl"]
+[ext_resource type="Texture2D" uid="uid://cj7vak3u6an0x" path="res://Assets/Assests de Pruebas/__deviljho_monster_hunter_drawn_by_milkpanda__sample-11b8f7d11719f5d50750cc252eca5aad.jpg" id="1_hf0cm"]
 
 [sub_resource type="Animation" id="Animation_p7abh"]
 resource_name = "hurt"
@@ -40,8 +40,10 @@ _data = {
 "hurt_2": SubResource("Animation_saxj2")
 }
 
-[node name="character_retrato" type="Panel"]
+[node name="character_retrato" type="Control"]
 self_modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 0
 offset_right = 1465.0
 offset_bottom = 1250.0
 scale = Vector2(0.2, 0.2)
@@ -60,7 +62,7 @@ offset_bottom = 320.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.8, 0.8)
-texture = ExtResource("2_estpl")
+texture = ExtResource("1_hf0cm")
 
 [node name="animation" type="AnimationPlayer" parent="."]
 libraries = {
