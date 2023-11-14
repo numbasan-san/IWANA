@@ -1,9 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvwsbxa7kdgob"]
+[gd_scene load_steps=9 format=3 uid="uid://dvwsbxa7kdgob"]
 
 [ext_resource type="Script" path="res://script/personajes/control_jugador.gd" id="1_cfkfe"]
 [ext_resource type="Resource" uid="uid://dfuucb5spinx8" path="res://script/inventario_objetos/inventario/resourses/inventory.tres" id="2_ks6fo"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_jt2gw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tw0p"]
+size = Vector2(107.235, 82.99)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gsopy"]
 resource_local_to_scene = true
@@ -39,6 +42,9 @@ offset_bottom = 1500.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CanvasTexture_jt2gw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D"]
+shape = SubResource("RectangleShape2D_6tw0p")
 
 [node name="ColeccionItem" type="Area2D" parent="."]
 

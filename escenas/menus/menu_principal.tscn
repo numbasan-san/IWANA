@@ -30,21 +30,33 @@ mouse_filter = 1
 script = ExtResource("1_fre31")
 
 [node name="Fondo" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = -1.0
-offset_top = -8.0
-offset_right = 3244.0
-offset_bottom = 1862.0
-scale = Vector2(0.355, 0.355)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1343.0
+offset_bottom = 790.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.59, 0.59)
 texture = ExtResource("2_xa41e")
 
-[node name="NuevoJuego" type="TextureButton" parent="."]
-layout_mode = 0
-offset_left = 118.0
-offset_top = 249.0
-offset_right = 314.0
-offset_bottom = 288.0
+[node name="Botones" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.116
+anchor_top = 0.391
+anchor_right = 0.241
+anchor_bottom = 0.76
+
+[node name="NuevoJuego" type="TextureButton" parent="Botones"]
+layout_mode = 1
+anchors_preset = -1
+offset_left = -22.0
+offset_top = 4.0
+offset_right = 183.0
+offset_bottom = 43.0
 rotation = 0.0698132
+scale = Vector2(1.7, 1.7)
 texture_normal = ExtResource("3_8e8wm")
 texture_pressed = ExtResource("4_7k65r")
 texture_hover = ExtResource("5_nqi8q")
@@ -52,56 +64,60 @@ ignore_texture_size = true
 stretch_mode = 4
 script = ExtResource("6_ckwbc")
 
-[node name="Continuar" type="TextureButton" parent="."]
+[node name="Continuar" type="TextureButton" parent="Botones"]
 layout_mode = 0
-offset_left = 113.0
-offset_top = 291.0
-offset_right = 318.0
-offset_bottom = 330.0
+offset_left = -28.9297
+offset_top = 73.72
+offset_right = 176.07
+offset_bottom = 112.72
 rotation = 0.0698132
+scale = Vector2(1.7, 1.7)
 texture_normal = ExtResource("7_bjlkw")
 texture_pressed = ExtResource("8_cenkl")
 texture_hover = ExtResource("9_81ose")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="Opciones" type="TextureButton" parent="."]
+[node name="Opciones" type="TextureButton" parent="Botones"]
 layout_mode = 0
-offset_left = 109.0
-offset_top = 334.0
-offset_right = 314.0
-offset_bottom = 372.0
+offset_left = -39.9297
+offset_top = 151.72
+offset_right = 165.07
+offset_bottom = 190.72
 rotation = 0.0698132
+scale = Vector2(1.7, 1.7)
 texture_normal = ExtResource("10_o0fyd")
 texture_pressed = ExtResource("11_tetsu")
 texture_hover = ExtResource("12_mp32y")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="Extra" type="TextureButton" parent="."]
+[node name="Extra" type="TextureButton" parent="Botones"]
 layout_mode = 0
-offset_left = 109.0
-offset_top = 378.0
-offset_right = 314.0
-offset_bottom = 417.0
+offset_left = -42.9297
+offset_top = 220.72
+offset_right = 162.07
+offset_bottom = 259.72
 rotation = 0.0698132
+scale = Vector2(1.7, 1.7)
 texture_normal = ExtResource("13_s1jvh")
 texture_pressed = ExtResource("14_xf18f")
 texture_hover = ExtResource("15_6p2ic")
 ignore_texture_size = true
 stretch_mode = 4
 
-[node name="Salir" type="TextureButton" parent="."]
+[node name="Salir" type="TextureButton" parent="Botones"]
 layout_mode = 0
-offset_left = 105.0
-offset_top = 421.0
-offset_right = 249.0
-offset_bottom = 461.0
+offset_left = -40.9297
+offset_top = 296.72
+offset_right = 103.07
+offset_bottom = 336.72
 rotation = 0.0698132
+scale = Vector2(1.7, 1.7)
 texture_normal = ExtResource("16_fe8dm")
 texture_pressed = ExtResource("17_h0ynq")
 texture_hover = ExtResource("18_1mkem")
 ignore_texture_size = true
 stretch_mode = 4
 
-[connection signal="pressed" from="NuevoJuego" to="NuevoJuego" method="_on_pressed"]
+[connection signal="pressed" from="Botones/NuevoJuego" to="Botones/NuevoJuego" method="_on_pressed"]

@@ -5,8 +5,8 @@
 [ext_resource type="Resource" uid="uid://ds5sdk8aw4l8r" path="res://script/combate/personajes_stats/resource/Player.tres" id="2_0vdrc"]
 [ext_resource type="Resource" uid="uid://cyc3sn1p8bmn" path="res://script/combate/personajes_stats/resource/Rajang.tres" id="2_5g6qo"]
 [ext_resource type="PackedScene" uid="uid://dbuixiuq0ijmx" path="res://escenas/personajes/combat_models/character_combat_container.tscn" id="5_58fqg"]
+[ext_resource type="Texture2D" uid="uid://bihx58y0i0ybt" path="res://Assets/SpritesCombate/hud.png" id="6_67h05"]
 [ext_resource type="Texture2D" uid="uid://b77atfgeienqu" path="res://Assets/SpritesCombate/hud_a.png" id="6_t2p1k"]
-[ext_resource type="PackedScene" uid="uid://dbuixiuq0ijmx" path="res://escenas/personajes/combat_models/character_retrato.tscn" id="6_yd00d"]
 [ext_resource type="Texture2D" uid="uid://divhgdyclosh2" path="res://Assets/SpritesCombate/botones/ataque_no_selecccionado.png" id="7_k3t3k"]
 [ext_resource type="Texture2D" uid="uid://bcpbwokyqcsbq" path="res://Assets/SpritesCombate/botones/ataque_selecccionado.png" id="8_fewc1"]
 [ext_resource type="Texture2D" uid="uid://chasp3710xxfs" path="res://Assets/SpritesCombate/botones/defensa_no_selecccionado.png" id="9_j2r3x"]
@@ -47,6 +47,9 @@ texture = ExtResource("1_3scli")
 
 [node name="enemy_combat_container" parent="." instance=ExtResource("5_58fqg")]
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 43.0
 offset_top = 196.0
 offset_right = 963.0
@@ -57,6 +60,9 @@ stats = ExtResource("2_5g6qo")
 [node name="player_combat_container" parent="." instance=ExtResource("5_58fqg")]
 visible = false
 layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
 offset_left = 409.0
 offset_top = 193.0
 offset_right = 1889.0
@@ -71,50 +77,50 @@ texture = ExtResource("6_t2p1k")
 
 [node name="retratos_player" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 815.0
+offset_left = 1231.0
 offset_top = 204.0
-offset_right = 2435.0
-offset_bottom = 1583.0
+offset_right = 3061.0
+offset_bottom = 1794.0
 scale = Vector2(0.2, 0.2)
 theme_override_constants/h_separation = 700
 theme_override_constants/v_separation = 700
 columns = 2
 
-[node name="character_retrato" parent="retratos_player" instance=ExtResource("6_yd00d")]
+[node name="character_retrato" parent="retratos_player" instance=ExtResource("5_58fqg")]
 layout_mode = 2
 
-[node name="character_retrato2" parent="retratos_player" instance=ExtResource("6_yd00d")]
+[node name="character_retrato2" parent="retratos_player" instance=ExtResource("5_58fqg")]
 layout_mode = 2
 
-[node name="character_retrato3" parent="retratos_player" instance=ExtResource("6_yd00d")]
+[node name="character_retrato3" parent="retratos_player" instance=ExtResource("5_58fqg")]
 layout_mode = 2
 
-[node name="character_retrato4" parent="retratos_player" instance=ExtResource("6_yd00d")]
+[node name="character_retrato4" parent="retratos_player" instance=ExtResource("5_58fqg")]
 layout_mode = 2
 
 [node name="player_actions" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 240.0
-offset_top = -164.0
-offset_right = -515.0
-offset_bottom = -73.0
 grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(1.8, 1.8)
-texture = ExtResource("6_t2p1k")
+grow_vertical = 2
+texture = ExtResource("6_67h05")
 expand_mode = 1
 
 [node name="actions" type="VBoxContainer" parent="player_actions"]
-layout_mode = 0
-offset_left = 330.556
-offset_top = 23.8889
-offset_right = 541.556
-offset_bottom = 154.889
-scale = Vector2(0.23, 0.23)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.8
+anchor_top = 0.75
+anchor_right = 0.89
+anchor_bottom = 0.88
+offset_left = 0.00012207
+offset_top = 1.00006
+offset_right = 38.2002
+offset_bottom = 0.600037
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
 theme_override_constants/separation = 10
 alignment = 1
 
@@ -141,55 +147,58 @@ texture_hover = ExtResource("12_1rras")
 
 [node name="stats_screen" type="Panel" parent="player_actions"]
 self_modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 5.0
-offset_top = 7.0
-offset_right = 309.0
-offset_bottom = 87.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.08
+anchor_top = 0.71
+anchor_right = 0.74
+anchor_bottom = 0.98
 
 [node name="player_combat_container1" parent="player_actions/stats_screen" instance=ExtResource("5_58fqg")]
 layout_mode = 1
-offset_left = -1.11108
-offset_top = 4.88867
-offset_right = 648.889
-offset_bottom = 654.889
-scale = Vector2(0.11, 0.11)
+anchor_right = 0.22
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
 stats = ExtResource("2_0vdrc")
 
 [node name="player_combat_container2" parent="player_actions/stats_screen" instance=ExtResource("5_58fqg")]
 visible = false
 layout_mode = 1
-offset_left = 77.4445
+anchor_left = 0.26
+anchor_right = 0.48
+anchor_bottom = 1.0
 offset_top = 4.88867
-offset_right = 727.444
-offset_bottom = 654.889
-scale = Vector2(0.11, 0.11)
+offset_right = 0.0
+offset_bottom = 0.0
 
 [node name="player_combat_container3" parent="player_actions/stats_screen" instance=ExtResource("5_58fqg")]
 visible = false
 layout_mode = 1
-offset_left = 156.0
-offset_top = 4.88867
-offset_right = 806.0
-offset_bottom = 654.889
-scale = Vector2(0.11, 0.11)
+anchor_left = 0.52
+anchor_right = 0.74
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
 
 [node name="player_combat_container4" parent="player_actions/stats_screen" instance=ExtResource("5_58fqg")]
 visible = false
 layout_mode = 1
-offset_left = 233.0
-offset_top = 5.0
-offset_right = 883.0
-offset_bottom = 655.0
-scale = Vector2(0.11, 0.11)
+anchor_left = 0.78
+anchor_top = 0.017
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.042799
+offset_right = 0.0
+offset_bottom = 0.0
 
 [node name="attacks" type="HBoxContainer" parent="player_actions"]
 layout_mode = 1
-offset_left = 9.44443
-offset_top = -14.4445
-offset_right = 750.444
-offset_bottom = 10.5555
-scale = Vector2(0.5, 0.5)
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.6
+anchor_right = 0.9
+anchor_bottom = 0.68
 theme_override_constants/separation = 15
 alignment = 1
 
@@ -199,7 +208,7 @@ size_flags_horizontal = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("15_5rv14")
-theme_override_font_sizes/font_size = 33
+theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
@@ -211,7 +220,7 @@ size_flags_horizontal = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("15_5rv14")
-theme_override_font_sizes/font_size = 33
+theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
@@ -223,7 +232,7 @@ size_flags_horizontal = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("15_5rv14")
-theme_override_font_sizes/font_size = 33
+theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
@@ -235,18 +244,20 @@ size_flags_horizontal = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("15_5rv14")
-theme_override_font_sizes/font_size = 33
+theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
 text = " Attack 4 "
 
 [node name="text_box" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 13.0
-offset_top = 10.0
-offset_right = 1142.0
-offset_bottom = 138.0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.02
+anchor_right = 0.98
+anchor_bottom = 0.2
+grow_horizontal = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_hg3jf")
 
 [node name="label" type="Label" parent="text_box"]
@@ -255,7 +266,7 @@ offset_left = 11.0
 offset_top = 5.0
 offset_right = 155.0
 offset_bottom = 43.0
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 40
 text = "asdadasdas"
 
 [connection signal="pressed" from="player_actions/actions/attack" to="." method="_on_attack_pressed"]

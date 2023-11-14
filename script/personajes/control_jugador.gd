@@ -18,6 +18,7 @@ func _process(_delta):
 	var x = int(Input.is_action_pressed('rpg_right')) - int(Input.is_action_pressed('rpg_left'))
 	var y = int(Input.is_action_pressed('rpg_down')) - int(Input.is_action_pressed('rpg_up'))
 	
+	
 	# Esto es casi una copia del código en control_modelo que tiene que ir acá
 	# porque un personaje no jugador no sabe acerca de el área de interacción.
 	# Hay que pensar si todo esto se puede reemplazar por algo más elegante	

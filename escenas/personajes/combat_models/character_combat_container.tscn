@@ -60,24 +60,32 @@ _data = {
 
 [node name="character_combat_container" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
-offset_right = 650.0
-offset_bottom = 650.0
+anchors_preset = -1
+anchor_right = 0.339
+anchor_bottom = 0.602
+offset_right = -0.880005
+offset_bottom = -0.160034
 script = ExtResource("1_78o6c")
 
 [node name="retrato" type="TextureRect" parent="."]
-layout_mode = 2
-offset_right = 650.0
-offset_bottom = 650.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_8dwnv")
 expand_mode = 1
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-layout_mode = 2
-offset_top = 570.0
-offset_right = 650.0
-offset_bottom = 650.0
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.9
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -90,42 +98,43 @@ show_percentage = false
 
 [node name="Label" type="Label" parent="ProgressBar"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -143.5
-offset_top = -39.0
-offset_right = 143.5
-offset_bottom = 39.0
+anchors_preset = -1
+anchor_left = 0.279
+anchor_right = 0.721
+anchor_bottom = 1.0
+offset_left = 0.149994
+offset_top = -5.5
+offset_right = -0.150024
+offset_bottom = 5.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 20
 theme_override_fonts/font = ExtResource("4_e15tb")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 40
 text = "25/50"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="etiqueta_nombre" type="TextureRect" parent="."]
 layout_mode = 2
-offset_right = 279.0
-offset_bottom = 153.0
+anchor_right = 0.429
+anchor_bottom = 0.235
+offset_right = 0.149994
+offset_bottom = 0.249985
 texture = ExtResource("3_31es1")
 
 [node name="Label" type="Label" parent="etiqueta_nombre"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -94.5
-offset_top = -32.5
-offset_right = 93.5
-offset_bottom = 32.5
+anchors_preset = -1
+anchor_left = 0.161
+anchor_top = 0.288
+anchor_right = 0.835
+anchor_bottom = 0.712
+offset_left = 0.0809975
+offset_top = -0.064003
+offset_right = 0.0349884
+offset_bottom = 0.0639954
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4

@@ -4,7 +4,7 @@ class_name ModeloDialogo
 # Al crear una nueva escena para un personaje con graficos NV, el sprite
 # inicialmente debe ir mirando hacia la izquierda
 
-@export var escala = 0.3
+@export var escala = 0.5
 
 @onready var personaje: Personaje = get_parent()
 

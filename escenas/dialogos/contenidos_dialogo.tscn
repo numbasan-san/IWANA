@@ -1,11 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dljth7jwfmjlx"]
+[gd_scene load_steps=3 format=3 uid="uid://dljth7jwfmjlx"]
 
 [ext_resource type="Script" path="res://script/dialogos/contenidos_dialogo.gd" id="1_dahx1"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_xeabs"]
-font_size = 20
-
-[sub_resource type="LabelSettings" id="LabelSettings_doqxg"]
+[ext_resource type="LabelSettings" uid="uid://cdswba3l3ge7m" path="res://escenas/dialogos/dialogo_font.tres" id="2_xmv0t"]
 
 [node name="ContenidosDialogo" type="Control"]
 layout_mode = 3
@@ -29,16 +25,11 @@ mouse_filter = 1
 
 [node name="Fondo" type="TextureRect" parent="EscenaNV"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -3.0
-offset_top = -1.0
-offset_right = 1074.0
-offset_bottom = 604.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(0.52, 0.52)
 
 [node name="AreaPersonajes" type="Control" parent="EscenaNV"]
 layout_mode = 1
@@ -80,18 +71,19 @@ modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.1
-anchor_top = 1.0
+anchor_top = 0.77
 anchor_right = 0.9
 anchor_bottom = 1.0
-offset_top = -150.0
 size_flags_vertical = 0
 mouse_filter = 1
 
 [node name="PanelNombre" type="Panel" parent="CuadroDiálogo"]
 layout_mode = 1
-offset_left = 36.0
-offset_top = -40.0
-offset_right = 236.0
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = -0.25
+anchor_right = 0.25
+grow_vertical = 0
 mouse_filter = 1
 
 [node name="ColorRect" type="ColorRect" parent="CuadroDiálogo/PanelNombre"]
@@ -105,10 +97,13 @@ color = Color(0, 0.278431, 0.478431, 1)
 
 [node name="LabelNombre" type="Label" parent="CuadroDiálogo/PanelNombre"]
 layout_mode = 1
-offset_right = 200.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Nombre"
-label_settings = SubResource("LabelSettings_xeabs")
+label_settings = ExtResource("2_xmv0t")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -131,4 +126,4 @@ anchor_bottom = 0.9
 grow_horizontal = 2
 grow_vertical = 2
 text = "Texto de ejemplo"
-label_settings = SubResource("LabelSettings_doqxg")
+label_settings = ExtResource("2_xmv0t")
