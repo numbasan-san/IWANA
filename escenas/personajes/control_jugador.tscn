@@ -26,6 +26,7 @@ script = ExtResource("1_cfkfe")
 inventory = ExtResource("2_ks6fo")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3, 3)
 
 [node name="TextureRect" type="TextureRect" parent="Camera2D"]
 modulate = Color(0.0784314, 0.0784314, 0.0784314, 1)

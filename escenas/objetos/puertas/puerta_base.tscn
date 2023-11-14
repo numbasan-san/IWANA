@@ -10,24 +10,24 @@ size = Vector2(37, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i26qx"]
 size = Vector2(37, 4)
 
-[node name="PuertaBase" type="Area2D"]
-z_index = 1
-y_sort_enabled = true
-script = ExtResource("1_2qge8")
-direccion_def = "up"
+[node name="PuertaBase" type="StaticBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_346tc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 region_enabled = true
 region_rect = Rect2(212, 52, 40, 68)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-physics_material_override = SubResource("PhysicsMaterial_346tc")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Colision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 16)
 shape = SubResource("RectangleShape2D_808ni")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CambioZona" type="Area2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_2qge8")
+direccion_def = "up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CambioZona"]
 position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_i26qx")
 debug_color = Color(0.235294, 0.705882, 0.235294, 0.419608)
