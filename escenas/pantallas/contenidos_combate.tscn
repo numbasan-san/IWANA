@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://bdhq7xoysevqv"]
+[gd_scene load_steps=20 format=3 uid="uid://f2oog5xfhsha"]
 
 [ext_resource type="Texture2D" uid="uid://70eq1ipw5en0" path="res://Assets/Assests de Pruebas/2020-10-25 (4).png" id="1_3scli"]
 [ext_resource type="Script" path="res://script/combate/combate.gd" id="1_8k8bs"]
-[ext_resource type="Resource" uid="uid://ds5sdk8aw4l8r" path="res://script/combate/personajes_stats/resource/Player.tres" id="2_0vdrc"]
-[ext_resource type="Resource" uid="uid://cyc3sn1p8bmn" path="res://script/combate/personajes_stats/resource/Rajang.tres" id="2_5g6qo"]
-[ext_resource type="PackedScene" uid="uid://dbuixiuq0ijmx" path="res://escenas/personajes/combat_models/character_combat_container.tscn" id="5_58fqg"]
+[ext_resource type="PackedScene" uid="uid://dbuixiuq0ijmx" path="res://escenas/personajes/combat_models/character_combat_container.tscn" id="3_v8xkj"]
+[ext_resource type="Resource" uid="uid://cyc3sn1p8bmn" path="res://script/combate/personajes_stats/resource/Rajang.tres" id="4_qswep"]
+[ext_resource type="PackedScene" uid="uid://b34ektq1f8hr8" path="res://escenas/personajes/combat_models/character_retrato.tscn" id="5_58fqg"]
+[ext_resource type="Resource" uid="uid://ds5sdk8aw4l8r" path="res://script/combate/personajes_stats/resource/Player.tres" id="5_ncxjo"]
 [ext_resource type="Texture2D" uid="uid://bihx58y0i0ybt" path="res://Assets/SpritesCombate/hud.png" id="6_67h05"]
 [ext_resource type="Texture2D" uid="uid://b77atfgeienqu" path="res://Assets/SpritesCombate/hud_a.png" id="6_t2p1k"]
 [ext_resource type="Texture2D" uid="uid://divhgdyclosh2" path="res://Assets/SpritesCombate/botones/ataque_no_selecccionado.png" id="7_k3t3k"]
@@ -45,19 +46,17 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_3scli")
 
-[node name="enemy_combat_container" parent="." instance=ExtResource("5_58fqg")]
-layout_mode = 0
-anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 43.0
-offset_top = 196.0
-offset_right = 963.0
-offset_bottom = 979.0
-scale = Vector2(0.35, 0.35)
-stats = ExtResource("2_5g6qo")
+[node name="enemy_combat_container" parent="." instance=ExtResource("3_v8xkj")]
+layout_mode = 1
+anchor_left = 0.1
+anchor_top = 0.26
+anchor_right = 0.276
+anchor_bottom = 0.53
+offset_right = 0.0
+offset_bottom = 0.0
+stats = ExtResource("4_qswep")
 
-[node name="player_combat_container" parent="." instance=ExtResource("5_58fqg")]
+[node name="player_combat_container" parent="." instance=ExtResource("3_v8xkj")]
 visible = false
 layout_mode = 0
 anchors_preset = 0
@@ -67,7 +66,7 @@ offset_left = 409.0
 offset_top = 193.0
 offset_right = 1889.0
 offset_bottom = 1583.0
-stats = ExtResource("2_5g6qo")
+stats = ExtResource("5_ncxjo")
 
 [node name="HudA" type="Sprite2D" parent="."]
 visible = false
@@ -76,12 +75,15 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("6_t2p1k")
 
 [node name="retratos_player" type="GridContainer" parent="."]
-layout_mode = 0
-offset_left = 1231.0
-offset_top = 204.0
-offset_right = 3061.0
-offset_bottom = 1794.0
-scale = Vector2(0.2, 0.2)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.672
+anchor_top = 0.262
+anchor_right = 0.857
+anchor_bottom = 0.555
+offset_left = 70.0
+offset_top = 20.0
+scale = Vector2(0.25, 0.25)
 theme_override_constants/h_separation = 700
 theme_override_constants/v_separation = 700
 columns = 2
@@ -154,15 +156,15 @@ anchor_top = 0.71
 anchor_right = 0.74
 anchor_bottom = 0.98
 
-[node name="player_combat_container1" parent="player_actions/stats_screen" instance=ExtResource("5_58fqg")]
+[node name="player_combat_container1" parent="player_actions/stats_screen" instance=ExtResource("3_v8xkj")]
 layout_mode = 1
 anchor_right = 0.22
 anchor_bottom = 1.0
 offset_right = 0.0
 offset_bottom = 0.0
-stats = ExtResource("2_0vdrc")
+stats = ExtResource("5_ncxjo")
 
-[node name="player_combat_container2" parent="player_actions/stats_screen" instance=ExtResource("5_58fqg")]
+[node name="player_combat_container2" parent="player_actions/stats_screen" instance=ExtResource("3_v8xkj")]
 visible = false
 layout_mode = 1
 anchor_left = 0.26
@@ -171,8 +173,9 @@ anchor_bottom = 1.0
 offset_top = 4.88867
 offset_right = 0.0
 offset_bottom = 0.0
+stats = ExtResource("5_ncxjo")
 
-[node name="player_combat_container3" parent="player_actions/stats_screen" instance=ExtResource("5_58fqg")]
+[node name="player_combat_container3" parent="player_actions/stats_screen" instance=ExtResource("3_v8xkj")]
 visible = false
 layout_mode = 1
 anchor_left = 0.52
@@ -180,8 +183,9 @@ anchor_right = 0.74
 anchor_bottom = 1.0
 offset_right = 0.0
 offset_bottom = 0.0
+stats = ExtResource("5_ncxjo")
 
-[node name="player_combat_container4" parent="player_actions/stats_screen" instance=ExtResource("5_58fqg")]
+[node name="player_combat_container4" parent="player_actions/stats_screen" instance=ExtResource("3_v8xkj")]
 visible = false
 layout_mode = 1
 anchor_left = 0.78
@@ -191,6 +195,7 @@ anchor_bottom = 1.0
 offset_top = 0.042799
 offset_right = 0.0
 offset_bottom = 0.0
+stats = ExtResource("5_ncxjo")
 
 [node name="attacks" type="HBoxContainer" parent="player_actions"]
 layout_mode = 1
