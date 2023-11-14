@@ -95,12 +95,11 @@ func push(pantalla_nueva: Pantalla, animar: bool = true):
 	pantalla_actual.activar()
 	
 	if animar and pantalla_actual.transiciones and pantalla_actual.transiciones.has_animation("In"):
-		# Se pausa la pantalla siguiente para que no reaccione a
-		# inputs del usuario pero se siga viendo.
-		pantalla_actual.desactivar(true)
+		# Se activa la pantalla entrante para poder interactuar sin tener que
+		# esperar a que termine la animación
+		pantalla_actual.activar()
 		pantalla_actual.transiciones.play("In")
 		await pantalla_actual.transiciones.animation_finished
-		pantalla_actual.activar()
 	pantalla_actual.push_solicitado = false
 
 # Se puede llamar a esta función para sacar la pantalla del tope de la pila.

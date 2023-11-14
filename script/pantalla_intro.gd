@@ -12,11 +12,15 @@ func _input(event):
 		# específica
 		var fin_fade_in = 2
 		var inicio_fade_out = 4
+		# Si la imagen recién está apareciendo, saltamos a la posición opuesta
+		# para que comience a desaparecer sin mostrarse completamente
 		if transiciones.current_animation_position < fin_fade_in:
 			var delta = transiciones.current_animation_length - transiciones.current_animation_position
 			transiciones.seek(delta, true)
-		else:
+		# Si todavía no comienza a desaparecer, saltamos a ese punto diréctamente
+		elif transiciones.current_animation_position < inicio_fade_out:
 			transiciones.seek(inicio_fade_out, true)
+		# Si ya empezó a desaparecer, no hacemos nada
 
 func push_inicial(anim_name):
 	if anim_name == "Inicio":
