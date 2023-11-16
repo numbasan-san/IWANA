@@ -127,3 +127,4 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Texto de ejemplo"
 label_settings = ExtResource("2_xmv0t")
+autowrap_mode = 2
