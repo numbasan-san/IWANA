@@ -1,12 +1,9 @@
-extends Node
-
 class_name Unidad
 
 # Una unidad corresponde a un conjunto de instrucciones del guión que se
-# ejecutan en secuencia. Si una instrucción es un comando, se ejecuta y se
-# continúa inmediatamente con la siguiente. Si la instrucción es una linea de
-# diálogo, se muestra en pantalla y se espera al input del jugador antes de
-# continuar
+# ejecutan en secuencia. Las instrucciones se ejecutan inmediatamente una 
+# despues de la otra, excepto por la instrucción "esperar" que pausa la
+# ejecución de la unidad hasta que el usuario presiona la tecla de continuar
 
 # El nombre asignado a esta unidad. Se puede usar para referenciarla desde otras
 # unidades o desde el resto del juego
@@ -28,14 +25,8 @@ var en_ejecucion = false
 # Es true si la unidad ya completó todas sus instrucciones durante esta ejecución
 var listo
 
-# Detecta cuando el usuario presiona un botón para avanzar el diálogo. No debe
-# tener efecto cuando se está ejecutando otro tipo de instrucción
-# TODO: arreglar esto para que los diálogos se demoren un poco en imprimir sus
-# contenidos, y presionar el botón de avanzar diálogo solo lo apura y no pasa al
-# diálogo siguiente
-func _input(event):
-	if event.is_action_pressed("nv_avanzar_dialogo") and instrucciones[actual].tipo == Instruccion.DIALOGO:
-		pausar(false)
+# Cuando esta unidad termine de ejecutar, el control se debe pasar a la siguiente
+var unidad_siguiente: Unidad
 
 # Crea una nueva unidad con una lista de comandos a ejecutar
 func _init(_nombre: String, _instrucciones: Array[Instruccion]):

@@ -5,8 +5,28 @@ var comandos: Dictionary = {}
 
 @export var controlador_guion: ControladorGuion
 
-# Separa el guion en unidades. 
-static var regex_unidad = RegEx.new()
+# Separa el guion en unidades. Para que esto funcione todas las instrucciones
+# tienen que estar escritas dentro de una unidad, y cada unidad debe tener una
+# etiqueta inicial [Unidad: nombre] y una final [Fin: nombre] o [Fin: Unidad]
+# Una unidad puede pertenecer a una escena o ninguna. Unidades que pertenecen a
+# una escena solo pueden ser accedidas o enlazadas dentro de la misma escena.
+# Unidades que no pertenecen a una escena pueden ser accedidas o enlazadas desde
+# cualquier lugar
+static var matcher_unidad = RegEx.new()
+static var regex_unidad = "\\s*\\[(?:U|u)nidad:(?: |\\t)*(?<nombre>.+)\\]\\n(?<contenido>(?:.*\\n)*?)\\[Fin:(?: |\\t)*(?:\\k<nombre>|(?:U|u)nidad)\\]"
+
+# Separa el guión en escenas. Cada escena debe tener una etiqueta inicial
+# [Escena: nombre] y una final [Fin: nombre] o [Fin: Escena]
+static var matcher_escena = RegEx.new()
+static var regex_escena = "\\s*\\[(?:E|e)scena:(?: |\\t)*(?<nombre>.+)\\]\\n(?<contenido>(?:.*\\n)*?)\\[Fin:(?: |\\t)*(?:\\k<nombre>|(?:E|e)scena)\\]"
+
+# Extrae la primera unidad que se debe ejecutar al iniciar la escena
+static var matcher_inicial = RegEx.new()
+static var regex_inicial = "\\s*\\[(?:I|i)nicial:(?: |\\t)*(?<nombre>(?:.*)*?)\\]"
+
+# Extrae las listas de enlaces entre unidades
+static var matcher_enlaces = RegEx.new()
+static var regex_enlaces = "\\s*\\[(?:E|e)nlaces:(?: |\\t)*(?<contenido>(?:.*)*?)\\]"
 
 # Por ahora vamos a asumir que todo el guión está en un solo archivo. Más
 # adelante hay que permitir escribirlo en varios, lo que significa que se pueden
@@ -30,7 +50,10 @@ func _ready():
 	# etiqueta inicial [Unidad: nombre] y una final [Fin: nombre] o [Fin: Unidad]
 	# Más adelante debe extenderse para poder aceptar escenas que contengan varias
 	# unidades, episodios que contengan varias escenas, etc.
-	regex_unidad.compile("\\[Unidad:(?: |\\t)*(?<nombre>.+)\\]\\n(?<contenido>(?:.*\\n)*?)\\[Fin:(?: |\\t)*(?:\\k<nombre>|(?:U|u)nidad)\\]")
+	matcher_unidad.compile(regex_unidad)
+	matcher_escena.compile(regex_escena)
+	matcher_inicial.compile(regex_inicial)
+	matcher_enlaces.compile(regex_enlaces)
 	var carpeta_guion: String
 	# Se ejecuta el juego desde el ejecutable
 	if OS.has_feature("debug") and not OS.has_feature("editor"):
@@ -56,11 +79,46 @@ func parse_archivo(nombre_archivo: String):
 	var archivo = FileAccess.open(nombre_archivo, FileAccess.READ)
 	var contenido = archivo.get_as_text(true)
 	
-	for m in regex_unidad.search_all(contenido):
+	var matches = matcher_escena.search_all(contenido)
+	if matches.size() == 0:
+		printerr("No se encontraron escenas en el guión de nombre " + nombre_archivo)
+	for m in matches:
 		var nombre = m.get_string("nombre")
+		var escena = crear_escena(nombre, m.get_string("contenido"))
+		controlador_guion.agregar(escena)
+	
+func crear_escena(nombre_escena: String, contenido_escena: String) -> Escena:
+	print("Creando escena con nombre " + nombre_escena)
+	var unidades: Array[Unidad] = []
+	var matches_unidades = matcher_unidad.search_all(contenido_escena)
+	if matches_unidades.size() == 0:
+		printerr("No se encontraron unidades en esta escena")
+	for m in matches_unidades:
+		var nombre_unidad = m.get_string("nombre")
 		var contenidos = m.get_string("contenido").split("\n", false)
-		var unidad = crear_unidad(nombre, contenidos)
-		controlador_guion.agregar(unidad)
+		unidades.append(crear_unidad(nombre_unidad, contenidos))
+	
+	var matches_inicial = matcher_inicial.search_all(contenido_escena)
+	var inicial
+	if matches_inicial.size() != 1:
+		printerr("Debe haber exactamente 1 unidad inicial")
+	else:
+		inicial = matches_inicial[0].get_string("nombre")
+		
+	var escena = Escena.new(nombre_escena, inicial, unidades)
+	
+	var matches_enlaces = matcher_enlaces.search_all(contenido_escena)
+	if matches_inicial.size() == 0:
+		printerr("No se encontraron enlaces")
+	for m in matches_enlaces:
+		var split = m.get_string("contenido").split("->", false)
+		var array = Array(split).map(func(s): return s.strip_edges())
+		if array.size() > 1:
+			var i = 1
+			while i < array.size():
+				escena.enlazar(array[i - 1], array[i])
+				i += 1
+	return escena
 
 func crear_unidad(nombre: String, lineas: Array[String]) -> Unidad:
 	print("Creando unidad con nombre " + nombre)

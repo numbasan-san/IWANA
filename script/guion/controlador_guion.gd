@@ -4,50 +4,50 @@ class_name ControladorGuion
 
 signal continuar
 
-var unidades: Dictionary
-var puntero_unidad: int = 0
-var unidad_actual: Unidad
+var escenas: Dictionary
+var puntero_escena: int = 0
+var escena_actual: Escena
 
 var en_ejecucion: bool = false
 
 func _process(_delta):
 	if en_ejecucion:
-		if puntero_unidad >= unidades.size():
+		if puntero_escena >= escenas.size():
 			en_ejecucion = false
 		else:
-			unidad_actual.procesar()
-			if unidad_actual.listo:
-				puntero_unidad += 1
-				if puntero_unidad < unidades.size():
-					unidad_actual = unidades.values()[puntero_unidad]
-					unidad_actual.reiniciar()
+			escena_actual.procesar()
+			if escena_actual.listo:
+				puntero_escena += 1
+				if puntero_escena < escenas.size():
+					escena_actual = escenas.values()[puntero_escena]
+					escena_actual.reiniciar()
 
 func reiniciar():
 	if not continuar.is_connected(_on_continuar):
 		continuar.connect(_on_continuar)
-	for unidad in unidades.values():
-		unidad.reiniciar()
+	for escena in escenas.values():
+		escena.reiniciar()
 	activar(0)
 
 func cargar(nombre: String):
-	var indice = unidades.keys().find(nombre)
+	var indice = escenas.keys().find(nombre)
 	if indice == -1:
-		push_error("No se encontró una unidad con nombre " + nombre)
+		push_error("No se encontró una escena con nombre " + nombre)
 	activar(indice)
 
 # TODO: pensar un mejor nombre que refleje su proposito
 func activar(indice: int):
-	if 0 <= indice and indice < unidades.size():
-		puntero_unidad = indice
-		unidad_actual = unidades.values()[puntero_unidad]
-		unidad_actual.pausar(false)
+	if 0 <= indice and indice < escenas.size():
+		puntero_escena = indice
+		escena_actual = escenas.values()[puntero_escena]
+		escena_actual.pausar(false)
 		en_ejecucion = true
 	else:
-		push_error("Indice fuera de rango")
+		printerr("Indice de escena fuera de rango")
 
 func _on_continuar():
-	if puntero_unidad < unidades.size():
-		unidades.values()[puntero_unidad].pausar(false)
+	if puntero_escena < escenas.size():
+		escenas.values()[puntero_escena].pausar(false)
 	
-func agregar(unidad: Unidad):
-	unidades[unidad.nombre] = unidad
+func agregar(escena: Escena):
+	escenas[escena.nombre] = escena

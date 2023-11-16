@@ -1,3 +1,7 @@
+[Escena: escena 1]
+[Inicial: a1]
+[Enlaces: a1 -> unidad 2]
+
 [Unidad: a1]
 [Abrir]
 [Fondo: bosquejoIntro1.png]
@@ -29,5 +33,21 @@ Amigos: (Reacción con emojis de sus amigos riéndose a carcajadas)
 [Esperar]
 
 
-[Cerrar]
 [Fin: a1]
+
+[Unidad: unidad 2]
+
+Profesora Rosaria: Pero primero se me dijo que tenemos que pasar una presentación debido a que en esta clase tenemos un alto número de gente con cualidades especiales.
+Ni ella suena muy convencida, que asco
+Profesora Rosaria: Mejor vayamos al punto. Todos sabemos que pasó desde el comienzo del siglo XXI, la gente muta, ya sea por nacimiento o por altos niveles de estrés. 
+Profesora Rosaria: Por eso INTENTAREMOS mantener los niveles de estrés al mínimo, por eso, no se peleen entre ustedes, no les griten.. y sobre todo respeto O SE LAS VERÁN CONMIGO!!!
+Raúl: (por texto) Tal vez deberíamos hacer lo mismo que antes
+Raúl me envía una imagen de caballero matando un dragón
+Diego: Profesora si ya sabemos todo eso porque nos lo repiten?
+Profesora Rosaria: Porque el director en persona me pidió darles esta obvia presentación en caso de que algunos de ustedes se pasen de idiotas.
+Noby: mierda esta presentación se está haciendo eterna… creo que me está dando sueño… 
+
+
+[Cerrar]
+[Fin: unidad 2]
+[Fin: escena 1]
