@@ -1,17 +1,17 @@
 extends TextureButton
 
-@onready var pantallas = $/root/Juego.pantallas
+@onready var screens = $/root/Juego.pantallas
 
 func _on_pressed():
-	# Código temporal del prototipo para cargar personajes en modo dialogo
-	# Cambiar cuando esté listo el gestor de escenas
-	var noby = $/root/Juego.cargar_personaje("noby")
-	$/root/Juego/Personajes.cambiar_jugador("noby")
-	var zona_ini = $/root/Juego.cargar_zona("sala_p1n1")
-	pantallas.pantalla_mundo.get_node("Mundo").recolocar_personaje(noby, zona_ini)
-	var dummy = $/root/Juego.cargar_personaje("dummy")
-	var zona_dev = $/root/Juego.cargar_zona("zona_dev_testing")
-	pantallas.pantalla_mundo.get_node("Mundo").recolocar_personaje(dummy, zona_dev)
-	pantallas.push(pantallas.pantalla_mundo)
+	# Temporal code to change character in dialog mode
+	# Change when the scenes controler is ready
+	var noby = CharacterManager.cargar("noby")
+	CharacterManager.cambiar_jugador("noby")
+	var starting_zone = $/root/Juego.cargar_zona("sala_p1n1")
+	screens.pantalla_mundo.get_node("Mundo").recolocar_personaje(noby, starting_zone)
+	var dummy = CharacterManager.cargar("dummy")
+	var dev_zone = $/root/Juego.cargar_zona("zona_dev_testing")
+	screens.pantalla_mundo.get_node("Mundo").recolocar_personaje(dummy, dev_zone)
+	screens.push(screens.pantalla_mundo)
 	$/root/Juego/ControladorGuion.reiniciar()
 	disabled = true

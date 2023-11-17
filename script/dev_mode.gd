@@ -13,9 +13,9 @@ var habilitado = false
 
 func _process(_delta):
 	if habilitado:
-		if $"/root/Juego".personajes.jugador and $"/root/Juego".personajes.jugador.zona:
+		if CharacterManager.player and CharacterManager.player.zona:
 			zonas.disabled = false
-			zonas.text = $"/root/Juego".personajes.jugador.zona.name
+			zonas.text = CharacterManager.player.zona.name
 		else:
 			zonas.disabled = true
 			zonas.text = "Ninguna"
@@ -70,8 +70,8 @@ func rellenar_lista_zonas():
 	if popup.index_pressed.get_connections().size() == 0:
 		popup.index_pressed.connect(func (index) -> void:
 			var zona = popup.get_item_metadata(index)
-			var jugador = $"/root/Juego".personajes.jugador
-			mundo.spawn(jugador, zona, "Default", "down", mundo.SpawnFallback.FIRST)
+			var player = CharacterManager.player
+			mundo.spawn(player, zona, "Default", "down", mundo.SpawnFallback.FIRST)
 		)
 
 func rellenar_lista_escenas():

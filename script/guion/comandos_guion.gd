@@ -5,7 +5,6 @@ extends Node
 class_name Comandos
 
 @onready var pantallas: Pantallas = $/root/Juego.pantallas
-@onready var personajes: Personajes = $/root/Juego.personajes
 @onready var contenidos_dialogo: ContenidosDialogo = pantallas.pantalla_dialogo.get_node("ContenidosDialogo")
 @export var fondos: String
 
@@ -21,7 +20,7 @@ func imagen(args: Array[String]):
 	for par in args:
 		var split = par.split("->")
 		var nombre = split[0].strip_edges()
-		var personaje = personajes.cargar(nombre)
+		var personaje = CharacterManager.cargar(nombre)
 		if not personaje:
 			error("No se encontró un personaje con el nombre " + nombre)
 			continue
@@ -43,14 +42,14 @@ func izquierda(args: Array[String]):
 
 func quitar(args: Array[String]):
 	for nombre in args:
-		var personaje = personajes.cargar(nombre)
+		var personaje = CharacterManager.cargar(nombre)
 		contenidos_dialogo.quitar_personaje(personaje)
 
 func quitar_todos():
 	contenidos_dialogo.quitar_todos()
 
 func _colocar(nombre: String, posicion: ContenidosDialogo.Posicion):
-	var personaje = personajes.cargar(nombre)
+	var personaje = CharacterManager.cargar(nombre)
 	if not personaje:
 		error("No se encontró un personaje con el nombre " + nombre)
 	else:

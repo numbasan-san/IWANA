@@ -24,7 +24,7 @@ func recolocar_personaje(
 	
 	# Si el personaje está controlado por el jugador, la zona en la que está
 	# es la zona hija del nodo mundo, y hay que cambiarla
-	if personaje.control_jugador:
+	if CharacterManager.player == personaje:
 		
 		# Si Mundo tiene una zona hija, y esta es distinta a la nueva zona,
 		# Debe removerse y devolverse al contenedor Zonas

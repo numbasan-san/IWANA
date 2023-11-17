@@ -1,8 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://opd742w6udaq"]
+[gd_scene load_steps=13 format=3 uid="uid://opd742w6udaq"]
 
 [ext_resource type="PackedScene" uid="uid://5t3grq5crsk8" path="res://escenas/pantallas/pantalla_inicial.tscn" id="1_abg3v"]
 [ext_resource type="Script" path="res://script/raiz_juego.gd" id="1_bydot"]
-[ext_resource type="Script" path="res://script/personajes/control_personajes.gd" id="2_mgara"]
 [ext_resource type="PackedScene" uid="uid://oc5oqpk3nprt" path="res://escenas/pantallas/pantalla_mundo.tscn" id="2_q31dv"]
 [ext_resource type="Script" path="res://script/zonas/control_zonas.gd" id="3_4h68k"]
 [ext_resource type="Script" path="res://script/controlador_pantallas.gd" id="3_exd4n"]
@@ -14,15 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://ba3g3jujljxr3" path="res://escenas/pantallas/pantalla_combate.tscn" id="12_etfra"]
 [ext_resource type="Script" path="res://script/guion/comandos_guion.gd" id="13_q65vi"]
 
-[node name="Juego" type="Node2D" node_paths=PackedStringArray("personajes", "zonas", "pantallas")]
+[node name="Juego" type="Node2D" node_paths=PackedStringArray("zonas", "pantallas")]
 script = ExtResource("1_bydot")
-personajes = NodePath("Personajes")
 zonas = NodePath("Zonas")
 pantallas = NodePath("ControladorPantallas")
-
-[node name="Personajes" type="Node" parent="."]
-script = ExtResource("2_mgara")
-path_personajes = "escenas/personajes"
 
 [node name="Zonas" type="Node" parent="."]
 script = ExtResource("3_4h68k")

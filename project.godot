@@ -15,6 +15,10 @@ run/main_scene="res://escenas/raiz_juego.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+CharacterManager="*res://script/personajes/character_manager.gd"
+
 [display]
 
 window/size/viewport_width=1920
