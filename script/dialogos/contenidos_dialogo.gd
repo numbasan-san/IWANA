@@ -55,8 +55,10 @@ func agregar_personaje(personaje: Personaje, pos: Posicion):
 	call_deferred("_reordenar", area_objetivo)
 
 # Elimina el grafico asociado a un personaje, si es que ya está en el area de
-# personajes
-func quitar_personaje(personaje: Personaje):
+# personajes. Si reordenar es true, despues de quitar el personaje se mueven los
+# demás para ocupar el area de manera homogenea. Se puede dejar en false por si
+# uno desea quitar varios personajes y se desea reordenarlos solo al final
+func quitar_personaje(personaje: Personaje, reordenar: bool = true):
 	var grafico: ModeloDialogo = personaje.modelo_dialogo
 	if not grafico or grafico.posicion == Posicion.NINGUNA:
 		return
@@ -70,10 +72,21 @@ func quitar_personaje(personaje: Personaje):
 			area = area_derecha
 	grafico.hide()
 	grafico.get_parent().call_deferred("remove_child", grafico)
-	call_deferred("_reordenar", area)
+	if reordenar:
+		call_deferred("_reordenar", area)
 	personaje.call_deferred("add_child", grafico)
 	grafico.posicion = Posicion.NINGUNA
 
+func vaciar_area(area: Control):
+	for grafico in area.get_children():
+		if grafico is ModeloDialogo:
+			quitar_personaje(grafico.personaje, false)
+	call_deferred("_reordenar", area)
+
+func quitar_todos():
+	vaciar_area(area_izquierda)
+	vaciar_area(area_centro)
+	vaciar_area(area_derecha)
 
 func cambiar_fondo(imagen: String):
 	if not imagen:

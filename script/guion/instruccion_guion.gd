@@ -8,8 +8,11 @@ class_name Instruccion
 # predefinida
 enum { COMANDO, DIALOGO, ERROR, ESPERA }
 
+# El nombre de la instrucción, usada para propósitos de debugging
 var nombre: String
 
+# Los argumentos que se van a aplicar a esta instrucción, usada para propósitos
+# de debugging
 var argumentos: Variant
 
 # Callable que se va a invocar al ejecutar la instrucción

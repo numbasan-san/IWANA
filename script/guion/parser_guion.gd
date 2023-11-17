@@ -3,6 +3,8 @@ extends Node
 var script_comandos: Comandos
 var comandos: Dictionary = {}
 
+var carpeta_guion: String
+
 @export var controlador_guion: ControladorGuion
 
 # Separa el guion en unidades. Para que esto funcione todas las instrucciones
@@ -54,7 +56,6 @@ func _ready():
 	matcher_escena.compile(regex_escena)
 	matcher_inicial.compile(regex_inicial)
 	matcher_enlaces.compile(regex_enlaces)
-	var carpeta_guion: String
 	# Se ejecuta el juego desde el ejecutable
 	if OS.has_feature("debug") and not OS.has_feature("editor"):
 		carpeta_guion = OS.get_executable_path().get_base_dir() + "/Guion"
@@ -63,10 +64,18 @@ func _ready():
 		carpeta_guion = "res://Guion"
 	
 	print("Carpeta guión: " + carpeta_guion)
+	print("Lista de comandos: " + str(comandos))
+	parse_all()
+	
+
+func parse_all():
+	# Primero se borra el controlador por si ya se habían cargado escenas
+	# previamente. Debe llamarse a la función reiniciar cuando se desee iniciar
+	# la ejecución del controlador para que funcione correctamente
+	controlador_guion.borrar()
 	var dir = DirAccess.open(carpeta_guion)
 	var archivos_guion = Array(dir.get_files())
 	print("Archivos guión: " + str(archivos_guion))
-	print("Lista de comandos: " + str(comandos))
 	for archivo in archivos_guion:
 		parse_archivo(carpeta_guion.path_join(archivo))
 	
@@ -120,8 +129,8 @@ func crear_escena(nombre_escena: String, contenido_escena: String) -> Escena:
 				i += 1
 	return escena
 
-func crear_unidad(nombre: String, lineas: Array[String]) -> Unidad:
-	print("Creando unidad con nombre " + nombre)
+func crear_unidad(nombre_unidad: String, lineas: Array[String]) -> Unidad:
+	print("Creando unidad con nombre " + nombre_unidad)
 	
 	# La forma en que va a funcionar el parser es la siguiente:
 	# 1 - Se toma una linea
@@ -135,7 +144,6 @@ func crear_unidad(nombre: String, lineas: Array[String]) -> Unidad:
 	
 	for linea in lineas:
 		print("Linea a procesar: " + linea)
-		var instruccion: Instruccion
 		if linea.begins_with("[") and linea.ends_with("]"):
 			instrucciones.append(extraer_comando(linea.trim_prefix("[").trim_suffix("]").strip_edges()))
 		elif not linea.begins_with("[") and not linea.ends_with("]"):
@@ -144,7 +152,7 @@ func crear_unidad(nombre: String, lineas: Array[String]) -> Unidad:
 		else:
 			instrucciones.append(Instruccion.new(script_comandos, "error", "La instrucción estaba mal escrita.\n Linea: " + linea))
 		
-	return Unidad.new(nombre, instrucciones)
+	return Unidad.new(nombre_unidad, instrucciones)
 	
 
 # Recibe una linea y extrae el comando a ejecutar y sus argumentos
@@ -156,7 +164,7 @@ func extraer_comando(linea: String) -> Instruccion:
 	var componentes = linea.split(":")
 	assert(componentes.size() <= 2, "El comando debe ser de la forma <nombre>: <args>")
 	# Como las funciones se escriben con minúscula, convertimos el nombre del comando
-	var nombre = componentes[0].strip_edges().to_lower()
+	var nombre = componentes[0].strip_edges().to_snake_case()
 	
 	# Todo el codigo a continuacion está feo porque args puede ser null
 	# o array de strings, y hay muchos ifs. Ver si se puede arreglar. Hay que

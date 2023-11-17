@@ -17,7 +17,7 @@ var unidades: Dictionary
 # termine de ejecutarse nombre_inicial
 var conexiones: Dictionary
 
-# El nombre de la primera unidad que se debe ejecutar de esta escena
+# El nombre de la primera unidad que se debe ejecutar al cargar esta escena
 var nombre_primera: String
 
 # La instrucción que se está ejecutando en este momento
@@ -28,7 +28,7 @@ var unidad_actual: Unidad
 var en_ejecucion = false
 
 # Es true si la escena ya completó todas sus unidades durante esta ejecución
-var listo
+var listo = false
 
 # Crea una nueva escena con una lista de unidades a ejecutar
 func _init(_nombre: String, _inicial: String, _unidades: Array[Unidad]):
@@ -48,19 +48,17 @@ func procesar():
 				unidad_actual = unidades[nombre_siguiente]
 				unidad_actual.reiniciar()
 			else:
-				unidad_actual = null
 				listo = true
 
 func reiniciar():
-	for unidad in unidades.values():
-		unidad.reiniciar()
 	cargar(nombre_primera)
 
 func cargar(nombre: String):
 	if unidades.has(nombre):
 		unidad_actual = unidades[nombre]
-		unidad_actual.pausar(false)
-		en_ejecucion = true
+		unidad_actual.reiniciar()
+		listo = false
+		pausar(false)
 	else:
 		printerr("No se encontró una unidad con nombre " + nombre)
 

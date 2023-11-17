@@ -46,6 +46,9 @@ func quitar(args: Array[String]):
 		var personaje = personajes.cargar(nombre)
 		contenidos_dialogo.quitar_personaje(personaje)
 
+func quitar_todos():
+	contenidos_dialogo.quitar_todos()
+
 func _colocar(nombre: String, posicion: ContenidosDialogo.Posicion):
 	var personaje = personajes.cargar(nombre)
 	if not personaje:
@@ -69,13 +72,15 @@ func esperar():
 
 func abrir():
 	print("Abriendo pantalla de dialogo")
-	await pantallas.push(pantallas.pantalla_dialogo)
+	if pantallas.pantalla_actual != pantallas.pantalla_dialogo:
+		await pantallas.push(pantallas.pantalla_dialogo)
 
 # TODO: cambiar esto para que pueda pasar a cualquier pantalla, no solo mundo.
 # Quizas cuando se cambie el sistema de transiciones
 func cerrar():
 	print("Cerrando pantalla de dialogo")
-	await pantallas.pop(pantallas.pantalla_dialogo)
+	if pantallas.pantalla_actual == pantallas.pantalla_dialogo:
+		await pantallas.pop(pantallas.pantalla_dialogo)
 
 func error(mensaje: String):
 	printerr(mensaje)

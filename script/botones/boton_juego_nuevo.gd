@@ -2,10 +2,6 @@ extends TextureButton
 
 @onready var pantallas = $/root/Juego.pantallas
 
-# Esto es una variable temporal para mostrar correctamente el modo
-# dev al comenzar el juego. Hay que reemprazarlo por mejor código despues
-@export var boton_dev: BaseButton
-
 func _on_pressed():
 	# Código temporal del prototipo para cargar personajes en modo dialogo
 	# Cambiar cuando esté listo el gestor de escenas

@@ -25,9 +25,6 @@ var en_ejecucion = false
 # Es true si la unidad ya completó todas sus instrucciones durante esta ejecución
 var listo
 
-# Cuando esta unidad termine de ejecutar, el control se debe pasar a la siguiente
-var unidad_siguiente: Unidad
-
 # Crea una nueva unidad con una lista de comandos a ejecutar
 func _init(_nombre: String, _instrucciones: Array[Instruccion]):
 	self.nombre = _nombre
@@ -40,6 +37,13 @@ func _init(_nombre: String, _instrucciones: Array[Instruccion]):
 # process
 func procesar():
 	if en_ejecucion and not listo:
+		# Este chequeo se coloca acá para cuando la última instrucción de la
+		# unidad es de espera, así uno debe despausar la ejecución con la tecla
+		# de avanzar diálogo antes que la variable listo se haga true y se
+		# continúe con la siguiente unidad
+		if actual >= instrucciones.size():
+			listo = true
+			return
 		instrucciones[actual].ejecutar()
 		# Si la instrucción cambia el diálogo, sumamos 1 a linea_actual para que
 		# en el modo dev se pueda mostrar en que linea de la unidad se encuentra
@@ -52,8 +56,7 @@ func procesar():
 		if instrucciones[actual].tipo == Instruccion.ESPERA:	
 			pausar()
 		actual += 1
-		if actual >= instrucciones.size():
-			listo = true
+		
 
 func reiniciar():
 	actual = 0
