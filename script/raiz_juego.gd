@@ -3,7 +3,6 @@ extends Node2D
 
 # Aca van algunas variables globales que afectarían todo el juego
 # de manera que sea fácil encontrarlas y cambiarlas
-@export var zonas: Zonas
 @export var pantallas: Pantallas
 
 func _input(event):
@@ -15,7 +14,3 @@ func _input(event):
 			pantallas.pantalla_dev.desactivar()
 		else:
 			pantallas.pantalla_dev.activar()
-
-func cargar_zona(nombre_zona: String):
-	return $Zonas.cargar(nombre_zona)
-	

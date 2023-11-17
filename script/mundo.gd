@@ -31,13 +31,13 @@ func recolocar_personaje(
 		if (get_child_count() > 0) and (get_child(0) != zona):
 			var zona_actual = get_child(0)
 			call_deferred("remove_child", zona_actual)
-			$/root/Juego/Zonas.call_deferred("add_child", zona_actual)
+			ZoneManager.call_deferred("add_child", zona_actual)
 			zona_actual.call_deferred("desactivar")
 		
 		# Si Mundo no tiene hijos o tiene pero es distinto a la zona nueva,
 		# esta se debe sacar del contenedor Zonas
 		if get_child_count() == 0 or get_child(0) != zona:
-			$/root/Juego/Zonas.call_deferred("remove_child", zona)
+			ZoneManager.call_deferred("remove_child", zona)
 			call_deferred("add_child", zona)
 			zona.activar()
 		

@@ -58,7 +58,7 @@ func rellenar_lista_zonas():
 	# hay que asignarle un id manualmente y obtener el indice a traves de el
 	var item_id = 0
 	for nombre_zona in todas_las_zonas:
-		var zona = $"/root/Juego".zonas.cargar(nombre_zona)
+		var zona = ZoneManager.load(nombre_zona)
 		popup.add_item(zona.name, item_id)
 		var indice = popup.get_item_index(item_id)
 		item_id += 1

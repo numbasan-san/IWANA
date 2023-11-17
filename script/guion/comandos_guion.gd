@@ -20,7 +20,7 @@ func imagen(args: Array[String]):
 	for par in args:
 		var split = par.split("->")
 		var nombre = split[0].strip_edges()
-		var personaje = CharacterManager.cargar(nombre)
+		var personaje = CharacterManager.load(nombre)
 		if not personaje:
 			error("No se encontró un personaje con el nombre " + nombre)
 			continue
@@ -42,14 +42,14 @@ func izquierda(args: Array[String]):
 
 func quitar(args: Array[String]):
 	for nombre in args:
-		var personaje = CharacterManager.cargar(nombre)
+		var personaje = CharacterManager.load(nombre)
 		contenidos_dialogo.quitar_personaje(personaje)
 
 func quitar_todos():
 	contenidos_dialogo.quitar_todos()
 
 func _colocar(nombre: String, posicion: ContenidosDialogo.Posicion):
-	var personaje = CharacterManager.cargar(nombre)
+	var personaje = CharacterManager.load(nombre)
 	if not personaje:
 		error("No se encontró un personaje con el nombre " + nombre)
 	else:
