@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://du31clkq6084d"]
 
-[ext_resource type="Texture2D" uid="uid://d4mg4f6lmvh5v" path="res://Assets/Assests de Pruebas/34g02emee4491.png" id="1_kkyhw"]
+[ext_resource type="Texture2D" uid="uid://k0mhgc4wfgtc" path="res://Assets/logo.png" id="1_318k0"]
 
 [node name="Intro" type="Control"]
 layout_mode = 3
@@ -23,7 +23,8 @@ color = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3
-anchor_top = 0.3
-anchor_right = 0.7
-anchor_bottom = 1.0
-texture = ExtResource("1_kkyhw")
+anchor_top = 0.13
+anchor_right = 0.65
+anchor_bottom = 0.783
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_318k0")
