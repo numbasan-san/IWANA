@@ -247,5 +247,3 @@ position = Vector2(160, 242)
 
 [node name="PuertaInvisible" parent="." index="4" instance=ExtResource("8_3ujkd")]
 position = Vector2(160, 274)
-zona = "pasillo_p1n"
-direccion_def = "down"

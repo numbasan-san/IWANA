@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://hed2eep7147o"]
+[gd_scene load_steps=6 format=3 uid="uid://hed2eep7147o"]
 
-[ext_resource type="Script" path="res://script/puerta/puerta_base.gd" id="1_2qge8"]
+[ext_resource type="Script" path="res://script/puerta/cambio_zona.gd" id="1_2qge8"]
+[ext_resource type="Script" path="res://script/puerta/portal.gd" id="1_6dlhj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_346tc"]
 
@@ -12,6 +13,8 @@ size = Vector2(37, 4)
 
 [node name="PuertaBase" type="StaticBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_346tc")
+script = ExtResource("1_6dlhj")
+direccion_def = "up"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 region_enabled = true
@@ -25,7 +28,6 @@ shape = SubResource("RectangleShape2D_808ni")
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_2qge8")
-direccion_def = "up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CambioZona"]
 position = Vector2(0, 32)

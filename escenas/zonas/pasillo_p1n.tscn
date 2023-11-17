@@ -26,18 +26,28 @@ layer_1/tile_data = PackedInt32Array()
 
 [node name="PuertaSalaP1N1" parent="Puertas" index="0" instance=ExtResource("3_vgd84")]
 position = Vector2(1038, 48)
+zona = "sala_p1n1"
+spawn = "SpawnPasillo"
 
 [node name="PuertaSalaP1N2" parent="Puertas" index="1" instance=ExtResource("3_vgd84")]
 position = Vector2(1502, 48)
+zona = "sala_p1n2"
+spawn = "SpawnPasillo"
 
 [node name="PuertaBañoHFuera" parent="Puertas" index="2" instance=ExtResource("5_sa3qh")]
 position = Vector2(1794, 48)
+zona = "baño_p1h"
+spawn = "SpawnPasillo"
 
 [node name="PuertaBañoMFuera" parent="Puertas" index="3" instance=ExtResource("6_6gxcv")]
 position = Vector2(1939, 48)
+zona = "baño_p1m"
+spawn = "SpawnPasillo"
 
 [node name="PuertaDev" parent="Puertas" index="4" instance=ExtResource("3_vgd84")]
 position = Vector2(78, 48)
+zona = "zona_dev_testing"
+spawn = "SpawnPasillo"
 
 [node name="Lockers1" type="Node2D" parent="." index="2"]
 position = Vector2(720, 0)

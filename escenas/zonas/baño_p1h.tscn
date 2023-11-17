@@ -5,4 +5,5 @@
 [node name="BañoP1H" instance=ExtResource("1_pdam1")]
 
 [node name="PuertaInvisible" parent="." index="4"]
+zona = "pasillo_p1n"
 spawn = "SpawnBP1H"
