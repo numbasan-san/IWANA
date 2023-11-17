@@ -3,14 +3,19 @@
 [ext_resource type="Script" path="res://script/dev_mode.gd" id="1_cqayl"]
 [ext_resource type="LabelSettings" uid="uid://jda8so48mgcw" path="res://escenas/pantallas/dev_mode_font.tres" id="2_0wr73"]
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_wr6i2"]
-color = Color(0.886275, 0.886275, 0.886275, 1)
-thickness = 4
-vertical = true
+[sub_resource type="LabelSettings" id="LabelSettings_fvbuo"]
+line_spacing = 6.0
+font_size = 35
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
 
-[node name="DevMode" type="CanvasLayer" node_paths=PackedStringArray("contenidos")]
+[node name="DevMode" type="CanvasLayer" node_paths=PackedStringArray("zonas", "escenas", "unidades", "contenidos")]
 layer = 100
 script = ExtResource("1_cqayl")
+todas_las_zonas = Array[String](["zona_dev_testing", "sala_p1n1", "sala_p1n2", "baño_p1h", "baño_p1m", "pasillo_p1n"])
+zonas = NodePath("Contenidos/DetallesUbicacion/Menus/Zonas")
+escenas = NodePath("Contenidos/DetallesUbicacion/Menus/Escenas")
+unidades = NodePath("Contenidos/DetallesUbicacion/Menus/Unidades")
 contenidos = NodePath("Contenidos")
 
 [node name="Contenidos" type="Control" parent="."]
@@ -22,84 +27,79 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="DetallesUbicacion" type="VBoxContainer" parent="Contenidos"]
+[node name="DetallesUbicacion" type="HBoxContainer" parent="Contenidos"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.02
 anchor_top = 0.04
-anchor_right = 0.2
-anchor_bottom = 0.3
+anchor_right = 0.02
+anchor_bottom = 0.206
+offset_left = -0.399998
+offset_top = -0.200001
+offset_right = 294.6
+offset_bottom = -0.480011
 
-[node name="NombreZona" type="Label" parent="Contenidos/DetallesUbicacion"]
+[node name="Labels" type="VBoxContainer" parent="Contenidos/DetallesUbicacion"]
 layout_mode = 2
-text = "Zona: Zona1"
-label_settings = ExtResource("2_0wr73")
+alignment = 2
 
-[node name="NombreEscena" type="Label" parent="Contenidos/DetallesUbicacion"]
+[node name="LabelZona" type="Label" parent="Contenidos/DetallesUbicacion/Labels"]
 layout_mode = 2
-text = "Escena: Intro"
-label_settings = ExtResource("2_0wr73")
+text = "Zona: "
+label_settings = SubResource("LabelSettings_fvbuo")
+
+[node name="LabelEscena" type="Label" parent="Contenidos/DetallesUbicacion/Labels"]
+layout_mode = 2
+text = "Escena: "
+label_settings = SubResource("LabelSettings_fvbuo")
+
+[node name="LabelUnidad" type="Label" parent="Contenidos/DetallesUbicacion/Labels"]
+layout_mode = 2
+text = "Unidad: "
+label_settings = SubResource("LabelSettings_fvbuo")
+
+[node name="Menus" type="VBoxContainer" parent="Contenidos/DetallesUbicacion"]
+layout_mode = 2
+
+[node name="Zonas" type="MenuButton" parent="Contenidos/DetallesUbicacion/Menus"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Ninguna"
+flat = false
+alignment = 0
+
+[node name="Escenas" type="MenuButton" parent="Contenidos/DetallesUbicacion/Menus"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Ninguna"
+flat = false
+alignment = 0
+
+[node name="Unidades" type="MenuButton" parent="Contenidos/DetallesUbicacion/Menus"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Ninguna"
+flat = false
+alignment = 0
 
 [node name="DetallesDialogo" type="HBoxContainer" parent="Contenidos"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.45
+anchor_left = 0.352
 anchor_top = 0.76
-anchor_right = 0.8
+anchor_right = 0.571
 anchor_bottom = 0.76
+offset_bottom = -6.10352e-05
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="NombreDialogo" type="Label" parent="Contenidos/DetallesDialogo"]
+[node name="LabelLinea" type="Label" parent="Contenidos/DetallesDialogo"]
 layout_mode = 2
-text = "Dialogo: Dialogo1"
+text = "Linea:
+"
 label_settings = ExtResource("2_0wr73")
-
-[node name="VSeparator" type="VSeparator" parent="Contenidos/DetallesDialogo"]
-layout_mode = 2
-theme_override_constants/separation = 6
-theme_override_styles/separator = SubResource("StyleBoxLine_wr6i2")
 
 [node name="Linea" type="Label" parent="Contenidos/DetallesDialogo"]
 layout_mode = 2
-text = "Linea: 1"
+text = "0"
 label_settings = ExtResource("2_0wr73")
-
-[node name="SeleccionEscena" type="ScrollContainer" parent="Contenidos"]
-custom_minimum_size = Vector2(0, 400)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.86
-anchor_top = 0.04
-anchor_right = 0.98
-anchor_bottom = 0.4
-grow_horizontal = 0
-horizontal_scroll_mode = 0
-
-[node name="PanelContainer" type="PanelContainer" parent="Contenidos/SeleccionEscena"]
-layout_mode = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Contenidos/SeleccionEscena/PanelContainer"]
-layout_mode = 2
-
-[node name="Zonas" type="VBoxContainer" parent="Contenidos/SeleccionEscena/PanelContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Zonas" type="Label" parent="Contenidos/SeleccionEscena/PanelContainer/VBoxContainer/Zonas"]
-layout_mode = 2
-text = "Zonas"
-label_settings = ExtResource("2_0wr73")
-
-[node name="HSeparator" type="HSeparator" parent="Contenidos/SeleccionEscena/PanelContainer/VBoxContainer/Zonas"]
-layout_mode = 2
-
-[node name="Escenas" type="VBoxContainer" parent="Contenidos/SeleccionEscena/PanelContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Escenas" type="Label" parent="Contenidos/SeleccionEscena/PanelContainer/VBoxContainer/Escenas"]
-layout_mode = 2
-text = "Escenas"
-label_settings = ExtResource("2_0wr73")
-
-[node name="HSeparator" type="HSeparator" parent="Contenidos/SeleccionEscena/PanelContainer/VBoxContainer/Escenas"]
-layout_mode = 2
