@@ -7,6 +7,7 @@ extends Pantalla
 
 @onready var mundo = $/root/Juego.pantallas.pantalla_mundo.get_node("Mundo")
 @onready var controlador_guion: ControladorGuion = $/root/Juego/ControladorGuion
+@onready var parser_guion: ParserGuion = $/root/Juego/ParserGuion
 
 var habilitado = false
 
@@ -120,3 +121,8 @@ func rellenar_lista_unidades():
 			var nombre_unidad = popup.get_item_text(index)
 			controlador_guion.escena_actual.cargar(nombre_unidad)
 		)
+
+func _on_recargar_guion():
+	parser_guion.parse_all()
+	controlador_guion.reiniciar()
+	

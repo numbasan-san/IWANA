@@ -3,7 +3,9 @@
 [Enlaces: a1 -> unidad 2]
 
 [Unidad: a1]
+[Quitar todos]
 [Abrir]
+[Imagen: Daniela -> Neutral]
 [Fondo: bosquejoIntro1.png]
 
 [Imagen: Rosaria -> enojada, Maria Jose -> Maria]
@@ -17,6 +19,7 @@ Profesora Rosaria: yo seré su profesora encargada este año, y deben llamarme p
 Noby: El salón está lleno de putos monstruos, parece un circo de deformes. 
 
 [Derecha: Daniela]
+[Imagen: Daniela -> Enojada]
 Amigos: (Reacción con emojis de sus amigos riéndose a carcajadas)
 
 [Imagen: Maria Jose -> Jose]

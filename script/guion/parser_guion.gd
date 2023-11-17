@@ -1,4 +1,4 @@
-extends Node
+class_name ParserGuion extends Node
 
 var script_comandos: Comandos
 var comandos: Dictionary = {}
