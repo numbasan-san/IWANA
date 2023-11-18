@@ -1,8 +1,7 @@
 extends Node
 
-@onready var pantallas: Pantallas = $/root/Juego.pantallas
-@onready var contenidos_dialogo: ContenidosDialogo = pantallas.pantalla_dialogo.get_node("ContenidosDialogo")
-@export var fondos: String
+@onready var contenidos_dialogo: ContenidosDialogo = ScreenManager.dialog_screen.get_node("ContenidosDialogo")
+var fondos: String = "Assets/DibujosNV/Fondos"
 
 # Asigna una imagen de fondo a la escena
 func fondo(nombre_imagen: String):
@@ -67,15 +66,15 @@ func esperar():
 
 func abrir():
 	print("Abriendo pantalla de dialogo")
-	if pantallas.pantalla_actual != pantallas.pantalla_dialogo:
-		await pantallas.push(pantallas.pantalla_dialogo)
+	if ScreenManager.current_screen != ScreenManager.dialog_screen:
+		await ScreenManager.push(ScreenManager.dialog_screen)
 
 # TODO: cambiar esto para que pueda pasar a cualquier pantalla, no solo mundo.
 # Quizas cuando se cambie el sistema de transiciones
 func cerrar():
 	print("Cerrando pantalla de dialogo")
-	if pantallas.pantalla_actual == pantallas.pantalla_dialogo:
-		await pantallas.pop(pantallas.pantalla_dialogo)
+	if ScreenManager.current_screen == ScreenManager.dialog_screen:
+		await ScreenManager.pop(ScreenManager.dialog_screen)
 
 func error(mensaje: String):
 	printerr(mensaje)

@@ -1,46 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://opd742w6udaq"]
+[gd_scene load_steps=3 format=3 uid="uid://opd742w6udaq"]
 
-[ext_resource type="PackedScene" uid="uid://5t3grq5crsk8" path="res://escenas/pantallas/pantalla_inicial.tscn" id="1_abg3v"]
 [ext_resource type="Script" path="res://script/raiz_juego.gd" id="1_bydot"]
-[ext_resource type="PackedScene" uid="uid://oc5oqpk3nprt" path="res://escenas/pantallas/pantalla_mundo.tscn" id="2_q31dv"]
-[ext_resource type="Script" path="res://script/controlador_pantallas.gd" id="3_exd4n"]
-[ext_resource type="PackedScene" uid="uid://fpbj5k7vpvlw" path="res://escenas/pantallas/pantalla_intro.tscn" id="4_lxdqi"]
-[ext_resource type="PackedScene" uid="uid://daav23mkgp6gf" path="res://escenas/pantallas/pantalla_dialogo.tscn" id="5_aafk1"]
-[ext_resource type="PackedScene" uid="uid://dsihg6mcq4ysb" path="res://escenas/pantallas/dev_mode.tscn" id="8_fgo5h"]
 [ext_resource type="Script" path="res://script/guion/script_commands.gd" id="9_ia0hw"]
-[ext_resource type="PackedScene" uid="uid://ba3g3jujljxr3" path="res://escenas/pantallas/pantalla_combate.tscn" id="12_etfra"]
 
-[node name="Juego" type="Node2D" node_paths=PackedStringArray("pantallas")]
+[node name="Game" type="Node2D"]
 script = ExtResource("1_bydot")
-pantallas = NodePath("ControladorPantallas")
-
-[node name="ControladorPantallas" type="Node" parent="." node_paths=PackedStringArray("pantalla_dev", "pantalla_intro", "pantalla_menu_inicial", "pantalla_mundo", "pantalla_combate", "pantalla_dialogo")]
-script = ExtResource("3_exd4n")
-pantalla_dev = NodePath("DevMode")
-pantalla_intro = NodePath("PantallaIntro")
-pantalla_menu_inicial = NodePath("PantallaMenuInicial")
-pantalla_mundo = NodePath("PantallaMundo")
-pantalla_combate = NodePath("PantallaCombate")
-pantalla_dialogo = NodePath("PantallaDialogo")
-
-[node name="PantallaIntro" parent="ControladorPantallas" instance=ExtResource("4_lxdqi")]
-visible = false
-
-[node name="PantallaMenuInicial" parent="ControladorPantallas" instance=ExtResource("1_abg3v")]
-visible = false
-
-[node name="PantallaMundo" parent="ControladorPantallas" instance=ExtResource("2_q31dv")]
-visible = false
-
-[node name="PantallaCombate" parent="ControladorPantallas" instance=ExtResource("12_etfra")]
-visible = false
-
-[node name="PantallaDialogo" parent="ControladorPantallas" instance=ExtResource("5_aafk1")]
-visible = false
-
-[node name="DevMode" parent="ControladorPantallas" instance=ExtResource("8_fgo5h")]
-visible = false
 
 [node name="Comandos" type="Node" parent="."]
 script = ExtResource("9_ia0hw")
-fondos = "Assets/DibujosNV/Fondos"

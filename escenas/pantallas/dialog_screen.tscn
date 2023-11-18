@@ -55,7 +55,7 @@ _data = {
 "RESET": SubResource("Animation_2oa0e")
 }
 
-[node name="PantallaDialogo" type="CanvasLayer" node_paths=PackedStringArray("contenidos", "transiciones")]
+[node name="DialogScreen" type="CanvasLayer" node_paths=PackedStringArray("contenidos", "transiciones")]
 script = ExtResource("1_e4jc4")
 contenidos = NodePath("ContenidosDialogo")
 transiciones = NodePath("Transicion")

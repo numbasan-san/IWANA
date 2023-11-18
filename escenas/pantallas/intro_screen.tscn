@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://du31clkq6084d" path="res://escenas/intro.tscn" id="1_tst8p"]
 [ext_resource type="AnimationLibrary" uid="uid://qy55pkalrfbh" path="res://animaciones_intro.res" id="3_ptk66"]
 
-[node name="PantallaIntro" type="CanvasLayer" node_paths=PackedStringArray("contenidos", "transiciones")]
+[node name="IntroScreen" type="CanvasLayer" node_paths=PackedStringArray("contenidos", "transiciones")]
 script = ExtResource("1_8n2ye")
 contenidos = NodePath("Intro")
 transiciones = NodePath("Transicion")

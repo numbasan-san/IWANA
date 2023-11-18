@@ -24,8 +24,7 @@ func _input(event):
 
 func push_inicial(anim_name):
 	if anim_name == "Inicio":
-		var pantallas: Pantallas = $/root/Juego.pantallas
-		pantallas.push(pantallas.pantalla_menu_inicial)
+		ScreenManager.push(ScreenManager.main_menu_screen)
 
 func activar():
 	transiciones.play("Inicio")

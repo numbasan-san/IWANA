@@ -57,7 +57,7 @@ _data = {
 "RESET": SubResource("Animation_vt15j")
 }
 
-[node name="PantallaMundo" type="CanvasLayer" node_paths=PackedStringArray("contenidos", "transiciones")]
+[node name="RPGScreen" type="CanvasLayer" node_paths=PackedStringArray("contenidos", "transiciones")]
 follow_viewport_enabled = true
 script = ExtResource("1_jx12o")
 contenidos = NodePath("Mundo")

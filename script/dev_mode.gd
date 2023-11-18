@@ -5,8 +5,6 @@ extends Pantalla
 @export var escenas: MenuButton
 @export var unidades: MenuButton
 
-@onready var mundo = $/root/Juego.pantallas.pantalla_mundo.get_node("Mundo")
-
 var habilitado = false
 
 func _process(_delta):
@@ -28,7 +26,7 @@ func _process(_delta):
 			escenas.text = "Ninguna"
 			unidades.text = "Ninguna"
 			
-	if $"/root/Juego".pantallas.pantalla_dialogo.visible:
+	if ScreenManager.dialog_screen.visible:
 		var linea = ScriptManager.current_scene.unidad_actual.linea_actual
 		$Contenidos/DetallesDialogo/Linea.text = str(linea)
 		$Contenidos/DetallesDialogo.show()
@@ -65,6 +63,7 @@ func rellenar_lista_zonas():
 	# Para conectar la señal asumimos que no esta señal nunca va a ser conectada
 	# a otra función fuera de este script. Si en algun momento eso cambia, hay
 	# que arreglar este código
+	var mundo = ScreenManager.rpg_screen.get_node("Mundo")
 	if popup.index_pressed.get_connections().size() == 0:
 		popup.index_pressed.connect(func (index) -> void:
 			var zona = popup.get_item_metadata(index)

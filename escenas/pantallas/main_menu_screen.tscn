@@ -218,7 +218,7 @@ _data = {
 "Show": SubResource("Animation_it1pj")
 }
 
-[node name="PantallaInicial" type="CanvasLayer" node_paths=PackedStringArray("contenidos", "transiciones")]
+[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("contenidos", "transiciones")]
 script = ExtResource("1_spph5")
 contenidos = NodePath("MenuPrincipal")
 transiciones = NodePath("Transicion")

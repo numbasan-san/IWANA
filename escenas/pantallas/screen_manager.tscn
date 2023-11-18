@@ -1,0 +1,36 @@
+[gd_scene load_steps=8 format=3 uid="uid://igmc7yhnqwex"]
+
+[ext_resource type="Script" path="res://script/screen_manager.gd" id="1_24a2s"]
+[ext_resource type="PackedScene" uid="uid://fpbj5k7vpvlw" path="res://escenas/pantallas/intro_screen.tscn" id="2_1rl3r"]
+[ext_resource type="PackedScene" uid="uid://5t3grq5crsk8" path="res://escenas/pantallas/main_menu_screen.tscn" id="3_y6f37"]
+[ext_resource type="PackedScene" uid="uid://oc5oqpk3nprt" path="res://escenas/pantallas/rpg_screen.tscn" id="4_3ckva"]
+[ext_resource type="PackedScene" uid="uid://ba3g3jujljxr3" path="res://escenas/pantallas/combat_screen.tscn" id="5_cuw85"]
+[ext_resource type="PackedScene" uid="uid://daav23mkgp6gf" path="res://escenas/pantallas/dialog_screen.tscn" id="6_ja4wd"]
+[ext_resource type="PackedScene" uid="uid://dsihg6mcq4ysb" path="res://escenas/pantallas/dev_mode.tscn" id="7_23ryt"]
+
+[node name="ScreenManager" type="Node" node_paths=PackedStringArray("dev_screen", "intro_screen", "main_menu_screen", "rpg_screen", "combat_screen", "dialog_screen")]
+script = ExtResource("1_24a2s")
+dev_screen = NodePath("DevMode")
+intro_screen = NodePath("IntroScreen")
+main_menu_screen = NodePath("MainMenuScreen")
+rpg_screen = NodePath("RPGScreen")
+combat_screen = NodePath("CombatScreen")
+dialog_screen = NodePath("DialogScreen")
+
+[node name="IntroScreen" parent="." instance=ExtResource("2_1rl3r")]
+visible = false
+
+[node name="MainMenuScreen" parent="." instance=ExtResource("3_y6f37")]
+visible = false
+
+[node name="RPGScreen" parent="." instance=ExtResource("4_3ckva")]
+visible = false
+
+[node name="CombatScreen" parent="." instance=ExtResource("5_cuw85")]
+visible = false
+
+[node name="DialogScreen" parent="." instance=ExtResource("6_ja4wd")]
+visible = false
+
+[node name="DevMode" parent="." instance=ExtResource("7_23ryt")]
+visible = false

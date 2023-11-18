@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://ba3g3jujljxr3"]
 
 [ext_resource type="Script" path="res://script/pantalla.gd" id="1_0d1to"]
-[ext_resource type="PackedScene" uid="uid://bdhq7xoysevqv" path="res://escenas/pantallas/contenidos_combate.tscn" id="2_sodoh"]
+[ext_resource type="PackedScene" uid="uid://f2oog5xfhsha" path="res://escenas/pantallas/contenidos_combate.tscn" id="2_sodoh"]
 
 [sub_resource type="Animation" id="Animation_p11p8"]
 resource_name = "FadeIn"
@@ -131,7 +131,7 @@ _data = {
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_aw2b8"]
 
-[node name="PantallaCombate" type="CanvasLayer" node_paths=PackedStringArray("contenidos", "transiciones")]
+[node name="CombatScreen" type="CanvasLayer" node_paths=PackedStringArray("contenidos", "transiciones")]
 script = ExtResource("1_0d1to")
 contenidos = NodePath("ContenidosCombate")
 transiciones = NodePath("Transicion")
