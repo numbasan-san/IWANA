@@ -7,6 +7,7 @@ extends Node2D
 
 func _input(event):
 	if event.is_action_released("toggle_dev"):
+		
 		if not pantallas.pantalla_dev.habilitado:
 			pantallas.pantalla_dev.habilitar()
 			return

@@ -13,5 +13,5 @@ func _on_pressed():
 	var dev_zone = ZoneManager.load("zona_dev_testing")
 	screens.pantalla_mundo.get_node("Mundo").recolocar_personaje(dummy, dev_zone)
 	screens.push(screens.pantalla_mundo)
-	$/root/Juego/ControladorGuion.reiniciar()
+	ScriptManager.restart()
 	disabled = true

@@ -1,27 +1,18 @@
-[gd_scene load_steps=12 format=3 uid="uid://opd742w6udaq"]
+[gd_scene load_steps=10 format=3 uid="uid://opd742w6udaq"]
 
 [ext_resource type="PackedScene" uid="uid://5t3grq5crsk8" path="res://escenas/pantallas/pantalla_inicial.tscn" id="1_abg3v"]
 [ext_resource type="Script" path="res://script/raiz_juego.gd" id="1_bydot"]
 [ext_resource type="PackedScene" uid="uid://oc5oqpk3nprt" path="res://escenas/pantallas/pantalla_mundo.tscn" id="2_q31dv"]
 [ext_resource type="Script" path="res://script/controlador_pantallas.gd" id="3_exd4n"]
 [ext_resource type="PackedScene" uid="uid://fpbj5k7vpvlw" path="res://escenas/pantallas/pantalla_intro.tscn" id="4_lxdqi"]
-[ext_resource type="Script" path="res://script/guion/parser_guion.gd" id="4_ukh1a"]
 [ext_resource type="PackedScene" uid="uid://daav23mkgp6gf" path="res://escenas/pantallas/pantalla_dialogo.tscn" id="5_aafk1"]
-[ext_resource type="Script" path="res://script/guion/controlador_guion.gd" id="5_rp82h"]
 [ext_resource type="PackedScene" uid="uid://dsihg6mcq4ysb" path="res://escenas/pantallas/dev_mode.tscn" id="8_fgo5h"]
+[ext_resource type="Script" path="res://script/guion/script_commands.gd" id="9_ia0hw"]
 [ext_resource type="PackedScene" uid="uid://ba3g3jujljxr3" path="res://escenas/pantallas/pantalla_combate.tscn" id="12_etfra"]
-[ext_resource type="Script" path="res://script/guion/comandos_guion.gd" id="13_q65vi"]
 
 [node name="Juego" type="Node2D" node_paths=PackedStringArray("pantallas")]
 script = ExtResource("1_bydot")
 pantallas = NodePath("ControladorPantallas")
-
-[node name="ParserGuion" type="Node" parent="." node_paths=PackedStringArray("controlador_guion")]
-script = ExtResource("4_ukh1a")
-controlador_guion = NodePath("../ControladorGuion")
-
-[node name="ControladorGuion" type="Node" parent="."]
-script = ExtResource("5_rp82h")
 
 [node name="ControladorPantallas" type="Node" parent="." node_paths=PackedStringArray("pantalla_dev", "pantalla_intro", "pantalla_menu_inicial", "pantalla_mundo", "pantalla_combate", "pantalla_dialogo")]
 script = ExtResource("3_exd4n")
@@ -51,5 +42,5 @@ visible = false
 visible = false
 
 [node name="Comandos" type="Node" parent="."]
-script = ExtResource("13_q65vi")
+script = ExtResource("9_ia0hw")
 fondos = "Assets/DibujosNV/Fondos"

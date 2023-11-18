@@ -1,9 +1,5 @@
 extends Node
 
-# TODO: cambiar 
-
-class_name Comandos
-
 @onready var pantallas: Pantallas = $/root/Juego.pantallas
 @onready var contenidos_dialogo: ContenidosDialogo = pantallas.pantalla_dialogo.get_node("ContenidosDialogo")
 @export var fondos: String

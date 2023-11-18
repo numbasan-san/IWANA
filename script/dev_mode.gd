@@ -6,8 +6,6 @@ extends Pantalla
 @export var unidades: MenuButton
 
 @onready var mundo = $/root/Juego.pantallas.pantalla_mundo.get_node("Mundo")
-@onready var controlador_guion: ControladorGuion = $/root/Juego/ControladorGuion
-@onready var parser_guion: ParserGuion = $/root/Juego/ParserGuion
 
 var habilitado = false
 
@@ -19,11 +17,11 @@ func _process(_delta):
 		else:
 			zonas.disabled = true
 			zonas.text = "Ninguna"
-		var escena_actual = controlador_guion.escena_actual
-		if escena_actual:
-			escenas.text = escena_actual.nombre
-			if escena_actual.unidad_actual:
-				unidades.text = escena_actual.unidad_actual.nombre
+		var current_scene = ScriptManager.current_scene
+		if current_scene:
+			escenas.text = current_scene.nombre
+			if current_scene.unidad_actual:
+				unidades.text = current_scene.unidad_actual.nombre
 			else:
 				unidades.text = "Ninguna"
 		else:
@@ -31,7 +29,7 @@ func _process(_delta):
 			unidades.text = "Ninguna"
 			
 	if $"/root/Juego".pantallas.pantalla_dialogo.visible:
-		var linea = controlador_guion.escena_actual.unidad_actual.linea_actual
+		var linea = ScriptManager.current_scene.unidad_actual.linea_actual
 		$Contenidos/DetallesDialogo/Linea.text = str(linea)
 		$Contenidos/DetallesDialogo.show()
 	else:
@@ -84,7 +82,7 @@ func rellenar_lista_escenas():
 	# indice, pero al agregar un item no entrega el indice asignado, por lo que
 	# hay que asignarle un id manualmente y obtener el indice a traves de el
 	var item_id = 0
-	for nombre_escena in controlador_guion.escenas:
+	for nombre_escena in ScriptManager.scenes:
 		popup.add_item(nombre_escena, item_id)
 		item_id += 1
 		
@@ -94,7 +92,7 @@ func rellenar_lista_escenas():
 	if popup.index_pressed.get_connections().size() == 0:
 		popup.index_pressed.connect(func (index) -> void:
 			var nombre_escena = popup.get_item_text(index)
-			controlador_guion.cargar(nombre_escena)
+			ScriptManager.load(nombre_escena)
 			rellenar_lista_unidades()
 		)
 
@@ -108,7 +106,7 @@ func rellenar_lista_unidades():
 	# indice, pero al agregar un item no entrega el indice asignado, por lo que
 	# hay que asignarle un id manualmente y obtener el indice a traves de el
 	var item_id = 0
-	for nombre_unidad in controlador_guion.escena_actual.unidades:
+	for nombre_unidad in ScriptManager.current_scene.unidades:
 		popup.add_item(nombre_unidad, item_id)
 		var indice = popup.get_item_index(item_id)
 		item_id += 1
@@ -119,10 +117,10 @@ func rellenar_lista_unidades():
 	if popup.index_pressed.get_connections().size() == 0:
 		popup.index_pressed.connect(func (index) -> void:
 			var nombre_unidad = popup.get_item_text(index)
-			controlador_guion.escena_actual.cargar(nombre_unidad)
+			ScriptManager.current_scene.cargar(nombre_unidad)
 		)
 
 func _on_recargar_guion():
-	parser_guion.parse_all()
-	controlador_guion.reiniciar()
+	ScriptParser.parse_all()
+	ScriptManager.restart()
 	

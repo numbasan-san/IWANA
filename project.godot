@@ -19,6 +19,9 @@ config/icon="res://icon.svg"
 
 CharacterManager="*res://script/personajes/character_manager.gd"
 ZoneManager="*res://script/zonas/zone_manager.gd"
+ScriptParser="*res://script/guion/script_parser.gd"
+ScriptManager="*res://script/guion/script_manager.gd"
+ScriptCommands="*res://script/guion/script_commands.gd"
 
 [display]
 
