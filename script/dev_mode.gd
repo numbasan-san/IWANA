@@ -9,9 +9,9 @@ var habilitado = false
 
 func _process(_delta):
 	if habilitado:
-		if CharacterManager.player and CharacterManager.player.zona:
+		if CharacterManager.player and CharacterManager.player.zone:
 			zonas.disabled = false
-			zonas.text = CharacterManager.player.zona.name
+			zonas.text = CharacterManager.player.zone.name
 		else:
 			zonas.disabled = true
 			zonas.text = "Ninguna"
@@ -54,11 +54,11 @@ func rellenar_lista_zonas():
 	# hay que asignarle un id manualmente y obtener el indice a traves de el
 	var item_id = 0
 	for nombre_zona in todas_las_zonas:
-		var zona = ZoneManager.load(nombre_zona)
-		popup.add_item(zona.name, item_id)
+		var zone = ZoneManager.load(nombre_zona)
+		popup.add_item(zone.name, item_id)
 		var indice = popup.get_item_index(item_id)
 		item_id += 1
-		popup.set_item_metadata(indice, zona)
+		popup.set_item_metadata(indice, zone)
 		
 	# Para conectar la señal asumimos que no esta señal nunca va a ser conectada
 	# a otra función fuera de este script. Si en algun momento eso cambia, hay
@@ -66,9 +66,9 @@ func rellenar_lista_zonas():
 	var mundo = ScreenManager.rpg_screen.get_node("Mundo")
 	if popup.index_pressed.get_connections().size() == 0:
 		popup.index_pressed.connect(func (index) -> void:
-			var zona = popup.get_item_metadata(index)
+			var zone = popup.get_item_metadata(index)
 			var player = CharacterManager.player
-			mundo.spawn(player, zona, "Default", "down", mundo.SpawnFallback.FIRST)
+			mundo.spawn(player, zone, "Default", "down", mundo.SpawnFallback.FIRST)
 		)
 
 func rellenar_lista_escenas():

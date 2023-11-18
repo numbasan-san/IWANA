@@ -23,7 +23,7 @@ func imagen(args: Array[String]):
 			continue
 		var image = split[1].strip_edges()
 		print(name + " to " + image)
-		dialog_contents.cambiar_imagen(character, image)
+		dialog_contents.change_image(character, image)
 	
 func derecha(args: Array[String]):
 	for name in args:

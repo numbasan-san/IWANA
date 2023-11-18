@@ -1,28 +1,28 @@
 [gd_scene load_steps=6 format=3 uid="uid://bflouk86od5uf"]
 
-[ext_resource type="Script" path="res://script/personajes/personaje.gd" id="1_wsq18"]
-[ext_resource type="Script" path="res://script/dialogos/modelo_dialogo.gd" id="2_qhnj3"]
+[ext_resource type="Script" path="res://script/personajes/character.gd" id="1_wsq18"]
+[ext_resource type="Script" path="res://script/dialogos/dialog_model.gd" id="2_qhnj3"]
 [ext_resource type="Texture2D" uid="uid://de31ms55cep3k" path="res://Assets/DibujosNV/Personajes/blanca1.png" id="3_so0w4"]
-[ext_resource type="Script" path="res://script/personajes/modelo_rpg.gd" id="4_bamkj"]
-[ext_resource type="Script" path="res://script/personajes/modelo_combate.gd" id="5_282dh"]
+[ext_resource type="Script" path="res://script/personajes/rpg_model.gd" id="4_bamkj"]
+[ext_resource type="Script" path="res://script/personajes/combat_model.gd" id="5_282dh"]
 
-[node name="Blanca" type="Node" node_paths=PackedStringArray("modelo_dialogo", "modelo_rpg", "modelo_combate")]
+[node name="Blanca" type="Node" node_paths=PackedStringArray("dialog_model", "rpg_model", "combat_model")]
 script = ExtResource("1_wsq18")
-modelo_dialogo = NodePath("ModeloDialogo")
-modelo_rpg = NodePath("ModeloRPG")
-modelo_combate = NodePath("ModeloCombate")
+dialog_model = NodePath("DialogModel")
+rpg_model = NodePath("RPGModel")
+combat_model = NodePath("CombatModel")
 
-[node name="ModeloDialogo" type="Node2D" parent="."]
+[node name="DialogModel" type="Node2D" parent="."]
 script = ExtResource("2_qhnj3")
 
-[node name="Neutral" type="Sprite2D" parent="ModeloDialogo"]
+[node name="Neutral" type="Sprite2D" parent="DialogModel"]
 position = Vector2(0, -768)
 texture = ExtResource("3_so0w4")
 
-[node name="ModeloRPG" type="CharacterBody2D" parent="."]
+[node name="RPGModel" type="CharacterBody2D" parent="."]
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("4_bamkj")
 
-[node name="ModeloCombate" type="Node2D" parent="."]
+[node name="CombatModel" type="Node2D" parent="."]
 script = ExtResource("5_282dh")

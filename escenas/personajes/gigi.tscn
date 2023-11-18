@@ -1,29 +1,29 @@
 [gd_scene load_steps=6 format=3 uid="uid://ugiuyfsy1rtl"]
 
-[ext_resource type="Script" path="res://script/personajes/personaje.gd" id="1_cx6xv"]
-[ext_resource type="Script" path="res://script/dialogos/modelo_dialogo.gd" id="2_d4vf7"]
+[ext_resource type="Script" path="res://script/personajes/character.gd" id="1_cx6xv"]
+[ext_resource type="Script" path="res://script/dialogos/dialog_model.gd" id="2_d4vf7"]
 [ext_resource type="Texture2D" uid="uid://bs6ti8u27468e" path="res://Assets/DibujosNV/Personajes/gigi4.png" id="3_3fwy7"]
-[ext_resource type="Script" path="res://script/personajes/modelo_rpg.gd" id="4_ty4yc"]
-[ext_resource type="Script" path="res://script/personajes/modelo_combate.gd" id="5_jk4o2"]
+[ext_resource type="Script" path="res://script/personajes/rpg_model.gd" id="4_ty4yc"]
+[ext_resource type="Script" path="res://script/personajes/combat_model.gd" id="5_jk4o2"]
 
-[node name="Gigi" type="Node" node_paths=PackedStringArray("modelo_dialogo", "modelo_rpg", "modelo_combate")]
+[node name="Gigi" type="Node" node_paths=PackedStringArray("dialog_model", "rpg_model", "combat_model")]
 script = ExtResource("1_cx6xv")
-modelo_dialogo = NodePath("ModeloDialogo")
-modelo_rpg = NodePath("ModeloRPG")
-modelo_combate = NodePath("ModeloCombate")
+dialog_model = NodePath("DialogModel")
+rpg_model = NodePath("RPGModel")
+combat_model = NodePath("CombatModel")
 
-[node name="ModeloDialogo" type="Node2D" parent="."]
+[node name="DialogModel" type="Node2D" parent="."]
 script = ExtResource("2_d4vf7")
 
-[node name="Neutral" type="Sprite2D" parent="ModeloDialogo"]
+[node name="Neutral" type="Sprite2D" parent="DialogModel"]
 position = Vector2(0, -768)
 scale = Vector2(-1, 1)
 texture = ExtResource("3_3fwy7")
 
-[node name="ModeloRPG" type="CharacterBody2D" parent="."]
+[node name="RPGModel" type="CharacterBody2D" parent="."]
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("4_ty4yc")
 
-[node name="ModeloCombate" type="Node2D" parent="."]
+[node name="CombatModel" type="Node2D" parent="."]
 script = ExtResource("5_jk4o2")

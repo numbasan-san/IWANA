@@ -5,7 +5,7 @@ var folder: String = "escenas/personajes"
 
 # The character that's currently being controled by the player. It's null if
 # there isn't any asigned character
-var player: Personaje
+var player: Character
 # All the characters that have been loaded, included the player controled one.
 # The key is the name of the scene and the value is the Node instance
 var _characters: Dictionary
@@ -14,7 +14,7 @@ var _characters: Dictionary
 # been loaded yet. If a character with this name can't be found, null is returned
 func load(character_name: String):
 	character_name = character_name.to_snake_case()
-	var character: Personaje
+	var character: Character
 	if _characters.has(character_name):
 		character = _characters[character_name]
 	else:
@@ -22,9 +22,9 @@ func load(character_name: String):
 		if scn:
 			character = scn.instantiate()
 			_characters[character_name] = character
-			if character.modelo_rpg:
+			if character.rpg_model:
 				# Se desactiva para evitar colisiones o uso de recursos
-				character.modelo_rpg.desactivar()
+				character.rpg_model.desactivar()
 			add_child(character)
 		else:
 			printerr("We couldn't find a character with name " \

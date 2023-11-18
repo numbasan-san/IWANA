@@ -19,19 +19,19 @@ enum Posicion { IZQUIERDA, CENTRO, DERECHA, NINGUNA = -1 }
 # del area de personajes.
 # Si el personaje ya había sido agregado en ese lado, no hace nada
 # Si el personaje ya había sido agregado en otro lado, lo cambia de lugar
-func agregar_personaje(personaje: Personaje, pos: Posicion):
-	var grafico: ModeloDialogo = personaje.modelo_dialogo
+func agregar_personaje(character: Character, pos: Posicion):
+	var grafico: DialogModel = character.dialog_model
 	
 	# Si el personaje no tiene un gráfico de diálogo, en general porque no debe
 	# aparecer en diálogos, o ya está en la posición, no se hace nada
-	if not grafico or grafico.posicion == pos:
+	if not grafico or grafico.dialog_position == pos:
 		return
 	
 	# Si llegamos acá entonces hay que sacar al personaje de algún area. Despues
 	# de llamar a esta función, el modelo va a estar fuera de la pantalla y
 	# de vuelta con su personaje
-	quitar_personaje(personaje)
-	personaje.call_deferred("remove_child", grafico)
+	quitar_personaje(character)
+	character.call_deferred("remove_child", grafico)
 	# TODO: agregar código para manejar transiciones
 	var area_objetivo = Control
 	var posicion_objetivo: Posicion
@@ -39,18 +39,18 @@ func agregar_personaje(personaje: Personaje, pos: Posicion):
 		Posicion.IZQUIERDA:
 			area_objetivo = area_izquierda
 			posicion_objetivo = Posicion.IZQUIERDA
-			grafico.mirar_derecha()
+			grafico.look_right()
 		Posicion.CENTRO:
 			area_objetivo = area_centro
 			posicion_objetivo = Posicion.CENTRO
-			grafico.mirar_derecha()
+			grafico.look_right()
 		Posicion.DERECHA:
 			area_objetivo = area_derecha
 			posicion_objetivo = Posicion.DERECHA
-			grafico.mirar_izquierda()
+			grafico.look_left()
 	
 	area_objetivo.call_deferred("add_child", grafico)
-	grafico.posicion = posicion_objetivo
+	grafico.dialog_position = posicion_objetivo
 	grafico.show()
 	call_deferred("_reordenar", area_objetivo)
 
@@ -58,12 +58,12 @@ func agregar_personaje(personaje: Personaje, pos: Posicion):
 # personajes. Si reordenar es true, despues de quitar el personaje se mueven los
 # demás para ocupar el area de manera homogenea. Se puede dejar en false por si
 # uno desea quitar varios personajes y se desea reordenarlos solo al final
-func quitar_personaje(personaje: Personaje, reordenar: bool = true):
-	var grafico: ModeloDialogo = personaje.modelo_dialogo
-	if not grafico or grafico.posicion == Posicion.NINGUNA:
+func quitar_personaje(character: Character, reordenar: bool = true):
+	var grafico: DialogModel = character.dialog_model
+	if not grafico or grafico.dialog_position == Posicion.NINGUNA:
 		return
 	var area: Control
-	match grafico.posicion:
+	match grafico.dialog_position:
 		Posicion.IZQUIERDA:
 			area = area_izquierda
 		Posicion.CENTRO:
@@ -74,13 +74,13 @@ func quitar_personaje(personaje: Personaje, reordenar: bool = true):
 	grafico.get_parent().call_deferred("remove_child", grafico)
 	if reordenar:
 		call_deferred("_reordenar", area)
-	personaje.call_deferred("add_child", grafico)
-	grafico.posicion = Posicion.NINGUNA
+	character.call_deferred("add_child", grafico)
+	grafico.dialog_position = Posicion.NINGUNA
 
 func vaciar_area(area: Control):
 	for grafico in area.get_children():
-		if grafico is ModeloDialogo:
-			quitar_personaje(grafico.personaje, false)
+		if grafico is DialogModel:
+			quitar_personaje(grafico.character, false)
 	call_deferred("_reordenar", area)
 
 func quitar_todos():
@@ -103,8 +103,8 @@ func cambiar_dialogo(texto: String, nombre: String = ""):
 	label_nombre.text = nombre
 	label_texto.text = texto
 	
-func cambiar_imagen(personaje: Personaje, imagen_objetivo: String):
-	personaje.modelo_dialogo.cambiar_imagen(imagen_objetivo)
+func change_image(character: Character, imagen_objetivo: String):
+	character.dialog_model.change_image(imagen_objetivo)
 
 # Cambia la posición de los personajes en el area de la pantalla dependiendo de
 # cuantos hay. Los personajes ya deben haberse agregado o quitado antes de

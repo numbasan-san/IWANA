@@ -13,18 +13,18 @@ enum SpawnFallback{ ERROR, ZERO, FIRST }
 
 # Remueve el personaje de la zona en la que está actualmente y lo coloca
 # en la zona nueva
-func recolocar_personaje(
-		personaje: Personaje,
+func reposition_character(
+		character: Character,
 		zona: Zona,
 		posicion: Vector2 = Vector2(0, 0),
 		direccion: String = 'down'):
 	
 	# Primero cambiamos al personaje de zona
-	personaje.recolocar(zona, posicion, direccion)
+	character.reposition(zona, posicion, direccion)
 	
 	# Si el personaje está controlado por el jugador, la zona en la que está
 	# es la zona hija del nodo mundo, y hay que cambiarla
-	if CharacterManager.player == personaje:
+	if CharacterManager.player == character:
 		
 		# Si Mundo tiene una zona hija, y esta es distinta a la nueva zona,
 		# Debe removerse y devolverse al contenedor Zonas
@@ -47,7 +47,7 @@ func recolocar_personaje(
 # Mueve este personaje a una posicion determinada por un nodo designado
 # "Spawn" que debe ser colocado anteriormente en la zona
 func spawn(
-		personaje: Personaje,
+		character: Character,
 		zona: Zona,
 		punto_spawn: String = "Default",
 		direccion: String = 'down',
@@ -81,5 +81,5 @@ func spawn(
 		elif fallback == SpawnFallback.ZERO:
 			posicion = Vector2(0, 0)
 	# En cualquier caso, si la ejecución llega acá se tiene una posición válida
-	recolocar_personaje(personaje, zona, posicion, direccion)
+	reposition_character(character, zona, posicion, direccion)
 

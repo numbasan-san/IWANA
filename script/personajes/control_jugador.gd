@@ -46,7 +46,7 @@ func _on_interaccion_item(area):
 # Entrar al area de interaccion de una puerta
 func _on_interaccion_puerta(area):
 	if area.has_method('change_zone'):
-		area.change_zone(get_parent().personaje)
+		area.change_zone(get_parent().character)
 
 # Entrar al area de interaccion de un objeto o npc
 func _on_entrar_area_interaccion(area):
