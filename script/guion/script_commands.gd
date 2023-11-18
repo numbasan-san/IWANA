@@ -1,80 +1,84 @@
 extends Node
 
-@onready var contenidos_dialogo: ContenidosDialogo = ScreenManager.dialog_screen.get_node("ContenidosDialogo")
-var fondos: String = "Assets/DibujosNV/Fondos"
+# Each one of these functions will be associated with a script command, so that
+# it is only necessary to add a new function here for the parser to recognize a
+# new command.
 
-# Asigna una imagen de fondo a la escena
-func fondo(nombre_imagen: String):
-	#assert(nombre_imagen.size() == 1, "Número de argumentos incorrecto. Esperaba 1, recibió " + str(nombre_imagen))
-	print("Cambiando fondo de la escena a " + nombre_imagen)
-	contenidos_dialogo.cambiar_fondo(nombre_imagen)
+@onready var dialog_contents: ContenidosDialogo = ScreenManager.dialog_screen.get_node("ContenidosDialogo")
 
-# Cambia la imagen a uno o más personajes
+# Changes the background image of a scene
+func fondo(image_name: String):
+	print("ScriptCommands | Changing scene background to " + image_name)
+	dialog_contents.cambiar_fondo(image_name)
+
+# Changes the images of one or more characters
 func imagen(args: Array[String]):
-	print("Cambiando imagenes de:")
-	for par in args:
-		var split = par.split("->")
-		var nombre = split[0].strip_edges()
-		var personaje = CharacterManager.load(nombre)
-		if not personaje:
-			error("No se encontró un personaje con el nombre " + nombre)
+	print("ScriptCommands | Changing character images:")
+	for pair in args:
+		var split = pair.split("->")
+		var name = split[0].strip_edges()
+		var character = CharacterManager.load(name)
+		if not character:
+			error("ScriptCommands | Can't find a character with name " + name)
 			continue
-		var imagen = split[1].strip_edges()
-		print(nombre + " a " + imagen)
-		contenidos_dialogo.cambiar_imagen(personaje, imagen)
+		var image = split[1].strip_edges()
+		print(name + " to " + image)
+		dialog_contents.cambiar_imagen(character, image)
 	
 func derecha(args: Array[String]):
-	for nombre in args:
-		_colocar(nombre, ContenidosDialogo.Posicion.DERECHA)
+	for name in args:
+		_place(name, ContenidosDialogo.Posicion.DERECHA)
 
 func centro(args: Array[String]):
-	for nombre in args:
-		_colocar(nombre, ContenidosDialogo.Posicion.CENTRO)
+	for name in args:
+		_place(name, ContenidosDialogo.Posicion.CENTRO)
 
 func izquierda(args: Array[String]):
-	for nombre in args:
-		_colocar(nombre, ContenidosDialogo.Posicion.IZQUIERDA)
+	for name in args:
+		_place(name, ContenidosDialogo.Posicion.IZQUIERDA)
 
 func quitar(args: Array[String]):
-	for nombre in args:
-		var personaje = CharacterManager.load(nombre)
-		contenidos_dialogo.quitar_personaje(personaje)
+	for name in args:
+		var character = CharacterManager.load(name)
+		dialog_contents.quitar_personaje(character)
 
 func quitar_todos():
-	contenidos_dialogo.quitar_todos()
+	dialog_contents.quitar_todos()
 
-func _colocar(nombre: String, posicion: ContenidosDialogo.Posicion):
-	var personaje = CharacterManager.load(nombre)
-	if not personaje:
-		error("No se encontró un personaje con el nombre " + nombre)
+func _place(name: String, position: ContenidosDialogo.Posicion):
+	var character = CharacterManager.load(name)
+	if not character:
+		error("ScriptCommands | Couldn't find a character with name " + name\
+			+ "to change its position")
 	else:
-		contenidos_dialogo.agregar_personaje(personaje, posicion)
-		print("Colocando " + nombre + " en " + str(posicion))
+		dialog_contents.agregar_personaje(character, position)
+		print("ScriptCommands | Placing " + name + " in " + str(position))
 
 func dialogo(args: Array[String]):
 	if args[0]:
-		print(args[0] + ": " + args[1])
+		print("ScriptCommands | " + args[0] + ": " + args[1])
 	else:
-		print(args[1])
-	contenidos_dialogo.cambiar_dialogo(args[1], args[0])
+		print("ScriptCommands | " + args[1])
+	dialog_contents.cambiar_dialogo(args[1], args[0])
 
-# Esta instrucción no hace nada por si misma, pero el control de unidades la usa
-# como una marca para saber cuando detener la ejecución y esperar el input del
-# usuario
+# This instruction does nothing by itself, but it's used as a tag by units so
+# they know to pause their execution and wait for user input when encountering it
 func esperar():
 	pass
 
+# Opens the dialog screen. Reconsider if it should be a command or the system
+# should know when to open the screen automatically
 func abrir():
-	print("Abriendo pantalla de dialogo")
+	print("ScriptCommands | Openning dialog screen")
 	if ScreenManager.current_screen != ScreenManager.dialog_screen:
 		await ScreenManager.push(ScreenManager.dialog_screen)
 
-# TODO: cambiar esto para que pueda pasar a cualquier pantalla, no solo mundo.
-# Quizas cuando se cambie el sistema de transiciones
+# Closes the dialog screen. Reconsider if it should be a command or the system
+# should know when to close the screen automatically
 func cerrar():
-	print("Cerrando pantalla de dialogo")
+	print("ScriptCommands | Closing dialog screen")
 	if ScreenManager.current_screen == ScreenManager.dialog_screen:
 		await ScreenManager.pop(ScreenManager.dialog_screen)
 
-func error(mensaje: String):
-	printerr(mensaje)
+func error(message: String):
+	printerr(message)

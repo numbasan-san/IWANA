@@ -46,6 +46,10 @@ func _ready():
 	# First we read all the functions that correspond to script commands and
 	# fill the commands dictionary for easier access
 	for dict in ScriptCommands.get_script().get_script_method_list():
+		# We ignore function names that start with _ because they are meant to
+		# be private functions that don't represent any script command
+		if dict["name"].begins_with("_"):
+			continue
 		if dict["args"].size() > 0:
 			_commands[dict["name"]] = dict["args"][0]["type"]
 		else:
