@@ -91,17 +91,17 @@ position = Vector2(206, 68)
 [node name="Locker6" parent="Lockers2" index="5" instance=ExtResource("4_3t6ix")]
 position = Vector2(240, 68)
 
-[node name="SpawnSP1N1" type="Node2D" parent="Spawns" index="0"]
+[node name="SpawnSP1N1" type="Node2D" parent="SpawnPoints" index="0"]
 position = Vector2(1038, 83)
 
-[node name="SpawnSP1N2" type="Node2D" parent="Spawns" index="1"]
+[node name="SpawnSP1N2" type="Node2D" parent="SpawnPoints" index="1"]
 position = Vector2(1502, 83)
 
-[node name="SpawnBP1H" type="Node2D" parent="Spawns" index="2"]
+[node name="SpawnBP1H" type="Node2D" parent="SpawnPoints" index="2"]
 position = Vector2(1794, 83)
 
-[node name="SpawnBP1M" type="Node2D" parent="Spawns" index="3"]
+[node name="SpawnBP1M" type="Node2D" parent="SpawnPoints" index="3"]
 position = Vector2(1939, 83)
 
-[node name="SpawnDev" type="Node2D" parent="Spawns" index="4"]
+[node name="SpawnDev" type="Node2D" parent="SpawnPoints" index="4"]
 position = Vector2(78, 83)

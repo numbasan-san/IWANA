@@ -24,7 +24,7 @@ func load(character_name: String):
 			_characters[character_name] = character
 			if character.rpg_model:
 				# Se desactiva para evitar colisiones o uso de recursos
-				character.rpg_model.desactivar()
+				character.rpg_model.deactivate()
 			add_child(character)
 		else:
 			printerr("We couldn't find a character with name " \

@@ -31,7 +31,6 @@ layer_1/tile_data = PackedInt32Array(-983057, 327682, 2, -917521, 327682, 3, -85
 [node name="PuertaInvisible" parent="." index="1" instance=ExtResource("3_ppn4c")]
 position = Vector2(94, 490)
 zona = "pasillo_p1n"
-direccion_def = "down"
 
 [node name="Pizarron" parent="." index="2" instance=ExtResource("4_ebl0c")]
 y_sort_enabled = true
@@ -235,5 +234,5 @@ position = Vector2(-111, -19)
 [node name="TablonInfoSala" parent="." index="7" instance=ExtResource("10_ey3pn")]
 position = Vector2(-164, -93)
 
-[node name="SpawnPasillo" type="Node2D" parent="Spawns" index="0"]
+[node name="SpawnPasillo" type="Node2D" parent="SpawnPoints" index="0"]
 position = Vector2(94, 455)

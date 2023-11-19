@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" path="res://script/zonas/zona_base.gd" id="1_1ux3r"]
 
-[node name="Zona" type="Node2D"]
+[node name="Zone" type="Node2D" node_paths=PackedStringArray("spawn_points")]
 script = ExtResource("1_1ux3r")
+spawn_points = NodePath("SpawnPoints")
 
-[node name="Spawns" type="Node" parent="."]
+[node name="SpawnPoints" type="Node" parent="."]

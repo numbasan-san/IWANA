@@ -12,4 +12,4 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(-263, -136)
 
-[node name="Default" type="Node2D" parent="Spawns" index="1"]
+[node name="Default" type="Node2D" parent="SpawnPoints" index="0"]

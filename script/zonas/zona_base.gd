@@ -1,4 +1,4 @@
-class_name Zona extends Node2D
+class_name Zone extends Node2D
 
 # Por ahora esto está borrado. Si en el futuro tiene sentido preguntar
 # a una zona por todos sus personajes, hay que habilitar esto
@@ -42,14 +42,16 @@ class_name Zona extends Node2D
 
 #-----------------------------------------------------
 
-# Activa proceso, fisica, visibilidad y otras funcionalidades de una zona
-func activar():
+@export var spawn_points: Node
+
+# Activates processing, phisics, visibility and other functionalities of a zone
+func activate():
 	process_mode = Node.PROCESS_MODE_INHERIT
 	set_physics_process(true)
 	show()
 
-# Desactiva proceso, fisica, visibilidad y otras funcionalidades de una zona
-func desactivar():
+# Deactivates processing, phisics, visibility and other functionalities of a zone
+func deactivate():
 	hide()
 	set_physics_process(false)
 	process_mode = Node.PROCESS_MODE_DISABLED

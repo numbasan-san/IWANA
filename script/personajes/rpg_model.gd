@@ -55,11 +55,11 @@ func set_axis(x, y):
 # the player. This function must be called from the character_reposition in the
 # world node, or from another function that's called by that one, to ensure that
 # the zones will be updated correctly
-func reposition(new_zone: Zona, new_position: Vector2, new_direction: String):
+func reposition(new_zone: Zone, new_position: Vector2, new_direction: String):
 	# If the model isn't in any zone, it will be the Character container
 	var current_zone = get_parent()
 	# If we bring it to a zone for the first time, we must activate the node
-	if not current_zone is Zona:
+	if not current_zone is Zone:
 		activate()
 	
 	# If we are moving to a different zone, we change the parent of this node
@@ -84,7 +84,7 @@ func activate():
 	show()
 
 # Deactivates processing, physics, visibility and other functionality of the character
-func desactivar():
+func deactivate():
 	hide()
 	set_physics_process(false)
 	process_mode = Node.PROCESS_MODE_DISABLED

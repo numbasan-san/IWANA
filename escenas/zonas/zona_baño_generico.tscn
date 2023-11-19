@@ -1,8 +1,8 @@
 [gd_scene load_steps=18 format=3 uid="uid://dvs7a5k1ejf15"]
 
 [ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://escenas/zonas/zona_base.tscn" id="1_d7yta"]
-[ext_resource type="Texture2D" uid="uid://0ukamifjeqvd" path="res://Assets/SpritesMundo/Terreno/suelo_y_pared.png" id="2_xdoda"]
-[ext_resource type="Texture2D" uid="uid://dwgsvdhxasp3f" path="res://Assets/SpritesMundo/Objetos/tiles_c.png" id="3_bg17i"]
+[ext_resource type="Texture2D" uid="uid://0ukamifjeqvd" path="res://assets/SpritesMundo/Terreno/suelo_y_pared.png" id="2_xdoda"]
+[ext_resource type="Texture2D" uid="uid://dwgsvdhxasp3f" path="res://assets/SpritesMundo/Objetos/tiles_c.png" id="3_bg17i"]
 [ext_resource type="PackedScene" uid="uid://b1qlrlui53qis" path="res://escenas/objetos/baño/lavamanos_abajo.tscn" id="5_2dmbg"]
 [ext_resource type="PackedScene" uid="uid://dbrpal8fvvdd" path="res://escenas/objetos/baño/lavamanos_medio.tscn" id="6_kvbx5"]
 [ext_resource type="PackedScene" uid="uid://ccr8u24afsy6l" path="res://escenas/objetos/baño/lavamanos_arriba.tscn" id="7_583db"]
@@ -192,7 +192,10 @@ pattern_5 = SubResource("TileMapPattern_nv177")
 [node name="BañoGenerico" instance=ExtResource("1_d7yta")]
 y_sort_enabled = true
 
-[node name="TileMap" type="TileMap" parent="." index="0"]
+[node name="SpawnPasillo" type="Node2D" parent="SpawnPoints" index="0"]
+position = Vector2(160, 242)
+
+[node name="TileMap" type="TileMap" parent="." index="1"]
 tile_set = SubResource("TileSet_48t8y")
 format = 2
 layer_0/name = "Layer 0"
@@ -205,7 +208,7 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(327680, 327680, 2, 393216, 327680, 2, 458752, 327680, 2, 524288, 327680, 2, 589824, 327680, 2, 655360, 327680, 2, 720896, 327680, 2, 786432, 327680, 2, 851968, 327680, 2, 917504, 327680, 2, 983040, 327680, 2, 1048576, 327680, 2, 1114113, 393216, 4, 1114114, 393216, 4, 1114115, 393216, 4, 1114116, 393216, 4, 1114117, 393216, 4, 1114118, 393216, 4, 1114119, 393216, 4, 1114120, 393216, 4, 1114123, 393216, 4, 1114124, 393216, 4, 1114125, 393216, 4, 1114126, 458752, 4, 1114112, 327680, 4, 327694, 458752, 2, 393230, 458752, 2, 458766, 458752, 2, 524302, 458752, 2, 589838, 458752, 2, 655374, 458752, 2, 720910, 458752, 2, 786446, 458752, 2, 851982, 458752, 2, 917518, 458752, 2, 983054, 458752, 2, 1048590, 458752, 2)
 
-[node name="Lavamanos" type="Node2D" parent="." index="1"]
+[node name="Lavamanos" type="Node2D" parent="." index="2"]
 position = Vector2(202, 101)
 
 [node name="LavamanosAbajo" parent="Lavamanos" index="0" instance=ExtResource("5_2dmbg")]
@@ -223,7 +226,7 @@ position = Vector2(11, 35)
 [node name="LavamanosArriba" parent="Lavamanos" index="4" instance=ExtResource("7_583db")]
 position = Vector2(11, 12)
 
-[node name="Segmentos" type="Node2D" parent="." index="2"]
+[node name="Segmentos" type="Node2D" parent="." index="3"]
 y_sort_enabled = true
 position = Vector2(-1, 66)
 
@@ -241,9 +244,6 @@ position = Vector2(35, 129)
 
 [node name="SegmentoBaño5" parent="Segmentos" index="4" instance=ExtResource("8_vfj2d")]
 position = Vector2(35, 166)
-
-[node name="SpawnPasillo" type="Node2D" parent="Spawns" index="0"]
-position = Vector2(160, 242)
 
 [node name="PuertaInvisible" parent="." index="4" instance=ExtResource("8_3ujkd")]
 position = Vector2(160, 274)

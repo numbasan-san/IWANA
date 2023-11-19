@@ -13,7 +13,7 @@ func load(zone_name: String):
 	# Note: This only works if all the zones are in the same folder, this code
 	# doesn't search in subfolders. Fix it so it does
 	
-	var zone: Zona
+	var zone: Zone
 	if _zones.has(zone_name):
 		zone = _zones[zone_name]
 	else:
@@ -21,7 +21,7 @@ func load(zone_name: String):
 		if scn:
 			zone = scn.instantiate()
 			_zones[zone_name] = zone
-			zone.desactivar()
+			zone.deactivate()
 			add_child(zone)
 		else:
 			printerr("We couldn't find a zone with name " \

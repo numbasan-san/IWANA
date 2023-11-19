@@ -6,12 +6,12 @@ extends Node2D
 enum SpawnFallback{ ERROR, ZERO, FIRST }
 
 # The zone where the player currently is and is shown on screen
-var player_zone: Zona
+var player_zone: Zone
 
 # Removes the character from the current new_zone and places it in a new one
 func reposition_character(
 		character: Character,
-		new_zone: Zona,
+		new_zone: Zone,
 		new_position: Vector2 = Vector2(0, 0),
 		new_direction: String = 'down'):
 	
@@ -31,18 +31,18 @@ func reposition_character(
 			ZoneManager.call_deferred("remove_child", new_zone)
 			call_deferred("add_child", new_zone)
 			player_zone = new_zone
-			new_zone.activar()
+			new_zone.activate()
 		
 		# If we reach this point, the player was already in a zone and is moving
 		# to a new one, so we must remove the old one and add the new
 		else:
 			call_deferred("remove_child", player_zone)
 			ZoneManager.call_deferred("add_child", player_zone)
-			player_zone.desactivar()
+			player_zone.deactivate()
 			
 			ZoneManager.call_deferred("remove_child", new_zone)
 			call_deferred("add_child", new_zone)
-			new_zone.activar()
+			new_zone.activate()
 			
 			player_zone = new_zone
 
@@ -55,12 +55,12 @@ func reposition_character(
 # will be chosen. If there are no spawn points, an error is thrown
 func spawn(
 		character: Character,
-		new_zone: Zona,
+		new_zone: Zone,
 		spawn_point: String = "Default",
 		new_direction: String = 'down',
 		fallback = SpawnFallback.ZERO):
 	
-	var spawn_node = new_zone.get_node("Spawns").get_node(spawn_point)
+	var spawn_node = new_zone.spawn_points.get_node(spawn_point)
 	var new_position: Vector2
 	
 	# Try to find the specified spawn point and place the character there
@@ -74,14 +74,14 @@ func spawn(
 			return
 		# Pick the first spawn point in the list
 		elif fallback == SpawnFallback.FIRST:
-			spawn_node = new_zone.get_node("Spawns").get_child(0)
+			spawn_node = new_zone.spawn_points.get_child(0)
 			# If a spawn point is found, choose that one
 			if spawn_node:
 				new_position = spawn_node.position
 			# Else, throw an error
 			else:
-				printerr("World | Spawn point " + spawn_point + " not found and\
-					no other spawn points were defined in the zone")
+				printerr("World | Spawn point " + spawn_point + " not found " \
+					+ "and no other spawn points were defined in the zone")
 				return
 		# Use position (0, 0)
 		elif fallback == SpawnFallback.ZERO:
