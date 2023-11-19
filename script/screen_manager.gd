@@ -17,10 +17,10 @@ extends Node
 # screen is added or removed from the pile respectively. If it defines Hide and
 # Show animations, they will be played when the screen is covered by another or
 # revealed respectively.
-var _screen_stack: Array[Pantalla]
+var _screen_stack: Array[Screen]
 
 # This variable points to the top of the stack
-var current_screen: Pantalla:
+var current_screen: Screen:
 	get:
 		return _screen_stack.back()
 
@@ -29,26 +29,26 @@ var folder: String = "escenas/pantallas"
 
 # The dev mode screen shows information of the state of the game and allows its
 # easy manipulation
-@export var dev_screen: Pantalla
+@export var dev_screen: Screen
 
 # The first screen of the game shows the logos of the company an dev tools, if
 # any, intro animations, credits, etc.
-@export var intro_screen: Pantalla
+@export var intro_screen: Screen
 
 # The first screen after the intro has options to start a new game, load a
 # previous one, change settings, etc.
-@export var main_menu_screen: Pantalla
+@export var main_menu_screen: Screen
 
 # The screen of the rpg mode, which will be shown during most of the game
-@export var rpg_screen: Pantalla
+@export var rpg_screen: Screen
 
 # The screen for combat mode
-@export var combat_screen: Pantalla
+@export var combat_screen: Screen
 
 # The screen that will show dialogs between characters in a visual novel style.
 # It can have a background image, or be transparent so that it will show as an
 # overlay when talking to NPCs
-@export var dialog_screen: Pantalla
+@export var dialog_screen: Screen
 
 
 func _ready():
@@ -66,7 +66,7 @@ func _ready():
 # It's assumed that the inactive screens will still be visible even if covered
 # by new screens, so that transparent screens will show the contents of the
 # previous ones.
-func push(new_screen: Pantalla, animate: bool = true):
+func push(new_screen: Screen, animate: bool = true):
 	if new_screen.push_solicitado:
 		return
 	new_screen.push_solicitado = true
@@ -93,7 +93,7 @@ func push(new_screen: Pantalla, animate: bool = true):
 # The screen to be removed must be passed as an argument so that it can be
 # checked if it actually correspond to the active screen, so that the code
 # doesn't remove other screens by mistake.
-func pop(removed_screen: Pantalla, animate: bool = true):
+func pop(removed_screen: Screen, animate: bool = true):
 	# If we try to remove a screen that isn't the current one or it's already in
 	# the process of being removed, we ignore it
 	if current_screen != removed_screen or current_screen.pop_solicitado:

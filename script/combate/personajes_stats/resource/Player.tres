@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://ds5sdk8aw4l8r"]
 
-[ext_resource type="Texture2D" uid="uid://c8knhlhrmgo4" path="res://Assets/Assests de Pruebas/__glavenus_monster_hunter_drawn_by_milkpanda__sample-b42e3db21a9939973e0e50a33878d1ec.jpg" id="1_ctw0o"]
+[ext_resource type="Texture2D" uid="uid://c8knhlhrmgo4" path="res://assets/Assests de Pruebas/__glavenus_monster_hunter_drawn_by_milkpanda__sample-b42e3db21a9939973e0e50a33878d1ec.jpg" id="1_ctw0o"]
 [ext_resource type="Script" path="res://script/combate/personajes_stats/basic_stats.gd" id="1_u0mb2"]
 
 [resource]

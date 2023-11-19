@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://script/personajes/character.gd" id="1_1xg5r"]
 [ext_resource type="Script" path="res://script/dialogos/dialog_model.gd" id="2_bct3t"]
-[ext_resource type="Texture2D" uid="uid://c7lntb7mvpqt2" path="res://Assets/DibujosNV/Personajes/daniladino2.png" id="2_mrhog"]
-[ext_resource type="Texture2D" uid="uid://bhm0ys613ml5g" path="res://Assets/DibujosNV/Personajes/danielaenojadapng.png" id="4_4aw6c"]
+[ext_resource type="Texture2D" uid="uid://c7lntb7mvpqt2" path="res://assets/dialog_drawings/characters/daniladino2.png" id="2_mrhog"]
+[ext_resource type="Texture2D" uid="uid://bhm0ys613ml5g" path="res://assets/dialog_drawings/characters/danielaenojadapng.png" id="4_4aw6c"]
 [ext_resource type="Script" path="res://script/personajes/rpg_model.gd" id="5_7xxq1"]
 [ext_resource type="Script" path="res://script/personajes/combat_model.gd" id="6_kbwd2"]
 

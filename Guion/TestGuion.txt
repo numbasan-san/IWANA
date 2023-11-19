@@ -6,7 +6,7 @@
 [Quitar todos]
 [Abrir]
 [Imagen: Daniela -> Neutral]
-[Fondo: bosquejoIntro1.png]
+[Fondo: bosquejoIntro1]
 
 [Imagen: Rosaria -> enojada, Maria Jose -> Maria]
 [Izquierda: Noby, Daniela]

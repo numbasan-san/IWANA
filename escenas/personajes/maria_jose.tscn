@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://script/personajes/character.gd" id="1_plsk1"]
 [ext_resource type="Script" path="res://script/dialogos/dialog_model.gd" id="2_2oqlo"]
-[ext_resource type="Texture2D" uid="uid://b6b1hd1e1oi0x" path="res://Assets/DibujosNV/Personajes/mariajose.png" id="3_xswt3"]
+[ext_resource type="Texture2D" uid="uid://b6b1hd1e1oi0x" path="res://assets/dialog_drawings/characters/mariajose.png" id="3_xswt3"]
 [ext_resource type="Script" path="res://script/personajes/rpg_model.gd" id="4_ahxtg"]
-[ext_resource type="Texture2D" uid="uid://duhl2a4ymx2rp" path="res://Assets/DibujosNV/Personajes/josemaria2.png" id="4_hxba3"]
+[ext_resource type="Texture2D" uid="uid://duhl2a4ymx2rp" path="res://assets/dialog_drawings/characters/josemaria2.png" id="4_hxba3"]
 [ext_resource type="Script" path="res://script/personajes/combat_model.gd" id="5_nsatu"]
 
 [node name="MariaJose" type="Node" node_paths=PackedStringArray("dialog_model", "rpg_model", "combat_model")]

@@ -1,4 +1,4 @@
-extends Pantalla
+extends Screen
 
 func _ready():
 	transiciones.animation_finished.connect(push_inicial, CONNECT_ONE_SHOT)

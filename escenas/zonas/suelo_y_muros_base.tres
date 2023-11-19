@@ -1,6 +1,6 @@
 [gd_resource type="TileSet" load_steps=15 format=3 uid="uid://clgr7qwoprumi"]
 
-[ext_resource type="Texture2D" uid="uid://0ukamifjeqvd" path="res://Assets/SpritesMundo/Terreno/suelo_y_pared.png" id="1_7vyxd"]
+[ext_resource type="Texture2D" uid="uid://0ukamifjeqvd" path="res://assets/SpritesMundo/Terreno/suelo_y_pared.png" id="1_7vyxd"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_boha1"]
 tile_data = PackedInt32Array(0, 65538, 1, 65536, 65538, 2, 1, 131074, 1, 65537, 131074, 2)

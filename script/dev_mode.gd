@@ -1,4 +1,4 @@
-extends Pantalla
+extends Screen
 
 @export var todas_las_zonas: Array[String]
 @export var zonas: MenuButton

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://script/personajes/character.gd" id="1_y6fy7"]
 [ext_resource type="Script" path="res://script/dialogos/dialog_model.gd" id="2_cjuf8"]
-[ext_resource type="Texture2D" uid="uid://bbko0fb78k4j7" path="res://Assets/DibujosNV/Personajes/luciafernanda2.png" id="3_ynhfv"]
+[ext_resource type="Texture2D" uid="uid://bbko0fb78k4j7" path="res://assets/dialog_drawings/characters/luciafernanda2.png" id="3_ynhfv"]
 [ext_resource type="Script" path="res://script/personajes/rpg_model.gd" id="4_ew2i2"]
 [ext_resource type="Script" path="res://script/personajes/combat_model.gd" id="5_ooyqp"]
 

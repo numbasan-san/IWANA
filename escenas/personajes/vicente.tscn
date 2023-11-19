@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://script/personajes/character.gd" id="1_fk2aq"]
 [ext_resource type="Script" path="res://script/dialogos/dialog_model.gd" id="2_xve7p"]
-[ext_resource type="Texture2D" uid="uid://b35q7ucrmr3tr" path="res://Assets/DibujosNV/Personajes/vicente1.png" id="3_ux6l3"]
+[ext_resource type="Texture2D" uid="uid://b35q7ucrmr3tr" path="res://assets/dialog_drawings/characters/vicente1.png" id="3_ux6l3"]
 [ext_resource type="Script" path="res://script/personajes/rpg_model.gd" id="4_fqao7"]
 [ext_resource type="Script" path="res://script/personajes/combat_model.gd" id="5_02dea"]
 

@@ -8,7 +8,7 @@ extends Node2D
 
 @onready var character: Character = get_parent()
 
-var dialog_position: ContenidosDialogo.Posicion = ContenidosDialogo.Posicion.NINGUNA
+var dialog_position: DialogContents.Position = DialogContents.Position.NONE
 
 var active_image: Sprite2D
 

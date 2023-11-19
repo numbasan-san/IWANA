@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://5t3grq5crsk8"]
 
 [ext_resource type="PackedScene" uid="uid://dfnbjn6yyb7iw" path="res://escenas/menus/menu_principal.tscn" id="1_31nox"]
-[ext_resource type="Script" path="res://script/pantalla.gd" id="1_spph5"]
-[ext_resource type="AudioStream" uid="uid://b6a4mf0xkes4b" path="res://Assets/Audio/Fun classes and stupid teachers.wav" id="2_rjv87"]
+[ext_resource type="Script" path="res://script/screen.gd" id="1_irqnd"]
+[ext_resource type="AudioStream" uid="uid://b6a4mf0xkes4b" path="res://assets/Audio/Fun classes and stupid teachers.wav" id="2_rjv87"]
 
 [sub_resource type="Animation" id="Animation_w481i"]
 tracks/0/type = "value"
@@ -219,7 +219,7 @@ _data = {
 }
 
 [node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("contenidos", "transiciones")]
-script = ExtResource("1_spph5")
+script = ExtResource("1_irqnd")
 contenidos = NodePath("MenuPrincipal")
 transiciones = NodePath("Transicion")
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://oc5oqpk3nprt"]
 
 [ext_resource type="PackedScene" uid="uid://c0fgo3tb7g1ao" path="res://escenas/zonas/mundo.tscn" id="1_jlw57"]
-[ext_resource type="Script" path="res://script/pantalla.gd" id="1_jx12o"]
+[ext_resource type="Script" path="res://script/screen.gd" id="1_jx12o"]
 [ext_resource type="Script" path="res://script/inventario_objetos/inventario/inventory_layer.gd" id="2_icu3e"]
 [ext_resource type="PackedScene" uid="uid://c6r4b6vsbtube" path="res://escenas/inventario/inventory_gui.tscn" id="3_tjsd1"]
 

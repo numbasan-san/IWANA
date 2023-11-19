@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://cxhb1pbyx1uwh"]
 
 [ext_resource type="Script" path="res://script/personajes/character.gd" id="1_o70rn"]
-[ext_resource type="Texture2D" uid="uid://dn7bewqtk2b2v" path="res://Assets/SpritesMundo/Personajes/Placeholder.png" id="2_sq6f4"]
+[ext_resource type="Texture2D" uid="uid://dn7bewqtk2b2v" path="res://assets/SpritesMundo/Personajes/Placeholder.png" id="2_sq6f4"]
 [ext_resource type="Script" path="res://script/dialogos/dialog_model.gd" id="2_ubsny"]
 [ext_resource type="Script" path="res://script/personajes/rpg_model.gd" id="3_3be6t"]
 [ext_resource type="Script" path="res://script/personajes/interaccion_dummy.gd" id="5_vdbvb"]

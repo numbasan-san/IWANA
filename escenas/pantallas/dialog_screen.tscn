@@ -1,14 +1,14 @@
 [gd_scene load_steps=7 format=3 uid="uid://daav23mkgp6gf"]
 
-[ext_resource type="Script" path="res://script/dialogos/pantalla_dialogo.gd" id="1_e4jc4"]
-[ext_resource type="PackedScene" uid="uid://dljth7jwfmjlx" path="res://escenas/dialogos/contenidos_dialogo.tscn" id="1_fds5q"]
+[ext_resource type="PackedScene" uid="uid://dljth7jwfmjlx" path="res://escenas/dialogos/dialog_contents.tscn" id="1_fds5q"]
+[ext_resource type="Script" path="res://script/dialogos/dialog_screen.gd" id="1_u4nrd"]
 
 [sub_resource type="Animation" id="Animation_2y5oe"]
 resource_name = "FadeIn"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ContenidosDialogo:modulate")
+tracks/0/path = NodePath("DialogContents:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -23,7 +23,7 @@ resource_name = "FadeOut"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ContenidosDialogo:modulate")
+tracks/0/path = NodePath("DialogContents:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -38,7 +38,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ContenidosDialogo:modulate")
+tracks/0/path = NodePath("DialogContents:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -56,14 +56,14 @@ _data = {
 }
 
 [node name="DialogScreen" type="CanvasLayer" node_paths=PackedStringArray("contenidos", "transiciones")]
-script = ExtResource("1_e4jc4")
-contenidos = NodePath("ContenidosDialogo")
-transiciones = NodePath("Transicion")
+script = ExtResource("1_u4nrd")
+contenidos = NodePath("DialogContents")
+transiciones = NodePath("Transition")
 
-[node name="ContenidosDialogo" parent="." instance=ExtResource("1_fds5q")]
+[node name="DialogContents" parent="." instance=ExtResource("1_fds5q")]
 modulate = Color(0, 0, 0, 1)
 
-[node name="Transicion" type="AnimationPlayer" parent="."]
+[node name="Transition" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_p7lbl")
 }
