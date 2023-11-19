@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://5t3grq5crsk8"]
 
-[ext_resource type="PackedScene" uid="uid://dfnbjn6yyb7iw" path="res://escenas/menus/menu_principal.tscn" id="1_31nox"]
+[ext_resource type="PackedScene" uid="uid://dfnbjn6yyb7iw" path="res://escenas/menus/main_menu.tscn" id="1_31nox"]
 [ext_resource type="Script" path="res://script/screen.gd" id="1_irqnd"]
 [ext_resource type="AudioStream" uid="uid://b6a4mf0xkes4b" path="res://assets/Audio/Fun classes and stupid teachers.wav" id="2_rjv87"]
 
@@ -8,7 +8,7 @@
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MenuPrincipal:modulate")
+tracks/0/path = NodePath("MainMenuContents:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -20,7 +20,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/1/path = NodePath("MainMenuMusic:volume_db")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -32,7 +32,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/path = NodePath("MainMenuMusic:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -47,7 +47,7 @@ resource_name = "FadeIn"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MenuPrincipal:modulate")
+tracks/0/path = NodePath("MainMenuContents:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -59,7 +59,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/1/path = NodePath("MainMenuMusic:volume_db")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -71,7 +71,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/path = NodePath("MainMenuMusic:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -86,7 +86,7 @@ resource_name = "FadeOut"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MenuPrincipal:modulate")
+tracks/0/path = NodePath("MainMenuContents:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -98,7 +98,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/1/path = NodePath("MainMenuMusic:volume_db")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -110,7 +110,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/path = NodePath("MainMenuMusic:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -149,7 +149,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MenuPrincipal:modulate")
+tracks/0/path = NodePath("MainMenuContents:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -161,7 +161,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/path = NodePath("MainMenuMusic:playing")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -175,7 +175,7 @@ tracks/1/keys = {
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MenuPrincipal:modulate")
+tracks/0/path = NodePath("MainMenuContents:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -187,7 +187,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/1/path = NodePath("MainMenuMusic:volume_db")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -199,7 +199,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/path = NodePath("MainMenuMusic:playing")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -218,19 +218,19 @@ _data = {
 "Show": SubResource("Animation_it1pj")
 }
 
-[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("contenidos", "transiciones")]
+[node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("contents", "transitions")]
 script = ExtResource("1_irqnd")
-contenidos = NodePath("MenuPrincipal")
-transiciones = NodePath("Transicion")
+contents = NodePath("MainMenuContents")
+transitions = NodePath("Transitions")
 
-[node name="MenuPrincipal" parent="." instance=ExtResource("1_31nox")]
+[node name="MainMenuContents" parent="." instance=ExtResource("1_31nox")]
 modulate = Color(0, 0, 0, 1)
 
-[node name="Transicion" type="AnimationPlayer" parent="."]
+[node name="Transitions" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_n7kc0")
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_rjv87")
-volume_db = -40.0
+volume_db = -5.0

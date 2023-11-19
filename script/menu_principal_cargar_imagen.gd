@@ -1,10 +1,6 @@
 extends Control
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-func cargarFondo():
+# The background grafic of the main menu will change as the game progresses.
+# This function should be called to change it from other scripts
+func load_background():
 	pass

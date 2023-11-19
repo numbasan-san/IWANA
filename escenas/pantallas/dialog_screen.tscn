@@ -55,10 +55,10 @@ _data = {
 "RESET": SubResource("Animation_2oa0e")
 }
 
-[node name="DialogScreen" type="CanvasLayer" node_paths=PackedStringArray("contenidos", "transiciones")]
+[node name="DialogScreen" type="CanvasLayer" node_paths=PackedStringArray("contents", "transitions")]
 script = ExtResource("1_u4nrd")
-contenidos = NodePath("DialogContents")
-transiciones = NodePath("Transition")
+contents = NodePath("DialogContents")
+transitions = NodePath("Transition")
 
 [node name="DialogContents" parent="." instance=ExtResource("1_fds5q")]
 modulate = Color(0, 0, 0, 1)

@@ -35,7 +35,7 @@ func _process(_delta):
 
 func habilitar():
 	print("Dev Mode On")
-	activar()
+	activate()
 	habilitado = true
 	rellenar_lista_zonas()
 	rellenar_lista_escenas()
@@ -63,12 +63,12 @@ func rellenar_lista_zonas():
 	# Para conectar la señal asumimos que no esta señal nunca va a ser conectada
 	# a otra función fuera de este script. Si en algun momento eso cambia, hay
 	# que arreglar este código
-	var mundo = ScreenManager.rpg_screen.get_node("Mundo")
+	var world = ScreenManager.rpg_screen.contents
 	if popup.index_pressed.get_connections().size() == 0:
 		popup.index_pressed.connect(func (index) -> void:
 			var zone = popup.get_item_metadata(index)
 			var player = CharacterManager.player
-			mundo.spawn(player, zone, "Default", "down", mundo.SpawnFallback.FIRST)
+			world.spawn(player, zone, "Default", "down", world.SpawnFallback.FIRST)
 		)
 
 func rellenar_lista_escenas():

@@ -7,7 +7,7 @@ func _input(event):
 		if not ScreenManager.dev_screen.habilitado:
 			ScreenManager.dev_screen.habilitar()
 			return
-		if ScreenManager.dev_screen.activa:
-			ScreenManager.dev_screen.desactivar()
+		if ScreenManager.dev_screen.is_active:
+			ScreenManager.dev_screen.deactivate()
 		else:
-			ScreenManager.dev_screen.activar()
+			ScreenManager.dev_screen.activate()

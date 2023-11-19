@@ -52,12 +52,12 @@ var folder: String = "escenas/pantallas"
 
 
 func _ready():
-	main_menu_screen.desactivar()
-	dialog_screen.desactivar()
-	rpg_screen.desactivar()
-	combat_screen.desactivar()
-	dev_screen.desactivar()
-	intro_screen.desactivar()
+	main_menu_screen.deactivate()
+	dialog_screen.deactivate()
+	rpg_screen.deactivate()
+	combat_screen.deactivate()
+	dev_screen.deactivate()
+	intro_screen.deactivate()
 	
 	push(intro_screen, false)
 	
@@ -67,27 +67,27 @@ func _ready():
 # by new screens, so that transparent screens will show the contents of the
 # previous ones.
 func push(new_screen: Screen, animate: bool = true):
-	if new_screen.push_solicitado:
+	if new_screen.push_requested:
 		return
-	new_screen.push_solicitado = true
+	new_screen.push_requested = true
 	
 	if current_screen:
 		# The current screen is deactivated but still shown, so that the
 		# animation can still play.
-		current_screen.desactivar(true)
-		if animate and current_screen.transiciones.has_animation("Hide"):
-			current_screen.transiciones.play("Hide")
-			await current_screen.transiciones.animation_finished
+		current_screen.deactivate(true)
+		if animate and current_screen.transitions.has_animation("Hide"):
+			current_screen.transitions.play("Hide")
+			await current_screen.transitions.animation_finished
 	# From this point we don't need to manipulate the old screen
 	_screen_stack.push_back(new_screen)
 	# The new screen is activated so that its animations are shown and it
 	# can respond to player input while it's still appearing
-	current_screen.activar()
+	current_screen.activate()
 	
-	if animate and current_screen.transiciones and current_screen.transiciones.has_animation("In"):
-		current_screen.transiciones.play("In")
-		await current_screen.transiciones.animation_finished
-	current_screen.push_solicitado = false
+	if animate and current_screen.transitions and current_screen.transitions.has_animation("In"):
+		current_screen.transitions.play("In")
+		await current_screen.transitions.animation_finished
+	current_screen.push_requested = false
 
 # Remove the screen on top of the stack and give control back to the next screen.
 # The screen to be removed must be passed as an argument so that it can be
@@ -101,20 +101,20 @@ func pop(removed_screen: Screen, animate: bool = true):
 	current_screen.pop_solicitado = true
 	# If the current screen has a transition animation, we must wait for it to
 	# finish playing
-	if animate and current_screen.transiciones and current_screen.transiciones.has_animation("Out"):
+	if animate and current_screen.transitions and current_screen.transitions.has_animation("Out"):
 		# The current screen is paused so that it ignores player input but is
 		# still being shown while it's being animated
-		current_screen.desactivar(true)
-		current_screen.transiciones.play("Out")
-		await current_screen.transiciones.animation_finished
+		current_screen.deactivate(true)
+		current_screen.transitions.play("Out")
+		await current_screen.transitions.animation_finished
 		
 	# At this point the removal animation is done playing and the execution is
 	# resumed, so it's safe to change this variable to false
 	current_screen.pop_solicitado = false
 	
-	current_screen.desactivar()
+	current_screen.deactivate()
 	_screen_stack.pop_back()
-	current_screen.activar()
-	if animate and current_screen.transiciones.has_animation("Show"):
-		current_screen.transiciones.play("Show")
-		await current_screen.transiciones.animation_finished
+	current_screen.activate()
+	if animate and current_screen.transitions.has_animation("Show"):
+		current_screen.transitions.play("Show")
+		await current_screen.transitions.animation_finished

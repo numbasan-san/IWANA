@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://oc5oqpk3nprt"]
 
-[ext_resource type="PackedScene" uid="uid://c0fgo3tb7g1ao" path="res://escenas/zonas/mundo.tscn" id="1_jlw57"]
+[ext_resource type="PackedScene" uid="uid://c0fgo3tb7g1ao" path="res://escenas/zonas/world.tscn" id="1_jlw57"]
 [ext_resource type="Script" path="res://script/screen.gd" id="1_jx12o"]
 [ext_resource type="Script" path="res://script/inventario_objetos/inventario/inventory_layer.gd" id="2_icu3e"]
 [ext_resource type="PackedScene" uid="uid://c6r4b6vsbtube" path="res://escenas/inventario/inventory_gui.tscn" id="3_tjsd1"]
@@ -10,7 +10,7 @@ resource_name = "FadeIn"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Mundo:modulate")
+tracks/0/path = NodePath("World:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -25,7 +25,7 @@ resource_name = "FadeOut"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Mundo:modulate")
+tracks/0/path = NodePath("World:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -40,7 +40,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Mundo:modulate")
+tracks/0/path = NodePath("World:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -57,17 +57,17 @@ _data = {
 "RESET": SubResource("Animation_vt15j")
 }
 
-[node name="RPGScreen" type="CanvasLayer" node_paths=PackedStringArray("contenidos", "transiciones")]
+[node name="RPGScreen" type="CanvasLayer" node_paths=PackedStringArray("contents", "transitions")]
 follow_viewport_enabled = true
 script = ExtResource("1_jx12o")
-contenidos = NodePath("Mundo")
-transiciones = NodePath("Transicion")
+contents = NodePath("World")
+transitions = NodePath("Transitions")
 
-[node name="Mundo" parent="." instance=ExtResource("1_jlw57")]
+[node name="World" parent="." instance=ExtResource("1_jlw57")]
 modulate = Color(0, 0, 0, 1)
 position = Vector2(550, 552)
 
-[node name="Transicion" type="AnimationPlayer" parent="."]
+[node name="Transitions" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_syx5v")
 }

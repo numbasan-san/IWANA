@@ -9,7 +9,7 @@ length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ContenidosCombate:visible")
+tracks/0/path = NodePath("CombatContents:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -73,7 +73,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ContenidosCombate:visible")
+tracks/2/path = NodePath("CombatContents:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -100,7 +100,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ContenidosCombate:visible")
+tracks/1/path = NodePath("CombatContents:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -131,14 +131,14 @@ _data = {
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_aw2b8"]
 
-[node name="CombatScreen" type="CanvasLayer" node_paths=PackedStringArray("contenidos", "transiciones")]
+[node name="CombatScreen" type="CanvasLayer" node_paths=PackedStringArray("contents", "transitions")]
 script = ExtResource("1_0d1to")
-contenidos = NodePath("ContenidosCombate")
-transiciones = NodePath("Transicion")
+contents = NodePath("CombatContents")
+transitions = NodePath("Transitions")
 
-[node name="ContenidosCombate" parent="." instance=ExtResource("2_sodoh")]
+[node name="CombatContents" parent="." instance=ExtResource("2_sodoh")]
 
-[node name="Transicion" type="AnimationPlayer" parent="."]
+[node name="Transitions" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_b33fy")
 }

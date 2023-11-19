@@ -9,14 +9,14 @@ font_size = 35
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[node name="DevMode" type="CanvasLayer" node_paths=PackedStringArray("zonas", "escenas", "unidades", "contenidos")]
+[node name="DevMode" type="CanvasLayer" node_paths=PackedStringArray("zonas", "escenas", "unidades", "contents")]
 layer = 100
 script = ExtResource("1_cqayl")
 todas_las_zonas = Array[String](["zona_dev_testing", "sala_p1n1", "sala_p1n2", "baño_p1h", "baño_p1m", "pasillo_p1n"])
 zonas = NodePath("Contenidos/DetallesUbicacion/Menus/Zonas")
 escenas = NodePath("Contenidos/DetallesUbicacion/Menus/Escenas")
 unidades = NodePath("Contenidos/DetallesUbicacion/Menus/Unidades")
-contenidos = NodePath("Contenidos")
+contents = NodePath("Contenidos")
 
 [node name="Contenidos" type="Control" parent="."]
 layout_mode = 3
