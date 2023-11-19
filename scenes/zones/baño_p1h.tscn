@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://20fpp4endaui"]
+
+[ext_resource type="PackedScene" uid="uid://dvs7a5k1ejf15" path="res://scenes/zones/zona_baño_generico.tscn" id="1_pdam1"]
+
+[node name="BañoP1H" instance=ExtResource("1_pdam1")]
+
+[node name="PuertaInvisible" parent="." index="4"]
+zona = "pasillo_p1n"
+spawn = "SpawnBP1H"

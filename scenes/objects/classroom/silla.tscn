@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://baymeuamqebgj"]
+
+[ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://scenes/objects/base_object.tscn" id="1_wa5bf"]
+[ext_resource type="Texture2D" uid="uid://dtk4eewqiis4m" path="res://assets/rpg_sprites/objects/tiles_b.png" id="2_gkhfr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtqo8"]
+size = Vector2(20, 12)
+
+[node name="Silla" instance=ExtResource("1_wa5bf")]
+y_sort_enabled = true
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_gkhfr")
+region_rect = Rect2(167, 155, 23, 37)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0, 12)
+shape = SubResource("RectangleShape2D_mtqo8")

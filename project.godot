@@ -11,13 +11,13 @@ config_version=5
 [application]
 
 config/name="IWANA"
-run/main_scene="res://escenas/raiz_juego.tscn"
+run/main_scene="res://scenes/raiz_juego.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-ScreenManager="*res://escenas/pantallas/screen_manager.tscn"
+ScreenManager="*res://scenes/screens/screen_manager.tscn"
 CharacterManager="*res://script/personajes/character_manager.gd"
 ZoneManager="*res://script/zonas/zone_manager.gd"
 ScriptParser="*res://script/guion/script_parser.gd"

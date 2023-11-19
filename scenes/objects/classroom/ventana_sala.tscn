@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfx0xnvbfch17"]
+
+[ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://scenes/objects/base_object.tscn" id="1_6xx6l"]
+[ext_resource type="Texture2D" uid="uid://dtk4eewqiis4m" path="res://assets/rpg_sprites/objects/tiles_b.png" id="2_nsyvs"]
+
+[node name="VentanaSala" instance=ExtResource("1_6xx6l")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_nsyvs")
+region_rect = Rect2(208, 13, 64, 51)

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dt44crya5spso"]
+
+[ext_resource type="PackedScene" uid="uid://bqvxhi7wt87t" path="res://scenes/zones/zona_sala_generica.tscn" id="1_6swfk"]
+
+[node name="SalaP1N2" groups=["zonas"] instance=ExtResource("1_6swfk")]
+
+[node name="PuertaInvisible" parent="." index="1"]
+spawn = "SpawnSP1N2"
+
+[node name="Items" type="Node2D" parent="." index="7"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-263, -136)

@@ -1,7 +1,7 @@
 extends Node
 
 # The path where the character scenes must be searched
-var folder: String = "escenas/personajes"
+var folder: String = "scenes/characters"
 
 # The character that's currently being controled by the player. It's null if
 # there isn't any asigned character
