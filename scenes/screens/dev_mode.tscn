@@ -9,16 +9,16 @@ font_size = 35
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[node name="DevMode" type="CanvasLayer" node_paths=PackedStringArray("zonas", "escenas", "unidades", "contents")]
+[node name="DevMode" type="CanvasLayer" node_paths=PackedStringArray("zones", "scenes", "units", "contents")]
 layer = 100
 script = ExtResource("1_cqayl")
-todas_las_zonas = Array[String](["zona_dev_testing", "sala_p1n1", "sala_p1n2", "baño_p1h", "baño_p1m", "pasillo_p1n"])
-zonas = NodePath("Contenidos/DetallesUbicacion/Menus/Zonas")
-escenas = NodePath("Contenidos/DetallesUbicacion/Menus/Escenas")
-unidades = NodePath("Contenidos/DetallesUbicacion/Menus/Unidades")
-contents = NodePath("Contenidos")
+all_zones = Array[String](["zona_dev_testing", "sala_p1n1", "sala_p1n2", "baño_p1h", "baño_p1m", "pasillo_p1n"])
+zones = NodePath("Contents/SceneDetails/Menus/Zones")
+scenes = NodePath("Contents/SceneDetails/Menus/Scenes")
+units = NodePath("Contents/SceneDetails/Menus/Units")
+contents = NodePath("Contents")
 
-[node name="Contenidos" type="Control" parent="."]
+[node name="Contents" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,7 +27,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Button" type="Button" parent="Contenidos"]
+[node name="ReloadButton" type="Button" parent="Contents"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.015
@@ -37,7 +37,7 @@ anchor_bottom = 0.03
 theme_override_font_sizes/font_size = 35
 text = "Recargar"
 
-[node name="DetallesUbicacion" type="HBoxContainer" parent="Contenidos"]
+[node name="SceneDetails" type="HBoxContainer" parent="Contents"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.015
@@ -48,50 +48,50 @@ offset_left = 0.200001
 offset_right = 295.2
 offset_bottom = -0.279999
 
-[node name="Labels" type="VBoxContainer" parent="Contenidos/DetallesUbicacion"]
+[node name="Labels" type="VBoxContainer" parent="Contents/SceneDetails"]
 layout_mode = 2
 alignment = 2
 
-[node name="LabelZona" type="Label" parent="Contenidos/DetallesUbicacion/Labels"]
+[node name="ZoneLabel" type="Label" parent="Contents/SceneDetails/Labels"]
 layout_mode = 2
 text = "Zona: "
 label_settings = SubResource("LabelSettings_fvbuo")
 
-[node name="LabelEscena" type="Label" parent="Contenidos/DetallesUbicacion/Labels"]
+[node name="SceneLabel" type="Label" parent="Contents/SceneDetails/Labels"]
 layout_mode = 2
 text = "Escena: "
 label_settings = SubResource("LabelSettings_fvbuo")
 
-[node name="LabelUnidad" type="Label" parent="Contenidos/DetallesUbicacion/Labels"]
+[node name="UnitLabel" type="Label" parent="Contents/SceneDetails/Labels"]
 layout_mode = 2
 text = "Unidad: "
 label_settings = SubResource("LabelSettings_fvbuo")
 
-[node name="Menus" type="VBoxContainer" parent="Contenidos/DetallesUbicacion"]
+[node name="Menus" type="VBoxContainer" parent="Contents/SceneDetails"]
 layout_mode = 2
 
-[node name="Zonas" type="MenuButton" parent="Contenidos/DetallesUbicacion/Menus"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 35
-text = "Ninguna"
-flat = false
-alignment = 0
-
-[node name="Escenas" type="MenuButton" parent="Contenidos/DetallesUbicacion/Menus"]
+[node name="Zones" type="MenuButton" parent="Contents/SceneDetails/Menus"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
 text = "Ninguna"
 flat = false
 alignment = 0
 
-[node name="Unidades" type="MenuButton" parent="Contenidos/DetallesUbicacion/Menus"]
+[node name="Scenes" type="MenuButton" parent="Contents/SceneDetails/Menus"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
 text = "Ninguna"
 flat = false
 alignment = 0
 
-[node name="DetallesDialogo" type="HBoxContainer" parent="Contenidos"]
+[node name="Units" type="MenuButton" parent="Contents/SceneDetails/Menus"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Ninguna"
+flat = false
+alignment = 0
+
+[node name="DialogDetails" type="HBoxContainer" parent="Contents"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.352
@@ -102,15 +102,15 @@ offset_bottom = -6.10352e-05
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="LabelLinea" type="Label" parent="Contenidos/DetallesDialogo"]
+[node name="LineLabel" type="Label" parent="Contents/DialogDetails"]
 layout_mode = 2
 text = "Linea:
 "
 label_settings = ExtResource("2_0wr73")
 
-[node name="Linea" type="Label" parent="Contenidos/DetallesDialogo"]
+[node name="LineNumberLabel" type="Label" parent="Contents/DialogDetails"]
 layout_mode = 2
 text = "0"
 label_settings = ExtResource("2_0wr73")
 
-[connection signal="pressed" from="Contenidos/Button" to="." method="_on_recargar_guion"]
+[connection signal="pressed" from="Contents/ReloadButton" to="." method="_on_script_reload"]

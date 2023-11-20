@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtqo8"]
 size = Vector2(20, 12)
 
-[node name="Silla" instance=ExtResource("1_wa5bf")]
+[node name="Chair" instance=ExtResource("1_wa5bf")]
 y_sort_enabled = true
 
 [node name="Sprite2D" parent="." index="0"]

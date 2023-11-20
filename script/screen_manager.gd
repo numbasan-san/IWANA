@@ -24,9 +24,6 @@ var current_screen: Screen:
 	get:
 		return _screen_stack.back()
 
-# The path where the screen scenes must be searched
-var folder: String = "escenas/pantallas"
-
 # The dev mode screen shows information of the state of the game and allows its
 # easy manipulation
 @export var dev_screen: Screen

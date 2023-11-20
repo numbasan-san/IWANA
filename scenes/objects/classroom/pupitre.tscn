@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x1oey"]
 size = Vector2(40, 18.3333)
 
-[node name="Pupitre" instance=ExtResource("1_sjp4f")]
+[node name="Desk" instance=ExtResource("1_sjp4f")]
 y_sort_enabled = true
 scale = Vector2(1.2, 1.2)
 

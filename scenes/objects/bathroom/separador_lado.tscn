@@ -10,7 +10,7 @@ size = Vector2(64, 7)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b2dii"]
 size = Vector2(64, 29)
 
-[node name="SeparadorLado" instance=ExtResource("1_sq6rw")]
+[node name="Divider" instance=ExtResource("1_sq6rw")]
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_2b50v")
@@ -20,10 +20,9 @@ region_rect = Rect2(17, 23, 64, 58)
 position = Vector2(0, 25.5)
 shape = SubResource("RectangleShape2D_x3jmb")
 
-[node name="ActivarTransparencia" type="Area2D" parent="." index="2"]
+[node name="ActivateTransparency" type="Area2D" parent="." index="2"]
 script = ExtResource("3_1n5ou")
-valor_transparencia = 0.65
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivarTransparencia" index="0"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivateTransparency" index="0"]
 position = Vector2(0, 14.5)
 shape = SubResource("RectangleShape2D_b2dii")

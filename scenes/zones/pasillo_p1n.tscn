@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cutel42w2vpbu" path="res://scenes/objects/doors/puerta_baño_h_fuera.tscn" id="5_sa3qh"]
 [ext_resource type="PackedScene" uid="uid://8adovfeebq66" path="res://scenes/objects/doors/puerta_baño_m_fuera.tscn" id="6_6gxcv"]
 
-[node name="PasilloP1N" instance=ExtResource("1_wq0ga")]
+[node name="HallwayF1N" instance=ExtResource("1_wq0ga")]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 tile_set = ExtResource("2_1ce1m")
@@ -22,32 +22,32 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array()
 
-[node name="Puertas" type="Node2D" parent="." index="1"]
+[node name="Doors" type="Node2D" parent="." index="1"]
 
-[node name="PuertaSalaP1N1" parent="Puertas" index="0" instance=ExtResource("3_vgd84")]
+[node name="DoorRoomF1N1" parent="Doors" index="0" instance=ExtResource("3_vgd84")]
 position = Vector2(1038, 48)
-zona = "sala_p1n1"
-spawn = "SpawnPasillo"
+zone = "sala_p1n1"
+spawn = "SpawnHallway"
 
-[node name="PuertaSalaP1N2" parent="Puertas" index="1" instance=ExtResource("3_vgd84")]
+[node name="DoorRoomF1N2" parent="Doors" index="1" instance=ExtResource("3_vgd84")]
 position = Vector2(1502, 48)
-zona = "sala_p1n2"
-spawn = "SpawnPasillo"
+zone = "sala_p1n2"
+spawn = "SpawnHallway"
 
-[node name="PuertaBañoHFuera" parent="Puertas" index="2" instance=ExtResource("5_sa3qh")]
+[node name="DoorBathroomM" parent="Doors" index="2" instance=ExtResource("5_sa3qh")]
 position = Vector2(1794, 48)
-zona = "baño_p1h"
-spawn = "SpawnPasillo"
+zone = "baño_p1h"
+spawn = "SpawnHallway"
 
-[node name="PuertaBañoMFuera" parent="Puertas" index="3" instance=ExtResource("6_6gxcv")]
+[node name="DoorBathroomF" parent="Doors" index="3" instance=ExtResource("6_6gxcv")]
 position = Vector2(1939, 48)
-zona = "baño_p1m"
-spawn = "SpawnPasillo"
+zone = "baño_p1m"
+spawn = "SpawnHallway"
 
-[node name="PuertaDev" parent="Puertas" index="4" instance=ExtResource("3_vgd84")]
+[node name="DoorDevTest" parent="Doors" index="4" instance=ExtResource("3_vgd84")]
 position = Vector2(78, 48)
-zona = "zona_dev_testing"
-spawn = "SpawnPasillo"
+zone = "zona_dev_testing"
+spawn = "SpawnHallway"
 
 [node name="Lockers1" type="Node2D" parent="." index="2"]
 position = Vector2(720, 0)
@@ -91,16 +91,16 @@ position = Vector2(206, 68)
 [node name="Locker6" parent="Lockers2" index="5" instance=ExtResource("4_3t6ix")]
 position = Vector2(240, 68)
 
-[node name="SpawnSP1N1" type="Node2D" parent="SpawnPoints" index="0"]
+[node name="SpawnRF1N1" type="Node2D" parent="SpawnPoints" index="0"]
 position = Vector2(1038, 83)
 
-[node name="SpawnSP1N2" type="Node2D" parent="SpawnPoints" index="1"]
+[node name="SpawnRF1N2" type="Node2D" parent="SpawnPoints" index="1"]
 position = Vector2(1502, 83)
 
-[node name="SpawnBP1H" type="Node2D" parent="SpawnPoints" index="2"]
+[node name="SpawnBF1M" type="Node2D" parent="SpawnPoints" index="2"]
 position = Vector2(1794, 83)
 
-[node name="SpawnBP1M" type="Node2D" parent="SpawnPoints" index="3"]
+[node name="SpawnBF1F" type="Node2D" parent="SpawnPoints" index="3"]
 position = Vector2(1939, 83)
 
 [node name="SpawnDev" type="Node2D" parent="SpawnPoints" index="4"]

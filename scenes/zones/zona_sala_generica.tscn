@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bc0x6r1sqak4r" path="res://scenes/objects/classroom/mesa_profesor.tscn" id="10_8e6d3"]
 [ext_resource type="PackedScene" uid="uid://dbui3px8bpm0h" path="res://scenes/objects/classroom/tablon_info_sala.tscn" id="10_ey3pn"]
 
-[node name="SalaGenerica" instance=ExtResource("1_wnoea")]
+[node name="GenericClassroom" instance=ExtResource("1_wnoea")]
 y_sort_enabled = true
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
@@ -28,211 +28,210 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 2
 layer_1/tile_data = PackedInt32Array(-983057, 327682, 2, -917521, 327682, 3, -851985, 327682, 2, -786449, 327682, 3, -720913, 327682, 2, -655377, 327682, 3, -589841, 327682, 2, -524305, 327682, 3, -458769, 327682, 2, -393233, 327682, 3, -327697, 327682, 2, -262161, 327682, 3, -196625, 327682, 2, -131089, 327682, 3, -65553, 327682, 2, -17, 327682, 3, 65519, 327682, 2, 131055, 327682, 3, 196591, 327682, 2, 262127, 327682, 3, 327663, 327682, 2, 393199, 327682, 3, 458735, 327682, 2, 524271, 327682, 3, 589807, 327682, 2, 655343, 327682, 3, 720879, 327682, 2, 786415, 327682, 3, 851951, 327682, 2, 917487, 327682, 3, 983023, 327682, 2, 1048559, 327682, 3, -1048564, 458754, 2, -983028, 458754, 2, -917492, 458754, 2, -851956, 458754, 2, -786420, 458754, 2, -720884, 458754, 2, -655348, 458754, 2, -589812, 458754, 2, -524276, 458754, 2, -458740, 458754, 2, -393204, 458754, 2, -327668, 458754, 2, -262132, 458754, 2, -196596, 458754, 2, -131060, 458754, 2, -65524, 458754, 2, 12, 458754, 2, 65548, 458754, 2, 131084, 458754, 2, 196620, 458754, 2, 262156, 458754, 2, 327692, 458754, 2, 393228, 458754, 2, 458764, 458754, 2, 524300, 458754, 2, 589836, 458754, 2, 655372, 458754, 2, 720908, 458754, 2, 786444, 458754, 2, 851980, 458754, 2, 917516, 458754, 2, 983052, 458754, 2, 1245167, 327682, 4, 1245168, 393218, 4, 1245169, 393218, 4, 1245170, 393218, 4, 1245171, 393218, 4, 1245172, 393218, 4, 1245173, 393218, 4, 1245174, 393218, 4, 1245175, 393218, 4, 1245176, 393218, 4, 1245177, 393218, 4, 1245178, 393218, 4, 1245179, 393218, 4, 1245180, 393218, 4, 1245181, 393218, 4, 1245182, 393218, 4, 1245183, 393218, 4, 1179648, 393218, 4, 1179649, 393218, 4, 1179650, 393218, 4, 1179653, 393218, 4, 1179654, 393218, 4, 1179655, 393218, 4, 1179656, 393218, 4, 1179657, 393218, 4, 1179658, 393218, 4, 1179659, 393218, 4, 1179660, 458754, 4, 1114095, 327682, 2, 1179631, 327682, 3, 1048588, 458754, 2, 1114124, 458754, 2)
 
-[node name="PuertaInvisible" parent="." index="1" instance=ExtResource("3_ppn4c")]
+[node name="Door" parent="." index="1" instance=ExtResource("3_ppn4c")]
 position = Vector2(94, 490)
-zona = "pasillo_p1n"
 
-[node name="Pizarron" parent="." index="2" instance=ExtResource("4_ebl0c")]
+[node name="Blackboard" parent="." index="2" instance=ExtResource("4_ebl0c")]
 y_sort_enabled = true
 position = Vector2(-1, -96)
 
-[node name="Reloj" parent="." index="3" instance=ExtResource("5_p65in")]
+[node name="Clock" parent="." index="3" instance=ExtResource("5_p65in")]
 y_sort_enabled = true
 position = Vector2(81, -109)
 
-[node name="VentanaSala" parent="." index="4" instance=ExtResource("6_tkoyl")]
+[node name="Window" parent="." index="4" instance=ExtResource("6_tkoyl")]
 y_sort_enabled = true
 position = Vector2(164, -97)
 
-[node name="Pupitres" type="Node2D" parent="." index="5"]
+[node name="Desks" type="Node2D" parent="." index="5"]
 y_sort_enabled = true
 position = Vector2(-269, -174)
 
-[node name="Par1" type="Node2D" parent="Pupitres" index="0"]
+[node name="Pair1" type="Node2D" parent="Desks" index="0"]
 y_sort_enabled = true
 position = Vector2(110, 250)
 
-[node name="Pupitre" parent="Pupitres/Par1" index="0" instance=ExtResource("2_ulqri")]
+[node name="Desk" parent="Desks/Pair1" index="0" instance=ExtResource("2_ulqri")]
 
-[node name="Silla" parent="Pupitres/Par1" index="1" instance=ExtResource("9_8irrb")]
+[node name="Chair" parent="Desks/Pair1" index="1" instance=ExtResource("9_8irrb")]
 position = Vector2(0, 11)
 
-[node name="Par2" type="Node2D" parent="Pupitres" index="1"]
+[node name="Pair2" type="Node2D" parent="Desks" index="1"]
 y_sort_enabled = true
 position = Vector2(190, 250)
 
-[node name="Pupitre" parent="Pupitres/Par2" index="0" instance=ExtResource("2_ulqri")]
+[node name="Desk" parent="Desks/Pair2" index="0" instance=ExtResource("2_ulqri")]
 
-[node name="Silla" parent="Pupitres/Par2" index="1" instance=ExtResource("9_8irrb")]
+[node name="Chair" parent="Desks/Pair2" index="1" instance=ExtResource("9_8irrb")]
 position = Vector2(0, 11)
 
-[node name="Par3" type="Node2D" parent="Pupitres" index="2"]
+[node name="Pair3" type="Node2D" parent="Desks" index="2"]
 y_sort_enabled = true
 position = Vector2(270, 250)
 
-[node name="Pupitre" parent="Pupitres/Par3" index="0" instance=ExtResource("2_ulqri")]
+[node name="Desk" parent="Desks/Pair3" index="0" instance=ExtResource("2_ulqri")]
 
-[node name="Silla" parent="Pupitres/Par3" index="1" instance=ExtResource("9_8irrb")]
+[node name="Chair" parent="Desks/Pair3" index="1" instance=ExtResource("9_8irrb")]
 position = Vector2(0, 11)
 
-[node name="Par4" type="Node2D" parent="Pupitres" index="3"]
+[node name="Pair4" type="Node2D" parent="Desks" index="3"]
 y_sort_enabled = true
 position = Vector2(350, 250)
 
-[node name="Pupitre" parent="Pupitres/Par4" index="0" instance=ExtResource("2_ulqri")]
+[node name="Desk" parent="Desks/Pair4" index="0" instance=ExtResource("2_ulqri")]
 
-[node name="Silla" parent="Pupitres/Par4" index="1" instance=ExtResource("9_8irrb")]
+[node name="Chair" parent="Desks/Pair4" index="1" instance=ExtResource("9_8irrb")]
 position = Vector2(0, 11)
 
-[node name="Par5" type="Node2D" parent="Pupitres" index="4"]
+[node name="Pair5" type="Node2D" parent="Desks" index="4"]
 y_sort_enabled = true
 position = Vector2(430, 250)
 
-[node name="Pupitre" parent="Pupitres/Par5" index="0" instance=ExtResource("2_ulqri")]
+[node name="Desk" parent="Desks/Pair5" index="0" instance=ExtResource("2_ulqri")]
 
-[node name="Silla" parent="Pupitres/Par5" index="1" instance=ExtResource("9_8irrb")]
+[node name="Chair" parent="Desks/Pair5" index="1" instance=ExtResource("9_8irrb")]
 position = Vector2(0, 11)
 
-[node name="Par6" type="Node2D" parent="Pupitres" index="5"]
+[node name="Pair6" type="Node2D" parent="Desks" index="5"]
 y_sort_enabled = true
 position = Vector2(110, 340)
 
-[node name="Pupitre" parent="Pupitres/Par6" index="0" instance=ExtResource("2_ulqri")]
+[node name="Desk" parent="Desks/Pair6" index="0" instance=ExtResource("2_ulqri")]
 
-[node name="Silla" parent="Pupitres/Par6" index="1" instance=ExtResource("9_8irrb")]
+[node name="Chair" parent="Desks/Pair6" index="1" instance=ExtResource("9_8irrb")]
 position = Vector2(0, 11)
 
-[node name="Par7" type="Node2D" parent="Pupitres" index="6"]
+[node name="Pair7" type="Node2D" parent="Desks" index="6"]
 y_sort_enabled = true
 position = Vector2(190, 340)
 
-[node name="Pupitre" parent="Pupitres/Par7" index="0" instance=ExtResource("2_ulqri")]
+[node name="Desk" parent="Desks/Pair7" index="0" instance=ExtResource("2_ulqri")]
 
-[node name="Silla" parent="Pupitres/Par7" index="1" instance=ExtResource("9_8irrb")]
+[node name="Chair" parent="Desks/Pair7" index="1" instance=ExtResource("9_8irrb")]
 position = Vector2(0, 11)
 
-[node name="Par8" type="Node2D" parent="Pupitres" index="7"]
+[node name="Pair8" type="Node2D" parent="Desks" index="7"]
 y_sort_enabled = true
 position = Vector2(270, 340)
 
-[node name="Pupitre" parent="Pupitres/Par8" index="0" instance=ExtResource("2_ulqri")]
+[node name="Desk" parent="Desks/Pair8" index="0" instance=ExtResource("2_ulqri")]
 
-[node name="Silla" parent="Pupitres/Par8" index="1" instance=ExtResource("9_8irrb")]
+[node name="Chair" parent="Desks/Pair8" index="1" instance=ExtResource("9_8irrb")]
 position = Vector2(0, 11)
 
-[node name="Par9" type="Node2D" parent="Pupitres" index="8"]
+[node name="Pair9" type="Node2D" parent="Desks" index="8"]
 y_sort_enabled = true
 position = Vector2(350, 340)
 
-[node name="Pupitre" parent="Pupitres/Par9" index="0" instance=ExtResource("2_ulqri")]
+[node name="Desk" parent="Desks/Pair9" index="0" instance=ExtResource("2_ulqri")]
 
-[node name="Silla" parent="Pupitres/Par9" index="1" instance=ExtResource("9_8irrb")]
+[node name="Chair" parent="Desks/Pair9" index="1" instance=ExtResource("9_8irrb")]
 position = Vector2(0, 11)
 
-[node name="Par10" type="Node2D" parent="Pupitres" index="9"]
+[node name="Pair10" type="Node2D" parent="Desks" index="9"]
 y_sort_enabled = true
 position = Vector2(430, 340)
 
-[node name="Pupitre" parent="Pupitres/Par10" index="0" instance=ExtResource("2_ulqri")]
+[node name="Desk" parent="Desks/Pair10" index="0" instance=ExtResource("2_ulqri")]
 
-[node name="Silla" parent="Pupitres/Par10" index="1" instance=ExtResource("9_8irrb")]
+[node name="Chair" parent="Desks/Pair10" index="1" instance=ExtResource("9_8irrb")]
 position = Vector2(0, 11)
 
-[node name="Par11" type="Node2D" parent="Pupitres" index="10"]
+[node name="Pair11" type="Node2D" parent="Desks" index="10"]
 y_sort_enabled = true
 position = Vector2(110, 430)
 
-[node name="Pupitre" parent="Pupitres/Par11" index="0" instance=ExtResource("2_ulqri")]
+[node name="Desk" parent="Desks/Pair11" index="0" instance=ExtResource("2_ulqri")]
 
-[node name="Silla" parent="Pupitres/Par11" index="1" instance=ExtResource("9_8irrb")]
+[node name="Chair" parent="Desks/Pair11" index="1" instance=ExtResource("9_8irrb")]
 position = Vector2(0, 11)
 
-[node name="Par12" type="Node2D" parent="Pupitres" index="11"]
+[node name="Pair12" type="Node2D" parent="Desks" index="11"]
 y_sort_enabled = true
 position = Vector2(190, 430)
 
-[node name="Pupitre" parent="Pupitres/Par12" index="0" instance=ExtResource("2_ulqri")]
+[node name="Desk" parent="Desks/Pair12" index="0" instance=ExtResource("2_ulqri")]
 
-[node name="Silla" parent="Pupitres/Par12" index="1" instance=ExtResource("9_8irrb")]
+[node name="Chair" parent="Desks/Pair12" index="1" instance=ExtResource("9_8irrb")]
 position = Vector2(0, 11)
 
-[node name="Par13" type="Node2D" parent="Pupitres" index="12"]
+[node name="Pair13" type="Node2D" parent="Desks" index="12"]
 y_sort_enabled = true
 position = Vector2(270, 430)
 
-[node name="Pupitre" parent="Pupitres/Par13" index="0" instance=ExtResource("2_ulqri")]
+[node name="Desk" parent="Desks/Pair13" index="0" instance=ExtResource("2_ulqri")]
 
-[node name="Silla" parent="Pupitres/Par13" index="1" instance=ExtResource("9_8irrb")]
+[node name="Chair" parent="Desks/Pair13" index="1" instance=ExtResource("9_8irrb")]
 position = Vector2(0, 11)
 
-[node name="Par14" type="Node2D" parent="Pupitres" index="13"]
+[node name="Pair14" type="Node2D" parent="Desks" index="13"]
 y_sort_enabled = true
 position = Vector2(350, 430)
 
-[node name="Pupitre" parent="Pupitres/Par14" index="0" instance=ExtResource("2_ulqri")]
+[node name="Desk" parent="Desks/Pair14" index="0" instance=ExtResource("2_ulqri")]
 
-[node name="Silla" parent="Pupitres/Par14" index="1" instance=ExtResource("9_8irrb")]
+[node name="Chair" parent="Desks/Pair14" index="1" instance=ExtResource("9_8irrb")]
 position = Vector2(0, 11)
 
-[node name="Par15" type="Node2D" parent="Pupitres" index="14"]
+[node name="Pair15" type="Node2D" parent="Desks" index="14"]
 y_sort_enabled = true
 position = Vector2(430, 430)
 
-[node name="Pupitre" parent="Pupitres/Par15" index="0" instance=ExtResource("2_ulqri")]
+[node name="Desk" parent="Desks/Pair15" index="0" instance=ExtResource("2_ulqri")]
 
-[node name="Silla" parent="Pupitres/Par15" index="1" instance=ExtResource("9_8irrb")]
+[node name="Chair" parent="Desks/Pair15" index="1" instance=ExtResource("9_8irrb")]
 position = Vector2(0, 11)
 
-[node name="Par16" type="Node2D" parent="Pupitres" index="15"]
+[node name="Pair16" type="Node2D" parent="Desks" index="15"]
 y_sort_enabled = true
 position = Vector2(110, 520)
 
-[node name="Pupitre" parent="Pupitres/Par16" index="0" instance=ExtResource("2_ulqri")]
+[node name="Desk" parent="Desks/Pair16" index="0" instance=ExtResource("2_ulqri")]
 
-[node name="Silla" parent="Pupitres/Par16" index="1" instance=ExtResource("9_8irrb")]
+[node name="Chair" parent="Desks/Pair16" index="1" instance=ExtResource("9_8irrb")]
 position = Vector2(0, 11)
 
-[node name="Par17" type="Node2D" parent="Pupitres" index="16"]
+[node name="Pair17" type="Node2D" parent="Desks" index="16"]
 y_sort_enabled = true
 position = Vector2(190, 520)
 
-[node name="Pupitre" parent="Pupitres/Par17" index="0" instance=ExtResource("2_ulqri")]
+[node name="Desk" parent="Desks/Pair17" index="0" instance=ExtResource("2_ulqri")]
 
-[node name="Silla" parent="Pupitres/Par17" index="1" instance=ExtResource("9_8irrb")]
+[node name="Chair" parent="Desks/Pair17" index="1" instance=ExtResource("9_8irrb")]
 position = Vector2(0, 11)
 
-[node name="Par18" type="Node2D" parent="Pupitres" index="17"]
+[node name="Pair18" type="Node2D" parent="Desks" index="17"]
 y_sort_enabled = true
 position = Vector2(270, 520)
 
-[node name="Pupitre" parent="Pupitres/Par18" index="0" instance=ExtResource("2_ulqri")]
+[node name="Desk" parent="Desks/Pair18" index="0" instance=ExtResource("2_ulqri")]
 
-[node name="Silla" parent="Pupitres/Par18" index="1" instance=ExtResource("9_8irrb")]
+[node name="Chair" parent="Desks/Pair18" index="1" instance=ExtResource("9_8irrb")]
 position = Vector2(0, 11)
 
-[node name="Par19" type="Node2D" parent="Pupitres" index="18"]
+[node name="Pair19" type="Node2D" parent="Desks" index="18"]
 y_sort_enabled = true
 position = Vector2(350, 520)
 
-[node name="Pupitre" parent="Pupitres/Par19" index="0" instance=ExtResource("2_ulqri")]
+[node name="Desk" parent="Desks/Pair19" index="0" instance=ExtResource("2_ulqri")]
 
-[node name="Silla" parent="Pupitres/Par19" index="1" instance=ExtResource("9_8irrb")]
+[node name="Chair" parent="Desks/Pair19" index="1" instance=ExtResource("9_8irrb")]
 position = Vector2(0, 11)
 
-[node name="Par20" type="Node2D" parent="Pupitres" index="19"]
+[node name="Pair20" type="Node2D" parent="Desks" index="19"]
 y_sort_enabled = true
 position = Vector2(430, 520)
 
-[node name="Pupitre" parent="Pupitres/Par20" index="0" instance=ExtResource("2_ulqri")]
+[node name="Desk" parent="Desks/Pair20" index="0" instance=ExtResource("2_ulqri")]
 
-[node name="Silla" parent="Pupitres/Par20" index="1" instance=ExtResource("9_8irrb")]
+[node name="Chair" parent="Desks/Pair20" index="1" instance=ExtResource("9_8irrb")]
 position = Vector2(0, 11)
 
-[node name="MesaProfesor" parent="." index="6" instance=ExtResource("10_8e6d3")]
+[node name="TeacherDesk" parent="." index="6" instance=ExtResource("10_8e6d3")]
 position = Vector2(-111, -19)
 
-[node name="TablonInfoSala" parent="." index="7" instance=ExtResource("10_ey3pn")]
+[node name="ClassroomBoard" parent="." index="7" instance=ExtResource("10_ey3pn")]
 position = Vector2(-164, -93)
 
-[node name="SpawnPasillo" type="Node2D" parent="SpawnPoints" index="0"]
+[node name="SpawnHallway" type="Node2D" parent="SpawnPoints" index="0"]
 position = Vector2(94, 455)

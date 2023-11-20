@@ -2,24 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://dvs7a5k1ejf15" path="res://scenes/zones/zona_baño_generico.tscn" id="1_7md5w"]
 
-[node name="BañoP1M" instance=ExtResource("1_7md5w")]
+[node name="FBathroomF1" instance=ExtResource("1_7md5w")]
 
-[node name="TileMap" parent="." index="0"]
+[node name="TileMap" parent="." index="1"]
 position = Vector2(240, 0)
 scale = Vector2(-1, 1)
 
-[node name="Lavamanos" parent="." index="1"]
-position = Vector2(37, 101)
-scale = Vector2(-1, 1)
-
-[node name="Segmentos" parent="." index="2"]
-position = Vector2(241, 66)
-scale = Vector2(-1, 1)
-
-[node name="SpawnPasillo" parent="Spawns" index="0"]
-position = Vector2(80, 242)
-
-[node name="PuertaInvisible" parent="." index="4"]
-position = Vector2(80, 274)
-zona = "pasillo_p1n"
-spawn = "SpawnBP1M"
+[node name="Door" parent="." index="4"]
+zone = "pasillo_p1n"
+spawn = "SpawnBF1F"
+spawn_direction = "down"

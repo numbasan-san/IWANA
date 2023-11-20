@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pumgp"]
 size = Vector2(33, 20)
 
-[node name="Inodoro" instance=ExtResource("1_7qr0j")]
+[node name="Toilet" instance=ExtResource("1_7qr0j")]
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_tmg2m")

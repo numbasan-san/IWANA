@@ -27,7 +27,7 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/2 = SubResource("TileSetAtlasSource_5ptxj")
 
-[node name="ZonaDevTesting" instance=ExtResource("1_ljxgf")]
+[node name="ZoneDevTesting" instance=ExtResource("1_ljxgf")]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 tile_set = SubResource("TileSet_15xbd")
@@ -69,8 +69,8 @@ position = Vector2(308, 469)
 [node name="SpawnPasillo" type="Node2D" parent="SpawnPoints" index="0"]
 position = Vector2(-47, 223)
 
-[node name="PuertaInvisible" parent="." index="3" instance=ExtResource("6_vo0jc")]
+[node name="Door" parent="." index="3" instance=ExtResource("6_vo0jc")]
 position = Vector2(-48, 296)
-zona = "pasillo_p1n"
+zone = "pasillo_p1n"
 spawn = "SpawnDev"
-direccion_def = "down"
+spawn_direction = "down"

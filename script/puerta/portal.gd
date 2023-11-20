@@ -1,5 +1,5 @@
 extends Node2D
 
-@export var zona : String
+@export var zone : String
 @export var spawn: String
-@export var direccion_def: String
+@export var spawn_direction: String

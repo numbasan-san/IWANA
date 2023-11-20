@@ -3,11 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://hed2eep7147o" path="res://scenes/objects/doors/puerta_base.tscn" id="1_jcvpn"]
 [ext_resource type="Texture2D" uid="uid://cxlduayq0ajcx" path="res://assets/rpg_sprites/objects/tiles_a.png" id="2_hc6gy"]
 
-[node name="PuertaBañoMDentro" instance=ExtResource("1_jcvpn")]
+[node name="FBathroomInsideDoor" instance=ExtResource("1_jcvpn")]
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_hc6gy")
 region_rect = Rect2(258, 15, 37, 65)
-
-[node name="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0, 16.5)

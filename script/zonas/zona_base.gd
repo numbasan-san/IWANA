@@ -1,4 +1,5 @@
-class_name Zone extends Node2D
+class_name Zone
+extends Node2D
 
 # Por ahora esto está borrado. Si en el futuro tiene sentido preguntar
 # a una zona por todos sus personajes, hay que habilitar esto

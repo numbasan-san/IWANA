@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqonqotb6lenr"]
 
-[ext_resource type="PackedScene" uid="uid://dh7lrjvhfark4" path="res://Escenas/Objetos/objeto_base.tscn" id="1_o8swd"]
-[ext_resource type="Texture2D" uid="uid://napjtu1uxlju" path="res://Assets/SpritesMundo/Objetos/tiles_puertitas_uwu.png" id="2_twxt2"]
+[ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://scenes/objects/base_object.tscn" id="1_o8swd"]
+[ext_resource type="Texture2D" uid="uid://cxlduayq0ajcx" path="res://assets/rpg_sprites/objects/tiles_a.png" id="2_jbcet"]
 
-[node name="TablonInfo" instance=ExtResource("1_o8swd")]
+[node name="InfoBoard" instance=ExtResource("1_o8swd")]
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_twxt2")
-region_rect = Rect2(40, 72, 92, 48)
+texture = ExtResource("2_jbcet")
+region_rect = Rect2(14, 71, 88, 43)

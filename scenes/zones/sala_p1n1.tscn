@@ -2,10 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://bqvxhi7wt87t" path="res://scenes/zones/zona_sala_generica.tscn" id="1_p0tah"]
 
-[node name="SalaP1N1" instance=ExtResource("1_p0tah")]
+[node name="RoomF1N1" instance=ExtResource("1_p0tah")]
 
-[node name="PuertaInvisible" parent="." index="1"]
-spawn = "SpawnSP1N1"
+[node name="Door" parent="." index="1"]
+zone = "pasillo_p1n"
+spawn = "SpawnRF1N1"
+spawn_direction = "down"
 
 [node name="Items" type="Node2D" parent="." index="7"]
 z_index = 1

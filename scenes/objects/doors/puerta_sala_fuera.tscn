@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://hed2eep7147o" path="res://scenes/objects/doors/puerta_base.tscn" id="1_e6m83"]
 [ext_resource type="Texture2D" uid="uid://cxlduayq0ajcx" path="res://assets/rpg_sprites/objects/tiles_a.png" id="2_dh2ed"]
 
-[node name="PuertaSalaFuera" instance=ExtResource("1_e6m83")]
+[node name="ClassroomOutsideDoor" instance=ExtResource("1_e6m83")]
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_dh2ed")

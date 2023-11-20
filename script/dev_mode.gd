@@ -1,68 +1,68 @@
 extends Screen
 
-@export var todas_las_zonas: Array[String]
-@export var zonas: MenuButton
-@export var escenas: MenuButton
-@export var unidades: MenuButton
+@export var all_zones: Array[String]
+@export var zones: MenuButton
+@export var scenes: MenuButton
+@export var units: MenuButton
 
-var habilitado = false
+var enabled = false
 
 func _process(_delta):
-	if habilitado:
+	if enabled:
 		if CharacterManager.player and CharacterManager.player.zone:
-			zonas.disabled = false
-			zonas.text = CharacterManager.player.zone.name
+			zones.disabled = false
+			zones.text = CharacterManager.player.zone.name
 		else:
-			zonas.disabled = true
-			zonas.text = "Ninguna"
+			zones.disabled = true
+			zones.text = "Ninguna"
 		var current_scene = ScriptManager.current_scene
 		if current_scene:
-			escenas.text = current_scene.nombre
+			scenes.text = current_scene.nombre
 			if current_scene.unidad_actual:
-				unidades.text = current_scene.unidad_actual.nombre
+				units.text = current_scene.unidad_actual.nombre
 			else:
-				unidades.text = "Ninguna"
+				units.text = "Ninguna"
 		else:
-			escenas.text = "Ninguna"
-			unidades.text = "Ninguna"
+			scenes.text = "Ninguna"
+			units.text = "Ninguna"
 			
 	if ScreenManager.dialog_screen.visible:
-		var linea = ScriptManager.current_scene.unidad_actual.linea_actual
-		$Contenidos/DetallesDialogo/Linea.text = str(linea)
-		$Contenidos/DetallesDialogo.show()
+		var line = ScriptManager.current_scene.unidad_actual.linea_actual
+		$Contents/DialogDetails/LineNumberLabel.text = str(line)
+		$Contents/DialogDetails.show()
 	else:
-		$Contenidos/DetallesDialogo.hide()
+		$Contents/DialogDetails.hide()
 
 func habilitar():
 	print("Dev Mode On")
 	activate()
-	habilitado = true
-	rellenar_lista_zonas()
-	rellenar_lista_escenas()
-	# Esta función solo busca las unidades de la escena actual, así que siempre
-	# es seguro llamarla
-	rellenar_lista_unidades()
+	enabled = true
+	fill_zones_list()
+	fill_scenes_list()
+	# This function only searches for the units of the current scene, so it
+	# should be always safe to call
+	fill_units_list()
 
-func rellenar_lista_zonas():
-	if not habilitado:
+func fill_zones_list():
+	if not enabled:
 		return
-	var popup: PopupMenu = zonas.get_popup()
+	var popup: PopupMenu = zones.get_popup()
 	popup.clear()
 	popup.add_theme_font_size_override("font_size", 30)
-	# Esta variable es necesaria porque varias funciones del popup necesitan el
-	# indice, pero al agregar un item no entrega el indice asignado, por lo que
-	# hay que asignarle un id manualmente y obtener el indice a traves de el
+	# This variable is necesary because several popup functions require the item
+	# index, but when adding an item the function doesn't return its assigned
+	# index, so we need to manually assign an id and obtain the index through that
 	var item_id = 0
-	for nombre_zona in todas_las_zonas:
-		var zone = ZoneManager.load(nombre_zona)
+	for zone_name in all_zones:
+		var zone = ZoneManager.load(zone_name)
 		popup.add_item(zone.name, item_id)
-		var indice = popup.get_item_index(item_id)
+		var index = popup.get_item_index(item_id)
 		item_id += 1
-		popup.set_item_metadata(indice, zone)
+		popup.set_item_metadata(index, zone)
 		
-	# Para conectar la señal asumimos que no esta señal nunca va a ser conectada
-	# a otra función fuera de este script. Si en algun momento eso cambia, hay
-	# que arreglar este código
+	# When connecting this signal we assume that it's never going to be
+	# connected to another function outside this script. If this changes at any
+	# point we need to fix this code
 	var world = ScreenManager.rpg_screen.contents
 	if popup.index_pressed.get_connections().size() == 0:
 		popup.index_pressed.connect(func (index) -> void:
@@ -71,55 +71,55 @@ func rellenar_lista_zonas():
 			world.spawn(player, zone, "Default", "down", world.SpawnFallback.FIRST)
 		)
 
-func rellenar_lista_escenas():
-	if not habilitado:
+func fill_scenes_list():
+	if not enabled:
 		return
-	var popup: PopupMenu = escenas.get_popup()
+	var popup: PopupMenu = scenes.get_popup()
 	popup.clear()
 	popup.add_theme_font_size_override("font_size", 30)
-	# Esta variable es necesaria porque varias funciones del popup necesitan el
-	# indice, pero al agregar un item no entrega el indice asignado, por lo que
-	# hay que asignarle un id manualmente y obtener el indice a traves de el
+	# This variable is necesary because several popup functions require the item
+	# index, but when adding an item the function doesn't return its assigned
+	# index, so we need to manually assign an id and obtain the index through that
 	var item_id = 0
-	for nombre_escena in ScriptManager.scenes:
-		popup.add_item(nombre_escena, item_id)
+	for scene_name in ScriptManager.scenes:
+		popup.add_item(scene_name, item_id)
 		item_id += 1
 		
-	# Para conectar la señal asumimos que no esta señal nunca va a ser conectada
-	# a otra función fuera de este script. Si en algun momento eso cambia, hay
-	# que arreglar este código
+	# When connecting this signal we assume that it's never going to be
+	# connected to another function outside this script. If this changes at any
+	# point we need to fix this code
 	if popup.index_pressed.get_connections().size() == 0:
 		popup.index_pressed.connect(func (index) -> void:
-			var nombre_escena = popup.get_item_text(index)
-			ScriptManager.load(nombre_escena)
-			rellenar_lista_unidades()
+			var scene_name = popup.get_item_text(index)
+			ScriptManager.load(scene_name)
+			fill_units_list()
 		)
 
-func rellenar_lista_unidades():
-	if not habilitado:
+func fill_units_list():
+	if not enabled:
 		return
-	var popup: PopupMenu = unidades.get_popup()
+	var popup: PopupMenu = units.get_popup()
 	popup.clear()
 	popup.add_theme_font_size_override("font_size", 30)
-	# Esta variable es necesaria porque varias funciones del popup necesitan el
-	# indice, pero al agregar un item no entrega el indice asignado, por lo que
-	# hay que asignarle un id manualmente y obtener el indice a traves de el
+	# This variable is necesary because several popup functions require the item
+	# index, but when adding an item the function doesn't return its assigned
+	# index, so we need to manually assign an id and obtain the index through that
 	var item_id = 0
-	for nombre_unidad in ScriptManager.current_scene.unidades:
-		popup.add_item(nombre_unidad, item_id)
-		var indice = popup.get_item_index(item_id)
+	for unit_name in ScriptManager.current_scene.unidades:
+		popup.add_item(unit_name, item_id)
+		var index = popup.get_item_index(item_id)
 		item_id += 1
 		
-	# Para conectar la señal asumimos que no esta señal nunca va a ser conectada
-	# a otra función fuera de este script. Si en algun momento eso cambia, hay
-	# que arreglar este código
+	# When connecting this signal we assume that it's never going to be
+	# connected to another function outside this script. If this changes at any
+	# point we need to fix this code
 	if popup.index_pressed.get_connections().size() == 0:
 		popup.index_pressed.connect(func (index) -> void:
-			var nombre_unidad = popup.get_item_text(index)
-			ScriptManager.current_scene.cargar(nombre_unidad)
+			var unit_name = popup.get_item_text(index)
+			ScriptManager.current_scene.cargar(unit_name)
 		)
 
-func _on_recargar_guion():
+func _on_script_reload():
 	ScriptParser.parse_all()
 	ScriptManager.restart()
 	

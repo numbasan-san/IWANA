@@ -189,10 +189,10 @@ pattern_3 = SubResource("TileMapPattern_idm66")
 pattern_4 = SubResource("TileMapPattern_2gc4b")
 pattern_5 = SubResource("TileMapPattern_nv177")
 
-[node name="BañoGenerico" instance=ExtResource("1_d7yta")]
+[node name="GenericBathroom" instance=ExtResource("1_d7yta")]
 y_sort_enabled = true
 
-[node name="SpawnPasillo" type="Node2D" parent="SpawnPoints" index="0"]
+[node name="SpawnHallway" type="Node2D" parent="SpawnPoints" index="0"]
 position = Vector2(160, 242)
 
 [node name="TileMap" type="TileMap" parent="." index="1"]
@@ -208,42 +208,42 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(327680, 327680, 2, 393216, 327680, 2, 458752, 327680, 2, 524288, 327680, 2, 589824, 327680, 2, 655360, 327680, 2, 720896, 327680, 2, 786432, 327680, 2, 851968, 327680, 2, 917504, 327680, 2, 983040, 327680, 2, 1048576, 327680, 2, 1114113, 393216, 4, 1114114, 393216, 4, 1114115, 393216, 4, 1114116, 393216, 4, 1114117, 393216, 4, 1114118, 393216, 4, 1114119, 393216, 4, 1114120, 393216, 4, 1114123, 393216, 4, 1114124, 393216, 4, 1114125, 393216, 4, 1114126, 458752, 4, 1114112, 327680, 4, 327694, 458752, 2, 393230, 458752, 2, 458766, 458752, 2, 524302, 458752, 2, 589838, 458752, 2, 655374, 458752, 2, 720910, 458752, 2, 786446, 458752, 2, 851982, 458752, 2, 917518, 458752, 2, 983054, 458752, 2, 1048590, 458752, 2)
 
-[node name="Lavamanos" type="Node2D" parent="." index="2"]
+[node name="Sinks" type="Node2D" parent="." index="2"]
 position = Vector2(202, 101)
 
-[node name="LavamanosAbajo" parent="Lavamanos" index="0" instance=ExtResource("5_2dmbg")]
+[node name="SinkBottom" parent="Sinks" index="0" instance=ExtResource("5_2dmbg")]
 position = Vector2(11, 114)
 
-[node name="LavamanosMedio" parent="Lavamanos" index="1" instance=ExtResource("6_kvbx5")]
+[node name="SinkMiddle1" parent="Sinks" index="1" instance=ExtResource("6_kvbx5")]
 position = Vector2(11, 85)
 
-[node name="LavamanosMedio2" parent="Lavamanos" index="2" instance=ExtResource("6_kvbx5")]
+[node name="SinkMiddle2" parent="Sinks" index="2" instance=ExtResource("6_kvbx5")]
 position = Vector2(11, 60)
 
-[node name="LavamanosMedio3" parent="Lavamanos" index="3" instance=ExtResource("6_kvbx5")]
+[node name="SinkMiddle3" parent="Sinks" index="3" instance=ExtResource("6_kvbx5")]
 position = Vector2(11, 35)
 
-[node name="LavamanosArriba" parent="Lavamanos" index="4" instance=ExtResource("7_583db")]
+[node name="SinkTop" parent="Sinks" index="4" instance=ExtResource("7_583db")]
 position = Vector2(11, 12)
 
-[node name="Segmentos" type="Node2D" parent="." index="3"]
+[node name="Stalls" type="Node2D" parent="." index="3"]
 y_sort_enabled = true
 position = Vector2(-1, 66)
 
-[node name="SegmentoBaño" parent="Segmentos" index="0" instance=ExtResource("8_vfj2d")]
+[node name="Stall1" parent="Stalls" index="0" instance=ExtResource("8_vfj2d")]
 position = Vector2(35, 18)
 
-[node name="SegmentoBaño2" parent="Segmentos" index="1" instance=ExtResource("8_vfj2d")]
+[node name="Stall2" parent="Stalls" index="1" instance=ExtResource("8_vfj2d")]
 position = Vector2(35, 55)
 
-[node name="SegmentoBaño3" parent="Segmentos" index="2" instance=ExtResource("8_vfj2d")]
+[node name="Stall3" parent="Stalls" index="2" instance=ExtResource("8_vfj2d")]
 position = Vector2(35, 92)
 
-[node name="SegmentoBaño4" parent="Segmentos" index="3" instance=ExtResource("8_vfj2d")]
+[node name="Stall4" parent="Stalls" index="3" instance=ExtResource("8_vfj2d")]
 position = Vector2(35, 129)
 
-[node name="SegmentoBaño5" parent="Segmentos" index="4" instance=ExtResource("8_vfj2d")]
+[node name="Stall5" parent="Stalls" index="4" instance=ExtResource("8_vfj2d")]
 position = Vector2(35, 166)
 
-[node name="PuertaInvisible" parent="." index="4" instance=ExtResource("8_3ujkd")]
+[node name="Door" parent="." index="4" instance=ExtResource("8_3ujkd")]
 position = Vector2(160, 274)
