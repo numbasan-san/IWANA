@@ -4,11 +4,23 @@
 
 [node name="FBathroomF1" instance=ExtResource("1_7md5w")]
 
+[node name="SpawnHallway" parent="SpawnPoints" index="0"]
+position = Vector2(80, 242)
+
 [node name="TileMap" parent="." index="1"]
 position = Vector2(240, 0)
 scale = Vector2(-1, 1)
 
+[node name="Sinks" parent="." index="2"]
+position = Vector2(38, 101)
+scale = Vector2(-1, 1)
+
+[node name="Stalls" parent="." index="3"]
+position = Vector2(241, 66)
+scale = Vector2(-1, 1)
+
 [node name="Door" parent="." index="4"]
+position = Vector2(80, 274)
 zone = "pasillo_p1n"
 spawn = "SpawnBF1F"
 spawn_direction = "down"
