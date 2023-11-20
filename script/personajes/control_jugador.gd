@@ -1,69 +1,70 @@
+class_name PlayerControl
 extends Node2D
-
-class_name ControlJugador
 
 @export var inventory : Inventory
 
-var area_interaccion_objetivo: AreaInteraccionGeneral
+@export var general_interaction_area: Area2D
+
+# While the player's GeneralInteraction node is intersecting the
+# GeneralInteractionArea node of an object or npc, this variable is set to that
+# node so that one can perform actions on the target
+var _target_interaction_area: GeneralInteractionArea
 
 func _unhandled_input(event):
-	if event.is_action_released("rpg_interact") and area_interaccion_objetivo:
-		area_interaccion_objetivo.interaccion(self)
+	if event.is_action_released("rpg_interact") and _target_interaction_area:
+		_target_interaction_area.interaction(self)
 
-# TODO: cambiar esto para que lea una acción de movimiento custom, que no lea
-# teclas directamente
-
-# Movimiento del avatar.
+# Avatar movement
 func _process(_delta):
 	var x = int(Input.is_action_pressed('rpg_right')) - int(Input.is_action_pressed('rpg_left'))
 	var y = int(Input.is_action_pressed('rpg_down')) - int(Input.is_action_pressed('rpg_up'))
 	
-	
-	# Esto es casi una copia del código en control_modelo que tiene que ir acá
-	# porque un personaje no jugador no sabe acerca de el área de interacción.
-	# Hay que pensar si todo esto se puede reemplazar por algo más elegante	
-	if y == -1: # Arriba.
-		$InteraccionGeneral.rotation_degrees = 180
-	if y == 1: # Abajo.
-		$InteraccionGeneral.rotation_degrees = 0
-	if x == -1: # Izquierda.
-		$InteraccionGeneral.rotation_degrees = 90
-	if x == 1: # Derecha.
-		$InteraccionGeneral.rotation_degrees = 270
+	# When moving in different directions we want to rotate the interaction area
+	# so that it is always protruding towards the front of the character
+	if y == -1: # Up
+		general_interaction_area.rotation_degrees = 180
+	if y == 1: # Down
+		general_interaction_area.rotation_degrees = 0
+	if x == -1: # Left
+		general_interaction_area.rotation_degrees = 90
+	if x == 1: # Right
+		general_interaction_area.rotation_degrees = 270
 	get_parent().set_axis(x, y)
 	
-# Las colisiones con items en el suelo.
-func _on_interaccion_item(area):
-	if area.has_method('collect'): # La colisión del avatar del jugador con un objeto.
-		if inventory.count_empty_slot() >= 1: # En caso de que haya espacio en el inventario.
+# The collision with items on the ground
+func _on_item_contact(area):
+	# Collision with a ground item
+	if area.has_method('collect'):
+		# Case where there is an empty space in the inventory
+		if inventory.count_empty_slot() >= 1:
 			area.collect(inventory)
-		else: # En caso no haya espacio en el inventario.
-			# Se verifica si en el último espacio del inventario hay espacio en el stack del ítem en turno.
+		else: 
+			# Case when the last stack has some available room
 			if inventory.count_stacks():
 				area.collect(inventory)
 
 
-# Entrar al area de interaccion de una puerta
-func _on_interaccion_puerta(area):
+# Contact with the interaction area of a door
+func _on_door_contact(area):
 	if area.has_method('change_zone'):
 		area.change_zone(get_parent().character)
 
-# Entrar al area de interaccion de un objeto o npc
-func _on_entrar_area_interaccion(area):
-	if area.has_method('interaccion'):
-		area_interaccion_objetivo = area
+# Enter the interaction area of an object or npc
+func _on_interaction_area_enter(area):
+	if area is GeneralInteractionArea:
+		_target_interaction_area = area
 		
-# Salir del area de interaccion de un objeto o npc
-func _on_salir_area_interaccion(area):
-	if area.has_method('interaccion'):
-		area_interaccion_objetivo = null
+# Exit the interaction area of an object or npc
+func _on_interaction_area_exit(area):
+	if area is GeneralInteractionArea:
+		_target_interaction_area = null
 
-# Entrar al area de interaccion de un objeto con transparencia
-func _on_entrar_transparencia(area):
-	if area is ControlTransparencia and area.global_position.y > get_parent().global_position.y:
-		area.activar_transparencia()
+# Enter the interaction area of an object with transparency
+func _on_transparency_enter(area):
+	if area is TransparencyControl and area.global_position.y > get_parent().global_position.y:
+		area.enable_transparency()
 
-# Salir del area de interaccion de un objeto con transparencia
-func _on_salir_transparencia(area):
-	if area is ControlTransparencia:
-		area.desactivar_transparencia()
+# Exit the interaction area of an object with transparency
+func _on_transparency_exit(area):
+	if area is TransparencyControl:
+		area.disable_transparency()

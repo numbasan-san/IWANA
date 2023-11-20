@@ -1,5 +1,4 @@
-extends AreaInteraccionGeneral
+extends GeneralInteractionArea
 
-func interaccion(jugador: ControlJugador):
-	print("El jugador " + str(jugador) + " a interactuado conmigo")
+func interaction(_player: PlayerControl):
 	ScreenManager.push(ScreenManager.combat_screen)

@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://dvr6rfjo3dm5k" path="res://assets/Assests de Pruebas/74f74dd65775e5ea2a87f76d39a596d8.png" id="1_8dwnv"]
 [ext_resource type="Script" path="res://script/combate/personajes_stats/stats_container.gd" id="1_78o6c"]
-[ext_resource type="Texture2D" uid="uid://b72uqo8w58ohv" path="res://assets/SpritesCombate/nombre_fondo2.png" id="3_31es1"]
-[ext_resource type="FontFile" uid="uid://bvx3kwcljl1mv" path="res://assets/SpritesCombate/Font/IWANA.ttf" id="4_e15tb"]
+[ext_resource type="Texture2D" uid="uid://b72uqo8w58ohv" path="res://assets/combat_sprites/nombre_fondo2.png" id="3_31es1"]
+[ext_resource type="FontFile" uid="uid://bvx3kwcljl1mv" path="res://assets/combat_sprites/font/IWANA.ttf" id="4_e15tb"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h750l"]
 bg_color = Color(1, 0, 0, 1)
@@ -26,7 +26,7 @@ length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("retrato:modulate")
+tracks/0/path = NodePath("Portrait:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -42,7 +42,7 @@ length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("retrato:modulate")
+tracks/0/path = NodePath("Portrait:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -58,7 +58,7 @@ _data = {
 "hurt_2": SubResource("Animation_saxj2")
 }
 
-[node name="character_combat_container" type="Panel"]
+[node name="CharacterCombatContainer" type="Panel"]
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = -1
 anchor_right = 0.339
@@ -67,7 +67,7 @@ offset_right = -0.880005
 offset_bottom = -0.160034
 script = ExtResource("1_78o6c")
 
-[node name="retrato" type="TextureRect" parent="."]
+[node name="Portrait" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -115,7 +115,7 @@ text = "25/50"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="etiqueta_nombre" type="TextureRect" parent="."]
+[node name="NameLabelTexture" type="TextureRect" parent="."]
 layout_mode = 2
 anchor_right = 0.429
 anchor_bottom = 0.235
@@ -123,7 +123,7 @@ offset_right = 0.149994
 offset_bottom = 0.249985
 texture = ExtResource("3_31es1")
 
-[node name="Label" type="Label" parent="etiqueta_nombre"]
+[node name="Label" type="Label" parent="NameLabelTexture"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.161
@@ -144,7 +144,7 @@ text = "rajang"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="animation" type="AnimationPlayer" parent="."]
+[node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_anapf")
 }

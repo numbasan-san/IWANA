@@ -1,4 +1,5 @@
-class_name Character extends Node
+class_name Character
+extends Node
 
 @export var unique = true
 

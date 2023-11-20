@@ -1,9 +1,9 @@
 extends Area2D
 
-# Este script debe contener instrucciones que se deben ejecutar cuando el
-# jugador se acerque a esta area y use el botón de interactuar
+# This script must contain the code to execute when the player enters this area
+# and presses the interact button
 
-class_name AreaInteraccionGeneral
+class_name GeneralInteractionArea
 
-func interaccion(_jugador: ControlJugador):
+func interaction(_player: PlayerControl):
 	pass

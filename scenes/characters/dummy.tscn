@@ -35,11 +35,11 @@ texture = ExtResource("2_sq6f4")
 position = Vector2(0, 13.5)
 shape = SubResource("RectangleShape2D_d8fp8")
 
-[node name="InteracciónGeneral" type="Area2D" parent="RPGModel"]
+[node name="GeneralInteraction" type="Area2D" parent="RPGModel"]
 position = Vector2(0, 17)
 script = ExtResource("5_vdbvb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel/InteracciónGeneral"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel/GeneralInteraction"]
 position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_vtrvc")
 debug_color = Color(0.992157, 0, 0.254902, 0.419608)

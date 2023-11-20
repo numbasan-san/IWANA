@@ -8,7 +8,7 @@ length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("retrato:modulate")
+tracks/0/path = NodePath("Portrait:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -24,7 +24,7 @@ length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("retrato:modulate")
+tracks/0/path = NodePath("Portrait:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -40,7 +40,7 @@ _data = {
 "hurt_2": SubResource("Animation_qt3sr")
 }
 
-[node name="character_retrato" type="Control"]
+[node name="CharacterPortrait" type="Control"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
@@ -49,7 +49,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="retrato" type="TextureRect" parent="."]
+[node name="Portrait" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,7 +63,7 @@ grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("1_d5kmm")
 
-[node name="animation" type="AnimationPlayer" parent="."]
+[node name="Animation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_iimrv")
 }

@@ -9,7 +9,7 @@ var _commands: Dictionary = {}
 var _script_folder: String
 
 # The folder that will contain the scripts when running from the editor
-var _editor_script_folder = "res://Guion/"
+var _editor_script_folder = "res://game_script/"
 
 # Extracts the units from a scene. For the parser to work all the instructions
 # must be defined inside an unit, and each unit must have an openning label

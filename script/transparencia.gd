@@ -1,12 +1,11 @@
+class_name TransparencyControl
 extends Area2D
 
-class_name ControlTransparencia
+@export var transparency_value = 0.15
 
-@export var valor_transparencia = 0.15
-
-func activar_transparencia():
-	$"../Sprite2D".modulate = Color(1, 1, 1, valor_transparencia)
+func enable_transparency():
+	$"../Sprite2D".modulate = Color(1, 1, 1, transparency_value)
 
 
-func desactivar_transparencia():
+func disable_transparency():
 	$"../Sprite2D".modulate = Color(1, 1, 1, 1)

@@ -25,13 +25,13 @@ func _ready():
 		player.stats.health,
 		player.stats.name
 	)
-	player.get_node("retrato").texture = (
+	player.get_node("Portrait").texture = (
 		player.stats.texture
 	)
-	player.get_node("etiqueta_nombre/Label").text = (
+	player.get_node("NameLabelTexture/Label").text = (
 		str(player.stats.name)
 	)
-	retrato_player.get_node("retrato").texture = player.stats.retrato
+	retrato_player.get_node("Portrait").texture = player.stats.retrato
 
 	# Se cargan los stats y sprite del enemigo.
 	set_health(
@@ -40,7 +40,7 @@ func _ready():
 		enemy.stats.health,
 		enemy.stats.name
 	)
-	enemy.get_node('retrato').texture = enemy.stats.texture
+	enemy.get_node('Portrait').texture = enemy.stats.texture
 
 	# Para verificar que los cuadros de texto estén cerrados.
 	$text_box.hide()
@@ -98,8 +98,8 @@ func enemy_turn():
 	await(textbox_closed)
 
 	# Animación para cuando se es herido.
-	retrato_player.get_node("animation").play('hurt')
-	await(retrato_player.get_node("animation").animation_finished)
+	retrato_player.get_node("Animation").play('hurt')
+	await(retrato_player.get_node("Animation").animation_finished)
 
 	player.stats.current_health = (player.stats.current_health - final_damage)
 	set_health(
@@ -164,7 +164,7 @@ func make_attack(text):
 	)
 
 	# Animación para cuando se es herido.
-	enemy.get_node("animation").play('hurt')
-	await(enemy.get_node("animation").animation_finished)
+	enemy.get_node("Animation").play('hurt')
+	await(enemy.get_node("Animation").animation_finished)
 
 	enemy_turn() # Turno enemigo.
