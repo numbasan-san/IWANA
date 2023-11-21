@@ -1,68 +1,65 @@
-class_name Unidad
+class_name Unit
 
-# Una unidad corresponde a un conjunto de instrucciones del guión que se
-# ejecutan en secuencia. Las instrucciones se ejecutan inmediatamente una 
-# despues de la otra, excepto por la instrucción "esperar" que pausa la
-# ejecución de la unidad hasta que el usuario presiona la tecla de continuar
+# A unit is a set of script instructions that are run sequentialy. The
+# instructions are run immediately one after the other, except for the "esperar"
+# or "wait" instruction, which pauses the execution of the unit until the player
+# presses a key.
 
-# El nombre asignado a esta unidad. Se puede usar para referenciarla desde otras
-# unidades o desde el resto del juego
-var nombre: String
+# The name of this unit. It can be used as a reference from inside other units
+# or elsewhere in the game code
+var name: String
 
-# La lista de instrucciones a ejecutar
-var instrucciones: Array[Instruccion]
+# The list of instructions to run when the unit is activated
+var instructions: Array[Instruction]
 
-# La instrucción que se ejecutará a continuación
-var actual: int
+# Pointer to the instruction that is going to run next
+var current: int
 
-# La linea de diálogo que se mostrará a continuación
-var linea_actual: int
+# The number of the line of dialog that is currently showing, mainly used for
+# debugging
+var current_line: int
 
-# Las instrucciones solo se van a ejecutar cuando este valor sea true.
-# Se puede usar para pausar la ejecución de la unidad cuando ocurre algún evento.
-var en_ejecucion = false
+# The instructions are only going to be executed while this variable is true. It
+# can be used to pause the unit after some event ocurrs
+var _running = false
 
-# Es true si la unidad ya completó todas sus instrucciones durante esta ejecución
-var listo
+# It should be true if this unit has completed all of its instructions
+var _done = false
 
-# Crea una nueva unidad con una lista de comandos a ejecutar
-func _init(_nombre: String, _instrucciones: Array[Instruccion]):
-	self.nombre = _nombre
-	self.instrucciones = _instrucciones
-	reiniciar()
+# Builds a new unit with a name and list of instructions
+func _init(name_arg: String, instructions_arg: Array[Instruction]):
+	self.name = name_arg
+	self.instructions = instructions_arg
+	restart()
 
-# Ejecuta las instrucciones en secuencia. Hay que pensar en que hacer cuando la
-# instrucción pide esperar por un tiempo, ver si usar la  función wait detiene
-# todo el juego, el script que contiene las funciones, o esta función
-# process
-func procesar():
-	if en_ejecucion and not listo:
-		# Este chequeo se coloca acá para cuando la última instrucción de la
-		# unidad es de espera, así uno debe despausar la ejecución con la tecla
-		# de avanzar diálogo antes que la variable listo se haga true y se
-		# continúe con la siguiente unidad
-		if actual >= instrucciones.size():
-			listo = true
+# Runs the current instruction and moves the pointer to the next one
+func run():
+	if _running and not _done:
+		# This check is done here so that when the last instruction is wait, the
+		# unit won't be marked as done until after the continue key is pressed
+		if current >= instructions.size():
+			_done = true
 			return
-		instrucciones[actual].ejecutar()
-		# Si la instrucción cambia el diálogo, sumamos 1 a linea_actual para que
-		# en el modo dev se pueda mostrar en que linea de la unidad se encuentra
-		# y se detiene la ejecución hasta que el usuario pida una nueva linea
-		# TODO: cambiar para que se tome un tiempo en mostrar el diálogo. Quizas
-		# se debe agregar una función de espera cada vez que se muestre diálogo,
-		# y el usuario puede interrumpirla con un input
-		if instrucciones[actual].tipo == Instruccion.DIALOGO:
-			linea_actual += 1
-		if instrucciones[actual].tipo == Instruccion.ESPERA:	
-			pausar()
-		actual += 1
+		instructions[current].run()
+		
+		# TODO: add code to animate the dialog being written and to wait till it
+		# is done animating. A click should finish the animation immediately and
+		# a second click should continue execution
+		if instructions[current].type == Instruction.DIALOG:
+			current_line += 1
+		if instructions[current].type == Instruction.WAIT:
+			pause()
+		current += 1
 		
 
-func reiniciar():
-	actual = 0
-	linea_actual = 0
-	listo = instrucciones.size() == 0
-	pausar(false)
+func restart():
+	current = 0
+	current_line = 0
+	_done = instructions.size() == 0
+	pause(false)
 
-func pausar(pausa = true):
-	en_ejecucion = not pausa
+func pause(paused = true):
+	_running = not paused
+
+func is_done():
+	return _done

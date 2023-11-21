@@ -17,9 +17,9 @@ func _process(_delta):
 			zones.text = "Ninguna"
 		var current_scene = ScriptManager.current_scene
 		if current_scene:
-			scenes.text = current_scene.nombre
-			if current_scene.unidad_actual:
-				units.text = current_scene.unidad_actual.nombre
+			scenes.text = current_scene.name
+			if current_scene.current_unit:
+				units.text = current_scene.current_unit.name
 			else:
 				units.text = "Ninguna"
 		else:
@@ -27,7 +27,7 @@ func _process(_delta):
 			units.text = "Ninguna"
 			
 	if ScreenManager.dialog_screen.visible:
-		var line = ScriptManager.current_scene.unidad_actual.linea_actual
+		var line = ScriptManager.current_scene.current_unit.current_line
 		$Contents/DialogDetails/LineNumberLabel.text = str(line)
 		$Contents/DialogDetails.show()
 	else:
@@ -105,9 +105,8 @@ func fill_units_list():
 	# index, but when adding an item the function doesn't return its assigned
 	# index, so we need to manually assign an id and obtain the index through that
 	var item_id = 0
-	for unit_name in ScriptManager.current_scene.unidades:
+	for unit_name in ScriptManager.current_scene.units:
 		popup.add_item(unit_name, item_id)
-		var index = popup.get_item_index(item_id)
 		item_id += 1
 		
 	# When connecting this signal we assume that it's never going to be
@@ -116,7 +115,7 @@ func fill_units_list():
 	if popup.index_pressed.get_connections().size() == 0:
 		popup.index_pressed.connect(func (index) -> void:
 			var unit_name = popup.get_item_text(index)
-			ScriptManager.current_scene.cargar(unit_name)
+			ScriptManager.current_scene.load(unit_name)
 		)
 
 func _on_script_reload():

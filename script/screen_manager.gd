@@ -22,6 +22,8 @@ var _screen_stack: Array[Screen]
 # This variable points to the top of the stack
 var current_screen: Screen:
 	get:
+		if _screen_stack.is_empty():
+			return null
 		return _screen_stack.back()
 
 # The dev mode screen shows information of the state of the game and allows its

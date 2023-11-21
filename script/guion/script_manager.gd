@@ -25,12 +25,12 @@ func _process(_delta):
 		if _scene_pointer >= _scenes.size():
 			running = false
 		else:
-			_current_scene.procesar()
-			if _current_scene.listo:
+			await _current_scene.run()
+			if _current_scene.done:
 				_scene_pointer += 1
 				if _scene_pointer < _scenes.size():
 					_current_scene = _scenes.values()[_scene_pointer]
-					_current_scene.reiniciar()
+					_current_scene.restart()
 
 # Loads the first scene of the script and starts execution if it was paused
 func restart():
@@ -51,7 +51,7 @@ func _activate(index: int):
 	if 0 <= index and index < _scenes.size():
 		_scene_pointer = index
 		_current_scene = _scenes.values()[_scene_pointer]
-		_current_scene.reiniciar()
+		_current_scene.restart()
 		running = true
 	else:
 		printerr("ScriptManager | Scene index out of bounds")
@@ -60,10 +60,10 @@ func _activate(index: int):
 # This check is made so that if a different scene with the same name is added by
 # accident later, it won't change the state of the manager
 func add(scene: Escena):
-	if not _scenes.keys().has(scene.nombre):
-		_scenes[scene.nombre] = scene
+	if not _scenes.keys().has(scene.name):
+		_scenes[scene.name] = scene
 	else:
-		printerr("ScriptManager | A scene with name " + scene.nombre \
+		printerr("ScriptManager | A scene with name " + scene.name \
 			+ " already exists")
 
 # Deletes all teh stored scenes in the manager
@@ -80,5 +80,5 @@ func clear():
 
 func _on_unpaused():
 	if _scene_pointer < _scenes.size():
-		_scenes.values()[_scene_pointer].pausar(false)
+		_scenes.values()[_scene_pointer].pause(false)
 	

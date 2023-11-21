@@ -1,82 +1,123 @@
 class_name Escena
 
-# Una escena contiene un conjunto de unidades del guión que se ejecutan 
-# siguiendo una secuencia. 
+# A scene contains a set of units and links between them to determine when they
+# should be executed
 
-# El nombre asignado a esta escena. Se puede usar para referenciarla desde el 
-# resto del juego
-var nombre: String
+# The name of the scene, it can be used to refer to this scene from other parts
+# of the code
+var name: String
 
-# Las unidades que pertenecen a esta escena. Cada entrada es un 
-# par (nombre, unidad)
-var unidades: Dictionary
+# All units defined for this scene. Each entry is a pair (name, instance)
+var units: Dictionary
 
-# Las conecciones entre unidades que determinan en que orden se deben ejecutar.
-# Cada entrada es un par (nombre_inicial, nombre_siguiente), donde
-# nombre_siguiente es el nombre de la unidad que debe ejecutarse despues de que
-# termine de ejecutarse nombre_inicial
-var conexiones: Dictionary
+# The links between units which determine in which order they should be executed.
+# Each entry is a pair (name_current, name_next), with the names of the unit
+# currently running and the name of the unit that should be run when this one
+# finishes, respectively
+var _links: Dictionary
 
-# El nombre de la primera unidad que se debe ejecutar al cargar esta escena
-var nombre_primera: String
+# The name of the first unit that should be run when loading this scene. If this
+# value is empty, then no unit will be automatically loaded and they must be
+# called from some other code
+var _name_first: String
+var name_first: String:
+	get:
+		return _name_first
 
-# La instrucción que se está ejecutando en este momento
-var unidad_actual: Unidad
+# The name of the last unit of the scene. If this has some value, after
+# executing the unit with that name the scene will be marked as ready and the
+# next scene will start
+var _name_last: String
+var name_last: String:
+	get:
+		return _name_last
 
-# Las unidad solo se van a ejecutar cuando este valor sea true.
-# Se puede usar para pausar la ejecución de la escena cuando ocurre algún evento.
-var en_ejecucion = false
+# The unit being executed at this moment
+var current_unit: Unit
 
-# Es true si la escena ya completó todas sus unidades durante esta ejecución
-var listo = false
+# The units will only run while this value is true. This can be changed to pause
+# the scene when some event happens
+var _running = false
 
-# Crea una nueva escena con una lista de unidades a ejecutar
-func _init(_nombre: String, _inicial: String, _unidades: Array[Unidad]):
-	self.nombre = _nombre
-	self.unidades = {}
-	self.nombre_primera = _inicial
-	for unidad in _unidades:
-		agregar(unidad)
-	reiniciar()
+# It's true when this scene has finished running its last unit and is ready to
+# give control to the next scene
+var done = false
 
-func procesar():
-	if en_ejecucion and not listo:
-		unidad_actual.procesar()
-		if unidad_actual.listo:
-			if conexiones.has(unidad_actual.nombre):
-				var nombre_siguiente = conexiones[unidad_actual.nombre]
-				unidad_actual = unidades[nombre_siguiente]
-				unidad_actual.reiniciar()
+# Builds a new scene with a name, list of units, first and last units
+func _init(
+		name: String,
+		units: Array[Unit],
+		first: String = "",
+		last: String = ""):
+	self.name = name
+	self.units = {}
+	self._name_first = first
+	self._name_last = last
+	for unit in units:
+		_add(unit)
+	restart()
+
+func run():
+	if _running and not done:
+		current_unit.run()
+		if current_unit.is_done():
+			# If the unit that just finished is the last one, the scene is
+			# marked done so that the script manager will switch to the next one
+			if current_unit.name == name_last:
+				done = true
+			# If it's linked to another unit, we switch to that one
+			elif _links.has(current_unit.name):
+				var name_next = _links[current_unit.name]
+				current_unit = units[name_next]
+				current_unit.restart()
+			# If there is no linked unit, but this isn't the last one of the
+			# scene, this scene stops running and we close the dialog screen
+			# but the scene isn't marked as done, so that another unit can be
+			# loaded later
 			else:
-				listo = true
+				_running = false
+				await ScriptCommands._close()
 
-func reiniciar():
-	cargar(nombre_primera)
-
-func cargar(nombre: String):
-	if unidades.has(nombre):
-		unidad_actual = unidades[nombre]
-		unidad_actual.reiniciar()
-		listo = false
-		pausar(false)
+# Loads the first unit of this scene, if it has any defined, and marks it as
+# not done so that other units can also be run. If there is no
+# first unit, another one must be loaded manually
+func restart():
+	if _name_first:
+		self.load(_name_first)
 	else:
-		printerr("No se encontró una unidad con nombre " + nombre)
+		done = false
+		printerr("Scene | This scene doesn't have an initial unit, so nothing is done")
 
-func agregar(unidad: Unidad):
-	if not unidades.has(unidad.nombre):
-		unidades[unidad.nombre] = unidad
+# Loads a unit and runs the scene
+func load(name: String):
+	if units.has(name):
+		current_unit = units[name]
+		current_unit.restart()
+		done = false
+		pause(false)
 	else:
-		printerr("La escena ya contiene una unidad con el nombre " + unidad.nombre)
+		printerr("Scene | Can't find a unit with name " + name)
 
-func enlazar(fuente: String, destino: String):
-	if not unidades.has(fuente):
-		printerr("La escena no contiene a la unidad " + fuente)
-	elif not unidades.has(destino):
-		printerr("La escena no contiene a la unidad " + destino)
+# Adds a new unit to the scene. It should only be called in the constructor to
+# ensure the scene is in a valid state
+func _add(unit: Unit):
+	if not units.has(unit.name):
+		units[unit.name] = unit
 	else:
-		conexiones[fuente] = destino
+		printerr("Scene | The scene already has an unit named " + unit.name)
+
+# Links two units so that when the first one finishes running, control passes to
+# the next one
+func link(source: String, target: String):
+	if not units.has(source):
+		printerr("Scene | The scene doesn't have an unit named " + source)
+	elif not units.has(target):
+		printerr("Scene | The scene doesn't have an unit named " + target)
+	else:
+		_links[source] = target
 		
 
-func pausar(pausa = true):
-	en_ejecucion = not pausa
-	unidad_actual.pausar(pausa)
+func pause(pausa = true):
+	_running = not pausa
+	current_unit.pause(pausa)
+

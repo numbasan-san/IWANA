@@ -1,10 +1,11 @@
 [Escena: escena 1]
 [Inicial: a1]
-[Enlaces: a1 -> unidad 2]
+[Final: u6]
+[Enlace: a1 -> unidad 2]
+[Enlace: u3 -> u4 -> u5]
 
 [Unidad: a1]
 [Quitar todos]
-[Abrir]
 [Imagen: Daniela -> Neutral]
 [Fondo: bosquejoIntro1]
 
@@ -51,6 +52,36 @@ Profesora Rosaria: Porque el director en persona me pidió darles esta obvia pre
 Noby: mierda esta presentación se está haciendo eterna… creo que me está dando sueño… 
 
 [Quitar todos]
-[Cerrar]
 [Fin: unidad 2]
+
+[Unidad: u3]
+[Quitar todos]
+Dev: Esto es una secuencia de pruebas
+[Fin: u3]
+
+[Unidad: u4]
+Dev: Este texto solo se debe ver al iniciar la secuencia desde el modo rpg
+[Fin: u4]
+
+[Unidad: u5]
+Dev: Si se lee esto en la introducción, es un error
+[Cerrar]
+[Fin: u5]
+
+[Unidad: u6]
+Dev: Despues de esto terminamos la escena
+[Cerrar]
+[Fin: u6]
+
+[Asignar: Dialogo NPC 1 -> NPC1.interaccion]
+[Asignar:  NPC 1 derrotado -> NPC1.derrota]
+
+[Unidad: Dialogo NPC 1]
+NPC: ¡Oye, que me ves! ¿Acaso quieres pelear?
+[Fin: Dialogo NPC 1]
+
+[Unidad: NPC 1 derrotado]
+NPC: Está bien, lo siento
+[Fin: NPC 1 derrotado]
+
 [Fin: escena 1]

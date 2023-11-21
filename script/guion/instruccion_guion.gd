@@ -1,48 +1,47 @@
-# Representa una instrucción que puede ser un comando, mostrar una linea
-# de diálogo, o generar un error
+class_name Instruction
 
-class_name Instruccion
+# Represents a script instruccion, which can be a command, show a line of dialog
+# or raise an error
 
-# Considerar si un comando que pausa la ejecución por un tiempo debe ser otro
-# tipo que va acá, o si solo es una función que llama a una función de espera
-# predefinida
-enum { COMANDO, DIALOGO, ERROR, ESPERA }
 
-# El nombre de la instrucción, usada para propósitos de debugging
-var nombre: String
+enum { COMMAND, DIALOG, ERROR, WAIT }
 
-# Los argumentos que se van a aplicar a esta instrucción, usada para propósitos
-# de debugging
-var argumentos: Variant
+# The name of the instruction, mainly used for debugging
+var name: String
 
-# Callable que se va a invocar al ejecutar la instrucción
-var contenido: Callable
+# The arguments that the instruction will receive when running, mainly used for
+# debugging
+var arguments: Variant
 
-# Si esta instrucción es un comando o una linea de diálogo
-var tipo: int
+# Callable that's going to be executed when calling this instruction
+var _callable: Callable
 
-# Construye una nueva instrucción que puede ser ejecutada en el futuro. Si el
-# nombre de la instrucción no está definido en la lista de comandos, se crea un
-# comando especial que siempre imprime un error
-func _init(_nombre: String, args: Variant = null):
-	self.nombre = _nombre
-	self.argumentos = args
+# One of COMMAND, DIALOG, ERROR or WAIT
+var _type: int
+var type: int:
+	get:
+		return _type
+
+# Builds a new isntruction that can be called in the future. It's the job of the
+# parser to ensure that only defined instructions are built
+func _init(name_arg: String, args: Variant = null):
+	self.name = name_arg
+	self.arguments = args
 	
-	if nombre == "dialogo":
-		tipo = DIALOGO
-	elif nombre == "error":
-		tipo = ERROR
-	elif nombre == "esperar":
-		tipo = ESPERA
+	if name == "dialogo":
+		_type = DIALOG
+	elif name == "error":
+		_type = ERROR
+	elif name == "esperar":
+		_type = WAIT
 	else:
-		tipo = COMANDO
+		_type = COMMAND
 	
-	if args == null:
-		contenido = Callable(ScriptCommands, nombre)
+	if not args:
+		_callable = Callable(ScriptCommands, name)
 	else:
-		contenido = Callable(ScriptCommands, nombre).bind(args)
+		_callable = Callable(ScriptCommands, name).bind(args)
 
-
-func ejecutar():
-	print("Ejecutando comando " + nombre + " con argumentos " + str(argumentos))
-	contenido.call()
+# Runs the stored callable
+func run():
+	_callable.call()

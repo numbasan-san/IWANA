@@ -6,5 +6,5 @@ extends Screen
 # TODO: fix this so that dialog lines take some time to render to screen and
 # pressing a button draws it faster instead of just skiping it
 func _unhandled_input(event):
-	if event.is_action_pressed("nv_avanzar_dialogo"):
+	if is_active and event.is_action_pressed("nv_avanzar_dialogo"):
 		ScriptManager.unpaused.emit()

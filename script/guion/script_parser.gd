@@ -27,9 +27,13 @@ var _scene_regex = "\\s*\\[(?:E|e)scena:(?: |\\t)*(?<name>.+)\\]\\n(?<contents>(
 var _initial_matcher = RegEx.new()
 var _initial_regex = "\\s*\\[(?:I|i)nicial:(?: |\\t)*(?<name>(?:.*)*?)\\]"
 
+# Extracts the last unit that must be run when loading the scene
+var _final_matcher = RegEx.new()
+var _final_regex = "\\s*\\[(?:F|f)inal:(?: |\\t)*(?<name>(?:.*)*?)\\]"
+
 # Extracts the lists of links between units
 var _links_matcher = RegEx.new()
-var _links_regex = "\\s*\\[(?:E|e)nlaces:(?: |\\t)*(?<contents>(?:.*)*?)\\]"
+var _links_regex = "\\s*\\[(?:E|e)nlace:(?: |\\t)*(?<contents>(?:.*)*?)\\]"
 
 # For now we're assuming that the entire script is going to be read from a
 # single file. Although several files can be read and loaded, when parsing the
@@ -102,7 +106,7 @@ func _parse_file(file_name: String):
 # the openning and closing tags, which will be parsed in this function
 func _create_scene(scene_name: String, scene_contents: String) -> Escena:
 	print("ScriptParser | Creating scene with name " + scene_name)
-	var units: Array[Unidad] = []
+	var units: Array[Unit] = []
 	var unit_matches = _unit_matcher.search_all(scene_contents)
 	if unit_matches.size() == 0:
 		printerr("ScriptParser | No units were found in this scene")
@@ -112,30 +116,38 @@ func _create_scene(scene_name: String, scene_contents: String) -> Escena:
 		units.append(_create_unit(unit_name, contents))
 	
 	var initial_matches = _initial_matcher.search_all(scene_contents)
-	var initial: String
+	var initial: String = ""
 	if initial_matches.size() > 1:
 		printerr("ScriptParser | There must be at most 1 initial unit")
-	else:
+	elif initial_matches.size() == 1:
 		initial = initial_matches[0].get_string("name")
+	
+	var final_matches = _final_matcher.search_all(scene_contents)
+	var final: String = ""
+	if final_matches.size() > 1:
+		printerr("ScriptParser | There must be at most 1 final unit")
+	elif final_matches.size() == 1:
+		final = final_matches[0].get_string("name")
 		
-	var scene = Escena.new(scene_name, initial, units)
+	var scene = Escena.new(scene_name, units, initial, final)
 	
 	var link_matches = _links_matcher.search_all(scene_contents)
 	if link_matches.size() == 0:
 		printerr("ScriptParser | No links were found")
 	for m in link_matches:
+		print("ScriptParser | Adding link " + m.get_string("contents"))
 		var split = m.get_string("contents").split("->", false)
 		var array = Array(split).map(func(s): return s.strip_edges())
 		if array.size() > 1:
 			var i = 1
 			while i < array.size():
-				scene.enlazar(array[i - 1], array[i])
+				scene.link(array[i - 1], array[i])
 				i += 1
 	return scene
 
 # Creates a new unit with the given name and a string with the contents between
 # the openning and closing tags, which will be parsed in this function
-func _create_unit(unit_name: String, contents: String) -> Unidad:
+func _create_unit(unit_name: String, contents: String) -> Unit:
 	print("ScriptParser | Creating a unit with name " + unit_name)
 	
 	# The way the instruction parser is as follow:
@@ -146,76 +158,73 @@ func _create_unit(unit_name: String, contents: String) -> Unidad:
 	#		badly written and an error is thrown.
 	# 4 - If it doesn't begin with [ and it doesn't end with ], it's a dialog line
 	
-	var instructions: Array[Instruccion] = []
+	var instructions: Array[Instruction] = []
 	var lines = contents.split("\n", false)
 	for line in lines:
-		print("ScriptParser | Processing line: " + line)
 		if line.begins_with("[") and line.ends_with("]"):
 			instructions.append(extract_command(line.trim_prefix("[").trim_suffix("]").strip_edges()))
 		elif not line.begins_with("[") and not line.ends_with("]"):
 			instructions.append(extract_dialog(line.strip_edges()))
-			instructions.append(Instruccion.new("esperar"))
+			instructions.append(Instruction.new("esperar"))
 		else:
-			instructions.append(Instruccion.new("error", "The instruction was \
+			instructions.append(Instruction.new("error", "The instruction was \
 				badly written.\n Line: " + line))
 		
-	return Unidad.new(unit_name, instructions)
+	return Unit.new(unit_name, instructions)
 	
 
 # Receibes a line and extracts the name of a command and its arguments
-func extract_command(line: String) -> Instruccion:
+func extract_command(line: String) -> Instruction:
 	# If the line begins with #, it's a comment and it's ignored
 	if line.begins_with("#"):
 		return
 	# The name is split from it's arguments. Only a single ':' is allowed
 	var components = line.split(":")
 	if components.size() > 2:
-		return Instruccion.new("error", "The command must be of the form <name>: <args>")
+		return Instruction.new("error", "The command must be of the form <name>: <args>")
 	# As the functions are written in lower case, we convert the name
 	var command_name = components[0].strip_edges().to_snake_case()
 	
 	var args = null
 	if components.size() > 1:
 		args = components[1].strip_edges()
-	print("ScriptParser | Comando: " + command_name)
-	print("ScriptParser | Argumentos: " + str(args))
 	
 	# The command specified in the script must be defined in the command list
 	if _commands.keys().find(command_name) >= 0:
 		# This is the case for the commands that don't receive arguments
 		if _commands[command_name] == Variant.Type.TYPE_NIL:
 			if args == null:
-				return Instruccion.new(command_name)
+				return Instruction.new(command_name)
 			else:
-				return Instruccion.new("error", "The command " + command_name + \
+				return Instruction.new("error", "The command " + command_name + \
 					" must not receive arguments, but received " + args)
 		# From this point, the commands must receive arguments. If not, it's an error
 		if args == null:
-			return Instruccion.new("error", "The command " + command_name + \
+			return Instruction.new("error", "The command " + command_name + \
 				" must receive arguments")
 		var split_args = args.split(",")
 		# This is the case for the commands that only receibe one argument
 		if _commands[command_name] == Variant.Type.TYPE_STRING:
 			if split_args.size() == 1:
-				return Instruccion.new(command_name, split_args[0] as String)
+				return Instruction.new(command_name, split_args[0] as String)
 			else:
-				return Instruccion.new("error", "The command " + command_name + \
+				return Instruction.new("error", "The command " + command_name + \
 					" must receibe an argument of type String, but received " + \
 					split_args)
 		# Finally, this is the case for the commands that receive several arguments
 		var temp: Array[String] = []
 		for string in split_args:
 			temp.append(string.strip_edges())
-		return Instruccion.new(command_name, temp)
+		return Instruction.new(command_name, temp)
 	else:
-		return Instruccion.new("error", "There isn't a command with name: " + command_name)
+		return Instruction.new("error", "There isn't a command with name: " + command_name)
 
 # Extracts a line of dialog and who says it, if any
 func extract_dialog(line: String):
 	# The name of the speaker is split from the text. Only one ':' is allowed
 	var components = line.split(":")
 	if components.size() > 2:
-		return Instruccion.new("error", "The line must be of the form <name>: <text> or <text>")
+		return Instruction.new("error", "The line must be of the form <name>: <text> or <text>")
 	var name = ""
 	var text = ""
 	
@@ -224,4 +233,4 @@ func extract_dialog(line: String):
 	else:
 		name = components[0].strip_edges()
 		text = components[1].strip_edges()
-	return Instruccion.new("dialogo", [name, text] as Array[String])
+	return Instruction.new("dialogo", [name, text] as Array[String])
