@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3gl0tmkxj5vt"]
+
+[ext_resource type="Script" path="res://script/personajes/character.gd" id="1_l6ppn"]
+[ext_resource type="Script" path="res://script/dialogos/dialog_model.gd" id="2_eecn5"]
+[ext_resource type="Texture2D" uid="uid://cnfhyjpvorbq7" path="res://assets/dialog_drawings/characters/profe rosaria.png" id="3_yy0v8"]
+[ext_resource type="Script" path="res://script/personajes/rpg_model.gd" id="4_cdcld"]
+[ext_resource type="Script" path="res://script/personajes/combat_model.gd" id="5_jjmmv"]
+
+[node name="Rosaria" type="Node" node_paths=PackedStringArray("dialog_model", "rpg_model", "combat_model")]
+script = ExtResource("1_l6ppn")
+dialog_model = NodePath("DialogModel")
+rpg_model = NodePath("RPGModel")
+combat_model = NodePath("CombatModel")
+
+[node name="DialogModel" type="Node2D" parent="."]
+script = ExtResource("2_eecn5")
+
+[node name="Neutral" type="Sprite2D" parent="DialogModel"]
+position = Vector2(0, -1022)
+scale = Vector2(-1, 1)
+texture = ExtResource("3_yy0v8")
+
+[node name="RPGModel" type="CharacterBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("4_cdcld")
+
+[node name="CombatModel" type="Node2D" parent="."]
+script = ExtResource("5_jjmmv")

@@ -5,14 +5,13 @@
 [Enlace: u3 -> u4 -> u5]
 
 [Unidad: a1]
-[Quitar todos]
 [Imagen: Daniela -> Neutral]
 [Fondo: bosquejoIntro1]
 
-[Imagen: Rosaria -> enojada, Maria Jose -> Maria]
+[Imagen: Rosaria -> Neutral, Maria Jose -> Maria]
 [Izquierda: Noby, Daniela]
 [Derecha: Maria Jose]
-[Derecha: Profe]
+[Derecha: Rosaria]
 
 ???: ¡CALLENSE CARAJO!
 [Fondo: bosquejoIntro2.png]
