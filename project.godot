@@ -23,6 +23,7 @@ ZoneManager="*res://script/zonas/zone_manager.gd"
 ScriptParser="*res://script/guion/script_parser.gd"
 ScriptManager="*res://script/guion/script_manager.gd"
 ScriptCommands="*res://script/guion/script_commands.gd"
+Player="*res://scenes/characters/player.tscn"
 
 [display]
 

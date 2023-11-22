@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://f2oog5xfhsha"]
+[gd_scene load_steps=23 format=3 uid="uid://f2oog5xfhsha"]
 
 [ext_resource type="Texture2D" uid="uid://70eq1ipw5en0" path="res://assets/Assests de Pruebas/2020-10-25 (4).png" id="1_3scli"]
 [ext_resource type="Script" path="res://script/combate/combate.gd" id="1_8k8bs"]
@@ -6,15 +6,18 @@
 [ext_resource type="Resource" uid="uid://cyc3sn1p8bmn" path="res://script/combate/personajes_stats/resource/Rajang.tres" id="4_qswep"]
 [ext_resource type="PackedScene" uid="uid://b34ektq1f8hr8" path="res://scenes/characters/combat_models/character_retrato.tscn" id="5_58fqg"]
 [ext_resource type="Resource" uid="uid://ds5sdk8aw4l8r" path="res://script/combate/personajes_stats/resource/Player.tres" id="5_ncxjo"]
-[ext_resource type="Texture2D" uid="uid://bihx58y0i0ybt" path="res://assets/combat_sprites/hud.png" id="6_67h05"]
 [ext_resource type="Texture2D" uid="uid://b77atfgeienqu" path="res://assets/combat_sprites/hud_a.png" id="6_t2p1k"]
 [ext_resource type="Texture2D" uid="uid://divhgdyclosh2" path="res://assets/combat_sprites/buttons/ataque_no_selecccionado.png" id="7_k3t3k"]
+[ext_resource type="Texture2D" uid="uid://c47ppkhcbc0j0" path="res://assets/combat_sprites/hud_combate_party.png" id="8_6arlj"]
 [ext_resource type="Texture2D" uid="uid://bcpbwokyqcsbq" path="res://assets/combat_sprites/buttons/ataque_selecccionado.png" id="8_fewc1"]
+[ext_resource type="Texture2D" uid="uid://dwbkby71u5h7l" path="res://assets/combat_sprites/noby.png" id="9_fxv30"]
 [ext_resource type="Texture2D" uid="uid://chasp3710xxfs" path="res://assets/combat_sprites/buttons/defensa_no_selecccionado.png" id="9_j2r3x"]
+[ext_resource type="Texture2D" uid="uid://ckr5arvqsdywg" path="res://assets/combat_sprites/cuernito.png" id="10_3h30n"]
 [ext_resource type="Texture2D" uid="uid://btpp5yl8lebvr" path="res://assets/combat_sprites/buttons/defensa_selecccionado.png" id="10_wpyws"]
 [ext_resource type="Texture2D" uid="uid://di4qe4dpmrbbs" path="res://assets/combat_sprites/buttons/huir_no_selecccionado.png" id="11_wxol7"]
 [ext_resource type="Texture2D" uid="uid://bl8ep0i6kkfu3" path="res://assets/combat_sprites/buttons/huir_selecccionado.png" id="12_1rras"]
 [ext_resource type="FontFile" uid="uid://bvx3kwcljl1mv" path="res://assets/combat_sprites/font/IWANA.ttf" id="15_5rv14"]
+[ext_resource type="Texture2D" uid="uid://d4d7l4stlp4kh" path="res://assets/combat_sprites/hud_combate_skills.png" id="17_wc36s"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o0oek"]
 bg_color = Color(0, 0, 0, 0)
@@ -100,160 +103,283 @@ layout_mode = 2
 [node name="character_retrato4" parent="retratos_player" instance=ExtResource("5_58fqg")]
 layout_mode = 2
 
-[node name="player_actions" type="TextureRect" parent="."]
+[node name="PartyMenu" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.064
+anchor_top = 0.674
+anchor_right = 0.935
+anchor_bottom = 1.0
+offset_left = 0.119995
+offset_top = 0.0799561
+offset_right = 0.799927
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="GUITexture" type="TextureRect" parent="PartyMenu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_67h05")
-expand_mode = 1
+texture = ExtResource("8_6arlj")
 
-[node name="actions" type="VBoxContainer" parent="player_actions"]
+[node name="Characters" type="Control" parent="PartyMenu"]
+layout_mode = 1
+anchor_right = 0.788
+anchor_bottom = 1.0
+
+[node name="Char1" type="Control" parent="PartyMenu/Characters"]
+layout_mode = 1
+anchor_left = 0.015
+anchor_top = 0.115
+anchor_right = 0.24
+anchor_bottom = 1.0
+offset_left = 0.225138
+offset_top = -0.128002
+offset_right = 0.557159
+
+[node name="TextureRect" type="TextureRect" parent="PartyMenu/Characters/Char1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_fxv30")
+stretch_mode = 5
+
+[node name="Char2" type="Control" parent="PartyMenu/Characters"]
+layout_mode = 1
+anchor_left = 0.015
+anchor_top = 0.114
+anchor_right = 0.237
+anchor_bottom = 1.0
+offset_left = 334.225
+offset_top = -0.128002
+offset_right = 334.557
+
+[node name="TextureRect" type="TextureRect" parent="PartyMenu/Characters/Char2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_3h30n")
+stretch_mode = 5
+
+[node name="Char3" type="Control" parent="PartyMenu/Characters"]
+layout_mode = 1
+anchor_left = 0.015
+anchor_top = 0.114
+anchor_right = 0.237
+anchor_bottom = 1.0
+offset_left = 662.225
+offset_top = -0.128002
+offset_right = 662.557
+
+[node name="Char4" type="Control" parent="PartyMenu/Characters"]
+layout_mode = 1
+anchor_left = 0.015
+anchor_top = 0.114
+anchor_right = 0.237
+anchor_bottom = 1.0
+offset_left = 991.225
+offset_top = -0.128002
+offset_right = 991.557
+
+[node name="Actions" type="VBoxContainer" parent="PartyMenu"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.8
-anchor_top = 0.75
-anchor_right = 0.89
-anchor_bottom = 0.88
-offset_left = 0.00012207
-offset_top = 1.00006
-offset_right = 38.2002
-offset_bottom = 0.600037
+anchor_left = 0.831
+anchor_top = 0.132
+anchor_right = 0.959
+anchor_bottom = 0.732
+offset_left = 22.9999
+offset_top = 16.0
+offset_right = 22.9999
+offset_bottom = 16.0
 grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 theme_override_constants/separation = 10
 alignment = 1
 
-[node name="attack" type="TextureButton" parent="player_actions/actions"]
+[node name="Attack" type="TextureButton" parent="PartyMenu/Actions"]
 layout_mode = 2
 size_flags_horizontal = 0
 texture_normal = ExtResource("7_k3t3k")
 texture_pressed = ExtResource("8_fewc1")
 texture_hover = ExtResource("8_fewc1")
 
-[node name="defense" type="TextureButton" parent="player_actions/actions"]
+[node name="Defense" type="TextureButton" parent="PartyMenu/Actions"]
 layout_mode = 2
 size_flags_horizontal = 0
 texture_normal = ExtResource("9_j2r3x")
 texture_pressed = ExtResource("10_wpyws")
 texture_hover = ExtResource("10_wpyws")
 
-[node name="run" type="TextureButton" parent="player_actions/actions"]
+[node name="Run" type="TextureButton" parent="PartyMenu/Actions"]
 layout_mode = 2
 size_flags_horizontal = 0
 texture_normal = ExtResource("11_wxol7")
 texture_pressed = ExtResource("12_1rras")
 texture_hover = ExtResource("12_1rras")
 
-[node name="stats_screen" type="Panel" parent="player_actions"]
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.08
-anchor_top = 0.71
-anchor_right = 0.74
-anchor_bottom = 0.98
-
-[node name="player_combat_container1" parent="player_actions/stats_screen" instance=ExtResource("3_v8xkj")]
-layout_mode = 1
-anchor_right = 0.22
-anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-stats = ExtResource("5_ncxjo")
-
-[node name="player_combat_container2" parent="player_actions/stats_screen" instance=ExtResource("3_v8xkj")]
+[node name="SkillsMenu" type="Control" parent="."]
 visible = false
 layout_mode = 1
-anchor_left = 0.26
-anchor_right = 0.48
+anchor_left = 0.064
+anchor_top = 0.674
+anchor_right = 0.935
 anchor_bottom = 1.0
-offset_top = 4.88867
-offset_right = 0.0
-offset_bottom = 0.0
-stats = ExtResource("5_ncxjo")
+offset_left = 0.119995
+offset_top = 0.0799561
+offset_right = 0.799927
+grow_horizontal = 2
+grow_vertical = 0
 
-[node name="player_combat_container3" parent="player_actions/stats_screen" instance=ExtResource("3_v8xkj")]
-visible = false
+[node name="GUITexture" type="TextureRect" parent="SkillsMenu"]
 layout_mode = 1
-anchor_left = 0.52
-anchor_right = 0.74
-anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
-stats = ExtResource("5_ncxjo")
-
-[node name="player_combat_container4" parent="player_actions/stats_screen" instance=ExtResource("3_v8xkj")]
-visible = false
-layout_mode = 1
-anchor_left = 0.78
-anchor_top = 0.017
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 0.042799
-offset_right = 0.0
-offset_bottom = 0.0
-stats = ExtResource("5_ncxjo")
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_wc36s")
 
-[node name="attacks" type="HBoxContainer" parent="player_actions"]
+[node name="Character" type="Control" parent="SkillsMenu"]
+layout_mode = 1
+anchor_left = 0.015
+anchor_top = 0.114
+anchor_right = 0.187
+anchor_bottom = 1.0
+offset_left = -0.0950012
+offset_top = -0.128002
+offset_right = 0.148987
+
+[node name="TextureRect" type="TextureRect" parent="SkillsMenu/Character"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_fxv30")
+stretch_mode = 5
+
+[node name="Skills" type="ScrollContainer" parent="SkillsMenu"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.1
-anchor_top = 0.6
-anchor_right = 0.9
-anchor_bottom = 0.68
-theme_override_constants/separation = 15
-alignment = 1
+anchor_left = 0.212
+anchor_top = 0.08
+anchor_right = 0.609
+anchor_bottom = 0.957
+offset_left = 0.323975
+offset_top = -0.160002
+offset_right = 0.142944
+offset_bottom = 0.135986
+horizontal_scroll_mode = 0
 
-[node name="attack1" type="Button" parent="player_actions/attacks"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SkillsMenu/Skills"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Skill1" type="Button" parent="SkillsMenu/Skills/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("15_5rv14")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
 text = " Attack 1 "
 
-[node name="attack2" type="Button" parent="player_actions/attacks"]
+[node name="Skill2" type="Button" parent="SkillsMenu/Skills/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("15_5rv14")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
 text = " Attack 2 "
 
-[node name="attack3" type="Button" parent="player_actions/attacks"]
+[node name="Skill3" type="Button" parent="SkillsMenu/Skills/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("15_5rv14")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
 text = " Attack 3 "
 
-[node name="attack4" type="Button" parent="player_actions/attacks"]
+[node name="Skill4" type="Button" parent="SkillsMenu/Skills/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("15_5rv14")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
 text = " Attack 4 "
+
+[node name="Skill5" type="Button" parent="SkillsMenu/Skills/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("15_5rv14")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
+text = " Attack 5"
+
+[node name="Skill6" type="Button" parent="SkillsMenu/Skills/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("15_5rv14")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
+text = " Attack 6"
+
+[node name="Skill7" type="Button" parent="SkillsMenu/Skills/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("15_5rv14")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
+text = " Attack 7"
+
+[node name="Skill8" type="Button" parent="SkillsMenu/Skills/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("15_5rv14")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
+text = " Attack 8"
 
 [node name="text_box" type="Panel" parent="."]
 layout_mode = 1
@@ -274,10 +400,14 @@ offset_bottom = 43.0
 theme_override_font_sizes/font_size = 40
 text = "asdadasdas"
 
-[connection signal="pressed" from="player_actions/actions/attack" to="." method="_on_attack_pressed"]
-[connection signal="pressed" from="player_actions/actions/defense" to="." method="_on_defense_pressed"]
-[connection signal="pressed" from="player_actions/actions/run" to="." method="_on_run_pressed"]
-[connection signal="pressed" from="player_actions/attacks/attack1" to="." method="_on_attack_1_pressed"]
-[connection signal="pressed" from="player_actions/attacks/attack2" to="." method="_on_attack_2_pressed"]
-[connection signal="pressed" from="player_actions/attacks/attack3" to="." method="_on_attack_3_pressed"]
-[connection signal="pressed" from="player_actions/attacks/attack4" to="." method="_on_attack_4_pressed"]
+[connection signal="pressed" from="PartyMenu/Actions/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="PartyMenu/Actions/Defense" to="." method="_on_defense_pressed"]
+[connection signal="pressed" from="PartyMenu/Actions/Run" to="." method="_on_run_pressed"]
+[connection signal="pressed" from="SkillsMenu/Skills/VBoxContainer/Skill1" to="." method="_on_attack_1_pressed"]
+[connection signal="pressed" from="SkillsMenu/Skills/VBoxContainer/Skill2" to="." method="_on_attack_2_pressed"]
+[connection signal="pressed" from="SkillsMenu/Skills/VBoxContainer/Skill3" to="." method="_on_attack_3_pressed"]
+[connection signal="pressed" from="SkillsMenu/Skills/VBoxContainer/Skill4" to="." method="_on_attack_4_pressed"]
+[connection signal="pressed" from="SkillsMenu/Skills/VBoxContainer/Skill5" to="." method="_on_attack_1_pressed"]
+[connection signal="pressed" from="SkillsMenu/Skills/VBoxContainer/Skill6" to="." method="_on_attack_2_pressed"]
+[connection signal="pressed" from="SkillsMenu/Skills/VBoxContainer/Skill7" to="." method="_on_attack_3_pressed"]
+[connection signal="pressed" from="SkillsMenu/Skills/VBoxContainer/Skill8" to="." method="_on_attack_4_pressed"]

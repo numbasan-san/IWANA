@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://4sbuc3c6hmin"]
+[gd_scene load_steps=28 format=3 uid="uid://4sbuc3c6hmin"]
 
 [ext_resource type="Script" path="res://script/personajes/character.gd" id="1_nixub"]
 [ext_resource type="Script" path="res://script/dialogos/dialog_model.gd" id="2_b5plf"]
@@ -11,9 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://bo1wwsqd18esq" path="res://assets/rpg_sprites/characters/noby/down/noby_camina_abajo.png" id="8_s16mt"]
 [ext_resource type="Texture2D" uid="uid://cyxvulilwfkhj" path="res://assets/rpg_sprites/characters/noby/left/noby_camina_izquierda.png" id="9_ryd1s"]
 [ext_resource type="Texture2D" uid="uid://beqkcmrhycjmc" path="res://assets/rpg_sprites/characters/noby/right/noby_camina_derecha.png" id="10_86t0l"]
-[ext_resource type="PackedScene" uid="uid://dvwsbxa7kdgob" path="res://scenes/characters/control_jugador.tscn" id="11_c5y00"]
 [ext_resource type="Texture2D" uid="uid://dwsebyxyqpiq7" path="res://assets/rpg_sprites/characters/noby/up/noby_camina_arriba.png" id="11_r4kqr"]
 [ext_resource type="Script" path="res://script/personajes/combat_model.gd" id="14_xlu3w"]
+[ext_resource type="Texture2D" uid="uid://dwbkby71u5h7l" path="res://assets/combat_sprites/noby.png" id="15_tfogv"]
+[ext_resource type="Texture2D" uid="uid://cj6aeejkf0g13" path="res://assets/combat_sprites/noby_separado.png" id="16_q484o"]
+[ext_resource type="Script" path="res://script/personajes/stats.gd" id="17_3cp4u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bncsu"]
 size = Vector2(12.0746, 28.5169)
@@ -608,8 +610,23 @@ libraries = {
 "": SubResource("AnimationLibrary_3ha3c")
 }
 
-[node name="PlayerControl" parent="RPGModel" instance=ExtResource("11_c5y00")]
-position = Vector2(0, 14)
-
 [node name="CombatModel" type="Node2D" parent="."]
 script = ExtResource("14_xlu3w")
+
+[node name="Portraits" type="Node" parent="CombatModel"]
+
+[node name="Neutral" type="Sprite2D" parent="CombatModel/Portraits"]
+texture = ExtResource("15_tfogv")
+
+[node name="Sprites" type="Node" parent="CombatModel"]
+
+[node name="Idle" type="Sprite2D" parent="CombatModel/Sprites"]
+texture = ExtResource("16_q484o")
+
+[node name="Stats" type="Node" parent="."]
+script = ExtResource("17_3cp4u")
+base_max_health = 100
+base_max_energy = 100
+base_damage = 10
+base_speed = 10
+base_critical = 2

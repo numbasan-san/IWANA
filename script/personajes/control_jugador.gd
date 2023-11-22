@@ -5,6 +5,9 @@ extends Node2D
 
 @export var general_interaction_area: Area2D
 
+# It should be set by the Player when this controler is attached to a character
+var attached = false
+
 # While the player's GeneralInteraction node is intersecting the
 # GeneralInteractionArea node of an object or npc, this variable is set to that
 # node so that one can perform actions on the target
@@ -16,20 +19,21 @@ func _unhandled_input(event):
 
 # Avatar movement
 func _process(_delta):
-	var x = int(Input.is_action_pressed('rpg_right')) - int(Input.is_action_pressed('rpg_left'))
-	var y = int(Input.is_action_pressed('rpg_down')) - int(Input.is_action_pressed('rpg_up'))
-	
-	# When moving in different directions we want to rotate the interaction area
-	# so that it is always protruding towards the front of the character
-	if y == -1: # Up
-		general_interaction_area.rotation_degrees = 180
-	if y == 1: # Down
-		general_interaction_area.rotation_degrees = 0
-	if x == -1: # Left
-		general_interaction_area.rotation_degrees = 90
-	if x == 1: # Right
-		general_interaction_area.rotation_degrees = 270
-	get_parent().set_axis(x, y)
+	if attached:
+		var x = int(Input.is_action_pressed('rpg_right')) - int(Input.is_action_pressed('rpg_left'))
+		var y = int(Input.is_action_pressed('rpg_down')) - int(Input.is_action_pressed('rpg_up'))
+		
+		# When moving in different directions we want to rotate the interaction area
+		# so that it is always protruding towards the front of the character
+		if y == -1: # Up
+			general_interaction_area.rotation_degrees = 180
+		if y == 1: # Down
+			general_interaction_area.rotation_degrees = 0
+		if x == -1: # Left
+			general_interaction_area.rotation_degrees = 90
+		if x == 1: # Right
+			general_interaction_area.rotation_degrees = 270
+		get_parent().set_axis(x, y)
 	
 # The collision with items on the ground
 func _on_item_contact(area):

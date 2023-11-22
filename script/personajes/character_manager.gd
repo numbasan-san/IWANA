@@ -33,15 +33,13 @@ func load(character_name: String):
 	return character
 
 # Changes the character currently being controled by the player
-# TODO: this code doesn't yet change the player controler, so it currently
-# doesn't have an effect
+# TODO: this functionality is already provided by Player, but without searching
+# for a character with a specific name. If that is changed, that one should be
+# used and this one should be deleted
 func change_player(character_name: String):
 	var character = self.load(character_name)
 	if character:
-		if player:
-			# Add here code to change the player controler
-			pass
-		player = character
+		Player.control(character)
 	else:
 		printerr("A character named " + character_name + "couldn't be found. \
 			The player character wasn't changed.")

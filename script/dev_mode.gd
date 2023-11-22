@@ -9,9 +9,9 @@ var enabled = false
 
 func _process(_delta):
 	if enabled:
-		if CharacterManager.player and CharacterManager.player.zone:
+		if Player.character and Player.character.zone:
 			zones.disabled = false
-			zones.text = CharacterManager.player.zone.name
+			zones.text = Player.character.zone.name
 		else:
 			zones.disabled = true
 			zones.text = "Ninguna"
@@ -67,8 +67,7 @@ func fill_zones_list():
 	if popup.index_pressed.get_connections().size() == 0:
 		popup.index_pressed.connect(func (index) -> void:
 			var zone = popup.get_item_metadata(index)
-			var player = CharacterManager.player
-			world.spawn(player, zone, "Default", "down", world.SpawnFallback.FIRST)
+			world.spawn(Player.character, zone, "Default", "down", world.SpawnFallback.FIRST)
 		)
 
 func fill_scenes_list():

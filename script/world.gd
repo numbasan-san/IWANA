@@ -20,7 +20,7 @@ func reposition_character(
 	
 	# If the character is controled by the player, then its old zone is the
 	# child of World node and we must check if it needs to be changed
-	if CharacterManager.player == character:
+	if Player.character == character:
 		
 		# If the player is moving to the same zone, there are no changes
 		if player_zone == new_zone:
