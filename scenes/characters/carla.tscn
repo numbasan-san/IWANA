@@ -1,29 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dorc15lxpd2w4"]
+[gd_scene load_steps=3 format=3 uid="uid://dorc15lxpd2w4"]
 
-[ext_resource type="Script" path="res://script/personajes/character.gd" id="1_wpsnx"]
-[ext_resource type="Script" path="res://script/dialogos/dialog_model.gd" id="2_qu2o3"]
+[ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://scenes/characters/character.tscn" id="1_begxf"]
 [ext_resource type="Texture2D" uid="uid://dr64axcigujms" path="res://assets/dialog_drawings/characters/carlaespinoza3.png" id="3_3smwl"]
-[ext_resource type="Script" path="res://script/personajes/rpg_model.gd" id="4_6smk7"]
-[ext_resource type="Script" path="res://script/personajes/combat_model.gd" id="5_bqkf7"]
 
-[node name="Carla" type="Node" node_paths=PackedStringArray("dialog_model", "rpg_model", "combat_model")]
-script = ExtResource("1_wpsnx")
-dialog_model = NodePath("DialogModel")
-rpg_model = NodePath("RPGModel")
-combat_model = NodePath("CombatModel")
+[node name="Carla" instance=ExtResource("1_begxf")]
 
-[node name="DialogModel" type="Node2D" parent="."]
-script = ExtResource("2_qu2o3")
-
-[node name="Neutral" type="Sprite2D" parent="DialogModel"]
-position = Vector2(0, -768)
+[node name="Neutral" type="Sprite2D" parent="DialogModel" index="0"]
 scale = Vector2(-1, 1)
 texture = ExtResource("3_3smwl")
-
-[node name="RPGModel" type="CharacterBody2D" parent="."]
-z_index = 1
-y_sort_enabled = true
-script = ExtResource("4_6smk7")
-
-[node name="CombatModel" type="Node2D" parent="."]
-script = ExtResource("5_bqkf7")

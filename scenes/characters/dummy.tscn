@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://cxhb1pbyx1uwh"]
 
 [ext_resource type="Script" path="res://script/personajes/character.gd" id="1_o70rn"]
-[ext_resource type="Texture2D" uid="uid://dn7bewqtk2b2v" path="res://assets/rpg_sprites/characters/placeholder.png" id="2_sq6f4"]
 [ext_resource type="Script" path="res://script/dialogos/dialog_model.gd" id="2_ubsny"]
 [ext_resource type="Script" path="res://script/personajes/rpg_model.gd" id="3_3be6t"]
+[ext_resource type="Texture2D" uid="uid://pgii0ntpmdfm" path="res://assets/rpg_sprites/characters/sombra.png" id="4_i5aca"]
 [ext_resource type="Script" path="res://script/personajes/interaccion_dummy.gd" id="5_vdbvb"]
 [ext_resource type="Script" path="res://script/personajes/combat_model.gd" id="6_517fw"]
 
@@ -29,7 +29,7 @@ y_sort_enabled = true
 script = ExtResource("3_3be6t")
 
 [node name="Sprite2D" type="Sprite2D" parent="RPGModel"]
-texture = ExtResource("2_sq6f4")
+texture = ExtResource("4_i5aca")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel"]
 position = Vector2(0, 13.5)

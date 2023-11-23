@@ -1,28 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://1y61ng3aeege"]
+[gd_scene load_steps=3 format=3 uid="uid://1y61ng3aeege"]
 
-[ext_resource type="Script" path="res://script/personajes/character.gd" id="1_fk2aq"]
-[ext_resource type="Script" path="res://script/dialogos/dialog_model.gd" id="2_xve7p"]
+[ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://scenes/characters/character.tscn" id="1_begxf"]
 [ext_resource type="Texture2D" uid="uid://b35q7ucrmr3tr" path="res://assets/dialog_drawings/characters/vicente1.png" id="3_ux6l3"]
-[ext_resource type="Script" path="res://script/personajes/rpg_model.gd" id="4_fqao7"]
-[ext_resource type="Script" path="res://script/personajes/combat_model.gd" id="5_02dea"]
 
-[node name="Vicente" type="Node" node_paths=PackedStringArray("dialog_model", "rpg_model", "combat_model")]
-script = ExtResource("1_fk2aq")
-dialog_model = NodePath("DialogModel")
-rpg_model = NodePath("RPGModel")
-combat_model = NodePath("CombatModel")
+[node name="Vicente" instance=ExtResource("1_begxf")]
 
-[node name="DialogModel" type="Node2D" parent="."]
-script = ExtResource("2_xve7p")
-
-[node name="Neutral" type="Sprite2D" parent="DialogModel"]
-position = Vector2(0, -768)
+[node name="Neutral" type="Sprite2D" parent="DialogModel" index="0"]
 texture = ExtResource("3_ux6l3")
-
-[node name="RPGModel" type="CharacterBody2D" parent="."]
-z_index = 1
-y_sort_enabled = true
-script = ExtResource("4_fqao7")
-
-[node name="CombatModel" type="Node2D" parent="."]
-script = ExtResource("5_02dea")

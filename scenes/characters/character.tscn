@@ -1,0 +1,103 @@
+[gd_scene load_steps=17 format=3 uid="uid://dqycf3lwlo2d0"]
+
+[ext_resource type="Script" path="res://script/personajes/character.gd" id="1_kbi2e"]
+[ext_resource type="Script" path="res://script/dialogos/dialog_model.gd" id="2_ybcan"]
+[ext_resource type="Script" path="res://script/personajes/rpg_model.gd" id="4_fcnfi"]
+[ext_resource type="Script" path="res://script/personajes/combat_model.gd" id="13_d6ple"]
+[ext_resource type="Script" path="res://script/personajes/stats.gd" id="16_pjbki"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bncsu"]
+size = Vector2(12.0746, 28.5169)
+
+[sub_resource type="Animation" id="Animation_gci7i"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_jdjr6"]
+resource_name = "stop_player_down"
+length = 0.1
+loop_mode = 2
+
+[sub_resource type="Animation" id="Animation_vsu7s"]
+resource_name = "stop_player_left"
+length = 0.1
+
+[sub_resource type="Animation" id="Animation_otpsr"]
+resource_name = "stop_player_right"
+length = 0.1
+
+[sub_resource type="Animation" id="Animation_q8gpd"]
+resource_name = "stop_player_up"
+length = 0.1
+
+[sub_resource type="Animation" id="Animation_ksbbp"]
+resource_name = "walk_player_down"
+length = 0.7
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_x2xgi"]
+resource_name = "walk_player_left"
+length = 0.7
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_2sq4i"]
+resource_name = "walk_player_right"
+length = 0.7
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_o7tbv"]
+resource_name = "walk_player_up"
+length = 0.8
+loop_mode = 1
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kwlqo"]
+_data = {
+"RESET": SubResource("Animation_gci7i"),
+"stop_down": SubResource("Animation_jdjr6"),
+"stop_left": SubResource("Animation_vsu7s"),
+"stop_right": SubResource("Animation_otpsr"),
+"stop_up": SubResource("Animation_q8gpd"),
+"walk_down": SubResource("Animation_ksbbp"),
+"walk_left": SubResource("Animation_x2xgi"),
+"walk_right": SubResource("Animation_2sq4i"),
+"walk_up": SubResource("Animation_o7tbv")
+}
+
+[node name="Character" type="Node" node_paths=PackedStringArray("dialog_model", "rpg_model", "combat_model", "stats")]
+script = ExtResource("1_kbi2e")
+dialog_model = NodePath("DialogModel")
+rpg_model = NodePath("RPGModel")
+combat_model = NodePath("CombatModel")
+stats = NodePath("Stats")
+
+[node name="DialogModel" type="Node2D" parent="."]
+script = ExtResource("2_ybcan")
+
+[node name="RPGModel" type="CharacterBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("4_fcnfi")
+
+[node name="Sprite2D" type="Sprite2D" parent="RPGModel"]
+hframes = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel"]
+position = Vector2(0, 18)
+scale = Vector2(2.14998, 0.727657)
+shape = SubResource("RectangleShape2D_bncsu")
+
+[node name="Animation" type="AnimationPlayer" parent="RPGModel"]
+libraries = {
+"": SubResource("AnimationLibrary_kwlqo")
+}
+
+[node name="CombatModel" type="Node2D" parent="." node_paths=PackedStringArray("portraits", "sprites")]
+script = ExtResource("13_d6ple")
+portraits = NodePath("Portraits")
+sprites = NodePath("Sprites")
+
+[node name="Portraits" type="Node" parent="CombatModel"]
+
+[node name="Sprites" type="Node" parent="CombatModel"]
+
+[node name="Stats" type="Node" parent="."]
+script = ExtResource("16_pjbki")

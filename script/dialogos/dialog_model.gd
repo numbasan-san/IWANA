@@ -17,6 +17,11 @@ func _ready():
 	
 	for child in get_children():
 		child.hide()
+		# The sprite starts centered on the model, but we need it's bottom to
+		# touch the model's position. In order to not change it manually for
+		# every sprite, we move them up by half of their height
+		child.position.y = -(child.texture.get_size().y / 2)
+		
 	# This codes assumes that all children (or at least the first one) are of
 	# type Sprite2D. If this changes in the future, this code must be rewritten
 	if get_child_count() > 0:

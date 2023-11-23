@@ -1,35 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://maeacjbhexlb"]
+[gd_scene load_steps=4 format=3 uid="uid://maeacjbhexlb"]
 
-[ext_resource type="Script" path="res://script/personajes/character.gd" id="1_plsk1"]
-[ext_resource type="Script" path="res://script/dialogos/dialog_model.gd" id="2_2oqlo"]
+[ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://scenes/characters/character.tscn" id="1_begxf"]
 [ext_resource type="Texture2D" uid="uid://b6b1hd1e1oi0x" path="res://assets/dialog_drawings/characters/mariajose.png" id="3_xswt3"]
-[ext_resource type="Script" path="res://script/personajes/rpg_model.gd" id="4_ahxtg"]
 [ext_resource type="Texture2D" uid="uid://duhl2a4ymx2rp" path="res://assets/dialog_drawings/characters/josemaria2.png" id="4_hxba3"]
-[ext_resource type="Script" path="res://script/personajes/combat_model.gd" id="5_nsatu"]
 
-[node name="MariaJose" type="Node" node_paths=PackedStringArray("dialog_model", "rpg_model", "combat_model")]
-script = ExtResource("1_plsk1")
-dialog_model = NodePath("DialogModel")
-rpg_model = NodePath("RPGModel")
-combat_model = NodePath("CombatModel")
+[node name="MariaJose" instance=ExtResource("1_begxf")]
 
-[node name="DialogModel" type="Node2D" parent="."]
-script = ExtResource("2_2oqlo")
-
-[node name="Maria" type="Sprite2D" parent="DialogModel"]
-position = Vector2(0, -768)
+[node name="Maria" type="Sprite2D" parent="DialogModel" index="0"]
 scale = Vector2(-1, 1)
 texture = ExtResource("3_xswt3")
 
-[node name="Jose" type="Sprite2D" parent="DialogModel"]
-position = Vector2(0, -768)
+[node name="Jose" type="Sprite2D" parent="DialogModel" index="1"]
 scale = Vector2(-1, 1)
 texture = ExtResource("4_hxba3")
-
-[node name="RPGModel" type="CharacterBody2D" parent="."]
-z_index = 1
-y_sort_enabled = true
-script = ExtResource("4_ahxtg")
-
-[node name="CombatModel" type="Node2D" parent="."]
-script = ExtResource("5_nsatu")

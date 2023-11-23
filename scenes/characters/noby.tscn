@@ -1,9 +1,7 @@
-[gd_scene load_steps=28 format=3 uid="uid://4sbuc3c6hmin"]
+[gd_scene load_steps=23 format=3 uid="uid://4sbuc3c6hmin"]
 
-[ext_resource type="Script" path="res://script/personajes/character.gd" id="1_nixub"]
-[ext_resource type="Script" path="res://script/dialogos/dialog_model.gd" id="2_b5plf"]
+[ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://scenes/characters/character.tscn" id="1_begxf"]
 [ext_resource type="Texture2D" uid="uid://d0xij6lmlkfyc" path="res://assets/dialog_drawings/characters/nobita2.png" id="2_l1yky"]
-[ext_resource type="Script" path="res://script/personajes/rpg_model.gd" id="4_f135x"]
 [ext_resource type="Texture2D" uid="uid://7g745n7ila1f" path="res://assets/rpg_sprites/characters/noby/down/noby_frente.png" id="4_lc6a3"]
 [ext_resource type="Texture2D" uid="uid://dcmakqvfslp4s" path="res://assets/rpg_sprites/characters/noby/left/noby_izq.png" id="5_cyj70"]
 [ext_resource type="Texture2D" uid="uid://cq3x5ttsley8y" path="res://assets/rpg_sprites/characters/noby/right/noby_derecha.png" id="6_8m5ow"]
@@ -12,15 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://cyxvulilwfkhj" path="res://assets/rpg_sprites/characters/noby/left/noby_camina_izquierda.png" id="9_ryd1s"]
 [ext_resource type="Texture2D" uid="uid://beqkcmrhycjmc" path="res://assets/rpg_sprites/characters/noby/right/noby_camina_derecha.png" id="10_86t0l"]
 [ext_resource type="Texture2D" uid="uid://dwsebyxyqpiq7" path="res://assets/rpg_sprites/characters/noby/up/noby_camina_arriba.png" id="11_r4kqr"]
-[ext_resource type="Script" path="res://script/personajes/combat_model.gd" id="14_xlu3w"]
 [ext_resource type="Texture2D" uid="uid://dwbkby71u5h7l" path="res://assets/combat_sprites/noby.png" id="15_tfogv"]
 [ext_resource type="Texture2D" uid="uid://cj6aeejkf0g13" path="res://assets/combat_sprites/noby_separado.png" id="16_q484o"]
-[ext_resource type="Script" path="res://script/personajes/stats.gd" id="17_3cp4u"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bncsu"]
-size = Vector2(12.0746, 28.5169)
-
-[sub_resource type="Animation" id="Animation_1f7jw"]
+[sub_resource type="Animation" id="Animation_x1x5j"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -71,7 +64,7 @@ tracks/3/keys = {
 "values": [Vector2(-4, -2)]
 }
 
-[sub_resource type="Animation" id="Animation_fero8"]
+[sub_resource type="Animation" id="Animation_6pur3"]
 resource_name = "stop_player_down"
 length = 0.1
 loop_mode = 2
@@ -148,7 +141,7 @@ tracks/5/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_p5lcu"]
+[sub_resource type="Animation" id="Animation_jb6bb"]
 resource_name = "stop_player_left"
 length = 0.1
 tracks/0/type = "value"
@@ -200,7 +193,7 @@ tracks/3/keys = {
 "values": [1]
 }
 
-[sub_resource type="Animation" id="Animation_4xoc6"]
+[sub_resource type="Animation" id="Animation_8fljg"]
 resource_name = "stop_player_right"
 length = 0.1
 tracks/0/type = "value"
@@ -252,7 +245,7 @@ tracks/3/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_pg6o5"]
+[sub_resource type="Animation" id="Animation_ld5gq"]
 resource_name = "stop_player_up"
 length = 0.1
 tracks/0/type = "value"
@@ -304,7 +297,7 @@ tracks/3/keys = {
 "values": [Vector2(2, -2)]
 }
 
-[sub_resource type="Animation" id="Animation_nss50"]
+[sub_resource type="Animation" id="Animation_girmv"]
 resource_name = "walk_player_down"
 length = 0.7
 loop_mode = 1
@@ -357,7 +350,7 @@ tracks/3/keys = {
 "values": [8]
 }
 
-[sub_resource type="Animation" id="Animation_x154a"]
+[sub_resource type="Animation" id="Animation_a3xgc"]
 resource_name = "walk_player_left"
 length = 0.7
 loop_mode = 1
@@ -434,7 +427,7 @@ tracks/5/keys = {
 "values": [6, 5, 4, 3, 2, 1, 0]
 }
 
-[sub_resource type="Animation" id="Animation_4rh25"]
+[sub_resource type="Animation" id="Animation_2homp"]
 resource_name = "walk_player_right"
 length = 0.7
 loop_mode = 1
@@ -511,7 +504,7 @@ tracks/5/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6]
 }
 
-[sub_resource type="Animation" id="Animation_w3qrm"]
+[sub_resource type="Animation" id="Animation_h2j1g"]
 resource_name = "walk_player_up"
 length = 0.8
 loop_mode = 1
@@ -564,70 +557,43 @@ tracks/3/keys = {
 "values": [ExtResource("11_r4kqr")]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ha3c"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a8jyx"]
 _data = {
-"RESET": SubResource("Animation_1f7jw"),
-"stop_down": SubResource("Animation_fero8"),
-"stop_left": SubResource("Animation_p5lcu"),
-"stop_right": SubResource("Animation_4xoc6"),
-"stop_up": SubResource("Animation_pg6o5"),
-"walk_down": SubResource("Animation_nss50"),
-"walk_left": SubResource("Animation_x154a"),
-"walk_right": SubResource("Animation_4rh25"),
-"walk_up": SubResource("Animation_w3qrm")
+"RESET": SubResource("Animation_x1x5j"),
+"stop_down": SubResource("Animation_6pur3"),
+"stop_left": SubResource("Animation_jb6bb"),
+"stop_right": SubResource("Animation_8fljg"),
+"stop_up": SubResource("Animation_ld5gq"),
+"walk_down": SubResource("Animation_girmv"),
+"walk_left": SubResource("Animation_a3xgc"),
+"walk_right": SubResource("Animation_2homp"),
+"walk_up": SubResource("Animation_h2j1g")
 }
 
-[node name="Noby" type="Node" node_paths=PackedStringArray("dialog_model", "rpg_model", "combat_model", "stats")]
-script = ExtResource("1_nixub")
-dialog_model = NodePath("DialogModel")
-rpg_model = NodePath("RPGModel")
-combat_model = NodePath("CombatModel")
-stats = NodePath("Stats")
+[node name="Noby" instance=ExtResource("1_begxf")]
 
-[node name="DialogModel" type="Node2D" parent="."]
-script = ExtResource("2_b5plf")
-
-[node name="Neutral" type="Sprite2D" parent="DialogModel"]
-position = Vector2(0, -898)
+[node name="Neutral" type="Sprite2D" parent="DialogModel" index="0"]
 scale = Vector2(-1, 1)
 texture = ExtResource("2_l1yky")
 
-[node name="RPGModel" type="CharacterBody2D" parent="."]
-z_index = 1
-y_sort_enabled = true
-script = ExtResource("4_f135x")
-
-[node name="Sprite2D" type="Sprite2D" parent="RPGModel"]
+[node name="Sprite2D" parent="RPGModel" index="0"]
 position = Vector2(-4, -2)
-hframes = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel"]
+[node name="CollisionShape2D" parent="RPGModel" index="1"]
 position = Vector2(0, 14)
-scale = Vector2(2.14998, 0.727657)
-shape = SubResource("RectangleShape2D_bncsu")
 
-[node name="Animation" type="AnimationPlayer" parent="RPGModel"]
+[node name="Animation" parent="RPGModel" index="2"]
 libraries = {
-"": SubResource("AnimationLibrary_3ha3c")
+"": SubResource("AnimationLibrary_a8jyx")
 }
 
-[node name="CombatModel" type="Node2D" parent="." node_paths=PackedStringArray("portraits", "sprites")]
-script = ExtResource("14_xlu3w")
-portraits = NodePath("Portraits")
-sprites = NodePath("Sprites")
-
-[node name="Portraits" type="Node" parent="CombatModel"]
-
-[node name="Basic" type="TextureRect" parent="CombatModel/Portraits"]
+[node name="Basic" type="TextureRect" parent="CombatModel/Portraits" index="0"]
 texture = ExtResource("15_tfogv")
 
-[node name="Sprites" type="Node" parent="CombatModel"]
-
-[node name="Idle" type="Sprite2D" parent="CombatModel/Sprites"]
+[node name="Idle" type="Sprite2D" parent="CombatModel/Sprites" index="0"]
 texture = ExtResource("16_q484o")
 
-[node name="Stats" type="Node" parent="."]
-script = ExtResource("17_3cp4u")
+[node name="Stats" parent="." index="3"]
 base_max_health = 100
 base_max_energy = 100
 base_damage = 10
