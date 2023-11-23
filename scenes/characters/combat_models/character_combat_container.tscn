@@ -1,24 +1,17 @@
 [gd_scene load_steps=10 format=3 uid="uid://dbuixiuq0ijmx"]
 
-[ext_resource type="Texture2D" uid="uid://dvr6rfjo3dm5k" path="res://assets/Assests de Pruebas/74f74dd65775e5ea2a87f76d39a596d8.png" id="1_8dwnv"]
 [ext_resource type="Script" path="res://script/combate/personajes_stats/stats_container.gd" id="1_78o6c"]
 [ext_resource type="Texture2D" uid="uid://b72uqo8w58ohv" path="res://assets/combat_sprites/nombre_fondo2.png" id="3_31es1"]
+[ext_resource type="Texture2D" uid="uid://coyrisfgcccaf" path="res://assets/combat_sprites/barra_de_vida_edit.png" id="4_6cdvb"]
 [ext_resource type="FontFile" uid="uid://bvx3kwcljl1mv" path="res://assets/combat_sprites/font/IWANA.ttf" id="4_e15tb"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h750l"]
-bg_color = Color(1, 0, 0, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nttnq"]
+bg_color = Color(0.415686, 0.745098, 0.188235, 1)
+corner_detail = 1
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i1idc"]
-bg_color = Color(0, 1, 0, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_bottom = 1
-border_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wlmcn"]
+bg_color = Color(0.392157, 0.607843, 1, 1)
+corner_detail = 1
 
 [sub_resource type="Animation" id="Animation_p7abh"]
 resource_name = "hurt"
@@ -58,14 +51,20 @@ _data = {
 "hurt_2": SubResource("Animation_saxj2")
 }
 
-[node name="CharacterCombatContainer" type="Panel"]
+[node name="CharacterCombatContainer" type="Panel" node_paths=PackedStringArray("portrait", "character_name", "health_bar", "energy_bar", "health_value", "energy_value")]
 self_modulate = Color(1, 1, 1, 0)
 anchors_preset = -1
-anchor_right = 0.339
-anchor_bottom = 0.602
-offset_right = -0.880005
-offset_bottom = -0.160034
+anchor_right = 0.156
+anchor_bottom = 0.278
+offset_right = 0.47998
+offset_bottom = -0.240021
 script = ExtResource("1_78o6c")
+portrait = NodePath("Portrait")
+character_name = NodePath("NameLabelTexture/Label")
+health_bar = NodePath("FillBars/Health")
+energy_bar = NodePath("FillBars/Energy")
+health_value = NodePath("FillBars/Health/Label")
+energy_value = NodePath("FillBars/Energy/Label")
 
 [node name="Portrait" type="TextureRect" parent="."]
 layout_mode = 1
@@ -74,16 +73,25 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_8dwnv")
 expand_mode = 1
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="FillBars" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.1
+anchor_top = 0.85
+anchor_right = 0.9
+anchor_bottom = 1.0
+offset_top = 0.0999908
+
+[node name="Health" type="ProgressBar" parent="FillBars"]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.9
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -2.0
+anchor_left = 0.004
+anchor_right = 0.996
+anchor_bottom = 0.468
+offset_left = 0.04
+offset_right = -0.0400085
+offset_bottom = -0.0132046
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 1
@@ -91,29 +99,78 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 7
 theme_override_font_sizes/font_size = 40
-theme_override_styles/background = SubResource("StyleBoxFlat_h750l")
-theme_override_styles/fill = SubResource("StyleBoxFlat_i1idc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_nttnq")
 value = 50.0
 show_percentage = false
 
-[node name="Label" type="Label" parent="ProgressBar"]
+[node name="Label" type="Label" parent="FillBars/Health"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.279
-anchor_right = 0.721
-anchor_bottom = 1.0
+anchor_top = 0.048
+anchor_right = 0.72
+anchor_bottom = 1.048
 offset_left = 0.149994
-offset_top = -5.5
-offset_right = -0.150024
-offset_bottom = 5.5
+offset_top = -0.00801528
+offset_right = 0.0879822
+offset_bottom = -0.00801659
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 20
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("4_e15tb")
+theme_override_font_sizes/font_size = 16
 text = "25/50"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Energy" type="ProgressBar" parent="FillBars"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = 0.49
+anchor_right = 0.962
+anchor_bottom = 0.891
+offset_top = -0.00100517
+offset_right = 0.11998
+offset_bottom = -0.00590897
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 40
+theme_override_styles/fill = SubResource("StyleBoxFlat_wlmcn")
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="FillBars/Energy"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.369
+anchor_right = 0.644
+anchor_bottom = 1.0
+offset_left = -0.0250015
+offset_right = 0.0999908
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("4_e15tb")
+theme_override_font_sizes/font_size = 16
+text = "25/50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BarTextures" type="TextureRect" parent="FillBars"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_6cdvb")
 
 [node name="NameLabelTexture" type="TextureRect" parent="."]
 layout_mode = 2

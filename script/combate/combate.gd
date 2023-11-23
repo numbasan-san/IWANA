@@ -3,6 +3,8 @@ extends Control
 
 signal textbox_closed
 
+@export var party_menu: PartyMenu
+
 var player = null
 var retrato_player = null
 
@@ -12,66 +14,79 @@ var enemy = null
 var defending = false
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
-	$player_actions/attacks.hide()
-	player = $player_actions/stats_screen.get_child(0)
-	retrato_player = $retratos_player.get_child(0)
-	enemy = $enemy_combat_container
-
-	# Se cargan los stats y sprite del jugador.
-	set_health(
-		player.get_node("ProgressBar"), 
-		player.stats.health, 
-		player.stats.health,
-		player.stats.name
-	)
-	player.get_node("Portrait").texture = (
-		player.stats.texture
-	)
-	player.get_node("NameLabelTexture/Label").text = (
-		str(player.stats.name)
-	)
-	retrato_player.get_node("Portrait").texture = player.stats.retrato
-
-	# Se cargan los stats y sprite del enemigo.
-	set_health(
-		enemy.get_node("ProgressBar"),
-		enemy.stats.health,
-		enemy.stats.health,
-		enemy.stats.name
-	)
-	enemy.get_node('Portrait').texture = enemy.stats.texture
-
-	# Para verificar que los cuadros de texto estén cerrados.
-	$text_box.hide()
-	$player_actions.hide()
-
-	# Cuadros de texto que avisan qué pasa.
-	display_text('Un ' + enemy.stats.name + ' de prueba quiere pelear!')
-	await(textbox_closed)
-
-	$player_actions.show()
+#func _ready():
+#	$player_actions/attacks.hide()
+#	player = $player_actions/stats_screen.get_child(0)
+#	retrato_player = $retratos_player.get_child(0)
+#	enemy = $enemy_combat_container
+#
+#	# Se cargan los stats y sprite del jugador.
+#	set_health(
+#		player.get_node("ProgressBar"), 
+#		player.stats.health, 
+#		player.stats.health,
+#		player.stats.name
+#	)
+#	player.get_node("Portrait").texture = (
+#		player.stats.texture
+#	)
+#	player.get_node("NameLabelTexture/Label").text = (
+#		str(player.stats.name)
+#	)
+#	retrato_player.get_node("Portrait").texture = player.stats.retrato
+#
+#	# Se cargan los stats y sprite del enemigo.
+#	set_health(
+#		enemy.get_node("ProgressBar"),
+#		enemy.stats.health,
+#		enemy.stats.health,
+#		enemy.stats.name
+#	)
+#	enemy.get_node('Portrait').texture = enemy.stats.texture
+#
+#	# Para verificar que los cuadros de texto estén cerrados.
+#	$text_box.hide()
+#	$player_actions.hide()
+#
+#	# Cuadros de texto que avisan qué pasa.
+#	display_text('Un ' + enemy.stats.name + ' de prueba quiere pelear!')
+#	await(textbox_closed)
+#
+#	$player_actions.show()
 
 func _input(_event):
 	# Para poder cerrar los cuadros de texto.
 	if (Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and $text_box.visible:
 		$text_box.hide()
 		emit_signal("textbox_closed")
+#
+#func _process(_delta):
+#	var end_game = false # Para cuando una de las partes está muerta.
+#	if enemy.stats.current_health <= 0: # Gana el jugador.
+#		display_text(enemy.stats.name + ' fue derrotado.')
+#		end_game = !end_game
+#	elif player.stats.current_health <= 0: # Gana el enemigo.
+#		display_text(enemy.stats.name + ' te derrotó.')
+#		end_game = !end_game
+#
+#	if end_game:  # Cierre del combate.
+#		await(textbox_closed)
+#		await get_tree().create_timer(0.5).timeout
+#		await ScreenManager.pop(ScreenManager.combat_screen)
 
-func _process(_delta):
-	var end_game = false # Para cuando una de las partes está muerta.
-	if enemy.stats.current_health <= 0: # Gana el jugador.
-		display_text(enemy.stats.name + ' fue derrotado.')
-		end_game = !end_game
-	elif player.stats.current_health <= 0: # Gana el enemigo.
-		display_text(enemy.stats.name + ' te derrotó.')
-		end_game = !end_game
-	
-	if end_game:  # Cierre del combate.
-		await(textbox_closed)
-		await get_tree().create_timer(0.5).timeout
-		await ScreenManager.pop(ScreenManager.combat_screen)
-		
+
+# Fills the screen with the battling characters and their info and begins combat
+# TODO: For now it only receives one enemy the characters will battle. It has to
+# be changed later to accept a party of enemies, when that is implemented.
+func start_battle(enemy: Character):
+	for member in Player.party:
+		party_menu.add_character(member)
+	await ScreenManager.push(ScreenManager.combat_screen)
+
+# Called at the end of the battle to clean the screen
+func end_battle():
+	party_menu.clear()
+	await ScreenManager.pop(ScreenManager.combat_screen)
 
 # Se establece la vida según qué barra de vida.
 func set_health(progress_bar, health, max_health, current_character):

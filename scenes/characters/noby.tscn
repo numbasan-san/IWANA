@@ -577,11 +577,12 @@ _data = {
 "walk_up": SubResource("Animation_w3qrm")
 }
 
-[node name="Noby" type="Node" node_paths=PackedStringArray("dialog_model", "rpg_model", "combat_model")]
+[node name="Noby" type="Node" node_paths=PackedStringArray("dialog_model", "rpg_model", "combat_model", "stats")]
 script = ExtResource("1_nixub")
 dialog_model = NodePath("DialogModel")
 rpg_model = NodePath("RPGModel")
 combat_model = NodePath("CombatModel")
+stats = NodePath("Stats")
 
 [node name="DialogModel" type="Node2D" parent="."]
 script = ExtResource("2_b5plf")
@@ -610,12 +611,14 @@ libraries = {
 "": SubResource("AnimationLibrary_3ha3c")
 }
 
-[node name="CombatModel" type="Node2D" parent="."]
+[node name="CombatModel" type="Node2D" parent="." node_paths=PackedStringArray("portraits", "sprites")]
 script = ExtResource("14_xlu3w")
+portraits = NodePath("Portraits")
+sprites = NodePath("Sprites")
 
 [node name="Portraits" type="Node" parent="CombatModel"]
 
-[node name="Neutral" type="Sprite2D" parent="CombatModel/Portraits"]
+[node name="Basic" type="TextureRect" parent="CombatModel/Portraits"]
 texture = ExtResource("15_tfogv")
 
 [node name="Sprites" type="Node" parent="CombatModel"]

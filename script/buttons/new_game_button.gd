@@ -5,6 +5,8 @@ func _on_pressed():
 	# Change when the scenes controler is ready
 	var noby = CharacterManager.load("noby")
 	CharacterManager.change_player("noby")
+	var daniela = CharacterManager.load("daniela")
+	Player.add_to_party(daniela)
 	var starting_zone = ZoneManager.load("sala_p1n1")
 	ScreenManager.rpg_screen.contents.reposition_character(noby, starting_zone)
 	var dummy = CharacterManager.load("dummy")

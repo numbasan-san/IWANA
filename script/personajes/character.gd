@@ -9,6 +9,7 @@ var zone: Zone
 @export var dialog_model: DialogModel
 @export var rpg_model: ModeloRPG
 @export var combat_model: CombatModel
+@export var stats: Stats
 
 func reposition(new_zone: Zone, position: Vector2, direction: String):
 	if rpg_model:

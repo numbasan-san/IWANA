@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3ltulgb5a8do"]
+[gd_scene load_steps=9 format=3 uid="uid://d3ltulgb5a8do"]
 
 [ext_resource type="Script" path="res://script/personajes/character.gd" id="1_1xg5r"]
 [ext_resource type="Script" path="res://script/dialogos/dialog_model.gd" id="2_bct3t"]
@@ -6,12 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://bhm0ys613ml5g" path="res://assets/dialog_drawings/characters/danielaenojadapng.png" id="4_4aw6c"]
 [ext_resource type="Script" path="res://script/personajes/rpg_model.gd" id="5_7xxq1"]
 [ext_resource type="Script" path="res://script/personajes/combat_model.gd" id="6_kbwd2"]
+[ext_resource type="Texture2D" uid="uid://ckr5arvqsdywg" path="res://assets/combat_sprites/cuernito.png" id="7_k47t8"]
+[ext_resource type="Script" path="res://script/personajes/stats.gd" id="8_hh0wb"]
 
-[node name="Daniela" type="Node" node_paths=PackedStringArray("dialog_model", "rpg_model", "combat_model")]
+[node name="Daniela" type="Node" node_paths=PackedStringArray("dialog_model", "rpg_model", "combat_model", "stats")]
 script = ExtResource("1_1xg5r")
 dialog_model = NodePath("DialogModel")
 rpg_model = NodePath("RPGModel")
 combat_model = NodePath("CombatModel")
+stats = NodePath("Stats")
 
 [node name="DialogModel" type="Node2D" parent="."]
 script = ExtResource("2_bct3t")
@@ -31,5 +34,22 @@ z_index = 1
 y_sort_enabled = true
 script = ExtResource("5_7xxq1")
 
-[node name="CombatModel" type="Node2D" parent="."]
+[node name="CombatModel" type="Node2D" parent="." node_paths=PackedStringArray("portraits")]
 script = ExtResource("6_kbwd2")
+portraits = NodePath("Portraits")
+
+[node name="Portraits" type="Node" parent="CombatModel"]
+
+[node name="Basic" type="TextureRect" parent="CombatModel/Portraits"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_k47t8")
+
+[node name="Stats" type="Node" parent="."]
+script = ExtResource("8_hh0wb")
+base_max_health = 150
+base_max_energy = 80
+base_damage = 12
+base_defense = 2
+base_speed = 10
+base_critical = 2
