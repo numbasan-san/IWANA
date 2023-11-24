@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="Effect" load_steps=2 format=3 uid="uid://dgcylu03fgifl"]
+
+[ext_resource type="Script" path="res://script/combate/effects/effect.gd" id="1_0hgur"]
+
+[resource]
+script = ExtResource("1_0hgur")

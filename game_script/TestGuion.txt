@@ -64,12 +64,10 @@ Dev: Este texto solo se debe ver al iniciar la secuencia desde el modo rpg
 
 [Unidad: u5]
 Dev: Si se lee esto en la introducción, es un error
-[Cerrar]
 [Fin: u5]
 
 [Unidad: u6]
 Dev: Despues de esto terminamos la escena
-[Cerrar]
 [Fin: u6]
 
 [Asignar: Dialogo NPC 1 -> NPC1.interaccion]

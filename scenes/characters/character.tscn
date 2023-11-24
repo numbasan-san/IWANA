@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://dqycf3lwlo2d0"]
+[gd_scene load_steps=18 format=3 uid="uid://dqycf3lwlo2d0"]
 
 [ext_resource type="Script" path="res://script/personajes/character.gd" id="1_kbi2e"]
 [ext_resource type="Script" path="res://script/dialogos/dialog_model.gd" id="2_ybcan"]
 [ext_resource type="Script" path="res://script/personajes/rpg_model.gd" id="4_fcnfi"]
+[ext_resource type="Script" path="res://script/combate/skills/skill.gd" id="6_xxkla"]
 [ext_resource type="Script" path="res://script/personajes/combat_model.gd" id="13_d6ple"]
 [ext_resource type="Script" path="res://script/personajes/stats.gd" id="16_pjbki"]
 
@@ -101,3 +102,11 @@ sprites = NodePath("Sprites")
 
 [node name="Stats" type="Node" parent="."]
 script = ExtResource("16_pjbki")
+
+[node name="Skills" type="Node" parent="."]
+
+[node name="Skill1" type="Node" parent="Skills"]
+script = ExtResource("6_xxkla")
+skill_name = null
+description = null
+level_to_learn = null

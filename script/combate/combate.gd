@@ -4,6 +4,10 @@ extends Control
 signal textbox_closed
 
 @export var party_menu: PartyMenu
+@export var skills_menu: SkillsMenu
+@export var change_menu_animation: AnimationPlayer
+
+var showing_skills = false
 
 var player = null
 var retrato_player = null
@@ -15,7 +19,6 @@ var defending = false
 
 # Called when the node enters the scene tree for the first time.
 #func _ready():
-#	$player_actions/attacks.hide()
 #	player = $player_actions/stats_screen.get_child(0)
 #	retrato_player = $retratos_player.get_child(0)
 #	enemy = $enemy_combat_container
@@ -81,12 +84,13 @@ func _input(_event):
 func start_battle(enemy: Character):
 	for member in Player.party:
 		party_menu.add_character(member)
+	party_menu.select_character(0)
 	await ScreenManager.push(ScreenManager.combat_screen)
 
 # Called at the end of the battle to clean the screen
 func end_battle():
-	party_menu.clear()
 	await ScreenManager.pop(ScreenManager.combat_screen)
+	party_menu.clear()
 
 # Se establece la vida según qué barra de vida.
 func set_health(progress_bar, health, max_health, current_character):
@@ -132,12 +136,12 @@ func _on_run_pressed():
 	display_text('Como buen cobarde, huiste.')
 	await(textbox_closed)
 	await get_tree().create_timer(0.5).timeout
-	await ScreenManager.pop(ScreenManager.combat_screen)
+	end_battle()
 
 # El ataque del jugador.
 func _on_attack_pressed():
-	$player_actions/actions.hide()
-	$player_actions/attacks.show()
+	skills_menu.set_to_character(party_menu.selected_character)
+	change_menu_animation.play("ShowSkills")
 
 # La defensa del jugador.
 func _on_defense_pressed():

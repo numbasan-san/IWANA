@@ -1,9 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dbuixiuq0ijmx"]
+[gd_scene load_steps=16 format=3 uid="uid://dbuixiuq0ijmx"]
 
 [ext_resource type="Script" path="res://script/combate/personajes_stats/stats_container.gd" id="1_78o6c"]
 [ext_resource type="Texture2D" uid="uid://b72uqo8w58ohv" path="res://assets/combat_sprites/nombre_fondo2.png" id="3_31es1"]
 [ext_resource type="Texture2D" uid="uid://coyrisfgcccaf" path="res://assets/combat_sprites/barra_de_vida_edit.png" id="4_6cdvb"]
 [ext_resource type="FontFile" uid="uid://bvx3kwcljl1mv" path="res://assets/combat_sprites/font/IWANA.ttf" id="4_e15tb"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h3i3n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nttnq"]
 bg_color = Color(0.415686, 0.745098, 0.188235, 1)
@@ -12,6 +14,34 @@ corner_detail = 1
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wlmcn"]
 bg_color = Color(0.392157, 0.607843, 1, 1)
 corner_detail = 1
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_s5qax"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5wqwf"]
+resource_local_to_scene = true
+texture = SubResource("CanvasTexture_s5qax")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+axis_stretch_horizontal = 1
+modulate_color = Color(0.85098, 0.717647, 0, 0)
+draw_center = false
+
+[sub_resource type="Animation" id="Animation_25jwu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selection:theme_override_styles/panel:modulate_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.85098, 0.717647, 0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_p7abh"]
 resource_name = "hurt"
@@ -45,19 +75,40 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_anapf"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ka2y5"]
 _data = {
+"RESET": SubResource("Animation_25jwu"),
 "hurt": SubResource("Animation_p7abh"),
 "hurt_2": SubResource("Animation_saxj2")
 }
 
-[node name="CharacterCombatContainer" type="Panel" node_paths=PackedStringArray("portrait", "character_name", "health_bar", "energy_bar", "health_value", "energy_value")]
-self_modulate = Color(1, 1, 1, 0)
+[sub_resource type="Animation" id="Animation_nyr6s"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Selection:theme_override_styles/panel:modulate_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.85098, 0.717647, 0, 1), Color(0.85098, 0.717647, 0, 0), Color(0.85098, 0.717647, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cw8qy"]
+_data = {
+"Selected": SubResource("Animation_nyr6s")
+}
+
+[node name="CharacterCombatContainer" type="Panel" node_paths=PackedStringArray("portrait", "character_name", "health_bar", "energy_bar", "health_value", "energy_value", "animations")]
 anchors_preset = -1
 anchor_right = 0.156
 anchor_bottom = 0.278
 offset_right = 0.47998
 offset_bottom = -0.240021
+theme_override_styles/panel = SubResource("StyleBoxEmpty_h3i3n")
 script = ExtResource("1_78o6c")
 portrait = NodePath("Portrait")
 character_name = NodePath("NameLabelTexture/Label")
@@ -65,11 +116,14 @@ health_bar = NodePath("FillBars/Health")
 energy_bar = NodePath("FillBars/Energy")
 health_value = NodePath("FillBars/Health/Label")
 energy_value = NodePath("FillBars/Energy/Label")
+animations = NodePath("Animations")
 
 [node name="Portrait" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.04
+anchor_right = 0.96
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -78,10 +132,10 @@ expand_mode = 1
 [node name="FillBars" type="Control" parent="."]
 layout_mode = 1
 anchor_left = 0.1
-anchor_top = 0.85
+anchor_top = 0.837
 anchor_right = 0.9
-anchor_bottom = 1.0
-offset_top = 0.0999908
+anchor_bottom = 0.987
+offset_bottom = -0.100006
 
 [node name="Health" type="ProgressBar" parent="FillBars"]
 layout_mode = 1
@@ -197,11 +251,21 @@ size_flags_horizontal = 4
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("4_e15tb")
-text = "rajang"
+text = "Nombre"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Animation" type="AnimationPlayer" parent="."]
+[node name="Selection" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5wqwf")
+
+[node name="Animations" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_anapf")
+"": SubResource("AnimationLibrary_ka2y5"),
+"GUI": SubResource("AnimationLibrary_cw8qy")
 }
