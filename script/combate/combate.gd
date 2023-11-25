@@ -3,6 +3,8 @@ extends Control
 
 signal textbox_closed
 
+@export var player_area: CombatPartyArea
+@export var enemy_area: CombatPartyArea
 @export var party_menu: PartyMenu
 @export var skills_menu: SkillsMenu
 @export var change_menu_animation: AnimationPlayer
@@ -62,6 +64,16 @@ func _input(_event):
 	if (Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and $text_box.visible:
 		$text_box.hide()
 		emit_signal("textbox_closed")
+	if Input.is_action_just_released("combat_menu_back"):
+		if skills_menu.visible:
+			change_menu_animation.play("HideSkills")
+		else:
+			party_menu.select_previous_character()
+	# For now, combat_menu_forward is used when we have deselected the characters,
+	# so we can select the first one again
+	if Input.is_action_just_released("combat_menu_forward") \
+			and not party_menu.selected_character:
+		party_menu.select_next_character()
 #
 #func _process(_delta):
 #	var end_game = false # Para cuando una de las partes está muerta.
@@ -84,13 +96,17 @@ func _input(_event):
 func start_battle(enemy: Character):
 	for member in Player.party:
 		party_menu.add_character(member)
+		player_area.add_character(member)
 	party_menu.select_character(0)
+	enemy_area.add_character(enemy)
 	await ScreenManager.push(ScreenManager.combat_screen)
 
 # Called at the end of the battle to clean the screen
 func end_battle():
 	await ScreenManager.pop(ScreenManager.combat_screen)
 	party_menu.clear()
+	player_area.clear()
+	enemy_area.clear()
 
 # Se establece la vida según qué barra de vida.
 func set_health(progress_bar, health, max_health, current_character):

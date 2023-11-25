@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://3d6j1vup2i4s"]
+
+[ext_resource type="Script" path="res://script/sprite_container.gd" id="1_ndaat"]
+
+[node name="SpriteContainer" type="Node2D"]
+scale = Vector2(3, 3)
+script = ExtResource("1_ndaat")

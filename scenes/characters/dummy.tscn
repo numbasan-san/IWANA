@@ -1,48 +1,27 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxhb1pbyx1uwh"]
+[gd_scene load_steps=6 format=3 uid="uid://cxhb1pbyx1uwh"]
 
-[ext_resource type="Script" path="res://script/personajes/character.gd" id="1_o70rn"]
-[ext_resource type="Script" path="res://script/dialogos/dialog_model.gd" id="2_ubsny"]
-[ext_resource type="Script" path="res://script/personajes/rpg_model.gd" id="3_3be6t"]
+[ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://scenes/characters/character.tscn" id="1_begxf"]
+[ext_resource type="Texture2D" uid="uid://ccgofqb2mmybt" path="res://assets/combat_sprites/sombra_combate.png" id="4_ejgt2"]
 [ext_resource type="Texture2D" uid="uid://pgii0ntpmdfm" path="res://assets/rpg_sprites/characters/sombra.png" id="4_i5aca"]
 [ext_resource type="Script" path="res://script/personajes/interaccion_dummy.gd" id="5_vdbvb"]
-[ext_resource type="Script" path="res://script/personajes/combat_model.gd" id="6_517fw"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8fp8"]
-size = Vector2(20, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vtrvc"]
 size = Vector2(20, 27)
 
-[node name="Dummy" type="Node" node_paths=PackedStringArray("dialog_model", "rpg_model", "combat_model")]
-script = ExtResource("1_o70rn")
-dialog_model = NodePath("DialogModel")
-rpg_model = NodePath("RPGModel")
-combat_model = NodePath("CombatModel")
+[node name="Dummy" instance=ExtResource("1_begxf")]
 
-[node name="DialogModel" type="Node2D" parent="."]
-scale = Vector2(0.3, 0.3)
-script = ExtResource("2_ubsny")
-
-[node name="RPGModel" type="CharacterBody2D" parent="."]
-z_index = 1
-y_sort_enabled = true
-script = ExtResource("3_3be6t")
-
-[node name="Sprite2D" type="Sprite2D" parent="RPGModel"]
+[node name="Sprite2D" parent="RPGModel" index="0"]
 texture = ExtResource("4_i5aca")
+hframes = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel"]
-position = Vector2(0, 13.5)
-shape = SubResource("RectangleShape2D_d8fp8")
-
-[node name="GeneralInteraction" type="Area2D" parent="RPGModel"]
+[node name="GeneralInteraction" type="Area2D" parent="RPGModel" index="3"]
 position = Vector2(0, 17)
 script = ExtResource("5_vdbvb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel/GeneralInteraction"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel/GeneralInteraction" index="0"]
 position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_vtrvc")
 debug_color = Color(0.992157, 0, 0.254902, 0.419608)
 
-[node name="CombatModel" type="Node2D" parent="."]
-script = ExtResource("6_517fw")
+[node name="Idle" type="Sprite2D" parent="CombatModel/Sprites" index="0"]
+texture = ExtResource("4_ejgt2")

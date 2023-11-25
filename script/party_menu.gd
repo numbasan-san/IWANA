@@ -43,17 +43,35 @@ func select_character(index: int = -1):
 
 # Selects the next character in the party. If the last character is selected,
 # if loop is true, the next one will be the first member of the party. If it's
-# false, the character is deselected
+# false, it stays selected
 func select_next_character(loop: bool = false):
+	var next: int
 	# This condition is true if the selected character isn't the last member of
 	# the party. It also works when no one is selected
 	if _selected_index < Player.party.size() - 1:
-		_selected_index += 1
+		next = _selected_index + 1
 	# If the last member is selected
 	else:
 		if loop:
-			_selected_index = 0
-		else:
-			_selected_index = -1
+			next = 0
+		# If we aren't looping, the selection doesn't change
 		
-	select_character(_selected_index)
+	select_character(next)
+
+# Selects the previous character in the party. If the first character is selected,
+# if loop is true, the next one will be the last member of the party. If it's
+# false, the character is deselected
+func select_previous_character(loop: bool = false):
+	var previous: int
+	# This condition is true if the selected character isn't the first member of
+	# the party or it's the first but we aren't looping. In this last case the
+	# result will be deselecting the character
+	if _selected_index > 0 or (_selected_index == 0 and not loop):
+		previous = _selected_index - 1
+	# If the first member is selected while looping or no character is selected
+	else:
+		if _selected_index == 0:
+			previous = Player.party.size() - 1
+		# If we aren't looping, the the characters stay deselected
+		
+	select_character(previous)
