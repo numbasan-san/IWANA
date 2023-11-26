@@ -1,14 +1,27 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxhb1pbyx1uwh"]
+[gd_scene load_steps=9 format=3 uid="uid://cxhb1pbyx1uwh"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://scenes/characters/character.tscn" id="1_begxf"]
+[ext_resource type="Script" path="res://script/combate/stats.gd" id="2_dme1k"]
+[ext_resource type="Resource" uid="uid://sy16m35jo4do" path="res://script/personajes/noby/skill_ejemplo_daño.tres" id="3_2phqi"]
 [ext_resource type="Texture2D" uid="uid://ccgofqb2mmybt" path="res://assets/combat_sprites/sombra_combate.png" id="4_ejgt2"]
 [ext_resource type="Texture2D" uid="uid://pgii0ntpmdfm" path="res://assets/rpg_sprites/characters/sombra.png" id="4_i5aca"]
 [ext_resource type="Script" path="res://script/personajes/interaccion_dummy.gd" id="5_vdbvb"]
+
+[sub_resource type="Resource" id="Resource_4c1gv"]
+script = ExtResource("2_dme1k")
+base_max_health = 20
+base_max_energy = 20
+base_damage = 1
+base_defense = 0
+base_speed = 0
+base_critical = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vtrvc"]
 size = Vector2(20, 27)
 
 [node name="Dummy" instance=ExtResource("1_begxf")]
+stats = SubResource("Resource_4c1gv")
+skills = Array[Resource("res://script/combate/skills/skill.gd")]([ExtResource("3_2phqi")])
 
 [node name="Sprite2D" parent="RPGModel" index="0"]
 texture = ExtResource("4_i5aca")

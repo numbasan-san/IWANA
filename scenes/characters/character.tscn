@@ -1,11 +1,19 @@
 [gd_scene load_steps=18 format=3 uid="uid://dqycf3lwlo2d0"]
 
 [ext_resource type="Script" path="res://script/personajes/character.gd" id="1_kbi2e"]
+[ext_resource type="Script" path="res://script/combate/stats.gd" id="2_2yyb0"]
 [ext_resource type="Script" path="res://script/dialogos/dialog_model.gd" id="2_ybcan"]
 [ext_resource type="Script" path="res://script/personajes/rpg_model.gd" id="4_fcnfi"]
-[ext_resource type="Script" path="res://script/combate/skills/skill.gd" id="6_xxkla"]
 [ext_resource type="Script" path="res://script/personajes/combat_model.gd" id="13_d6ple"]
-[ext_resource type="Script" path="res://script/personajes/stats.gd" id="16_pjbki"]
+
+[sub_resource type="Resource" id="Resource_5rp3g"]
+script = ExtResource("2_2yyb0")
+base_max_health = 1
+base_max_energy = 0
+base_damage = 0
+base_defense = 0
+base_speed = 0
+base_critical = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bncsu"]
 size = Vector2(12.0746, 28.5169)
@@ -63,12 +71,12 @@ _data = {
 "walk_up": SubResource("Animation_o7tbv")
 }
 
-[node name="Character" type="Node" node_paths=PackedStringArray("dialog_model", "rpg_model", "combat_model", "stats")]
+[node name="Character" type="Node" node_paths=PackedStringArray("dialog_model", "rpg_model", "combat_model")]
 script = ExtResource("1_kbi2e")
 dialog_model = NodePath("DialogModel")
 rpg_model = NodePath("RPGModel")
 combat_model = NodePath("CombatModel")
-stats = NodePath("Stats")
+stats = SubResource("Resource_5rp3g")
 
 [node name="DialogModel" type="Node2D" parent="."]
 script = ExtResource("2_ybcan")
@@ -99,14 +107,3 @@ sprites = NodePath("Sprites")
 [node name="Portraits" type="Node" parent="CombatModel"]
 
 [node name="Sprites" type="Node" parent="CombatModel"]
-
-[node name="Stats" type="Node" parent="."]
-script = ExtResource("16_pjbki")
-
-[node name="Skills" type="Node" parent="."]
-
-[node name="Skill1" type="Node" parent="Skills"]
-script = ExtResource("6_xxkla")
-skill_name = null
-description = null
-level_to_learn = null

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://f2oog5xfhsha"]
+[gd_scene load_steps=23 format=3 uid="uid://f2oog5xfhsha"]
 
 [ext_resource type="Script" path="res://script/combate/combate.gd" id="1_8k8bs"]
 [ext_resource type="Script" path="res://script/combat_party_area.gd" id="3_eyw5e"]
@@ -21,15 +21,6 @@ colors = PackedColorArray(0, 0.219608, 0, 1, 0.466667, 0.823529, 0.47451, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_k5noa"]
 gradient = SubResource("Gradient_qhymp")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o0oek"]
-bg_color = Color(0, 0, 0, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0316m"]
-bg_color = Color(0, 0, 0, 0.431373)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rafup"]
-bg_color = Color(0.294118, 0.294118, 0.294118, 1)
 
 [sub_resource type="Animation" id="Animation_lhdi0"]
 resource_name = "ShowSkills_2"
@@ -326,16 +317,32 @@ sprite_containers = [NodePath("SpriteContainer1"), NodePath("SpriteContainer2"),
 direction = -1
 
 [node name="SpriteContainer1" parent="PlayerArea" instance=ExtResource("4_vgjmr")]
-position = Vector2(128, 76)
+layout_mode = 1
+offset_left = 128.0
+offset_top = 76.0
+offset_right = 128.0
+offset_bottom = 76.0
 
 [node name="SpriteContainer2" parent="PlayerArea" instance=ExtResource("4_vgjmr")]
-position = Vector2(252, 140)
+layout_mode = 1
+offset_left = 252.0
+offset_top = 140.0
+offset_right = 252.0
+offset_bottom = 140.0
 
 [node name="SpriteContainer3" parent="PlayerArea" instance=ExtResource("4_vgjmr")]
-position = Vector2(264, 296)
+layout_mode = 1
+offset_left = 264.0
+offset_top = 296.0
+offset_right = 264.0
+offset_bottom = 296.0
 
 [node name="SpriteContainer4" parent="PlayerArea" instance=ExtResource("4_vgjmr")]
-position = Vector2(134, 366)
+layout_mode = 1
+offset_left = 134.0
+offset_top = 366.0
+offset_right = 134.0
+offset_bottom = 366.0
 
 [node name="EnemyArea" type="Control" parent="." node_paths=PackedStringArray("sprite_containers")]
 layout_mode = 1
@@ -347,16 +354,32 @@ script = ExtResource("3_eyw5e")
 sprite_containers = [NodePath("SpriteContainer1"), NodePath("SpriteContainer2"), NodePath("SpriteContainer3"), NodePath("SpriteContainer4")]
 
 [node name="SpriteContainer1" parent="EnemyArea" instance=ExtResource("4_vgjmr")]
-position = Vector2(460, 76)
+layout_mode = 1
+offset_left = 460.0
+offset_top = 76.0
+offset_right = 460.0
+offset_bottom = 76.0
 
 [node name="SpriteContainer2" parent="EnemyArea" instance=ExtResource("4_vgjmr")]
-position = Vector2(320, 140)
+layout_mode = 1
+offset_left = 320.0
+offset_top = 140.0
+offset_right = 320.0
+offset_bottom = 140.0
 
 [node name="SpriteContainer3" parent="EnemyArea" instance=ExtResource("4_vgjmr")]
-position = Vector2(324, 296)
+layout_mode = 1
+offset_left = 324.0
+offset_top = 296.0
+offset_right = 324.0
+offset_bottom = 296.0
 
 [node name="SpriteContainer4" parent="EnemyArea" instance=ExtResource("4_vgjmr")]
-position = Vector2(460, 366)
+layout_mode = 1
+offset_left = 460.0
+offset_top = 366.0
+offset_right = 460.0
+offset_bottom = 366.0
 
 [node name="PartyMenu" type="Control" parent="." node_paths=PackedStringArray("party_slots")]
 layout_mode = 1
@@ -456,7 +479,7 @@ texture_normal = ExtResource("11_wxol7")
 texture_pressed = ExtResource("12_1rras")
 texture_hover = ExtResource("12_1rras")
 
-[node name="SkillsMenu" type="Control" parent="." node_paths=PackedStringArray("character_slot")]
+[node name="SkillsMenu" type="Control" parent="." node_paths=PackedStringArray("combat", "character_slot", "skills_container", "button_model")]
 visible = false
 layout_mode = 1
 anchor_left = 0.064
@@ -469,7 +492,21 @@ offset_bottom = 356.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("16_3nacl")
+combat = NodePath("..")
 character_slot = NodePath("Character")
+skills_container = NodePath("Skills/VBoxContainer")
+button_model = NodePath("ButtonModel")
+
+[node name="ButtonModel" type="Button" parent="SkillsMenu"]
+visible = false
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("15_5rv14")
+theme_override_font_sizes/font_size = 30
+flat = true
 
 [node name="GUITexture" type="TextureRect" parent="SkillsMenu"]
 layout_mode = 1
@@ -504,102 +541,6 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="Skill1" type="Button" parent="SkillsMenu/Skills/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("15_5rv14")
-theme_override_font_sizes/font_size = 60
-theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
-theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
-text = " Attack 1 "
-
-[node name="Skill2" type="Button" parent="SkillsMenu/Skills/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("15_5rv14")
-theme_override_font_sizes/font_size = 60
-theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
-theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
-text = " Attack 2 "
-
-[node name="Skill3" type="Button" parent="SkillsMenu/Skills/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("15_5rv14")
-theme_override_font_sizes/font_size = 60
-theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
-theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
-text = " Attack 3 "
-
-[node name="Skill4" type="Button" parent="SkillsMenu/Skills/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("15_5rv14")
-theme_override_font_sizes/font_size = 60
-theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
-theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
-text = " Attack 4 "
-
-[node name="Skill5" type="Button" parent="SkillsMenu/Skills/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("15_5rv14")
-theme_override_font_sizes/font_size = 60
-theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
-theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
-text = "Attack 5"
-
-[node name="Skill6" type="Button" parent="SkillsMenu/Skills/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("15_5rv14")
-theme_override_font_sizes/font_size = 60
-theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
-theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
-text = "Attack 6"
-
-[node name="Skill7" type="Button" parent="SkillsMenu/Skills/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("15_5rv14")
-theme_override_font_sizes/font_size = 60
-theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
-theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
-text = "Attack 7"
-
-[node name="Skill8" type="Button" parent="SkillsMenu/Skills/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
-theme_override_fonts/font = ExtResource("15_5rv14")
-theme_override_font_sizes/font_size = 60
-theme_override_styles/normal = SubResource("StyleBoxFlat_o0oek")
-theme_override_styles/hover = SubResource("StyleBoxFlat_0316m")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_rafup")
-text = "Attack 8"
-
 [node name="MenuChangeAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_1dyyx")
@@ -630,11 +571,3 @@ text = "asdadasdas"
 [connection signal="pressed" from="PartyMenu/Actions/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="PartyMenu/Actions/Defense" to="." method="_on_defense_pressed"]
 [connection signal="pressed" from="PartyMenu/Actions/Run" to="." method="_on_run_pressed"]
-[connection signal="pressed" from="SkillsMenu/Skills/VBoxContainer/Skill1" to="." method="_on_attack_1_pressed"]
-[connection signal="pressed" from="SkillsMenu/Skills/VBoxContainer/Skill2" to="." method="_on_attack_2_pressed"]
-[connection signal="pressed" from="SkillsMenu/Skills/VBoxContainer/Skill3" to="." method="_on_attack_3_pressed"]
-[connection signal="pressed" from="SkillsMenu/Skills/VBoxContainer/Skill4" to="." method="_on_attack_4_pressed"]
-[connection signal="pressed" from="SkillsMenu/Skills/VBoxContainer/Skill5" to="." method="_on_attack_1_pressed"]
-[connection signal="pressed" from="SkillsMenu/Skills/VBoxContainer/Skill6" to="." method="_on_attack_2_pressed"]
-[connection signal="pressed" from="SkillsMenu/Skills/VBoxContainer/Skill7" to="." method="_on_attack_3_pressed"]
-[connection signal="pressed" from="SkillsMenu/Skills/VBoxContainer/Skill8" to="." method="_on_attack_4_pressed"]

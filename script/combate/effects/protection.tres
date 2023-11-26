@@ -4,3 +4,5 @@
 
 [resource]
 script = ExtResource("1_0hgur")
+value = 0
+duration = 0

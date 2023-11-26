@@ -10,6 +10,13 @@ var zone: Zone
 @export var rpg_model: ModeloRPG
 @export var combat_model: CombatModel
 @export var stats: Stats
+@export var skills: Array[Skill]
+
+func _ready():
+	for skill in skills:
+		skill.user = self
+	# We perform this here because resources don't have a _ready function
+	stats.replenish()
 
 func reposition(new_zone: Zone, position: Vector2, direction: String):
 	if rpg_model:
