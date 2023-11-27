@@ -35,6 +35,15 @@ var _final_regex = "\\s*\\[(?:F|f)inal:(?: |\\t)*(?<name>(?:.*)*?)\\]"
 var _links_matcher = RegEx.new()
 var _links_regex = "\\s*\\[(?:E|e)nlace:(?: |\\t)*(?<contents>(?:.*)*?)\\]"
 
+# Assigns units to npc to speak
+# TODO: There are too many regexes here. See if the system can be changed so
+# that everything goes through the commands, in which case this should be
+# changed by a recursive system that can allow certain commands only in units
+# or in scenes, or if this should be changed by some kind of composite parser
+# and do everything through regexes
+var _asign_matcher = RegEx.new()
+var _asign_regex = "\\s*\\[(?:A|a)signar:(?: |\\t)*(?<contents>(?:.*)*?)\\]"
+
 # For now we're assuming that the entire script is going to be read from a
 # single file. Although several files can be read and loaded, when parsing the
 # links and creating them in the ScriptManager, it will first check if the given
@@ -62,7 +71,9 @@ func _ready():
 	_unit_matcher.compile(_unit_regex)
 	_scene_matcher.compile(_scene_regex)
 	_initial_matcher.compile(_initial_regex)
+	_final_matcher.compile(_final_regex)
 	_links_matcher.compile(_links_regex)
+	_asign_matcher.compile(_asign_regex)
 	# If the game is run from the debug executable. We have to decide if this
 	# must also work from the release executable
 	if OS.has_feature("debug") and not OS.has_feature("editor"):
@@ -103,7 +114,9 @@ func _parse_file(file_name: String):
 		ScriptManager.add(scene)
 
 # Creates a new scene with the given name and a string with the contents between
-# the openning and closing tags, which will be parsed in this function
+# the openning and closing tags, which will be parsed in this function.
+# If a scene with that name already exists, the contents are added to that one
+# instead to allow for scenes defined across multiple files
 func _create_scene(scene_name: String, scene_contents: String) -> Escena:
 	print("ScriptParser | Creating scene with name " + scene_name)
 	var units: Array[Unit] = []
@@ -129,7 +142,17 @@ func _create_scene(scene_name: String, scene_contents: String) -> Escena:
 	elif final_matches.size() == 1:
 		final = final_matches[0].get_string("name")
 		
-	var scene = Escena.new(scene_name, units, initial, final)
+	var scene: Escena
+	# If the scene already existed, we must the newly found contets to it. This
+	# way we allow for a scene to be split amongst several files.
+	if ScriptManager.scenes.has(scene_name):
+		scene = ScriptManager.scenes[scene_name]
+	else:
+		scene = Escena.new(scene_name)
+	
+	scene.add_all(units)
+	scene.name_first = initial
+	scene.name_last = final
 	
 	var link_matches = _links_matcher.search_all(scene_contents)
 	if link_matches.size() == 0:
@@ -143,6 +166,20 @@ func _create_scene(scene_name: String, scene_contents: String) -> Escena:
 			while i < array.size():
 				scene.link(array[i - 1], array[i])
 				i += 1
+	
+	# TODO: this should go somewhere else, this is just temporary
+	var asign_matches = _asign_matcher.search_all(scene_contents)
+	for m in asign_matches:
+		var list = m.get_string("contents").split(",", false)
+		for split in list:
+			var pair = split.split("->", false)
+			var unit_name = pair[0].strip_edges()
+			var character_name = pair[1].strip_edges()
+			var character = CharacterManager.load(character_name) as Character
+			if not character:
+				printerr("ScriptParser | Can't find a character with unit_name " + character_name)
+				continue
+			character.dialog_unit = unit_name
 	return scene
 
 # Creates a new unit with the given name and a string with the contents between

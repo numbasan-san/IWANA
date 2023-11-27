@@ -12,6 +12,12 @@ var zone: Zone
 @export var stats: Stats
 @export var skills: Array[Skill]
 
+# The name of a unit of the script that is going to be loaded when someone
+# interacts with this character
+# TODO: we must make a more general code that would work if there are different
+# situations that can trigger different units
+var dialog_unit: String
+
 func _ready():
 	for skill in skills:
 		skill.user = self

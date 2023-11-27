@@ -55,6 +55,7 @@ func dialogo(args: Array[String]):
 	_open()
 	dialog_contents.change_dialog(args[1], args[0])
 
+
 # This instruction does nothing by itself, but it's used as a tag by units so
 # they know to pause their execution and wait for user input when encountering it
 func esperar():

@@ -1,6 +1,8 @@
 extends Node
 
 signal unpaused
+signal chain_started(scene: String, first_unit: String)
+signal chain_ended(scene: String, first_unit: String)
 
 # Because the scenes variable should only be modified from inside this script to
 # avoid leaving it in the wrong state, a getter is provided that duplicates the

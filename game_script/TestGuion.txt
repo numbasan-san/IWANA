@@ -70,15 +70,4 @@ Dev: Si se lee esto en la introducción, es un error
 Dev: Despues de esto terminamos la escena
 [Fin: u6]
 
-[Asignar: Dialogo NPC 1 -> NPC1.interaccion]
-[Asignar:  NPC 1 derrotado -> NPC1.derrota]
-
-[Unidad: Dialogo NPC 1]
-NPC: ¡Oye, que me ves! ¿Acaso quieres pelear?
-[Fin: Dialogo NPC 1]
-
-[Unidad: NPC 1 derrotado]
-NPC: Está bien, lo siento
-[Fin: NPC 1 derrotado]
-
 [Fin: escena 1]
