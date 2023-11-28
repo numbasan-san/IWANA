@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://dvwsbxa7kdgob"]
 
-[ext_resource type="Script" path="res://script/personajes/control_jugador.gd" id="1_cfkfe"]
+[ext_resource type="Script" path="res://script/characters/player_control.gd" id="1_cfkfe"]
 [ext_resource type="Script" path="res://script/player.gd" id="1_oj7ea"]
-[ext_resource type="Resource" uid="uid://dfuucb5spinx8" path="res://script/inventario_objetos/inventario/resourses/inventory.tres" id="2_ks6fo"]
+[ext_resource type="Resource" uid="uid://dfuucb5spinx8" path="res://script/object_inventory/inventory/resources/inventory.tres" id="2_ks6fo"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_jt2gw"]
 

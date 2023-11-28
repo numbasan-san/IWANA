@@ -18,11 +18,11 @@ config/icon="res://icon.svg"
 [autoload]
 
 ScreenManager="*res://scenes/screens/screen_manager.tscn"
-CharacterManager="*res://script/personajes/character_manager.gd"
-ZoneManager="*res://script/zonas/zone_manager.gd"
-ScriptParser="*res://script/guion/script_parser.gd"
-ScriptManager="*res://script/guion/script_manager.gd"
-ScriptCommands="*res://script/guion/script_commands.gd"
+CharacterManager="*res://script/characters/character_manager.gd"
+ZoneManager="*res://script/zones/zone_manager.gd"
+ScriptParser="*res://script/game_script/script_parser.gd"
+ScriptManager="*res://script/game_script/script_manager.gd"
+ScriptCommands="*res://script/game_script/script_commands.gd"
 Player="*res://scenes/characters/player.tscn"
 
 [display]

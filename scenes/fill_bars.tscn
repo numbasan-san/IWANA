@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ceqe4yrlcfouu"]
 
-[ext_resource type="Script" path="res://script/combate/fill_bars.gd" id="1_ojv77"]
+[ext_resource type="Script" path="res://script/combat/fill_bars.gd" id="1_ojv77"]
 [ext_resource type="FontFile" uid="uid://bvx3kwcljl1mv" path="res://assets/combat_sprites/font/IWANA.ttf" id="2_cmerm"]
 [ext_resource type="Texture2D" uid="uid://coyrisfgcccaf" path="res://assets/combat_sprites/barra_de_vida_edit.png" id="3_s7fif"]
 

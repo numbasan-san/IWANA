@@ -1,10 +1,10 @@
 [gd_scene load_steps=18 format=3 uid="uid://dqycf3lwlo2d0"]
 
-[ext_resource type="Script" path="res://script/personajes/character.gd" id="1_kbi2e"]
-[ext_resource type="Script" path="res://script/combate/stats.gd" id="2_2yyb0"]
-[ext_resource type="Script" path="res://script/dialogos/dialog_model.gd" id="2_ybcan"]
-[ext_resource type="Script" path="res://script/personajes/rpg_model.gd" id="4_fcnfi"]
-[ext_resource type="Script" path="res://script/personajes/combat_model.gd" id="13_d6ple"]
+[ext_resource type="Script" path="res://script/characters/character.gd" id="1_kbi2e"]
+[ext_resource type="Script" path="res://script/combat/stats.gd" id="2_2yyb0"]
+[ext_resource type="Script" path="res://script/dialogs/dialog_model.gd" id="2_ybcan"]
+[ext_resource type="Script" path="res://script/characters/rpg_model.gd" id="4_fcnfi"]
+[ext_resource type="Script" path="res://script/characters/combat_model.gd" id="13_d6ple"]
 
 [sub_resource type="Resource" id="Resource_5rp3g"]
 script = ExtResource("2_2yyb0")

@@ -1,13 +1,13 @@
 [gd_scene load_steps=23 format=3 uid="uid://c3852ndxrpkj1"]
 
-[ext_resource type="Script" path="res://script/personajes/character.gd" id="1_88tar"]
+[ext_resource type="Script" path="res://script/characters/character.gd" id="1_88tar"]
 [ext_resource type="Texture2D" uid="uid://d0xij6lmlkfyc" path="res://assets/dialog_drawings/characters/nobita2.png" id="2_l1yky"]
-[ext_resource type="Script" path="res://script/dialogos/dialog_model.gd" id="2_mfhv5"]
-[ext_resource type="Resource" uid="uid://sy16m35jo4do" path="res://script/personajes/noby/skill_ejemplo_daño.tres" id="3_scxwp"]
-[ext_resource type="Script" path="res://script/personajes/rpg_model.gd" id="4_i5ekl"]
+[ext_resource type="Script" path="res://script/dialogs/dialog_model.gd" id="2_mfhv5"]
+[ext_resource type="Resource" uid="uid://sy16m35jo4do" path="res://script/characters/noby/skill_ejemplo_daño.tres" id="3_scxwp"]
+[ext_resource type="Script" path="res://script/characters/rpg_model.gd" id="4_i5ekl"]
 [ext_resource type="Texture2D" uid="uid://kvkysyfs1ani" path="res://assets/rpg_sprites/characters/noby/noby_camina-Sheet.png" id="5_jdvmx"]
-[ext_resource type="Script" path="res://script/personajes/combat_model.gd" id="6_5wpj4"]
-[ext_resource type="Script" path="res://script/combate/stats.gd" id="9_ma4si"]
+[ext_resource type="Script" path="res://script/characters/combat_model.gd" id="6_5wpj4"]
+[ext_resource type="Script" path="res://script/combat/stats.gd" id="9_ma4si"]
 [ext_resource type="Texture2D" uid="uid://dwbkby71u5h7l" path="res://assets/combat_sprites/noby.png" id="15_tfogv"]
 [ext_resource type="Texture2D" uid="uid://cj6aeejkf0g13" path="res://assets/combat_sprites/noby_separado.png" id="16_q484o"]
 
@@ -190,7 +190,7 @@ dialog_model = NodePath("DialogModel")
 rpg_model = NodePath("RPGModel")
 combat_model = NodePath("CombatModel")
 stats = SubResource("Resource_432rq")
-skills = Array[Resource("res://script/combate/skills/skill.gd")]([ExtResource("3_scxwp")])
+skills = Array[Resource("res://script/combat/skills/skill.gd")]([ExtResource("3_scxwp")])
 
 [node name="DialogModel" type="Node2D" parent="."]
 script = ExtResource("2_mfhv5")

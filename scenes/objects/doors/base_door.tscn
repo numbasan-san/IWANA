@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://hed2eep7147o"]
 
-[ext_resource type="Script" path="res://script/puerta/cambio_zona.gd" id="1_2qge8"]
-[ext_resource type="Script" path="res://script/puerta/portal.gd" id="1_6dlhj"]
+[ext_resource type="Script" path="res://script/door/zone_change.gd" id="1_2qge8"]
+[ext_resource type="Script" path="res://script/door/portal.gd" id="1_6dlhj"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_346tc"]
 

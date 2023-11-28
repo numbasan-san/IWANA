@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bwqpwxoacpjai"]
 
-[ext_resource type="Script" path="res://script/puerta/portal.gd" id="1_kd1cq"]
+[ext_resource type="Script" path="res://script/door/portal.gd" id="1_kd1cq"]
 [ext_resource type="Texture2D" uid="uid://dvorh4jj2xgb2" path="res://assets/rpg_sprites/shadow.png" id="2_2j6go"]
-[ext_resource type="Script" path="res://script/puerta/cambio_zona.gd" id="3_5g2h5"]
+[ext_resource type="Script" path="res://script/door/zone_change.gd" id="3_5g2h5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bfx45"]
 size = Vector2(38, 7)

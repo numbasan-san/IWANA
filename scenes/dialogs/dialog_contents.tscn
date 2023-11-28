@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dljth7jwfmjlx"]
 
-[ext_resource type="Script" path="res://script/dialogos/dialog_contents.gd" id="1_08ccm"]
+[ext_resource type="Script" path="res://script/dialogs/dialog_contents.gd" id="1_08ccm"]
 [ext_resource type="LabelSettings" uid="uid://cdswba3l3ge7m" path="res://scenes/dialogs/dialog_font.tres" id="2_2hkqp"]
 [ext_resource type="Texture2D" uid="uid://wqxps3pmunho" path="res://assets/menus/dialogos.png" id="2_xsjuw"]
 
