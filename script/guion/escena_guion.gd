@@ -1,4 +1,4 @@
-class_name Escena
+class_name Scene
 
 # A scene contains a set of units and links between them to determine when they
 # should be executed
@@ -86,6 +86,7 @@ func run():
 			# marked done so that the script manager will switch to the next one
 			if current_unit.name == name_last:
 				done = true
+				await ScriptCommands._close()
 				ScriptManager.chain_ended.emit(self.name, _current_chain_head)
 				_current_chain_head = ""
 			# If it's linked to another unit, we switch to that one

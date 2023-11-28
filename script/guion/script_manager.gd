@@ -16,8 +16,8 @@ var scenes: Dictionary:
 
 var _scene_pointer: int = 0
 
-var _current_scene: Escena
-var current_scene: Escena:
+var _current_scene: Scene
+var current_scene: Scene:
 	get: return _current_scene
 
 var running: bool = false
@@ -61,7 +61,7 @@ func _activate(index: int):
 # Adds a new scene to the manager if it didn't have one with the same name
 # This check is made so that if a different scene with the same name is added by
 # accident later, it won't change the state of the manager
-func add(scene: Escena):
+func add(scene: Scene):
 	if not _scenes.keys().has(scene.name):
 		_scenes[scene.name] = scene
 	else:

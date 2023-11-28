@@ -117,7 +117,7 @@ func _parse_file(file_name: String):
 # the openning and closing tags, which will be parsed in this function.
 # If a scene with that name already exists, the contents are added to that one
 # instead to allow for scenes defined across multiple files
-func _create_scene(scene_name: String, scene_contents: String) -> Escena:
+func _create_scene(scene_name: String, scene_contents: String) -> Scene:
 	print("ScriptParser | Creating scene with name " + scene_name)
 	var units: Array[Unit] = []
 	var unit_matches = _unit_matcher.search_all(scene_contents)
@@ -142,13 +142,13 @@ func _create_scene(scene_name: String, scene_contents: String) -> Escena:
 	elif final_matches.size() == 1:
 		final = final_matches[0].get_string("name")
 		
-	var scene: Escena
+	var scene: Scene
 	# If the scene already existed, we must the newly found contets to it. This
 	# way we allow for a scene to be split amongst several files.
 	if ScriptManager.scenes.has(scene_name):
 		scene = ScriptManager.scenes[scene_name]
 	else:
-		scene = Escena.new(scene_name)
+		scene = Scene.new(scene_name)
 	
 	scene.add_all(units)
 	scene.name_first = initial
