@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://8adovfeebq66"]
 
-[ext_resource type="PackedScene" uid="uid://hed2eep7147o" path="res://scenes/objects/doors/puerta_base.tscn" id="1_efrq7"]
+[ext_resource type="PackedScene" uid="uid://hed2eep7147o" path="res://scenes/objects/doors/base_door.tscn" id="1_efrq7"]
 [ext_resource type="Texture2D" uid="uid://cxlduayq0ajcx" path="res://assets/rpg_sprites/objects/tiles_a.png" id="2_o3kwm"]
 
-[node name="FBathroomOutsideDoor" instance=ExtResource("1_efrq7")]
+[node name="FemaleBathroomOutsideDoor" instance=ExtResource("1_efrq7")]
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_o3kwm")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://20fpp4endaui"]
+
+[ext_resource type="PackedScene" uid="uid://dvs7a5k1ejf15" path="res://scenes/zones/base_bathroom.tscn" id="1_pdam1"]
+
+[node name="F1MaleBathroom" instance=ExtResource("1_pdam1")]
+
+[node name="Door" parent="." index="4"]
+zone = "f1n_hallway"
+spawn = "SpawnF1MB"
+spawn_direction = "down"

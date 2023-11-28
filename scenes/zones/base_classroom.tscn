@@ -1,17 +1,17 @@
 [gd_scene load_steps=11 format=3 uid="uid://bqvxhi7wt87t"]
 
-[ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://scenes/zones/zona_base.tscn" id="1_wnoea"]
-[ext_resource type="TileSet" uid="uid://clgr7qwoprumi" path="res://scenes/zones/suelo_y_muros_base.tres" id="2_gy0nb"]
-[ext_resource type="PackedScene" uid="uid://bdpp468pqvrja" path="res://scenes/objects/classroom/pupitre.tscn" id="2_ulqri"]
-[ext_resource type="PackedScene" uid="uid://bwqpwxoacpjai" path="res://scenes/objects/doors/puerta_invisible.tscn" id="3_ppn4c"]
-[ext_resource type="PackedScene" uid="uid://uni0pknyk3u6" path="res://scenes/objects/classroom/pizarron.tscn" id="4_ebl0c"]
-[ext_resource type="PackedScene" uid="uid://h7mki2t1blv5" path="res://scenes/objects/classroom/reloj.tscn" id="5_p65in"]
-[ext_resource type="PackedScene" uid="uid://cfx0xnvbfch17" path="res://scenes/objects/classroom/ventana_sala.tscn" id="6_tkoyl"]
-[ext_resource type="PackedScene" uid="uid://baymeuamqebgj" path="res://scenes/objects/classroom/silla.tscn" id="9_8irrb"]
-[ext_resource type="PackedScene" uid="uid://bc0x6r1sqak4r" path="res://scenes/objects/classroom/mesa_profesor.tscn" id="10_8e6d3"]
-[ext_resource type="PackedScene" uid="uid://dbui3px8bpm0h" path="res://scenes/objects/classroom/tablon_info_sala.tscn" id="10_ey3pn"]
+[ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://scenes/zones/base_zone.tscn" id="1_wnoea"]
+[ext_resource type="TileSet" uid="uid://clgr7qwoprumi" path="res://scenes/zones/basic_floor_and_walls.tres" id="2_gy0nb"]
+[ext_resource type="PackedScene" uid="uid://bdpp468pqvrja" path="res://scenes/objects/classroom/desk.tscn" id="2_ulqri"]
+[ext_resource type="PackedScene" uid="uid://bwqpwxoacpjai" path="res://scenes/objects/doors/invisible_door.tscn" id="3_ppn4c"]
+[ext_resource type="PackedScene" uid="uid://uni0pknyk3u6" path="res://scenes/objects/classroom/blackboard.tscn" id="4_ebl0c"]
+[ext_resource type="PackedScene" uid="uid://h7mki2t1blv5" path="res://scenes/objects/classroom/clock.tscn" id="5_p65in"]
+[ext_resource type="PackedScene" uid="uid://cfx0xnvbfch17" path="res://scenes/objects/classroom/classroom_window.tscn" id="6_tkoyl"]
+[ext_resource type="PackedScene" uid="uid://baymeuamqebgj" path="res://scenes/objects/classroom/chair.tscn" id="9_8irrb"]
+[ext_resource type="PackedScene" uid="uid://bc0x6r1sqak4r" path="res://scenes/objects/classroom/teacher_desk.tscn" id="10_8e6d3"]
+[ext_resource type="PackedScene" uid="uid://dbui3px8bpm0h" path="res://scenes/objects/classroom/classroom_board.tscn" id="10_ey3pn"]
 
-[node name="GenericClassroom" instance=ExtResource("1_wnoea")]
+[node name="BaseClassroom" instance=ExtResource("1_wnoea")]
 y_sort_enabled = true
 
 [node name="TileMap" type="TileMap" parent="." index="0"]

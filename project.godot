@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="IWANA"
-run/main_scene="res://scenes/raiz_juego.tscn"
+run/main_scene="res://scenes/game_root.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
 config/icon="res://icon.svg"
 

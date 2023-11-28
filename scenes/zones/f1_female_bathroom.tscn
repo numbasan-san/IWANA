@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://2yngnccatdr1"]
 
-[ext_resource type="PackedScene" uid="uid://dvs7a5k1ejf15" path="res://scenes/zones/zona_baño_generico.tscn" id="1_7md5w"]
+[ext_resource type="PackedScene" uid="uid://dvs7a5k1ejf15" path="res://scenes/zones/base_bathroom.tscn" id="1_7md5w"]
 
-[node name="FBathroomF1" instance=ExtResource("1_7md5w")]
+[node name="F1FemaleBathroom" instance=ExtResource("1_7md5w")]
 
 [node name="SpawnHallway" parent="SpawnPoints" index="0"]
 position = Vector2(80, 242)
@@ -21,6 +21,6 @@ scale = Vector2(-1, 1)
 
 [node name="Door" parent="." index="4"]
 position = Vector2(80, 274)
-zone = "pasillo_p1n"
-spawn = "SpawnBF1F"
+zone = "f1n_hallway"
+spawn = "SpawnF1FB"
 spawn_direction = "down"

@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://c0vpj0bm2dlof"]
 
-[ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://scenes/zones/zona_base.tscn" id="1_ljxgf"]
+[ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://scenes/zones/base_zone.tscn" id="1_ljxgf"]
 [ext_resource type="Texture2D" uid="uid://drteclr64kg31" path="res://assets/tilesets/dev_zone/tilesetDevTest.png" id="2_xemyy"]
 [ext_resource type="PackedScene" uid="uid://ulwb3176yswv" path="res://scenes/inventory/items/perro.tscn" id="5_0qu2l"]
-[ext_resource type="PackedScene" uid="uid://bwqpwxoacpjai" path="res://scenes/objects/doors/puerta_invisible.tscn" id="6_vo0jc"]
+[ext_resource type="PackedScene" uid="uid://bwqpwxoacpjai" path="res://scenes/objects/doors/invisible_door.tscn" id="6_vo0jc"]
 [ext_resource type="PackedScene" uid="uid://cg87jy7chv1va" path="res://scenes/inventory/items/lagarto.tscn" id="7_a5m8c"]
 [ext_resource type="PackedScene" uid="uid://bntylxciwrpvw" path="res://scenes/inventory/items/toro.tscn" id="8_1s1lq"]
 
@@ -27,7 +27,7 @@ terrain_set_0/terrain_0/name = "Terrain 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/2 = SubResource("TileSetAtlasSource_5ptxj")
 
-[node name="ZoneDevTesting" instance=ExtResource("1_ljxgf")]
+[node name="DevTesting" instance=ExtResource("1_ljxgf")]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 tile_set = SubResource("TileSet_15xbd")
@@ -66,11 +66,11 @@ position = Vector2(303, 165)
 [node name="perro3" parent="Items" index="8" instance=ExtResource("5_0qu2l")]
 position = Vector2(308, 469)
 
-[node name="SpawnPasillo" type="Node2D" parent="SpawnPoints" index="0"]
+[node name="SpawnHallway" type="Node2D" parent="SpawnPoints" index="0"]
 position = Vector2(-47, 223)
 
 [node name="Door" parent="." index="3" instance=ExtResource("6_vo0jc")]
 position = Vector2(-48, 296)
-zone = "pasillo_p1n"
+zone = "f1n_hallway"
 spawn = "SpawnDev"
 spawn_direction = "down"
