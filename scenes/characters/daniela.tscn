@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3ltulgb5a8do"]
+[gd_scene load_steps=9 format=3 uid="uid://d3ltulgb5a8do"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://scenes/characters/character.tscn" id="1_begxf"]
 [ext_resource type="Texture2D" uid="uid://c7lntb7mvpqt2" path="res://assets/dialog_drawings/characters/daniladino2.png" id="2_mrhog"]
 [ext_resource type="Script" path="res://script/combat/stats.gd" id="2_rf6nx"]
 [ext_resource type="Resource" uid="uid://sy16m35jo4do" path="res://script/characters/noby/skill_ejemplo_daño.tres" id="3_vpbm4"]
 [ext_resource type="Texture2D" uid="uid://bhm0ys613ml5g" path="res://assets/dialog_drawings/characters/danielaenojadapng.png" id="4_4aw6c"]
+[ext_resource type="Texture2D" uid="uid://br7yk6n0jirvr" path="res://assets/dialog_drawings/characters/danielafinal.png" id="6_coaqk"]
 [ext_resource type="Texture2D" uid="uid://ckr5arvqsdywg" path="res://assets/combat_sprites/cuernito.png" id="7_k47t8"]
 
 [sub_resource type="Resource" id="Resource_cqid2"]
@@ -28,7 +29,18 @@ texture = ExtResource("2_mrhog")
 scale = Vector2(-1, 1)
 texture = ExtResource("4_4aw6c")
 
+[node name="Sprite2D" parent="RPGModel" index="0"]
+position = Vector2(-2.38419e-07, -2)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("6_coaqk")
+hframes = 1
+region_rect = Rect2(0, 1, 875, 1321)
+
 [node name="Basic" type="TextureRect" parent="CombatModel/Portraits" index="0"]
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("7_k47t8")
+
+[node name="Idle" type="Sprite2D" parent="CombatModel/Sprites" index="0"]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("4_4aw6c")

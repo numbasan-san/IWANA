@@ -6,10 +6,11 @@
 layout_mode = 3
 anchor_right = 0.049
 anchor_bottom = 0.092
-offset_right = -64.08
+offset_right = -61.08
 offset_bottom = -63.36
 scale = Vector2(3, 3)
 script = ExtResource("1_ndaat")
 directional = NodePath("Directional")
 
 [node name="Directional" type="Node2D" parent="."]
+position = Vector2(0.333339, 1.00002)

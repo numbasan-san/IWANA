@@ -1,10 +1,37 @@
-[gd_scene load_steps=3 format=3 uid="uid://dorc15lxpd2w4"]
+[gd_scene load_steps=7 format=3 uid="uid://dorc15lxpd2w4"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://scenes/characters/character.tscn" id="1_begxf"]
+[ext_resource type="Script" path="res://script/combat/stats.gd" id="2_vglxn"]
 [ext_resource type="Texture2D" uid="uid://dr64axcigujms" path="res://assets/dialog_drawings/characters/carlaespinoza3.png" id="3_3smwl"]
+[ext_resource type="Resource" uid="uid://sy16m35jo4do" path="res://script/characters/noby/skill_ejemplo_daño.tres" id="3_fpl8h"]
+
+[sub_resource type="Resource" id="Resource_4hq1v"]
+script = ExtResource("2_vglxn")
+base_max_health = 50
+base_max_energy = 50
+base_damage = 10
+base_defense = 0
+base_speed = 4
+base_critical = 5
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_j8qyg"]
+load_path = "res://.godot/imported/carlaespinoza3.png-ca94405c985eaad1c70e422bb098a871.ctex"
 
 [node name="Carla" instance=ExtResource("1_begxf")]
+stats = SubResource("Resource_4hq1v")
+skills = Array[Resource("res://script/combat/skills/skill.gd")]([ExtResource("3_fpl8h")])
 
 [node name="Neutral" type="Sprite2D" parent="DialogModel" index="0"]
 scale = Vector2(-1, 1)
 texture = ExtResource("3_3smwl")
+
+[node name="Basic" type="TextureRect" parent="CombatModel/Portraits" index="0"]
+offset_right = 790.0
+offset_bottom = 516.0
+texture = ExtResource("3_3smwl")
+expand_mode = 1
+stretch_mode = 2
+
+[node name="Idle" type="Sprite2D" parent="CombatModel/Sprites" index="0"]
+scale = Vector2(0.05, 0.05)
+texture = SubResource("CompressedTexture2D_j8qyg")

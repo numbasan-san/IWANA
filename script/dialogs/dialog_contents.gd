@@ -109,9 +109,9 @@ func cambiar_fondo(image_name: String):
 	background.show()
 
 # Changes the lines of dialogo on screen and / or who says them
-func change_dialog(text: String, name: String = ""):
-	name_label.text = name
-	text_label.text = text
+func change_dialog(what: String, who: String = ""):
+	name_label.text = who
+	text_label.text = what
 
 # Changes the image being shown for a given character. The image must be
 # associated with a Sprite2D node in the dialog model

@@ -1,6 +1,7 @@
-[gd_scene load_steps=23 format=3 uid="uid://f2oog5xfhsha"]
+[gd_scene load_steps=24 format=3 uid="uid://f2oog5xfhsha"]
 
 [ext_resource type="Script" path="res://script/combat/combat.gd" id="1_8k8bs"]
+[ext_resource type="Texture2D" uid="uid://bytbwkxytt8xv" path="res://assets/Assests de Pruebas/combate2.png" id="2_evc5f"]
 [ext_resource type="Script" path="res://script/combat_party_area.gd" id="3_eyw5e"]
 [ext_resource type="PackedScene" uid="uid://dbuixiuq0ijmx" path="res://scenes/characters/combat_models/character_combat_container.tscn" id="3_v8xkj"]
 [ext_resource type="PackedScene" uid="uid://3d6j1vup2i4s" path="res://scenes/characters/combat_models/sprite_container.tscn" id="4_vgjmr"]
@@ -297,7 +298,7 @@ party_menu = NodePath("PartyMenu")
 skills_menu = NodePath("SkillsMenu")
 change_menu_animation = NodePath("MenuChangeAnimation")
 
-[node name="2020-10-25(4)" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -306,43 +307,76 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("GradientTexture1D_k5noa")
 
+[node name="BackgroundTmp" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 4.0
+offset_right = 170.0
+offset_bottom = 96.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.92, 0.92)
+texture = ExtResource("2_evc5f")
+
 [node name="PlayerArea" type="Control" parent="." node_paths=PackedStringArray("sprite_containers")]
 layout_mode = 1
-anchor_left = 0.6
-anchor_top = 0.1
+anchor_left = 0.654
+anchor_top = 0.35
 anchor_right = 0.9
-anchor_bottom = 0.6
+anchor_bottom = 0.508
+offset_left = 0.319946
+offset_top = -3.05176e-05
+offset_bottom = 0.359985
 script = ExtResource("3_eyw5e")
 sprite_containers = [NodePath("SpriteContainer1"), NodePath("SpriteContainer2"), NodePath("SpriteContainer3"), NodePath("SpriteContainer4")]
 direction = -1
 
 [node name="SpriteContainer1" parent="PlayerArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
-offset_left = 128.0
-offset_top = 76.0
-offset_right = 128.0
-offset_bottom = 76.0
+anchors_preset = 4
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+offset_right = 0.0
+offset_bottom = 0.0
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="SpriteContainer2" parent="PlayerArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
-offset_left = 252.0
-offset_top = 140.0
-offset_right = 252.0
-offset_bottom = 140.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
 
 [node name="SpriteContainer3" parent="PlayerArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
-offset_left = 264.0
-offset_top = 296.0
-offset_right = 264.0
-offset_bottom = 296.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="SpriteContainer4" parent="PlayerArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
-offset_left = 134.0
-offset_top = 366.0
-offset_right = 134.0
-offset_bottom = 366.0
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 2
 
 [node name="EnemyArea" type="Control" parent="." node_paths=PackedStringArray("sprite_containers")]
 layout_mode = 1
@@ -355,10 +389,10 @@ sprite_containers = [NodePath("SpriteContainer1"), NodePath("SpriteContainer2"),
 
 [node name="SpriteContainer1" parent="EnemyArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
-offset_left = 460.0
-offset_top = 76.0
-offset_right = 460.0
-offset_bottom = 76.0
+offset_left = 393.0
+offset_top = 335.0
+offset_right = 393.0
+offset_bottom = 335.0
 
 [node name="SpriteContainer2" parent="EnemyArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1

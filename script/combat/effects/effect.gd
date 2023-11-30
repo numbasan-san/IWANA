@@ -16,5 +16,5 @@ class_name Effect extends Resource
 # or an int is enough
 @export var duration: int = 0
 
-func apply(user: Character, target: Character):
+func apply(_user: Character, _target: Character):
 	pass

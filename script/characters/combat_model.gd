@@ -42,13 +42,13 @@ func set_portrait(name: String):
 		 + "named " + name)
 
 # Sets the current sprite to one defined in the sprites list
-func set_sprite(name: String):
-	name = name.to_pascal_case()
-	if sprites.has_node(name):
+func set_sprite(sprite_name: String):
+	sprite_name = sprite_name.to_pascal_case()
+	if sprites.has_node(sprite_name):
 		var old = current_sprite
 		if old:
 			old.hide()
-		current_sprite = sprites.get_node(name)
+		current_sprite = sprites.get_node(sprite_name)
 		var new = current_sprite
 		new.show()
 		update_sprite.emit(old, new)
