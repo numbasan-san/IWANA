@@ -53,9 +53,10 @@ var animation: Animation
 # TODO: For now this assumes one-target skills. It has to be fixed later
 func execute(user: Character, target: Character):
 	if user.stats.energy < energy_cost:
-		printerr("Skill | Trying to use a skill without having the required " \
-			+ "energy. This shouldn't happen as this should be prevented in the \
-			+ combat screen before selecting the skill")
+		printerr("Skill | " + user.name + " tried to use a skill without having" \
+			+ " the required energy of " + str(energy_cost) + ". This shouldn't" \
+			+ " happen as this should be prevented in the combat screen before" \
+			+ " selecting the skill")
 		return
 	# We first apply effects on the user, so buffs on damage, crit, etc are applied
 	# first so that they can improve the results against the enemies.

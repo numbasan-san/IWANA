@@ -22,9 +22,6 @@ var enemy_party: Party = null
 
 var showing_skills = false
 
-# Para cuando haya una defensa del jugador.
-var defending = false
-
 func _input(_event):
 	# Para poder cerrar los cuadros de texto.
 	if (Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and $text_box.visible:
@@ -52,6 +49,7 @@ func start_battle(enemy_party: Party):
 	self.enemy_party = enemy_party
 	show_party_menu()
 	await ScreenManager.push(ScreenManager.combat_screen)
+	$PartyMenu/Actions/Attack.grab_focus()
 
 # Called at the end of the battle to clean the screen
 func end_battle():
@@ -77,6 +75,9 @@ func show_party_menu():
 func show_skills_menu():
 	if party_menu.visible:
 		change_menu_animation.play("ShowSkills")
+		await change_menu_animation.animation_finished
+		if skills_menu.skills_container.get_child_count() > 0:
+			skills_menu.skills_container.get_child(0).grab_focus()
 
 # After all actions have been chosen, perform them
 func action_phase():
@@ -106,21 +107,3 @@ func display_text(text):
 	$text_box.show()
 	$text_box/label.text = text
 
-
-# Para terminar el combate por la fuerza.
-func _on_run_pressed():
-	display_text('Como buen cobarde, huiste.')
-	await(textbox_closed)
-	await get_tree().create_timer(0.5).timeout
-	end_battle()
-
-# El ataque del jugador.
-func _on_attack_pressed():
-	skills_menu.set_to_character(party_menu.selected_character)
-	show_skills_menu()
-
-# La defensa del jugador.
-func _on_defense_pressed():
-	defending = true
-	display_text('Aprietas los dientes.')
-	await(textbox_closed)

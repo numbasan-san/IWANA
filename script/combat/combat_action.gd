@@ -6,6 +6,10 @@ class_name CombatAction
 
 var callable: Callable
 
+var action: CombatAction
+var user: Character
+var target: Character
+
 # Determines the position of this action in the queue. Higher numbers should go
 # first 
 var order: int
@@ -13,10 +17,16 @@ var order: int
 # Creates a new action that encapsulates a callable with the user and the target
 # of the action, which can be executed later. 
 func _init(action, user: Character, target: Character):
+	self.action = action
+	self.user = user
+	self.target = target
+	
 	# TODO: Change this later to add more types
 	order = user.stats.speed
 	if action is Skill:
 		callable = Callable(action.execute).bind(user, target)
+	elif action is Defense:
+		callable = Callable(action.execute).bind(user)
 	else:
 		printerr("CombatAction | Tried to build an action that wasn't a skill," \
 			+ " defense or flee command. Argument was " + str(action))

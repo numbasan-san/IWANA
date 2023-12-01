@@ -94,7 +94,7 @@ _data = {
 "Selected": SubResource("Animation_nyr6s")
 }
 
-[node name="CharacterCombatContainer" type="Panel" node_paths=PackedStringArray("portrait", "character_name", "animations", "fill_bars")]
+[node name="PortraitContainer" type="Panel" node_paths=PackedStringArray("portrait", "character_name", "animations", "fill_bars")]
 anchors_preset = -1
 anchor_right = 0.156
 anchor_bottom = 0.278
@@ -119,6 +119,7 @@ grow_vertical = 2
 expand_mode = 1
 
 [node name="FillBars" parent="." node_paths=PackedStringArray("container") instance=ExtResource("2_ef84f")]
+visible = false
 layout_mode = 1
 container = NodePath("..")
 

@@ -336,22 +336,27 @@ direction = -1
 [node name="SpriteContainer1" parent="PlayerArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
 anchors_preset = 4
+anchor_left = 0.0
 anchor_top = 0.5
 anchor_right = 0.0
 anchor_bottom = 0.5
-offset_right = 0.0
-offset_bottom = 0.0
+offset_left = -100.0
+offset_top = -149.5
+offset_right = 100.0
+offset_bottom = 150.5
 grow_vertical = 2
-metadata/_edit_use_anchors_ = true
 
 [node name="SpriteContainer2" parent="PlayerArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
+anchor_top = 0.0
 anchor_right = 0.5
 anchor_bottom = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
+offset_left = -100.0
+offset_top = -150.0
+offset_right = 99.9999
+offset_bottom = 150.0
 grow_horizontal = 2
 
 [node name="SpriteContainer3" parent="PlayerArea" instance=ExtResource("4_vgjmr")]
@@ -361,8 +366,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
+offset_left = -102.0
+offset_top = -151.0
+offset_right = 97.9999
+offset_bottom = 149.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -373,8 +380,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_right = 0.0
-offset_bottom = 0.0
+offset_left = -100.0
+offset_top = -146.5
+offset_right = 100.0
+offset_bottom = 153.5
 grow_horizontal = 0
 grow_vertical = 2
 
@@ -397,8 +406,10 @@ anchor_left = 1.0
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_right = 0.0
-offset_bottom = 0.0
+offset_left = -99.9999
+offset_top = -145.0
+offset_right = 100.0
+offset_bottom = 155.0
 grow_horizontal = 0
 grow_vertical = 2
 
@@ -406,10 +417,13 @@ grow_vertical = 2
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
+anchor_top = 0.0
 anchor_right = 0.5
 anchor_bottom = 0.0
-offset_right = 0.0
-offset_bottom = 0.0
+offset_left = -102.0
+offset_top = -150.0
+offset_right = 98.0
+offset_bottom = 150.0
 grow_horizontal = 2
 
 [node name="SpriteContainer3" parent="EnemyArea" instance=ExtResource("4_vgjmr")]
@@ -419,22 +433,27 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_right = 0.0
-offset_bottom = 0.0
+offset_left = -100.0
+offset_top = -142.0
+offset_right = 100.0
+offset_bottom = 158.0
 grow_horizontal = 2
 grow_vertical = 0
 
 [node name="SpriteContainer4" parent="EnemyArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
 anchors_preset = 4
+anchor_left = 0.0
 anchor_top = 0.5
 anchor_right = 0.0
 anchor_bottom = 0.5
-offset_right = 0.0
-offset_bottom = 0.0
+offset_left = -93.0
+offset_top = -142.0
+offset_right = 107.0
+offset_bottom = 158.0
 grow_vertical = 2
 
-[node name="PartyMenu" type="Control" parent="." node_paths=PackedStringArray("party_slots")]
+[node name="PartyMenu" type="Control" parent="." node_paths=PackedStringArray("combat", "party_slots")]
 layout_mode = 1
 anchor_left = 0.064
 anchor_top = 0.674
@@ -445,6 +464,7 @@ offset_top = 0.0799561
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("8_hf5qu")
+combat = NodePath("..")
 party_slots = [NodePath("Characters/Character1"), NodePath("Characters/Character2"), NodePath("Characters/Character3"), NodePath("Characters/Character4")]
 
 [node name="GUITexture" type="TextureRect" parent="PartyMenu"]
@@ -630,6 +650,6 @@ offset_bottom = 43.0
 theme_override_font_sizes/font_size = 40
 text = "asdadasdas"
 
-[connection signal="pressed" from="PartyMenu/Actions/Attack" to="." method="_on_attack_pressed"]
-[connection signal="pressed" from="PartyMenu/Actions/Defense" to="." method="_on_defense_pressed"]
-[connection signal="pressed" from="PartyMenu/Actions/Run" to="." method="_on_run_pressed"]
+[connection signal="pressed" from="PartyMenu/Actions/Attack" to="PartyMenu" method="_on_attack_pressed"]
+[connection signal="pressed" from="PartyMenu/Actions/Defense" to="PartyMenu" method="_on_defense_pressed"]
+[connection signal="pressed" from="PartyMenu/Actions/Run" to="PartyMenu" method="_on_run_pressed"]

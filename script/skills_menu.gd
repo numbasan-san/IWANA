@@ -1,15 +1,15 @@
 class_name SkillsMenu extends Control
 
 @export var combat: CombatControl
-@export var character_slot: CharacterCombatContainer
+@export var character_slot: PortraitContainer
 @export var skills_container: Container
 @export var button_model: Button
 
 # This is temporary, it might go somewhere more global
 @onready var font = load("res://assets/combat_sprites/font/IWANA.ttf")
 
-func set_to_character(character: Character = null):
-	character_slot.set_to_character(character)
+func set_character(character: Character = null):
+	character_slot.set_character(character)
 	_clear_skill_buttons()
 	if character:
 		var buttons: Array[Button] = []
@@ -47,8 +47,6 @@ func set_to_character(character: Character = null):
 				button.disabled = true
 			buttons.append(button)
 			skills_container.add_child(button)
-		if buttons.size() > 0:
-			buttons[0].grab_focus()
 		# We link each skill button to its next and previous buttons, so we can
 		# change focus with the keyboard
 		if buttons.size() > 1:

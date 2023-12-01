@@ -1,6 +1,7 @@
 class_name PartyMenu extends Control
 
-@export var party_slots: Array[CharacterCombatContainer]
+@export var combat: CombatControl
+@export var party_slots: Array[PortraitContainer]
 
 # If a character is selected then it will be highlighted in the party menu and
 # its portrait and skills will be shown in the skills menu
@@ -11,13 +12,13 @@ var _selected_index = -1
 # updating and to prepare for the next battle
 func clear():
 	for c in party_slots:
-		c.set_to_character()
+		c.set_character()
 
 func add_character(character: Character):
 	for c in party_slots:
 		# If we find an empty slot, we assign a character and return
 		if not c.character:
-			c.set_to_character(character)
+			c.set_character(character)
 			return
 	
 	# If we reach this point it means all slots were filled and trying to add a
@@ -83,3 +84,23 @@ func select_previous_character(loop: bool = false):
 		# If we aren't looping, the characters stay deselected
 		
 	select_character(previous)
+
+# Para terminar el combate por la fuerza.
+func _on_run_pressed():
+	combat.display_text('Como buen cobarde, huiste.')
+	await combat.textbox_closed
+	await get_tree().create_timer(0.5).timeout
+	combat.end_battle()
+
+# El ataque del jugador.
+func _on_attack_pressed():
+	combat.skills_menu.set_character(selected_character)
+	combat.show_skills_menu()
+
+# La defensa del jugador.
+func _on_defense_pressed():
+	var action = CombatAction.new(Defense.new(), selected_character, null)
+	combat.action_queue.append(action)
+	select_next_character()
+	if not selected_character:
+		combat.action_phase()

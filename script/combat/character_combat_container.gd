@@ -1,12 +1,11 @@
-class_name CharacterCombatContainer extends Panel
+class_name PortraitContainer
+extends CharacterContainer
 
 @export var stats : Resource # ThePlayerResource
 
 @export var portrait: TextureRect
 @export var character_name: Label
 @export var animations: AnimationPlayer
-@export var fill_bars: FillBars
-var character: Character
 
 # If this container is selected it should show some indicator
 var is_selected: bool = false:
@@ -21,26 +20,14 @@ func _ready():
 	hide()
 
 # Assigns a character to this character slot in the gui to monitor its stats
-func set_to_character(new_character: Character = null):
-	# We must first remove the previous character, if any, and then we can add
-	# the new one if it's not null.
-	remove_character()
+func set_character(new_character: Character = null):
+	super.set_character(new_character)
 	if new_character:
-		character = new_character
 		character_name.text = character.name
-		_update_portrait(null, character.combat_model.current_portrait)
-		character.combat_model.update_portrait.connect(_update_portrait)
-		fill_bars._update_max_health(0, character.stats.max_health)
-		character.stats.update_max_health.connect(fill_bars._update_max_health)
-		fill_bars._update_health(0, character.stats.health)
-		character.stats.update_health.connect(fill_bars._update_health)
-		fill_bars._update_max_energy(0, character.stats.max_energy)
-		character.stats.update_max_energy.connect(fill_bars._update_max_energy)
-		fill_bars._update_energy(0, character.stats.energy)
-		character.stats.update_energy.connect(fill_bars._update_energy)
-		
+		_update_portrait(null, new_character.combat_model.current_portrait)
+		new_character.combat_model.update_portrait.connect(_update_portrait)
+	
 		show()
-		
 
 # If this container has a character registered, it removes it and disconnects
 # all signals
@@ -48,11 +35,7 @@ func remove_character():
 	if character:
 		hide()
 		character.combat_model.update_portrait.disconnect(_update_portrait)
-		character.stats.update_max_health.disconnect(fill_bars._update_max_health)
-		character.stats.update_health.disconnect(fill_bars._update_health)
-		character.stats.update_max_energy.disconnect(fill_bars._update_max_energy)
-		character.stats.update_energy.disconnect(fill_bars._update_energy)
-		character = null
+	super.remove_character()
 
 func _update_portrait(_old: TextureRect, new: TextureRect):
 	portrait.texture = new.texture
