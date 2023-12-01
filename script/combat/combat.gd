@@ -18,14 +18,9 @@ signal textbox_closed
 # actions have been chosen the enemy actions are going to be inserted inbetween.
 var action_queue: Array[CombatAction]
 
-# TODO: change this so that there is a party of enemies
-var enemy: Character = null
+var enemy_party: Party = null
 
 var showing_skills = false
-
-var player = null
-var retrato_player = null
-
 
 # Para cuando haya una defensa del jugador.
 var defending = false
@@ -47,15 +42,15 @@ func _input(_event):
 		party_menu.select_next_character()
 
 # Fills the screen with the battling characters and their info and begins combat
-# TODO: For now it only receives one enemy the characters will battle. It has to
-# be changed later to accept a party of enemies, when that is implemented.
-func start_battle(enemy: Character):
-	for member in Player.party:
+func start_battle(enemy_party: Party):
+	for member in Player.party.members:
 		party_menu.add_character(member)
 		player_area.add_character(member)
 	party_menu.select_character(0)
-	enemy_area.add_character(enemy)
-	self.enemy = enemy
+	for enemy in enemy_party.members:
+		enemy_area.add_character(enemy)
+	self.enemy_party = enemy_party
+	show_party_menu()
 	await ScreenManager.push(ScreenManager.combat_screen)
 
 # Called at the end of the battle to clean the screen
@@ -65,12 +60,18 @@ func end_battle():
 	player_area.clear()
 	enemy_area.clear()
 	#TODO: replace this with more permanent solution to rebattle
-	enemy.stats.replenish()
+	enemy_party.members[0].stats.replenish()
+	enemy_party = null
 
 # Shows the party menu and hides the skills menu
 func show_party_menu():
 	if not party_menu.visible:
 		change_menu_animation.play("HideSkills")
+		await change_menu_animation.animation_finished
+		if party_menu.selected_character:
+			# TODO: change it so that we don't need to refer to the button
+			# directly
+			$PartyMenu/Actions/Attack.grab_focus()
 
 # Shows the skills menu and hides the party menu
 func show_skills_menu():
@@ -81,14 +82,23 @@ func show_skills_menu():
 func action_phase():
 	# Just for testing, we add the enemy actions here
 	# Always attacks the first character, we assume that it is there
-	var enemy_action = CombatAction.new(enemy.skills[0], enemy, player_area.characters[0])
-	action_queue.append(enemy_action)
+	for enemy in enemy_party.members:
+		var enemy_action = CombatAction.new(enemy.skills[0], enemy, player_area.characters[0])
+		action_queue.append(enemy_action)
 	action_queue.sort_custom(func(a, b): b.order < a.order)
 	for action in action_queue:
 		action.execute()
 	action_queue.clear()
-	if enemy.stats.health <= 0:
+	for enemy in enemy_party.members:
+		if enemy.stats.health <= 0 and enemy_area.has(enemy):
+			enemy_area.remove_character(enemy)
+	if enemy_area.is_empty():
 		end_battle()
+	else:
+		party_menu.select_character(0)
+		# TODO: change it so that we don't need to refer to the button
+		# directly
+		$PartyMenu/Actions/Attack.grab_focus()
 	
 
 # Para mostrar el texto dentro de los cuadros de texto.

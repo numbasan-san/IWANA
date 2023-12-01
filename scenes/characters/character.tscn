@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://script/characters/combat_model.gd" id="13_d6ple"]
 
 [sub_resource type="Resource" id="Resource_5rp3g"]
+resource_local_to_scene = true
 script = ExtResource("2_2yyb0")
 base_max_health = 1
 base_max_energy = 0

@@ -39,3 +39,10 @@ func remove_character(character: Character):
 func clear():
 	for s in sprite_containers:
 		s.remove_character()
+	characters.clear()
+
+func has(character: Character):
+	return characters.has(character)
+
+func is_empty():
+	return characters.is_empty()

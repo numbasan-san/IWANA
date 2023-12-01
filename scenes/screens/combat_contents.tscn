@@ -380,40 +380,59 @@ grow_vertical = 2
 
 [node name="EnemyArea" type="Control" parent="." node_paths=PackedStringArray("sprite_containers")]
 layout_mode = 1
-anchor_left = 0.1
-anchor_top = 0.1
-anchor_right = 0.4
-anchor_bottom = 0.6
+anchor_left = 0.165
+anchor_top = 0.35
+anchor_right = 0.435
+anchor_bottom = 0.5
+offset_left = 0.199982
+offset_top = -3.05176e-05
+offset_right = -0.200073
 script = ExtResource("3_eyw5e")
 sprite_containers = [NodePath("SpriteContainer1"), NodePath("SpriteContainer2"), NodePath("SpriteContainer3"), NodePath("SpriteContainer4")]
 
 [node name="SpriteContainer1" parent="EnemyArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
-offset_left = 393.0
-offset_top = 335.0
-offset_right = 393.0
-offset_bottom = 335.0
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 2
 
 [node name="SpriteContainer2" parent="EnemyArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
-offset_left = 320.0
-offset_top = 140.0
-offset_right = 320.0
-offset_bottom = 140.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
 
 [node name="SpriteContainer3" parent="EnemyArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
-offset_left = 324.0
-offset_top = 296.0
-offset_right = 324.0
-offset_bottom = 296.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 0
 
 [node name="SpriteContainer4" parent="EnemyArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
-offset_left = 460.0
-offset_top = 366.0
-offset_right = 460.0
-offset_bottom = 366.0
+anchors_preset = 4
+anchor_top = 0.5
+anchor_right = 0.0
+anchor_bottom = 0.5
+offset_right = 0.0
+offset_bottom = 0.0
+grow_vertical = 2
 
 [node name="PartyMenu" type="Control" parent="." node_paths=PackedStringArray("party_slots")]
 layout_mode = 1
@@ -495,23 +514,32 @@ alignment = 1
 [node name="Attack" type="TextureButton" parent="PartyMenu/Actions"]
 layout_mode = 2
 size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../Run")
+focus_neighbor_bottom = NodePath("../Defense")
 texture_normal = ExtResource("7_k3t3k")
 texture_pressed = ExtResource("8_fewc1")
 texture_hover = ExtResource("8_fewc1")
+texture_focused = ExtResource("8_fewc1")
 
 [node name="Defense" type="TextureButton" parent="PartyMenu/Actions"]
 layout_mode = 2
 size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../Attack")
+focus_neighbor_bottom = NodePath("../Run")
 texture_normal = ExtResource("9_j2r3x")
 texture_pressed = ExtResource("10_wpyws")
 texture_hover = ExtResource("10_wpyws")
+texture_focused = ExtResource("10_wpyws")
 
 [node name="Run" type="TextureButton" parent="PartyMenu/Actions"]
 layout_mode = 2
 size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../Defense")
+focus_neighbor_bottom = NodePath("../Attack")
 texture_normal = ExtResource("11_wxol7")
 texture_pressed = ExtResource("12_1rras")
 texture_hover = ExtResource("12_1rras")
+texture_focused = ExtResource("12_1rras")
 
 [node name="SkillsMenu" type="Control" parent="." node_paths=PackedStringArray("combat", "character_slot", "skills_container", "button_model")]
 visible = false
