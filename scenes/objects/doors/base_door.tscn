@@ -6,10 +6,10 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_346tc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_808ni"]
-size = Vector2(37, 32)
+size = Vector2(185, 150)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i26qx"]
-size = Vector2(37, 4)
+size = Vector2(185, 40)
 
 [node name="BaseDoor" type="StaticBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_346tc")
@@ -17,11 +17,12 @@ script = ExtResource("1_6dlhj")
 spawn_direction = "up"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -163)
 region_enabled = true
 region_rect = Rect2(212, 52, 40, 68)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 16)
+position = Vector2(0, -75)
 shape = SubResource("RectangleShape2D_808ni")
 
 [node name="ZoneChange" type="Area2D" parent="."]
@@ -30,6 +31,5 @@ y_sort_enabled = true
 script = ExtResource("1_2qge8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneChange"]
-position = Vector2(0, 32)
 shape = SubResource("RectangleShape2D_i26qx")
 debug_color = Color(0.235294, 0.705882, 0.235294, 0.419608)

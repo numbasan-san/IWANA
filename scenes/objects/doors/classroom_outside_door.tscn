@@ -7,4 +7,4 @@
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_dh2ed")
-region_rect = Rect2(176, 96, 37, 65)
+region_rect = Rect2(880, 480, 185, 325)

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dtk4eewqiis4m" path="res://assets/rpg_sprites/objects/tiles_b.png" id="2_fdqtp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x1oey"]
-size = Vector2(40, 18.3333)
+size = Vector2(190, 96.6667)
 
 [node name="Desk" instance=ExtResource("1_sjp4f")]
 y_sort_enabled = true
@@ -12,9 +12,8 @@ scale = Vector2(1.2, 1.2)
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_fdqtp")
-region_rect = Rect2(96, 156, 42, 37)
+region_rect = Rect2(1075, 775, 210, 185)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0, 4.16667)
-scale = Vector2(0.8, 1)
+position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_x1oey")

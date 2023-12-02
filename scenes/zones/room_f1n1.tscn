@@ -5,9 +5,7 @@
 [node name="RoomF1N1" instance=ExtResource("1_p0tah")]
 
 [node name="Door" parent="." index="1"]
-zone = "f1n_hallway"
 spawn = "SpawnF1NR1"
-spawn_direction = "down"
 
 [node name="Items" type="Node2D" parent="." index="7"]
 z_index = 1

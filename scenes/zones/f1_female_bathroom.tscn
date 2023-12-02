@@ -1,26 +1,72 @@
-[gd_scene load_steps=2 format=3 uid="uid://2yngnccatdr1"]
+[gd_scene load_steps=4 format=3 uid="uid://2yngnccatdr1"]
 
 [ext_resource type="PackedScene" uid="uid://dvs7a5k1ejf15" path="res://scenes/zones/base_bathroom.tscn" id="1_7md5w"]
+[ext_resource type="PackedScene" uid="uid://b3lul826xl1vw" path="res://scenes/objects/bathroom/toilet_east.tscn" id="2_25fw0"]
+[ext_resource type="PackedScene" uid="uid://5n38y4d4l5hi" path="res://scenes/objects/bathroom/divider.tscn" id="3_jj0ij"]
 
 [node name="F1FemaleBathroom" instance=ExtResource("1_7md5w")]
 
 [node name="SpawnHallway" parent="SpawnPoints" index="0"]
-position = Vector2(80, 242)
+position = Vector2(-320, 1354)
 
-[node name="TileMap" parent="." index="1"]
-position = Vector2(240, 0)
-scale = Vector2(-1, 1)
-
-[node name="Sinks" parent="." index="2"]
-position = Vector2(38, 101)
-scale = Vector2(-1, 1)
-
-[node name="Stalls" parent="." index="3"]
-position = Vector2(241, 66)
-scale = Vector2(-1, 1)
-
-[node name="Door" parent="." index="4"]
-position = Vector2(80, 274)
+[node name="Door" parent="." index="1"]
+position = Vector2(-320, 1452)
 zone = "f1n_hallway"
 spawn = "SpawnF1FB"
 spawn_direction = "down"
+
+[node name="TileMap" parent="." index="2"]
+position = Vector2(240, 0)
+scale = Vector2(-1, 1)
+
+[node name="Sinks" parent="." index="3"]
+position = Vector2(-514, 1237)
+scale = Vector2(-1, 1)
+
+[node name="Stalls" parent="." index="4"]
+position = Vector2(241, 1394)
+scale = Vector2(-1, 1)
+
+[node name="ToiletEast" parent="Stalls/Stall1" index="0" instance=ExtResource("2_25fw0")]
+y_sort_enabled = true
+position = Vector2(-70, -51)
+scale = Vector2(-1, 1)
+
+[node name="Divider2" parent="Stalls/Stall1" index="1" instance=ExtResource("3_jj0ij")]
+y_sort_enabled = true
+
+[node name="ToiletEast" parent="Stalls/Stall2" index="0" instance=ExtResource("2_25fw0")]
+y_sort_enabled = true
+position = Vector2(-70, -51)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Divider2" parent="Stalls/Stall2" index="1" instance=ExtResource("3_jj0ij")]
+y_sort_enabled = true
+
+[node name="ToiletEast" parent="Stalls/Stall3" index="0" instance=ExtResource("2_25fw0")]
+y_sort_enabled = true
+position = Vector2(-70, -51)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Divider2" parent="Stalls/Stall3" index="1" instance=ExtResource("3_jj0ij")]
+y_sort_enabled = true
+
+[node name="ToiletEast" parent="Stalls/Stall4" index="0" instance=ExtResource("2_25fw0")]
+y_sort_enabled = true
+position = Vector2(-70, -51)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Divider2" parent="Stalls/Stall4" index="1" instance=ExtResource("3_jj0ij")]
+y_sort_enabled = true
+
+[node name="ToiletEast" parent="Stalls/Stall5" index="0" instance=ExtResource("2_25fw0")]
+y_sort_enabled = true
+position = Vector2(-70, -51)
+rotation = 3.14159
+scale = Vector2(1, -1)
+
+[node name="Divider2" parent="Stalls/Stall5" index="1" instance=ExtResource("3_jj0ij")]
+y_sort_enabled = true

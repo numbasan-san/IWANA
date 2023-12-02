@@ -9,18 +9,19 @@
 [node name="temp_construccion" type="Node2D"]
 
 [node name="SalaP1N1" parent="." instance=ExtResource("1_merun")]
-position = Vector2(944, -414)
+position = Vector2(1065, -413)
 
 [node name="SalaP1N2" parent="." instance=ExtResource("2_82edb")]
-position = Vector2(1409, -413)
+position = Vector2(3555, -413)
 
 [node name="PasilloP1N" parent="." instance=ExtResource("3_gok78")]
 y_sort_enabled = true
+position = Vector2(-3792, 1332)
 
 [node name="BañoP1M" parent="." instance=ExtResource("4_io0q7")]
 y_sort_enabled = false
-position = Vector2(1859, -197)
+position = Vector2(5595, 507)
 
 [node name="BañoP1H" parent="." instance=ExtResource("5_ygbv7")]
 y_sort_enabled = false
-position = Vector2(1634, -197)
+position = Vector2(5925, 507)

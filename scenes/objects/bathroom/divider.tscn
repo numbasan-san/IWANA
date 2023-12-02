@@ -5,24 +5,27 @@
 [ext_resource type="Script" path="res://script/transparency.gd" id="3_1n5ou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3jmb"]
-size = Vector2(64, 7)
+size = Vector2(358, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b2dii"]
-size = Vector2(64, 29)
+size = Vector2(378, 42)
 
 [node name="Divider" instance=ExtResource("1_sq6rw")]
 
 [node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -162)
 texture = ExtResource("2_2b50v")
-region_rect = Rect2(17, 23, 64, 58)
+region_rect = Rect2(95, 129, 358, 324)
+
+[node name="StaticBody2D" parent="." index="1"]
+position = Vector2(0, -10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0, 25.5)
 shape = SubResource("RectangleShape2D_x3jmb")
 
 [node name="ActivateTransparency" type="Area2D" parent="." index="2"]
+position = Vector2(0, -41)
 script = ExtResource("3_1n5ou")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActivateTransparency" index="0"]
-position = Vector2(0, 14.5)
 shape = SubResource("RectangleShape2D_b2dii")

@@ -4,13 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://dwgsvdhxasp3f" path="res://assets/rpg_sprites/objects/tiles_c.png" id="2_kgmb6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glq66"]
-size = Vector2(21, 34)
+size = Vector2(118, 192)
 
 [node name="SinkBottom" instance=ExtResource("1_4lv8k")]
 
 [node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -96)
 texture = ExtResource("2_kgmb6")
-region_rect = Rect2(172, 79, 21, 34)
+region_rect = Rect2(962, 440, 118, 192)
+
+[node name="StaticBody2D" parent="." index="1"]
+position = Vector2(0, -96)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 shape = SubResource("RectangleShape2D_glq66")

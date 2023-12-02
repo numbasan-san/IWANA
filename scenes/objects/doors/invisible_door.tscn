@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://script/door/zone_change.gd" id="3_5g2h5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bfx45"]
-size = Vector2(38, 7)
+size = Vector2(185, 40)
 
 [node name="InvisibleDoor" type="Node2D"]
 z_index = 1
@@ -14,8 +14,8 @@ script = ExtResource("1_kd1cq")
 
 [node name="Shadow" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.784314)
-position = Vector2(0, -19)
-scale = Vector2(1.3, 0.703)
+position = Vector2(0, -150)
+scale = Vector2(6.5, 5)
 texture = ExtResource("2_2j6go")
 region_enabled = true
 region_rect = Rect2(0, 0, 64, 128)

@@ -4,14 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://cxlduayq0ajcx" path="res://assets/rpg_sprites/objects/tiles_a.png" id="2_ub7i6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wd2n"]
-size = Vector2(34, 34)
+size = Vector2(170, 136)
 
 [node name="Locker" instance=ExtResource("1_mavtk")]
 
 [node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -173)
 texture = ExtResource("2_ub7i6")
-region_rect = Rect2(128, 91, 34, 69)
+region_rect = Rect2(640, 455, 170, 345)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0, 18)
+position = Vector2(0, -68)
 shape = SubResource("RectangleShape2D_2wd2n")
