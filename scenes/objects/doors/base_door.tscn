@@ -6,10 +6,10 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_346tc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_808ni"]
-size = Vector2(37, 32)
+size = Vector2(36, 18)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i26qx"]
-size = Vector2(37, 4)
+size = Vector2(36, 4)
 
 [node name="BaseDoor" type="StaticBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_346tc")

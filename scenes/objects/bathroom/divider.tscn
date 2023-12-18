@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://5n38y4d4l5hi"]
 
 [ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://scenes/objects/base_object.tscn" id="1_sq6rw"]
-[ext_resource type="Texture2D" uid="uid://dwgsvdhxasp3f" path="res://assets/rpg_sprites/objects/tiles_c.png" id="2_2b50v"]
+[ext_resource type="Texture2D" uid="uid://cgh1wvby8b2db" path="res://assets/rpg_sprites/objects/tiles_c.png" id="2_2b50v"]
 [ext_resource type="Script" path="res://script/transparency.gd" id="3_1n5ou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3jmb"]
