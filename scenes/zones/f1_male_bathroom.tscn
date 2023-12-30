@@ -4,7 +4,7 @@
 
 [node name="F1MaleBathroom" instance=ExtResource("1_pdam1")]
 
-[node name="Door" parent="." index="4"]
+[node name="Door" parent="." index="1"]
 zone = "f1n_hallway"
 spawn = "SpawnF1MB"
 spawn_direction = "down"

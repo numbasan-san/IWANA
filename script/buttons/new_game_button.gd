@@ -12,10 +12,10 @@ func _on_pressed():
 	Player.party.add(carla)
 	Player.party.add(guille)
 	var starting_zone = ZoneManager.load("room_f1n1")
-	ScreenManager.rpg_screen.contents.reposition_character(noby, starting_zone)
+	ScreenManager.rpg_screen.contents.spawn(noby, starting_zone)
 	var dummy = CharacterManager.load("dummy")
 	var dev_zone = ZoneManager.load("dev_testing")
-	ScreenManager.rpg_screen.contents.reposition_character(dummy, dev_zone)
+	ScreenManager.rpg_screen.contents.spawn(dummy, dev_zone)
 	ScreenManager.push(ScreenManager.rpg_screen)
 	ScriptManager.restart()
 	disabled = true

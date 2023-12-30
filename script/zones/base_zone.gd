@@ -43,16 +43,42 @@ extends Node2D
 
 #-----------------------------------------------------
 
-@export var spawn_points: Node
+@onready var spawn_points: Node = $SpawnPoints
+@onready var tile_map: TileMap = $TileMap
+
+# Thelayers and masks are stored so that they can be restored after
+# reactivating the zone
+var _collision_layers: Array[int]
+var _collision_masks: Array[int]
+
+func _ready():
+	var n_phys_layers = tile_map.tile_set.get_physics_layers_count()
+	var i = 0
+	while i < n_phys_layers:
+		_collision_layers.append(tile_map.tile_set.get_physics_layer_collision_layer(i))
+		_collision_masks.append(tile_map.tile_set.get_physics_layer_collision_mask(i))
+		i += 1
 
 # Activates processing, phisics, visibility and other functionalities of a zone
 func activate():
 	process_mode = Node.PROCESS_MODE_INHERIT
 	set_physics_process(true)
+	var n_phys_layers = tile_map.tile_set.get_physics_layers_count()
+	var i = 0
+	while i < n_phys_layers:
+		tile_map.tile_set.set_physics_layer_collision_layer(i, _collision_layers[i])
+		tile_map.tile_set.set_physics_layer_collision_mask(i, _collision_masks[i])
+		i += 1
 	show()
 
 # Deactivates processing, phisics, visibility and other functionalities of a zone
 func deactivate():
 	hide()
+	var n_phys_layers = tile_map.tile_set.get_physics_layers_count()
+	var i = 0
+	while i < n_phys_layers:
+		tile_map.tile_set.set_physics_layer_collision_layer(i, 0)
+		tile_map.tile_set.set_physics_layer_collision_mask(i, 0)
+		i += 1
 	set_physics_process(false)
 	process_mode = Node.PROCESS_MODE_DISABLED

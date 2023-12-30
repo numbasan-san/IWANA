@@ -37,6 +37,7 @@ func activate():
 func deactivate(_visible: bool = false):
 	is_active = false
 	set_process_input(false)
+	contents.set_physics_process(false)
 	contents.process_mode = Node.PROCESS_MODE_DISABLED
 	if _visible:
 		show()

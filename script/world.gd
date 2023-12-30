@@ -89,3 +89,5 @@ func spawn(
 	# If the execution reaches this point, we have a valid position
 	reposition_character(character, new_zone, new_position, new_direction)
 
+func change_active_zone(zone: Zone):
+	pass

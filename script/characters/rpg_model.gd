@@ -16,8 +16,8 @@ func _ready():
 
 func _process(_delta):
 	# Movement speed of the character models in world
-	velocity.x = get_axis().x * 200
-	velocity.y = get_axis().y * 200
+	velocity.x = get_axis().x * 800
+	velocity.y = get_axis().y * 800
 	move_and_slide()
 	
 	# Animations depending of the player direction

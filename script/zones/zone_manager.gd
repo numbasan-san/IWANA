@@ -21,8 +21,8 @@ func load(zone_name: String):
 		if scn:
 			zone = scn.instantiate()
 			_zones[zone_name] = zone
-			zone.deactivate()
 			add_child(zone)
+			zone.deactivate()
 		else:
 			printerr("We couldn't find a zone with name " \
 				+ zone_name + " in the folder " + folder)

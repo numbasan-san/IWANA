@@ -4,23 +4,24 @@
 [ext_resource type="Script" path="res://script/player.gd" id="1_oj7ea"]
 [ext_resource type="Resource" uid="uid://dfuucb5spinx8" path="res://script/object_inventory/inventory/resources/inventory.tres" id="2_ks6fo"]
 
-[sub_resource type="CanvasTexture" id="CanvasTexture_jt2gw"]
+[sub_resource type="CanvasTexture" id="CanvasTexture_pds3y"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tw0p"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p8wqi"]
 size = Vector2(107.235, 82.99)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gsopy"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tclry"]
 resource_local_to_scene = true
-size = Vector2(40, 40)
+size = Vector2(200, 200)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_c1773"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yq1h1"]
 resource_local_to_scene = true
-size = Vector2(22, 24)
+size = Vector2(80, 80)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0vefp"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwfji"]
+size = Vector2(110, 50)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_000qg"]
-size = Vector2(20, 28)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2a8vr"]
+size = Vector2(92, 74)
 
 [node name="Player" type="Node"]
 script = ExtResource("1_oj7ea")
@@ -31,8 +32,10 @@ inventory = ExtResource("2_ks6fo")
 general_interaction_area = NodePath("GeneralInteraction")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerControl"]
+zoom = Vector2(0.6, 0.6)
 
 [node name="TextureRect" type="TextureRect" parent="PlayerControl/Camera2D"]
+visible = false
 modulate = Color(0.0784314, 0.0784314, 0.0784314, 1)
 z_index = -10
 anchors_preset = 8
@@ -46,39 +49,44 @@ offset_right = 1500.0
 offset_bottom = 1500.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("CanvasTexture_jt2gw")
+texture = SubResource("CanvasTexture_pds3y")
 
 [node name="CameraCollision" type="Area2D" parent="PlayerControl/Camera2D"]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerControl/Camera2D/CameraCollision"]
-shape = SubResource("RectangleShape2D_6tw0p")
+shape = SubResource("RectangleShape2D_p8wqi")
 
 [node name="ItemCollection" type="Area2D" parent="PlayerControl"]
+position = Vector2(-1, -22)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerControl/ItemCollection"]
-shape = SubResource("RectangleShape2D_gsopy")
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_tclry")
 debug_color = Color(0.803922, 0.419608, 0, 0.419608)
 
 [node name="DoorInteraction" type="Area2D" parent="PlayerControl"]
+position = Vector2(-1, -22)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerControl/DoorInteraction"]
 position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_c1773")
+shape = SubResource("RectangleShape2D_yq1h1")
 debug_color = Color(0.235294, 0.705882, 0.235294, 0.419608)
 
 [node name="TransparencyActivation" type="Area2D" parent="PlayerControl"]
+position = Vector2(-1, -22)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerControl/TransparencyActivation"]
-shape = SubResource("RectangleShape2D_0vefp")
+shape = SubResource("RectangleShape2D_nwfji")
 debug_color = Color(0.705882, 0.705882, 0.705882, 0.419608)
 
 [node name="GeneralInteraction" type="Area2D" parent="PlayerControl"]
+position = Vector2(-1, -22)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerControl/GeneralInteraction"]
-position = Vector2(0, 4)
-shape = SubResource("RectangleShape2D_000qg")
+position = Vector2(0, 17)
+shape = SubResource("RectangleShape2D_2a8vr")
 debug_color = Color(0.705882, 0.705882, 0.705882, 0.419608)
 
 [connection signal="area_entered" from="PlayerControl/ItemCollection" to="PlayerControl" method="_on_item_contact"]

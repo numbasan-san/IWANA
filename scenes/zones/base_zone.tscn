@@ -2,8 +2,19 @@
 
 [ext_resource type="Script" path="res://script/zones/base_zone.gd" id="1_1ux3r"]
 
-[node name="Zone" type="Node2D" node_paths=PackedStringArray("spawn_points")]
+[node name="Zone" type="Node2D"]
 script = ExtResource("1_1ux3r")
-spawn_points = NodePath("SpawnPoints")
+
+[node name="TileMap" type="TileMap" parent="."]
+cell_quadrant_size = 80
+format = 2
+layer_0/name = "Layer 0"
+layer_1/name = "Layer 1"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array()
 
 [node name="SpawnPoints" type="Node" parent="."]
