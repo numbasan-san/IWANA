@@ -21,20 +21,16 @@ func _process(_delta):
 	move_and_slide()
 	
 	# Animations depending of the player direction
-	#Up
-	if get_axis().y == -1:
+	if get_axis().y == -1: #Up
 		anim = 'walk_up'
 		stop_anim = 'stop_up'
-	# Down
-	if get_axis().y == 1:
+	if get_axis().y == 1: # Down
 		anim = 'walk_down'
 		stop_anim = 'stop_down'
-	# Left
-	if get_axis().x == -1:
+	if get_axis().x == -1: # Left
 		anim = 'walk_left'
 		stop_anim = 'stop_left'
-	# Right
-	if get_axis().x == 1:
+	if get_axis().x == 1: # Right
 		anim = 'walk_right'
 		stop_anim = 'stop_right'
 	if has_node("Animation"):
