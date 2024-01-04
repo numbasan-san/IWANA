@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://dbuixiuq0ijmx"]
+[gd_scene load_steps=15 format=3 uid="uid://dbuixiuq0ijmx"]
 
 [ext_resource type="Script" path="res://script/combat/character_combat_container.gd" id="1_78o6c"]
 [ext_resource type="PackedScene" uid="uid://ceqe4yrlcfouu" path="res://scenes/fill_bars.tscn" id="2_ef84f"]
 [ext_resource type="Texture2D" uid="uid://b72uqo8w58ohv" path="res://assets/combat_sprites/nombre_fondo2.png" id="3_31es1"]
 [ext_resource type="FontFile" uid="uid://bvx3kwcljl1mv" path="res://assets/combat_sprites/font/IWANA.ttf" id="4_e15tb"]
+[ext_resource type="Texture2D" uid="uid://bida625goa17a" path="res://assets/combat_sprites/selection.png" id="5_m27ci"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h3i3n"]
 
@@ -166,3 +167,13 @@ libraries = {
 "": SubResource("AnimationLibrary_ka2y5"),
 "GUI": SubResource("AnimationLibrary_cw8qy")
 }
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_m27ci")
+expand_mode = 1

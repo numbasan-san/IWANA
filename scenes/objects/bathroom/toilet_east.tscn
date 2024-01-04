@@ -1,17 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://b3lul826xl1vw"]
+[gd_scene load_steps=4 format=3 uid="uid://jfxa3getivws"]
 
 [ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://scenes/objects/base_object.tscn" id="1_lgaww"]
-[ext_resource type="Texture2D" uid="uid://dwgsvdhxasp3f" path="res://assets/rpg_sprites/objects/tiles_c.png" id="2_btxhb"]
+[ext_resource type="Texture2D" uid="uid://bowi2a1nggnp3" path="res://assets/rpg_sprites/objects/bathroom.png" id="2_86emn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pumgp"]
-size = Vector2(190, 67)
+size = Vector2(170, 67)
 
 [node name="ToiletEast" instance=ExtResource("1_lgaww")]
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, -112)
-texture = ExtResource("2_btxhb")
-region_rect = Rect2(666, 409, 190, 223)
+position = Vector2(0, -2)
+texture = ExtResource("2_86emn")
+offset = Vector2(0, -98)
+region_rect = Rect2(1290, 360, 170, 200)
 
 [node name="StaticBody2D" parent="." index="1"]
 position = Vector2(0, -112)

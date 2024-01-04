@@ -1,20 +1,21 @@
 [gd_scene load_steps=4 format=3 uid="uid://dbrpal8fvvdd"]
 
 [ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://scenes/objects/base_object.tscn" id="1_6mgd6"]
-[ext_resource type="Texture2D" uid="uid://dwgsvdhxasp3f" path="res://assets/rpg_sprites/objects/tiles_c.png" id="2_o4ccq"]
+[ext_resource type="Texture2D" uid="uid://bowi2a1nggnp3" path="res://assets/rpg_sprites/objects/bathroom.png" id="2_8k7uy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glq66"]
-size = Vector2(118, 138)
+size = Vector2(104, 128)
 
 [node name="SinkMiddle" instance=ExtResource("1_6mgd6")]
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, -69)
-texture = ExtResource("2_o4ccq")
-region_rect = Rect2(962, 300, 118, 138)
+texture = ExtResource("2_8k7uy")
+offset = Vector2(0, -64)
+region_rect = Rect2(1556, 260, 104, 128)
 
 [node name="StaticBody2D" parent="." index="1"]
 position = Vector2(0, -69)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_glq66")

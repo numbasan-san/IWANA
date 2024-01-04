@@ -206,8 +206,9 @@ y_sort_enabled = true
 script = ExtResource("4_i5ekl")
 
 [node name="Sprite2D" type="Sprite2D" parent="RPGModel"]
-position = Vector2(1, -180)
+position = Vector2(1, -31)
 texture = ExtResource("5_jdvmx")
+offset = Vector2(0, -150)
 hframes = 8
 vframes = 8
 frame = 16

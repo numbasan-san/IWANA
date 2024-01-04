@@ -148,7 +148,10 @@ pattern_8 = SubResource("TileMapPattern_n40g6")
 
 [node name="RoomF1N1" instance=ExtResource("1_p0tah")]
 
-[node name="Door" parent="." index="0"]
+[node name="ClassroomInsideDoor" parent="." index="0"]
+spawn = "SpawnF1NR1"
+
+[node name="Door" parent="." index="1"]
 spawn = "SpawnF1NR1"
 
 [node name="Items" type="Node2D" parent="." index="7"]
@@ -156,7 +159,7 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(-263, -136)
 
-[node name="TileMap" parent="." index="8"]
+[node name="TileMap" parent="." index="9"]
 tile_set = SubResource("TileSet_tjb0j")
 
 [node name="Default" type="Node2D" parent="SpawnPoints" index="0"]

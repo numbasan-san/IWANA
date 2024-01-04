@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://bc0x6r1sqak4r"]
 
 [ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://scenes/objects/base_object.tscn" id="1_cv25d"]
-[ext_resource type="Texture2D" uid="uid://dtk4eewqiis4m" path="res://assets/rpg_sprites/objects/tiles_b.png" id="2_fobni"]
+[ext_resource type="Texture2D" uid="uid://dr1qgclbkgriv" path="res://assets/rpg_sprites/objects/classroom.png" id="2_34cmj"]
 
 [node name="TeacherDesk" instance=ExtResource("1_cv25d")]
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_fobni")
-region_rect = Rect2(640, 30, 430, 305)
+texture = ExtResource("2_34cmj")
+region_rect = Rect2(1470, 760, 430, 280)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
 polygon = PackedVector2Array(-205, 142, 205, 142, 205, 28, 55, 28, 55, -70, -55, -70, -55, 28, -205, 28)

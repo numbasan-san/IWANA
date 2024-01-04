@@ -1,28 +1,34 @@
-[gd_scene load_steps=6 format=3 uid="uid://hed2eep7147o"]
+[gd_scene load_steps=7 format=3 uid="uid://hed2eep7147o"]
 
 [ext_resource type="Script" path="res://script/door/zone_change.gd" id="1_2qge8"]
 [ext_resource type="Script" path="res://script/door/portal.gd" id="1_6dlhj"]
+[ext_resource type="Texture2D" uid="uid://d3cnfg7riiid4" path="res://assets/rpg_sprites/objects/doors.png" id="2_y66ju"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_346tc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_808ni"]
-size = Vector2(185, 150)
+resource_local_to_scene = true
+size = Vector2(185, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i26qx"]
-size = Vector2(185, 40)
+resource_local_to_scene = true
+size = Vector2(190, 40)
 
 [node name="BaseDoor" type="StaticBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_346tc")
 script = ExtResource("1_6dlhj")
 spawn_direction = "up"
+transparency_value = 0.3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(0, -163)
+texture = ExtResource("2_y66ju")
 region_enabled = true
-region_rect = Rect2(212, 52, 40, 68)
+region_rect = Rect2(80, 565, 185, 325)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, -75)
 shape = SubResource("RectangleShape2D_808ni")
 
 [node name="ZoneChange" type="Area2D" parent="."]

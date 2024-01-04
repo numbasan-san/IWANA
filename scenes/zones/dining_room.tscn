@@ -1,13 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://rvq00v0vuyce"]
+[gd_scene load_steps=4 format=3 uid="uid://dsxqd1ubb8a0s"]
 
 [ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://scenes/zones/base_zone.tscn" id="1_qx4ns"]
-[ext_resource type="TileSet" uid="uid://clgr7qwoprumi" path="res://scenes/zones/basic_floor_and_walls.tres" id="2_elce0"]
+[ext_resource type="TileSet" uid="uid://cynvi2sqanp6p" path="res://scenes/zones/basic_floor_and_walls.tres" id="2_elce0"]
 [ext_resource type="PackedScene" uid="uid://bwqpwxoacpjai" path="res://scenes/objects/doors/invisible_door.tscn" id="3_xph2e"]
 
 [node name="DiningRoom" instance=ExtResource("1_qx4ns")]
 y_sort_enabled = true
 
-[node name="TileMap" type="TileMap" parent="." index="0"]
+[node name="TileMap2" type="TileMap" parent="." index="0"]
 z_index = -1
 position = Vector2(0, 27)
 tile_set = ExtResource("2_elce0")

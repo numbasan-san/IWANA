@@ -1,8 +1,8 @@
 [gd_scene load_steps=22 format=3 uid="uid://bqvxhi7wt87t"]
 
 [ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://scenes/zones/base_zone.tscn" id="1_wnoea"]
+[ext_resource type="PackedScene" uid="uid://cn0nlsq5wj8on" path="res://scenes/objects/doors/classroom_door.tscn" id="2_mcx63"]
 [ext_resource type="PackedScene" uid="uid://bdpp468pqvrja" path="res://scenes/objects/classroom/desk.tscn" id="2_ulqri"]
-[ext_resource type="PackedScene" uid="uid://bwqpwxoacpjai" path="res://scenes/objects/doors/invisible_door.tscn" id="3_ppn4c"]
 [ext_resource type="PackedScene" uid="uid://uni0pknyk3u6" path="res://scenes/objects/classroom/blackboard.tscn" id="4_ebl0c"]
 [ext_resource type="PackedScene" uid="uid://h7mki2t1blv5" path="res://scenes/objects/classroom/clock.tscn" id="5_p65in"]
 [ext_resource type="PackedScene" uid="uid://cfx0xnvbfch17" path="res://scenes/objects/classroom/classroom_window.tscn" id="6_tkoyl"]
@@ -155,10 +155,13 @@ pattern_8 = SubResource("TileMapPattern_1g0qu")
 [node name="BaseClassroom" instance=ExtResource("1_wnoea")]
 y_sort_enabled = true
 
-[node name="Door" parent="." index="0" instance=ExtResource("3_ppn4c")]
+[node name="Door" parent="." index="0" instance=ExtResource("2_mcx63")]
+z_index = 1
+y_sort_enabled = true
 position = Vector2(641, 2172)
 zone = "f1n_hallway"
 spawn_direction = "down"
+transparent = true
 
 [node name="Blackboard" parent="." index="1" instance=ExtResource("4_ebl0c")]
 y_sort_enabled = true
@@ -178,183 +181,183 @@ position = Vector2(-298, 42)
 
 [node name="Pair1" type="Node2D" parent="Desks" index="0"]
 y_sort_enabled = true
-position = Vector2(-500, 360)
+position = Vector2(-524, 456)
 
 [node name="Desk" parent="Desks/Pair1" index="0" instance=ExtResource("2_ulqri")]
 
 [node name="Chair" parent="Desks/Pair1" index="1" instance=ExtResource("9_8irrb")]
-position = Vector2(0, 77)
+position = Vector2(0, 71)
 
 [node name="Pair2" type="Node2D" parent="Desks" index="1"]
 y_sort_enabled = true
-position = Vector2(-40, 360)
+position = Vector2(-64, 456)
 
 [node name="Desk" parent="Desks/Pair2" index="0" instance=ExtResource("2_ulqri")]
 
 [node name="Chair" parent="Desks/Pair2" index="1" instance=ExtResource("9_8irrb")]
-position = Vector2(0, 77)
+position = Vector2(0, 71)
 
 [node name="Pair3" type="Node2D" parent="Desks" index="2"]
 y_sort_enabled = true
-position = Vector2(420, 360)
+position = Vector2(396, 456)
 
 [node name="Desk" parent="Desks/Pair3" index="0" instance=ExtResource("2_ulqri")]
 
 [node name="Chair" parent="Desks/Pair3" index="1" instance=ExtResource("9_8irrb")]
-position = Vector2(0, 77)
+position = Vector2(0, 71)
 
 [node name="Pair4" type="Node2D" parent="Desks" index="3"]
 y_sort_enabled = true
-position = Vector2(880, 360)
+position = Vector2(856, 456)
 
 [node name="Desk" parent="Desks/Pair4" index="0" instance=ExtResource("2_ulqri")]
 
 [node name="Chair" parent="Desks/Pair4" index="1" instance=ExtResource("9_8irrb")]
-position = Vector2(0, 77)
+position = Vector2(0, 71)
 
 [node name="Pair5" type="Node2D" parent="Desks" index="4"]
 y_sort_enabled = true
-position = Vector2(1340, 360)
+position = Vector2(1316, 456)
 
 [node name="Desk" parent="Desks/Pair5" index="0" instance=ExtResource("2_ulqri")]
 
 [node name="Chair" parent="Desks/Pair5" index="1" instance=ExtResource("9_8irrb")]
-position = Vector2(0, 77)
+position = Vector2(0, 71)
 
 [node name="Pair6" type="Node2D" parent="Desks" index="5"]
 y_sort_enabled = true
-position = Vector2(-500, 770)
+position = Vector2(-524, 866)
 
 [node name="Desk" parent="Desks/Pair6" index="0" instance=ExtResource("2_ulqri")]
 
 [node name="Chair" parent="Desks/Pair6" index="1" instance=ExtResource("9_8irrb")]
-position = Vector2(0, 77)
+position = Vector2(0, 71)
 
 [node name="Pair7" type="Node2D" parent="Desks" index="6"]
 y_sort_enabled = true
-position = Vector2(-40, 770)
+position = Vector2(-64, 866)
 
 [node name="Desk" parent="Desks/Pair7" index="0" instance=ExtResource("2_ulqri")]
 
 [node name="Chair" parent="Desks/Pair7" index="1" instance=ExtResource("9_8irrb")]
-position = Vector2(0, 77)
+position = Vector2(0, 71)
 
 [node name="Pair8" type="Node2D" parent="Desks" index="7"]
 y_sort_enabled = true
-position = Vector2(420, 770)
+position = Vector2(396, 866)
 
 [node name="Desk" parent="Desks/Pair8" index="0" instance=ExtResource("2_ulqri")]
 
 [node name="Chair" parent="Desks/Pair8" index="1" instance=ExtResource("9_8irrb")]
-position = Vector2(0, 77)
+position = Vector2(0, 71)
 
 [node name="Pair9" type="Node2D" parent="Desks" index="8"]
 y_sort_enabled = true
-position = Vector2(880, 770)
+position = Vector2(856, 866)
 
 [node name="Desk" parent="Desks/Pair9" index="0" instance=ExtResource("2_ulqri")]
 
 [node name="Chair" parent="Desks/Pair9" index="1" instance=ExtResource("9_8irrb")]
-position = Vector2(0, 77)
+position = Vector2(0, 71)
 
 [node name="Pair10" type="Node2D" parent="Desks" index="9"]
 y_sort_enabled = true
-position = Vector2(1340, 770)
+position = Vector2(1316, 866)
 
 [node name="Desk" parent="Desks/Pair10" index="0" instance=ExtResource("2_ulqri")]
 
 [node name="Chair" parent="Desks/Pair10" index="1" instance=ExtResource("9_8irrb")]
-position = Vector2(0, 77)
+position = Vector2(0, 71)
 
 [node name="Pair11" type="Node2D" parent="Desks" index="10"]
 y_sort_enabled = true
-position = Vector2(-500, 1180)
+position = Vector2(-524, 1276)
 
 [node name="Desk" parent="Desks/Pair11" index="0" instance=ExtResource("2_ulqri")]
 
 [node name="Chair" parent="Desks/Pair11" index="1" instance=ExtResource("9_8irrb")]
-position = Vector2(0, 77)
+position = Vector2(0, 71)
 
 [node name="Pair12" type="Node2D" parent="Desks" index="11"]
 y_sort_enabled = true
-position = Vector2(-40, 1180)
+position = Vector2(-64, 1276)
 
 [node name="Desk" parent="Desks/Pair12" index="0" instance=ExtResource("2_ulqri")]
 
 [node name="Chair" parent="Desks/Pair12" index="1" instance=ExtResource("9_8irrb")]
-position = Vector2(0, 77)
+position = Vector2(0, 71)
 
 [node name="Pair13" type="Node2D" parent="Desks" index="12"]
 y_sort_enabled = true
-position = Vector2(420, 1180)
+position = Vector2(396, 1276)
 
 [node name="Desk" parent="Desks/Pair13" index="0" instance=ExtResource("2_ulqri")]
 
 [node name="Chair" parent="Desks/Pair13" index="1" instance=ExtResource("9_8irrb")]
-position = Vector2(0, 77)
+position = Vector2(0, 71)
 
 [node name="Pair14" type="Node2D" parent="Desks" index="13"]
 y_sort_enabled = true
-position = Vector2(880, 1180)
+position = Vector2(856, 1276)
 
 [node name="Desk" parent="Desks/Pair14" index="0" instance=ExtResource("2_ulqri")]
 
 [node name="Chair" parent="Desks/Pair14" index="1" instance=ExtResource("9_8irrb")]
-position = Vector2(0, 77)
+position = Vector2(0, 71)
 
 [node name="Pair15" type="Node2D" parent="Desks" index="14"]
 y_sort_enabled = true
-position = Vector2(1340, 1180)
+position = Vector2(1316, 1276)
 
 [node name="Desk" parent="Desks/Pair15" index="0" instance=ExtResource("2_ulqri")]
 
 [node name="Chair" parent="Desks/Pair15" index="1" instance=ExtResource("9_8irrb")]
-position = Vector2(0, 77)
+position = Vector2(0, 71)
 
 [node name="Pair16" type="Node2D" parent="Desks" index="15"]
 y_sort_enabled = true
-position = Vector2(-500, 1590)
+position = Vector2(-524, 1686)
 
 [node name="Desk" parent="Desks/Pair16" index="0" instance=ExtResource("2_ulqri")]
 
 [node name="Chair" parent="Desks/Pair16" index="1" instance=ExtResource("9_8irrb")]
-position = Vector2(0, 77)
+position = Vector2(0, 71)
 
 [node name="Pair17" type="Node2D" parent="Desks" index="16"]
 y_sort_enabled = true
-position = Vector2(-40, 1590)
+position = Vector2(-64, 1686)
 
 [node name="Desk" parent="Desks/Pair17" index="0" instance=ExtResource("2_ulqri")]
 
 [node name="Chair" parent="Desks/Pair17" index="1" instance=ExtResource("9_8irrb")]
-position = Vector2(0, 77)
+position = Vector2(0, 71)
 
 [node name="Pair18" type="Node2D" parent="Desks" index="17"]
 y_sort_enabled = true
-position = Vector2(420, 1590)
+position = Vector2(396, 1686)
 
 [node name="Desk" parent="Desks/Pair18" index="0" instance=ExtResource("2_ulqri")]
 
 [node name="Chair" parent="Desks/Pair18" index="1" instance=ExtResource("9_8irrb")]
-position = Vector2(0, 77)
+position = Vector2(0, 71)
 
 [node name="Pair19" type="Node2D" parent="Desks" index="18"]
 y_sort_enabled = true
-position = Vector2(880, 1590)
+position = Vector2(856, 1686)
 
 [node name="Desk" parent="Desks/Pair19" index="0" instance=ExtResource("2_ulqri")]
 
 [node name="Chair" parent="Desks/Pair19" index="1" instance=ExtResource("9_8irrb")]
-position = Vector2(0, 77)
+position = Vector2(0, 71)
 
 [node name="Pair20" type="Node2D" parent="Desks" index="19"]
 y_sort_enabled = true
-position = Vector2(1340, 1590)
+position = Vector2(1316, 1686)
 
 [node name="Desk" parent="Desks/Pair20" index="0" instance=ExtResource("2_ulqri")]
 
 [node name="Chair" parent="Desks/Pair20" index="1" instance=ExtResource("9_8irrb")]
-position = Vector2(0, 77)
+position = Vector2(0, 71)
 
 [node name="TeacherDesk" parent="." index="5" instance=ExtResource("10_8e6d3")]
 position = Vector2(-500, 21)
@@ -368,4 +371,4 @@ layer_0/tile_data = PackedInt32Array(-196622, 458752, 2, -131086, 458752, 3, -19
 layer_1/tile_data = PackedInt32Array(1834994, 458752, 4, 1834995, 458752, 4, 1834996, 458752, 4, 1834997, 458752, 4, 1834998, 458752, 4, 1834999, 458752, 4, 1835000, 458752, 4, 1835001, 458752, 4, 1835002, 458752, 4, 1835003, 458752, 4, 1835004, 458752, 4, 1835005, 458752, 4, 1835006, 458752, 4, 1835007, 458752, 4, 1769472, 458752, 4, 1769473, 458752, 4, 1769474, 458752, 4, 1769475, 458752, 4, 1769476, 458752, 4, 1769477, 458752, 4, 1769478, 458752, 4, 1769481, 458752, 4, 1769482, 458752, 4, 1769483, 458752, 4, 1769484, 458752, 4, 1769485, 458752, 4, 1769486, 458752, 4, 1769487, 458752, 4, 1769488, 524288, 4, 1834993, 393216, 4, 1769457, 393216, 2, 1703921, 393216, 2, 1638385, 393216, 2, 1572849, 393216, 2, 1507313, 393216, 2, 1441777, 393216, 2, 1376241, 393216, 2, 1310705, 393216, 2, 1245169, 393216, 2, 1179633, 393216, 2, 1114097, 393216, 2, 1048561, 393216, 2, 983025, 393216, 2, 917489, 393216, 2, 851953, 393216, 2, 786417, 393216, 2, 720881, 393216, 2, 655345, 393216, 2, 589809, 393216, 2, 524273, 393216, 2, 458737, 393216, 2, 393201, 393216, 2, 327665, 393216, 2, 262129, 393216, 2, 196593, 393216, 2, 131057, 393216, 2, 65521, 393216, 2, -15, 393216, 2, -65551, 393216, 2, -131056, 524288, 2, -65520, 524288, 2, 16, 524288, 2, 65552, 524288, 2, 131088, 524288, 2, 196624, 524288, 2, 262160, 524288, 2, 327696, 524288, 2, 393232, 524288, 2, 458768, 524288, 2, 524304, 524288, 2, 589840, 524288, 2, 655376, 524288, 2, 720912, 524288, 2, 786448, 524288, 2, 851984, 524288, 2, 917520, 524288, 2, 983056, 524288, 2, 1048592, 524288, 2, 1114128, 524288, 2, 1179664, 524288, 2, 1245200, 524288, 2, 1310736, 524288, 2, 1376272, 524288, 2, 1441808, 524288, 2, 1507344, 524288, 2, 1572880, 524288, 2, 1638416, 524288, 2, 1703952, 524288, 2)
 
 [node name="SpawnHallway" type="Node2D" parent="SpawnPoints" index="0"]
-position = Vector2(641, 2020)
+position = Vector2(641, 2062)

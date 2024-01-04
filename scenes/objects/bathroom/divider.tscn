@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://5n38y4d4l5hi"]
 
 [ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://scenes/objects/base_object.tscn" id="1_sq6rw"]
-[ext_resource type="Texture2D" uid="uid://cgh1wvby8b2db" path="res://assets/rpg_sprites/objects/tiles_c.png" id="2_2b50v"]
+[ext_resource type="Texture2D" uid="uid://bowi2a1nggnp3" path="res://assets/rpg_sprites/objects/bathroom.png" id="2_ilit6"]
 [ext_resource type="Script" path="res://script/transparency.gd" id="3_1n5ou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3jmb"]
@@ -14,8 +14,8 @@ size = Vector2(378, 42)
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -162)
-texture = ExtResource("2_2b50v")
-region_rect = Rect2(95, 129, 358, 324)
+texture = ExtResource("2_ilit6")
+region_rect = Rect2(160, 155, 320, 290)
 
 [node name="StaticBody2D" parent="." index="1"]
 position = Vector2(0, -10)
@@ -23,9 +23,10 @@ position = Vector2(0, -10)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 shape = SubResource("RectangleShape2D_x3jmb")
 
-[node name="ActivateTransparency" type="Area2D" parent="." index="2"]
+[node name="ActivateTransparency" type="Area2D" parent="." index="2" node_paths=PackedStringArray("sprite")]
 position = Vector2(0, -41)
 script = ExtResource("3_1n5ou")
+sprite = NodePath("../Sprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActivateTransparency" index="0"]
 shape = SubResource("RectangleShape2D_b2dii")

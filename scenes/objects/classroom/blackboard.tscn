@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://uni0pknyk3u6"]
 
 [ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://scenes/objects/base_object.tscn" id="1_llljk"]
-[ext_resource type="Texture2D" uid="uid://dtk4eewqiis4m" path="res://assets/rpg_sprites/objects/tiles_b.png" id="2_c82f0"]
+[ext_resource type="Texture2D" uid="uid://dr1qgclbkgriv" path="res://assets/rpg_sprites/objects/classroom.png" id="2_2p183"]
 
 [node name="Chalkboard" instance=ExtResource("1_llljk")]
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_c82f0")
-region_rect = Rect2(200, 400, 650, 250)
+texture = ExtResource("2_2p183")
+region_rect = Rect2(690, 440, 650, 250)

@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://ddajwcewdj5gy"]
 
-[ext_resource type="PackedScene" uid="uid://cw0i1b0av20ds" path="res://scenes/objects/bathroom/toilet_west.tscn" id="1_fg4fj"]
+[ext_resource type="PackedScene" uid="uid://drdy68i3fh5js" path="res://scenes/objects/bathroom/toilet_west.tscn" id="1_fg4fj"]
 [ext_resource type="PackedScene" uid="uid://5n38y4d4l5hi" path="res://scenes/objects/bathroom/divider.tscn" id="2_d1m4s"]
 
 [node name="Stall" type="Node2D"]
 
 [node name="ToiletWest" parent="." instance=ExtResource("1_fg4fj")]
 y_sort_enabled = true
-position = Vector2(-70, -51)
+position = Vector2(-46, -51)
 
 [node name="Divider" parent="." instance=ExtResource("2_d1m4s")]
 y_sort_enabled = true
