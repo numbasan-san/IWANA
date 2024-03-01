@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bdpp468pqvrja"]
 
 [ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://scenes/objects/base_object.tscn" id="1_sjp4f"]
-[ext_resource type="Texture2D" uid="uid://dr1qgclbkgriv" path="res://assets/rpg_sprites/objects/classroom.png" id="2_e66rd"]
+[ext_resource type="Texture2D" uid="uid://b6c64b6ffilbd" path="res://assets/rpg_sprites/objects/chairs_and_tables.png" id="2_bvcnv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x1oey"]
 size = Vector2(190, 72.9167)
@@ -12,8 +12,8 @@ scale = Vector2(1.2, 1.2)
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -53.3333)
-texture = ExtResource("2_e66rd")
-region_rect = Rect2(1250, 120, 210, 180)
+texture = ExtResource("2_bvcnv")
+region_rect = Rect2(1170, 616, 210, 180)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 shape = SubResource("RectangleShape2D_x1oey")

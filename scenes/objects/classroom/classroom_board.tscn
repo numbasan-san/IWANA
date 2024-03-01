@@ -1,10 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbui3px8bpm0h"]
+[gd_scene load_steps=2 format=3 uid="uid://dbui3px8bpm0h"]
 
-[ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://scenes/objects/base_object.tscn" id="1_e5nim"]
-[ext_resource type="Texture2D" uid="uid://dr1qgclbkgriv" path="res://assets/rpg_sprites/objects/classroom.png" id="2_eoq7k"]
+[ext_resource type="PackedScene" uid="uid://n4u8y0x5enjf" path="res://scenes/objects/classroom/base_classroom_object.tscn" id="1_e5nim"]
 
 [node name="ClassroomBoard" instance=ExtResource("1_e5nim")]
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_eoq7k")
-region_rect = Rect2(80, 480, 320, 205)
+region_rect = Rect2(320, 120, 320, 205)

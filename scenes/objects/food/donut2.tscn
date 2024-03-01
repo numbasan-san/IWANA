@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cy6i54c15s8td"]
+
+[ext_resource type="PackedScene" uid="uid://bhdwcwp1jcngf" path="res://scenes/objects/cafeteria/base_cafe_object.tscn" id="1_ktudp"]
+
+[node name="Donut2" instance=ExtResource("1_ktudp")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(1600, 515, 40, 35)

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bowi2a1nggnp3" path="res://assets/rpg_sprites/objects/bathroom.png" id="2_ujwyw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glq66"]
-size = Vector2(104, 56)
+size = Vector2(115, 69)
 
 [node name="SinkTop" instance=ExtResource("1_mhivs")]
 
@@ -12,11 +12,11 @@ size = Vector2(104, 56)
 position = Vector2(0, -1)
 texture = ExtResource("2_ujwyw")
 offset = Vector2(0, -51)
-region_rect = Rect2(1556, 160, 104, 104)
+region_rect = Rect2(1205, 200, 115, 113)
 
 [node name="StaticBody2D" parent="." index="1"]
 position = Vector2(0, -57)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0, 29)
+position = Vector2(0, 27)
 shape = SubResource("RectangleShape2D_glq66")

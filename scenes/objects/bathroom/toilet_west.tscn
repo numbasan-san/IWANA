@@ -11,7 +11,7 @@ size = Vector2(169, 67)
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_7a0kk")
 offset = Vector2(0, -99)
-region_rect = Rect2(1285, 140, 170, 200)
+region_rect = Rect2(845, 215, 170, 200)
 
 [node name="StaticBody2D" parent="." index="1"]
 position = Vector2(0, -112)

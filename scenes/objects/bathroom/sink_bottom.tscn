@@ -4,14 +4,14 @@
 [ext_resource type="Texture2D" uid="uid://bowi2a1nggnp3" path="res://assets/rpg_sprites/objects/bathroom.png" id="2_pe21e"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glq66"]
-size = Vector2(104, 176)
+size = Vector2(115, 212)
 
 [node name="SinkBottom" instance=ExtResource("1_4lv8k")]
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_pe21e")
 offset = Vector2(0, -88)
-region_rect = Rect2(1556, 384, 104, 176)
+region_rect = Rect2(1205, 423, 115, 212)
 
 [node name="StaticBody2D" parent="." index="1"]
 position = Vector2(0, -96)

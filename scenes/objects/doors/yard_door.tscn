@@ -14,7 +14,7 @@ size = Vector2(378, 40)
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -161)
-region_rect = Rect2(1450, 320, 370, 320)
+region_rect = Rect2(940, 560, 370, 320)
 
 [node name="Collision" parent="." index="1"]
 shape = SubResource("RectangleShape2D_3113k")

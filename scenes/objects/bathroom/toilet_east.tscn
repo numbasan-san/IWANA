@@ -12,7 +12,7 @@ size = Vector2(170, 67)
 position = Vector2(0, -2)
 texture = ExtResource("2_86emn")
 offset = Vector2(0, -98)
-region_rect = Rect2(1290, 360, 170, 200)
+region_rect = Rect2(850, 435, 170, 200)
 
 [node name="StaticBody2D" parent="." index="1"]
 position = Vector2(0, -112)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6n42a0qju780"]
+
+[ext_resource type="PackedScene" uid="uid://bhdwcwp1jcngf" path="res://scenes/objects/cafeteria/base_cafe_object.tscn" id="1_kkg87"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6nnse"]
+size = Vector2(680, 162)
+
+[node name="Shelf" instance=ExtResource("1_kkg87")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(40, 605, 680, 355)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0, 95)
+shape = SubResource("RectangleShape2D_6nnse")
