@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://csamauje32a3p"]
+
+[ext_resource type="PackedScene" uid="uid://hed2eep7147o" path="res://scenes/objects/doors/base_door.tscn" id="1_6afww"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rvvcv"]
+resource_local_to_scene = true
+size = Vector2(30, 185)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vsi3u"]
+resource_local_to_scene = true
+size = Vector2(40, 190)
+
+[node name="SideDoor" instance=ExtResource("1_6afww")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(0, 0, 0, 0)
+
+[node name="Collision" parent="." index="1"]
+shape = SubResource("RectangleShape2D_rvvcv")
+
+[node name="CollisionShape2D" parent="ZoneChange" index="0"]
+shape = SubResource("RectangleShape2D_vsi3u")

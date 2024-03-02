@@ -6,12 +6,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pumgp"]
 size = Vector2(169, 67)
 
-[node name="ToiletWest" instance=ExtResource("1_au5g8")]
+[node name="ToiletRight" instance=ExtResource("1_au5g8")]
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_7a0kk")
 offset = Vector2(0, -99)
-region_rect = Rect2(845, 215, 170, 200)
+region_rect = Rect2(1055, 435, 170, 200)
 
 [node name="StaticBody2D" parent="." index="1"]
 position = Vector2(0, -112)
