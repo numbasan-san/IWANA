@@ -10,7 +10,7 @@ size = Vector2(369, 30)
 resource_local_to_scene = true
 size = Vector2(378, 40)
 
-[node name="HeavensDoor" instance=ExtResource("1_5dtag")]
+[node name="YardDoor" instance=ExtResource("1_5dtag")]
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -161)

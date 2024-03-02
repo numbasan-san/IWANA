@@ -18,7 +18,7 @@ size = Vector2(190, 40)
 physics_material_override = SubResource("PhysicsMaterial_346tc")
 script = ExtResource("1_6dlhj")
 spawn_direction = "up"
-transparency_value = 0.3
+transparency_value = 0.6
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1

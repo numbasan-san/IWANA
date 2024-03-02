@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://qx51m55o5q73"]
+
+[ext_resource type="PackedScene" uid="uid://c3hohlexko4k6" path="res://scenes/objects/art/base_art_object.tscn" id="1_uy8hc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gc8t"]
+size = Vector2(180, 57)
+
+[node name="Easel4" instance=ExtResource("1_uy8hc")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(855, 385, 200, 255)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0, 99)
+shape = SubResource("RectangleShape2D_0gc8t")

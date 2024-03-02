@@ -12,7 +12,7 @@ outline_color = Color(0, 0, 0, 1)
 [node name="DevMode" type="CanvasLayer" node_paths=PackedStringArray("zones", "scenes", "units", "contents")]
 layer = 100
 script = ExtResource("1_cqayl")
-all_zones = Array[String](["dev_testing", "room_f1n1", "room_f1n2", "f1_male_bathroom", "f1_female_bathroom", "f1n_hallway"])
+all_zones = Array[String](["dev_testing", "room_f1n1", "room_f1n2", "f1_male_bathroom", "f1_female_bathroom", "laboratory", "f1n_hallway", "yard", "dining_room", "f1s_hallway", "room_f1s1", "room_f1s2", "art_room"])
 zones = NodePath("Contents/SceneDetails/Menus/Zones")
 scenes = NodePath("Contents/SceneDetails/Menus/Scenes")
 units = NodePath("Contents/SceneDetails/Menus/Units")

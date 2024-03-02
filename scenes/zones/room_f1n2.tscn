@@ -147,7 +147,8 @@ pattern_8 = SubResource("TileMapPattern_7tkjo")
 [node name="RoomF1N2" instance=ExtResource("1_6swfk")]
 
 [node name="Door" parent="." index="0"]
-spawn = "SpawnF1NR2"
+position = Vector2(640, 2172)
+spawn = "SpawnF1N2"
 
 [node name="Items" type="Node2D" parent="." index="7"]
 z_index = 1
@@ -156,3 +157,6 @@ position = Vector2(-263, -136)
 
 [node name="TileMap" parent="." index="8"]
 tile_set = SubResource("TileSet_8cfmj")
+
+[node name="SpawnHallway" parent="SpawnPoints" index="0"]
+position = Vector2(640, 2062)

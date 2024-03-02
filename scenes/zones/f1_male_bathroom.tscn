@@ -6,8 +6,11 @@
 [node name="F1MaleBathroom" instance=ExtResource("1_pdam1")]
 
 [node name="MaleBathroomDoor" parent="." index="0" instance=ExtResource("2_204y4")]
-position = Vector2(559, 1452)
+position = Vector2(560, 1452)
 zone = "f1n_hallway"
 spawn = "SpawnF1MB"
 spawn_direction = "down"
 transparent = true
+
+[node name="SpawnHallway" parent="SpawnPoints" index="0"]
+position = Vector2(560, 1342)

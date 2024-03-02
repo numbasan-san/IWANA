@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://2yngnccatdr1"]
 
 [ext_resource type="PackedScene" uid="uid://dvs7a5k1ejf15" path="res://scenes/zones/base_bathroom.tscn" id="1_7md5w"]
-[ext_resource type="PackedScene" uid="uid://jfxa3getivws" path="res://scenes/objects/bathroom/toilet_east.tscn" id="2_25fw0"]
+[ext_resource type="PackedScene" uid="uid://jfxa3getivws" path="res://scenes/objects/bathroom/toilet_left.tscn" id="2_25fw0"]
 [ext_resource type="Texture2D" uid="uid://csnek5bda5r4l" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="2_vvrqv"]
 [ext_resource type="PackedScene" uid="uid://5n38y4d4l5hi" path="res://scenes/objects/bathroom/divider.tscn" id="3_jj0ij"]
 [ext_resource type="PackedScene" uid="uid://8adovfeebq66" path="res://scenes/objects/doors/female_bathroom_door.tscn" id="4_m1m5b"]
@@ -208,4 +208,4 @@ scale = Vector2(1, -1)
 y_sort_enabled = true
 
 [node name="SpawnHallway" parent="SpawnPoints" index="0"]
-position = Vector2(-320, 1354)
+position = Vector2(-320, 1342)
