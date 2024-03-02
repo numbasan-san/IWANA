@@ -7,7 +7,6 @@
 size = Vector2(190, 72.9167)
 
 [node name="Desk" instance=ExtResource("1_sjp4f")]
-y_sort_enabled = true
 scale = Vector2(1.2, 1.2)
 
 [node name="Sprite2D" parent="." index="0"]

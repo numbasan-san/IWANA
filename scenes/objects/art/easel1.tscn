@@ -8,7 +8,11 @@ size = Vector2(180, 57)
 [node name="Easel1" instance=ExtResource("1_mw3pp")]
 
 [node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -98)
 region_rect = Rect2(535, 65, 200, 255)
+
+[node name="StaticBody2D" parent="." index="1"]
+position = Vector2(0, -98)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(0, 99)

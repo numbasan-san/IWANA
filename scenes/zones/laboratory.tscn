@@ -145,66 +145,78 @@ layer_0/tile_data = PackedInt32Array(-393228, 393216, 2, -327692, 393216, 2, -26
 layer_1/tile_data = PackedInt32Array(-196621, 327680, 2, -131085, 327680, 2, -65549, 327680, 2, -13, 327680, 2, 65523, 327680, 2, 131059, 327680, 2, 196595, 327680, 2, 262131, 327680, 2, 327667, 327680, 2, 393203, 327680, 2, 458739, 327680, 2, 524275, 327680, 2, 589811, 327680, 2, 655347, 327680, 2, 720883, 327680, 2, 786419, 327680, 2, 851955, 327680, 2, 917491, 327680, 2, 983027, 327680, 2, 1048563, 327680, 4, 983057, 458752, 4, 917521, 458752, 3, 851985, 458752, 3, 786449, 458752, 3, 720913, 458752, 3, 655377, 458752, 3, 589841, 458752, 3, 524305, 458752, 3, 458769, 458752, 3, 393233, 458752, 3, 327697, 458752, 3, 262161, 458752, 3, 196625, 458752, 3, 131089, 458752, 3, 65553, 458752, 3, 17, 458752, 3, -65519, 458752, 3, -131055, 458752, 3, -196591, 458752, 3, -262127, 458752, 3, 1048564, 393216, 4, 1048565, 393216, 4, 1048566, 393216, 4, 1048567, 393216, 4, 1048568, 393216, 4, 1048569, 393216, 4, 1048570, 393216, 4, 1048571, 393216, 4, 1048572, 393216, 4, 1048573, 393216, 4, 1048574, 393216, 4, 1048575, 393216, 4, 983040, 393216, 4, 983041, 393216, 4, 983042, 393216, 4, 983043, 393216, 4, 983044, 393216, 4, 983045, 393216, 4, 983046, 393216, 4, 983047, 393216, 4, 983048, 393216, 4, 983049, 393216, 4, 983050, 393216, 4, 983054, 393216, 4, 983055, 393216, 4, 983056, 393216, 4, 983053, 393216, 4)
 
 [node name="SpawnHallway" type="Node2D" parent="SpawnPoints" index="0"]
-position = Vector2(1312, 1310)
+position = Vector2(1312, 1324)
 
-[node name="BigTable" parent="." index="2" instance=ExtResource("4_8p3on")]
+[node name="Table1" type="Node2D" parent="." index="2"]
+y_sort_enabled = true
 position = Vector2(352, 200)
 
-[node name="StoolRow1" type="Node2D" parent="BigTable" index="2"]
+[node name="BigTable" parent="Table1" index="0" instance=ExtResource("4_8p3on")]
 
-[node name="Stool" parent="BigTable/StoolRow1" index="0" instance=ExtResource("5_wdbiw")]
+[node name="StoolRow" type="Node2D" parent="Table1" index="1"]
+y_sort_enabled = true
+
+[node name="Stool" parent="Table1/StoolRow" index="0" instance=ExtResource("5_wdbiw")]
 position = Vector2(-520, 109)
 
-[node name="Stool2" parent="BigTable/StoolRow1" index="1" instance=ExtResource("5_wdbiw")]
+[node name="Stool2" parent="Table1/StoolRow" index="1" instance=ExtResource("5_wdbiw")]
 position = Vector2(-260, 109)
 
-[node name="Stool3" parent="BigTable/StoolRow1" index="2" instance=ExtResource("5_wdbiw")]
+[node name="Stool3" parent="Table1/StoolRow" index="2" instance=ExtResource("5_wdbiw")]
 position = Vector2(0, 109)
 
-[node name="Stool4" parent="BigTable/StoolRow1" index="3" instance=ExtResource("5_wdbiw")]
+[node name="Stool4" parent="Table1/StoolRow" index="3" instance=ExtResource("5_wdbiw")]
 position = Vector2(260, 109)
 
-[node name="Stool5" parent="BigTable/StoolRow1" index="4" instance=ExtResource("5_wdbiw")]
+[node name="Stool5" parent="Table1/StoolRow" index="4" instance=ExtResource("5_wdbiw")]
 position = Vector2(520, 109)
 
-[node name="BigTable2" parent="." index="3" instance=ExtResource("4_8p3on")]
+[node name="Table2" type="Node2D" parent="." index="3"]
+y_sort_enabled = true
 position = Vector2(352, 624)
 
-[node name="StoolRow1" type="Node2D" parent="BigTable2" index="2"]
+[node name="BigTable" parent="Table2" index="0" instance=ExtResource("4_8p3on")]
 
-[node name="Stool" parent="BigTable2/StoolRow1" index="0" instance=ExtResource("5_wdbiw")]
+[node name="StoolRow" type="Node2D" parent="Table2" index="1"]
+y_sort_enabled = true
+
+[node name="Stool" parent="Table2/StoolRow" index="0" instance=ExtResource("5_wdbiw")]
 position = Vector2(-520, 109)
 
-[node name="Stool2" parent="BigTable2/StoolRow1" index="1" instance=ExtResource("5_wdbiw")]
+[node name="Stool2" parent="Table2/StoolRow" index="1" instance=ExtResource("5_wdbiw")]
 position = Vector2(-260, 109)
 
-[node name="Stool3" parent="BigTable2/StoolRow1" index="2" instance=ExtResource("5_wdbiw")]
+[node name="Stool3" parent="Table2/StoolRow" index="2" instance=ExtResource("5_wdbiw")]
 position = Vector2(0, 109)
 
-[node name="Stool4" parent="BigTable2/StoolRow1" index="3" instance=ExtResource("5_wdbiw")]
+[node name="Stool4" parent="Table2/StoolRow" index="3" instance=ExtResource("5_wdbiw")]
 position = Vector2(260, 109)
 
-[node name="Stool5" parent="BigTable2/StoolRow1" index="4" instance=ExtResource("5_wdbiw")]
+[node name="Stool5" parent="Table2/StoolRow" index="4" instance=ExtResource("5_wdbiw")]
 position = Vector2(520, 109)
 
-[node name="BigTable3" parent="." index="4" instance=ExtResource("4_8p3on")]
+[node name="Table3" type="Node2D" parent="." index="4"]
+y_sort_enabled = true
 position = Vector2(352, 1048)
 
-[node name="StoolRow1" type="Node2D" parent="BigTable3" index="2"]
+[node name="BigTable" parent="Table3" index="0" instance=ExtResource("4_8p3on")]
 
-[node name="Stool" parent="BigTable3/StoolRow1" index="0" instance=ExtResource("5_wdbiw")]
+[node name="StoolRow" type="Node2D" parent="Table3" index="1"]
+y_sort_enabled = true
+
+[node name="Stool" parent="Table3/StoolRow" index="0" instance=ExtResource("5_wdbiw")]
 position = Vector2(-520, 109)
 
-[node name="Stool2" parent="BigTable3/StoolRow1" index="1" instance=ExtResource("5_wdbiw")]
+[node name="Stool2" parent="Table3/StoolRow" index="1" instance=ExtResource("5_wdbiw")]
 position = Vector2(-260, 109)
 
-[node name="Stool3" parent="BigTable3/StoolRow1" index="2" instance=ExtResource("5_wdbiw")]
+[node name="Stool3" parent="Table3/StoolRow" index="2" instance=ExtResource("5_wdbiw")]
 position = Vector2(0, 109)
 
-[node name="Stool4" parent="BigTable3/StoolRow1" index="3" instance=ExtResource("5_wdbiw")]
+[node name="Stool4" parent="Table3/StoolRow" index="3" instance=ExtResource("5_wdbiw")]
 position = Vector2(260, 109)
 
-[node name="Stool5" parent="BigTable3/StoolRow1" index="4" instance=ExtResource("5_wdbiw")]
+[node name="Stool5" parent="Table3/StoolRow" index="4" instance=ExtResource("5_wdbiw")]
 position = Vector2(520, 109)
 
 [node name="VerticalTable" parent="." index="5" instance=ExtResource("6_igjng")]
@@ -220,7 +232,8 @@ position = Vector2(1624, 1048)
 position = Vector2(12, -344)
 
 [node name="ClassroomDoor" parent="." index="9" instance=ExtResource("8_c2lvb")]
-position = Vector2(1312, 1420)
+y_sort_enabled = true
+position = Vector2(1312, 1434)
 zone = "f1n_hallway"
 spawn = "SpawnLab"
 spawn_direction = "down"

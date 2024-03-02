@@ -119,7 +119,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_xnhgn")
 
 [node name="Yard" instance=ExtResource("1_njc8a")]
-y_sort_enabled = true
 
 [node name="TileMap" parent="." index="0"]
 tile_set = SubResource("TileSet_dirog")
@@ -140,7 +139,7 @@ spawn_direction = "left"
 transparency_value = 0.5
 
 [node name="DoorSouthHallway" parent="." index="3" instance=ExtResource("11_sg1mg")]
-position = Vector2(1, 5373)
+position = Vector2(1, 5386)
 zone = "f1s_hallway"
 spawn = "SpawnYard"
 spawn_direction = "down"
@@ -154,12 +153,13 @@ position = Vector2(0, 157)
 position = Vector2(-3514, 2480)
 
 [node name="SpawnHallwaySouth" type="Node2D" parent="SpawnPoints" index="2"]
-position = Vector2(1, 5263)
+position = Vector2(1, 5276)
 
 [node name="Trees" type="Node2D" parent="." index="5"]
 visible = false
 z_index = 1
 y_sort_enabled = true
+position = Vector2(0, -1528)
 
 [node name="Tree" parent="Trees" index="0" instance=ExtResource("4_x44xv")]
 position = Vector2(931, 165)
@@ -199,7 +199,7 @@ position = Vector2(6, 756)
 [node name="Benchs" type="Node2D" parent="." index="6"]
 visible = false
 y_sort_enabled = true
-position = Vector2(585, 0)
+position = Vector2(585, -1528)
 
 [node name="Bench" parent="Benchs" index="0" instance=ExtResource("5_g4210")]
 position = Vector2(-1118, 146)
@@ -222,7 +222,7 @@ position = Vector2(-1118, 869)
 [node name="Zafacones" type="Node2D" parent="." index="7"]
 visible = false
 y_sort_enabled = true
-position = Vector2(585, 0)
+position = Vector2(585, -1528)
 
 [node name="Zafacon" parent="Zafacones" index="0" instance=ExtResource("6_urrak")]
 position = Vector2(-1110, 46)
@@ -251,7 +251,7 @@ position = Vector2(-917, 1006)
 [node name="Windows" type="Node2D" parent="." index="8"]
 visible = false
 y_sort_enabled = true
-position = Vector2(585, 15)
+position = Vector2(585, -1513)
 
 [node name="Window" parent="Windows" index="0" instance=ExtResource("7_y4r0j")]
 position = Vector2(-907, -59)
@@ -268,7 +268,7 @@ position = Vector2(309, -59)
 [node name="Posters" type="Node2D" parent="." index="9"]
 visible = false
 y_sort_enabled = true
-position = Vector2(0, 15)
+position = Vector2(0, -1513)
 
 [node name="Poster-" parent="Posters" index="0" instance=ExtResource("7_67dri")]
 position = Vector2(-424, -48)

@@ -116,59 +116,53 @@ sources/0 = SubResource("TileSetAtlasSource_tbk1h")
 [node name="HallwayF1N" instance=ExtResource("1_wq0ga")]
 
 [node name="Doors" type="Node2D" parent="." index="0"]
-z_index = 1
+y_sort_enabled = true
 
 [node name="DoorRoomF1N1" parent="Doors" index="0" instance=ExtResource("2_yo3e0")]
-z_index = 1
 position = Vector2(5527, 640)
 zone = "room_f1n1"
 spawn = "SpawnHallway"
 transparency_value = 0.5
 
 [node name="DoorRoomF1N2" parent="Doors" index="1" instance=ExtResource("2_yo3e0")]
-z_index = 1
 position = Vector2(8017, 640)
 zone = "room_f1n2"
 spawn = "SpawnHallway"
 transparency_value = 0.5
 
 [node name="DoorBathroomM" parent="Doors" index="2" instance=ExtResource("5_sa3qh")]
-z_index = 1
 position = Vector2(9067, 640)
 zone = "f1_male_bathroom"
 spawn = "SpawnHallway"
 transparency_value = 0.5
 
 [node name="DoorBathroomF" parent="Doors" index="3" instance=ExtResource("6_6gxcv")]
-z_index = 1
 position = Vector2(10276, 640)
 zone = "f1_female_bathroom"
 spawn = "SpawnHallway"
 transparency_value = 0.5
 
 [node name="DoorDevTest" parent="Doors" index="4" instance=ExtResource("2_yo3e0")]
-z_index = 1
 position = Vector2(593, 640)
 zone = "dev_testing"
 spawn = "SpawnHallway"
 transparency_value = 0.5
 
 [node name="DoorLaboratory" parent="Doors" index="5" instance=ExtResource("2_yo3e0")]
-z_index = 1
 position = Vector2(3270, 640)
 zone = "laboratory"
 spawn = "SpawnHallway"
 transparency_value = 0.5
 
 [node name="DoorYard" parent="Doors" index="6" instance=ExtResource("6_jkrm3")]
-position = Vector2(6640, 1292)
+position = Vector2(6640, 1306)
 zone = "yard"
 spawn = "SpawnHallwayNorth"
 spawn_direction = "down"
 transparent = true
 
 [node name="Lockers1" type="Node2D" parent="." index="1"]
-z_index = 1
+y_sort_enabled = true
 position = Vector2(4178, 760)
 
 [node name="Locker1" parent="Lockers1" index="0" instance=ExtResource("4_3t6ix")]
@@ -190,7 +184,7 @@ position = Vector2(750, 0)
 position = Vector2(920, 0)
 
 [node name="Lockers2" type="Node2D" parent="." index="2"]
-z_index = 1
+y_sort_enabled = true
 position = Vector2(6672, 760)
 
 [node name="Locker1" parent="Lockers2" index="0" instance=ExtResource("4_3t6ix")]
@@ -235,4 +229,4 @@ position = Vector2(593, 800)
 position = Vector2(3270, 800)
 
 [node name="SpawnYard" type="Node2D" parent="SpawnPoints" index="6"]
-position = Vector2(6640, 1182)
+position = Vector2(6640, 1196)

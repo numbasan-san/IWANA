@@ -133,37 +133,41 @@ layer_0/tile_data = PackedInt32Array(-196623, 393216, 3, -196622, 393216, 3, -19
 layer_1/tile_data = PackedInt32Array(-131088, 327680, 2, -65552, 327680, 2, -16, 327680, 2, 65520, 327680, 2, 131056, 327680, 2, 196592, 327680, 2, 262128, 327680, 2, 327664, 327680, 2, 393200, 327680, 2, 458736, 327680, 2, 524272, 327680, 2, 589808, 327680, 2, 655344, 327680, 2, 720880, 327680, 2, 786416, 327680, 2, 851952, 327680, 2, 917488, 327680, 2, 983024, 327680, 2, 1048560, 327680, 2, 1114096, 327680, 2, 1179632, 327680, 2, 1245168, 327680, 2, 1310704, 327680, 4, 1310705, 393216, 4, 1310706, 393216, 4, 1310707, 393216, 4, 1310708, 393216, 4, 1310709, 393216, 4, 1310710, 393216, 4, 1310711, 393216, 4, 1310712, 393216, 4, 1310713, 393216, 4, 1310714, 393216, 4, 1310715, 393216, 4, 1310716, 393216, 4, 1310717, 393216, 4, 1310718, 393216, 4, 1310719, 393216, 4, 1245184, 393216, 4, 1245185, 393216, 4, 1245186, 393216, 4, 1245187, 393216, 4, 1245188, 393216, 4, 1245189, 393216, 4, 1245190, 393216, 4, 1245191, 393216, 4, 1245192, 393216, 4, 1245193, 393216, 4, 1245194, 393216, 4, 1245195, 393216, 4, 1245196, 393216, 4, 1245197, 393216, 4, 1245198, 393216, 4, 1245199, 393216, 4, 1245200, 393216, 4, 1245201, 393216, 4, 1245202, 393216, 4, 1245203, 393216, 4, 1245204, 393216, 4, 1245205, 393216, 4, 1245206, 393216, 4, 1245207, 393216, 4, 1245208, 458752, 4, -196584, 458752, 2, -131048, 458752, 2, -65512, 458752, 2, 24, 458752, 2, 65560, 458752, 2, 131096, 458752, 2, 196632, 458752, 2, 262168, 458752, 2, 327704, 458752, 2, 393240, 458752, 2, 458776, 458752, 2, 524312, 458752, 2, 589848, 458752, 2, 655384, 458752, 2, 720920, 458752, 2, 786456, 458752, 2, 851992, 458752, 2, 917528, 458752, 2, 983064, 458752, 2, 1048600, 458752, 2, 1114136, 458752, 2, 1179672, 458752, 3)
 
 [node name="SpawnHallway" type="Node2D" parent="SpawnPoints" index="0"]
-position = Vector2(0, -104)
+position = Vector2(0, -80)
 
 [node name="Door" parent="." index="2" instance=ExtResource("2_mn125")]
-position = Vector2(0, -264)
+position = Vector2(0, -240)
 zone = "f1s_hallway"
 spawn = "SpawnArtRoom"
 front = false
 
-[node name="SmallRoundTable" parent="." index="3" instance=ExtResource("3_rm6vj")]
-position = Vector2(0, 304)
-
-[node name="FruitBowl" parent="." index="4" instance=ExtResource("4_jgn7t")]
-position = Vector2(6, 184)
-
-[node name="Tables" type="Node2D" parent="." index="5"]
+[node name="Tables" type="Node2D" parent="." index="3"]
+y_sort_enabled = true
 position = Vector2(956, 14)
 
-[node name="Table1" type="Node2D" parent="Tables" index="0"]
+[node name="SmallRoundTable" parent="Tables" index="0" instance=ExtResource("3_rm6vj")]
+position = Vector2(-956, 290)
+
+[node name="FruitBowl" parent="Tables/SmallRoundTable" index="2" instance=ExtResource("4_jgn7t")]
+z_index = 0
+position = Vector2(5, -93.3333)
+scale = Vector2(0.833333, 0.833333)
+
+[node name="Table1" type="Node2D" parent="Tables" index="1"]
+y_sort_enabled = true
 position = Vector2(249, 57)
 
 [node name="LargeRoundTable" parent="Tables/Table1" index="0" instance=ExtResource("5_ng5yd")]
 position = Vector2(315, 230)
 
 [node name="ChairFront" parent="Tables/Table1" index="1" instance=ExtResource("6_kospo")]
-z_index = 0
 position = Vector2(315, 80)
 
 [node name="ChairRight" parent="Tables/Table1" index="2" instance=ExtResource("7_2ny1i")]
 position = Vector2(600, 173)
 
-[node name="Table2" type="Node2D" parent="Tables" index="1"]
+[node name="Table2" type="Node2D" parent="Tables" index="2"]
+y_sort_enabled = true
 position = Vector2(265, 425)
 
 [node name="LargeRoundTable" parent="Tables/Table2" index="0" instance=ExtResource("5_ng5yd")]
@@ -172,14 +176,14 @@ position = Vector2(315, 230)
 [node name="ChairRight" parent="Tables/Table2" index="1" instance=ExtResource("7_2ny1i")]
 position = Vector2(576, 189)
 
-[node name="Table3" type="Node2D" parent="Tables" index="2"]
+[node name="Table3" type="Node2D" parent="Tables" index="3"]
+y_sort_enabled = true
 position = Vector2(161, 817)
 
 [node name="LargeRoundTable" parent="Tables/Table3" index="0" instance=ExtResource("5_ng5yd")]
 position = Vector2(315, 230)
 
 [node name="ChairFront" parent="Tables/Table3" index="1" instance=ExtResource("6_kospo")]
-z_index = 0
 position = Vector2(251, 96)
 
 [node name="ChairRight" parent="Tables/Table3" index="2" instance=ExtResource("7_2ny1i")]
@@ -188,14 +192,14 @@ position = Vector2(584, 157)
 [node name="ChairLeft" parent="Tables/Table3" index="3" instance=ExtResource("8_2ujp5")]
 position = Vector2(41, 188)
 
-[node name="Table4" type="Node2D" parent="Tables" index="3"]
+[node name="Table4" type="Node2D" parent="Tables" index="4"]
+y_sort_enabled = true
 position = Vector2(-289, 1126)
 
 [node name="LargeRoundTable" parent="Tables/Table4" index="0" instance=ExtResource("5_ng5yd")]
 position = Vector2(315, 230)
 
 [node name="ChairFront" parent="Tables/Table4" index="1" instance=ExtResource("6_kospo")]
-z_index = 0
 position = Vector2(203, 96)
 
 [node name="ChairRight" parent="Tables/Table4" index="2" instance=ExtResource("7_2ny1i")]
@@ -204,7 +208,8 @@ position = Vector2(584, 157)
 [node name="ChairLeft" parent="Tables/Table4" index="3" instance=ExtResource("8_2ujp5")]
 position = Vector2(17, 220)
 
-[node name="Art" type="Node2D" parent="." index="6"]
+[node name="Art" type="Node2D" parent="." index="4"]
+y_sort_enabled = true
 position = Vector2(-1159, -668)
 
 [node name="Art1" parent="Art" index="0" instance=ExtResource("9_1i1xf")]
@@ -219,8 +224,9 @@ position = Vector2(1546, 199)
 [node name="Art4" parent="Art" index="3" instance=ExtResource("12_5a3g4")]
 position = Vector2(1746, 277)
 
-[node name="Easels" type="Node2D" parent="." index="7"]
-position = Vector2(-1027, 344)
+[node name="Easels" type="Node2D" parent="." index="5"]
+y_sort_enabled = true
+position = Vector2(-1027, 412)
 
 [node name="Easel1" parent="Easels" index="0" instance=ExtResource("13_0ji0l")]
 position = Vector2(1562, -97)
@@ -243,11 +249,11 @@ position = Vector2(1651, 485)
 [node name="Easel7" parent="Easels" index="6" instance=ExtResource("14_k2ptf")]
 position = Vector2(1278, 747)
 
-[node name="BookShelf" parent="." index="8" instance=ExtResource("18_bxpbx")]
-position = Vector2(1071, -256)
+[node name="BookShelf" parent="." index="6" instance=ExtResource("18_bxpbx")]
+position = Vector2(1071, -188)
 
-[node name="BookShelf2" parent="." index="9" instance=ExtResource("18_bxpbx")]
-position = Vector2(1577, -256)
+[node name="BookShelf2" parent="." index="7" instance=ExtResource("18_bxpbx")]
+position = Vector2(1577, -188)
 
-[node name="ChairFront" parent="." index="10" instance=ExtResource("6_kospo")]
+[node name="ChairFront" parent="." index="8" instance=ExtResource("6_kospo")]
 position = Vector2(1633, 1332)

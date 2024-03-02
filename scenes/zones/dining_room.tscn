@@ -122,7 +122,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ix7qu")
 
 [node name="DiningRoom" instance=ExtResource("1_qx4ns")]
-y_sort_enabled = true
 
 [node name="TileMap" parent="." index="0"]
 tile_set = SubResource("TileSet_f6s4f")
@@ -154,9 +153,11 @@ position = Vector2(906, -308)
 position = Vector2(586, -679)
 
 [node name="Tables" type="Node2D" parent="." index="8"]
+y_sort_enabled = true
 position = Vector2(32, 64)
 
 [node name="Table1" type="Node2D" parent="Tables" index="0"]
+y_sort_enabled = true
 position = Vector2(312, 312)
 
 [node name="SmallRoundTable" parent="Tables/Table1" index="0" instance=ExtResource("9_kjcq1")]
@@ -171,10 +172,10 @@ position = Vector2(208, 0)
 position = Vector2(0, 80)
 
 [node name="ChairFront" parent="Tables/Table1" index="4" instance=ExtResource("13_x5uej")]
-z_index = 0
 position = Vector2(0, -104)
 
 [node name="Table2" type="Node2D" parent="Tables" index="1"]
+y_sort_enabled = true
 position = Vector2(752, 632)
 
 [node name="SmallRoundTable" parent="Tables/Table2" index="0" instance=ExtResource("9_kjcq1")]
@@ -189,10 +190,10 @@ position = Vector2(208, 0)
 position = Vector2(0, 80)
 
 [node name="ChairFront" parent="Tables/Table2" index="4" instance=ExtResource("13_x5uej")]
-z_index = 0
 position = Vector2(0, -104)
 
 [node name="Table3" type="Node2D" parent="Tables" index="2"]
+y_sort_enabled = true
 position = Vector2(-72, 776)
 
 [node name="SmallRoundTable" parent="Tables/Table3" index="0" instance=ExtResource("9_kjcq1")]
@@ -207,10 +208,10 @@ position = Vector2(208, 0)
 position = Vector2(0, 80)
 
 [node name="ChairFront" parent="Tables/Table3" index="4" instance=ExtResource("13_x5uej")]
-z_index = 0
 position = Vector2(0, -104)
 
 [node name="Table4" type="Node2D" parent="Tables" index="3"]
+y_sort_enabled = true
 position = Vector2(728, 1096)
 
 [node name="SmallRoundTable" parent="Tables/Table4" index="0" instance=ExtResource("9_kjcq1")]
@@ -225,10 +226,10 @@ position = Vector2(208, 0)
 position = Vector2(0, 80)
 
 [node name="ChairFront" parent="Tables/Table4" index="4" instance=ExtResource("13_x5uej")]
-z_index = 0
 position = Vector2(0, -104)
 
 [node name="Table5" type="Node2D" parent="Tables" index="4"]
+y_sort_enabled = true
 position = Vector2(0, 1264)
 
 [node name="SmallRoundTable" parent="Tables/Table5" index="0" instance=ExtResource("9_kjcq1")]
@@ -243,10 +244,10 @@ position = Vector2(208, 0)
 position = Vector2(0, 80)
 
 [node name="ChairFront" parent="Tables/Table5" index="4" instance=ExtResource("13_x5uej")]
-z_index = 0
 position = Vector2(0, -104)
 
 [node name="Table6" type="Node2D" parent="Tables" index="5"]
+y_sort_enabled = true
 position = Vector2(624, 1600)
 
 [node name="SmallRoundTable" parent="Tables/Table6" index="0" instance=ExtResource("9_kjcq1")]
@@ -261,10 +262,10 @@ position = Vector2(208, 0)
 position = Vector2(0, 80)
 
 [node name="ChairFront" parent="Tables/Table6" index="4" instance=ExtResource("13_x5uej")]
-z_index = 0
 position = Vector2(0, -104)
 
 [node name="Table7" type="Node2D" parent="Tables" index="6"]
+y_sort_enabled = true
 position = Vector2(-40, 1800)
 
 [node name="SmallRoundTable" parent="Tables/Table7" index="0" instance=ExtResource("9_kjcq1")]
@@ -279,10 +280,10 @@ position = Vector2(208, 0)
 position = Vector2(0, 80)
 
 [node name="ChairFront" parent="Tables/Table7" index="4" instance=ExtResource("13_x5uej")]
-z_index = 0
 position = Vector2(0, -104)
 
 [node name="Table8" type="Node2D" parent="Tables" index="7"]
+y_sort_enabled = true
 position = Vector2(472, 2200)
 
 [node name="SmallRoundTable" parent="Tables/Table8" index="0" instance=ExtResource("9_kjcq1")]
@@ -297,7 +298,6 @@ position = Vector2(208, 0)
 position = Vector2(0, 80)
 
 [node name="ChairFront" parent="Tables/Table8" index="4" instance=ExtResource("13_x5uej")]
-z_index = 0
 position = Vector2(0, -104)
 
 [node name="VerticalGlassShelf" parent="." index="9" instance=ExtResource("14_kvdvk")]

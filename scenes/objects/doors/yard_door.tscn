@@ -4,11 +4,11 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3113k"]
 resource_local_to_scene = true
-size = Vector2(369, 30)
+size = Vector2(369, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5eus5"]
 resource_local_to_scene = true
-size = Vector2(378, 40)
+size = Vector2(378, 60)
 
 [node name="YardDoor" instance=ExtResource("1_5dtag")]
 

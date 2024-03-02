@@ -8,27 +8,27 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_808ni"]
 resource_local_to_scene = true
-size = Vector2(185, 30)
+size = Vector2(185, 50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i26qx"]
 resource_local_to_scene = true
-size = Vector2(190, 40)
+size = Vector2(190, 60)
 
 [node name="BaseDoor" type="StaticBody2D"]
+z_index = 1
 physics_material_override = SubResource("PhysicsMaterial_346tc")
 script = ExtResource("1_6dlhj")
 spawn_direction = "up"
 transparency_value = 0.6
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-z_index = 1
-y_sort_enabled = true
 position = Vector2(0, -163)
 texture = ExtResource("2_y66ju")
 region_enabled = true
 region_rect = Rect2(80, 565, 185, 325)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_808ni")
 
 [node name="ZoneChange" type="Area2D" parent="."]
@@ -37,5 +37,6 @@ y_sort_enabled = true
 script = ExtResource("1_2qge8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneChange"]
+position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_i26qx")
 debug_color = Color(0.235294, 0.705882, 0.235294, 0.419608)
