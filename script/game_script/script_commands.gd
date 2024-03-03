@@ -83,13 +83,13 @@ func _place(name: String, position: DialogContents.Position):
 # it so that there can be units that modify some game state or the rpg mode
 func _open():
 	if ScreenManager.current_screen != ScreenManager.dialog_screen:
-		await ScreenManager.push(ScreenManager.dialog_screen)
+		await ScreenManager.push(ScreenManager.dialog_screen, "Show", "In")
 
 # If the last unit of the current link is completed, this function should be
 # called to close the dialog screen and allow the game to progress.
 func _close():
 	if ScreenManager.current_screen == ScreenManager.dialog_screen:
-		await ScreenManager.pop(ScreenManager.dialog_screen)
+		await ScreenManager.pop(ScreenManager.dialog_screen, "Out", "Show")
 		# We remove all characters and clear the background so that the next time
 		# the dialog screen is open it starts in a clean state and we don't have to
 		# write instructions to manually clean it at the beginning of each unit or

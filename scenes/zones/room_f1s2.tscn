@@ -156,8 +156,6 @@ y_sort_enabled = true
 script = ExtResource("1_pxq0s")
 
 [node name="Door" parent="." instance=ExtResource("2_ve02r")]
-z_index = 1
-y_sort_enabled = true
 position = Vector2(640, -160)
 zone = "f1s_hallway"
 spawn = "SpawnF1S2"

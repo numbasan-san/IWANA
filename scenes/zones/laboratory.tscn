@@ -232,7 +232,6 @@ position = Vector2(1624, 1048)
 position = Vector2(12, -344)
 
 [node name="ClassroomDoor" parent="." index="9" instance=ExtResource("8_c2lvb")]
-y_sort_enabled = true
 position = Vector2(1312, 1434)
 zone = "f1n_hallway"
 spawn = "SpawnLab"

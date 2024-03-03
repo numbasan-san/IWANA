@@ -16,6 +16,8 @@ func _on_pressed():
 	var dummy = CharacterManager.load("dummy")
 	var dev_zone = ZoneManager.load("dev_testing")
 	ScreenManager.rpg_screen.contents.spawn(dummy, dev_zone)
-	ScreenManager.push(ScreenManager.rpg_screen)
+	# The rpg screen will be hidden initially so that the dialog screen can
+	# be shown without starting the rpg music
+	await ScreenManager.push(ScreenManager.rpg_screen, "Out", "Hide")
 	ScriptManager.restart()
 	disabled = true

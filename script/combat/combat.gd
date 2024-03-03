@@ -48,12 +48,12 @@ func start_battle(enemy_party: Party):
 		enemy_area.add_character(enemy)
 	self.enemy_party = enemy_party
 	show_party_menu()
-	await ScreenManager.push(ScreenManager.combat_screen)
+	await ScreenManager.push(ScreenManager.combat_screen, "Out", "In")
 	$PartyMenu/Actions/Attack.grab_focus()
 
 # Called at the end of the battle to clean the screen
 func end_battle():
-	await ScreenManager.pop(ScreenManager.combat_screen)
+	await ScreenManager.pop(ScreenManager.combat_screen, "Out", "In")
 	party_menu.clear()
 	player_area.clear()
 	enemy_area.clear()
