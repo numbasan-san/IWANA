@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dx42gd7cx3qui"
-path="res://.godot/imported/__diablos_monster_hunter_drawn_by_milkpanda__sample-9be0158f26a0b4307c3de23e035d510e.jpg-6ba6b1455105e0590505a324bf0b30d1.ctex"
+uid="uid://r0uuj7obn5yy"
+path="res://.godot/imported/__diablos_monster_hunter_drawn_by_milkpanda__sample-9be0158f26a0b4307c3de23e035d510e.jpg-44f0c9d4f29f9ce90d8512527e1e6cc9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Assests de Pruebas/__diablos_monster_hunter_drawn_by_milkpanda__sample-9be0158f26a0b4307c3de23e035d510e.jpg"
-dest_files=["res://.godot/imported/__diablos_monster_hunter_drawn_by_milkpanda__sample-9be0158f26a0b4307c3de23e035d510e.jpg-6ba6b1455105e0590505a324bf0b30d1.ctex"]
+source_file="res://assets/Assests de Pruebas/__diablos_monster_hunter_drawn_by_milkpanda__sample-9be0158f26a0b4307c3de23e035d510e.jpg"
+dest_files=["res://.godot/imported/__diablos_monster_hunter_drawn_by_milkpanda__sample-9be0158f26a0b4307c3de23e035d510e.jpg-44f0c9d4f29f9ce90d8512527e1e6cc9.ctex"]
 
 [params]
 

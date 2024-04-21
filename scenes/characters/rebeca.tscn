@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dykkm64a7u1j7"]
+
+[ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://scenes/characters/character.tscn" id="1_begxf"]
+[ext_resource type="Texture2D" uid="uid://bls1i1nky5xqk" path="res://assets/dialog_drawings/characters/becalabecaria2.png" id="3_pybrx"]
+
+[node name="Rebeca" instance=ExtResource("1_begxf")]
+
+[node name="Neutral" type="Sprite2D" parent="DialogModel" index="0"]
+scale = Vector2(-1, 1)
+texture = ExtResource("3_pybrx")

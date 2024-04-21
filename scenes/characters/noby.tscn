@@ -1,0 +1,238 @@
+[gd_scene load_steps=23 format=3 uid="uid://c3852ndxrpkj1"]
+
+[ext_resource type="Script" path="res://script/characters/character.gd" id="1_88tar"]
+[ext_resource type="Texture2D" uid="uid://d0xij6lmlkfyc" path="res://assets/dialog_drawings/characters/nobita2.png" id="2_l1yky"]
+[ext_resource type="Script" path="res://script/dialogs/dialog_model.gd" id="2_mfhv5"]
+[ext_resource type="Resource" uid="uid://sy16m35jo4do" path="res://script/characters/noby/skill_ejemplo_daño.tres" id="3_scxwp"]
+[ext_resource type="Script" path="res://script/characters/rpg_model.gd" id="4_i5ekl"]
+[ext_resource type="Script" path="res://script/characters/combat_model.gd" id="6_5wpj4"]
+[ext_resource type="Texture2D" uid="uid://c4usgsoiuhn2e" path="res://assets/rpg_sprites/characters/noby/noby_rpg.png" id="7_fcxh0"]
+[ext_resource type="Script" path="res://script/combat/stats.gd" id="9_ma4si"]
+[ext_resource type="Texture2D" uid="uid://dwbkby71u5h7l" path="res://assets/combat_sprites/noby.png" id="15_tfogv"]
+[ext_resource type="Texture2D" uid="uid://cj6aeejkf0g13" path="res://assets/combat_sprites/noby_separado.png" id="16_q484o"]
+
+[sub_resource type="Resource" id="Resource_432rq"]
+resource_local_to_scene = true
+script = ExtResource("9_ma4si")
+base_max_health = 100
+base_max_energy = 100
+base_damage = 5
+base_defense = 0
+base_speed = 5
+base_critical = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bncsu"]
+size = Vector2(138, 61)
+
+[sub_resource type="Animation" id="Animation_1f7jw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_fero8"]
+resource_name = "stop_player_down"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 2)]
+}
+
+[sub_resource type="Animation" id="Animation_p5lcu"]
+resource_name = "stop_player_left"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_4xoc6"]
+resource_name = "stop_player_right"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_pg6o5"]
+resource_name = "stop_player_up"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nss50"]
+resource_name = "walk_player_down"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 6), Vector2i(1, 6), Vector2i(2, 6), Vector2i(3, 6), Vector2i(4, 6), Vector2i(5, 6), Vector2i(6, 6), Vector2i(7, 6)]
+}
+
+[sub_resource type="Animation" id="Animation_x154a"]
+resource_name = "walk_player_left"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 7), Vector2i(1, 7), Vector2i(2, 7), Vector2i(3, 7), Vector2i(4, 7), Vector2i(5, 7), Vector2i(6, 7), Vector2i(7, 7)]
+}
+
+[sub_resource type="Animation" id="Animation_4rh25"]
+resource_name = "walk_player_right"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5), Vector2i(5, 5), Vector2i(6, 5), Vector2i(7, 5)]
+}
+
+[sub_resource type="Animation" id="Animation_w3qrm"]
+resource_name = "walk_player_up"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4), Vector2i(3, 4), Vector2i(4, 4), Vector2i(5, 4), Vector2i(6, 4), Vector2i(7, 4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ha3c"]
+_data = {
+"RESET": SubResource("Animation_1f7jw"),
+"stop_down": SubResource("Animation_fero8"),
+"stop_left": SubResource("Animation_p5lcu"),
+"stop_right": SubResource("Animation_4xoc6"),
+"stop_up": SubResource("Animation_pg6o5"),
+"walk_down": SubResource("Animation_nss50"),
+"walk_left": SubResource("Animation_x154a"),
+"walk_right": SubResource("Animation_4rh25"),
+"walk_up": SubResource("Animation_w3qrm")
+}
+
+[node name="Noby" type="Node" node_paths=PackedStringArray("dialog_model", "rpg_model", "combat_model")]
+script = ExtResource("1_88tar")
+dialog_model = NodePath("DialogModel")
+rpg_model = NodePath("RPGModel")
+combat_model = NodePath("CombatModel")
+stats = SubResource("Resource_432rq")
+skills = Array[Resource("res://script/combat/skills/skill.gd")]([ExtResource("3_scxwp")])
+
+[node name="DialogModel" type="Node2D" parent="."]
+script = ExtResource("2_mfhv5")
+
+[node name="Neutral" type="Sprite2D" parent="DialogModel"]
+position = Vector2(0, -898)
+scale = Vector2(-1, 1)
+texture = ExtResource("2_l1yky")
+
+[node name="RPGModel" type="CharacterBody2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("4_i5ekl")
+
+[node name="Sprite2D" type="Sprite2D" parent="RPGModel"]
+position = Vector2(1, -31)
+texture = ExtResource("7_fcxh0")
+offset = Vector2(0, -150)
+hframes = 8
+vframes = 8
+frame = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel"]
+position = Vector2(-2, -30.5)
+shape = SubResource("RectangleShape2D_bncsu")
+
+[node name="Animation" type="AnimationPlayer" parent="RPGModel"]
+libraries = {
+"": SubResource("AnimationLibrary_3ha3c")
+}
+
+[node name="CombatModel" type="Node2D" parent="." node_paths=PackedStringArray("portraits", "sprites")]
+script = ExtResource("6_5wpj4")
+portraits = NodePath("Portraits")
+sprites = NodePath("Sprites")
+
+[node name="Portraits" type="Node" parent="CombatModel"]
+
+[node name="Basic" type="TextureRect" parent="CombatModel/Portraits"]
+texture = ExtResource("15_tfogv")
+
+[node name="Sprites" type="Node" parent="CombatModel"]
+
+[node name="Idle" type="Sprite2D" parent="CombatModel/Sprites"]
+texture = ExtResource("16_q484o")

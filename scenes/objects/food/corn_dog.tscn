@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bh4us1lvj34xh"]
+
+[ext_resource type="PackedScene" uid="uid://bhdwcwp1jcngf" path="res://scenes/objects/cafeteria/base_cafe_object.tscn" id="1_odtes"]
+
+[node name="CornDog" instance=ExtResource("1_odtes")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(1350, 590, 75, 15)

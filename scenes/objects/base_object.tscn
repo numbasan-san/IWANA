@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://bgxrmquotmvg3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_346tc"]
+
+[node name="BaseObject" type="Node2D"]
+z_index = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+region_enabled = true
+region_rect = Rect2(272, 152, 48, 48)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_346tc")

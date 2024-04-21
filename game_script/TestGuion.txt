@@ -1,0 +1,73 @@
+[Escena: escena 1]
+[Inicial: a1]
+[Final: u6]
+[Enlace: a1 -> unidad 2]
+[Enlace: u3 -> u4 -> u5]
+
+[Unidad: a1]
+[Imagen: Daniela -> Neutral]
+[Fondo: bosquejoIntro1]
+
+[Imagen: Rosaria -> Neutral, Maria Jose -> Maria]
+[Izquierda: Noby, Daniela]
+[Derecha: Maria Jose]
+[Derecha: Rosaria]
+
+???: ¡CALLENSE CARAJO!
+[Fondo: bosquejoIntro2.png]
+Profesora Rosaria: yo seré su profesora encargada este año, y deben llamarme profesora Rosaria.
+Noby: El salón está lleno de putos monstruos, parece un circo de deformes. 
+
+[Derecha: Daniela]
+[Imagen: Daniela -> Enojada]
+Amigos: (Reacción con emojis de sus amigos riéndose a carcajadas)
+
+[Imagen: Maria Jose -> Jose]
+
+[Imagen: Rosaria -> explicando(1)]
+
+[Derecha: Guillermo]
+[Esperar]
+[Izquierda: Vicente]
+[Esperar]
+[Quitar: Vicente, Guillermo]
+[Esperar]
+[Centro: Lucia, Rebeca]
+[Esperar]
+
+
+[Fin: a1]
+
+[Unidad: unidad 2]
+
+Profesora Rosaria: Pero primero se me dijo que tenemos que pasar una presentación debido a que en esta clase tenemos un alto número de gente con cualidades especiales.
+Ni ella suena muy convencida, que asco
+Profesora Rosaria: Mejor vayamos al punto. Todos sabemos que pasó desde el comienzo del siglo XXI, la gente muta, ya sea por nacimiento o por altos niveles de estrés. 
+Profesora Rosaria: Por eso INTENTAREMOS mantener los niveles de estrés al mínimo, por eso, no se peleen entre ustedes, no les griten.. y sobre todo respeto O SE LAS VERÁN CONMIGO!!!
+Raúl: (por texto) Tal vez deberíamos hacer lo mismo que antes
+Raúl me envía una imagen de caballero matando un dragón
+Diego: Profesora si ya sabemos todo eso porque nos lo repiten?
+Profesora Rosaria: Porque el director en persona me pidió darles esta obvia presentación en caso de que algunos de ustedes se pasen de idiotas.
+Noby: mierda esta presentación se está haciendo eterna… creo que me está dando sueño… 
+
+[Quitar todos]
+[Fin: unidad 2]
+
+[Unidad: u3]
+[Quitar todos]
+Dev: Esto es una secuencia de pruebas
+[Fin: u3]
+
+[Unidad: u4]
+Dev: Este texto solo se debe ver al iniciar la secuencia desde el modo rpg
+[Fin: u4]
+
+[Unidad: u5]
+Dev: Si se lee esto en la introducción, es un error
+[Fin: u5]
+
+[Unidad: u6]
+Dev: Despues de esto terminamos la escena
+[Fin: u6]
+
+[Fin: escena 1]

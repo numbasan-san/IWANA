@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ygl1oqh1604x"]
+
+[ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://scenes/objects/base_object.tscn" id="1_2d2h6"]
+[ext_resource type="Texture2D" uid="uid://b6c64b6ffilbd" path="res://assets/rpg_sprites/objects/chairs_and_tables.png" id="2_ohgiv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtqo8"]
+size = Vector2(87, 47.5)
+
+[node name="ChairLeft" instance=ExtResource("1_2d2h6")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -69)
+texture = ExtResource("2_ohgiv")
+region_rect = Rect2(615, 211, 85, 185)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_mtqo8")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dj1fgnd3hus27"]
+
+[ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://scenes/objects/base_object.tscn" id="1_jnkxb"]
+[ext_resource type="Texture2D" uid="uid://bowi2a1nggnp3" path="res://assets/rpg_sprites/objects/bathroom.png" id="2_7k0y2"]
+
+[node name="BaseBathroomObject" instance=ExtResource("1_jnkxb")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_7k0y2")

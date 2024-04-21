@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbui3px8bpm0h"]
+
+[ext_resource type="PackedScene" uid="uid://n4u8y0x5enjf" path="res://scenes/objects/classroom/base_classroom_object.tscn" id="1_e5nim"]
+
+[node name="ClassroomBoard" instance=ExtResource("1_e5nim")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(320, 120, 320, 205)

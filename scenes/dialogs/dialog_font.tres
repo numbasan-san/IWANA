@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cdswba3l3ge7m"]
+
+[ext_resource type="FontFile" uid="uid://ti147r2o366q" path="res://assets/menus/BRADHI.ttf" id="1_1y3a5"]
+
+[resource]
+line_spacing = -5.0
+font = ExtResource("1_1y3a5")
+font_size = 50
+font_color = Color(0, 0, 0, 1)

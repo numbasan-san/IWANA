@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c8knhlhrmgo4"
-path="res://.godot/imported/__glavenus_monster_hunter_drawn_by_milkpanda__sample-b42e3db21a9939973e0e50a33878d1ec.jpg-916de3d1f35b94b37fcfdd2702f6d007.ctex"
+uid="uid://2aqyc112b5tj"
+path="res://.godot/imported/__glavenus_monster_hunter_drawn_by_milkpanda__sample-b42e3db21a9939973e0e50a33878d1ec.jpg-9ec292ee978dee6f1cab6184aac5fbb9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Assests de Pruebas/__glavenus_monster_hunter_drawn_by_milkpanda__sample-b42e3db21a9939973e0e50a33878d1ec.jpg"
-dest_files=["res://.godot/imported/__glavenus_monster_hunter_drawn_by_milkpanda__sample-b42e3db21a9939973e0e50a33878d1ec.jpg-916de3d1f35b94b37fcfdd2702f6d007.ctex"]
+source_file="res://assets/Assests de Pruebas/__glavenus_monster_hunter_drawn_by_milkpanda__sample-b42e3db21a9939973e0e50a33878d1ec.jpg"
+dest_files=["res://.godot/imported/__glavenus_monster_hunter_drawn_by_milkpanda__sample-b42e3db21a9939973e0e50a33878d1ec.jpg-9ec292ee978dee6f1cab6184aac5fbb9.ctex"]
 
 [params]
 
