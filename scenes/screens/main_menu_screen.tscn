@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dfnbjn6yyb7iw" path="res://scenes/menus/main_menu.tscn" id="1_31nox"]
 [ext_resource type="Script" path="res://script/screen.gd" id="1_irqnd"]
-[ext_resource type="AudioStream" uid="uid://b6a4mf0xkes4b" path="res://assets/audio/Fun classes and stupid teachers.wav" id="2_rjv87"]
+[ext_resource type="AudioStream" uid="uid://dqx6sp2oc4b8l" path="res://assets/audio/Fun classes and stupid teachers.wav" id="2_rjv87"]
 
 [sub_resource type="Animation" id="Animation_w481i"]
 length = 0.001
