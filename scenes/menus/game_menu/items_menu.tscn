@@ -12,7 +12,9 @@ position = Vector2(1045, 540)
 texture = ExtResource("1_33c85")
 
 [node name="verde" type="Button" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_left = 435.0
 offset_top = 205.0
 offset_right = 471.0
@@ -21,7 +23,9 @@ action_mode = 0
 text = " "
 
 [node name="rojo" type="Button" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_left = 411.0
 offset_top = 260.0
 offset_right = 446.0
@@ -30,7 +34,9 @@ action_mode = 0
 text = " "
 
 [node name="azul" type="Button" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
+layout_mode = 0
 offset_left = 421.0
 offset_top = 315.0
 offset_right = 456.0

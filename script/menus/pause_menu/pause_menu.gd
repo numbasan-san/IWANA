@@ -11,9 +11,9 @@ func pause():
 	$AnimationPlayer.play("blur")
 
 func test_pause():
-	if Input.is_action_just_pressed("pause_button") and !get_tree().paused:
+	if Input.is_action_just_pressed("pause_button") and get_tree().paused == false:
 		pause()
-	elif Input.is_action_just_pressed("pause_button") and get_tree().paused:
+	elif Input.is_action_just_pressed("pause_button") and get_tree().paused == true:
 		resume()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

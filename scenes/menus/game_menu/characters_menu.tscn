@@ -11,16 +11,6 @@ anchors_preset = 0
 position = Vector2(980, 522)
 texture = ExtResource("1_32527")
 
-[node name="verde" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 424.0
-offset_top = 313.0
-offset_right = 459.0
-offset_bottom = 363.0
-action_mode = 0
-text = " "
-
 [node name="rojo" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
@@ -41,7 +31,18 @@ offset_bottom = 308.0
 action_mode = 0
 text = " "
 
+[node name="verde" type="Button" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 424.0
+offset_top = 313.0
+offset_right = 459.0
+offset_bottom = 363.0
+action_mode = 0
+text = " "
+
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 523.0
 offset_top = 485.0
 offset_right = 955.0
@@ -52,6 +53,7 @@ theme_override_font_sizes/normal_font_size = 50
 text = "Pagina amarilla"
 
 [node name="RichTextLabel3" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 1140.0
 offset_top = 334.0
 offset_right = 1463.0

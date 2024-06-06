@@ -99,10 +99,10 @@ grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
-offset_left = 403.0
-offset_top = 209.0
-offset_right = 854.0
-offset_bottom = 545.0
+offset_left = 405.0
+offset_top = 202.0
+offset_right = 856.0
+offset_bottom = 538.0
 scale = Vector2(2.5, 2.5)
 pivot_offset = Vector2(42.4, 49.8)
 
@@ -120,43 +120,6 @@ offset_bottom = 916.0
 theme_override_fonts/normal_font = ExtResource("6_avgvq")
 theme_override_font_sizes/normal_font_size = 60
 text = "Hello"
-
-[node name="default_menu" type="Control" parent="."]
-anchors_preset = 0
-
-[node name="LibroCerrado" type="Sprite2D" parent="default_menu"]
-position = Vector2(1358.5, 549)
-texture = ExtResource("13_0ww5u")
-
-[node name="verde" type="Button" parent="default_menu"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 1642.5
-offset_top = 244.0
-offset_right = 1678.5
-offset_bottom = 294.0
-action_mode = 0
-text = " "
-
-[node name="rojo" type="Button" parent="default_menu"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 1648.5
-offset_top = 298.0
-offset_right = 1683.5
-offset_bottom = 349.0
-action_mode = 0
-text = " "
-
-[node name="azul" type="Button" parent="default_menu"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 1652.5
-offset_top = 354.0
-offset_right = 1688.5
-offset_bottom = 404.0
-action_mode = 0
-text = " "
 
 [node name="selected_menu" type="Control" parent="."]
 anchors_preset = 0
@@ -178,6 +141,47 @@ offset_left = -69.0
 offset_top = 38.0
 offset_right = -69.0
 offset_bottom = 38.0
+
+[node name="default_menu" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 6.0
+offset_top = -15.0
+offset_right = 6.0
+offset_bottom = -15.0
+
+[node name="LibroCerrado" type="Sprite2D" parent="default_menu"]
+position = Vector2(897, 571)
+texture = ExtResource("13_0ww5u")
+
+[node name="verde" type="Button" parent="default_menu"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 1181.0
+offset_top = 266.0
+offset_right = 1217.0
+offset_bottom = 316.0
+action_mode = 0
+text = " "
+
+[node name="rojo" type="Button" parent="default_menu"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 1186.0
+offset_top = 321.0
+offset_right = 1221.0
+offset_bottom = 372.0
+action_mode = 0
+text = " "
+
+[node name="azul" type="Button" parent="default_menu"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 1191.0
+offset_top = 376.0
+offset_right = 1227.0
+offset_bottom = 426.0
+action_mode = 0
+text = " "
 
 [connection signal="pressed" from="default_menu/verde" to="." method="_on_verde_pressed"]
 [connection signal="pressed" from="default_menu/rojo" to="." method="_on_rojo_pressed"]

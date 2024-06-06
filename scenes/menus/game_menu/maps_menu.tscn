@@ -11,7 +11,19 @@ anchors_preset = 0
 position = Vector2(1045, 540)
 texture = ExtResource("1_uqcs6")
 
+[node name="azul" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 438.0
+offset_top = 203.0
+offset_right = 473.0
+offset_bottom = 253.0
+action_mode = 0
+text = " "
+
 [node name="verde" type="Button" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 413.0
@@ -22,22 +34,13 @@ action_mode = 0
 text = " "
 
 [node name="rojo" type="Button" parent="."]
+visible = false
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 423.0
 offset_top = 313.0
 offset_right = 458.0
 offset_bottom = 363.0
-action_mode = 0
-text = " "
-
-[node name="azul" type="Button" parent="."]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 438.0
-offset_top = 203.0
-offset_right = 473.0
-offset_bottom = 253.0
 action_mode = 0
 text = " "
 
@@ -54,6 +57,7 @@ theme_override_font_sizes/normal_font_size = 50
 text = "Cosas de Mapas"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 1089.0
 offset_top = 393.0
 offset_right = 1521.0
