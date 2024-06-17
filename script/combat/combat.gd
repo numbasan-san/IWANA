@@ -39,6 +39,8 @@ func _input(_event):
 		party_menu.select_next_character()
 
 # Fills the screen with the battling characters and their info and begins combat
+# TODO: change to receive both parties, so that we aren't restricted
+# to only using the player's party
 func start_battle(enemy_party: Party):
 	for member in Player.party.members:
 		party_menu.add_character(member)
@@ -49,7 +51,7 @@ func start_battle(enemy_party: Party):
 	self.enemy_party = enemy_party
 	show_party_menu()
 	await ScreenManager.push(ScreenManager.combat_screen, "Out", "In")
-	$PartyMenu/Actions/Attack.grab_focus()
+	$PartyMenu/Actions/ActionList/Attack.grab_focus()
 
 # Called at the end of the battle to clean the screen
 func end_battle():
@@ -69,7 +71,7 @@ func show_party_menu():
 		if party_menu.selected_character:
 			# TODO: change it so that we don't need to refer to the button
 			# directly
-			$PartyMenu/Actions/Attack.grab_focus()
+			$PartyMenu/Actions/ActionList/Attack.grab_focus()
 
 # Shows the skills menu and hides the party menu
 func show_skills_menu():
@@ -99,7 +101,7 @@ func action_phase():
 		party_menu.select_character(0)
 		# TODO: change it so that we don't need to refer to the button
 		# directly
-		$PartyMenu/Actions/Attack.grab_focus()
+		$PartyMenu/Actions/ActionList/Attack.grab_focus()
 	
 
 # Para mostrar el texto dentro de los cuadros de texto.

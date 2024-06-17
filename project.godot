@@ -24,6 +24,7 @@ ScriptParser="*res://script/game_script/script_parser.gd"
 ScriptManager="*res://script/game_script/script_manager.gd"
 ScriptCommands="*res://script/game_script/script_commands.gd"
 Player="*res://scenes/characters/player.tscn"
+AudioManager="*res://scenes/audio_manager.tscn"
 
 [display]
 
