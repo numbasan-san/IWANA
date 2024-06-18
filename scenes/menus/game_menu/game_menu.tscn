@@ -1,0 +1,188 @@
+[gd_scene load_steps=13 format=3 uid="uid://d7w5brnj1hi1"]
+
+[ext_resource type="Shader" path="res://scenes/menus/pause_menu/pause_menu.gdshader" id="1_x1dvp"]
+[ext_resource type="Script" path="res://script/menus/game_menu/game_menu.gd" id="2_s06a2"]
+[ext_resource type="PackedScene" uid="uid://cvqnwtk5nq0y6" path="res://scenes/menus/game_menu/items_menu.tscn" id="5_uwh7u"]
+[ext_resource type="FontFile" uid="uid://cmewnnrujnkfs" path="res://assets/IWANA.ttf" id="6_avgvq"]
+[ext_resource type="PackedScene" uid="uid://cnf48edckpp1a" path="res://scenes/menus/game_menu/characters_menu.tscn" id="6_rbgto"]
+[ext_resource type="PackedScene" uid="uid://b36413u4v0whv" path="res://scenes/menus/game_menu/maps_menu.tscn" id="7_13826"]
+[ext_resource type="Texture2D" uid="uid://kvvlgvjmj6nl" path="res://assets/menus/game menu/libro_cerrado.png" id="13_0ww5u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3tjfk"]
+shader = ExtResource("1_x1dvp")
+shader_parameter/lod = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_n7btv"]
+shader = ExtResource("1_x1dvp")
+shader_parameter/lod = 0.0
+
+[sub_resource type="Animation" id="Animation_wco05"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kixgv"]
+resource_name = "blur"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.75]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qgg0e"]
+_data = {
+"RESET": SubResource("Animation_wco05"),
+"blur": SubResource("Animation_kixgv")
+}
+
+[node name="game_menu" type="Control"]
+process_mode = 3
+material = SubResource("ShaderMaterial_3tjfk")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_s06a2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_n7btv")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+offset_left = 405.0
+offset_top = 202.0
+offset_right = 856.0
+offset_bottom = 538.0
+scale = Vector2(2.5, 2.5)
+pivot_offset = Vector2(42.4, 49.8)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qgg0e")
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1298.0
+offset_top = 221.0
+offset_right = 2155.0
+offset_bottom = 916.0
+theme_override_fonts/normal_font = ExtResource("6_avgvq")
+theme_override_font_sizes/normal_font_size = 60
+text = "Hello"
+
+[node name="selected_menu" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="items_menu" parent="selected_menu" instance=ExtResource("5_uwh7u")]
+offset_left = -66.0
+offset_top = 36.0
+offset_right = -66.0
+offset_bottom = 36.0
+
+[node name="characters_menu" parent="selected_menu" instance=ExtResource("6_rbgto")]
+offset_left = -70.0
+offset_top = 38.0
+offset_right = -70.0
+offset_bottom = 38.0
+
+[node name="maps_menu" parent="selected_menu" instance=ExtResource("7_13826")]
+offset_left = -69.0
+offset_top = 38.0
+offset_right = -69.0
+offset_bottom = 38.0
+
+[node name="default_menu" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 6.0
+offset_top = -15.0
+offset_right = 6.0
+offset_bottom = -15.0
+
+[node name="LibroCerrado" type="Sprite2D" parent="default_menu"]
+position = Vector2(897, 571)
+texture = ExtResource("13_0ww5u")
+
+[node name="verde" type="Button" parent="default_menu"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 1181.0
+offset_top = 266.0
+offset_right = 1217.0
+offset_bottom = 316.0
+action_mode = 0
+text = " "
+
+[node name="rojo" type="Button" parent="default_menu"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 1186.0
+offset_top = 321.0
+offset_right = 1221.0
+offset_bottom = 372.0
+action_mode = 0
+text = " "
+
+[node name="azul" type="Button" parent="default_menu"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 1191.0
+offset_top = 376.0
+offset_right = 1227.0
+offset_bottom = 426.0
+action_mode = 0
+text = " "
+
+[connection signal="pressed" from="default_menu/verde" to="." method="_on_verde_pressed"]
+[connection signal="pressed" from="default_menu/rojo" to="." method="_on_rojo_pressed"]
+[connection signal="pressed" from="default_menu/azul" to="." method="_on_azul_pressed"]

@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvqnwtk5nq0y6"]
+
+[ext_resource type="Texture2D" uid="uid://cco6ix3x5ebn3" path="res://assets/menus/game menu/libreta_objetos.png" id="1_33c85"]
+[ext_resource type="FontFile" uid="uid://m557grc4g413" path="res://assets/combat_sprites/font/IWANA.ttf" id="2_10xmb"]
+
+[node name="items_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="LibretaObjetos" type="Sprite2D" parent="."]
+position = Vector2(1045, 540)
+texture = ExtResource("1_33c85")
+
+[node name="verde" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 435.0
+offset_top = 205.0
+offset_right = 471.0
+offset_bottom = 255.0
+action_mode = 0
+text = " "
+
+[node name="rojo" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 411.0
+offset_top = 260.0
+offset_right = 446.0
+offset_bottom = 310.0
+action_mode = 0
+text = " "
+
+[node name="azul" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 421.0
+offset_top = 315.0
+offset_right = 456.0
+offset_bottom = 365.0
+action_mode = 0
+text = " "
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 527.0
+offset_top = 493.0
+offset_right = 959.0
+offset_bottom = 883.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_10xmb")
+theme_override_font_sizes/normal_font_size = 50
+text = "Cosas de Items"

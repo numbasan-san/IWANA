@@ -1,0 +1,115 @@
+[gd_scene load_steps=6 format=3 uid="uid://ceqe4yrlcfouu"]
+
+[ext_resource type="Script" path="res://script/combat/fill_bars.gd" id="1_ojv77"]
+[ext_resource type="FontFile" uid="uid://bvx3kwcljl1mv" path="res://assets/combat_sprites/font/IWANA.ttf" id="2_cmerm"]
+[ext_resource type="Texture2D" uid="uid://coyrisfgcccaf" path="res://assets/combat_sprites/barra_de_vida_edit.png" id="3_s7fif"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nttnq"]
+bg_color = Color(0.415686, 0.745098, 0.188235, 1)
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wlmcn"]
+bg_color = Color(0.392157, 0.607843, 1, 1)
+corner_detail = 1
+
+[node name="FillBars" type="Control" node_paths=PackedStringArray("health_bar", "energy_bar", "health_value", "energy_value")]
+layout_mode = 3
+anchor_left = 0.1
+anchor_top = 0.837
+anchor_right = 0.9
+anchor_bottom = 0.987
+offset_bottom = -0.100006
+script = ExtResource("1_ojv77")
+health_bar = NodePath("Health")
+energy_bar = NodePath("Energy")
+health_value = NodePath("Health/Label")
+energy_value = NodePath("Energy/Label")
+
+[node name="Health" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.004
+anchor_right = 0.996
+anchor_bottom = 0.468
+offset_left = 0.04
+offset_right = -0.0400085
+offset_bottom = -0.0132046
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 40
+theme_override_styles/fill = SubResource("StyleBoxFlat_nttnq")
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Health"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.279
+anchor_top = 0.048
+anchor_right = 0.72
+anchor_bottom = 1.048
+offset_left = 0.149994
+offset_top = -0.00801528
+offset_right = 0.0879822
+offset_bottom = -0.00801659
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_cmerm")
+theme_override_font_sizes/font_size = 16
+text = "25/50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Energy" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.025
+anchor_top = 0.49
+anchor_right = 0.962
+anchor_bottom = 0.891
+offset_top = -0.00100517
+offset_right = 0.11998
+offset_bottom = -0.00590897
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 7
+theme_override_font_sizes/font_size = 40
+theme_override_styles/fill = SubResource("StyleBoxFlat_wlmcn")
+value = 50.0
+show_percentage = false
+
+[node name="Label" type="Label" parent="Energy"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.369
+anchor_right = 0.644
+anchor_bottom = 1.0
+offset_left = -0.0250015
+offset_right = 0.0999908
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("2_cmerm")
+theme_override_font_sizes/font_size = 16
+text = "25/50"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BarTextures" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_s7fif")

@@ -1,0 +1,68 @@
+[gd_scene load_steps=3 format=3 uid="uid://b36413u4v0whv"]
+
+[ext_resource type="Texture2D" uid="uid://be7fr6rfhhoq4" path="res://assets/menus/game menu/libro_mapa.png" id="1_uqcs6"]
+[ext_resource type="FontFile" uid="uid://m557grc4g413" path="res://assets/combat_sprites/font/IWANA.ttf" id="2_lw43j"]
+
+[node name="maps_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="LibretaObjetos" type="Sprite2D" parent="."]
+position = Vector2(1045, 540)
+texture = ExtResource("1_uqcs6")
+
+[node name="azul" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 438.0
+offset_top = 203.0
+offset_right = 473.0
+offset_bottom = 253.0
+action_mode = 0
+text = " "
+
+[node name="verde" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 413.0
+offset_top = 258.0
+offset_right = 448.0
+offset_bottom = 308.0
+action_mode = 0
+text = " "
+
+[node name="rojo" type="Button" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_left = 423.0
+offset_top = 313.0
+offset_right = 458.0
+offset_bottom = 363.0
+action_mode = 0
+text = " "
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 949.0
+offset_top = 609.0
+offset_right = 1381.0
+offset_bottom = 999.0
+rotation = 3.14159
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_lw43j")
+theme_override_font_sizes/normal_font_size = 50
+text = "Cosas de Mapas"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 1089.0
+offset_top = 393.0
+offset_right = 1521.0
+offset_bottom = 783.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_lw43j")
+theme_override_font_sizes/normal_font_size = 50
+text = "Cosas de Mapas"
