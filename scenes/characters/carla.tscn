@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://sy16m35jo4do" path="res://script/characters/noby/skill_ejemplo_daño.tres" id="3_fpl8h"]
 
 [sub_resource type="Resource" id="Resource_4hq1v"]
+resource_local_to_scene = true
 script = ExtResource("2_vglxn")
 base_max_health = 50
 base_max_energy = 50

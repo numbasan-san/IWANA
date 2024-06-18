@@ -25,6 +25,8 @@ stats = SubResource("Resource_4c1gv")
 skills = Array[Resource("res://script/combat/skills/skill.gd")]([ExtResource("3_2phqi")])
 
 [node name="Sprite2D" parent="RPGModel" index="0"]
+position = Vector2(0, -127)
+scale = Vector2(5, 5)
 texture = ExtResource("4_i5aca")
 hframes = 1
 

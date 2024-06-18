@@ -28,7 +28,7 @@ func add_character(character: Character):
 		+ "menu, but it was already full")
 
 
-func select_character(index: int = -1):
+func select_character_index(index: int = -1):
 	# In this case we clear the selected character
 	if index < 0:
 		party_slots[_selected_index].is_selected = false
@@ -42,6 +42,17 @@ func select_character(index: int = -1):
 	else:
 		printerr("PartyMenu | The party doesn't have a character with index " \
 			+ str(index))
+
+func select_character(char: Character):
+	var index = 0
+	while index < party_slots.size():
+		var found = party_slots[index].character
+		if found and found == char:
+			select_character_index(index)
+			return
+		index += 1
+	# If we reach this point, the character wasn't found
+	select_character_index()
 
 # Selects the next character in the party. If the last character is selected,
 # if loop is true, the next one will be the first member of the party. If it's
@@ -62,7 +73,7 @@ func select_next_character(loop: bool = false):
 		else:
 			next = -1
 		
-	select_character(next)
+	select_character_index(next)
 
 # Selects the previous character in the party. If the first character is selected,
 # if loop is true, the next one will be the last member of the party. If it's
@@ -83,7 +94,7 @@ func select_previous_character(loop: bool = false):
 			previous = Player.party.size() - 1
 		# If we aren't looping, the characters stay deselected
 		
-	select_character(previous)
+	select_character_index(previous)
 
 # Para terminar el combate por la fuerza.
 func _on_run_pressed():
@@ -100,7 +111,9 @@ func _on_attack_pressed():
 # La defensa del jugador.
 func _on_defense_pressed():
 	var action = CombatAction.new(Defense.new(), selected_character, null)
-	combat.action_queue.append(action)
-	select_next_character()
-	if not selected_character:
-		combat.action_phase()
+	action.execute()
+	# We perform this here in case the defense somehow activated an effect
+	# that damaged an enemy
+	combat.remove_dead()
+	select_character_index()
+	combat.next_turn()

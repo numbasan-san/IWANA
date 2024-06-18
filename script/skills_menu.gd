@@ -30,18 +30,20 @@ func set_character(character: Character = null):
 						# Change it later to a system where if the target has
 						# already fallen, a new target can be chosen
 						var target: Character
-						for enemy in combat.enemy_party.members:
+						var enemy_party: Party = null
+						if combat.left_party.has(character):
+							enemy_party = combat.right_party
+						else:
+							enemy_party = combat.left_party
+						for enemy in enemy_party.members:
 							if enemy.stats.health > 0:
 								target = enemy
 								break
 						var action = CombatAction.new(skill, character, target)
-						combat.action_queue.append(action)
-						# TODO: Maybe the following code should be performed by the
-						# combat control, by emiting a signal when this is done
-						combat.party_menu.select_next_character()
+						action.execute()
+						combat.remove_dead()
 						await combat.show_party_menu()
-						if not combat.party_menu.selected_character:
-							combat.action_phase()
+						combat.next_turn()
 				)
 			else:
 				button.disabled = true

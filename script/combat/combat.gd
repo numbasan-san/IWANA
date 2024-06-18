@@ -3,22 +3,21 @@ extends Control
 
 signal textbox_closed
 
-@export var player_area: CombatPartyArea
-@export var enemy_area: CombatPartyArea
+@export var right_area: CombatPartyArea
+@export var left_area: CombatPartyArea
 @export var party_menu: PartyMenu
 @export var skills_menu: SkillsMenu
 @export var change_menu_animation: AnimationPlayer
 
-# When one picks an action (using skill, defending, fleeing, etc), it is stored
-# here as a callable so one can proceed with the rest of the members. After
-# an action has been chosen for everyone, the queue is read and all actions are
-# performed sequentially.
-# TODO: we have to decide if enemy actions are going to be queued when one is
-# choosing the player actions, according to their speed, or after all player
-# actions have been chosen the enemy actions are going to be inserted inbetween.
-var action_queue: Array[CombatAction]
+# The turn order is decided at the beginning of the round according to the
+# actors' speed stat and buffs. This is where they will be stored, and they
+# will be removed as they perform their actions
+var actor_queue: Array[Character]
 
-var enemy_party: Party = null
+# The party on the left side of the screen generally is the party of the enemies
+var left_party: Party = null
+# The party on the right side of the screen generally is the party of the player
+var right_party: Party = null
 
 var showing_skills = false
 
@@ -41,27 +40,78 @@ func _input(_event):
 # Fills the screen with the battling characters and their info and begins combat
 # TODO: change to receive both parties, so that we aren't restricted
 # to only using the player's party
-func start_battle(enemy_party: Party):
-	for member in Player.party.members:
+func start_battle(player_party: Party, enemy_party: Party):
+	for member in player_party.members:
 		party_menu.add_character(member)
-		player_area.add_character(member)
-	party_menu.select_character(0)
+		right_area.add_character(member)
+	# We start with no character selected in case one
+	# of the enemies attacks first
+	party_menu.select_character_index()
+	self.right_party = player_party
 	for enemy in enemy_party.members:
-		enemy_area.add_character(enemy)
-	self.enemy_party = enemy_party
-	show_party_menu()
+		left_area.add_character(enemy)
+	self.left_party = enemy_party
 	await ScreenManager.push(ScreenManager.combat_screen, "Out", "In")
-	$PartyMenu/Actions/ActionList/Attack.grab_focus()
+	show_party_menu()
+	prepare_new_round()
+	next_turn()
 
 # Called at the end of the battle to clean the screen
 func end_battle():
 	await ScreenManager.pop(ScreenManager.combat_screen, "Out", "In")
 	party_menu.clear()
-	player_area.clear()
-	enemy_area.clear()
+	right_area.clear()
+	left_area.clear()
 	#TODO: replace this with more permanent solution to rebattle
-	enemy_party.members[0].stats.replenish()
-	enemy_party = null
+	left_party.members[0].stats.replenish()
+	left_party = null
+	right_party = null
+	actor_queue.clear()
+
+# This function should be called at the start of the combat or after
+# everyone has acted to sort every character's turn for the next round
+func prepare_new_round():
+	for character in left_area.characters:
+		actor_queue.append(character)
+	for character in right_area.characters:
+		actor_queue.append(character)
+	actor_queue.sort_custom(func(a: Character, b: Character):
+		return a.stats.speed > b.stats.speed)
+	# We only call this to do clean up in case it wasn't called
+	# when appropiate
+	remove_dead()
+	
+func next_turn():
+	# We check here if one party has been defeated and end the battle to fix
+	# a bug that could happen when ending the battle in the code for a skill 
+	# button of a player character before it can call scene animations, which
+	# would cause it to call next_turn on the next battle
+	if left_area.is_empty() or right_area.is_empty():
+		end_battle()
+	
+	elif actor_queue.is_empty():
+		prepare_new_round()
+		next_turn()
+	else:
+		var next: Character = actor_queue.pop_front()
+		# If the next character is in the player's party, we allow the player
+		# to pick an action
+		# We check in the party variable of Player and not in the party menu
+		# in the battle screen in case both battling parties are controled by
+		# the computer
+		if Player.party.has(next):
+			party_menu.select_character(next)
+			_focus_action_list()
+		else:
+			var target: Character = null
+			if left_party.has(next):
+				target = right_party.members[0]
+			else:
+				target = left_party.members[0]
+			var action = CombatAction.new(next.skills[0], next, target)
+			action.execute()
+			remove_dead()
+			next_turn()
 
 # Shows the party menu and hides the skills menu
 func show_party_menu():
@@ -71,7 +121,7 @@ func show_party_menu():
 		if party_menu.selected_character:
 			# TODO: change it so that we don't need to refer to the button
 			# directly
-			$PartyMenu/Actions/ActionList/Attack.grab_focus()
+			_focus_action_list()
 
 # Shows the skills menu and hides the party menu
 func show_skills_menu():
@@ -81,28 +131,24 @@ func show_skills_menu():
 		if skills_menu.skills_container.get_child_count() > 0:
 			skills_menu.skills_container.get_child(0).grab_focus()
 
-# After all actions have been chosen, perform them
-func action_phase():
-	# Just for testing, we add the enemy actions here
-	# Always attacks the first character, we assume that it is there
-	for enemy in enemy_party.members:
-		var enemy_action = CombatAction.new(enemy.skills[0], enemy, player_area.characters[0])
-		action_queue.append(enemy_action)
-	action_queue.sort_custom(func(a, b): b.order < a.order)
-	for action in action_queue:
-		action.execute()
-	action_queue.clear()
-	for enemy in enemy_party.members:
-		if enemy.stats.health <= 0 and enemy_area.has(enemy):
-			enemy_area.remove_character(enemy)
-	if enemy_area.is_empty():
-		end_battle()
-	else:
-		party_menu.select_character(0)
-		# TODO: change it so that we don't need to refer to the button
-		# directly
-		$PartyMenu/Actions/ActionList/Attack.grab_focus()
-	
+# This function should be called at the end of each turn to remove
+# all characters that have died from the combat area
+func remove_dead():
+	for char in left_party.members:
+		if char.stats.health <= 0:
+			# We put this here in case we accidentaly add an actor that was
+			# already removed from the area to the queue 
+			actor_queue.remove_at(actor_queue.find(char))
+			if left_area.has(char):
+				left_area.remove_character(char)
+	for char in right_party.members:
+		if char.stats.health <= 0:
+			actor_queue.remove_at(actor_queue.find(char))
+			if right_area.has(char):
+				right_area.remove_character(char)
+
+func _focus_action_list():
+	$PartyMenu/Actions/ActionList/Attack.grab_focus()
 
 # Para mostrar el texto dentro de los cuadros de texto.
 func display_text(text):
