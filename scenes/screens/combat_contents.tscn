@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://bl8ep0i6kkfu3" path="res://assets/combat_sprites/buttons/huir_selecccionado.png" id="12_1rras"]
 [ext_resource type="FontFile" uid="uid://bvx3kwcljl1mv" path="res://assets/combat_sprites/font/IWANA.ttf" id="15_5rv14"]
 [ext_resource type="Script" path="res://script/skills_menu.gd" id="16_3nacl"]
-[ext_resource type="Texture2D" uid="uid://d4d7l4stlp4kh" path="res://assets/combat_sprites/hud_combate_skills.png" id="17_wc36s"]
+[ext_resource type="Texture2D" uid="uid://e6b1acbbc6m" path="res://assets/combat_sprites/skills_paper.png" id="17_n5htp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4841x"]
 atlas = ExtResource("9_1667j")
@@ -71,7 +71,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(0.42, 1),
 "update": 0,
-"values": [Vector2(255, 684), Vector2(255, 1084)]
+"values": [Vector2(255, 684), Vector2(255, 1150)]
 }
 
 [sub_resource type="Animation" id="Animation_rmftu"]
@@ -98,7 +98,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(255, 1084)]
+"values": [Vector2(255, 1150)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -270,7 +270,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(0.42, 1),
 "update": 0,
-"values": [Vector2(255, 1084), Vector2(255, 684)]
+"values": [Vector2(255, 1150), Vector2(255, 684)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1dyyx"]
@@ -578,24 +578,23 @@ texture_focused = ExtResource("12_1rras")
 [node name="SkillsMenu" type="Control" parent="." node_paths=PackedStringArray("combat", "character_slot", "skills_container", "button_model")]
 visible = false
 layout_mode = 1
-anchor_left = 0.064
-anchor_top = 0.674
-anchor_right = 0.935
+anchor_left = 0.133
+anchor_top = 0.633
+anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 255.0
-offset_top = 1084.0
+offset_top = 1150.0
 offset_right = 255.0
-offset_bottom = 1084.0
+offset_bottom = 1150.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("16_3nacl")
 combat = NodePath("..")
 character_slot = NodePath("Character")
-skills_container = NodePath("Skills/VBoxContainer")
+skills_container = NodePath("SkillArea/Skills/VBoxContainer")
 button_model = NodePath("ButtonModel")
 
 [node name="ButtonModel" type="Button" parent="SkillsMenu"]
-visible = false
 layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
@@ -605,36 +604,37 @@ theme_override_fonts/font = ExtResource("15_5rv14")
 theme_override_font_sizes/font_size = 30
 flat = true
 
-[node name="GUITexture" type="TextureRect" parent="SkillsMenu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("17_wc36s")
-
 [node name="Character" parent="SkillsMenu" instance=ExtResource("3_v8xkj")]
 layout_mode = 1
-anchor_left = 0.011
-anchor_top = 0.053
-anchor_right = 0.194
-anchor_bottom = 0.983
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_right = 303.0
+offset_bottom = 340.0
 
-[node name="Skills" type="ScrollContainer" parent="SkillsMenu"]
+[node name="SkillArea" type="Control" parent="SkillsMenu"]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.212
-anchor_top = 0.08
-anchor_right = 0.609
-anchor_bottom = 0.957
-offset_left = 0.323975
-offset_top = -0.160002
-offset_right = 0.142944
-offset_bottom = 0.135986
+anchor_left = 0.194
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Paper" type="TextureRect" parent="SkillsMenu/SkillArea"]
+layout_mode = 0
+offset_left = -57.0
+offset_top = -65.0
+offset_right = 1342.0
+offset_bottom = 396.0
+texture = ExtResource("17_n5htp")
+
+[node name="Skills" type="ScrollContainer" parent="SkillsMenu/SkillArea"]
+layout_mode = 1
+offset_left = 171.99
+offset_top = 70.0
+offset_right = 1279.99
+offset_bottom = 339.0
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="SkillsMenu/Skills"]
+[node name="VBoxContainer" type="VBoxContainer" parent="SkillsMenu/SkillArea/Skills"]
 layout_mode = 2
 theme_override_constants/separation = 20
 

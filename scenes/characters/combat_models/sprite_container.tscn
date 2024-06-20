@@ -6,28 +6,22 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gltg8"]
 
 [node name="SpriteContainer" type="Panel" node_paths=PackedStringArray("directional", "fill_bars")]
-anchors_preset = -1
-anchor_left = 0.049
-anchor_top = 0.145
-anchor_right = 0.049
-anchor_bottom = 0.145
-offset_left = -94.08
-offset_top = -156.6
-offset_right = 93.92
-offset_bottom = 157.4
+offset_right = 275.0
+offset_bottom = 120.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_gltg8")
 script = ExtResource("1_ndaat")
 directional = NodePath("Directional")
 fill_bars = NodePath("FillBars")
+metadata/_edit_vertical_guides_ = [-435.0]
 
 [node name="Directional" type="Node2D" parent="."]
 position = Vector2(94, 148)
 scale = Vector2(3, 3)
 
 [node name="FillBars" parent="." node_paths=PackedStringArray("container") instance=ExtResource("2_xja7c")]
-visible = false
 layout_mode = 1
-anchor_top = 0.0272835
-anchor_bottom = 0.177283
+anchors_preset = -1
+anchor_left = -0.218182
+anchor_right = -0.218182
 container = NodePath("..")
 metadata/_edit_use_anchors_ = true

@@ -14,7 +14,7 @@ extends CharacterContainer
 var _bg_region_1: Rect2 = Rect2(32, 249, 294, 318)
 # Position of the name label for the 1st and 3rd
 # character slots
-var _name_label_pos_1: Vector2 = Vector2(40, 250)
+var _name_label_pos_1: Vector2 = Vector2(12, 256)
 # Rotation of the name label for the 1st and 3rd
 # character slots
 var _name_label_rot_1 = 3
@@ -24,7 +24,7 @@ var _bar_pos_1: Vector2 = Vector2(21, -15)
 var _bg_region_2: Rect2 = Rect2(353, 252, 282, 309)
 # Position of the name label for the 1st and 3rd
 # character slots
-var _name_label_pos_2: Vector2 = Vector2(40, 260)
+var _name_label_pos_2: Vector2 = Vector2(22, 270)
 # Rotation of the name label for the 1st and 3rd
 # character slots
 var _name_label_rot_2 = -6
@@ -46,6 +46,12 @@ var is_selected: bool = false:
 func _enter_tree():
 	hide()
 	fill_bars.slot = slot
+	change_slot(self.slot)
+
+# The specific image and layout of a portrait depends on its
+# position in the party menu. We can use this function to change
+# them accordingly
+func change_slot(slot: int):
 	if slot == 1 or slot == 3:
 		(background.texture as AtlasTexture).region = _bg_region_1
 		fill_bars.position = _bar_pos_1

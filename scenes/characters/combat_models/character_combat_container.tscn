@@ -139,11 +139,11 @@ container = NodePath("..")
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
-offset_left = 104.0
-offset_top = 272.0
-offset_right = 166.0
-offset_bottom = 287.0
-rotation = -0.10472
+offset_left = 12.0
+offset_top = 256.0
+offset_right = 257.0
+offset_bottom = 289.0
+rotation = 0.0523599
 size_flags_horizontal = 4
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10

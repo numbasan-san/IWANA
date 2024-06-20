@@ -15,6 +15,7 @@ func set_character(new_character: Character = null):
 	var model = new_character.combat_model
 	_change_sprite(null, model.current_sprite)
 	model.update_sprite.connect(_change_sprite)
+	
 
 # Clears the container
 func remove_character():
