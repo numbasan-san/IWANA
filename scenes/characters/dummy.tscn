@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cxhb1pbyx1uwh"]
+[gd_scene load_steps=10 format=3 uid="uid://cxhb1pbyx1uwh"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://scenes/characters/character.tscn" id="1_begxf"]
 [ext_resource type="Script" path="res://script/combat/stats.gd" id="2_dme1k"]
@@ -17,25 +17,36 @@ base_defense = 0
 base_speed = 0
 base_critical = 0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4lv8j"]
+resource_local_to_scene = true
+size = Vector2(58.1401, 129.182)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vtrvc"]
-size = Vector2(20, 27)
+size = Vector2(144, 115)
 
 [node name="Dummy" instance=ExtResource("1_begxf")]
 stats = SubResource("Resource_4c1gv")
 skills = Array[Resource("res://script/combat/skills/skill.gd")]([ExtResource("3_2phqi")])
+
+[node name="RPGModel" parent="." index="1"]
+motion_mode = 1
 
 [node name="Sprite2D" parent="RPGModel" index="0"]
 position = Vector2(0, -127)
 scale = Vector2(5, 5)
 texture = ExtResource("4_i5aca")
 hframes = 1
+region_rect = Rect2(457, 660, 145, 300)
+
+[node name="CollisionShape2D" parent="RPGModel" index="1"]
+position = Vector2(-0.5, -43)
+shape = SubResource("RectangleShape2D_4lv8j")
 
 [node name="GeneralInteraction" type="Area2D" parent="RPGModel" index="3"]
-position = Vector2(0, 17)
 script = ExtResource("5_vdbvb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel/GeneralInteraction" index="0"]
-position = Vector2(0, -3.5)
+position = Vector2(-2, -47.5)
 shape = SubResource("RectangleShape2D_vtrvc")
 debug_color = Color(0.992157, 0, 0.254902, 0.419608)
 

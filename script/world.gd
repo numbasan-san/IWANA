@@ -1,3 +1,4 @@
+class_name World
 extends Node2D
 
 # Reconsider if this should go here or in another class
@@ -8,7 +9,7 @@ enum SpawnFallback{ ERROR, ZERO, FIRST }
 # The zone where the player currently is and is shown on screen
 var player_zone: Zone
 
-# Removes the character from the current new_zone and places it in a new one
+# Removes the character from the current zone and places it in a new one
 func reposition_character(
 		character: Character,
 		new_zone: Zone,

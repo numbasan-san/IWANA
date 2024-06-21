@@ -34,4 +34,7 @@ func _start_battle():
 		d.stats.replenish()
 		enemy_party.add(d)
 		i += 1
+	enemy_party.members[1].stats.base_speed = 2
+	enemy_party.members[2].stats.base_speed = 4
+	enemy_party.members[3].stats.base_speed = 6
 	ScreenManager.combat_screen.contents.start_battle(Player.party, enemy_party)

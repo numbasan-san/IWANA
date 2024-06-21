@@ -21,8 +21,8 @@ base_defense = 0
 base_speed = 5
 base_critical = 2
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bncsu"]
-size = Vector2(138, 61)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3q5a"]
+size = Vector2(128, 61)
 
 [sub_resource type="Animation" id="Animation_1f7jw"]
 length = 0.001
@@ -203,19 +203,20 @@ texture = ExtResource("2_l1yky")
 [node name="RPGModel" type="CharacterBody2D" parent="."]
 z_index = 1
 y_sort_enabled = true
+motion_mode = 1
 script = ExtResource("4_i5ekl")
 
 [node name="Sprite2D" type="Sprite2D" parent="RPGModel"]
-position = Vector2(1, -31)
+position = Vector2(0, 1)
 texture = ExtResource("7_gcu02")
-offset = Vector2(0, -150)
+offset = Vector2(0, -142)
 hframes = 8
 vframes = 8
 frame = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel"]
-position = Vector2(-2, -30.5)
-shape = SubResource("RectangleShape2D_bncsu")
+position = Vector2(0, -30.5)
+shape = SubResource("RectangleShape2D_e3q5a")
 
 [node name="Animation" type="AnimationPlayer" parent="RPGModel"]
 libraries = {

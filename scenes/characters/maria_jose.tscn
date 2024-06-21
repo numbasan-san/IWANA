@@ -1,10 +1,190 @@
-[gd_scene load_steps=4 format=3 uid="uid://maeacjbhexlb"]
+[gd_scene load_steps=18 format=3 uid="uid://maeacjbhexlb"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://scenes/characters/character.tscn" id="1_begxf"]
+[ext_resource type="Script" path="res://script/combat/stats.gd" id="2_jrk70"]
 [ext_resource type="Texture2D" uid="uid://b6b1hd1e1oi0x" path="res://assets/dialog_drawings/characters/mariajose.png" id="3_xswt3"]
 [ext_resource type="Texture2D" uid="uid://duhl2a4ymx2rp" path="res://assets/dialog_drawings/characters/josemaria2.png" id="4_hxba3"]
+[ext_resource type="Texture2D" uid="uid://yos8ptcii3lf" path="res://assets/rpg_sprites/characters/josemaria/mj_perspertiva.png" id="5_vkrab"]
+
+[sub_resource type="Resource" id="Resource_manuk"]
+resource_local_to_scene = true
+script = ExtResource("2_jrk70")
+base_max_health = 1
+base_max_energy = 0
+base_damage = 0
+base_defense = 0
+base_speed = 0
+base_critical = 0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wobkj"]
+size = Vector2(51.1633, 79.7079)
+
+[sub_resource type="Animation" id="Animation_rum07"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(457, 660, 145, 300)]
+}
+
+[sub_resource type="Animation" id="Animation_rjqoc"]
+resource_name = "stop_player_down"
+length = 0.1
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(457, 660, 145, 300)]
+}
+
+[sub_resource type="Animation" id="Animation_omwxq"]
+resource_name = "stop_player_left"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(207, 340, 135, 300)]
+}
+
+[sub_resource type="Animation" id="Animation_atm6h"]
+resource_name = "stop_player_right"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(712, 340, 135, 300)]
+}
+
+[sub_resource type="Animation" id="Animation_e4d4g"]
+resource_name = "stop_player_up"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(462, 25, 145, 300)]
+}
+
+[sub_resource type="Animation" id="Animation_3hb6o"]
+resource_name = "walk_player_down"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(457, 660, 145, 300)]
+}
+
+[sub_resource type="Animation" id="Animation_oll8e"]
+resource_name = "walk_player_left"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(207, 340, 135, 300)]
+}
+
+[sub_resource type="Animation" id="Animation_cmw0h"]
+resource_name = "walk_player_right"
+length = 0.7
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(712, 340, 135, 300)]
+}
+
+[sub_resource type="Animation" id="Animation_swq2p"]
+resource_name = "walk_player_up"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(462, 25, 145, 300)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r5p10"]
+_data = {
+"RESET": SubResource("Animation_rum07"),
+"stop_down": SubResource("Animation_rjqoc"),
+"stop_left": SubResource("Animation_omwxq"),
+"stop_right": SubResource("Animation_atm6h"),
+"stop_up": SubResource("Animation_e4d4g"),
+"walk_down": SubResource("Animation_3hb6o"),
+"walk_left": SubResource("Animation_oll8e"),
+"walk_right": SubResource("Animation_cmw0h"),
+"walk_up": SubResource("Animation_swq2p")
+}
 
 [node name="MariaJose" instance=ExtResource("1_begxf")]
+stats = SubResource("Resource_manuk")
+
+[node name="DialogModel" parent="." index="0"]
+visible = false
 
 [node name="Maria" type="Sprite2D" parent="DialogModel" index="0"]
 scale = Vector2(-1, 1)
@@ -13,3 +193,22 @@ texture = ExtResource("3_xswt3")
 [node name="Jose" type="Sprite2D" parent="DialogModel" index="1"]
 scale = Vector2(-1, 1)
 texture = ExtResource("4_hxba3")
+
+[node name="RPGModel" parent="." index="1"]
+motion_mode = 1
+
+[node name="Sprite2D" parent="RPGModel" index="0"]
+texture = ExtResource("5_vkrab")
+offset = Vector2(0, -150)
+hframes = 1
+region_enabled = true
+region_rect = Rect2(457, 660, 145, 300)
+
+[node name="CollisionShape2D" parent="RPGModel" index="1"]
+position = Vector2(1, -29)
+shape = SubResource("RectangleShape2D_wobkj")
+
+[node name="Animation" parent="RPGModel" index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_r5p10")
+}
