@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ca11dmkqitrs1"]
+
+[ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://scenes/objects/base_object.tscn" id="1_25d6j"]
+[ext_resource type="Texture2D" uid="uid://ddgc0na3j662u" path="res://assets/rpg_sprites/objects/infirmary.png" id="2_xqply"]
+
+[node name="Desk5" instance=ExtResource("1_25d6j")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_xqply")
+region_rect = Rect2(880, 285, 180, 80)
+
+[node name="StaticBody2D" parent="." index="1"]
+position = Vector2(-247, 140)

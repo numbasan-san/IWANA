@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7kbjre1dyxb"]
+
+[ext_resource type="PackedScene" uid="uid://bexdhvmbe3drg" path="res://scenes/objects/infirmary/base_inf_object.tscn" id="1_cjqil"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8edkj"]
+size = Vector2(375, 132)
+
+[node name="BedCyan" instance=ExtResource("1_cjqil")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(1470, 30, 375, 210)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0.5, 39)
+shape = SubResource("RectangleShape2D_8edkj")

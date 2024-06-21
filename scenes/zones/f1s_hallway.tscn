@@ -134,7 +134,15 @@ spawn_direction = "down"
 transparent = true
 front = false
 
-[node name="DoorArtRoom" parent="Doors" index="2" instance=ExtResource("4_l3pry")]
+[node name="DoorInfirmary" parent="Doors" index="2" instance=ExtResource("4_l3pry")]
+position = Vector2(10000, 1305)
+zone = "infirmary"
+spawn = "SpawnHallway"
+spawn_direction = "down"
+transparent = true
+front = false
+
+[node name="DoorArtRoom" parent="Doors" index="3" instance=ExtResource("4_l3pry")]
 position = Vector2(3278, 1306)
 zone = "art_room"
 spawn = "SpawnHallway"
@@ -142,7 +150,7 @@ spawn_direction = "down"
 transparent = true
 front = false
 
-[node name="DoorYard" parent="Doors" index="3" instance=ExtResource("6_pn4li")]
+[node name="DoorYard" parent="Doors" index="4" instance=ExtResource("6_pn4li")]
 position = Vector2(6640, 643)
 zone = "yard"
 spawn = "SpawnHallwaySouth"
@@ -208,8 +216,11 @@ position = Vector2(5521, 1192)
 [node name="SpawnF1S2" type="Node2D" parent="SpawnPoints" index="1"]
 position = Vector2(8000, 1192)
 
-[node name="SpawnArtRoom" type="Node2D" parent="SpawnPoints" index="2"]
+[node name="SpawnInfirmary" type="Node2D" parent="SpawnPoints" index="2"]
+position = Vector2(10000, 1192)
+
+[node name="SpawnArtRoom" type="Node2D" parent="SpawnPoints" index="3"]
 position = Vector2(3278, 1192)
 
-[node name="SpawnYard" type="Node2D" parent="SpawnPoints" index="3"]
+[node name="SpawnYard" type="Node2D" parent="SpawnPoints" index="4"]
 position = Vector2(6640, 803)

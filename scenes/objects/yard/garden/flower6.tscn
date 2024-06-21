@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj80b1ogckeai"]
+
+[ext_resource type="Texture2D" uid="uid://bmh8rbbc6a468" path="res://assets/rpg_sprites/objects/garden.png" id="1_ovmnb"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_346tc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87u6e"]
+size = Vector2(41, 31)
+
+[node name="Flower6" type="Node2D"]
+z_index = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ovmnb")
+region_enabled = true
+region_rect = Rect2(640, 945, 50, 80)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_346tc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1.5, 29.5)
+shape = SubResource("RectangleShape2D_87u6e")
