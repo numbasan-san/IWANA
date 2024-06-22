@@ -6,17 +6,12 @@ func _on_pressed():
 	# Temporal code to change character in dialog mode
 	# Change when the scenes controler is ready
 	var noby = CharacterManager.load("noby")
-	CharacterManager.change_player("noby")
 	var daniela = CharacterManager.load("daniela")
 	var carla = CharacterManager.load("carla")
 	var guille = CharacterManager.load("guillermo")
 	var mj = CharacterManager.load("maria_jose")
 	var beca = CharacterManager.load("rebeca")
 	var lucia = CharacterManager.load("lucia")
-	
-	Player.party.add(daniela)
-	Player.party.add(carla)
-	Player.party.add(guille)
 	
 	var hallway_north = ZoneManager.load("f1n_hallway")
 	world.reposition_character(daniela, hallway_north, Vector2(6000, 900))
@@ -26,6 +21,12 @@ func _on_pressed():
 	world.reposition_character(lucia, hallway_north, Vector2(7200, 900))
 	var starting_zone = ZoneManager.load("room_f1n1")
 	world.spawn(noby, starting_zone)
+	Player.control(noby)
+	
+	Player.party.add(daniela)
+	Player.party.add(carla)
+	Player.party.add(guille)
+	
 	var dummy = CharacterManager.load("dummy")
 	var dev_zone = ZoneManager.load("dev_testing")
 	world.spawn(dummy, dev_zone)

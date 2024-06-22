@@ -43,8 +43,18 @@ extends Node2D
 
 #-----------------------------------------------------
 
+# Stores the points where characters can spawn. It's recommended
+# that there is at least 1 spawn point for each entrance. If there are
+# no spawn points, a default value is used (generaly point (0, 0))
 @onready var spawn_points: Node = $SpawnPoints
 @onready var tile_map: TileMap = $TileMap
+
+# Stores the party path. When the player controled character enters the zone,
+# a Path2D should be added here, and a PathFollow2D should be added to that
+# path for each follower. As the player character moves more points should be
+# added to the path, and when the character leaves the zone, the path should be
+# deleted
+@onready var party_path_node: Node = $PartyPath
 
 # Thelayers and masks are stored so that they can be restored after
 # reactivating the zone
@@ -82,3 +92,18 @@ func deactivate():
 		i += 1
 	set_physics_process(false)
 	process_mode = Node.PROCESS_MODE_DISABLED
+
+# When the player character enters the zone, this function should be invoked
+# The function receives a reference to the path to put it in the scene tree, but
+# the actual path is modified in the Player object
+func add_party_path(path: PartyPath):
+	# There should never be another path when we call this function, but
+	# we test just in case
+	if party_path_node.get_child_count() != 0:
+		clear_party_path()
+	party_path_node.add_child(path)
+
+# When the player character leaves the zone, this function should be invoked
+func clear_party_path():
+	for n in party_path_node.get_children():
+		party_path_node.remove_child(n)

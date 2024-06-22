@@ -31,15 +31,3 @@ func load(character_name: String):
 				+ character_name + " in the folder " + folder)
 		
 	return character
-
-# Changes the character currently being controled by the player
-# TODO: this functionality is already provided by Player, but without searching
-# for a character with a specific name. If that is changed, that one should be
-# used and this one should be deleted
-func change_player(character_name: String):
-	var character = self.load(character_name)
-	if character:
-		Player.control(character)
-	else:
-		printerr("A character named " + character_name + "couldn't be found. \
-			The player character wasn't changed.")

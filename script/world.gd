@@ -6,9 +6,6 @@ extends Node2D
 # named spawn point isn't found.
 enum SpawnFallback{ ERROR, ZERO, FIRST }
 
-# The zone where the player currently is and is shown on screen
-var player_zone: Zone
-
 # Removes the character from the current zone and places it in a new one
 func reposition_character(
 		character: Character,
@@ -22,30 +19,22 @@ func reposition_character(
 	# If the character is controled by the player, then its old zone is the
 	# child of World node and we must check if it needs to be changed
 	if Player.character == character:
-		
-		# If the player is moving to the same zone, there are no changes
-		if player_zone == new_zone:
-			return
+		# If the player is moving to the same zone, we do nothing
+		if Player.zone == new_zone:
+			pass
 		# If the player wasn't in any zone, this will be null and we must add
 		# the new zone
-		elif not player_zone:
-			ZoneManager.call_deferred("remove_child", new_zone)
-			call_deferred("add_child", new_zone)
-			player_zone = new_zone
-			new_zone.activate()
+		elif not Player.zone:
+			ZoneManager.set_active(new_zone)
+			Player.zone = new_zone
 		
 		# If we reach this point, the player was already in a zone and is moving
 		# to a new one, so we must remove the old one and add the new
 		else:
-			call_deferred("remove_child", player_zone)
-			ZoneManager.call_deferred("add_child", player_zone)
-			player_zone.deactivate()
-			
-			ZoneManager.call_deferred("remove_child", new_zone)
-			call_deferred("add_child", new_zone)
-			new_zone.activate()
-			
-			player_zone = new_zone
+			Player.clear_party_path()
+			ZoneManager.set_active(new_zone)
+			Player.zone = new_zone
+		Player.new_party_path()
 
 # Moves a character to a new position determined by a spawn node that had to be
 # previously placed in the new zone, and looking in the specified direction
@@ -89,6 +78,3 @@ func spawn(
 			new_position = Vector2(0, 0)
 	# If the execution reaches this point, we have a valid position
 	reposition_character(character, new_zone, new_position, new_direction)
-
-func change_active_zone(zone: Zone):
-	pass

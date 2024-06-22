@@ -149,12 +149,6 @@ pattern_8 = SubResource("TileMapPattern_n40g6")
 [node name="Door" parent="." index="0"]
 spawn = "SpawnF1N1"
 
-[node name="TeacherDesk" parent="." index="5"]
-y_sort_enabled = false
-
-[node name="ClassroomBoard" parent="." index="6"]
-y_sort_enabled = false
-
 [node name="Items" type="Node2D" parent="." index="7"]
 z_index = 1
 y_sort_enabled = true

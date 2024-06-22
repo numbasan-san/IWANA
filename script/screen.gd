@@ -9,7 +9,7 @@ extends CanvasLayer
 
 var is_active = false
 
-# Sometimes ocurr an error when a pop is requested in a _process function while
+# Sometimes an error ocurrs when a pop is requested in a _process function while
 # waiting for a previous animation to finish, _process runs several times in a
 # different thread, calling pop repeatedly passing as argument the same screen, 
 # and all those calls get queued. As each call stops waiting, each removes the

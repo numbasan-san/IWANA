@@ -26,5 +26,29 @@ func _ready():
 
 func reposition(new_zone: Zone, position: Vector2, direction: String):
 	if rpg_model:
-		rpg_model.reposition(new_zone, position, direction)
-		zone = new_zone
+		if not new_zone:
+			remove_from_zone()
+			return
+		else:
+			# If we bring it to a zone for the first time, we must activate the node
+			if not zone:
+				rpg_model.activate()
+				call_deferred("remove_child", rpg_model)
+				new_zone.call_deferred("add_child", rpg_model)
+		
+			# If we are moving to a different zone, we move the model
+			elif new_zone != zone:
+				zone.call_deferred("remove_child", rpg_model)
+				new_zone.call_deferred("add_child", rpg_model)
+			
+			rpg_model.reposition(position, direction)
+	zone = new_zone
+
+# Removes this character from the current zone and restores its model
+func remove_from_zone():
+	if zone:
+		rpg_model.hide()
+		zone.call_deferred("remove_child", rpg_model)
+		call_deferred("add_child", rpg_model)
+		zone = null
+		rpg_model.deactivate()
