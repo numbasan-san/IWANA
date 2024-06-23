@@ -17,9 +17,9 @@ base_defense = 0
 base_speed = 0
 base_critical = 0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4lv8j"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wons5"]
 resource_local_to_scene = true
-size = Vector2(58.1401, 129.182)
+size = Vector2(128, 61)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vtrvc"]
 size = Vector2(144, 115)
@@ -38,9 +38,8 @@ texture = ExtResource("4_i5aca")
 hframes = 1
 region_rect = Rect2(457, 660, 145, 300)
 
-[node name="CollisionShape2D" parent="RPGModel" index="1"]
-position = Vector2(-0.5, -43)
-shape = SubResource("RectangleShape2D_4lv8j")
+[node name="Collider" parent="RPGModel" index="1"]
+shape = SubResource("RectangleShape2D_wons5")
 
 [node name="GeneralInteraction" type="Area2D" parent="RPGModel" index="3"]
 script = ExtResource("5_vdbvb")

@@ -16,8 +16,9 @@ base_defense = 0
 base_speed = 4
 base_critical = 5
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_y0qnb"]
-size = Vector2(43.2562, 79.7938)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyij3"]
+resource_local_to_scene = true
+size = Vector2(98, 61)
 
 [sub_resource type="Animation" id="Animation_6r54w"]
 length = 0.001
@@ -204,9 +205,8 @@ hframes = 1
 region_enabled = true
 region_rect = Rect2(364, 595, 195, 240)
 
-[node name="CollisionShape2D" parent="RPGModel" index="1"]
-position = Vector2(-1.5, -28.9688)
-shape = SubResource("RectangleShape2D_y0qnb")
+[node name="Collider" parent="RPGModel" index="1"]
+shape = SubResource("RectangleShape2D_eyij3")
 
 [node name="Animation" parent="RPGModel" index="2"]
 libraries = {

@@ -17,7 +17,8 @@ base_speed = 0
 base_critical = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bncsu"]
-size = Vector2(12.0746, 28.5169)
+resource_local_to_scene = true
+size = Vector2(128, 61)
 
 [sub_resource type="Animation" id="Animation_gci7i"]
 length = 0.001
@@ -90,9 +91,8 @@ script = ExtResource("4_fcnfi")
 [node name="Sprite2D" type="Sprite2D" parent="RPGModel"]
 hframes = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel"]
-position = Vector2(0, 18)
-scale = Vector2(2.14998, 0.727657)
+[node name="Collider" type="CollisionShape2D" parent="RPGModel"]
+position = Vector2(0, -31)
 shape = SubResource("RectangleShape2D_bncsu")
 
 [node name="Animation" type="AnimationPlayer" parent="RPGModel"]

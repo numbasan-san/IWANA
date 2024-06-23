@@ -24,9 +24,8 @@ func _start_after_dialog(scene_name: String, unit_name: String):
 		_start_battle()
 		
 func _start_battle():
-	var enemy_party = Party.new(4)
 	var dummy: Character = $"..".character
-	enemy_party.add(dummy)
+	var enemy_party = dummy.party
 	var i = 0
 	while i < 3:
 		var d: Character = dummy.duplicate()

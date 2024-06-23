@@ -23,7 +23,7 @@ func _process(_delta):
 		var x = int(Input.is_action_pressed('rpg_right')) - int(Input.is_action_pressed('rpg_left'))
 		var y = int(Input.is_action_pressed('rpg_down')) - int(Input.is_action_pressed('rpg_up'))
 		
-		Player.party_path.add_point(Player.character.rpg_model.position)
+		Player.party.path.add_point(Player.character.rpg_model.position)
 		
 		# When moving in different directions we want to rotate the interaction area
 		# so that it is always protruding towards the front of the character

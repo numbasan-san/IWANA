@@ -93,17 +93,41 @@ func deactivate():
 	set_physics_process(false)
 	process_mode = Node.PROCESS_MODE_DISABLED
 
-# When the player character enters the zone, this function should be invoked
+# When a party enters the zone, this function should be invoked
 # The function receives a reference to the path to put it in the scene tree, but
-# the actual path is modified in the Player object
+# the actual path is modified in the Character object
+# The caller of this function must make sure to not add a path that was already
+# there
 func add_party_path(path: PartyPath):
-	# There should never be another path when we call this function, but
-	# we test just in case
-	if party_path_node.get_child_count() != 0:
-		clear_party_path()
 	party_path_node.add_child(path)
 
-# When the player character leaves the zone, this function should be invoked
+# Adds a new node that will follow a party path in this zone
+# The caller of the function must make sure to not add a follower that was
+# already following a path
+func add_party_follower(path: PartyPath, follower: PartyFollower):
+	for p in party_path_node.get_children():
+		if p == path:
+			p.add_child(follower)
+			return
+
+# A path should only exist in one zone at a time, and only one instance, so the
+# caller must make sure to call this function correctly
+func remove_party_path(path: PartyPath):
+	party_path_node.remove_child(path)
+	path.queue_free()
+
+# A follower should only follow a single path at a time, so the caller must make
+# sure to call this function correctly
+func remove_party_follower(path: PartyPath, follower: PartyFollower):
+	for p in party_path_node.get_children():
+		if p == path:
+			p.remove_child(follower)
+			follower.queue_free()
+			return
+
+# This function removes all paths, so it only makes sense to call it when
+# removing the zone from the system or reseting it
 func clear_party_path():
 	for n in party_path_node.get_children():
 		party_path_node.remove_child(n)
+		n.queue_free()

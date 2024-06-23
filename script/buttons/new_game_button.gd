@@ -14,8 +14,6 @@ func _on_pressed():
 	var lucia = CharacterManager.load("lucia")
 	
 	var hallway_north = ZoneManager.load("f1n_hallway")
-	world.reposition_character(daniela, hallway_north, Vector2(6000, 900))
-	world.reposition_character(carla, hallway_north, Vector2(6300, 900))
 	world.reposition_character(mj, hallway_north, Vector2(6600, 900))
 	world.reposition_character(beca, hallway_north, Vector2(6900, 900))
 	world.reposition_character(lucia, hallway_north, Vector2(7200, 900))
@@ -24,8 +22,11 @@ func _on_pressed():
 	Player.control(noby)
 	
 	Player.party.add(daniela)
+	daniela.is_following = true
 	Player.party.add(carla)
+	carla.is_following = true
 	Player.party.add(guille)
+	guille.is_following = true
 	
 	var dummy = CharacterManager.load("dummy")
 	var dev_zone = ZoneManager.load("dev_testing")

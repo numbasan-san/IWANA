@@ -214,7 +214,7 @@ hframes = 8
 vframes = 8
 frame = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel"]
+[node name="Collider" type="CollisionShape2D" parent="RPGModel"]
 position = Vector2(0, -30.5)
 shape = SubResource("RectangleShape2D_e3q5a")
 

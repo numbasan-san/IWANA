@@ -14,27 +14,14 @@ func reposition_character(
 		new_direction: String = 'down'):
 	
 	# First we move the character to the new zone. For NPCs this is enough
-	character.reposition(new_zone, new_position, new_direction)
+	character.reposition(new_zone, new_position, new_direction, true)
 	
 	# If the character is controled by the player, then its old zone is the
 	# child of World node and we must check if it needs to be changed
 	if Player.character == character:
-		# If the player is moving to the same zone, we do nothing
-		if Player.zone == new_zone:
-			pass
-		# If the player wasn't in any zone, this will be null and we must add
-		# the new zone
-		elif not Player.zone:
-			ZoneManager.set_active(new_zone)
-			Player.zone = new_zone
-		
-		# If we reach this point, the player was already in a zone and is moving
-		# to a new one, so we must remove the old one and add the new
-		else:
-			Player.clear_party_path()
-			ZoneManager.set_active(new_zone)
-			Player.zone = new_zone
-		Player.new_party_path()
+		# If we reposition to the same zone, these instructions won't do anything
+		ZoneManager.set_active(new_zone)
+		Player.zone = new_zone
 
 # Moves a character to a new position determined by a spawn node that had to be
 # previously placed in the new zone, and looking in the specified direction

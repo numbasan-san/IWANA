@@ -21,3 +21,4 @@ layer_1/tile_data = PackedInt32Array()
 [node name="SpawnPoints" type="Node" parent="."]
 
 [node name="PartyPath" type="Node2D" parent="."]
+y_sort_enabled = true

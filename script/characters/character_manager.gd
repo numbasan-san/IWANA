@@ -26,6 +26,9 @@ func load(character_name: String):
 				# Se desactiva para evitar colisiones o uso de recursos
 				character.rpg_model.deactivate()
 			add_child(character)
+			character.char_name = character_name
+			character.party = Party.new(character)
+			
 		else:
 			printerr("We couldn't find a character with name " \
 				+ character_name + " in the folder " + folder)
