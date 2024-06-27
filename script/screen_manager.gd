@@ -49,7 +49,6 @@ var current_screen: Screen:
 # overlay when talking to NPCs
 @export var dialog_screen: Screen
 
-
 func _ready():
 	main_menu_screen.deactivate()
 	dialog_screen.deactivate()
@@ -57,6 +56,10 @@ func _ready():
 	combat_screen.deactivate()
 	dev_screen.deactivate()
 	intro_screen.deactivate()
+	
+	# Patch solution to cover editor artifacts after poping all screends and before
+	# pushing the next. Maybe it won't be necessary in the executable
+	_screen_stack.append($Background)
 	
 	push(intro_screen, "", "Inicio")
 	
@@ -71,7 +74,12 @@ func _ready():
 # hides it, and a "Show" animation that instantly reveals it. These two animations
 # can also be used to "Show" the previous screen, to keep it visible, and to "Hide"
 # the new screen, in case one wants to show it later
-func push(new_screen: Screen, animation_out: String = "Hide", animation_in: String = "Show"):
+func push(
+		new_screen: Screen,
+		animation_out: String = "Out",
+		animation_in: String = "In",
+		audio_out: String = "1 sec",
+		audio_in: String = "1 sec"):
 	if new_screen.push_requested:
 		return
 	new_screen.push_requested = true
@@ -81,25 +89,43 @@ func push(new_screen: Screen, animation_out: String = "Hide", animation_in: Stri
 		# animation can still play.
 		current_screen.deactivate(true)
 		var transitions = current_screen.transitions
+		var audio = current_screen.audio
 		if transitions and transitions.has_animation(animation_out):
 			transitions.play(animation_out)
-			await transitions.animation_finished
 		else:
 			printerr("Screen Manager | Outgoing screen " + current_screen.name \
 				+ " doesn't have an animation named " + animation_out)
+		if audio:
+			audio.stop(audio_out)
+		
+		await transitions.animation_finished
+		await audio.animator.animation_finished
 
 	# From this point we don't need to manipulate the old screen
+	if new_screen.is_unique:
+		while _screen_stack.has(new_screen):
+			_screen_stack.erase(new_screen)
 	_screen_stack.push_back(new_screen)
 	# The new screen is activated so that its animations are shown and it
 	# can respond to player input while it's still appearing
 	current_screen.activate()
+	
 	var transitions = current_screen.transitions
+	var audio = current_screen.audio
 	if transitions and transitions.has_animation(animation_in):
 		transitions.play(animation_in)
-		await transitions.animation_finished
 	else:
 		printerr("Screen Manager | Incoming screen " + current_screen.name \
 			+ " doesn't have an animation named " + animation_in)
+	if audio:
+		audio.play(audio_in)
+	
+	if transitions.current_animation_length > audio.animator.current_animation_length:
+		audio.animator.animation_finished
+		await transitions.animation_finished
+	else:
+		transitions.animation_finished
+		await audio.animator.animation_finished
 	current_screen.push_requested = false
 
 # Remove the screen on top of the stack and give control back to the next screen.
@@ -112,36 +138,57 @@ func push(new_screen: Screen, animation_out: String = "Hide", animation_in: Stri
 # hides it, and a "Show" animation that instantly reveals it. These two animations
 # can also be used to "Show" the previous screen, to keep it visible, and to "Hide"
 # the new screen, in case one wants to show it later
-func pop(removed_screen: Screen, animation_out: String = "Hide", animation_in: String = "Show"):
+func pop(
+		removed_screen: Screen,
+		animation_out: String = "Out",
+		animation_in: String = "In",
+		audio_out: String = "1 sec",
+		audio_in: String = "1 sec"):
 	# If we try to remove a screen that isn't the current one or it's already in
 	# the process of being removed, we ignore it
-	if current_screen != removed_screen or current_screen.pop_solicitado:
+	if current_screen != removed_screen or current_screen.pop_requested:
 		return
-	current_screen.pop_solicitado = true
+	current_screen.pop_requested = true
 	# If the current screen has a transition animation, we must wait for it to
 	# finish playing
 	var transitions = current_screen.transitions
+	var audio = current_screen.audio
 	if transitions and transitions.has_animation(animation_out):
 		# The current screen is paused so that it ignores player input but is
 		# still being shown while it's being animated
 		current_screen.deactivate(true)
 		transitions.play(animation_out)
-		await transitions.animation_finished
 	else:
 		printerr("Screen Manager | Outgoing screen " + current_screen.name \
 			+ " doesn't have an animation named " + animation_out)
-		
+	if audio:
+		audio.stop(audio_out)
+	
+	if transitions.current_animation_length > audio.animator.current_animation_length:
+		audio.animator.animation_finished
+		await transitions.animation_finished
+	else:
+		transitions.animation_finished
+		await audio.animator.animation_finished
+	
 	# At this point the removal animation is done playing and the execution is
 	# resumed, so it's safe to change this variable to false
-	current_screen.pop_solicitado = false
+	current_screen.pop_requested = false
 	
 	current_screen.deactivate()
 	_screen_stack.pop_back()
-	current_screen.activate()
-	transitions = current_screen.transitions
-	if transitions and transitions.has_animation(animation_in):
-		transitions.play(animation_in)
+	# This will be null if there aren't any more screens in the stack
+	if current_screen:
+		current_screen.activate()
+		transitions = current_screen.transitions
+		audio = current_screen.audio
+		if transitions and transitions.has_animation(animation_in):
+			transitions.play(animation_in)
+		else:
+			printerr("Screen Manager | Incoming screen " + current_screen.name \
+				+ " doesn't have an animation named " + animation_in)
+		if audio:
+			audio.play(audio_in)
+		
 		await transitions.animation_finished
-	else:
-		printerr("Screen Manager | Incoming screen " + current_screen.name \
-			+ " doesn't have an animation named " + animation_in)
+		await audio.animator.animation_finished

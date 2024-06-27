@@ -90,6 +90,7 @@ script = ExtResource("4_fcnfi")
 
 [node name="Sprite2D" type="Sprite2D" parent="RPGModel"]
 hframes = 8
+region_rect = Rect2(468, 740, 140, 300)
 
 [node name="Collider" type="CollisionShape2D" parent="RPGModel"]
 position = Vector2(0, -31)

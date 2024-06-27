@@ -109,7 +109,7 @@ func cambiar_fondo(image_name: String):
 	background.show()
 
 # Changes the lines of dialogo on screen and / or who says them
-func change_dialog(what: String, who: String = ""):
+func change_dialog(who: String, what: String):
 	name_label.text = who
 	text_label.text = what
 

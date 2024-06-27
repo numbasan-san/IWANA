@@ -1,12 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://oc5oqpk3nprt"]
+[gd_scene load_steps=24 format=3 uid="uid://oc5oqpk3nprt"]
 
 [ext_resource type="PackedScene" uid="uid://c0fgo3tb7g1ao" path="res://scenes/zones/world.tscn" id="1_jlw57"]
 [ext_resource type="Script" path="res://script/screen.gd" id="1_jx12o"]
 [ext_resource type="Script" path="res://script/object_inventory/inventory/inventory_layer.gd" id="2_icu3e"]
 [ext_resource type="PackedScene" uid="uid://c6r4b6vsbtube" path="res://scenes/inventory/inventory_gui.tscn" id="3_tjsd1"]
-[ext_resource type="AudioStream" uid="uid://ti3c0aqnd2fl" path="res://assets/audio/Halls.mp3" id="5_tkbj8"]
 [ext_resource type="PackedScene" uid="uid://4iyphsfraq11" path="res://scenes/menus/pause_menu/pause_menu.tscn" id="5_y5v2l"]
 [ext_resource type="PackedScene" uid="uid://d7w5brnj1hi1" path="res://scenes/menus/game_menu/game_menu.tscn" id="6_bkiw3"]
+[ext_resource type="PackedScene" uid="uid://dx8ovcjbdy6m8" path="res://scenes/audio.tscn" id="7_cceoh"]
+[ext_resource type="Resource" uid="uid://bjryq23ok6dv7" path="res://music_tracks/halls_track.tres" id="8_em7p5"]
 
 [sub_resource type="Animation" id="Animation_pqilx"]
 resource_name = "Hide"
@@ -23,30 +24,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GameMusic:volume_db")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-40.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("GameMusic:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_aphk1"]
 resource_name = "FadeIn"
@@ -62,30 +39,9 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(0, 0, 0, 1), Color(1, 1, 1, 1)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GameMusic:volume_db")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-40.0, -8.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("GameMusic:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
+
+[sub_resource type="Animation" id="Animation_0rxug"]
+resource_name = "None"
 
 [sub_resource type="Animation" id="Animation_85gfx"]
 resource_name = "FadeOut"
@@ -101,30 +57,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(0, 0, 0, 1)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GameMusic:volume_db")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-5.0, -40.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("GameMusic:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_vt15j"]
 length = 0.001
@@ -139,30 +71,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(0, 0, 0, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GameMusic:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("GameMusic:volume_db")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-8.0]
 }
 
 [sub_resource type="Animation" id="Animation_ak1yg"]
@@ -180,45 +88,117 @@ tracks/0/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("GameMusic:volume_db")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-8.0]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("GameMusic:playing")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_syx5v"]
 _data = {
 "Hide": SubResource("Animation_pqilx"),
 "In": SubResource("Animation_aphk1"),
+"None": SubResource("Animation_0rxug"),
 "Out": SubResource("Animation_85gfx"),
 "RESET": SubResource("Animation_vt15j"),
 "Show": SubResource("Animation_ak1yg")
 }
 
-[node name="RPGScreen" type="CanvasLayer" node_paths=PackedStringArray("contents", "transitions")]
+[sub_resource type="Animation" id="Animation_mecjy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-5.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k3v1q"]
+_data = {
+"RESET": SubResource("Animation_mecjy")
+}
+
+[sub_resource type="Animation" id="Animation_ocv1e"]
+resource_name = "In"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-60.0, -5.0]
+}
+
+[sub_resource type="Animation" id="Animation_3cyle"]
+resource_name = "In"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-5.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1j85t"]
+_data = {
+"1 sec": SubResource("Animation_ocv1e"),
+"No Fade": SubResource("Animation_3cyle")
+}
+
+[sub_resource type="Animation" id="Animation_bq6b3"]
+resource_name = "Out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-5.0, -60.0]
+}
+
+[sub_resource type="Animation" id="Animation_wag3t"]
+resource_name = "Out"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-60.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3qcu2"]
+_data = {
+"1 sec": SubResource("Animation_bq6b3"),
+"No Fade": SubResource("Animation_wag3t")
+}
+
+[node name="RPGScreen" type="CanvasLayer" node_paths=PackedStringArray("contents", "transitions", "audio")]
 follow_viewport_enabled = true
 script = ExtResource("1_jx12o")
 contents = NodePath("World")
 transitions = NodePath("Transitions")
+audio = NodePath("Audio")
 
 [node name="World" parent="." instance=ExtResource("1_jlw57")]
 modulate = Color(0, 0, 0, 1)
@@ -254,6 +234,18 @@ process_mode = 3
 [node name="game_menu" parent="game_layer" instance=ExtResource("6_bkiw3")]
 visible = false
 
-[node name="GameMusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_tkbj8")
-volume_db = -8.0
+[node name="Audio" parent="." instance=ExtResource("7_cceoh")]
+music = Array[Resource("res://music_tracks/track_control.gd")]([ExtResource("8_em7p5")])
+current_track = ExtResource("8_em7p5")
+
+[node name="AudioAnimator" parent="Audio" index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_k3v1q"),
+"Play": SubResource("AnimationLibrary_1j85t"),
+"Stop": SubResource("AnimationLibrary_3qcu2")
+}
+
+[node name="AudioPlayer" parent="Audio" index="1"]
+volume_db = -5.0
+
+[editable path="Audio"]

@@ -120,4 +120,17 @@ func disable_collisions():
 		rpg_model.disable_collisions()
 
 func is_colliding() -> bool:
-	return rpg_model and rpg_model.collider.disabled
+	return rpg_model and not rpg_model.collider.disabled
+
+# Duplicates a non unique character, initializing all of its variables. If one
+# tries to clone a unique character this returns null.
+# One has to use this function instead of node.duplicate, as using that doesn't
+# copy the script variables
+func clone() -> Character:
+	if not unique:
+		var copy = duplicate(7)
+		copy.party = Party.new(copy)
+		copy.zone = zone
+		return copy
+	else:
+		return null

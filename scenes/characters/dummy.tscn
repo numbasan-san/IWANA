@@ -25,6 +25,7 @@ size = Vector2(128, 61)
 size = Vector2(144, 115)
 
 [node name="Dummy" instance=ExtResource("1_begxf")]
+unique = false
 stats = SubResource("Resource_4c1gv")
 skills = Array[Resource("res://script/combat/skills/skill.gd")]([ExtResource("3_2phqi")])
 
@@ -36,7 +37,6 @@ position = Vector2(0, -127)
 scale = Vector2(5, 5)
 texture = ExtResource("4_i5aca")
 hframes = 1
-region_rect = Rect2(457, 660, 145, 300)
 
 [node name="Collider" parent="RPGModel" index="1"]
 shape = SubResource("RectangleShape2D_wons5")

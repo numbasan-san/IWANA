@@ -14,7 +14,7 @@ var _characters: Dictionary
 # been loaded yet. If a character with this name can't be found, null is returned
 func load(character_name: String):
 	character_name = character_name.to_snake_case()
-	var character: Character
+	var character: Character = null
 	if _characters.has(character_name):
 		character = _characters[character_name]
 	else:

@@ -7,7 +7,15 @@ extends CanvasLayer
 # the ScreenManager to animate transitions when showing or hiding screens
 @export var transitions: AnimationPlayer
 
-var is_active = false
+# Handles the audio separately from the transition animator
+@export var audio: AudioPlayer
+
+var is_active:bool  = false
+
+# Indicates if this screen should only have one instance in the stack. If this
+# is true, if the screen was already buried in the stack when pushing it, that
+# instance will be grabbed and placed on top 
+var is_unique: bool = true
 
 # Sometimes an error ocurrs when a pop is requested in a _process function while
 # waiting for a previous animation to finish, _process runs several times in a
@@ -17,7 +25,7 @@ var is_active = false
 # To prevent that, this variable is set to true when entering the pop function
 # and set to false as it finishes waiting, so that the function only runs the
 # first time it's called.
-var pop_solicitado = false
+var pop_requested = false
 # The same is done for calls to push, to prevent stacking clones of the screen
 var push_requested = false
 

@@ -10,6 +10,7 @@ var sprite_in_turn : Texture
 var anim = ''
 var stop_anim = 'stop_down'
 var direction: String = 'down'
+var is_moving: bool = false
 
 func _ready():
 	character = $".."
@@ -18,6 +19,13 @@ func _ready():
 		$Animation.play(stop_anim)
 
 func _process(_delta):
+	# If a leader is also following, it means we are controlling its follower
+	# node directly or its moving as part of a predefined path. If the leader is
+	# not following, it is being controlled from this function and it must draw
+	# its party path as it moves
+	if character.is_leader and not character.is_following and is_moving:
+		character.party.path.add_point(position)
+	
 	# If a character is not following the leader then the axis is used to change
 	# its velocity and to move it around. If it is following, the axis is just
 	# used to change the direction it is looking at
@@ -51,6 +59,7 @@ func _process(_delta):
 
 func set_axis(x, y):
 	axis = Vector2(x, y).normalized()
+	is_moving = axis != Vector2(0, 0)
 
 # Moves this model to a new position in the same zone
 # If we want to move it to a different zone, we must use the reposition

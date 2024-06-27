@@ -113,8 +113,9 @@ func add_party_follower(path: PartyPath, follower: PartyFollower):
 # A path should only exist in one zone at a time, and only one instance, so the
 # caller must make sure to call this function correctly
 func remove_party_path(path: PartyPath):
-	party_path_node.remove_child(path)
-	path.queue_free()
+	if party_path_node == path.get_parent():
+		party_path_node.remove_child(path)
+		path.queue_free()
 
 # A follower should only follow a single path at a time, so the caller must make
 # sure to call this function correctly
@@ -128,6 +129,6 @@ func remove_party_follower(path: PartyPath, follower: PartyFollower):
 # This function removes all paths, so it only makes sense to call it when
 # removing the zone from the system or reseting it
 func clear_party_path():
-	for n in party_path_node.get_children():
-		party_path_node.remove_child(n)
-		n.queue_free()
+	for p in party_path_node.get_children():
+		party_path_node.remove_child(p)
+		p.queue_free()

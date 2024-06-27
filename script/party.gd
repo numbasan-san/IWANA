@@ -104,7 +104,7 @@ func clear():
 		remove(m)
 
 # Asks if the party contains the specified character
-func has(character: Character):
+func has(character: Character) -> bool:
 	return members.has(character)
 
 # Moves the given character, if it is in the party, to a new position
@@ -128,9 +128,13 @@ func move(character: Character, index: int):
 			new_path()
 
 # Returns the size of the party
-func size():
+func size() -> int:
 	return members.size()
 
+# The position of the character in the party
+func index(character: Character) -> int:
+	return members.find(character)
+	
 # This should be invoked every time the leader is moved to a different
 # zone. The caller must make sure to call clear_path before changing the zone
 # Because a party path must follow the leader, it only makes sense if the
@@ -165,8 +169,9 @@ func clear_path():
 		for m in members:
 			remove_path_follower(m)
 		# This should free the path and all followers
-		leader.zone.clear_party_path()
-		path = null
+		if path:
+			leader.zone.remove_party_path(path)
+			path = null
 		for m in members:
 			m.follower_node = null
 

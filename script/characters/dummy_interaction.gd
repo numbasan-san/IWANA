@@ -28,7 +28,7 @@ func _start_battle():
 	var enemy_party = dummy.party
 	var i = 0
 	while i < 3:
-		var d: Character = dummy.duplicate()
+		var d: Character = dummy.clone()
 		d.stats = dummy.stats.duplicate()
 		d.stats.replenish()
 		enemy_party.add(d)

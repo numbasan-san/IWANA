@@ -1,0 +1,113 @@
+[gd_scene load_steps=10 format=3 uid="uid://dx8ovcjbdy6m8"]
+
+[ext_resource type="Script" path="res://script/audio_player.gd" id="1_pkr4y"]
+
+[sub_resource type="Animation" id="Animation_8wgsm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-5.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0ops1"]
+_data = {
+"RESET": SubResource("Animation_8wgsm")
+}
+
+[sub_resource type="Animation" id="Animation_14mxq"]
+resource_name = "In"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-60.0, -5.0]
+}
+
+[sub_resource type="Animation" id="Animation_tu05x"]
+resource_name = "In"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-5.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uf8wq"]
+_data = {
+"1 sec": SubResource("Animation_14mxq"),
+"No Fade": SubResource("Animation_tu05x")
+}
+
+[sub_resource type="Animation" id="Animation_6xst3"]
+resource_name = "Out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-5.0, -60.0]
+}
+
+[sub_resource type="Animation" id="Animation_g3vh8"]
+resource_name = "Out"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-60.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ighky"]
+_data = {
+"1 sec": SubResource("Animation_6xst3"),
+"No Fade": SubResource("Animation_g3vh8")
+}
+
+[node name="Audio" type="Node" node_paths=PackedStringArray("animator", "player")]
+script = ExtResource("1_pkr4y")
+animator = NodePath("AudioAnimator")
+player = NodePath("AudioPlayer")
+
+[node name="AudioAnimator" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_0ops1"),
+"Play": SubResource("AnimationLibrary_uf8wq"),
+"Stop": SubResource("AnimationLibrary_ighky")
+}
+
+[node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -60.0
