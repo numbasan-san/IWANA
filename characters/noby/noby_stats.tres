@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=2 format=3 uid="uid://7o4a34iaa12l"]
+
+[ext_resource type="Script" path="res://script/combat/stats.gd" id="1_4osmu"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_4osmu")
+base_max_health = 100
+base_max_energy = 100
+base_damage = 5
+base_defense = 0
+base_speed = 5
+base_critical = 2

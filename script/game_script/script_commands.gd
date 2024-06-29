@@ -10,7 +10,7 @@ extends Node
 func fondo(image_name: String):
 	_open()
 	print("ScriptCommands | Changing scene background to " + image_name)
-	dialog_contents.cambiar_fondo(image_name)
+	dialog_contents.change_background(image_name)
 
 # Changes the images of one or more characters
 func imagen(args: Array[String]):
@@ -166,4 +166,4 @@ func _close(leaving: String = "Slide Down", entering: String = "Show"):
 # screen to be closed will trigger it to open again, thus leaving one stuck in
 # a loop
 func _remove_background():
-	dialog_contents.cambiar_fondo("")
+	dialog_contents.change_background("")

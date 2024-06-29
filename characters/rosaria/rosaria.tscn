@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3gl0tmkxj5vt"]
+
+[ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
+[ext_resource type="Texture2D" uid="uid://cnfhyjpvorbq7" path="res://characters/others/profe rosaria.png" id="3_yy0v8"]
+
+[node name="Rosaria" instance=ExtResource("1_begxf")]
+
+[node name="Neutral" type="Sprite2D" parent="DialogModel" index="0"]
+scale = Vector2(-1, 1)
+texture = ExtResource("3_yy0v8")

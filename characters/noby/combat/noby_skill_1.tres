@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=3 format=3 uid="uid://cjqlcyi4yt74x"]
+
+[ext_resource type="Script" path="res://script/combat/skills/skill.gd" id="1_j5dnv"]
+[ext_resource type="Resource" uid="uid://ctjrx2gjowqg4" path="res://script/combat/effects/damage.tres" id="2_8ahgb"]
+
+[resource]
+script = ExtResource("1_j5dnv")
+name = "Tu harías lo mismo"
+description = "Salta hacia un aliado y recibe daño por este"
+level_to_learn = 0
+user_effects = Array[Resource("res://script/combat/effects/effect.gd")]([])
+target_effects = Array[Resource("res://script/combat/effects/effect.gd")]([ExtResource("2_8ahgb")])
+energy_cost = 5
