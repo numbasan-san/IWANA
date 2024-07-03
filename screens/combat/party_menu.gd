@@ -1,6 +1,6 @@
 class_name PartyMenu extends Control
 
-@export var combat: CombatControl
+@export var combat: CombatScreenControl
 @export var party_slots: Array[PortraitContainer]
 
 # If a character is selected then it will be highlighted in the party menu and

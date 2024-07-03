@@ -1,12 +1,12 @@
 [gd_scene load_steps=24 format=3 uid="uid://oc5oqpk3nprt"]
 
+[ext_resource type="Script" path="res://screens/screen.gd" id="1_3am72"]
 [ext_resource type="PackedScene" uid="uid://c0fgo3tb7g1ao" path="res://scenes/zones/world.tscn" id="1_jlw57"]
-[ext_resource type="Script" path="res://script/screen.gd" id="1_jx12o"]
 [ext_resource type="Script" path="res://script/object_inventory/inventory/inventory_layer.gd" id="2_icu3e"]
 [ext_resource type="PackedScene" uid="uid://c6r4b6vsbtube" path="res://scenes/inventory/inventory_gui.tscn" id="3_tjsd1"]
 [ext_resource type="PackedScene" uid="uid://4iyphsfraq11" path="res://scenes/menus/pause_menu/pause_menu.tscn" id="5_y5v2l"]
 [ext_resource type="PackedScene" uid="uid://d7w5brnj1hi1" path="res://scenes/menus/game_menu/game_menu.tscn" id="6_bkiw3"]
-[ext_resource type="PackedScene" uid="uid://dx8ovcjbdy6m8" path="res://scenes/audio.tscn" id="7_cceoh"]
+[ext_resource type="PackedScene" uid="uid://dx8ovcjbdy6m8" path="res://screens/screen_audio.tscn" id="7_cceoh"]
 [ext_resource type="Resource" uid="uid://bjryq23ok6dv7" path="res://music_tracks/halls_track.tres" id="8_em7p5"]
 
 [sub_resource type="Animation" id="Animation_pqilx"]
@@ -195,7 +195,7 @@ _data = {
 
 [node name="RPGScreen" type="CanvasLayer" node_paths=PackedStringArray("contents", "transitions", "audio")]
 follow_viewport_enabled = true
-script = ExtResource("1_jx12o")
+script = ExtResource("1_3am72")
 contents = NodePath("World")
 transitions = NodePath("Transitions")
 audio = NodePath("Audio")

@@ -39,19 +39,21 @@ func _process(delta):
 		if next_follower.progress - progress > distance:
 			progress += effective_speed
 		
-		if character.rpg_model and position != prev_pos:
-			var vect = position - prev_pos
-			# atan2 returns a number between -PI and PI (with 0 = +x direction)
-			var angle = atan2(vect.y, vect.x)
-			# We add or remove 0.1 from angle so there is some area between the
-			# edges that will be ignored, so that when the angle falls in that
-			# area the direction won't change, preventing jittering
-			if angle > -3*_PI_QRT + 0.1 and angle < -1*_PI_QRT - 0.1:
-				character.rpg_model.direction = "up"
-			elif angle > -1*_PI_QRT + 0.1 and angle < _PI_QRT - 0.1:
-				character.rpg_model.direction = "right"
-			elif angle > _PI_QRT + 0.1 and angle < 3*_PI_QRT - 0.1:
-				character.rpg_model.direction = "down"
-			elif angle > 3*_PI_QRT + 0.1 or angle < -3*_PI_QRT - 0.1:
-				character.rpg_model.direction = "left"
-			
+		if character.rpg_model:
+			if position != prev_pos:
+				var vect = position - prev_pos
+				# atan2 returns a number between -PI and PI (with 0 = +x direction)
+				var angle = atan2(vect.y, vect.x)
+				# We add or remove 0.1 from angle so there is some area between the
+				# edges that will be ignored, so that when the angle falls in that
+				# area the direction won't change, preventing jittering
+				if angle > -3*_PI_QRT + 0.1 and angle < -1*_PI_QRT - 0.1:
+					character.rpg_model.set_axis(0, -1)
+				elif angle > -1*_PI_QRT + 0.1 and angle < _PI_QRT - 0.1:
+					character.rpg_model.set_axis(1, 0)
+				elif angle > _PI_QRT + 0.1 and angle < 3*_PI_QRT - 0.1:
+					character.rpg_model.set_axis(0, 1)
+				elif angle > 3*_PI_QRT + 0.1 or angle < -3*_PI_QRT - 0.1:
+					character.rpg_model.set_axis(-1, 0)
+			else:
+				character.rpg_model.set_axis(0, 0)

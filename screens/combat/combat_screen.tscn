@@ -1,8 +1,8 @@
 [gd_scene load_steps=18 format=3 uid="uid://ba3g3jujljxr3"]
 
-[ext_resource type="Script" path="res://script/screen.gd" id="1_0d1to"]
+[ext_resource type="Script" path="res://screens/screen.gd" id="1_4fqb4"]
 [ext_resource type="PackedScene" uid="uid://f2oog5xfhsha" path="res://screens/combat/combat_contents.tscn" id="2_sodoh"]
-[ext_resource type="PackedScene" uid="uid://dx8ovcjbdy6m8" path="res://scenes/audio.tscn" id="3_xslkh"]
+[ext_resource type="PackedScene" uid="uid://dx8ovcjbdy6m8" path="res://screens/screen_audio.tscn" id="3_xslkh"]
 [ext_resource type="Resource" uid="uid://bwhsk03orbdut" path="res://music_tracks/fight_track.tres" id="4_ma48e"]
 
 [sub_resource type="Animation" id="Animation_p11p8"]
@@ -228,7 +228,7 @@ _data = {
 }
 
 [node name="CombatScreen" type="CanvasLayer" node_paths=PackedStringArray("contents", "transitions", "audio")]
-script = ExtResource("1_0d1to")
+script = ExtResource("1_4fqb4")
 contents = NodePath("CombatContents")
 transitions = NodePath("Transitions")
 audio = NodePath("Audio")

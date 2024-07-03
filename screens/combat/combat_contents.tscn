@@ -1,10 +1,10 @@
 [gd_scene load_steps=24 format=3 uid="uid://f2oog5xfhsha"]
 
-[ext_resource type="Script" path="res://script/combat/combat.gd" id="1_8k8bs"]
+[ext_resource type="Script" path="res://combat/combat_screen_contents.gd" id="1_o364i"]
 [ext_resource type="Texture2D" uid="uid://b8f5icofcvde1" path="res://assets/combat_sprites/background1.png" id="2_lv2pp"]
-[ext_resource type="Script" path="res://script/combat_party_area.gd" id="3_eyw5e"]
 [ext_resource type="Texture2D" uid="uid://cx3nvtwsfean0" path="res://assets/combat_sprites/frame.png" id="3_qe1v6"]
 [ext_resource type="PackedScene" uid="uid://dbuixiuq0ijmx" path="res://screens/combat/portrait_container.tscn" id="3_v8xkj"]
+[ext_resource type="Script" path="res://screens/combat/combat_party_area.gd" id="4_fhsny"]
 [ext_resource type="PackedScene" uid="uid://3d6j1vup2i4s" path="res://screens/combat/sprite_container.tscn" id="4_vgjmr"]
 [ext_resource type="Texture2D" uid="uid://divhgdyclosh2" path="res://assets/combat_sprites/buttons/ataque_no_selecccionado.png" id="7_k3t3k"]
 [ext_resource type="Texture2D" uid="uid://bcpbwokyqcsbq" path="res://assets/combat_sprites/buttons/ataque_selecccionado.png" id="8_fewc1"]
@@ -290,7 +290,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_8k8bs")
+script = ExtResource("1_o364i")
 right_area = NodePath("PlayerArea")
 left_area = NodePath("EnemyArea")
 party_menu = NodePath("PartyMenu")
@@ -330,7 +330,7 @@ anchor_bottom = 0.508
 offset_left = 0.319946
 offset_top = -3.05176e-05
 offset_bottom = 0.359985
-script = ExtResource("3_eyw5e")
+script = ExtResource("4_fhsny")
 sprite_containers = [NodePath("SpriteContainer1"), NodePath("SpriteContainer2"), NodePath("SpriteContainer3"), NodePath("SpriteContainer4")]
 direction = -1
 
@@ -393,7 +393,7 @@ anchor_bottom = 0.5
 offset_left = 0.199982
 offset_top = -3.05176e-05
 offset_right = -0.200073
-script = ExtResource("3_eyw5e")
+script = ExtResource("4_fhsny")
 sprite_containers = [NodePath("SpriteContainer1"), NodePath("SpriteContainer2"), NodePath("SpriteContainer3"), NodePath("SpriteContainer4")]
 
 [node name="SpriteContainer1" parent="EnemyArea" instance=ExtResource("4_vgjmr")]

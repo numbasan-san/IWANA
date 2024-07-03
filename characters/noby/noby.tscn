@@ -1,229 +1,38 @@
-[gd_scene load_steps=22 format=3 uid="uid://c3852ndxrpkj1"]
+[gd_scene load_steps=9 format=3 uid="uid://ciibuctohu7f8"]
 
-[ext_resource type="Script" path="res://characters/character.gd" id="1_61e84"]
+[ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_iq20k"]
 [ext_resource type="Resource" uid="uid://7o4a34iaa12l" path="res://characters/noby/noby_stats.tres" id="2_yag6e"]
 [ext_resource type="Resource" uid="uid://cjqlcyi4yt74x" path="res://characters/noby/combat/noby_skill_1.tres" id="3_xf4c1"]
-[ext_resource type="Script" path="res://characters/dialog_model.gd" id="4_lbg8x"]
 [ext_resource type="Texture2D" uid="uid://b6cg0adpv4jjs" path="res://characters/noby/vn/neutral.png" id="5_xv3aq"]
-[ext_resource type="Script" path="res://characters/rpg_model.gd" id="6_u6k87"]
 [ext_resource type="Texture2D" uid="uid://bnye8swdox47f" path="res://characters/noby/rpg/movement.png" id="7_g4a1h"]
-[ext_resource type="Script" path="res://characters/combat_model.gd" id="8_mcmfs"]
 [ext_resource type="Texture2D" uid="uid://dwbkby71u5h7l" path="res://characters/noby/combat/portrait.png" id="9_8n6x7"]
 [ext_resource type="Texture2D" uid="uid://cj6aeejkf0g13" path="res://characters/noby/combat/idle.png" id="10_ef5y1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e3q5a"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_el1kc"]
+resource_local_to_scene = true
 size = Vector2(128, 61)
 
-[sub_resource type="Animation" id="Animation_1f7jw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(0, 2)]
-}
-
-[sub_resource type="Animation" id="Animation_fero8"]
-resource_name = "stop_player_down"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(0, 2)]
-}
-
-[sub_resource type="Animation" id="Animation_p5lcu"]
-resource_name = "stop_player_left"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(0, 3)]
-}
-
-[sub_resource type="Animation" id="Animation_4xoc6"]
-resource_name = "stop_player_right"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(0, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_pg6o5"]
-resource_name = "stop_player_up"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Vector2i(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_nss50"]
-resource_name = "walk_player_down"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 6), Vector2i(1, 6), Vector2i(2, 6), Vector2i(3, 6), Vector2i(4, 6), Vector2i(5, 6), Vector2i(6, 6), Vector2i(7, 6)]
-}
-
-[sub_resource type="Animation" id="Animation_x154a"]
-resource_name = "walk_player_left"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 7), Vector2i(1, 7), Vector2i(2, 7), Vector2i(3, 7), Vector2i(4, 7), Vector2i(5, 7), Vector2i(6, 7), Vector2i(7, 7)]
-}
-
-[sub_resource type="Animation" id="Animation_4rh25"]
-resource_name = "walk_player_right"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5), Vector2i(5, 5), Vector2i(6, 5), Vector2i(7, 5)]
-}
-
-[sub_resource type="Animation" id="Animation_w3qrm"]
-resource_name = "walk_player_up"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame_coords")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4), Vector2i(3, 4), Vector2i(4, 4), Vector2i(5, 4), Vector2i(6, 4), Vector2i(7, 4)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_3ha3c"]
-_data = {
-"RESET": SubResource("Animation_1f7jw"),
-"stop_down": SubResource("Animation_fero8"),
-"stop_left": SubResource("Animation_p5lcu"),
-"stop_right": SubResource("Animation_4xoc6"),
-"stop_up": SubResource("Animation_pg6o5"),
-"walk_down": SubResource("Animation_nss50"),
-"walk_left": SubResource("Animation_x154a"),
-"walk_right": SubResource("Animation_4rh25"),
-"walk_up": SubResource("Animation_w3qrm")
-}
-
-[node name="Noby" type="Node" node_paths=PackedStringArray("dialog_model", "rpg_model", "combat_model")]
-script = ExtResource("1_61e84")
-dialog_model = NodePath("DialogModel")
-rpg_model = NodePath("RPGModel")
-combat_model = NodePath("CombatModel")
+[node name="Noby" instance=ExtResource("1_iq20k")]
 stats = ExtResource("2_yag6e")
-skills = Array[Resource("res://script/combat/skills/skill.gd")]([ExtResource("3_xf4c1")])
+skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("3_xf4c1")])
 
-[node name="DialogModel" type="Node2D" parent="."]
-script = ExtResource("4_lbg8x")
-
-[node name="Neutral" type="Sprite2D" parent="DialogModel"]
+[node name="Neutral" type="Sprite2D" parent="DialogModel" index="0"]
 position = Vector2(0, -898)
-scale = Vector2(-1, 1)
+rotation = 3.14159
+scale = Vector2(1, -1)
 texture = ExtResource("5_xv3aq")
 
-[node name="RPGModel" type="CharacterBody2D" parent="."]
-z_index = 1
-y_sort_enabled = true
-motion_mode = 1
-script = ExtResource("6_u6k87")
-
-[node name="Sprite2D" type="Sprite2D" parent="RPGModel"]
-position = Vector2(0, 1)
+[node name="Sprite2D" parent="RPGModel" index="0"]
 texture = ExtResource("7_g4a1h")
 offset = Vector2(0, -142)
-hframes = 8
 vframes = 8
 frame = 16
 
-[node name="Collider" type="CollisionShape2D" parent="RPGModel"]
-position = Vector2(0, -30.5)
-shape = SubResource("RectangleShape2D_e3q5a")
+[node name="Collider" parent="RPGModel" index="1"]
+shape = SubResource("RectangleShape2D_el1kc")
 
-[node name="Animation" type="AnimationPlayer" parent="RPGModel"]
-libraries = {
-"": SubResource("AnimationLibrary_3ha3c")
-}
-
-[node name="CombatModel" type="Node2D" parent="." node_paths=PackedStringArray("portraits", "sprites")]
-script = ExtResource("8_mcmfs")
-portraits = NodePath("Portraits")
-sprites = NodePath("Sprites")
-
-[node name="Portraits" type="Node" parent="CombatModel"]
-
-[node name="Basic" type="TextureRect" parent="CombatModel/Portraits"]
+[node name="Basic" type="TextureRect" parent="CombatModel/Portraits" index="0"]
 texture = ExtResource("9_8n6x7")
 
-[node name="Sprites" type="Node" parent="CombatModel"]
-
-[node name="Idle" type="Sprite2D" parent="CombatModel/Sprites"]
+[node name="Idle" type="Sprite2D" parent="CombatModel/Sprites" index="0"]
 texture = ExtResource("10_ef5y1")

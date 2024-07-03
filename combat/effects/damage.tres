@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DamageEffect" load_steps=2 format=3 uid="uid://ctjrx2gjowqg4"]
 
-[ext_resource type="Script" path="res://script/combat/effects/damage.gd" id="1_iyc3j"]
+[ext_resource type="Script" path="res://combat/effects/damage.gd" id="1_iyc3j"]
 
 [resource]
 script = ExtResource("1_iyc3j")

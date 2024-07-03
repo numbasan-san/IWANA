@@ -1,6 +1,6 @@
 class_name SkillsMenu extends Control
 
-@export var combat: CombatControl
+@export var combat: CombatScreenControl
 @export var character_slot: PortraitContainer
 @export var skills_container: Container
 @export var button_model: Button

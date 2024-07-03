@@ -1,9 +1,9 @@
 [gd_scene load_steps=17 format=3 uid="uid://ckr1tc86e7yhl"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
-[ext_resource type="Script" path="res://script/combat/stats.gd" id="2_hgu5o"]
-[ext_resource type="Texture2D" uid="uid://bbko0fb78k4j7" path="res://assets/dialog_drawings/characters/luciafernanda2.png" id="3_ynhfv"]
-[ext_resource type="Texture2D" uid="uid://byaj52ronb7mi" path="res://assets/rpg_sprites/characters/lucia/lucia.png" id="4_gnwlb"]
+[ext_resource type="Script" path="res://combat/stats.gd" id="2_hgu5o"]
+[ext_resource type="Texture2D" uid="uid://bbko0fb78k4j7" path="res://characters/lucia/vn/luciafernanda2.png" id="3_ynhfv"]
+[ext_resource type="Texture2D" uid="uid://byaj52ronb7mi" path="res://characters/lucia/rpg/lucia.png" id="4_gnwlb"]
 
 [sub_resource type="Resource" id="Resource_7ei4l"]
 resource_local_to_scene = true

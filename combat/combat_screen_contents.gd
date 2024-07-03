@@ -1,4 +1,4 @@
-class_name CombatControl
+class_name CombatScreenControl
 extends Control
 
 signal textbox_closed

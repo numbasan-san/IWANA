@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Stats" load_steps=2 format=3 uid="uid://7o4a34iaa12l"]
 
-[ext_resource type="Script" path="res://script/combat/stats.gd" id="1_4osmu"]
+[ext_resource type="Script" path="res://combat/stats.gd" id="1_4osmu"]
 
 [resource]
 resource_local_to_scene = true

@@ -1,7 +1,7 @@
 [gd_scene load_steps=18 format=3 uid="uid://maeacjbhexlb"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
-[ext_resource type="Script" path="res://script/combat/stats.gd" id="2_jrk70"]
+[ext_resource type="Script" path="res://combat/stats.gd" id="2_jrk70"]
 [ext_resource type="Texture2D" uid="uid://b6b1hd1e1oi0x" path="res://characters/maria_jose/vn/mariajose.png" id="3_xswt3"]
 [ext_resource type="Texture2D" uid="uid://cdfpuvxcdepsg" path="res://characters/maria_jose/vn/jm_neutral.png" id="4_bra5u"]
 [ext_resource type="Texture2D" uid="uid://yos8ptcii3lf" path="res://characters/maria_jose/rpg/mj_perspertiva.png" id="5_vkrab"]

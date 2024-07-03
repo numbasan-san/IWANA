@@ -1,11 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://d3ltulgb5a8do"]
+[gd_scene load_steps=11 format=3 uid="uid://d3ltulgb5a8do"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Texture2D" uid="uid://c7lntb7mvpqt2" path="res://characters/daniela/vn/daniladino2.png" id="2_mrhog"]
-[ext_resource type="Script" path="res://script/combat/stats.gd" id="2_rf6nx"]
-[ext_resource type="Resource" uid="uid://sy16m35jo4do" path="res://script/characters/noby/skill_ejemplo_daño.tres" id="3_vpbm4"]
+[ext_resource type="Script" path="res://combat/stats.gd" id="2_rf6nx"]
+[ext_resource type="Resource" uid="uid://sy16m35jo4do" path="res://combat/skill_ejemplo_daño.tres" id="3_vpbm4"]
 [ext_resource type="Texture2D" uid="uid://bhm0ys613ml5g" path="res://characters/daniela/vn/danielaenojadapng.png" id="4_4aw6c"]
-[ext_resource type="Texture2D" uid="uid://ctygtoluj3hos" path="res://assets/rpg_sprites/characters/daniela/daniela_perspectivas-export.png" id="6_7gkaj"]
+[ext_resource type="Texture2D" uid="uid://dqwab14t6nlyl" path="res://characters/daniela/rpg/movement.png" id="6_xh8t3"]
 [ext_resource type="Texture2D" uid="uid://ckr5arvqsdywg" path="res://characters/daniela/combat/cuernito.png" id="7_k47t8"]
 [ext_resource type="Texture2D" uid="uid://d3un5sww57vjd" path="res://characters/daniela/combat/daniela_combate.png" id="8_h0dso"]
 
@@ -23,170 +23,9 @@ base_critical = 0
 resource_local_to_scene = true
 size = Vector2(114, 48.5)
 
-[sub_resource type="Animation" id="Animation_uub1d"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(625, 642, 135, 270)]
-}
-
-[sub_resource type="Animation" id="Animation_ik1to"]
-resource_name = "stop_player_down"
-length = 0.1
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(625, 642, 135, 270)]
-}
-
-[sub_resource type="Animation" id="Animation_7lo4e"]
-resource_name = "stop_player_left"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(364, 356, 125, 280)]
-}
-
-[sub_resource type="Animation" id="Animation_gdl1a"]
-resource_name = "stop_player_right"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(895, 360, 125, 280)]
-}
-
-[sub_resource type="Animation" id="Animation_o63dx"]
-resource_name = "stop_player_up"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(630, 144, 135, 270)]
-}
-
-[sub_resource type="Animation" id="Animation_vgduh"]
-resource_name = "walk_player_down"
-length = 0.7
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(625, 642, 135, 270)]
-}
-
-[sub_resource type="Animation" id="Animation_rdym7"]
-resource_name = "walk_player_left"
-length = 0.7
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(364, 356, 125, 280)]
-}
-
-[sub_resource type="Animation" id="Animation_pexl7"]
-resource_name = "walk_player_right"
-length = 0.7
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(895, 360, 125, 280)]
-}
-
-[sub_resource type="Animation" id="Animation_g5hox"]
-resource_name = "walk_player_up"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(630, 144, 135, 270)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vtyq3"]
-_data = {
-"RESET": SubResource("Animation_uub1d"),
-"stop_down": SubResource("Animation_ik1to"),
-"stop_left": SubResource("Animation_7lo4e"),
-"stop_right": SubResource("Animation_gdl1a"),
-"stop_up": SubResource("Animation_o63dx"),
-"walk_down": SubResource("Animation_vgduh"),
-"walk_left": SubResource("Animation_rdym7"),
-"walk_right": SubResource("Animation_pexl7"),
-"walk_up": SubResource("Animation_g5hox")
-}
-
 [node name="Daniela" instance=ExtResource("1_begxf")]
 stats = SubResource("Resource_cqid2")
-skills = Array[Resource("res://script/combat/skills/skill.gd")]([ExtResource("3_vpbm4")])
+skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("3_vpbm4")])
 
 [node name="DialogModel" parent="." index="0"]
 visible = false
@@ -199,24 +38,16 @@ texture = ExtResource("2_mrhog")
 scale = Vector2(-1, 1)
 texture = ExtResource("4_4aw6c")
 
-[node name="RPGModel" parent="." index="1"]
-motion_mode = 1
-
 [node name="Sprite2D" parent="RPGModel" index="0"]
-texture = ExtResource("6_7gkaj")
+texture = ExtResource("6_xh8t3")
 offset = Vector2(0, -136)
-hframes = 1
-region_enabled = true
-region_rect = Rect2(625, 642, 135, 270)
+vframes = 8
+frame = 16
+region_rect = Rect2(630, 144, 135, 270)
 
 [node name="Collider" parent="RPGModel" index="1"]
 position = Vector2(0, -24.75)
 shape = SubResource("RectangleShape2D_fqsh1")
-
-[node name="Animation" parent="RPGModel" index="2"]
-libraries = {
-"": SubResource("AnimationLibrary_vtyq3")
-}
 
 [node name="Basic" type="TextureRect" parent="CombatModel/Portraits" index="0"]
 visible = false

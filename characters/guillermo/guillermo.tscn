@@ -1,8 +1,8 @@
-[gd_scene load_steps=20 format=3 uid="uid://cbsenaqm4qe7m"]
+[gd_scene load_steps=18 format=3 uid="uid://cbsenaqm4qe7m"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
-[ext_resource type="Script" path="res://script/combat/stats.gd" id="2_kpgma"]
-[ext_resource type="Resource" uid="uid://sy16m35jo4do" path="res://script/characters/noby/skill_ejemplo_daño.tres" id="3_0ymtf"]
+[ext_resource type="Script" path="res://combat/stats.gd" id="2_kpgma"]
+[ext_resource type="Resource" uid="uid://sy16m35jo4do" path="res://combat/skill_ejemplo_daño.tres" id="3_0ymtf"]
 [ext_resource type="Texture2D" uid="uid://bgtgi63coor2s" path="res://characters/guillermo/vn/neutral.png" id="4_43dl1"]
 [ext_resource type="Texture2D" uid="uid://c3r6ys3tuig1j" path="res://characters/guillermo/rpg/guille_perspectivas.png" id="5_0cuqx"]
 
@@ -181,15 +181,9 @@ _data = {
 "walk_up": SubResource("Animation_h4kpt")
 }
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x61ry"]
-load_path = "res://.godot/imported/tiburoncinhuhahaha2.png-350036bf07ce47382233efaac99edacb.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2gya2"]
-load_path = "res://.godot/imported/tiburoncinhuhahaha2.png-2b97c63ebdd55f091d3f24847213e3f4.ctex"
-
 [node name="Guillermo" instance=ExtResource("1_begxf")]
 stats = SubResource("Resource_csewl")
-skills = Array[Resource("res://script/combat/skills/skill.gd")]([ExtResource("3_0ymtf")])
+skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("3_0ymtf")])
 
 [node name="DialogModel" parent="." index="0"]
 visible = false
@@ -219,10 +213,10 @@ visible = false
 [node name="Basic" type="TextureRect" parent="CombatModel/Portraits" index="0"]
 offset_right = 562.0
 offset_bottom = 431.0
-texture = SubResource("CompressedTexture2D_x61ry")
+texture = ExtResource("4_43dl1")
 expand_mode = 1
 stretch_mode = 2
 
 [node name="Idle" type="Sprite2D" parent="CombatModel/Sprites" index="0"]
 scale = Vector2(0.05, 0.05)
-texture = SubResource("CompressedTexture2D_2gya2")
+texture = ExtResource("4_43dl1")

@@ -288,8 +288,6 @@ audio = NodePath("Audio")
 
 [node name="DialogContents" parent="." instance=ExtResource("1_fds5q")]
 modulate = Color(0, 0, 0, 1)
-offset_right = 1920.0
-offset_bottom = 1080.0
 
 [node name="Transition" type="AnimationPlayer" parent="."]
 libraries = {
