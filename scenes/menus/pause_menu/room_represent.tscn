@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqcnhygdum144"]
+
+[sub_resource type="Animation" id="Animation_jplvu"]
+resource_name = "in_there"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0.662745, 0.458824, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vwuvi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dbrca"]
+_data = {
+"RESET": SubResource("Animation_vwuvi"),
+"in_there": SubResource("Animation_jplvu")
+}
+
+[node name="room_represent" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 184.0
+offset_bottom = 76.0
+pivot_offset = Vector2(42.4, 49.8)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dbrca")
+}

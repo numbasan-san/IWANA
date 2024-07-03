@@ -26,5 +26,5 @@ func load(zone_name: String):
 		else:
 			printerr("We couldn't find a zone with name " \
 				+ zone_name + " in the folder " + folder)
-		
+
 	return zone

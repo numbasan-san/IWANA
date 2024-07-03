@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvwsbxa7kdgob"]
+[gd_scene load_steps=9 format=3 uid="uid://dvwsbxa7kdgob"]
 
 [ext_resource type="Script" path="res://script/characters/player_control.gd" id="1_cfkfe"]
 [ext_resource type="Script" path="res://script/player.gd" id="1_oj7ea"]
@@ -16,9 +16,6 @@ size = Vector2(200, 200)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yq1h1"]
 resource_local_to_scene = true
 size = Vector2(144, 72)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwfji"]
-size = Vector2(150, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2a8vr"]
 size = Vector2(140, 160)
@@ -75,14 +72,6 @@ position = Vector2(-2, -30)
 shape = SubResource("RectangleShape2D_yq1h1")
 debug_color = Color(0.235294, 0.705882, 0.235294, 0.419608)
 
-[node name="TransparencyActivation" type="Area2D" parent="PlayerControl"]
-position = Vector2(-1, -22)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerControl/TransparencyActivation"]
-position = Vector2(-2, -30.5)
-shape = SubResource("RectangleShape2D_nwfji")
-debug_color = Color(0.705882, 0.705882, 0.705882, 0.419608)
-
 [node name="GeneralInteraction" type="Area2D" parent="PlayerControl"]
 position = Vector2(-1, -40)
 
@@ -93,7 +82,5 @@ debug_color = Color(0.705882, 0.705882, 0.705882, 0.419608)
 
 [connection signal="area_entered" from="PlayerControl/ItemCollection" to="PlayerControl" method="_on_item_contact"]
 [connection signal="area_entered" from="PlayerControl/DoorInteraction" to="PlayerControl" method="_on_door_contact"]
-[connection signal="area_entered" from="PlayerControl/TransparencyActivation" to="PlayerControl" method="_on_transparency_enter"]
-[connection signal="area_exited" from="PlayerControl/TransparencyActivation" to="PlayerControl" method="_on_transparency_exit"]
 [connection signal="area_entered" from="PlayerControl/GeneralInteraction" to="PlayerControl" method="_on_interaction_area_enter"]
 [connection signal="area_exited" from="PlayerControl/GeneralInteraction" to="PlayerControl" method="_on_interaction_area_exit"]
