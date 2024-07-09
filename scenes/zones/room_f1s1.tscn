@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://script/zones/base_zone.gd" id="1_eojlg"]
 [ext_resource type="PackedScene" uid="uid://cn0nlsq5wj8on" path="res://scenes/objects/doors/classroom_door.tscn" id="2_7h0mr"]
-[ext_resource type="Texture2D" uid="uid://csnek5bda5r4l" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="2_yxtme"]
+[ext_resource type="Texture2D" uid="uid://b4ujkp4dw8nfd" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="2_yxtme"]
 [ext_resource type="PackedScene" uid="uid://uni0pknyk3u6" path="res://scenes/objects/classroom/blackboard.tscn" id="3_lo4db"]
 [ext_resource type="PackedScene" uid="uid://h7mki2t1blv5" path="res://scenes/objects/classroom/clock.tscn" id="4_1b0jw"]
 [ext_resource type="PackedScene" uid="uid://bdpp468pqvrja" path="res://scenes/objects/general/desk.tscn" id="5_184jm"]

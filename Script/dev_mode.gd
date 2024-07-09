@@ -7,6 +7,9 @@ extends Screen
 
 var enabled = false
 
+# Variable para almacenar el primer elemento de fill_scenes_list
+var first_scene: String
+
 func _process(_delta):
 	if enabled:
 		if Player.character and Player.character.zone:
@@ -39,8 +42,8 @@ func habilitar():
 	enabled = true
 	fill_zones_list()
 	fill_scenes_list()
-	# This function only searches for the units of the current scene, so it
-	# should be always safe to call
+	# Esta función solo busca las unidades de la escena actual, por lo que
+	# siempre debería ser seguro llamarla
 	fill_units_list()
 
 func fill_zones_list():
@@ -49,9 +52,9 @@ func fill_zones_list():
 	var popup: PopupMenu = zones.get_popup()
 	popup.clear()
 	popup.add_theme_font_size_override("font_size", 30)
-	# This variable is necesary because several popup functions require the item
-	# index, but when adding an item the function doesn't return its assigned
-	# index, so we need to manually assign an id and obtain the index through that
+	# Esta variable es necesaria porque varias funciones de popup requieren el índice del ítem,
+	# pero al agregar un ítem la función no devuelve su índice asignado, por lo que necesitamos
+	# asignar manualmente un id y obtener el índice a través de ese id
 	var item_id = 0
 	for zone_name in all_zones:
 		var zone = ZoneManager.load(zone_name)
@@ -60,9 +63,8 @@ func fill_zones_list():
 		item_id += 1
 		popup.set_item_metadata(index, zone)
 		
-	# When connecting this signal we assume that it's never going to be
-	# connected to another function outside this script. If this changes at any
-	# point we need to fix this code
+	# Al conectar esta señal asumimos que nunca se conectará a otra función fuera de este script.
+	# Si esto cambia en algún momento, necesitamos arreglar este código
 	var world = ScreenManager.rpg_screen.contents
 	if popup.index_pressed.get_connections().size() == 0:
 		popup.index_pressed.connect(func (index) -> void:
@@ -76,17 +78,16 @@ func fill_scenes_list():
 	var popup: PopupMenu = scenes.get_popup()
 	popup.clear()
 	popup.add_theme_font_size_override("font_size", 30)
-	# This variable is necesary because several popup functions require the item
-	# index, but when adding an item the function doesn't return its assigned
-	# index, so we need to manually assign an id and obtain the index through that
+	# Esta variable es necesaria porque varias funciones de popup requieren el índice del ítem,
+	# pero al agregar un ítem la función no devuelve su índice asignado, por lo que necesitamos
+	# asignar manualmente un id y obtener el índice a través de ese id
 	var item_id = 0
 	for scene_name in ScriptManager.scenes:
 		popup.add_item(scene_name, item_id)
 		item_id += 1
 		
-	# When connecting this signal we assume that it's never going to be
-	# connected to another function outside this script. If this changes at any
-	# point we need to fix this code
+	# Al conectar esta señal asumimos que nunca se conectará a otra función fuera de este script.
+	# Si esto cambia en algún momento, necesitamos arreglar este código
 	if popup.index_pressed.get_connections().size() == 0:
 		popup.index_pressed.connect(func (index) -> void:
 			var scene_name = popup.get_item_text(index)
@@ -100,17 +101,16 @@ func fill_units_list():
 	var popup: PopupMenu = units.get_popup()
 	popup.clear()
 	popup.add_theme_font_size_override("font_size", 30)
-	# This variable is necesary because several popup functions require the item
-	# index, but when adding an item the function doesn't return its assigned
-	# index, so we need to manually assign an id and obtain the index through that
+	# Esta variable es necesaria porque varias funciones de popup requieren el índice del ítem,
+	# pero al agregar un ítem la función no devuelve su índice asignado, por lo que necesitamos
+	# asignar manualmente un id y obtener el índice a través de ese id
 	var item_id = 0
 	for unit_name in ScriptManager.current_scene.units:
 		popup.add_item(unit_name, item_id)
 		item_id += 1
 		
-	# When connecting this signal we assume that it's never going to be
-	# connected to another function outside this script. If this changes at any
-	# point we need to fix this code
+	# Al conectar esta señal asumimos que nunca se conectará a otra función fuera de este script.
+	# Si esto cambia en algún momento, necesitamos arreglar este código
 	if popup.index_pressed.get_connections().size() == 0:
 		popup.index_pressed.connect(func (index) -> void:
 			var unit_name = popup.get_item_text(index)
@@ -120,4 +120,3 @@ func fill_units_list():
 func _on_script_reload():
 	ScriptParser.parse_all()
 	ScriptManager.restart()
-	

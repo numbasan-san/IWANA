@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1wqt5c6664v3"]
+
+[ext_resource type="Texture2D" uid="uid://kvvlgvjmj6nl" path="res://assets/menus/game menu/libro_cerrado.png" id="1_gta1d"]
+[ext_resource type="Script" path="res://script/menus/game_menu/default_menu.gd" id="1_p1c1e"]
+[ext_resource type="Texture2D" uid="uid://db26xg7yncmgm" path="res://assets/menus/game menu/mascara.png" id="2_5ihag"]
+
+[node name="default_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -20.0
+offset_top = -24.0
+offset_right = -20.0
+offset_bottom = -24.0
+script = ExtResource("1_p1c1e")
+
+[node name="LibroCerrado" type="Sprite2D" parent="."]
+position = Vector2(897, 606)
+texture = ExtResource("1_gta1d")
+
+[node name="characters_btn" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1183.0
+offset_top = 265.0
+offset_right = 1218.0
+offset_bottom = 315.0
+texture_hover = ExtResource("2_5ihag")
+stretch_mode = 0
+
+[node name="maps_btn" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1188.0
+offset_top = 320.0
+offset_right = 1223.0
+offset_bottom = 370.0
+texture_hover = ExtResource("2_5ihag")
+stretch_mode = 0
+
+[node name="items_btn" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1193.0
+offset_top = 375.0
+offset_right = 1228.0
+offset_bottom = 425.0
+texture_hover = ExtResource("2_5ihag")
+stretch_mode = 0
+
+[connection signal="pressed" from="characters_btn" to="." method="_on_characters_btn_pressed"]
+[connection signal="pressed" from="maps_btn" to="." method="_on_maps_btn_pressed"]
+[connection signal="pressed" from="items_btn" to="." method="_on_items_btn_pressed"]
