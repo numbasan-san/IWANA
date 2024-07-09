@@ -110,8 +110,7 @@ func _on_attack_pressed():
 
 # La defensa del jugador.
 func _on_defense_pressed():
-	var action = CombatAction.new(Defense.new(), selected_character, null)
-	action.execute()
+	Defense.new().execute(selected_character)
 	# We perform this here in case the defense somehow activated an effect
 	# that damaged an enemy
 	combat.remove_dead()

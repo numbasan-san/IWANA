@@ -42,7 +42,7 @@ func play_animation_on_room(room_key):
 
 # Función load como ejemplo de uso
 func load():
-	var world = ScreenManager.rpg_screen.contents.player_zone
+	var world = Player.zone
 	print('current screen: ' + world.name)
 	
 	if rooms.has(world.name):

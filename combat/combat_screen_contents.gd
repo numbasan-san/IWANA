@@ -108,8 +108,7 @@ func next_turn():
 				target = right_party.members[0]
 			else:
 				target = left_party.members[0]
-			var action = CombatAction.new(next.skills[0], next, target)
-			action.execute()
+			next.skills[0].execute(next, target)
 			remove_dead()
 			next_turn()
 

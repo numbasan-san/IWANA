@@ -39,8 +39,7 @@ func set_character(character: Character = null):
 							if enemy.stats.health > 0:
 								target = enemy
 								break
-						var action = CombatAction.new(skill, character, target)
-						action.execute()
+						skill.execute(character, target)
 						combat.remove_dead()
 						await combat.show_party_menu()
 						combat.next_turn()

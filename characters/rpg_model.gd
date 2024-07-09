@@ -82,7 +82,7 @@ func deactivate():
 
 
 func enable_collisions():
-	collider.disabled = false
+	collider.set_deferred("disabled", false)
 
 func disable_collisions():
-	collider.disabled = true
+	collider.set_deferred("disabled", true)

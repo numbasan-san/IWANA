@@ -24,3 +24,6 @@ func process(user: Character):
 	var damage = 2 * u_damage if u_crit >= rnd else u_damage
 	
 	value = damage
+
+func user_side_process(user: Character):
+	pass

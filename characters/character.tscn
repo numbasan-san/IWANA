@@ -44,7 +44,6 @@ region_rect = Rect2(468, 740, 140, 300)
 [node name="Collider" type="CollisionShape2D" parent="RPGModel"]
 position = Vector2(0, -31)
 shape = SubResource("RectangleShape2D_bncsu")
-disabled = true
 
 [node name="Animation" type="AnimationPlayer" parent="RPGModel"]
 libraries = {
