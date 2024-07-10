@@ -1,9 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://daav23mkgp6gf"]
+[gd_scene load_steps=17 format=3 uid="uid://daav23mkgp6gf"]
 
 [ext_resource type="PackedScene" uid="uid://dljth7jwfmjlx" path="res://screens/dialog/dialog_contents.tscn" id="1_fds5q"]
 [ext_resource type="Script" path="res://screens/dialog/dialog_screen.gd" id="1_u4nrd"]
 [ext_resource type="PackedScene" uid="uid://dx8ovcjbdy6m8" path="res://screens/screen_audio.tscn" id="3_jnhi3"]
 [ext_resource type="Resource" uid="uid://bjsdoixib1f4l" path="res://music_tracks/art_class_track.tres" id="4_jjff8"]
+[ext_resource type="AnimationLibrary" uid="uid://b423bn5ptarkn" path="res://music_play_animations.res" id="5_8rx53"]
+[ext_resource type="AnimationLibrary" uid="uid://k7u1xrby60xn" path="res://music_stop_animations.res" id="6_cflxr"]
 
 [sub_resource type="Animation" id="Animation_juibn"]
 resource_name = "Hide"
@@ -198,86 +200,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-5.0]
+"values": [-15.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sej5u"]
 _data = {
 "RESET": SubResource("Animation_g8fph")
-}
-
-[sub_resource type="Animation" id="Animation_hilyb"]
-resource_name = "In"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-60.0, -5.0]
-}
-
-[sub_resource type="Animation" id="Animation_ucf8r"]
-resource_name = "In"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-5.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_exiha"]
-_data = {
-"1 sec": SubResource("Animation_hilyb"),
-"No Fade": SubResource("Animation_ucf8r")
-}
-
-[sub_resource type="Animation" id="Animation_1xety"]
-resource_name = "Out"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-5.0, -60.0]
-}
-
-[sub_resource type="Animation" id="Animation_6gw88"]
-resource_name = "Out"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-60.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_7w3me"]
-_data = {
-"1 sec": SubResource("Animation_1xety"),
-"No Fade": SubResource("Animation_6gw88")
 }
 
 [node name="DialogScreen" type="CanvasLayer" node_paths=PackedStringArray("contents", "transitions", "audio")]
@@ -300,11 +228,11 @@ music = Array[Resource("res://music_tracks/track_control.gd")]([ExtResource("4_j
 [node name="AudioAnimator" parent="Audio" index="0"]
 libraries = {
 "": SubResource("AnimationLibrary_sej5u"),
-"Play": SubResource("AnimationLibrary_exiha"),
-"Stop": SubResource("AnimationLibrary_7w3me")
+"Play": ExtResource("5_8rx53"),
+"Stop": ExtResource("6_cflxr")
 }
 
 [node name="AudioPlayer" parent="Audio" index="1"]
-volume_db = -5.0
+volume_db = -15.0
 
 [editable path="Audio"]

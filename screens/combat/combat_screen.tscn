@@ -1,9 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://ba3g3jujljxr3"]
+[gd_scene load_steps=14 format=3 uid="uid://ba3g3jujljxr3"]
 
 [ext_resource type="Script" path="res://screens/screen.gd" id="1_4fqb4"]
 [ext_resource type="PackedScene" uid="uid://f2oog5xfhsha" path="res://screens/combat/combat_contents.tscn" id="2_sodoh"]
 [ext_resource type="PackedScene" uid="uid://dx8ovcjbdy6m8" path="res://screens/screen_audio.tscn" id="3_xslkh"]
 [ext_resource type="Resource" uid="uid://bwhsk03orbdut" path="res://music_tracks/fight_track.tres" id="4_ma48e"]
+[ext_resource type="AnimationLibrary" uid="uid://b423bn5ptarkn" path="res://music_play_animations.res" id="5_cw3vg"]
+[ext_resource type="AnimationLibrary" uid="uid://k7u1xrby60xn" path="res://music_stop_animations.res" id="6_fys3f"]
 
 [sub_resource type="Animation" id="Animation_p11p8"]
 resource_name = "FadeIn"
@@ -145,86 +147,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-5.0]
+"values": [-15.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uy7y3"]
 _data = {
 "RESET": SubResource("Animation_437np")
-}
-
-[sub_resource type="Animation" id="Animation_leart"]
-resource_name = "In"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-60.0, -5.0]
-}
-
-[sub_resource type="Animation" id="Animation_y1ks1"]
-resource_name = "In"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-5.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_1ojx5"]
-_data = {
-"1 sec": SubResource("Animation_leart"),
-"No Fade": SubResource("Animation_y1ks1")
-}
-
-[sub_resource type="Animation" id="Animation_nh75l"]
-resource_name = "Out"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-5.0, -60.0]
-}
-
-[sub_resource type="Animation" id="Animation_5fb68"]
-resource_name = "Out"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-60.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_emof4"]
-_data = {
-"1 sec": SubResource("Animation_nh75l"),
-"No Fade": SubResource("Animation_5fb68")
 }
 
 [node name="CombatScreen" type="CanvasLayer" node_paths=PackedStringArray("contents", "transitions", "audio")]
@@ -258,11 +186,11 @@ current_track = ExtResource("4_ma48e")
 [node name="AudioAnimator" parent="Audio" index="0"]
 libraries = {
 "": SubResource("AnimationLibrary_uy7y3"),
-"Play": SubResource("AnimationLibrary_1ojx5"),
-"Stop": SubResource("AnimationLibrary_emof4")
+"Play": ExtResource("5_cw3vg"),
+"Stop": ExtResource("6_fys3f")
 }
 
 [node name="AudioPlayer" parent="Audio" index="1"]
-volume_db = -5.0
+volume_db = -15.0
 
 [editable path="Audio"]

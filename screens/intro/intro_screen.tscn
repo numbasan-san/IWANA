@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://fpbj5k7vpvlw"]
+[gd_scene load_steps=9 format=3 uid="uid://fpbj5k7vpvlw"]
 
 [ext_resource type="Script" path="res://script/intro_screen.gd" id="1_8n2ye"]
 [ext_resource type="PackedScene" uid="uid://du31clkq6084d" path="res://screens/intro/intro.tscn" id="1_tst8p"]
 [ext_resource type="AnimationLibrary" uid="uid://qy55pkalrfbh" path="res://animaciones_intro.res" id="3_ptk66"]
-[ext_resource type="PackedScene" uid="uid://dx8ovcjbdy6m8" path="res://scenes/audio.tscn" id="4_4gp3w"]
+[ext_resource type="PackedScene" uid="uid://dx8ovcjbdy6m8" path="res://screens/screen_audio.tscn" id="4_4gp3w"]
+[ext_resource type="AnimationLibrary" uid="uid://b423bn5ptarkn" path="res://music_play_animations.res" id="5_pjiys"]
+[ext_resource type="AnimationLibrary" uid="uid://k7u1xrby60xn" path="res://music_stop_animations.res" id="6_rk30g"]
 
 [sub_resource type="Animation" id="Animation_a62db"]
 length = 0.001
@@ -17,86 +19,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-5.0]
+"values": [-15.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_an53c"]
 _data = {
 "RESET": SubResource("Animation_a62db")
-}
-
-[sub_resource type="Animation" id="Animation_dftni"]
-resource_name = "In"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-60.0, -5.0]
-}
-
-[sub_resource type="Animation" id="Animation_xkw5w"]
-resource_name = "In"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-5.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_mf8dr"]
-_data = {
-"1 sec": SubResource("Animation_dftni"),
-"No Fade": SubResource("Animation_xkw5w")
-}
-
-[sub_resource type="Animation" id="Animation_r1yes"]
-resource_name = "Out"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-5.0, -60.0]
-}
-
-[sub_resource type="Animation" id="Animation_a3xwa"]
-resource_name = "Out"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-60.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_57o8r"]
-_data = {
-"1 sec": SubResource("Animation_r1yes"),
-"No Fade": SubResource("Animation_a3xwa")
 }
 
 [node name="IntroScreen" type="CanvasLayer" node_paths=PackedStringArray("contents", "transitions", "audio")]
@@ -118,11 +46,11 @@ libraries = {
 [node name="AudioAnimator" parent="Audio" index="0"]
 libraries = {
 "": SubResource("AnimationLibrary_an53c"),
-"Play": SubResource("AnimationLibrary_mf8dr"),
-"Stop": SubResource("AnimationLibrary_57o8r")
+"Play": ExtResource("5_pjiys"),
+"Stop": ExtResource("6_rk30g")
 }
 
 [node name="AudioPlayer" parent="Audio" index="1"]
-volume_db = -5.0
+volume_db = -10.0
 
 [editable path="Audio"]

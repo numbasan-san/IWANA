@@ -1,9 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://5t3grq5crsk8"]
+[gd_scene load_steps=15 format=3 uid="uid://5t3grq5crsk8"]
 
 [ext_resource type="PackedScene" uid="uid://dfnbjn6yyb7iw" path="res://screens/main_menu/main_menu.tscn" id="1_31nox"]
 [ext_resource type="Script" path="res://screens/screen.gd" id="1_irqnd"]
 [ext_resource type="PackedScene" uid="uid://dx8ovcjbdy6m8" path="res://screens/screen_audio.tscn" id="3_hhkmy"]
 [ext_resource type="Resource" uid="uid://dr20t53vmbrr0" path="res://music_tracks/menu_track.tres" id="4_epqcr"]
+[ext_resource type="AnimationLibrary" uid="uid://b423bn5ptarkn" path="res://music_play_animations.res" id="5_iihtl"]
+[ext_resource type="AnimationLibrary" uid="uid://k7u1xrby60xn" path="res://music_stop_animations.res" id="6_egk1r"]
 
 [sub_resource type="Animation" id="Animation_w481i"]
 length = 0.001
@@ -125,86 +127,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-5.0]
+"values": [-15.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sisff"]
 _data = {
 "RESET": SubResource("Animation_2prf1")
-}
-
-[sub_resource type="Animation" id="Animation_kbgh1"]
-resource_name = "In"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-60.0, -5.0]
-}
-
-[sub_resource type="Animation" id="Animation_ue25b"]
-resource_name = "In"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-5.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ce1db"]
-_data = {
-"1 sec": SubResource("Animation_kbgh1"),
-"No Fade": SubResource("Animation_ue25b")
-}
-
-[sub_resource type="Animation" id="Animation_gsdg2"]
-resource_name = "Out"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-5.0, -60.0]
-}
-
-[sub_resource type="Animation" id="Animation_hpojt"]
-resource_name = "Out"
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Audio/AudioPlayer:volume_db")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-60.0]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_y1elf"]
-_data = {
-"1 sec": SubResource("Animation_gsdg2"),
-"No Fade": SubResource("Animation_hpojt")
 }
 
 [node name="MainMenu" type="CanvasLayer" node_paths=PackedStringArray("contents", "transitions", "audio")]
@@ -228,11 +156,11 @@ current_track = ExtResource("4_epqcr")
 [node name="AudioAnimator" parent="Audio" index="0"]
 libraries = {
 "": SubResource("AnimationLibrary_sisff"),
-"Play": SubResource("AnimationLibrary_ce1db"),
-"Stop": SubResource("AnimationLibrary_y1elf")
+"Play": ExtResource("5_iihtl"),
+"Stop": ExtResource("6_egk1r")
 }
 
 [node name="AudioPlayer" parent="Audio" index="1"]
-volume_db = -5.0
+volume_db = -10.0
 
 [editable path="Audio"]
