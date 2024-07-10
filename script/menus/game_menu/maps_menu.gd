@@ -1,5 +1,6 @@
 extends Control
 
+var current_room_node = null  # Variable para llevar un seguimiento del nodo actual
 var rooms = {
 	'RoomF1N1': 'RF1N1',
 	'RoomF1N2': 'RF1N2',
@@ -10,10 +11,11 @@ var rooms = {
 	'DiningRoom': 'DNR',
 	'RoomF1S1': 'RF1S1',
 	'RoomF1S2': 'RF1S2',
+	'RoomF1S3': 'RF1S3',
 	'ArtRoom': 'ARTR',
+	'HallwayF1N': 'HWF1N',
+	'HallwayF1S': 'HWF1S',
 }
-
-var current_room_node = null  # Variable para llevar un seguimiento del nodo actual
 
 # Función para reproducir la animación en el nodo correspondiente y detenerla en el nodo anterior
 func play_animation_on_room(room_key):
@@ -49,10 +51,18 @@ func play_animation_on_room(room_key):
 # Función load como ejemplo de uso
 func load():
 	var world = Player.zone
-	print('current screen: ' + world.name)
 	
 	if rooms.has(world.name):
+		print('current screen: ' + world.name)
+		var zone_layer = ScreenManager.rpg_screen.get_node('zone_layer/zone_layer')
+
+		(zone_layer.get_node('Label')).text = world.name
+		(zone_layer.get_node('Animation')).play('intro')
+		(zone_layer.get_node('Animation')).play('RESET')
+		
 		play_animation_on_room(world.name)
+		$background/VBoxContainer/room_name.text = world.room_info.name
+		$background/VBoxContainer2/description.text = world.room_info.description
 	else:
 		play_animation_on_room(null)  # Manejar el caso del pasillo
 

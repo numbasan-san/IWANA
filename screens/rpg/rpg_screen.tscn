@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://bjryq23ok6dv7" path="res://music_tracks/halls_track.tres" id="8_em7p5"]
 [ext_resource type="AnimationLibrary" uid="uid://b423bn5ptarkn" path="res://music_play_animations.res" id="9_hcj0u"]
 [ext_resource type="AnimationLibrary" uid="uid://k7u1xrby60xn" path="res://music_stop_animations.res" id="10_nldw3"]
+[ext_resource type="PackedScene" uid="uid://bos8qlbwslebl" path="res://scenes/menus/game_menu/zone_layer.tscn" id="7_u0u1g"]
 
 [sub_resource type="Animation" id="Animation_pqilx"]
 resource_name = "Hide"
@@ -177,3 +178,8 @@ libraries = {
 volume_db = -15.0
 
 [editable path="Audio"]
+[node name="zone_layer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="zone_layer" parent="zone_layer" instance=ExtResource("7_u0u1g")]
+

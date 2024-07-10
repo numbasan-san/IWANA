@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="zone_info" load_steps=2 format=3 uid="uid://ba56itmiwasft"]
+
+[ext_resource type="Script" path="res://script/zones/zone_info/zone_info.gd" id="1_on35l"]
+
+[resource]
+script = ExtResource("1_on35l")
+name = "Baño de Chicos (1er Piso)."
+description = "Es balo de chicos del 1er piso."
+dumb = true

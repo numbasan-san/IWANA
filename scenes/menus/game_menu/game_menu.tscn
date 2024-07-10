@@ -112,27 +112,34 @@ libraries = {
 }
 
 [node name="selected_menu" type="Control" parent="."]
-anchors_preset = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="default_menu" parent="selected_menu" instance=ExtResource("3_drnfj")]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="characters_menu" parent="selected_menu" instance=ExtResource("6_rbgto")]
 visible = false
-offset_left = -75.0
-offset_top = 56.0
-offset_right = -75.0
-offset_bottom = 56.0
+layout_mode = 1
 
 [node name="maps_menu" parent="selected_menu" instance=ExtResource("7_13826")]
 visible = false
-offset_left = -116.0
-offset_top = 20.0
-offset_right = -116.0
-offset_bottom = 20.0
+layout_mode = 1
 
 [node name="items_menu" parent="selected_menu" instance=ExtResource("5_uwh7u")]
 visible = false
-offset_left = -140.0
-offset_top = 38.0
-offset_right = -140.0
-offset_bottom = 38.0
+layout_mode = 1

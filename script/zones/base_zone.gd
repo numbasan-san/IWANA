@@ -56,6 +56,8 @@ extends Node2D
 # deleted
 @onready var party_path_node: Node = $PartyPath
 
+@export var room_name: String
+@export var room_info: Resource
 # Thelayers and masks are stored so that they can be restored after
 # reactivating the zone
 var _collision_layers: Array[int]
@@ -80,6 +82,8 @@ func activate():
 		tile_map.tile_set.set_physics_layer_collision_mask(i, _collision_masks[i])
 		i += 1
 	show()
+	print('Esto debería ejecutarse al recién abrir la habitación.')
+	print(room_info.name)
 
 # Deactivates processing, phisics, visibility and other functionalities of a zone
 func deactivate():

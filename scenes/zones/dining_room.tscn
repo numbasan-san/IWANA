@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://dsxqd1ubb8a0s"]
+[gd_scene load_steps=19 format=3 uid="uid://dsxqd1ubb8a0s"]
 
 [ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://scenes/zones/base_zone.tscn" id="1_qx4ns"]
-[ext_resource type="Texture2D" uid="uid://csnek5bda5r4l" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="2_u7pjx"]
+[ext_resource type="Resource" uid="uid://4fhwnxaewr6f" path="res://script/zones/zone_info/resources/dining_room.tres" id="2_msjop"]
+[ext_resource type="Texture2D" uid="uid://b4ujkp4dw8nfd" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="2_u7pjx"]
 [ext_resource type="PackedScene" uid="uid://csamauje32a3p" path="res://scenes/objects/doors/side_door.tscn" id="3_xoier"]
 [ext_resource type="PackedScene" uid="uid://bv416onpsv8q" path="res://scenes/objects/cafeteria/entry.tscn" id="4_svp54"]
 [ext_resource type="PackedScene" uid="uid://pclh0t6voskh" path="res://scenes/objects/cafeteria/counter_left.tscn" id="5_3iotj"]
@@ -122,6 +123,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ix7qu")
 
 [node name="DiningRoom" instance=ExtResource("1_qx4ns")]
+room_name = "Cafetería"
+room_info = ExtResource("2_msjop")
 
 [node name="TileMap" parent="." index="0"]
 tile_set = SubResource("TileSet_f6s4f")

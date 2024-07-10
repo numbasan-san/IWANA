@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://c5rfe52h3mrus"]
+[gd_scene load_steps=13 format=3 uid="uid://c5rfe52h3mrus"]
 
 [ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://scenes/zones/base_zone.tscn" id="1_luyk6"]
-[ext_resource type="Texture2D" uid="uid://csnek5bda5r4l" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="2_1n4ea"]
+[ext_resource type="Texture2D" uid="uid://b4ujkp4dw8nfd" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="2_1n4ea"]
+[ext_resource type="Resource" uid="uid://sibff7v2wrgw" path="res://script/zones/zone_info/resources/laboratory.tres" id="2_xd4pa"]
 [ext_resource type="PackedScene" uid="uid://4erefc1g2h2" path="res://scenes/objects/laboratory/big_table.tscn" id="4_8p3on"]
 [ext_resource type="PackedScene" uid="uid://cm4y6se7ra0c" path="res://scenes/objects/laboratory/stool.tscn" id="5_wdbiw"]
 [ext_resource type="PackedScene" uid="uid://cybmjkpg17431" path="res://scenes/objects/laboratory/vertical_table.tscn" id="6_igjng"]
@@ -137,6 +138,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_tu2hj")
 
 [node name="Laboratory" instance=ExtResource("1_luyk6")]
+room_name = "Laboratorio"
+room_info = ExtResource("2_xd4pa")
 
 [node name="TileMap" parent="." index="0"]
 position = Vector2(352, 208)
