@@ -1,12 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://d7w5brnj1hi1"]
+[gd_scene load_steps=12 format=3 uid="uid://d7w5brnj1hi1"]
 
 [ext_resource type="Shader" path="res://scenes/menus/pause_menu/pause_menu.gdshader" id="1_x1dvp"]
 [ext_resource type="Script" path="res://script/menus/game_menu/game_menu.gd" id="2_s06a2"]
+[ext_resource type="PackedScene" uid="uid://d1wqt5c6664v3" path="res://scenes/menus/game_menu/default_menu.tscn" id="3_drnfj"]
 [ext_resource type="PackedScene" uid="uid://cvqnwtk5nq0y6" path="res://scenes/menus/game_menu/items_menu.tscn" id="5_uwh7u"]
 [ext_resource type="PackedScene" uid="uid://cnf48edckpp1a" path="res://scenes/menus/game_menu/characters_menu.tscn" id="6_rbgto"]
 [ext_resource type="PackedScene" uid="uid://b36413u4v0whv" path="res://scenes/menus/game_menu/maps_menu.tscn" id="7_13826"]
-[ext_resource type="Texture2D" uid="uid://db26xg7yncmgm" path="res://assets/menus/game menu/mascara.png" id="8_vb7a6"]
-[ext_resource type="Texture2D" uid="uid://kvvlgvjmj6nl" path="res://assets/menus/game menu/libro_cerrado.png" id="13_0ww5u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3tjfk"]
 shader = ExtResource("1_x1dvp")
@@ -115,7 +114,10 @@ libraries = {
 [node name="selected_menu" type="Control" parent="."]
 anchors_preset = 0
 
+[node name="default_menu" parent="selected_menu" instance=ExtResource("3_drnfj")]
+
 [node name="characters_menu" parent="selected_menu" instance=ExtResource("6_rbgto")]
+visible = false
 offset_left = -75.0
 offset_top = 56.0
 offset_right = -75.0
@@ -134,45 +136,3 @@ offset_left = -140.0
 offset_top = 38.0
 offset_right = -140.0
 offset_bottom = 38.0
-
-[node name="default_menu" type="Control" parent="."]
-anchors_preset = 0
-offset_left = -20.0
-offset_top = -24.0
-offset_right = -20.0
-offset_bottom = -24.0
-
-[node name="LibroCerrado" type="Sprite2D" parent="default_menu"]
-position = Vector2(897, 606)
-texture = ExtResource("13_0ww5u")
-
-[node name="characters_btn" type="TextureButton" parent="default_menu"]
-layout_mode = 0
-offset_left = 384.0
-offset_top = 265.0
-offset_right = 419.0
-offset_bottom = 315.0
-texture_hover = ExtResource("8_vb7a6")
-stretch_mode = 0
-
-[node name="maps_btn" type="TextureButton" parent="default_menu"]
-layout_mode = 0
-offset_left = 365.0
-offset_top = 320.0
-offset_right = 400.0
-offset_bottom = 370.0
-texture_hover = ExtResource("8_vb7a6")
-stretch_mode = 0
-
-[node name="items_btn" type="TextureButton" parent="default_menu"]
-layout_mode = 0
-offset_left = 375.0
-offset_top = 375.0
-offset_right = 410.0
-offset_bottom = 425.0
-texture_hover = ExtResource("8_vb7a6")
-stretch_mode = 0
-
-[connection signal="pressed" from="default_menu/characters_btn" to="." method="_on_characters_btn_pressed"]
-[connection signal="pressed" from="default_menu/maps_btn" to="." method="_on_maps_btn_pressed"]
-[connection signal="pressed" from="default_menu/items_btn" to="." method="_on_items_btn_pressed"]

@@ -1,175 +1,119 @@
-[gd_scene load_steps=5 format=3 uid="uid://b36413u4v0whv"]
+[gd_scene load_steps=6 format=3 uid="uid://b36413u4v0whv"]
 
 [ext_resource type="Script" path="res://script/menus/game_menu/maps_menu.gd" id="1_e7eyw"]
 [ext_resource type="Texture2D" uid="uid://be7fr6rfhhoq4" path="res://assets/menus/game menu/libro_mapa.png" id="1_uqcs6"]
-[ext_resource type="FontFile" uid="uid://m557grc4g413" path="res://assets/combat_sprites/font/IWANA.ttf" id="2_lw43j"]
 [ext_resource type="PackedScene" uid="uid://bqcnhygdum144" path="res://scenes/menus/pause_menu/room_represent.tscn" id="4_eqy2w"]
+[ext_resource type="Texture2D" uid="uid://db26xg7yncmgm" path="res://assets/menus/game menu/mascara.png" id="5_gp41n"]
+[ext_resource type="Texture2D" uid="uid://q5md1uvnusab" path="res://assets/menus/game menu/map_menu/mapa_edificio.png" id="6_lrsgn"]
 
 [node name="maps_menu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_e7eyw")
 
-[node name="LibretaObjetos" type="Sprite2D" parent="."]
-position = Vector2(1045, 540)
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(965, 532)
+scale = Vector2(1.25, 1.25)
 texture = ExtResource("1_uqcs6")
 
-[node name="azul" type="Button" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 438.0
-offset_top = 203.0
-offset_right = 473.0
-offset_bottom = 253.0
-action_mode = 0
-text = " "
+[node name="characters_btn" type="TextureButton" parent="background"]
+offset_left = -570.0
+offset_top = -319.0
+offset_right = -534.0
+offset_bottom = -269.0
+texture_hover = ExtResource("5_gp41n")
+stretch_mode = 0
 
-[node name="verde" type="Button" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 413.0
-offset_top = 258.0
-offset_right = 448.0
-offset_bottom = 308.0
-action_mode = 0
-text = " "
+[node name="maps_btn" type="TextureButton" parent="background"]
+offset_left = -585.0
+offset_top = -264.0
+offset_right = -549.0
+offset_bottom = -214.0
+texture_hover = ExtResource("5_gp41n")
+stretch_mode = 0
 
-[node name="rojo" type="Button" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 423.0
-offset_top = 313.0
-offset_right = 458.0
-offset_bottom = 363.0
-action_mode = 0
-text = " "
+[node name="items_btn" type="TextureButton" parent="background"]
+offset_left = -575.0
+offset_top = -209.0
+offset_right = -539.0
+offset_bottom = -159.0
+texture_hover = ExtResource("5_gp41n")
+stretch_mode = 0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 949.0
-offset_top = 609.0
-offset_right = 1381.0
-offset_bottom = 999.0
-rotation = 3.14159
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("2_lw43j")
-theme_override_font_sizes/normal_font_size = 50
-text = "Cosas de Mapas"
+[node name="Map" type="Control" parent="background"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 71.1999
+offset_top = -344.0
+offset_right = 539.2
+offset_bottom = 64.9996
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 1115.0
-offset_top = 421.0
-offset_right = 1547.0
-offset_bottom = 811.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("2_lw43j")
-theme_override_font_sizes/normal_font_size = 50
-text = "Cosas de Mapas"
+[node name="RF1N1" parent="background/Map" instance=ExtResource("4_eqy2w")]
+offset_left = 184.0
+offset_top = 70.0
+offset_right = 242.0
+offset_bottom = 124.0
 
-[node name="RF1N1" parent="." instance=ExtResource("4_eqy2w")]
-offset_left = 622.0
-offset_top = 378.0
-offset_right = 806.0
-offset_bottom = 454.0
-scale = Vector2(2.2, 2.2)
+[node name="RF1N2" parent="background/Map" instance=ExtResource("4_eqy2w")]
+offset_left = 244.0
+offset_top = 70.0
+offset_right = 302.0
+offset_bottom = 123.0
 
-[node name="Label" type="Label" parent="RF1N1"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -56.5
-offset_top = -15.5
-offset_right = 56.5
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "primer aula"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="LBRT" parent="background/Map" instance=ExtResource("4_eqy2w")]
+offset_left = 80.0
+offset_top = 62.0
+offset_right = 182.0
+offset_bottom = 124.0
 
-[node name="YRD" parent="." instance=ExtResource("4_eqy2w")]
-offset_left = 1186.0
-offset_top = 668.0
-offset_right = 1370.0
-offset_bottom = 744.0
-scale = Vector2(2.2, 2.2)
+[node name="F1MBTHR" parent="background/Map" instance=ExtResource("4_eqy2w")]
+offset_left = 304.0
+offset_top = 70.0
+offset_right = 350.0
+offset_bottom = 124.0
 
-[node name="Label" type="Label" parent="YRD"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -56.5
-offset_top = -15.5
-offset_right = 56.5
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "patio"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="F1FBTHR" parent="background/Map" instance=ExtResource("4_eqy2w")]
+offset_left = 352.0
+offset_top = 70.0
+offset_right = 402.0
+offset_bottom = 124.0
 
-[node name="F1FBTHR" parent="." instance=ExtResource("4_eqy2w")]
-offset_left = 1201.0
-offset_top = 273.0
-offset_right = 1385.0
-offset_bottom = 349.0
-scale = Vector2(2.2, 2.2)
+[node name="YRD" parent="background/Map" instance=ExtResource("4_eqy2w")]
+offset_left = 158.0
+offset_top = 165.0
+offset_right = 400.0
+offset_bottom = 361.0
 
-[node name="Label" type="Label" parent="F1FBTHR"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -56.5
-offset_top = -15.5
-offset_right = 56.5
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "baño de chicas P1"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="DNR" parent="background/Map" instance=ExtResource("4_eqy2w")]
+offset_left = 83.0
+offset_top = 161.0
+offset_right = 151.0
+offset_bottom = 361.0
 
-[node name="F1MBTHR" parent="." instance=ExtResource("4_eqy2w")]
-offset_left = 656.0
-offset_top = 728.0
-offset_right = 840.0
-offset_bottom = 804.0
-scale = Vector2(2.2, 2.2)
+[node name="RF1S1" parent="background/Map" instance=ExtResource("4_eqy2w")]
+offset_left = 184.0
+offset_top = 401.6
+offset_right = 242.0
+offset_bottom = 455.6
 
-[node name="Label" type="Label" parent="F1MBTHR"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -56.5
-offset_top = -15.5
-offset_right = 56.5
-offset_bottom = 15.5
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
-text = "baño de chicos P1"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="RF1S2" parent="background/Map" instance=ExtResource("4_eqy2w")]
+offset_left = 244.0
+offset_top = 402.0
+offset_right = 302.0
+offset_bottom = 456.0
+
+[node name="ARTR" parent="background/Map" instance=ExtResource("4_eqy2w")]
+offset_left = 80.0
+offset_top = 402.0
+offset_right = 182.0
+offset_bottom = 464.0
+
+[node name="MapaEdificio" type="Sprite2D" parent="background/Map"]
+position = Vector2(235.2, 276.8)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("6_lrsgn")
+region_enabled = true
+region_rect = Rect2(726, 105, 515, 675)
+
+[connection signal="pressed" from="background/characters_btn" to="." method="_on_characters_btn_pressed"]
+[connection signal="pressed" from="background/items_btn" to="." method="_on_items_btn_pressed"]

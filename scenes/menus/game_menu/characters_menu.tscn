@@ -1,43 +1,45 @@
-[gd_scene load_steps=3 format=3 uid="uid://cnf48edckpp1a"]
+[gd_scene load_steps=4 format=3 uid="uid://cnf48edckpp1a"]
 
 [ext_resource type="Texture2D" uid="uid://fppsqtpkn0kd" path="res://assets/menus/game menu/libreta_personajes.png" id="1_32527"]
+[ext_resource type="Script" path="res://script/menus/game_menu/characters_menu.gd" id="1_giqkv"]
 [ext_resource type="FontFile" uid="uid://m557grc4g413" path="res://assets/combat_sprites/font/IWANA.ttf" id="2_qgmj1"]
 
 [node name="characters_menu" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+script = ExtResource("1_giqkv")
 
 [node name="LibretaPersonajes" type="Sprite2D" parent="."]
 position = Vector2(980, 522)
 texture = ExtResource("1_32527")
 
-[node name="rojo" type="Button" parent="."]
+[node name="characters_btn" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 439.0
-offset_top = 203.0
+offset_top = 185.0
 offset_right = 474.0
-offset_bottom = 253.0
+offset_bottom = 235.0
 action_mode = 0
 text = " "
 
-[node name="azul" type="Button" parent="."]
+[node name="maps_btn" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 414.0
-offset_top = 258.0
-offset_right = 449.0
-offset_bottom = 308.0
+offset_left = 419.0
+offset_top = 240.0
+offset_right = 454.0
+offset_bottom = 290.0
 action_mode = 0
 text = " "
 
-[node name="verde" type="Button" parent="."]
+[node name="items_btn" type="Button" parent="."]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 424.0
-offset_top = 313.0
-offset_right = 459.0
-offset_bottom = 363.0
+offset_left = 429.0
+offset_top = 295.0
+offset_right = 464.0
+offset_bottom = 345.0
 action_mode = 0
 text = " "
 
@@ -62,3 +64,6 @@ theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_qgmj1")
 theme_override_font_sizes/normal_font_size = 50
 text = "retrato.jpg"
+
+[connection signal="pressed" from="maps_btn" to="." method="_on_maps_btn_pressed"]
+[connection signal="pressed" from="items_btn" to="." method="_on_items_btn_pressed"]
