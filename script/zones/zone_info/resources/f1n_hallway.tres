@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="zone_info" load_steps=2 format=3 uid="uid://5xdnh81gn5f6"]
+
+[ext_resource type="Script" path="res://script/zones/zone_info/zone_info.gd" id="1_j0mne"]
+
+[resource]
+script = ExtResource("1_j0mne")
+name = "Pasillo Norte (1er Piso)."
+description = "Es el pasillo norte del primer piso."
+dumb = true

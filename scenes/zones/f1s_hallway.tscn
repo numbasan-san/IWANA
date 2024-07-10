@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dps3xgkcv1s7n"]
+[gd_scene load_steps=11 format=3 uid="uid://dps3xgkcv1s7n"]
 
 [ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://scenes/zones/base_zone.tscn" id="1_i8gkr"]
+[ext_resource type="Resource" uid="uid://3y5bcnvsfjn8" path="res://script/zones/zone_info/resources/f1s_hallway.tres" id="2_r7ucw"]
 [ext_resource type="PackedScene" uid="uid://dmda7enq2l0im" path="res://scenes/objects/general/locker.tscn" id="3_4f52v"]
 [ext_resource type="PackedScene" uid="uid://cn0nlsq5wj8on" path="res://scenes/objects/doors/classroom_door.tscn" id="4_l3pry"]
 [ext_resource type="PackedScene" uid="uid://cc20k433oxy2p" path="res://scenes/objects/general/book_shelf.tscn" id="5_kjaos"]
-[ext_resource type="Texture2D" uid="uid://csnek5bda5r4l" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="6_ieckv"]
+[ext_resource type="Texture2D" uid="uid://b4ujkp4dw8nfd" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="6_ieckv"]
 [ext_resource type="PackedScene" uid="uid://nh6axq4payaf" path="res://scenes/objects/doors/yard_door.tscn" id="6_pn4li"]
 [ext_resource type="PackedScene" uid="uid://bqonqotb6lenr" path="res://scenes/objects/general/info_board.tscn" id="7_e4qrn"]
 
@@ -114,6 +115,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_tbk1h")
 
 [node name="HallwayF1S" instance=ExtResource("1_i8gkr")]
+room_name = "Pasillo Sur"
+room_info = ExtResource("2_r7ucw")
 
 [node name="Doors" type="Node2D" parent="." index="0"]
 y_sort_enabled = true
@@ -134,7 +137,14 @@ spawn_direction = "down"
 transparent = true
 front = false
 
-[node name="DoorArtRoom" parent="Doors" index="2" instance=ExtResource("4_l3pry")]
+[node name="DoorRoomF1S3" parent="Doors" index="2" instance=ExtResource("4_l3pry")]
+position = Vector2(11042, 1302)
+zone = "room_f1s3"
+spawn = "SpawnHallway"
+transparent = true
+front = false
+
+[node name="DoorArtRoom" parent="Doors" index="3" instance=ExtResource("4_l3pry")]
 position = Vector2(3278, 1306)
 zone = "art_room"
 spawn = "SpawnHallway"
@@ -142,7 +152,7 @@ spawn_direction = "down"
 transparent = true
 front = false
 
-[node name="DoorYard" parent="Doors" index="3" instance=ExtResource("6_pn4li")]
+[node name="DoorYard" parent="Doors" index="4" instance=ExtResource("6_pn4li")]
 position = Vector2(6640, 643)
 zone = "yard"
 spawn = "SpawnHallwaySouth"
@@ -208,8 +218,11 @@ position = Vector2(5521, 1192)
 [node name="SpawnF1S2" type="Node2D" parent="SpawnPoints" index="1"]
 position = Vector2(8000, 1192)
 
-[node name="SpawnArtRoom" type="Node2D" parent="SpawnPoints" index="2"]
+[node name="SpawnF1S3" type="Node2D" parent="SpawnPoints" index="2"]
+position = Vector2(11042, 1188)
+
+[node name="SpawnArtRoom" type="Node2D" parent="SpawnPoints" index="3"]
 position = Vector2(3278, 1192)
 
-[node name="SpawnYard" type="Node2D" parent="SpawnPoints" index="3"]
+[node name="SpawnYard" type="Node2D" parent="SpawnPoints" index="4"]
 position = Vector2(6640, 803)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://oc5oqpk3nprt"]
+[gd_scene load_steps=15 format=3 uid="uid://oc5oqpk3nprt"]
 
 [ext_resource type="PackedScene" uid="uid://c0fgo3tb7g1ao" path="res://scenes/zones/world.tscn" id="1_jlw57"]
 [ext_resource type="Script" path="res://script/screen.gd" id="1_jx12o"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://rpfl8336vthn" path="res://assets/audio/Halls.mp3" id="5_tkbj8"]
 [ext_resource type="PackedScene" uid="uid://4iyphsfraq11" path="res://scenes/menus/pause_menu/pause_menu.tscn" id="5_y5v2l"]
 [ext_resource type="PackedScene" uid="uid://d7w5brnj1hi1" path="res://scenes/menus/game_menu/game_menu.tscn" id="6_bkiw3"]
+[ext_resource type="PackedScene" uid="uid://bos8qlbwslebl" path="res://scenes/menus/game_menu/zone_layer.tscn" id="7_u0u1g"]
 
 [sub_resource type="Animation" id="Animation_pqilx"]
 resource_name = "Hide"
@@ -253,6 +254,11 @@ process_mode = 3
 
 [node name="game_menu" parent="game_layer" instance=ExtResource("6_bkiw3")]
 visible = false
+
+[node name="zone_layer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="zone_layer" parent="zone_layer" instance=ExtResource("7_u0u1g")]
 
 [node name="GameMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_tkbj8")

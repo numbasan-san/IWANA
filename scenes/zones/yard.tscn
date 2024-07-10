@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://b7busewu2ru3v"]
+[gd_scene load_steps=15 format=3 uid="uid://b7busewu2ru3v"]
 
 [ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://scenes/zones/base_zone.tscn" id="1_njc8a"]
+[ext_resource type="Resource" uid="uid://cx0xrrv4j88xu" path="res://script/zones/zone_info/resources/yard.tres" id="2_tes0x"]
 [ext_resource type="PackedScene" uid="uid://csamauje32a3p" path="res://scenes/objects/doors/side_door.tscn" id="3_h68yq"]
 [ext_resource type="PackedScene" uid="uid://c6oggrccmjth" path="res://scenes/objects/yard/tree.tscn" id="4_x44xv"]
-[ext_resource type="Texture2D" uid="uid://csnek5bda5r4l" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="5_84ux2"]
+[ext_resource type="Texture2D" uid="uid://b4ujkp4dw8nfd" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="5_84ux2"]
 [ext_resource type="PackedScene" uid="uid://vihbkwcp447g" path="res://scenes/objects/yard/bench.tscn" id="5_g4210"]
 [ext_resource type="PackedScene" uid="uid://pr6vtnep33ws" path="res://scenes/objects/yard/zafacon.tscn" id="6_urrak"]
 [ext_resource type="PackedScene" uid="uid://dkdhs3t5q4731" path="res://scenes/objects/yard/poster2.tscn" id="7_67dri"]
@@ -119,6 +120,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_xnhgn")
 
 [node name="Yard" instance=ExtResource("1_njc8a")]
+room_name = "Patio"
+room_info = ExtResource("2_tes0x")
 
 [node name="TileMap" parent="." index="0"]
 tile_set = SubResource("TileSet_dirog")

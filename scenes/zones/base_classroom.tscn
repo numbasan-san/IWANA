@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://h7mki2t1blv5" path="res://scenes/objects/classroom/clock.tscn" id="5_p65in"]
 [ext_resource type="PackedScene" uid="uid://cfx0xnvbfch17" path="res://scenes/objects/classroom/classroom_window.tscn" id="6_tkoyl"]
 [ext_resource type="PackedScene" uid="uid://baymeuamqebgj" path="res://scenes/objects/general/chair_back.tscn" id="9_8irrb"]
-[ext_resource type="Texture2D" uid="uid://csnek5bda5r4l" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="10_4xi42"]
+[ext_resource type="Texture2D" uid="uid://b4ujkp4dw8nfd" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="10_4xi42"]
 [ext_resource type="PackedScene" uid="uid://bc0x6r1sqak4r" path="res://scenes/objects/classroom/teacher_desk.tscn" id="10_8e6d3"]
 [ext_resource type="PackedScene" uid="uid://dbui3px8bpm0h" path="res://scenes/objects/classroom/classroom_board.tscn" id="10_ey3pn"]
 

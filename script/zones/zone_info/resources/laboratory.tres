@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="zone_info" load_steps=2 format=3 uid="uid://sibff7v2wrgw"]
+
+[ext_resource type="Script" path="res://script/zones/zone_info/zone_info.gd" id="1_57bt1"]
+
+[resource]
+script = ExtResource("1_57bt1")
+name = "Laboratorio."
+description = "Es el laboratorio."
+dumb = true

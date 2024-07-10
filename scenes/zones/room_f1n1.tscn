@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://4jpj8tqg88j5"]
+[gd_scene load_steps=15 format=3 uid="uid://4jpj8tqg88j5"]
 
 [ext_resource type="PackedScene" uid="uid://bqvxhi7wt87t" path="res://scenes/zones/base_classroom.tscn" id="1_p0tah"]
+[ext_resource type="Resource" uid="uid://d3m1k3ynfdasd" path="res://script/zones/zone_info/resources/room_f1n1.tres" id="2_e6pjl"]
 [ext_resource type="Texture2D" uid="uid://b4ujkp4dw8nfd" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="2_mlvhc"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_6eplc"]
@@ -145,6 +146,8 @@ pattern_7 = SubResource("TileMapPattern_22pgg")
 pattern_8 = SubResource("TileMapPattern_n40g6")
 
 [node name="RoomF1N1" instance=ExtResource("1_p0tah")]
+room_name = "Aula 1-A"
+room_info = ExtResource("2_e6pjl")
 
 [node name="Door" parent="." index="0"]
 spawn = "SpawnF1N1"

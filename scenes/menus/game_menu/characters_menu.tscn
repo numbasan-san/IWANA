@@ -6,64 +6,79 @@
 
 [node name="characters_menu" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_giqkv")
 
-[node name="LibretaPersonajes" type="Sprite2D" parent="."]
-position = Vector2(980, 522)
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -595.0
+offset_top = -372.5
+offset_right = 595.0
+offset_bottom = 372.5
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_32527")
 
-[node name="characters_btn" type="Button" parent="."]
+[node name="characters_btn" type="Button" parent="background"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 439.0
-offset_top = 185.0
-offset_right = 474.0
-offset_bottom = 235.0
+offset_left = 20.0
+offset_top = 50.5
+offset_right = 55.0
+offset_bottom = 100.5
 action_mode = 0
 text = " "
 
-[node name="maps_btn" type="Button" parent="."]
+[node name="maps_btn" type="Button" parent="background"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 419.0
-offset_top = 240.0
-offset_right = 454.0
-offset_bottom = 290.0
+offset_left = 5.0
+offset_top = 105.5
+offset_right = 40.0
+offset_bottom = 155.5
 action_mode = 0
 text = " "
 
-[node name="items_btn" type="Button" parent="."]
+[node name="items_btn" type="Button" parent="background"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0
-offset_left = 429.0
-offset_top = 295.0
-offset_right = 464.0
-offset_bottom = 345.0
+offset_left = 15.0
+offset_top = 160.5
+offset_right = 50.0
+offset_bottom = 210.5
 action_mode = 0
 text = " "
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+[node name="RichTextLabel2" type="RichTextLabel" parent="background"]
 layout_mode = 0
-offset_left = 523.0
-offset_top = 485.0
-offset_right = 955.0
-offset_bottom = 613.0
+offset_left = 103.0
+offset_top = 331.5
+offset_right = 535.0
+offset_bottom = 383.5
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_qgmj1")
 theme_override_font_sizes/normal_font_size = 50
 text = "Pagina amarilla"
 
-[node name="RichTextLabel3" type="RichTextLabel" parent="."]
+[node name="RichTextLabel3" type="RichTextLabel" parent="background"]
 layout_mode = 0
-offset_left = 1140.0
-offset_top = 334.0
-offset_right = 1463.0
-offset_bottom = 462.0
+offset_left = 717.0
+offset_top = 175.0
+offset_right = 1040.0
+offset_bottom = 284.0
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_qgmj1")
 theme_override_font_sizes/normal_font_size = 50
 text = "retrato.jpg"
 
-[connection signal="pressed" from="maps_btn" to="." method="_on_maps_btn_pressed"]
-[connection signal="pressed" from="items_btn" to="." method="_on_items_btn_pressed"]
+[connection signal="pressed" from="background/maps_btn" to="." method="_on_maps_btn_pressed"]
+[connection signal="pressed" from="background/items_btn" to="." method="_on_items_btn_pressed"]

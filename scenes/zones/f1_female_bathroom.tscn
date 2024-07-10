@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://2yngnccatdr1"]
+[gd_scene load_steps=16 format=3 uid="uid://2yngnccatdr1"]
 
 [ext_resource type="PackedScene" uid="uid://dvs7a5k1ejf15" path="res://scenes/zones/base_bathroom.tscn" id="1_7md5w"]
+[ext_resource type="Resource" uid="uid://cnu41878wxqeh" path="res://script/zones/zone_info/resources/f1_female_bathroom.tres" id="2_8qi6x"]
 [ext_resource type="PackedScene" uid="uid://jfxa3getivws" path="res://scenes/objects/bathroom/toilet_left.tscn" id="2_25fw0"]
 [ext_resource type="Texture2D" uid="uid://b4ujkp4dw8nfd" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="2_vvrqv"]
 [ext_resource type="PackedScene" uid="uid://5n38y4d4l5hi" path="res://scenes/objects/bathroom/divider.tscn" id="3_jj0ij"]
@@ -141,6 +142,8 @@ pattern_5 = SubResource("TileMapPattern_nv177")
 pattern_6 = SubResource("TileMapPattern_amtg8")
 
 [node name="F1FemaleBathroom" instance=ExtResource("1_7md5w")]
+room_name = "Baño de Chicas"
+room_info = ExtResource("2_8qi6x")
 
 [node name="TileMap" parent="." index="0"]
 position = Vector2(-647, 0)

@@ -8,45 +8,68 @@
 
 [node name="maps_menu" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_e7eyw")
 
-[node name="background" type="Sprite2D" parent="."]
-position = Vector2(965, 532)
-scale = Vector2(1.25, 1.25)
+[node name="background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -595.0
+offset_top = -372.5
+offset_right = 595.0
+offset_bottom = 372.5
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_uqcs6")
 
 [node name="characters_btn" type="TextureButton" parent="background"]
-offset_left = -570.0
-offset_top = -319.0
-offset_right = -534.0
-offset_bottom = -269.0
+layout_mode = 0
+offset_left = 20.0
+offset_top = 50.5
+offset_right = 55.0
+offset_bottom = 100.5
 texture_hover = ExtResource("5_gp41n")
 stretch_mode = 0
 
 [node name="maps_btn" type="TextureButton" parent="background"]
-offset_left = -585.0
-offset_top = -264.0
-offset_right = -549.0
-offset_bottom = -214.0
+layout_mode = 0
+offset_left = 5.0
+offset_top = 105.5
+offset_right = 40.0
+offset_bottom = 155.5
 texture_hover = ExtResource("5_gp41n")
 stretch_mode = 0
 
 [node name="items_btn" type="TextureButton" parent="background"]
-offset_left = -575.0
-offset_top = -209.0
-offset_right = -539.0
-offset_bottom = -159.0
+layout_mode = 0
+offset_left = 15.0
+offset_top = 160.5
+offset_right = 50.0
+offset_bottom = 210.5
 texture_hover = ExtResource("5_gp41n")
 stretch_mode = 0
 
 [node name="Map" type="Control" parent="background"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 71.1999
-offset_top = -344.0
-offset_right = 539.2
-offset_bottom = 64.9996
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -537.0
+offset_top = -318.0
+offset_right = -69.0
+offset_bottom = 238.0
+grow_horizontal = 0
+grow_vertical = 2
 
 [node name="RF1N1" parent="background/Map" instance=ExtResource("4_eqy2w")]
 offset_left = 184.0
@@ -78,6 +101,12 @@ offset_top = 70.0
 offset_right = 402.0
 offset_bottom = 124.0
 
+[node name="HWF1N" parent="background/Map" instance=ExtResource("4_eqy2w")]
+offset_left = 79.0
+offset_top = 126.0
+offset_right = 401.0
+offset_bottom = 156.0
+
 [node name="YRD" parent="background/Map" instance=ExtResource("4_eqy2w")]
 offset_left = 158.0
 offset_top = 165.0
@@ -89,6 +118,18 @@ offset_left = 83.0
 offset_top = 161.0
 offset_right = 151.0
 offset_bottom = 361.0
+
+[node name="HWF1S" parent="background/Map" instance=ExtResource("4_eqy2w")]
+offset_left = 79.0
+offset_top = 370.0
+offset_right = 401.0
+offset_bottom = 400.0
+
+[node name="ARTR" parent="background/Map" instance=ExtResource("4_eqy2w")]
+offset_left = 80.0
+offset_top = 402.0
+offset_right = 182.0
+offset_bottom = 464.0
 
 [node name="RF1S1" parent="background/Map" instance=ExtResource("4_eqy2w")]
 offset_left = 184.0
@@ -102,18 +143,78 @@ offset_top = 402.0
 offset_right = 302.0
 offset_bottom = 456.0
 
-[node name="ARTR" parent="background/Map" instance=ExtResource("4_eqy2w")]
-offset_left = 80.0
-offset_top = 402.0
-offset_right = 182.0
-offset_bottom = 464.0
+[node name="RF1S3" parent="background/Map" instance=ExtResource("4_eqy2w")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 69.0
+offset_top = -154.0
+offset_right = 167.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 0
 
-[node name="MapaEdificio" type="Sprite2D" parent="background/Map"]
-position = Vector2(235.2, 276.8)
+[node name="MapaEdificio" type="TextureRect" parent="background/Map"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.00961538
+anchor_top = -0.113309
+anchor_right = 1.00962
+anchor_bottom = 1.10432
+offset_left = 28.5
+offset_top = 64.5
+offset_right = 76.5
+offset_bottom = 72.5
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 texture = ExtResource("6_lrsgn")
-region_enabled = true
-region_rect = Rect2(726, 105, 515, 675)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="background"]
+layout_mode = 0
+offset_left = 740.0
+offset_top = 612.5
+offset_right = 1038.0
+offset_bottom = 692.5
+
+[node name="label" type="Label" parent="background/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "Estás en:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="room_name" type="Label" parent="background/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "nombre de la habitación"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="background"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.139496
+anchor_top = 0.420805
+anchor_right = 0.42521
+anchor_bottom = 0.528188
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="description" type="Label" parent="background/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
+text = "descripción de la habitación"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="background/characters_btn" to="." method="_on_characters_btn_pressed"]
 [connection signal="pressed" from="background/items_btn" to="." method="_on_items_btn_pressed"]
