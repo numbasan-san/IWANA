@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://cc2ugroyx36il"]
+[gd_scene load_steps=28 format=3 uid="uid://cc2ugroyx36il"]
 
 [ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://scenes/zones/base_zone.tscn" id="1_wwrfy"]
 [ext_resource type="Texture2D" uid="uid://csnek5bda5r4l" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="2_8wp2l"]
+[ext_resource type="Resource" uid="uid://06wccnnhjtkh" path="res://script/zones/zone_info/resources/infirmary.tres" id="2_uyjsw"]
 [ext_resource type="PackedScene" uid="uid://dykprkockfaih" path="res://scenes/objects/infirmary/bed_red.tscn" id="4_qtwnx"]
 [ext_resource type="PackedScene" uid="uid://b7kbjre1dyxb" path="res://scenes/objects/infirmary/bed_cyan.tscn" id="5_ai530"]
 [ext_resource type="PackedScene" uid="uid://cbu2nhj2835jj" path="res://scenes/objects/infirmary/curtains.tscn" id="6_oc00n"]
@@ -152,6 +153,8 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_tu2hj")
 
 [node name="Infirmary" instance=ExtResource("1_wwrfy")]
+room_name = "Enfermeria"
+room_info = ExtResource("2_uyjsw")
 
 [node name="TileMap" parent="." index="0"]
 position = Vector2(352, 208)

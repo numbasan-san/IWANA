@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bqvxhi7wt87t" path="res://scenes/zones/base_classroom.tscn" id="1_p0tah"]
 [ext_resource type="Resource" uid="uid://d3m1k3ynfdasd" path="res://script/zones/zone_info/resources/room_f1n1.tres" id="2_e6pjl"]
-[ext_resource type="Texture2D" uid="uid://b4ujkp4dw8nfd" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="2_mlvhc"]
+[ext_resource type="Texture2D" uid="uid://csnek5bda5r4l" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="2_mlvhc"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_6eplc"]
 tile_data = PackedInt32Array(0, 65537, 1, 65536, 65537, 2, 131072, 65537, 3, 196608, 65537, 4, 1, 131073, 1, 65537, 131073, 2, 131073, 131073, 3, 196609, 131073, 4, 2, 196609, 1, 65538, 196609, 2, 131074, 196609, 3, 196610, 196609, 4, 3, 262145, 1, 65539, 262145, 2, 131075, 262145, 3, 196611, 262145, 4)
