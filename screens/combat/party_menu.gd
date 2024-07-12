@@ -34,7 +34,7 @@ func select_character_index(index: int = -1):
 		party_slots[_selected_index].is_selected = false
 		selected_character = null
 		_selected_index = index
-	elif index < Player.party.size():
+	elif index < Player.party.size:
 		selected_character = party_slots[index].character
 		party_slots[_selected_index].is_selected = false
 		_selected_index = index

@@ -6,7 +6,7 @@ extends Node2D
 
 @export var initial_scale = 0.5
 
-@onready var character: Character = get_parent()
+var character: Character
 
 var dialog_position: DialogContents.Position = DialogContents.Position.NONE
 

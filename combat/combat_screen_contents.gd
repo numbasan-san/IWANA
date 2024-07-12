@@ -63,7 +63,8 @@ func end_battle():
 	right_area.clear()
 	left_area.clear()
 	#TODO: replace this with more permanent solution to rebattle
-	left_party.members[0].stats.replenish()
+	for m in left_party.members:
+		m.combat_handler.stats.replenish()
 	left_party = null
 	right_party = null
 	actor_queue.clear()
@@ -76,7 +77,9 @@ func prepare_new_round():
 	for character in right_area.characters:
 		actor_queue.append(character)
 	actor_queue.sort_custom(func(a: Character, b: Character):
-		return a.stats.speed > b.stats.speed)
+		var a_handler = a.combat_handler
+		var b_handler = b.combat_handler
+		return a_handler.stats.speed > b_handler.stats.speed)
 	# We only call this to do clean up in case it wasn't called
 	# when appropiate
 	remove_dead()
@@ -105,10 +108,11 @@ func next_turn():
 		else:
 			var target: Character = null
 			if left_party.has(next):
-				target = right_party.members[0]
+				target = right_party.get_random()
 			else:
-				target = left_party.members[0]
-			next.skills[0].execute(next, target)
+				target = left_party.get_random()
+			var handler = next.combat_handler
+			handler.execute(handler.skills[0], target)
 			remove_dead()
 			next_turn()
 
@@ -134,14 +138,14 @@ func show_skills_menu():
 # all characters that have died from the combat area
 func remove_dead():
 	for char in left_party.members:
-		if char.stats.health <= 0:
+		if char.combat_handler.stats.health <= 0:
 			# We put this here in case we accidentaly add an actor that was
 			# already removed from the area to the queue 
 			actor_queue.remove_at(actor_queue.find(char))
 			if left_area.has(char):
 				left_area.remove_character(char)
 	for char in right_party.members:
-		if char.stats.health <= 0:
+		if char.combat_handler.stats.health <= 0:
 			actor_queue.remove_at(actor_queue.find(char))
 			if right_area.has(char):
 				right_area.remove_character(char)

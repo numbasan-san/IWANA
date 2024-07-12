@@ -13,7 +13,7 @@ func set_character(character: Character = null):
 	_clear_skill_buttons()
 	if character:
 		var buttons: Array[Button] = []
-		for skill in character.skills:
+		for skill in character.combat_handler.skills:
 			var button = button_model.duplicate() as Button
 			button.text = skill.name
 			button.show()
@@ -22,7 +22,7 @@ func set_character(character: Character = null):
 			# through defending and possibly using items, and that regeneration
 			# happens between turns, so there is no need to change the button
 			# status after they have been added
-			if skill.energy_cost <= character.stats.energy:
+			if skill.energy_cost <= character.combat_handler.stats.energy:
 				button.pressed.connect(
 					func():
 						# TODO: all skills will target the chosen enemy even if
@@ -35,11 +35,11 @@ func set_character(character: Character = null):
 							enemy_party = combat.right_party
 						else:
 							enemy_party = combat.left_party
-						for enemy in enemy_party.members:
-							if enemy.stats.health > 0:
-								target = enemy
-								break
-						skill.execute(character, target)
+						var possible_targets = enemy_party.members.filter(func(c: Character):
+							return c.combat_handler.stats.health > 0)
+						target = possible_targets.pick_random()
+						
+						character.combat_handler.execute(skill, target)
 						combat.remove_dead()
 						await combat.show_party_menu()
 						combat.next_turn()

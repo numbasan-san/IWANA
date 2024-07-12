@@ -5,20 +5,29 @@ class_name Effect extends Resource
 
 # Some effects have a fixed value that is set the moment it is added to a skill
 # and which should be used without doing any extra calculations. If this value
-# is 0 it should be ignored and the value should be calculated in the apply
-# function based on the user and target
-@export var value: int = 0
+# is negative it should be ignored and the value should be calculated in the apply
+# function based on the caster and target
+@export var value: int = -1
 
-func apply(_user: Character, _target: Character):
+# This should be called when the caster's combat handler started processing
+# this effect and after being initialized or cloned from the base resource.
+# Effects that override this should include here code that assigns the initial
+# value and duration. 
+func on_cast(caster: Character):
 	pass
 
-# For effects that don't have a predefined value, for example if it depends on
-# a stat of the user, this function should be called to compute that value
-# before sending it to the target
-func user_side_process(user: Character):
+# This should be called after the effect has been processed by the caster's
+# buffs and debuffs and before being sent to the target
+func on_send(target: Character):
 	pass
 
-# This function will be called by the target's combat handler to further modify
-# the effect before applying it.
-func target_side_process(target: Character):
+# This should be called when the effect has been received by the target, before
+# any other processing has been done
+func on_receive(caster: Character):
+	pass
+
+# This should be called after the effect has been processed by the target's
+# buffs and debuffs. This should contain the code that modifies the target, for
+# example reducing health or modifying some stat
+func on_apply(target: Character):
 	pass

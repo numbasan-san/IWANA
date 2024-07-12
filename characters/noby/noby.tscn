@@ -13,8 +13,6 @@ resource_local_to_scene = true
 size = Vector2(128, 61)
 
 [node name="Noby" instance=ExtResource("1_iq20k")]
-stats = ExtResource("2_yag6e")
-skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("3_xf4c1")])
 
 [node name="Neutral" type="Sprite2D" parent="DialogModel" index="0"]
 position = Vector2(0, -898)
@@ -36,3 +34,7 @@ texture = ExtResource("9_8n6x7")
 
 [node name="Idle" type="Sprite2D" parent="CombatModel/Sprites" index="0"]
 texture = ExtResource("10_ef5y1")
+
+[node name="CombatHandler" parent="." index="3"]
+stats = ExtResource("2_yag6e")
+skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("3_xf4c1")])

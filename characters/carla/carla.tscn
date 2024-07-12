@@ -6,16 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://c0gujvk7yqw63" path="res://characters/carla/vn/neutral.png" id="4_03jaf"]
 [ext_resource type="Texture2D" uid="uid://d4hir2kah47k3" path="res://characters/carla/rpg/carla.png" id="5_h4af0"]
 
-[sub_resource type="Resource" id="Resource_4hq1v"]
-resource_local_to_scene = true
-script = ExtResource("2_vglxn")
-base_max_health = 50
-base_max_energy = 50
-base_damage = 10
-base_defense = 0
-base_speed = 4
-base_critical = 5
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyij3"]
 resource_local_to_scene = true
 size = Vector2(98, 61)
@@ -181,9 +171,17 @@ _data = {
 "walk_up": SubResource("Animation_b30q8")
 }
 
+[sub_resource type="Resource" id="Resource_4hq1v"]
+resource_local_to_scene = true
+script = ExtResource("2_vglxn")
+base_max_health = 50
+base_max_energy = 50
+base_damage = 10
+base_defense = 0
+base_speed = 4
+base_critical = 5
+
 [node name="Carla" instance=ExtResource("1_begxf")]
-stats = SubResource("Resource_4hq1v")
-skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("3_fpl8h")])
 
 [node name="DialogModel" parent="." index="0"]
 visible = false
@@ -218,3 +216,7 @@ stretch_mode = 2
 visible = false
 scale = Vector2(0.05, 0.05)
 texture = ExtResource("4_03jaf")
+
+[node name="CombatHandler" parent="." index="3"]
+stats = SubResource("Resource_4hq1v")
+skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("3_fpl8h")])

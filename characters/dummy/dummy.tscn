@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxhb1pbyx1uwh"]
+[gd_scene load_steps=20 format=3 uid="uid://cxhb1pbyx1uwh"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_dme1k"]
@@ -6,6 +6,174 @@
 [ext_resource type="Texture2D" uid="uid://ccgofqb2mmybt" path="res://characters/dummy/combat/sombra_combate.png" id="4_ejgt2"]
 [ext_resource type="Texture2D" uid="uid://pgii0ntpmdfm" path="res://characters/dummy/rpg/sombra.png" id="4_i5aca"]
 [ext_resource type="Script" path="res://characters/dummy/dummy_interaction.gd" id="5_vdbvb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wons5"]
+resource_local_to_scene = true
+size = Vector2(128, 61)
+
+[sub_resource type="Animation" id="Animation_gci7i"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jdjr6"]
+resource_name = "stop_player_down"
+length = 0.001
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_vsu7s"]
+resource_name = "stop_player_left"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_otpsr"]
+resource_name = "stop_player_right"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_q8gpd"]
+resource_name = "stop_player_up"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ksbbp"]
+resource_name = "walk_player_down"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x2xgi"]
+resource_name = "walk_player_left"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2sq4i"]
+resource_name = "walk_player_right"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_o7tbv"]
+resource_name = "walk_player_up"
+length = 0.001
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xxbjd"]
+_data = {
+"RESET": SubResource("Animation_gci7i"),
+"stop_down": SubResource("Animation_jdjr6"),
+"stop_left": SubResource("Animation_vsu7s"),
+"stop_right": SubResource("Animation_otpsr"),
+"stop_up": SubResource("Animation_q8gpd"),
+"walk_down": SubResource("Animation_ksbbp"),
+"walk_left": SubResource("Animation_x2xgi"),
+"walk_right": SubResource("Animation_2sq4i"),
+"walk_up": SubResource("Animation_o7tbv")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtrvc"]
+size = Vector2(144, 115)
 
 [sub_resource type="Resource" id="Resource_4c1gv"]
 resource_local_to_scene = true
@@ -17,20 +185,8 @@ base_defense = 0
 base_speed = 0
 base_critical = 0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wons5"]
-resource_local_to_scene = true
-size = Vector2(128, 61)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtrvc"]
-size = Vector2(144, 115)
-
 [node name="Dummy" instance=ExtResource("1_begxf")]
 unique = false
-stats = SubResource("Resource_4c1gv")
-skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("3_2phqi")])
-
-[node name="RPGModel" parent="." index="1"]
-motion_mode = 1
 
 [node name="Sprite2D" parent="RPGModel" index="0"]
 position = Vector2(0, -127)
@@ -40,6 +196,11 @@ hframes = 1
 
 [node name="Collider" parent="RPGModel" index="1"]
 shape = SubResource("RectangleShape2D_wons5")
+
+[node name="Animation" parent="RPGModel" index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_xxbjd")
+}
 
 [node name="GeneralInteraction" type="Area2D" parent="RPGModel" index="3"]
 script = ExtResource("5_vdbvb")
@@ -51,3 +212,7 @@ debug_color = Color(0.992157, 0, 0.254902, 0.419608)
 
 [node name="Idle" type="Sprite2D" parent="CombatModel/Sprites" index="0"]
 texture = ExtResource("4_ejgt2")
+
+[node name="CombatHandler" parent="." index="3"]
+stats = SubResource("Resource_4c1gv")
+skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("3_2phqi")])

@@ -12,6 +12,10 @@ class_name Party
 # character in this array
 var members: Array[Character]
 
+var size: int:
+	get:
+		return members.size()
+
 var leader: Character:
 	get:
 		return members[0]
@@ -21,14 +25,14 @@ var path: PartyPath
 
 # The maximum size of the party. It is set as a variable in case some day it's
 # decided this number should change
-var _party_max_size: int
+var max_size: int
 
 # To ensure a party is always in a consistent state, this constructor should only
 # be called when loading a new character from the CharacterManager or from one
 # of the functions of this class, and we must make sure that the returned party
 # is assigned to the leader's party variable
 func _init(leader: Character, size: int = 4):
-	_party_max_size = size
+	max_size = size
 	# Ideally, this constructor should only be called with a character not
 	# assigned to any party, but if that's not the case this will ensure it
 	if leader.party:
@@ -48,7 +52,7 @@ func _init(leader: Character, size: int = 4):
 # The added character will be relocated to the new leader
 # The return value indicates if the character was added succesfully
 func add(character: Character, force_party_change: bool = false) -> bool:
-	if members.size() < _party_max_size:
+	if members.size() < max_size:
 		if character.party.members.size() == 1 or force_party_change:
 			character.party.remove(character, false)
 			members.append(character)
@@ -127,14 +131,21 @@ func move(character: Character, index: int):
 			clear_path()
 			new_path()
 
-# Returns the size of the party
-func size() -> int:
-	return members.size()
-
 # The position of the character in the party
 func index(character: Character) -> int:
 	return members.find(character)
-	
+
+# Returns the character in the given position in the party, or null if the
+# number is out of bounds
+func get_member(index: int) -> Character:
+	if 0 <= index and index < size:
+		return members[index]
+	else:
+		return null
+
+func get_random() -> Character:
+	return members.pick_random()
+
 # This should be invoked every time the leader is moved to a different
 # zone. The caller must make sure to call clear_path before changing the zone
 # Because a party path must follow the leader, it only makes sense if the

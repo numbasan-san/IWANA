@@ -1,4 +1,4 @@
-class_name ModeloRPG
+class_name RPGModel
 extends CharacterBody2D
 
 @onready var collider: CollisionShape2D = $Collider
@@ -13,7 +13,6 @@ var direction: String = 'down'
 var is_moving: bool = false
 
 func _ready():
-	character = $".."
 	if has_node("Animation"):
 		# Initial stoping animation
 		$Animation.play(stop_anim)

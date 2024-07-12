@@ -4,7 +4,7 @@ extends Node
 signal update_portrait
 signal update_sprite
 
-@onready var character: Character = get_parent()
+var character: Character
 
 @export var portraits: Node
 @export var sprites: Node
@@ -37,7 +37,7 @@ func set_portrait(name: String):
 		var new = current_portrait
 		new.show()
 		update_portrait.emit(old, new)
-	else:
+	elif character:
 		printerr("CombatModel | " + character.name + " doesn't have a portrait " \
 		 + "named " + name)
 
@@ -52,6 +52,6 @@ func set_sprite(sprite_name: String):
 		var new = current_sprite
 		new.show()
 		update_sprite.emit(old, new)
-	else:
+	elif character:
 		printerr("CombatModel | " + character.name + " doesn't have a sprite " \
 			+ "named " + name)

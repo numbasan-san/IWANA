@@ -9,6 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://ckr5arvqsdywg" path="res://characters/daniela/combat/cuernito.png" id="7_k47t8"]
 [ext_resource type="Texture2D" uid="uid://d3un5sww57vjd" path="res://characters/daniela/combat/daniela_combate.png" id="8_h0dso"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqsh1"]
+resource_local_to_scene = true
+size = Vector2(114, 48.5)
+
 [sub_resource type="Resource" id="Resource_cqid2"]
 resource_local_to_scene = true
 script = ExtResource("2_rf6nx")
@@ -19,13 +23,7 @@ base_defense = 0
 base_speed = 3
 base_critical = 0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqsh1"]
-resource_local_to_scene = true
-size = Vector2(114, 48.5)
-
 [node name="Daniela" instance=ExtResource("1_begxf")]
-stats = SubResource("Resource_cqid2")
-skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("3_vpbm4")])
 
 [node name="DialogModel" parent="." index="0"]
 visible = false
@@ -58,3 +56,7 @@ texture = ExtResource("7_k47t8")
 [node name="Idle" type="Sprite2D" parent="CombatModel/Sprites" index="0"]
 scale = Vector2(0.35, 0.35)
 texture = ExtResource("8_h0dso")
+
+[node name="CombatHandler" parent="." index="3"]
+stats = SubResource("Resource_cqid2")
+skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("3_vpbm4")])

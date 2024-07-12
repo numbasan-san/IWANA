@@ -19,9 +19,9 @@ class_name Skill extends Resource
 # What level must reach the character to learn this skill
 @export var level_to_learn: int
 
-# Which effects this skill has on its user, if any. The effects are applied
+# Which effects this skill has on its caster, if any. The effects are applied
 # sequentially, so the order in which they are added is important
-@export var user_effects: Array[Effect]
+@export var caster_effects: Array[Effect]
 
 # Which effects this skill has on its target, if any. The effects are applied
 # sequentially, so the order in which they are added is important
@@ -32,7 +32,7 @@ class_name Skill extends Resource
 @export var energy_cost: int
 
 # Which is the character that is performing the skill.
-var user: Character
+var caster: Character
 
 # Who will receive the effects of the skill.
 var target: SkillTarget
@@ -46,29 +46,10 @@ var animation: Animation
 # TODO: add variable to represent input presses and their timings that affect
 # the results of the skill
 
-# Executes the skill, applying all its effects.
+# Performs some initialization before applying the skill.
 # Some skills might have special conditions and effects that can't be easily
 # represented by this system and they need to extend this script and override
 # this function
 # TODO: For now this assumes one-target skills. It has to be fixed later
-func execute(user: Character, target: Character):
-	if user.stats.energy < energy_cost:
-		printerr("Skill | " + user.name + " tried to use a skill without having" \
-			+ " the required energy of " + str(energy_cost) + ". This shouldn't" \
-			+ " happen as this should be prevented in the combat screen before" \
-			+ " selecting the skill")
-		return
-	# We first apply effects on the user, so buffs on damage, crit, etc are applied
-	# first so that they can improve the results against the enemies.
-	# TODO: This assumes that effects that would prevent the user from acting,
-	# like paralysis, are only checked during the character and skill selection,
-	# so they will only enter into effect the next turn. If instead these
-	# effects are checked on each subsequent effect so that they would interrupt
-	# the skill, we would have to change this code to apply different kinds of
-	# effects at different points.
-	for effect in user_effects:
-		effect.apply(user, user)
-	for effect in target_effects:
-		effect.apply(user, target)
-	
-	user.stats.energy -= energy_cost
+func setup(caster: Character, target: Character):
+	pass
