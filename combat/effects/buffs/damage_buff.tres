@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="DamageBuff" load_steps=2 format=3 uid="uid://divm2cpve574m"]
+
+[sub_resource type="GDScript" id="GDScript_olwu4"]
+script/source = "class_name DamageBuff extends LastingEffect
+
+func on_apply(target: Character):
+	target.combat_handler.stats.damage_modifier *= value
+
+func on_unapply(target: Character):
+	target.combat_handler.stats.damage_modifier /= value
+"
+
+[resource]
+script = SubResource("GDScript_olwu4")
+type = 0
+modifies = 0
+duration = 2
+value = 1.5

@@ -2,6 +2,7 @@ class_name CharacterContainer
 extends Panel
 
 @export var fill_bars: FillBars
+
 # The character associated to this container whose stats and textures are going
 # to be shown
 var character: Character

@@ -18,29 +18,29 @@ enum Modify { STAT, OUTGOING, INCOMING }
 # This function should be called when the character is going to be hit by some 
 # other effect, for example a damage effect from an attack. This can be used 
 # for example to nullify the incoming effect
-func before_hit():
+func before_hit(target: Character):
 	pass
 
 # This function should be called after the character has been hit by some other 
 # effect, for example a damage effect from an attack. This can be used to
 # retaliate or decrease the effect's duration
-func after_hit():
+func after_hit(target: Character):
 	pass
 
 # This should be called when the turn of this effect's target has just started
 # and before it performs its actions
-func before_turn():
+func before_turn(target: Character):
 	pass
 
 # This should be called at the end of the target's turn after it has performed
 # all its actions. This can be used for example to decrease the effect's
 # duration
-func after_turn():
+func after_turn(target: Character):
 	pass
 
 # This should be called after the effect's duration has run out and the changes
 # it had on the target have to be reverted.
-func on_unapply():
+func on_unapply(target: Character):
 	pass
 
 # If this effect intercepts other incoming or outgoing effects and alters them

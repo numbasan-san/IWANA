@@ -1,6 +1,6 @@
 [gd_scene load_steps=24 format=3 uid="uid://f2oog5xfhsha"]
 
-[ext_resource type="Script" path="res://combat/combat_screen_contents.gd" id="1_o364i"]
+[ext_resource type="Script" path="res://screens/combat/combat_screen_contents.gd" id="1_o364i"]
 [ext_resource type="Texture2D" uid="uid://b8f5icofcvde1" path="res://assets/combat_sprites/background1.png" id="2_lv2pp"]
 [ext_resource type="Texture2D" uid="uid://cx3nvtwsfean0" path="res://assets/combat_sprites/frame.png" id="3_qe1v6"]
 [ext_resource type="PackedScene" uid="uid://dbuixiuq0ijmx" path="res://screens/combat/portrait_container.tscn" id="3_v8xkj"]
@@ -291,8 +291,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o364i")
-right_area = NodePath("PlayerArea")
-left_area = NodePath("EnemyArea")
+right_area = NodePath("RightArea")
+left_area = NodePath("LeftArea")
 party_menu = NodePath("PartyMenu")
 skills_menu = NodePath("SkillsMenu")
 change_menu_animation = NodePath("MenuChangeAnimation")
@@ -321,7 +321,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_qe1v6")
 
-[node name="PlayerArea" type="Control" parent="." node_paths=PackedStringArray("sprite_containers")]
+[node name="RightArea" type="Control" parent="." node_paths=PackedStringArray("sprite_containers")]
 layout_mode = 1
 anchor_left = 0.654
 anchor_top = 0.35
@@ -334,7 +334,7 @@ script = ExtResource("4_fhsny")
 sprite_containers = [NodePath("SpriteContainer1"), NodePath("SpriteContainer2"), NodePath("SpriteContainer3"), NodePath("SpriteContainer4")]
 direction = -1
 
-[node name="SpriteContainer1" parent="PlayerArea" instance=ExtResource("4_vgjmr")]
+[node name="SpriteContainer1" parent="RightArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -345,7 +345,7 @@ offset_right = 100.0
 offset_bottom = 150.5
 grow_vertical = 2
 
-[node name="SpriteContainer2" parent="PlayerArea" instance=ExtResource("4_vgjmr")]
+[node name="SpriteContainer2" parent="RightArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -356,7 +356,7 @@ offset_right = 99.9999
 offset_bottom = 150.0
 grow_horizontal = 2
 
-[node name="SpriteContainer3" parent="PlayerArea" instance=ExtResource("4_vgjmr")]
+[node name="SpriteContainer3" parent="RightArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -370,7 +370,7 @@ offset_bottom = 149.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="SpriteContainer4" parent="PlayerArea" instance=ExtResource("4_vgjmr")]
+[node name="SpriteContainer4" parent="RightArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -384,7 +384,7 @@ offset_bottom = 153.5
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="EnemyArea" type="Control" parent="." node_paths=PackedStringArray("sprite_containers")]
+[node name="LeftArea" type="Control" parent="." node_paths=PackedStringArray("sprite_containers")]
 layout_mode = 1
 anchor_left = 0.165
 anchor_top = 0.35
@@ -396,7 +396,7 @@ offset_right = -0.200073
 script = ExtResource("4_fhsny")
 sprite_containers = [NodePath("SpriteContainer1"), NodePath("SpriteContainer2"), NodePath("SpriteContainer3"), NodePath("SpriteContainer4")]
 
-[node name="SpriteContainer1" parent="EnemyArea" instance=ExtResource("4_vgjmr")]
+[node name="SpriteContainer1" parent="LeftArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -410,7 +410,7 @@ offset_bottom = 155.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="SpriteContainer2" parent="EnemyArea" instance=ExtResource("4_vgjmr")]
+[node name="SpriteContainer2" parent="LeftArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -421,7 +421,7 @@ offset_right = 98.0
 offset_bottom = 150.0
 grow_horizontal = 2
 
-[node name="SpriteContainer3" parent="EnemyArea" instance=ExtResource("4_vgjmr")]
+[node name="SpriteContainer3" parent="LeftArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -435,7 +435,7 @@ offset_bottom = 158.0
 grow_horizontal = 2
 grow_vertical = 0
 
-[node name="SpriteContainer4" parent="EnemyArea" instance=ExtResource("4_vgjmr")]
+[node name="SpriteContainer4" parent="LeftArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5

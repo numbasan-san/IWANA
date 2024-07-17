@@ -51,9 +51,6 @@ var dialog_unit: String
 func _ready():
 	_link_components()
 	
-	for skill in combat_handler.skills:
-		skill.caster = self
-
 # We do this in a separate function instead of on _ready because when we clone
 # a character we don't add it as a child of CharacterManager, which makes it so
 # that _ready is never called.
@@ -76,6 +73,8 @@ func _link_components():
 	
 	combat_handler = $CombatHandler
 	combat_handler.character = self
+	for skill in combat_handler.skills:
+		skill.caster = self
 	if combat_handler.stats:
 		combat_handler.stats.replenish()
 	

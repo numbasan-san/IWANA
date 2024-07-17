@@ -1,7 +1,17 @@
-[gd_resource type="Resource" script_class="DamageEffect" load_steps=2 format=3 uid="uid://ctjrx2gjowqg4"]
+[gd_resource type="Resource" script_class="DamageEffect" load_steps=4 format=3 uid="uid://ctjrx2gjowqg4"]
 
 [ext_resource type="Script" path="res://combat/effects/damage.gd" id="1_iyc3j"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="2_6dtfd"]
+
+[sub_resource type="Resource" id="Resource_khi8x"]
+resource_local_to_scene = true
+script = ExtResource("2_6dtfd")
+number_of_targets = 1
+random = false
+allow_repetition = false
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_iyc3j")
-value = -1
+value = -1.0
+target_type = SubResource("Resource_khi8x")

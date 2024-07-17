@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="TargetParty" load_steps=2 format=3 uid="uid://bk42ye77aci5r"]
+
+[ext_resource type="Script" path="res://combat/targets/target_party.gd" id="1_vgynd"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_vgynd")
+exclude_self = false

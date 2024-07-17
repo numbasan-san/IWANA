@@ -5,8 +5,12 @@ class_name SkillsMenu extends Control
 @export var skills_container: Container
 @export var button_model: Button
 
-# This is temporary, it might go somewhere more global
+# TODO: This is temporary, it might go somewhere more global
 @onready var font = load("res://assets/combat_sprites/font/IWANA.ttf")
+
+# TODO: temporary variable to hold targets. Move to a better place
+var current_targets: Array[Character] = []
+signal finished_targeting
 
 func set_character(character: Character = null):
 	character_slot.set_character(character)
@@ -29,20 +33,23 @@ func set_character(character: Character = null):
 						# it is defeated earlier and the skills will be wasted.
 						# Change it later to a system where if the target has
 						# already fallen, a new target can be chosen
-						var target: Character
-						var enemy_party: Party = null
-						if combat.left_party.has(character):
-							enemy_party = combat.right_party
+						var required_targets = skill.get_manual_targets()
+						var target_sets = []
+						for t_type in required_targets:
+							show_possible_targets(t_type, character)
+							await finished_targeting
+							target_sets.append(current_targets)
+							current_targets = []
+						hide_targets()
+						skill.process_effects(combat.player_party, combat.enemy_party, target_sets)
+						if not skill.is_valid():
+							printerr("SkillMenu | The selected number of targets don't match " \
+								+ "with the required number for skill " + skill.name)
 						else:
-							enemy_party = combat.left_party
-						var possible_targets = enemy_party.members.filter(func(c: Character):
-							return c.combat_handler.stats.health > 0)
-						target = possible_targets.pick_random()
-						
-						character.combat_handler.execute(skill, target)
-						combat.remove_dead()
-						await combat.show_party_menu()
-						combat.next_turn()
+							character.combat_handler.execute(skill)
+							combat.remove_dead()
+							await combat.show_party_menu()
+							combat.next_turn()
 				)
 			else:
 				button.disabled = true
@@ -66,3 +73,45 @@ func set_character(character: Character = null):
 func _clear_skill_buttons():
 	for button in skills_container.get_children():
 		button.free()
+
+# For skills that allow the selection of one or more targets, this function
+# highlights the possible targets and enables their selection to feed them to
+# the skill execution code. For skills that select the target automatically this
+# function should do nothing. The caster argument is checked when we need to
+# exclude the caster from the targets
+func show_possible_targets(t_type: TargetVariable, caster: Character):
+	hide_targets()
+	if not t_type.is_manual_target():
+		return
+		
+	var possible_targets: Array[SpriteContainer] = []
+	if t_type is TargetEnemy or t_type is TargetAnyone:
+		possible_targets.append_array(combat.enemy_area.get_children())
+	if t_type is TargetFriend or t_type is TargetAnyone:
+		possible_targets.append_array(combat.player_area.get_children())
+		if t_type.exclude_caster:
+			possible_targets.erase(caster)
+	
+	var callable = _add_target_to_current.bind(t_type.number_of_targets)
+	for container in possible_targets:
+		if container.character and container.character.combat_handler.stats.health > 0:
+			container.targeting_enabled = true
+			container.target_selected.connect(callable)
+
+# Clears the target highlighting for every container and blocks the code that
+# allows for their selection
+func hide_targets():
+	var containers: Array[SpriteContainer] = []
+	containers.append(combat.enemy_area.get_children())
+	containers.append(combat.player_area.get_children())
+	
+	for container in combat.enemy_area.get_children():
+		container.targeting_enabled = false
+		if container.target_selected.is_connected(_add_target_to_current):
+			container.target_selected.disconnect(_add_target_to_current)
+
+# TODO: temporary function to add targets to current list when receiving a signal
+func _add_target_to_current(target: Character, limit: int):
+	current_targets.append(target)
+	if current_targets.size() == limit:
+		finished_targeting.emit()

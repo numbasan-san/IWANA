@@ -1,16 +1,132 @@
-[gd_scene load_steps=4 format=3 uid="uid://3d6j1vup2i4s"]
+[gd_scene load_steps=13 format=3 uid="uid://3d6j1vup2i4s"]
 
 [ext_resource type="Script" path="res://script/sprite_container.gd" id="1_ndaat"]
 [ext_resource type="PackedScene" uid="uid://ceqe4yrlcfouu" path="res://screens/combat/player_bars.tscn" id="2_xja7c"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gltg8"]
 
-[node name="SpriteContainer" type="Panel" node_paths=PackedStringArray("directional", "fill_bars")]
+[sub_resource type="CanvasTexture" id="CanvasTexture_xihi8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_khklr"]
+resource_local_to_scene = true
+texture = SubResource("CanvasTexture_xihi8")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+axis_stretch_horizontal = 1
+modulate_color = Color(0.85098, 0.717647, 0, 0)
+draw_center = false
+
+[sub_resource type="Animation" id="Animation_5m4ps"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TargetSelection:theme_override_styles/panel:modulate_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.85098, 0.717647, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Directional:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kdwf2"]
+resource_name = "hurt"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portrait:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_atqom"]
+resource_name = "hurt_2"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portrait:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_41fvh"]
+_data = {
+"RESET": SubResource("Animation_5m4ps"),
+"hurt": SubResource("Animation_kdwf2"),
+"hurt_2": SubResource("Animation_atqom")
+}
+
+[sub_resource type="Animation" id="Animation_02r1p"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TargetSelection:theme_override_styles/panel:modulate_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.85098, 0.717647, 0, 0), Color(0.85098, 0.717647, 0, 1), Color(0.85098, 0.717647, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mrhsd"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Directional:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.498039), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bfqfh"]
+_data = {
+"Selected": SubResource("Animation_02r1p"),
+"ValidTarget": SubResource("Animation_mrhsd")
+}
+
+[node name="SpriteContainer" type="Panel" node_paths=PackedStringArray("directional", "targeting_animation", "fill_bars")]
 offset_right = 275.0
 offset_bottom = 120.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_gltg8")
 script = ExtResource("1_ndaat")
 directional = NodePath("Directional")
+targeting_animation = NodePath("TargetingAnimations")
 fill_bars = NodePath("FillBars")
 metadata/_edit_vertical_guides_ = [-435.0]
 
@@ -23,5 +139,24 @@ layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.218182
 anchor_right = -0.218182
+mouse_filter = 1
 container = NodePath("..")
 metadata/_edit_use_anchors_ = true
+
+[node name="TargetSelection" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_khklr")
+
+[node name="TargetingAnimations" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_41fvh"),
+"GUI": SubResource("AnimationLibrary_bfqfh")
+}
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

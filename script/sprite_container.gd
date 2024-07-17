@@ -4,6 +4,25 @@ extends CharacterContainer
 # TODO: rewrite to do it better, this is just a quick fix
 @export var directional: Node2D
 
+# It will play an animation to indicate if the character in this container can
+# be selected as a target or if it has already been selected
+@export var targeting_animation: AnimationPlayer
+
+# If the character can be targeted, this signal will be emited when the container
+# is selected
+signal target_selected
+
+var targeting_enabled: bool = false:
+	set(value):
+		if value != targeting_enabled:
+			targeting_enabled = value
+			if value:
+				targeting_animation.play("GUI/ValidTarget")
+			else:
+				targeting_animation.stop()
+				targeting_animation.play("RESET")
+
+
 # The specific sprite that appears on screen. While the character should
 # generally stay in this container until being defeated, the sprite can change
 # for various reasons
@@ -48,3 +67,10 @@ func _change_sprite(old: Sprite2D, new: Sprite2D):
 	if new:
 		sprite = new.duplicate()
 		directional.add_child(sprite)
+
+func _on_gui_input(event: InputEvent):
+	if targeting_enabled and event.is_action_released("target_select"):
+		targeting_animation.stop()
+		targeting_animation.play("RESET")
+		targeting_animation.play("GUI/Selected")
+		target_selected.emit(character)

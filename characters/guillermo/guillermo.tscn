@@ -1,10 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://cbsenaqm4qe7m"]
+[gd_scene load_steps=23 format=3 uid="uid://cbsenaqm4qe7m"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_kpgma"]
-[ext_resource type="Resource" uid="uid://sy16m35jo4do" path="res://combat/skill_ejemplo_daño.tres" id="3_0ymtf"]
 [ext_resource type="Texture2D" uid="uid://bgtgi63coor2s" path="res://characters/guillermo/vn/neutral.png" id="4_43dl1"]
 [ext_resource type="Texture2D" uid="uid://c3r6ys3tuig1j" path="res://characters/guillermo/rpg/guille_perspectivas.png" id="5_0cuqx"]
+[ext_resource type="Script" path="res://combat/effects/damage.gd" id="5_sdrfb"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="6_2nwe8"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="7_yb3hi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ei4ua"]
 resource_local_to_scene = true
@@ -181,6 +183,27 @@ base_defense = 0
 base_speed = 3
 base_critical = 0
 
+[sub_resource type="Resource" id="Resource_uletc"]
+resource_local_to_scene = true
+script = ExtResource("6_2nwe8")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_7vvuy"]
+resource_local_to_scene = true
+script = ExtResource("5_sdrfb")
+value = -1.0
+target_type = SubResource("Resource_uletc")
+
+[sub_resource type="Resource" id="Resource_sq6yp"]
+resource_local_to_scene = true
+script = ExtResource("7_yb3hi")
+name = "Daño Ejemplo"
+description = "Skill de ejemplo para  debuggear"
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_7vvuy")])
+energy_cost = 5
+
 [node name="Guillermo" instance=ExtResource("1_begxf")]
 
 [node name="DialogModel" parent="." index="0"]
@@ -221,4 +244,4 @@ texture = ExtResource("4_43dl1")
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_csewl")
-skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("3_0ymtf")])
+skills = Array[ExtResource("7_yb3hi")]([SubResource("Resource_sq6yp")])

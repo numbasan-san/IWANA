@@ -31,35 +31,39 @@ func process(effect: Effect):
 	pass
 
 
-func execute(skill: Skill, target: Character):
+func execute(skill: Skill):
 	if stats.energy < skill.energy_cost:
 		printerr("Skill | " + character.name + " tried to use a skill without having" \
 			+ " the required energy of " + str(skill.energy_cost) + ". This shouldn't" \
 			+ " happen as this should be prevented in the combat screen before" \
 			+ " selecting the skill")
 		return
-	for effect in skill.caster_effects:
-		var copy = effect.duplicate(true)
-		send(copy, character)
-	for effect in skill.target_effects:
-		var copy = effect.duplicate(true)
-		send(copy, target)
 	
+	for effect in skill.effects:
+		var copy: Effect = effect.duplicate(true)
+		# TODO: duplicate doesn't copy values in the script. See if anything other
+		# than these two need to be copied
+		copy.caster = effect.caster
+		copy.targets = effect.targets
+		send(copy)
+		
 	stats.energy -= skill.energy_cost
 
 # Calculates the initial value of this effect, modifies it based on the caster
 # buffs and debuffs, and sends it to the target
-func send(effect: Effect, target: Character):
-	effect.on_cast(character)
+func send(effect: Effect):
+	# If everything went correctly, effect.caster == character
+	effect.on_cast(effect.caster)
 	for out in outgoing_effect_modifiers:
 		out.intercept(effect)
-	effect.on_send(target)
-	target.combat_handler.receive(effect, character)
+	for t in effect.targets:
+		effect.on_send(t)
+		t.combat_handler.receive(effect)
 
 # Receives an effect sent from a caster, modifies it based on the character's
 # buffs and debuffs, and if the effect survives it is applied.
-func receive(effect: Effect, caster: Character):
-	effect.on_receive(caster)
+func receive(effect: Effect):
+	effect.on_receive(effect.caster)
 	for inc in incoming_effect_modifiers:
 		inc.intercept(effect)
 	effect.on_apply(character)

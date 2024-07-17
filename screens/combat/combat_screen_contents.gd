@@ -14,10 +14,11 @@ signal textbox_closed
 # will be removed as they perform their actions
 var actor_queue: Array[Character]
 
-# The party on the left side of the screen generally is the party of the enemies
-var left_party: Party = null
-# The party on the right side of the screen generally is the party of the player
-var right_party: Party = null
+var enemy_party: Party = null
+var enemy_area: CombatPartyArea = null
+
+var player_party: Party = null
+var player_area: CombatPartyArea = null
 
 var showing_skills = false
 
@@ -38,19 +39,22 @@ func _input(_event):
 		party_menu.select_next_character()
 
 # Fills the screen with the battling characters and their info and begins combat
-# TODO: change to receive both parties, so that we aren't restricted
-# to only using the player's party
 func start_battle(player_party: Party, enemy_party: Party):
+	# TODO: change this so that we can control which area corresponds with which
+	# party
+	player_area = right_area
+	self.player_party = player_party
 	for member in player_party.members:
 		party_menu.add_character(member)
 		right_area.add_character(member)
 	# We start with no character selected in case one
 	# of the enemies attacks first
 	party_menu.select_character_index()
-	self.right_party = player_party
+	
+	enemy_area = left_area
+	self.enemy_party = enemy_party
 	for enemy in enemy_party.members:
 		left_area.add_character(enemy)
-	self.left_party = enemy_party
 	await ScreenManager.push(ScreenManager.combat_screen, "Out", "In")
 	show_party_menu()
 	prepare_new_round()
@@ -63,10 +67,10 @@ func end_battle():
 	right_area.clear()
 	left_area.clear()
 	#TODO: replace this with more permanent solution to rebattle
-	for m in left_party.members:
+	for m in enemy_party.members:
 		m.combat_handler.stats.replenish()
-	left_party = null
-	right_party = null
+	enemy_party = null
+	player_party = null
 	actor_queue.clear()
 
 # This function should be called at the start of the combat or after
@@ -106,13 +110,14 @@ func next_turn():
 			party_menu.select_character(next)
 			_focus_action_list()
 		else:
-			var target: Character = null
-			if left_party.has(next):
-				target = right_party.get_random()
-			else:
-				target = left_party.get_random()
 			var handler = next.combat_handler
-			handler.execute(handler.skills[0], target)
+			var skill: Skill = handler.skills.pick_random()
+			for eff in skill.effects:
+				if eff.target_type.is_manual_target():
+					var t_type = eff.target_type as TargetVariable
+					t_type.random = true
+			skill.process_effects(enemy_party, player_party, [])
+			handler.execute(skill)
 			remove_dead()
 			next_turn()
 
@@ -134,21 +139,25 @@ func show_skills_menu():
 		if skills_menu.skills_container.get_child_count() > 0:
 			skills_menu.skills_container.get_child(0).grab_focus()
 
+# TODO: consider removing this function, or calling it at the end of the combat
+# to clear all containers. We shouldn't remove characters on death, instead we
+# should only change their sprite and mark them as dead, in case we can recover
+# them later.
 # This function should be called at the end of each turn to remove
 # all characters that have died from the combat area
 func remove_dead():
-	for char in left_party.members:
+	for char in enemy_party.members:
 		if char.combat_handler.stats.health <= 0:
 			# We put this here in case we accidentaly add an actor that was
 			# already removed from the area to the queue 
 			actor_queue.remove_at(actor_queue.find(char))
-			if left_area.has(char):
-				left_area.remove_character(char)
-	for char in right_party.members:
+			if enemy_area.has(char):
+				enemy_area.remove_character(char)
+	for char in player_party.members:
 		if char.combat_handler.stats.health <= 0:
 			actor_queue.remove_at(actor_queue.find(char))
-			if right_area.has(char):
-				right_area.remove_character(char)
+			if player_area.has(char):
+				player_area.remove_character(char)
 
 func _focus_action_list():
 	$PartyMenu/Actions/ActionList/Attack.grab_focus()

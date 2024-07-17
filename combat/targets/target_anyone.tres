@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TargetAnyone" load_steps=2 format=3 uid="uid://dlqi7i5bhkhyw"]
+
+[ext_resource type="Script" path="res://combat/targets/target_anyone.gd" id="1_cah4w"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_cah4w")
+exclude_self = false
+number_of_targets = 1
+random = false
+allow_repetition = false

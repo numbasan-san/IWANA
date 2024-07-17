@@ -16,26 +16,23 @@ class_name Skill extends Resource
 # what it does
 @export_multiline var description: String
 
-# What level must reach the character to learn this skill
-@export var level_to_learn: int
+## The list of effect groups to be applied by this skill.
+##
+## Each group has its own possible targets, and when using this skill it should
+## prompt to choose targets for each one that isn't chosen automatically.
+@export var effects: Array[Effect]
 
-# Which effects this skill has on its caster, if any. The effects are applied
-# sequentially, so the order in which they are added is important
-@export var caster_effects: Array[Effect]
-
-# Which effects this skill has on its target, if any. The effects are applied
-# sequentially, so the order in which they are added is important
-@export var target_effects: Array[Effect]
-
-# How much energy using this skill consumes. If the character doesn't have
-# enough energy, they can't perform the skill.
+## How much energy using this skill consumes.
+##
+## If the character doesn't have enough energy they can't perform the skill.
 @export var energy_cost: int
 
 # Which is the character that is performing the skill.
-var caster: Character
-
-# Who will receive the effects of the skill.
-var target: SkillTarget
+var caster: Character:
+	set(value):
+		caster = value
+		for eff in effects:
+			eff.caster = caster
 
 # The animation that is played when using the skill.
 # TODO: this will probably have to be revised as it's posible we'll need a way
@@ -53,3 +50,40 @@ var animation: Animation
 # TODO: For now this assumes one-target skills. It has to be fixed later
 func setup(caster: Character, target: Character):
 	pass
+
+# Returns a list with all the target types of the groups that require manual
+# target selection. This can be used to prompt the player to pick the targets
+# Currently, the only types of target that could need to be picked manually are
+# of TargetVariable type
+func get_manual_targets() -> Array[TargetVariable]:
+	var types: Array[TargetVariable] = []
+	for eff in effects:
+		if eff.target_type.is_manual_target():
+			types.append(eff.target_type as TargetVariable)
+	return types
+
+# Calling this function will fill caster and target data for each effect group.
+# Before calling this, one should get the list of targets by calling
+# get_manual_targets.
+# targets should be an array of arrays. Each element of targets will be passed
+# in order to an effect group that requires manual targeting, while all other
+# groups will be processed with caster and parties info.
+func process_effects(allies: Party, enemies: Party, targets: Array):
+	# If these two sizes don't match, something has gone wrong or a step has been
+	# ignored, so we stop the process altogether
+	if get_manual_targets().size() != targets.size():
+		return
+	for eff in effects:
+		if eff.target_type.is_manual_target():
+			eff.targets = targets.pop_front()
+		else:
+			eff.select_targets(allies, enemies)
+	
+# After processing all the groups with target info, this should be called to
+# verify if all the caster and target data has been loaded in the groups. If not,
+# the skill invocation should be canceled and attempted again.
+func is_valid() -> bool:
+	for group in effects:
+		if not group.is_valid():
+			return false
+	return true

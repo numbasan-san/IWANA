@@ -1,11 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://cxhb1pbyx1uwh"]
+[gd_scene load_steps=25 format=3 uid="uid://cxhb1pbyx1uwh"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_dme1k"]
-[ext_resource type="Resource" uid="uid://sy16m35jo4do" path="res://combat/skill_ejemplo_daño.tres" id="3_2phqi"]
 [ext_resource type="Texture2D" uid="uid://ccgofqb2mmybt" path="res://characters/dummy/combat/sombra_combate.png" id="4_ejgt2"]
 [ext_resource type="Texture2D" uid="uid://pgii0ntpmdfm" path="res://characters/dummy/rpg/sombra.png" id="4_i5aca"]
 [ext_resource type="Script" path="res://characters/dummy/dummy_interaction.gd" id="5_vdbvb"]
+[ext_resource type="Script" path="res://combat/effects/damage.gd" id="6_t1edw"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="7_8jd57"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="8_jdgy4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wons5"]
 resource_local_to_scene = true
@@ -185,6 +187,27 @@ base_defense = 0
 base_speed = 0
 base_critical = 0
 
+[sub_resource type="Resource" id="Resource_hvg0l"]
+resource_local_to_scene = true
+script = ExtResource("7_8jd57")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_v87lv"]
+resource_local_to_scene = true
+script = ExtResource("6_t1edw")
+value = -1.0
+target_type = SubResource("Resource_hvg0l")
+
+[sub_resource type="Resource" id="Resource_ct2mh"]
+resource_local_to_scene = true
+script = ExtResource("8_jdgy4")
+name = "Daño Ejemplo"
+description = "Skill de ejemplo para  debuggear"
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_v87lv")])
+energy_cost = 5
+
 [node name="Dummy" instance=ExtResource("1_begxf")]
 unique = false
 
@@ -215,4 +238,4 @@ texture = ExtResource("4_ejgt2")
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_4c1gv")
-skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("3_2phqi")])
+skills = Array[ExtResource("8_jdgy4")]([SubResource("Resource_ct2mh")])
