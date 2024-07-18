@@ -48,6 +48,7 @@ func set_character(character: Character = null):
 						else:
 							character.combat_handler.execute(skill)
 							combat.remove_dead()
+							character.combat_handler.end_turn()
 							await combat.show_party_menu()
 							combat.next_turn()
 				)
@@ -89,7 +90,7 @@ func show_possible_targets(t_type: TargetVariable, caster: Character):
 		possible_targets.append_array(combat.enemy_area.get_children())
 	if t_type is TargetFriend or t_type is TargetAnyone:
 		possible_targets.append_array(combat.player_area.get_children())
-		if t_type.exclude_caster:
+		if t_type.exclude_self:
 			possible_targets.erase(caster)
 	
 	var callable = _add_target_to_current.bind(t_type.number_of_targets)
@@ -102,10 +103,10 @@ func show_possible_targets(t_type: TargetVariable, caster: Character):
 # allows for their selection
 func hide_targets():
 	var containers: Array[SpriteContainer] = []
-	containers.append(combat.enemy_area.get_children())
-	containers.append(combat.player_area.get_children())
+	containers.append_array(combat.enemy_area.get_children())
+	containers.append_array(combat.player_area.get_children())
 	
-	for container in combat.enemy_area.get_children():
+	for container in containers:
 		container.targeting_enabled = false
 		if container.target_selected.is_connected(_add_target_to_current):
 			container.target_selected.disconnect(_add_target_to_current)

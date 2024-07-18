@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_stlwc")
-name = null
-description = null
+name = ""
+description = ""
 effects = Array[Resource("res://combat/effects/effect.gd")]([])
 energy_cost = 0

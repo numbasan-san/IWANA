@@ -23,14 +23,6 @@ var incoming_effect_modifiers: Array[LastingEffect]
 # character and can modify them before sending them to a target
 var outgoing_effect_modifiers: Array[LastingEffect]
 
-# This function should be called by the caster of the skill that will impact
-# this character. Here it is decided how to handle each effect, if it will be
-# applied immediately, if it will be added to the status effect lists, if some
-# preprocessing must be performed before applying it, etc.
-func process(effect: Effect):
-	pass
-
-
 func execute(skill: Skill):
 	if stats.energy < skill.energy_cost:
 		printerr("Skill | " + character.name + " tried to use a skill without having" \
@@ -40,11 +32,9 @@ func execute(skill: Skill):
 		return
 	
 	for effect in skill.effects:
-		var copy: Effect = effect.duplicate(true)
-		# TODO: duplicate doesn't copy values in the script. See if anything other
-		# than these two need to be copied
-		copy.caster = effect.caster
-		copy.targets = effect.targets
+		if effect.is_nullified:
+			continue
+		var copy: Effect = effect.copy()
 		send(copy)
 		
 	stats.energy -= skill.energy_cost
@@ -54,16 +44,97 @@ func execute(skill: Skill):
 func send(effect: Effect):
 	# If everything went correctly, effect.caster == character
 	effect.on_cast(effect.caster)
+	# If on_cast nullifies the effect, we interrupt the rest of the process
+	if effect.is_nullified:
+		return
 	for out in outgoing_effect_modifiers:
 		out.intercept(effect)
+		# We check if the interception reduced the duration of the effect
+		end_of_duration(out)
+		# The effect must survive all interceptions in order to continue
+		if effect.is_nullified:
+			return
 	for t in effect.targets:
-		effect.on_send(t)
-		t.combat_handler.receive(effect)
+		# We copy the effect for each of the target, so modifications to the
+		# effect sent to one target doesn't alter effects sent to others
+		var copy = effect.copy()
+		copy.on_send(t)
+		# If on_send nullifies the effect, it only interrupts the copy being sent
+		# to the current target. Other copies might still be sent
+		if copy.is_nullified:
+			continue
+		t.combat_handler.receive(copy)
 
 # Receives an effect sent from a caster, modifies it based on the character's
 # buffs and debuffs, and if the effect survives it is applied.
 func receive(effect: Effect):
 	effect.on_receive(effect.caster)
+	# If on_receive nullifies the effect, we interrupt the rest of the process
+	if effect.is_nullified:
+		return
 	for inc in incoming_effect_modifiers:
 		inc.intercept(effect)
+		# We check if the interception reduced the duration of the effect
+		end_of_duration(inc)
+		# The effect must survive all interceptions in order to continue
+		if effect.is_nullified:
+			return
+	# If we have reached this point, the effect has survived and must be applied.
+	# If it's a lasting effect, it must be added to the corresponding list
+	if effect is LastingEffect:
+		var Mod = LastingEffect.Modify
+		match effect.modifies:
+			Mod.STAT:
+				stat_modifiers.append(effect)
+			Mod.INCOMING:
+				incoming_effect_modifiers.append(effect)
+			Mod.OUTGOING:
+				outgoing_effect_modifiers.append(effect)
 	effect.on_apply(character)
+
+# This function should be called when the character's turn has just begun, and
+# it will trigger the before_turn function in all lasting effects
+func start_turn():
+	_perform_on_lasting_effects("before_turn")
+
+# This function should be called when the character's turn has just ended, and
+# it will trigger the after_turn function in all lasting effects
+func end_turn():
+	_perform_on_lasting_effects("after_turn")
+
+# This function should be called when the character's turn has just ended, and
+# it will trigger the after_turn function in all lasting effects
+func before_hit():
+	_perform_on_lasting_effects("before_hit")
+
+# This function should be called when the character's turn has just ended, and
+# it will trigger the after_turn function in all lasting effects
+func after_hit():
+	_perform_on_lasting_effects("after_hit")
+
+# Checks if the duration of the effect has been reduced to 0, in which case the
+# effect is removed from its list and it's unapplied
+func end_of_duration(effect: LastingEffect):
+	if effect.duration <= 0:
+		var Mod = LastingEffect.Modify
+		match effect.modifies:
+			Mod.STAT:
+				stat_modifiers.erase(effect)
+			Mod.INCOMING:
+				incoming_effect_modifiers.erase(effect)
+			Mod.OUTGOING:
+				outgoing_effect_modifiers.erase(effect)
+		effect.on_unapply(character)
+
+# Calls the given function on all the lasting effects registered for this handler,
+# and checks if the duration has decreased. The passed function must be one of
+# before_turn, after_turn, before_hit or after_hit
+func _perform_on_lasting_effects(function_name: String):
+	var lasting: Array[LastingEffect] = stat_modifiers.duplicate()
+	lasting.append_array(incoming_effect_modifiers)
+	lasting.append_array(outgoing_effect_modifiers)
+	for eff in lasting:
+		eff.call(function_name, character)
+		# This is checked here in case some effect decreases its duration at the
+		# beginning of the turn
+		end_of_duration(eff)

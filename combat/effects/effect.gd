@@ -27,6 +27,11 @@ var caster: Character
 ## effect without targets should result in an error
 var targets: Array[Character]
 
+## Effects that are nullified will stop being processed by the system.
+##
+## Some effects might nullify other incoming or outgoing effects and prevent
+## them from being applied or from reaching the target
+var is_nullified: bool = false
 
 # This should be called when the caster's combat handler started processing
 # this effect and after being initialized or cloned from the base resource.
@@ -83,6 +88,13 @@ func select_targets(allies: Party, enemies: Party):
 			if not var_t.allow_repetition:
 				possible_targets.erase(target)
 	
-
 func is_valid() -> bool:
 	return caster and targets and targets.size() > 0
+
+# Copies this effect. This is necessary as using the duplicate method doesn't
+# copy all fields
+func copy() -> Effect:
+	var new_effect = self.duplicate(true) as Effect
+	new_effect.caster = caster
+	new_effect.targets = targets.duplicate()
+	return new_effect

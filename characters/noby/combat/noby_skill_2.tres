@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=6 format=3 uid="uid://fwun0t61uohl"]
+
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_3mjya"]
+[ext_resource type="Script" path="res://combat/effects/buffs/protected.gd" id="1_y5ibq"]
+[ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="2_rs7ss"]
+
+[sub_resource type="Resource" id="Resource_dohv5"]
+script = ExtResource("2_rs7ss")
+exclude_self = true
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_qm81y"]
+script = ExtResource("1_y5ibq")
+type = 0
+modifies = 2
+duration = 1
+value = -1.0
+target_type = SubResource("Resource_dohv5")
+
+[resource]
+script = ExtResource("1_3mjya")
+name = "Tu harías lo mismo"
+description = "Salta hacia un aliado y recibe daño por este."
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_qm81y")])
+energy_cost = 0

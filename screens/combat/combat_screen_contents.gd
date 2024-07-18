@@ -100,7 +100,8 @@ func next_turn():
 		prepare_new_round()
 		next_turn()
 	else:
-		var next: Character = actor_queue.pop_front()
+		var next: Character = actor_queue.pop_front() as Character
+		next.combat_handler.start_turn()
 		# If the next character is in the player's party, we allow the player
 		# to pick an action
 		# We check in the party variable of Player and not in the party menu
@@ -119,6 +120,7 @@ func next_turn():
 			skill.process_effects(enemy_party, player_party, [])
 			handler.execute(skill)
 			remove_dead()
+			next.combat_handler.end_turn()
 			next_turn()
 
 # Shows the party menu and hides the skills menu

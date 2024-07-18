@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d3ltulgb5a8do"]
+[gd_scene load_steps=21 format=3 uid="uid://d3ltulgb5a8do"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Texture2D" uid="uid://c7lntb7mvpqt2" path="res://characters/daniela/vn/daniladino2.png" id="2_mrhog"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://ckr5arvqsdywg" path="res://characters/daniela/combat/cuernito.png" id="7_k47t8"]
 [ext_resource type="Script" path="res://combat/effects/damage.gd" id="8_3w8gg"]
 [ext_resource type="Texture2D" uid="uid://d3un5sww57vjd" path="res://characters/daniela/combat/daniela_combate.png" id="8_h0dso"]
+[ext_resource type="Script" path="res://combat/effects/buffs/damage_buff.gd" id="8_rhn4k"]
+[ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="9_dwal7"]
 [ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="9_ryrom"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="10_mmmts"]
 
@@ -46,6 +48,28 @@ description = "Skill de ejemplo para  debuggear"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_plm3c")])
 energy_cost = 5
 
+[sub_resource type="Resource" id="Resource_hfwrw"]
+script = ExtResource("9_dwal7")
+exclude_self = false
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_kqtup"]
+script = ExtResource("8_rhn4k")
+type = 0
+modifies = 0
+duration = 2
+value = 1.5
+target_type = SubResource("Resource_hfwrw")
+
+[sub_resource type="Resource" id="Resource_64lmj"]
+script = ExtResource("10_mmmts")
+name = "Buff daño"
+description = "Multiplica el daño por 1.5"
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_kqtup")])
+energy_cost = 8
+
 [node name="Daniela" instance=ExtResource("1_begxf")]
 
 [node name="DialogModel" parent="." index="0"]
@@ -82,4 +106,4 @@ texture = ExtResource("8_h0dso")
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_cqid2")
-skills = Array[ExtResource("10_mmmts")]([SubResource("Resource_l57jc")])
+skills = Array[ExtResource("10_mmmts")]([SubResource("Resource_l57jc"), SubResource("Resource_64lmj")])

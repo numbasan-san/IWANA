@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DamageEffect" load_steps=2 format=3 uid="uid://dgcylu03fgifl"]
 
-[ext_resource type="Script" path="res://combat/effects/protect.gd" id="1_p33c4"]
+[ext_resource type="Script" path="res://combat/effects/buffs/protected.gd" id="1_p33c4"]
 
 [resource]
 script = ExtResource("1_p33c4")
