@@ -40,6 +40,9 @@ func _input(_event):
 
 # Fills the screen with the battling characters and their info and begins combat
 func start_battle(player_party: Party, enemy_party: Party):
+	# This is here to fix a bug where the menus of the combat screen would move
+	# out of their default place sometimes after opening the editor
+	change_menu_animation.play("RESET")
 	# TODO: change this so that we can control which area corresponds with which
 	# party
 	player_area = right_area
