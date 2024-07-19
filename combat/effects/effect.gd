@@ -9,7 +9,7 @@ class_name Effect extends Resource
 ## and which should be used without doing any extra calculations. If this value
 ## is negative it should be ignored and the value should be calculated in the apply
 ## function based on the caster and target
-@export var value: float = -1
+@export var value: float = 1
 
 
 ## What kind of targets can be selected to apply these effects
@@ -25,7 +25,15 @@ var caster: Character
 ##
 ## It should be filled when processing the skill, and trying to apply the
 ## effect without targets should result in an error
-var targets: Array[Character]
+var skill_targets: Array[Character]
+
+## The specific target this effect is being sent to
+##
+## This variable is set by the handler before calling on_send and should only
+## be modified in custom code if it's going to be executed after the outgoing
+## modifier phase, that is, in functions on_send, on_receive, on_apply and
+## intercept in lasting effects of type INCOMING
+var target: Character
 
 ## Effects that are nullified will stop being processed by the system.
 ##
@@ -60,9 +68,9 @@ func select_targets(allies: Party, enemies: Party):
 	if target_type.is_manual_target():
 		return
 	
-	targets = []
+	skill_targets = []
 	if target_type is TargetSelf:
-		targets = [caster]
+		skill_targets = [caster]
 	else:
 		var possible_targets = []
 		# Same as checking if Friend, Party, Anyone or Everyone
@@ -75,26 +83,27 @@ func select_targets(allies: Party, enemies: Party):
 			possible_targets.append_array(enemies.members)
 		# Same as checking if Party, EnemyParty or Everyone
 		if target_type is TargetFixed:
-			targets = possible_targets
+			skill_targets = possible_targets
 			return
 		# If we reach this condition the type is variable and not manual, so it
 		# must be set to random
 		var var_t = target_type as TargetVariable
 		var n_targets = var_t.number_of_targets
 		while n_targets > 0 and not possible_targets.is_empty():
-			var target = possible_targets.pick_random()
-			targets.append(target)
+			var picked_target = possible_targets.pick_random()
+			skill_targets.append(picked_target)
 			n_targets -= 1
 			if not var_t.allow_repetition:
-				possible_targets.erase(target)
+				possible_targets.erase(picked_target)
 	
 func is_valid() -> bool:
-	return caster and targets and targets.size() > 0
+	return caster and skill_targets and skill_targets.size() > 0
 
 # Copies this effect. This is necessary as using the duplicate method doesn't
 # copy all fields
 func copy() -> Effect:
 	var new_effect = self.duplicate(true) as Effect
 	new_effect.caster = caster
-	new_effect.targets = targets.duplicate()
+	new_effect.skill_targets = skill_targets.duplicate()
+	new_effect.target = target
 	return new_effect

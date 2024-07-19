@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=6 format=3 uid="uid://7itin0wyy3p7"]
+
+[ext_resource type="Script" path="res://combat/effects/buffs/healing_shield.gd" id="1_uorec"]
+[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="2_q6hci"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="3_j4mow"]
+
+[sub_resource type="Resource" id="Resource_nf3tx"]
+script = ExtResource("2_q6hci")
+
+[sub_resource type="Resource" id="Resource_3l72c"]
+script = ExtResource("1_uorec")
+type = 0
+modifies = 2
+duration = 1
+value = 10.0
+target_type = SubResource("Resource_nf3tx")
+
+[resource]
+script = ExtResource("3_j4mow")
+name = "Los quiero mucho amigos"
+description = "Alienta a sus aliados para que reciban un buff de daño o defensa, dependiendo de si sus aliados tienen menos del 50% de la vida (50%< daño, >50% defensa)"
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_3l72c")])
+energy_cost = 0

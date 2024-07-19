@@ -49,32 +49,53 @@ func send(effect: Effect):
 		return
 	for out in outgoing_effect_modifiers:
 		out.intercept(effect)
-		# We check if the interception reduced the duration of the effect
+		# We check if the interception reduced the duration of the interceptor
 		end_of_duration(out)
 		# The effect must survive all interceptions in order to continue
 		if effect.is_nullified:
 			return
-	for t in effect.targets:
+	for t in effect.skill_targets:
 		# We copy the effect for each of the target, so modifications to the
 		# effect sent to one target doesn't alter effects sent to others
 		var copy = effect.copy()
+		copy.target = t
+		# We evaluate conditional effects here so that only the chosen sub-effect
+		# is sent to the target
+		if copy is ConditionalEffect:
+			copy = copy.evaluate()
 		copy.on_send(t)
 		# If on_send nullifies the effect, it only interrupts the copy being sent
 		# to the current target. Other copies might still be sent
 		if copy.is_nullified:
 			continue
-		t.combat_handler.receive(copy)
+		# We split the effect groups here to send all its sub-effects individually
+		# so that the target has the chance to intercept them
+		if copy is EffectGroup:
+			for eff in copy.effects:
+				t.combat_handler.receive(eff)
+		else:
+			t.combat_handler.receive(copy)
 
 # Receives an effect sent from a caster, modifies it based on the character's
 # buffs and debuffs, and if the effect survives it is applied.
 func receive(effect: Effect):
+	# We set target here again in case this function was called directly and the
+	# caller forgot to set it. As the effect was sent to this character, it is
+	# assumed that it is the intended target
+	effect.target = self.character
+	# We check this again here in case this function was called directly, in
+	# which case it would have bypassed the check in the send function. We don't
+	# check if the conditional is nullified as its on_receive function will do
+	# nothing anyways
+	if effect is ConditionalEffect:
+		effect = effect.evaluate()
 	effect.on_receive(effect.caster)
 	# If on_receive nullifies the effect, we interrupt the rest of the process
 	if effect.is_nullified:
 		return
 	for inc in incoming_effect_modifiers:
 		inc.intercept(effect)
-		# We check if the interception reduced the duration of the effect
+		# We check if the interception reduced the duration of the interceptor
 		end_of_duration(inc)
 		# The effect must survive all interceptions in order to continue
 		if effect.is_nullified:

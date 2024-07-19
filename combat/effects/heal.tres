@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Heal" load_steps=4 format=3 uid="uid://bugxgmphyjucg"]
+
+[ext_resource type="Script" path="res://combat/effects/heal.gd" id="1_t4tn7"]
+[ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="2_hg21h"]
+
+[sub_resource type="Resource" id="Resource_lrql1"]
+script = ExtResource("2_hg21h")
+exclude_self = false
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[resource]
+script = ExtResource("1_t4tn7")
+value = 20.0
+target_type = SubResource("Resource_lrql1")

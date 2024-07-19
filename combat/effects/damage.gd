@@ -18,9 +18,9 @@ func on_cast(caster: Character):
 	
 	is_critical = c_crit >= rnd
 	if is_critical:
-		value = 2 * c_damage
+		value *= 2 * c_damage
 	else:
-		value = c_damage
+		value *= c_damage
 
 func on_apply(target: Character):
 	# Defense is a value from 0 to 100 that acts as a percentage. We turn into a

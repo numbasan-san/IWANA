@@ -75,7 +75,7 @@ func process_effects(allies: Party, enemies: Party, targets: Array):
 		return
 	for eff in effects:
 		if eff.target_type.is_manual_target():
-			eff.targets = targets.pop_front()
+			eff.skill_targets = targets.pop_front()
 		else:
 			eff.select_targets(allies, enemies)
 	

@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=6 format=3 uid="uid://grb2j13upg08"]
+
+[ext_resource type="Script" path="res://combat/effects/damage.gd" id="1_bbjeb"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="2_6khfy"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="3_83yos"]
+
+[sub_resource type="Resource" id="Resource_8hkyi"]
+resource_local_to_scene = true
+script = ExtResource("2_6khfy")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_hv3wa"]
+resource_local_to_scene = true
+script = ExtResource("1_bbjeb")
+value = -1.0
+target_type = SubResource("Resource_8hkyi")
+
+[resource]
+script = ExtResource("3_83yos")
+name = "El derribador"
+description = "Mete una patada de barrido que hace daño y reduce el próximo ataque del objetivo"
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_hv3wa")])
+energy_cost = 5

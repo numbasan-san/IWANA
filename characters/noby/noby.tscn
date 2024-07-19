@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ciibuctohu7f8"]
+[gd_scene load_steps=12 format=3 uid="uid://ciibuctohu7f8"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_iq20k"]
 [ext_resource type="Resource" uid="uid://7o4a34iaa12l" path="res://characters/noby/noby_stats.tres" id="2_yag6e"]
@@ -7,6 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bnye8swdox47f" path="res://characters/noby/rpg/movement.png" id="7_g4a1h"]
 [ext_resource type="Resource" uid="uid://fwun0t61uohl" path="res://characters/noby/combat/noby_skill_2.tres" id="8_l2uka"]
 [ext_resource type="Texture2D" uid="uid://dwbkby71u5h7l" path="res://characters/noby/combat/portrait.png" id="9_8n6x7"]
+[ext_resource type="Resource" uid="uid://cg7yssd5gfox3" path="res://characters/noby/combat/noby_skill_3.tres" id="9_rpvai"]
+[ext_resource type="Resource" uid="uid://7itin0wyy3p7" path="res://characters/noby/combat/noby_skill_4.tres" id="10_8umm1"]
 [ext_resource type="Texture2D" uid="uid://cj6aeejkf0g13" path="res://characters/noby/combat/idle.png" id="10_ef5y1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_el1kc"]
@@ -38,4 +40,4 @@ texture = ExtResource("10_ef5y1")
 
 [node name="CombatHandler" parent="." index="3"]
 stats = ExtResource("2_yag6e")
-skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("3_xf4c1"), ExtResource("8_l2uka")])
+skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("3_xf4c1"), ExtResource("8_l2uka"), ExtResource("9_rpvai"), ExtResource("10_8umm1")])

@@ -1,27 +1,23 @@
 [gd_resource type="Resource" script_class="Skill" load_steps=6 format=3 uid="uid://fwun0t61uohl"]
 
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_3mjya"]
-[ext_resource type="Script" path="res://combat/effects/buffs/protected.gd" id="1_y5ibq"]
-[ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="2_rs7ss"]
+[ext_resource type="Script" path="res://combat/effects/buffs/healing_shield.gd" id="1_wl0a6"]
+[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="2_fw5sy"]
 
-[sub_resource type="Resource" id="Resource_dohv5"]
-script = ExtResource("2_rs7ss")
-exclude_self = true
-number_of_targets = 1
-random = false
-allow_repetition = false
+[sub_resource type="Resource" id="Resource_nf3tx"]
+script = ExtResource("2_fw5sy")
 
-[sub_resource type="Resource" id="Resource_qm81y"]
-script = ExtResource("1_y5ibq")
+[sub_resource type="Resource" id="Resource_3l72c"]
+script = ExtResource("1_wl0a6")
 type = 0
 modifies = 2
 duration = 1
-value = -1.0
-target_type = SubResource("Resource_dohv5")
+value = 10.0
+target_type = SubResource("Resource_nf3tx")
 
 [resource]
 script = ExtResource("1_3mjya")
-name = "Tu harías lo mismo"
-description = "Salta hacia un aliado y recibe daño por este."
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_qm81y")])
+name = "Inquebrantable"
+description = "Se coloca un escudo que recibe daño en vez del personaje. Si al siguiente turno el escudo no se ha roto, cura al personaje."
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_3l72c")])
 energy_cost = 0

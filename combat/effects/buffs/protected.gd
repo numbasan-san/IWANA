@@ -8,8 +8,8 @@ func intercept(effect: Effect):
 		# As we are intercepting an effect, redirected should only have one
 		# target, which is the character being protected. It's new target is
 		# caster, which is the original caster of this buff
-		var new_target: Array[Character] = [caster]
-		redirected.targets = new_target
-		caster.combat_handler.send(redirected)
+		
+		redirected.target = caster
+		caster.combat_handler.receive(redirected)
 		
 		duration -= 1
