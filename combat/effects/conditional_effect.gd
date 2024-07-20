@@ -17,7 +17,7 @@ class_name ConditionalEffect extends Effect
 
 # This function will be called before calling on_send
 func evaluate() -> Effect:
-	var cond = condition.evaluate(target)
+	var cond = condition.evaluate(caster, target)
 	if cond and when_true:
 		when_true.caster = caster
 		when_true.target = target

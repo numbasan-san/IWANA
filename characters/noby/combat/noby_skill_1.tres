@@ -15,6 +15,7 @@ allow_repetition = false
 script = ExtResource("1_auus6")
 type = 0
 modifies = 2
+decrease_duration = "After turn"
 duration = 1
 value = 1.0
 target_type = SubResource("Resource_evo2y")

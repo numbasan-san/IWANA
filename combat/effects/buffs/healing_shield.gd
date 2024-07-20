@@ -9,12 +9,7 @@ func intercept(effect: Effect):
 			else:
 				effect.value -= value
 				value = 0
-
-# This is assuming that the shield can block several attacks. If the heal is
-# supposed to trigger after receiving the first attack, this should be moved to
-# intercept
-func before_turn(target: Character):
-	duration -= 1
+			interception = true
 
 # TODO: this should be changed so it casts a healing effect instead. This
 # could be done by creating a new type of effect called a LinkedEffect that

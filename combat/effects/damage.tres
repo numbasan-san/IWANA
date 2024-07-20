@@ -13,5 +13,5 @@ allow_repetition = false
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_iyc3j")
-value = -1.0
+value = 0.0
 target_type = SubResource("Resource_khi8x")

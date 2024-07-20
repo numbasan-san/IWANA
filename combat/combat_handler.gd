@@ -23,6 +23,10 @@ var incoming_effect_modifiers: Array[LastingEffect]
 # character and can modify them before sending them to a target
 var outgoing_effect_modifiers: Array[LastingEffect]
 
+# These are buffs and debuffs that activate their effects when the affected
+# character sends another effect that hits its target
+var character_hit_monitors: Array[LastingEffect]
+
 func execute(skill: Skill):
 	if stats.energy < skill.energy_cost:
 		printerr("Skill | " + character.name + " tried to use a skill without having" \
@@ -43,7 +47,7 @@ func execute(skill: Skill):
 # buffs and debuffs, and sends it to the target
 func send(effect: Effect):
 	# If everything went correctly, effect.caster == character
-	effect.on_cast(effect.caster)
+	effect.cast(effect.caster)
 	# If on_cast nullifies the effect, we interrupt the rest of the process
 	if effect.is_nullified:
 		return
@@ -58,12 +62,7 @@ func send(effect: Effect):
 		# We copy the effect for each of the target, so modifications to the
 		# effect sent to one target doesn't alter effects sent to others
 		var copy = effect.copy()
-		copy.target = t
-		# We evaluate conditional effects here so that only the chosen sub-effect
-		# is sent to the target
-		if copy is ConditionalEffect:
-			copy = copy.evaluate()
-		copy.on_send(t)
+		copy.send(t)
 		# If on_send nullifies the effect, it only interrupts the copy being sent
 		# to the current target. Other copies might still be sent
 		if copy.is_nullified:
@@ -72,6 +71,7 @@ func send(effect: Effect):
 		# so that the target has the chance to intercept them
 		if copy is EffectGroup:
 			for eff in copy.effects:
+				eff.caster = copy.caster
 				t.combat_handler.receive(eff)
 		else:
 			t.combat_handler.receive(copy)
@@ -79,17 +79,16 @@ func send(effect: Effect):
 # Receives an effect sent from a caster, modifies it based on the character's
 # buffs and debuffs, and if the effect survives it is applied.
 func receive(effect: Effect):
-	# We set target here again in case this function was called directly and the
+	# We set target here in case this function was called directly and the
 	# caller forgot to set it. As the effect was sent to this character, it is
 	# assumed that it is the intended target
-	effect.target = self.character
-	# We check this again here in case this function was called directly, in
-	# which case it would have bypassed the check in the send function. We don't
-	# check if the conditional is nullified as its on_receive function will do
-	# nothing anyways
+	effect.target = character
+	# We check this here in case this function was called directly.
+	# We don't check if the conditional is nullified as its on_receive function 
+	# will do nothing anyways
 	if effect is ConditionalEffect:
 		effect = effect.evaluate()
-	effect.on_receive(effect.caster)
+	effect.receive(effect.caster)
 	# If on_receive nullifies the effect, we interrupt the rest of the process
 	if effect.is_nullified:
 		return
@@ -111,27 +110,26 @@ func receive(effect: Effect):
 				incoming_effect_modifiers.append(effect)
 			Mod.OUTGOING:
 				outgoing_effect_modifiers.append(effect)
-	effect.on_apply(character)
+			Mod.CHARACTER_HIT:
+				character_hit_monitors.append(effect)
+	effect.apply(character)
+	effect.caster.combat_handler.after_character_hit(character, effect)
 
 # This function should be called when the character's turn has just begun, and
 # it will trigger the before_turn function in all lasting effects
 func start_turn():
-	_perform_on_lasting_effects("before_turn")
+	_perform_on_lasting_effects("start_turn")
 
 # This function should be called when the character's turn has just ended, and
 # it will trigger the after_turn function in all lasting effects
 func end_turn():
-	_perform_on_lasting_effects("after_turn")
+	_perform_on_lasting_effects("end_turn")
 
-# This function should be called when the character's turn has just ended, and
-# it will trigger the after_turn function in all lasting effects
-func before_hit():
-	_perform_on_lasting_effects("before_hit")
-
-# This function should be called when the character's turn has just ended, and
-# it will trigger the after_turn function in all lasting effects
-func after_hit():
-	_perform_on_lasting_effects("after_hit")
+# This function is called on the caster of an effect when it's been applied on
+# it's target
+func after_character_hit(who: Character, effect: Effect):
+	for eff in character_hit_monitors:
+		eff.character_hit(who, effect)
 
 # Checks if the duration of the effect has been reduced to 0, in which case the
 # effect is removed from its list and it's unapplied
@@ -145,7 +143,9 @@ func end_of_duration(effect: LastingEffect):
 				incoming_effect_modifiers.erase(effect)
 			Mod.OUTGOING:
 				outgoing_effect_modifiers.erase(effect)
-		effect.on_unapply(character)
+			Mod.CHARACTER_HIT:
+				character_hit_monitors.erase(effect)
+		effect.unapply(character)
 
 # Calls the given function on all the lasting effects registered for this handler,
 # and checks if the duration has decreased. The passed function must be one of
@@ -154,6 +154,7 @@ func _perform_on_lasting_effects(function_name: String):
 	var lasting: Array[LastingEffect] = stat_modifiers.duplicate()
 	lasting.append_array(incoming_effect_modifiers)
 	lasting.append_array(outgoing_effect_modifiers)
+	lasting.append_array(character_hit_monitors)
 	for eff in lasting:
 		eff.call(function_name, character)
 		# This is checked here in case some effect decreases its duration at the

@@ -8,45 +8,93 @@ class_name LastingEffect extends Effect
 enum Type { BUFF, DEBUFF }
 @export var type: Type
 
-enum Modify { STAT, OUTGOING, INCOMING }
+enum Modify { STAT, OUTGOING, INCOMING, CHARACTER_HIT }
 @export var modifies: Modify
+
+@export_enum(
+	"On apply",
+	"Before turn",
+	"After turn",
+	"On intercept",
+	"On character hit"
+) var decrease_duration: String = "After turn"
 
 # How long it takes before this effect is removed from the target. Instances of
 # this class must decide what this number means and how to decrement it
-@export var duration: int = 0
+@export var duration: int = 0:
+	set(value):
+		duration = clampi(value, 0, 9223372036854775807)
 
-# This function should be called when the character is going to be hit by some 
-# other effect, for example a damage effect from an attack. This can be used 
-# for example to nullify the incoming effect
-func before_hit(target: Character):
+# Variable intended to be used in lasting effects that override the on_intercept
+# function. As these effects should only be able to intercept specific kinds of
+# effects, when that is the case this should be set to true so that the duration
+# counter isn't decreased for effects that are being ignored
+var interception: bool = false
+
+# Variable intended to be used in lasting effects that override the 
+# on_character_hit function. As these effects should only be able to intercept
+# specific kinds of effects, when that is the case this should be set to true so
+# that the duration counter isn't decreased for effects that are being ignored
+var hit: bool = false
+
+func apply(target: Character):
+	super.apply(target)
+	if decrease_duration == "On apply":
+		duration -= 1
+
+# When another character has been hit with an effect (after it's on_apply
+# function has been called) it will notify back to that effect's caster. At that
+# moment this function will be called on the caster's lasting effects.
+func on_character_hit(who: Character, effect: Effect):
 	pass
 
-# This function should be called after the character has been hit by some other 
-# effect, for example a damage effect from an attack. This can be used to
-# retaliate or decrease the effect's duration
-func after_hit(target: Character):
-	pass
+func character_hit(who: Character, effect: Effect):
+	on_character_hit(who, effect)
+	if hit and decrease_duration == "On character hit":
+		duration -= 1
+	hit = false
 
-# This should be called when the turn of this effect's target has just started
+# This is called when the turn of this effect's target has just started
 # and before it performs its actions
 func before_turn(target: Character):
 	pass
 
-# This should be called at the end of the target's turn after it has performed
+func start_turn(target: Character):
+	before_turn(target)
+	if decrease_duration == "Before turn":
+		duration -= 1
+
+# This is called at the end of the target's turn after it has performed
 # all its actions. This can be used for example to decrease the effect's
 # duration
 func after_turn(target: Character):
 	pass
 
-# This should be called after the effect's duration has run out and the changes
+func end_turn(target: Character):
+	after_turn(target)
+	if decrease_duration == "After turn":
+		duration -= 1
+
+# This is called after the effect's duration has run out and the changes
 # it had on the target have to be reverted.
 func on_unapply(target: Character):
 	pass
+
+func unapply(target: Character):
+	# We don't decrease duration here as this should only be called when the
+	# duration has already reached 0
+	on_unapply(target)
 
 # If this effect intercepts other incoming or outgoing effects and alters them
 # in some way, the code to filter and modify those other effects should go here.
 # If this effect's modifies variable is OUTGOING, this function will be called
 # on the caster side before sending it. If it's INCOMING, it will be called on
 # the target side after receiving it. If it's STAT, this shouldn't be called.
-func intercept(effect: Effect):
+func on_intercept(effect: Effect):
 	pass
+
+func intercept(effect: Effect):
+	on_intercept(effect)
+	if interception and decrease_duration == "On intercept":
+		duration -= 1
+	interception = false

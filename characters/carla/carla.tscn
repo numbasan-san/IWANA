@@ -176,8 +176,8 @@ _data = {
 [sub_resource type="Resource" id="Resource_4hq1v"]
 resource_local_to_scene = true
 script = ExtResource("2_vglxn")
-base_max_health = 50
-base_max_energy = 50
+base_max_health = 20
+base_max_energy = 40
 base_damage = 10
 base_defense = 0
 base_speed = 4
@@ -193,7 +193,7 @@ allow_repetition = false
 [sub_resource type="Resource" id="Resource_rdmvj"]
 resource_local_to_scene = true
 script = ExtResource("5_lkpum")
-value = -1.0
+value = 1.0
 target_type = SubResource("Resource_o0vmu")
 
 [sub_resource type="Resource" id="Resource_nacnq"]

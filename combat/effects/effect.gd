@@ -5,12 +5,11 @@ class_name Effect extends Resource
 
 ## The value of this effect.
 ##
-## Some effects have a fixed value that is set the moment it is added to a skill
-## and which should be used without doing any extra calculations. If this value
-## is negative it should be ignored and the value should be calculated in the apply
-## function based on the caster and target
-@export var value: float = 1
-
+## What this value means, how it is calculated, or if it's going to be used at
+## all depends on the specific effect.
+@export var value: float = 1:
+	set(new_value):
+		value = clampf(new_value, 0, 9223372036854775807)
 
 ## What kind of targets can be selected to apply these effects
 @export var target_type: TargetType
@@ -41,28 +40,40 @@ var target: Character
 ## them from being applied or from reaching the target
 var is_nullified: bool = false
 
-# This should be called when the caster's combat handler started processing
+# This will be called when the caster's combat handler starts processing
 # this effect and after being initialized or cloned from the base resource.
 # Effects that override this should include here code that assigns the initial
 # value and duration. 
 func on_cast(caster: Character):
 	pass
 
-# This should be called after the effect has been processed by the caster's
+func cast(caster: Character):
+	on_cast(caster)
+
+# This will be called after the effect has been processed by the caster's
 # buffs and debuffs and before being sent to the target
 func on_send(target: Character):
 	pass
 
-# This should be called when the effect has been received by the target, before
+func send(target: Character):
+	on_send(target)
+
+# This will be called when the effect has been received by the target, before
 # any other processing has been done
 func on_receive(caster: Character):
 	pass
 
-# This should be called after the effect has been processed by the target's
+func receive(caster: Character):
+	on_receive(caster)
+
+# This will be called after the effect has been processed by the target's
 # buffs and debuffs. This should contain the code that modifies the target, for
 # example reducing health or modifying some stat
 func on_apply(target: Character):
 	pass
+
+func apply(target: Character):
+	on_apply(target)
 
 func select_targets(allies: Party, enemies: Party):
 	if target_type.is_manual_target():

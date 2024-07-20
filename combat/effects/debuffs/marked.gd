@@ -8,6 +8,5 @@ func intercept(effect: Effect):
 			# critical damage depend on the character doing the damage?
 			effect.value *= 2
 			effect.is_critical = true
-
-func after_turn(target: Character):
-	duration -= 1
+			
+			interception = true

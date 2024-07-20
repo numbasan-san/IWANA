@@ -13,6 +13,7 @@ allow_repetition = false
 script = ExtResource("1_gkiyx")
 type = 1
 modifies = 2
+decrease_duration = "After turn"
 duration = 1
 value = -1.0
 target_type = SubResource("Resource_ovc6j")

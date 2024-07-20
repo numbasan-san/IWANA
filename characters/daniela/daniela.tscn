@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d3ltulgb5a8do"]
+[gd_scene load_steps=12 format=3 uid="uid://d3ltulgb5a8do"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Texture2D" uid="uid://c7lntb7mvpqt2" path="res://characters/daniela/vn/daniladino2.png" id="2_mrhog"]
@@ -6,12 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://bhm0ys613ml5g" path="res://characters/daniela/vn/danielaenojadapng.png" id="4_4aw6c"]
 [ext_resource type="Texture2D" uid="uid://dqwab14t6nlyl" path="res://characters/daniela/rpg/movement.png" id="6_xh8t3"]
 [ext_resource type="Texture2D" uid="uid://ckr5arvqsdywg" path="res://characters/daniela/combat/cuernito.png" id="7_k47t8"]
-[ext_resource type="Script" path="res://combat/effects/damage.gd" id="8_3w8gg"]
 [ext_resource type="Texture2D" uid="uid://d3un5sww57vjd" path="res://characters/daniela/combat/daniela_combate.png" id="8_h0dso"]
-[ext_resource type="Script" path="res://combat/effects/buffs/damage_buff.gd" id="8_rhn4k"]
-[ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="9_dwal7"]
-[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="9_ryrom"]
-[ext_resource type="Script" path="res://combat/skills/skill.gd" id="10_mmmts"]
+[ext_resource type="Resource" uid="uid://ctfi04ropl47o" path="res://characters/daniela/combat/daniela_skill_1.tres" id="8_pr3lj"]
+[ext_resource type="Resource" uid="uid://bx2eg3037k252" path="res://characters/daniela/combat/daniela_skill_2.tres" id="9_ph607"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fqsh1"]
 resource_local_to_scene = true
@@ -20,55 +17,12 @@ size = Vector2(114, 48.5)
 [sub_resource type="Resource" id="Resource_cqid2"]
 resource_local_to_scene = true
 script = ExtResource("2_rf6nx")
-base_max_health = 120
-base_max_energy = 80
+base_max_health = 30
+base_max_energy = 40
 base_damage = 8
 base_defense = 0
 base_speed = 3
 base_critical = 0
-
-[sub_resource type="Resource" id="Resource_npgsi"]
-resource_local_to_scene = true
-script = ExtResource("9_ryrom")
-number_of_targets = 1
-random = false
-allow_repetition = false
-
-[sub_resource type="Resource" id="Resource_plm3c"]
-resource_local_to_scene = true
-script = ExtResource("8_3w8gg")
-value = -1.0
-target_type = SubResource("Resource_npgsi")
-
-[sub_resource type="Resource" id="Resource_l57jc"]
-resource_local_to_scene = true
-script = ExtResource("10_mmmts")
-name = "Daño Ejemplo"
-description = "Skill de ejemplo para  debuggear"
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_plm3c")])
-energy_cost = 5
-
-[sub_resource type="Resource" id="Resource_hfwrw"]
-script = ExtResource("9_dwal7")
-exclude_self = false
-number_of_targets = 1
-random = false
-allow_repetition = false
-
-[sub_resource type="Resource" id="Resource_kqtup"]
-script = ExtResource("8_rhn4k")
-type = 0
-modifies = 0
-duration = 2
-value = 1.5
-target_type = SubResource("Resource_hfwrw")
-
-[sub_resource type="Resource" id="Resource_64lmj"]
-script = ExtResource("10_mmmts")
-name = "Buff daño"
-description = "Multiplica el daño por 1.5"
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_kqtup")])
-energy_cost = 8
 
 [node name="Daniela" instance=ExtResource("1_begxf")]
 
@@ -106,4 +60,4 @@ texture = ExtResource("8_h0dso")
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_cqid2")
-skills = Array[ExtResource("10_mmmts")]([SubResource("Resource_l57jc"), SubResource("Resource_64lmj")])
+skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("8_pr3lj"), ExtResource("9_ph607")])

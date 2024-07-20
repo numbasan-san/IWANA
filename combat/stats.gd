@@ -125,8 +125,8 @@ var damage_modifier: float = 1:
 		damage_modifier = _clampf_min(value, 0.0)
 		var new = damage
 		update_damage.emit(old, new)
-		
-var defense_modifier: float = 1:
+
+var defense_modifier: float = 0:
 	set(value):
 		var old = defense
 		defense_modifier = _clampf_min(value, 0.0)
@@ -139,8 +139,8 @@ var speed_modifier: float = 1:
 		speed_modifier = _clampf_min(value, 0.0)
 		var new = speed
 		update_speed.emit(old, new)
-		
-var critical_modifier: float = 1:
+
+var critical_modifier: float = 0:
 	set(value):
 		var old = critical
 		critical_modifier = _clampf_min(value, 0.0)
@@ -158,15 +158,19 @@ var max_energy: int:
 var damage: int:
 	get:
 		return _clampi_min(round(base_damage * damage_modifier), 0)
+# Because defense is a percentage from 0 to 100, the modifier is additive
+# instead of multiplicative
 var defense: int:
 	get:
-		return clampi(round(base_defense * defense_modifier), 0, 100)
+		return clampi(round(base_defense + defense_modifier), 0, 100)
 var speed: int:
 	get:
 		return round(base_speed * speed_modifier)
+# Because critical is a percentage from 0 to 100, the modifier is additive
+# instead of multiplicative
 var critical: int:
 	get:
-		return clampi(round(base_critical * critical_modifier), 0, 100)
+		return clampi(round(base_critical + critical_modifier), 0, 100)
 
 # Can't go above modified max_health or under 0. When this value reaches 0, the
 # character is rendered unconcious

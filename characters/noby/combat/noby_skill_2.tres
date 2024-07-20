@@ -11,6 +11,7 @@ script = ExtResource("2_fw5sy")
 script = ExtResource("1_wl0a6")
 type = 0
 modifies = 2
+decrease_duration = "Before turn"
 duration = 1
 value = 10.0
 target_type = SubResource("Resource_nf3tx")

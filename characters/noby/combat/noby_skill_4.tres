@@ -1,23 +1,54 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=6 format=3 uid="uid://7itin0wyy3p7"]
+[gd_resource type="Resource" script_class="Skill" load_steps=12 format=3 uid="uid://7itin0wyy3p7"]
 
-[ext_resource type="Script" path="res://combat/effects/buffs/healing_shield.gd" id="1_uorec"]
-[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="2_q6hci"]
+[ext_resource type="Script" path="res://combat/effects/conditions/stat_condition.gd" id="1_s6n1s"]
+[ext_resource type="Script" path="res://combat/effects/conditional_effect.gd" id="2_c712b"]
+[ext_resource type="Script" path="res://combat/effects/buffs/defense_buff.gd" id="3_4bbmh"]
+[ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="3_8862q"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="3_j4mow"]
+[ext_resource type="Script" path="res://combat/effects/buffs/damage_buff.gd" id="5_oupoy"]
 
-[sub_resource type="Resource" id="Resource_nf3tx"]
-script = ExtResource("2_q6hci")
+[sub_resource type="Resource" id="Resource_omxej"]
+script = ExtResource("1_s6n1s")
+character = "Target"
+stat = "Health"
+operation = "<"
+value = 50.0
+percent = true
 
-[sub_resource type="Resource" id="Resource_3l72c"]
-script = ExtResource("1_uorec")
+[sub_resource type="Resource" id="Resource_eaodr"]
+script = ExtResource("3_8862q")
+exclude_self = false
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_c160h"]
+script = ExtResource("3_4bbmh")
 type = 0
-modifies = 2
-duration = 1
-value = 10.0
-target_type = SubResource("Resource_nf3tx")
+modifies = 0
+decrease_duration = "After turn"
+duration = 2
+value = 20.0
+
+[sub_resource type="Resource" id="Resource_rxn1j"]
+script = ExtResource("5_oupoy")
+type = 0
+modifies = 0
+decrease_duration = "After turn"
+duration = 2
+value = 20.0
+
+[sub_resource type="Resource" id="Resource_mcyxl"]
+script = ExtResource("2_c712b")
+condition = SubResource("Resource_omxej")
+when_true = SubResource("Resource_rxn1j")
+when_false = SubResource("Resource_c160h")
+value = 1.0
+target_type = SubResource("Resource_eaodr")
 
 [resource]
 script = ExtResource("3_j4mow")
 name = "Los quiero mucho amigos"
 description = "Alienta a sus aliados para que reciban un buff de daño o defensa, dependiendo de si sus aliados tienen menos del 50% de la vida (50%< daño, >50% defensa)"
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_3l72c")])
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_mcyxl")])
 energy_cost = 0

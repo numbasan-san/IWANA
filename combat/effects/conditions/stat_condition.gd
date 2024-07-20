@@ -49,9 +49,9 @@ func evaluate(caster: Character, target: Character) -> bool:
 	var stat_value = stats.get(stat_var_name)
 	if percent:
 		if stat_var_name == "health":
-			stat_value /= stats.max_health
+			stat_value *= (100.0 / stats.max_health)
 		elif stat_var_name == "energy":
-			stat_value /= stats.max_energy
+			stat_value *= (100.0 / stats.max_energy)
 	
 	if stat_value == null:
 		return false

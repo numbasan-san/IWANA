@@ -28,4 +28,5 @@ func on_apply(target: Character):
 	var t_defense = float(target.combat_handler.stats.defense) / 100
 	# This is the value that we're multiplying by the incoming damage.
 	var mod = 1 - t_defense
-	target.combat_handler.stats.health -= value * mod
+	value = value * mod
+	target.combat_handler.stats.health -= value

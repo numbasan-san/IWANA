@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://combat/effects/buffs/damage_buff.gd" id="1_71yih"]
 [ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="1_jkqhc"]
 
-[sub_resource type="Resource" id="Resource_p8spn"]
+[sub_resource type="Resource" id="Resource_4dtug"]
 script = ExtResource("1_jkqhc")
 exclude_self = false
 number_of_targets = 1
@@ -15,5 +15,5 @@ script = ExtResource("1_71yih")
 type = 0
 modifies = 0
 duration = 2
-value = 1.5
-target_type = SubResource("Resource_p8spn")
+value = 0.5
+target_type = SubResource("Resource_4dtug")

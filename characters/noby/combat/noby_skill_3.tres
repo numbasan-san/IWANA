@@ -16,8 +16,9 @@ allow_repetition = false
 script = ExtResource("1_us337")
 type = 1
 modifies = 2
+decrease_duration = "After turn"
 duration = 1
-value = -1.0
+value = 1.0
 target_type = SubResource("Resource_6yq50")
 
 [sub_resource type="Resource" id="Resource_3w0pn"]
@@ -30,7 +31,7 @@ allow_repetition = false
 [sub_resource type="Resource" id="Resource_07061"]
 resource_local_to_scene = true
 script = ExtResource("3_xbhs4")
-value = -1.0
+value = 1.0
 target_type = SubResource("Resource_3w0pn")
 
 [sub_resource type="Resource" id="Resource_hcwdp"]
@@ -42,7 +43,7 @@ allow_repetition = false
 [sub_resource type="Resource" id="Resource_3fou1"]
 script = ExtResource("2_h8omq")
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_28na4"), SubResource("Resource_07061")])
-value = -1.0
+value = 1.0
 target_type = SubResource("Resource_hcwdp")
 
 [resource]
