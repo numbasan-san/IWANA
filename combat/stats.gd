@@ -13,6 +13,8 @@ signal update_critical
 signal update_health
 signal update_energy
 
+signal damage_received
+
 #The basic stats that every character has and influences combat
 # Most values are clamped between a min and/or a max value for the base stats,
 # the modifiers and the effective stats. Even though it would only be necessary
@@ -180,6 +182,8 @@ var health: int:
 		health = clampi(value, 0, max_health)
 		var new = health
 		update_health.emit(old, new)
+		if new < old:
+			damage_received.emit(old - new)
 
 # Can't go above max_energy or below 0. If the character has less energy than
 # required by a skill, they can't use it

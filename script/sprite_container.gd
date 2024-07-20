@@ -8,6 +8,8 @@ extends CharacterContainer
 # be selected as a target or if it has already been selected
 @export var targeting_animation: AnimationPlayer
 
+@export var damage_control: DamageNumbers
+
 # If the character can be targeted, this signal will be emited when the container
 # is selected
 signal target_selected
@@ -31,15 +33,18 @@ var sprite: Sprite2D
 # Adds the character to this container and moves the sprite to show it on screen
 func set_character(new_character: Character = null):
 	super.set_character(new_character)
-	var model = new_character.combat_model
-	_change_sprite(null, model.current_sprite)
-	model.update_sprite.connect(_change_sprite)
+	if new_character:
+		var model = new_character.combat_model
+		_change_sprite(null, model.current_sprite)
+		model.update_sprite.connect(_change_sprite)
+		character.combat_handler.stats.damage_received.connect(damage_control.damage_received)
 	
 
 # Clears the container
 func remove_character():
 	if character:
 		character.combat_model.update_sprite.disconnect(_change_sprite)
+		character.combat_handler.stats.damage_received.disconnect(damage_control.damage_received)
 		_change_sprite(null, null)
 	super.remove_character()
 
