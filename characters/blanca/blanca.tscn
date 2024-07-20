@@ -8,7 +8,6 @@ resource_local_to_scene = true
 size = Vector2(128, 61)
 
 [node name="Blanca" instance=ExtResource("1_begxf")]
-stats = null
 
 [node name="Neutral" type="Sprite2D" parent="DialogModel" index="0"]
 position = Vector2(0, -768)

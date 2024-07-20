@@ -5,6 +5,8 @@ class_name LastingEffect extends Effect
 # last for a specific amount of turns, or until a condition is reached, like
 # getting hit or attacking
 
+@export var icon: AtlasTexture
+
 enum Type { BUFF, DEBUFF }
 @export var type: Type
 

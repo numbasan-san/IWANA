@@ -22,4 +22,4 @@ name = "Amenaza"
 description = "Daniela amenaza al grupo enemigo y buffea sus siguientes 3 golpes para curarse un porcentaje del daño infligido
 "
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_fijm1")])
-energy_cost = 0
+energy_cost = 5

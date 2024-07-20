@@ -8,7 +8,8 @@ extends CharacterContainer
 # be selected as a target or if it has already been selected
 @export var targeting_animation: AnimationPlayer
 
-@export var damage_control: DamageNumbers
+@export var number_control: SpriteNumberControl
+@export var icon_control: SpriteIconControl
 
 # If the character can be targeted, this signal will be emited when the container
 # is selected
@@ -37,14 +38,27 @@ func set_character(new_character: Character = null):
 		var model = new_character.combat_model
 		_change_sprite(null, model.current_sprite)
 		model.update_sprite.connect(_change_sprite)
-		character.combat_handler.stats.damage_received.connect(damage_control.damage_received)
+		character.combat_handler.stats.health_recovered.connect(number_control.heal)
+		character.combat_handler.stats.damage_received.connect(number_control.damage)
+		character.combat_handler.stats.energy_recovered.connect(number_control.gain_energy)
+		character.combat_handler.stats.energy_spent.connect(number_control.lose_energy)
+		
+		character.combat_handler.added_lasting_effect.connect(icon_control.add_effect)
+		character.combat_handler.removed_lasting_effect.connect(icon_control.remove_effect)
 	
 
 # Clears the container
 func remove_character():
 	if character:
 		character.combat_model.update_sprite.disconnect(_change_sprite)
-		character.combat_handler.stats.damage_received.disconnect(damage_control.damage_received)
+		character.combat_handler.stats.health_recovered.disconnect(number_control.heal)
+		character.combat_handler.stats.damage_received.disconnect(number_control.damage)
+		character.combat_handler.stats.energy_recovered.disconnect(number_control.gain_energy)
+		character.combat_handler.stats.energy_spent.disconnect(number_control.lose_energy)
+		
+		character.combat_handler.added_lasting_effect.disconnect(icon_control.add_effect)
+		character.combat_handler.removed_lasting_effect.disconnect(icon_control.remove_effect)
+		
 		_change_sprite(null, null)
 	super.remove_character()
 

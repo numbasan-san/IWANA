@@ -29,10 +29,9 @@ func set_character(character: Character = null):
 			if skill.energy_cost <= character.combat_handler.stats.energy:
 				button.pressed.connect(
 					func():
-						# TODO: all skills will target the chosen enemy even if
-						# it is defeated earlier and the skills will be wasted.
-						# Change it later to a system where if the target has
-						# already fallen, a new target can be chosen
+						combat.selecting_action = false
+						combat.selecting_skill = false
+						combat.selecting_target = true
 						var required_targets = skill.get_manual_targets()
 						var target_sets = []
 						for t_type in required_targets:

@@ -14,6 +14,11 @@ signal update_health
 signal update_energy
 
 signal damage_received
+signal health_recovered
+signal energy_spent
+signal energy_recovered
+
+signal fainted
 
 #The basic stats that every character has and influences combat
 # Most values are clamped between a min and/or a max value for the base stats,
@@ -183,7 +188,15 @@ var health: int:
 		var new = health
 		update_health.emit(old, new)
 		if new < old:
-			damage_received.emit(old - new)
+			# We use value in case the character received more damage than its
+			# current hp to show the full damage taken
+			damage_received.emit(old - value)
+		if new > old:
+			# We use value in case the character healed beyond its max health
+			# to show the full recovery value
+			health_recovered.emit(value - old)
+		if new == 0:
+			fainted.emit()
 
 # Can't go above max_energy or below 0. If the character has less energy than
 # required by a skill, they can't use it
@@ -193,6 +206,17 @@ var energy: int:
 		energy = clamp(value, 0, max_energy)
 		var new = energy
 		update_energy.emit(old, new)
+		if new < old:
+			# We use value in case the character lost more energy than its
+			# current value to show the full amount subtracted. This should only
+			# be possible when losing energy because of an item, enemy skill or
+			# story event, as when using a skill it should prevent spending more
+			# energy than available
+			energy_spent.emit(old - value)
+		if new > old:
+			# We use value in case the character recovered beyond its max energy
+			# to show the full recovery value
+			energy_recovered.emit(value - old)
 
 # Restores health and energy
 func replenish():

@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://3d6j1vup2i4s"]
+[gd_scene load_steps=22 format=3 uid="uid://3d6j1vup2i4s"]
 
 [ext_resource type="Script" path="res://script/sprite_container.gd" id="1_ndaat"]
-[ext_resource type="Script" path="res://screens/combat/damage_numbers.gd" id="2_0qumv"]
+[ext_resource type="Script" path="res://screens/combat/sprite_number_control.gd" id="2_uf8fx"]
 [ext_resource type="PackedScene" uid="uid://ceqe4yrlcfouu" path="res://screens/combat/player_bars.tscn" id="2_xja7c"]
+[ext_resource type="Script" path="res://screens/combat/sprite_icon_control.gd" id="3_6f3g4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gltg8"]
 
@@ -43,6 +44,66 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_wdpf4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.215686, 0.223529, 0.976471, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_71gqt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.67451, 0.223529, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0ywyh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.172549, 0.572549, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_n15k2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.788235, 0.14902, 0, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_1w8jd"]
@@ -87,6 +148,10 @@ tracks/2/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o6iuh"]
 _data = {
 "RESET": SubResource("Animation_eoejm"),
+"energy+": SubResource("Animation_wdpf4"),
+"energy-": SubResource("Animation_71gqt"),
+"health+": SubResource("Animation_0ywyh"),
+"health-": SubResource("Animation_n15k2"),
 "number_up": SubResource("Animation_1w8jd")
 }
 
@@ -205,18 +270,19 @@ _data = {
 "ValidTarget": SubResource("Animation_mrhsd")
 }
 
-[node name="SpriteContainer" type="Panel" node_paths=PackedStringArray("directional", "targeting_animation", "damage_control", "fill_bars")]
+[node name="SpriteContainer" type="Panel" node_paths=PackedStringArray("directional", "targeting_animation", "number_control", "icon_control", "fill_bars")]
 offset_right = 275.0
-offset_bottom = 120.0
+offset_bottom = 325.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_gltg8")
 script = ExtResource("1_ndaat")
 directional = NodePath("Directional")
 targeting_animation = NodePath("TargetingAnimations")
-damage_control = NodePath("DamageNumbers")
+number_control = NodePath("Numbers")
+icon_control = NodePath("Icons")
 fill_bars = NodePath("FillBars")
 metadata/_edit_vertical_guides_ = [-435.0]
 
-[node name="DamageNumbers" type="Panel" parent="." node_paths=PackedStringArray("number_animator", "damage_label")]
+[node name="Numbers" type="Panel" parent="." node_paths=PackedStringArray("number_animator", "number")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.3
@@ -224,21 +290,22 @@ anchor_right = 0.3
 offset_top = -45.0
 offset_bottom = -45.0
 grow_horizontal = 2
-script = ExtResource("2_0qumv")
+script = ExtResource("2_uf8fx")
 number_animator = NodePath("AnimationPlayer")
-damage_label = NodePath("Label")
+number = NodePath("Label")
 
-[node name="Label" type="Label" parent="DamageNumbers"]
+[node name="Label" type="Label" parent="Numbers"]
 visible = false
 layout_mode = 0
 offset_right = 42.0
 offset_bottom = 53.0
+theme_override_colors/font_color = Color(0.501961, 0.223529, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 36
 text = "25"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="DamageNumbers"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Numbers"]
 libraries = {
 "": SubResource("AnimationLibrary_o6iuh")
 }
@@ -250,12 +317,22 @@ offset_top = 148.0
 offset_right = 94.0
 offset_bottom = 148.0
 
-[node name="Icons" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 94.0
-offset_top = 148.0
-offset_right = 94.0
-offset_bottom = 148.0
+[node name="Icons" type="Panel" parent="." node_paths=PackedStringArray("icon_placement")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.205
+anchor_bottom = 0.205
+script = ExtResource("3_6f3g4")
+icon_placement = NodePath("GridContainer")
+
+[node name="GridContainer" type="GridContainer" parent="Icons"]
+layout_mode = 1
+offset_right = 112.0
+offset_bottom = 54.0
+scale = Vector2(0.6, 0.6)
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 6
 
 [node name="Directional" type="Node2D" parent="."]
 position = Vector2(94, 148)

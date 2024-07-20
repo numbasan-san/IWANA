@@ -22,6 +22,10 @@ var player_area: CombatPartyArea = null
 
 var showing_skills = false
 
+var selecting_action = false
+var selecting_skill = false
+var selecting_target = false
+
 func _input(_event):
 	# Para poder cerrar los cuadros de texto.
 	if (Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and $text_box.visible:
@@ -32,11 +36,6 @@ func _input(_event):
 			show_party_menu()
 		else:
 			party_menu.select_previous_character()
-	# For now, combat_menu_forward is used when we have deselected the characters,
-	# so we can select the first one again
-	if Input.is_action_just_released("combat_menu_forward") \
-			and not party_menu.selected_character:
-		party_menu.select_next_character()
 
 # Fills the screen with the battling characters and their info and begins combat
 func start_battle(player_party: Party, enemy_party: Party):
@@ -129,8 +128,14 @@ func next_turn():
 # Shows the party menu and hides the skills menu
 func show_party_menu():
 	if not party_menu.visible:
+		skills_menu.hide_targets()
 		change_menu_animation.play("HideSkills")
 		await change_menu_animation.animation_finished
+		# TODO: think of a better way to control in which state is the combat
+		# screen
+		selecting_action = true
+		selecting_skill = false
+		selecting_target = false
 		if party_menu.selected_character:
 			# TODO: change it so that we don't need to refer to the button
 			# directly
@@ -141,6 +146,9 @@ func show_skills_menu():
 	if party_menu.visible:
 		change_menu_animation.play("ShowSkills")
 		await change_menu_animation.animation_finished
+		selecting_action = false
+		selecting_skill = true
+		selecting_target = false
 		if skills_menu.skills_container.get_child_count() > 0:
 			skills_menu.skills_container.get_child(0).grab_focus()
 

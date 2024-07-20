@@ -5,6 +5,9 @@ class_name CombatHandler extends Node
 
 var character: Character
 
+signal added_lasting_effect
+signal removed_lasting_effect
+
 # Status effects are effects that apply to the character the moment the skill
 # lands on it and are removed when a condition is reached
 
@@ -26,6 +29,22 @@ var outgoing_effect_modifiers: Array[LastingEffect]
 # These are buffs and debuffs that activate their effects when the affected
 # character sends another effect that hits its target
 var character_hit_monitors: Array[LastingEffect]
+
+func init():
+	stats.fainted.connect(func():
+		for eff in stat_modifiers:
+			removed_lasting_effect.emit(eff)
+		stat_modifiers.clear()
+		for eff in outgoing_effect_modifiers:
+			removed_lasting_effect.emit(eff)
+		outgoing_effect_modifiers.clear()
+		for eff in incoming_effect_modifiers:
+			removed_lasting_effect.emit(eff)
+		incoming_effect_modifiers.clear()
+		for eff in character_hit_monitors:
+			removed_lasting_effect.emit(eff)
+		character_hit_monitors.clear()
+	)
 
 func execute(skill: Skill):
 	if stats.energy < skill.energy_cost:
@@ -112,6 +131,7 @@ func receive(effect: Effect):
 				outgoing_effect_modifiers.append(effect)
 			Mod.CHARACTER_HIT:
 				character_hit_monitors.append(effect)
+		added_lasting_effect.emit(effect)
 	effect.apply(character)
 	effect.caster.combat_handler.after_character_hit(character, effect)
 
@@ -145,6 +165,7 @@ func end_of_duration(effect: LastingEffect):
 				outgoing_effect_modifiers.erase(effect)
 			Mod.CHARACTER_HIT:
 				character_hit_monitors.erase(effect)
+		removed_lasting_effect.emit(effect)
 		effect.unapply(character)
 
 # Calls the given function on all the lasting effects registered for this handler,

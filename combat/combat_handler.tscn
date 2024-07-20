@@ -1,6 +1,17 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvlih07pswvq1"]
+[gd_scene load_steps=4 format=3 uid="uid://bvlih07pswvq1"]
 
 [ext_resource type="Script" path="res://combat/combat_handler.gd" id="1_8kyfw"]
+[ext_resource type="Script" path="res://combat/stats.gd" id="2_8kbip"]
+
+[sub_resource type="Resource" id="Resource_n0dch"]
+script = ExtResource("2_8kbip")
+base_max_health = 1
+base_max_energy = 0
+base_damage = 0
+base_defense = 0
+base_speed = 0
+base_critical = 0
 
 [node name="CombatHandler" type="Node"]
 script = ExtResource("1_8kyfw")
+stats = SubResource("Resource_n0dch")

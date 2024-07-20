@@ -6,16 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cdfpuvxcdepsg" path="res://characters/maria_jose/vn/jm_neutral.png" id="4_bra5u"]
 [ext_resource type="Texture2D" uid="uid://yos8ptcii3lf" path="res://characters/maria_jose/rpg/mj_perspertiva.png" id="5_vkrab"]
 
-[sub_resource type="Resource" id="Resource_manuk"]
-resource_local_to_scene = true
-script = ExtResource("2_jrk70")
-base_max_health = 1
-base_max_energy = 0
-base_damage = 0
-base_defense = 0
-base_speed = 0
-base_critical = 0
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2bal8"]
 resource_local_to_scene = true
 size = Vector2(128, 61)
@@ -181,8 +171,16 @@ _data = {
 "walk_up": SubResource("Animation_swq2p")
 }
 
+[sub_resource type="Resource" id="Resource_dus7f"]
+script = ExtResource("2_jrk70")
+base_max_health = 1
+base_max_energy = 0
+base_damage = 0
+base_defense = 0
+base_speed = 0
+base_critical = 0
+
 [node name="MariaJose" instance=ExtResource("1_begxf")]
-stats = SubResource("Resource_manuk")
 
 [node name="DialogModel" parent="." index="0"]
 visible = false
@@ -194,9 +192,6 @@ texture = ExtResource("3_xswt3")
 [node name="Jose" type="Sprite2D" parent="DialogModel" index="1"]
 scale = Vector2(-1, 1)
 texture = ExtResource("4_bra5u")
-
-[node name="RPGModel" parent="." index="1"]
-motion_mode = 1
 
 [node name="Sprite2D" parent="RPGModel" index="0"]
 texture = ExtResource("5_vkrab")
@@ -212,3 +207,6 @@ shape = SubResource("RectangleShape2D_2bal8")
 libraries = {
 "": SubResource("AnimationLibrary_r5p10")
 }
+
+[node name="CombatHandler" parent="." index="3"]
+stats = SubResource("Resource_dus7f")

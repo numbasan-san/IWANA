@@ -1,7 +1,12 @@
-[gd_resource type="Resource" script_class="DefenseBuff" load_steps=4 format=3 uid="uid://db0a8jqclwypb"]
+[gd_resource type="Resource" script_class="DefenseBuff" load_steps=6 format=3 uid="uid://db0a8jqclwypb"]
 
+[ext_resource type="Texture2D" uid="uid://cdhitokvk18u5" path="res://combat/effects/lasting_effect_icons.png" id="1_1t3bx"]
 [ext_resource type="Script" path="res://combat/effects/buffs/defense_buff.gd" id="1_d2w6n"]
 [ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="2_fbtrv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tssvm"]
+atlas = ExtResource("1_1t3bx")
+region = Rect2(174, 66, 48, 42)
 
 [sub_resource type="Resource" id="Resource_8w02t"]
 script = ExtResource("2_fbtrv")
@@ -12,8 +17,10 @@ allow_repetition = false
 
 [resource]
 script = ExtResource("1_d2w6n")
+icon = SubResource("AtlasTexture_tssvm")
 type = 0
 modifies = 0
+decrease_duration = "After turn"
 duration = 2
 value = 0.5
 target_type = SubResource("Resource_8w02t")

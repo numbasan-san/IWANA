@@ -1,25 +1,11 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=12 format=3 uid="uid://cg7yssd5gfox3"]
+[gd_resource type="Resource" script_class="Skill" load_steps=14 format=3 uid="uid://cg7yssd5gfox3"]
 
+[ext_resource type="Texture2D" uid="uid://cdhitokvk18u5" path="res://combat/effects/lasting_effect_icons.png" id="1_p7o72"]
 [ext_resource type="Script" path="res://combat/effects/debuffs/marked.gd" id="1_us337"]
 [ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="2_h8omq"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="3_eov2f"]
 [ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="3_ntg3r"]
 [ext_resource type="Script" path="res://combat/effects/damage.gd" id="3_xbhs4"]
-
-[sub_resource type="Resource" id="Resource_6yq50"]
-script = ExtResource("3_ntg3r")
-number_of_targets = 1
-random = false
-allow_repetition = false
-
-[sub_resource type="Resource" id="Resource_28na4"]
-script = ExtResource("1_us337")
-type = 1
-modifies = 2
-decrease_duration = "After turn"
-duration = 1
-value = 1.0
-target_type = SubResource("Resource_6yq50")
 
 [sub_resource type="Resource" id="Resource_3w0pn"]
 resource_local_to_scene = true
@@ -34,6 +20,26 @@ script = ExtResource("3_xbhs4")
 value = 1.0
 target_type = SubResource("Resource_3w0pn")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv7xu"]
+atlas = ExtResource("1_p7o72")
+region = Rect2(75, 63, 54, 54)
+
+[sub_resource type="Resource" id="Resource_6yq50"]
+script = ExtResource("3_ntg3r")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_28na4"]
+script = ExtResource("1_us337")
+icon = SubResource("AtlasTexture_uv7xu")
+type = 1
+modifies = 2
+decrease_duration = "After turn"
+duration = 1
+value = 1.0
+target_type = SubResource("Resource_6yq50")
+
 [sub_resource type="Resource" id="Resource_hcwdp"]
 script = ExtResource("3_ntg3r")
 number_of_targets = 1
@@ -42,7 +48,7 @@ allow_repetition = false
 
 [sub_resource type="Resource" id="Resource_3fou1"]
 script = ExtResource("2_h8omq")
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_28na4"), SubResource("Resource_07061")])
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_07061"), SubResource("Resource_28na4")])
 value = 1.0
 target_type = SubResource("Resource_hcwdp")
 
@@ -51,4 +57,4 @@ script = ExtResource("3_eov2f")
 name = "Escupo en tu tumba"
 description = "Coloca una marca en el enemigo (asegura golpe crítico) y hace daño"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_3fou1")])
-energy_cost = 0
+energy_cost = 5
