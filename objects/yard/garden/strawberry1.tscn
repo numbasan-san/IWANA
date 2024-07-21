@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ds67qyvurm4ao"]
 
-[ext_resource type="Texture2D" uid="uid://bmh8rbbc6a468" path="res://assets/rpg_sprites/objects/garden.png" id="1_l58h5"]
+[ext_resource type="Texture2D" uid="uid://bmh8rbbc6a468" path="res://objects/yard/garden/garden.png" id="1_l58h5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_346tc"]
 

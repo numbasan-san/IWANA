@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://script/door/zone_change.gd" id="1_2qge8"]
 [ext_resource type="Script" path="res://script/door/portal.gd" id="1_6dlhj"]
-[ext_resource type="Texture2D" uid="uid://d3cnfg7riiid4" path="res://assets/rpg_sprites/objects/doors.png" id="2_y66ju"]
+[ext_resource type="Texture2D" uid="uid://d3cnfg7riiid4" path="res://objects/doors/doors.png" id="2_y66ju"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_346tc"]
 
