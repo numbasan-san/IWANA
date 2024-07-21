@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://cydebiqdat3vw"]
+
+[ext_resource type="Script" path="res://script/door/portal.gd" id="1_txesw"]
+[ext_resource type="Script" path="res://script/door/zone_change.gd" id="3_2pbxo"]
+
+[sub_resource type="Gradient" id="Gradient_dylse"]
+offsets = PackedFloat32Array(0.116129, 0.554839, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 0.627451, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s0c0c"]
+gradient = SubResource("Gradient_dylse")
+fill = 1
+fill_from = Vector2(0.518349, 0.513761)
+fill_to = Vector2(0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i26qx"]
+resource_local_to_scene = true
+size = Vector2(204, 192)
+
+[node name="Portal" type="Node2D"]
+z_index = 1
+script = ExtResource("1_txesw")
+spawn_direction = "up"
+transparency_value = 0.6
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, -2)
+scale = Vector2(4, 4)
+texture = SubResource("GradientTexture2D_s0c0c")
+
+[node name="ZoneChange" type="Area2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("3_2pbxo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneChange"]
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_i26qx")
+debug_color = Color(0.235294, 0.705882, 0.235294, 0.419608)
