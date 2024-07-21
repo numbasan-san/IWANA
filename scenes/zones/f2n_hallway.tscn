@@ -146,14 +146,7 @@ zone = "f2_female_bathroom"
 spawn = "SpawnHallway"
 transparency_value = 0.5
 
-[node name="DoorLaboratory" parent="Doors" index="4" instance=ExtResource("3_gxt50")]
-visible = false
-position = Vector2(3270, 640)
-zone = "laboratory"
-spawn = "SpawnHallway"
-transparency_value = 0.5
-
-[node name="DoorLibrary" parent="Doors" index="5" instance=ExtResource("6_gvj4c")]
+[node name="DoorLibrary" parent="Doors" index="4" instance=ExtResource("6_gvj4c")]
 modulate = Color(1, 1, 1, 0.627451)
 position = Vector2(800, 1306)
 zone = "library"
@@ -161,7 +154,7 @@ spawn = "SpawnF2NH"
 spawn_direction = "down"
 transparent = true
 
-[node name="Portal" parent="Doors" index="6" instance=ExtResource("7_t4bdn")]
+[node name="Portal" parent="Doors" index="5" instance=ExtResource("7_t4bdn")]
 position = Vector2(268, 985)
 zone = "f1n_hallway"
 spawn = "SpawnF2NH"

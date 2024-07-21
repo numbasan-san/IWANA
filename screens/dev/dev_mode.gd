@@ -1,6 +1,5 @@
 extends Screen
 
-@export var all_zones: Array[String]
 @export var zones: MenuButton
 @export var scenes: MenuButton
 @export var units: MenuButton
@@ -56,7 +55,8 @@ func fill_zones_list():
 	# pero al agregar un ítem la función no devuelve su índice asignado, por lo que necesitamos
 	# asignar manualmente un id y obtener el índice a través de ese id
 	var item_id = 0
-	for zone_name in all_zones:
+	ZoneManager.load_all()
+	for zone_name in ZoneManager.zones:
 		var zone = ZoneManager.load(zone_name)
 		popup.add_item(zone.name, item_id)
 		var index = popup.get_item_index(item_id)

@@ -5,7 +5,7 @@ var folder: String = "scenes/zones"
 
 # All the loaded zones. The key is the name of the scene and the value is the
 # node instance
-var _zones: Dictionary
+var zones: Dictionary
 
 # Obtains a reference to a previously loaded zone, or loads it if it hasb't been
 # loaded yet. If a zone with this name can't be found, null is returned
@@ -14,13 +14,13 @@ func load(zone_name: String):
 	# doesn't search in subfolders. Fix it so it does
 	
 	var zone: Zone
-	if _zones.has(zone_name):
-		zone = _zones[zone_name]
+	if zones.has(zone_name):
+		zone = zones[zone_name]
 	else:
 		var scn = load("res://" + folder + "/" + zone_name + ".tscn")
 		if scn:
 			zone = scn.instantiate()
-			_zones[zone_name] = zone
+			zones[zone_name] = zone
 			add_child(zone)
 			zone.deactivate()
 		else:
@@ -28,6 +28,19 @@ func load(zone_name: String):
 				+ zone_name + " in the folder " + folder)
 
 	return zone
+
+# TODO: temporary function to load all zones when activating dev mode. Replace it
+# with something better
+func load_all():
+	# We exclude these files that shouldn't be accessible. This will change
+	# when changing the folder structure
+	var exclude = ["base_bathroom", "base_classroom", "base_zone",
+		"temp_construccion", "world"]
+	for file in DirAccess.get_files_at("res://" + folder):
+		var no_ext = file.get_file().get_basename()
+		if not exclude.has(no_ext):
+			self.load(no_ext)
+		
 
 # This should be invoked when the control is switched to a new character
 # to set the zone that character is as the new active zone. If the active zone

@@ -115,7 +115,7 @@ tile_size = Vector2i(80, 80)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_tbk1h")
 
-[node name="HallwayF1S" instance=ExtResource("1_yu044")]
+[node name="HallwayF2S" instance=ExtResource("1_yu044")]
 room_name = "Pasillo Sur"
 room_info = ExtResource("2_2ar5j")
 
@@ -139,17 +139,17 @@ position = Vector2(507.691, 974.749)
 [node name="Doors" type="Node2D" parent="." index="2"]
 y_sort_enabled = true
 
-[node name="DoorRoomF1S1" parent="Doors" index="0" instance=ExtResource("3_ptcsi")]
+[node name="DoorRoomF2S1" parent="Doors" index="0" instance=ExtResource("3_ptcsi")]
 position = Vector2(5521, 1306)
-zone = "room_f1s1"
+zone = "room_f2s1"
 spawn = "SpawnHallway"
 spawn_direction = "down"
 transparent = true
 front = false
 
-[node name="DoorRoomF1S2" parent="Doors" index="1" instance=ExtResource("3_ptcsi")]
+[node name="DoorRoomF2S2" parent="Doors" index="1" instance=ExtResource("3_ptcsi")]
 position = Vector2(8000, 1305)
-zone = "room_f1s2"
+zone = "room_f2s2"
 spawn = "SpawnHallway"
 spawn_direction = "down"
 transparent = true
