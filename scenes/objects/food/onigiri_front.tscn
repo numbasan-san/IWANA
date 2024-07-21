@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://wd3i3dqdcyxp"]
-
-[ext_resource type="PackedScene" uid="uid://bhdwcwp1jcngf" path="res://scenes/objects/cafeteria/base_cafe_object.tscn" id="1_hx34u"]
-
-[node name="OnigiriFront" instance=ExtResource("1_hx34u")]
-
-[node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1630, 375, 25, 25)

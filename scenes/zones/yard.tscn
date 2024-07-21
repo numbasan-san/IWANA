@@ -1,31 +1,31 @@
-[gd_scene load_steps=28 format=3 uid="uid://b7busewu2ru3v"]
+[gd_scene load_steps=29 format=3 uid="uid://b7busewu2ru3v"]
 
 [ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://scenes/zones/base_zone.tscn" id="1_njc8a"]
 [ext_resource type="Resource" uid="uid://cx0xrrv4j88xu" path="res://script/zones/zone_info/resources/yard.tres" id="2_tes0x"]
-[ext_resource type="PackedScene" uid="uid://csamauje32a3p" path="res://scenes/objects/doors/side_door.tscn" id="3_h68yq"]
-[ext_resource type="PackedScene" uid="uid://c6oggrccmjth" path="res://scenes/objects/yard/tree.tscn" id="4_x44xv"]
+[ext_resource type="PackedScene" uid="uid://csamauje32a3p" path="res://objects/doors/side_door.tscn" id="3_h68yq"]
+[ext_resource type="PackedScene" uid="uid://c6oggrccmjth" path="res://objects/yard/tree.tscn" id="4_x44xv"]
 [ext_resource type="Texture2D" uid="uid://csnek5bda5r4l" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="5_84ux2"]
-[ext_resource type="PackedScene" uid="uid://vihbkwcp447g" path="res://scenes/objects/yard/bench.tscn" id="5_g4210"]
-[ext_resource type="PackedScene" uid="uid://pr6vtnep33ws" path="res://scenes/objects/yard/zafacon.tscn" id="6_urrak"]
-[ext_resource type="PackedScene" uid="uid://dkdhs3t5q4731" path="res://scenes/objects/yard/poster2.tscn" id="7_67dri"]
-[ext_resource type="PackedScene" uid="uid://to2gqs7amuq6" path="res://scenes/objects/yard/window.tscn" id="7_y4r0j"]
-[ext_resource type="PackedScene" uid="uid://c6w6d6qusjaew" path="res://scenes/objects/yard/poster3.tscn" id="8_k2tj2"]
-[ext_resource type="PackedScene" uid="uid://yfayi4losjw" path="res://scenes/objects/yard/poster.tscn" id="9_3b1jo"]
-[ext_resource type="PackedScene" uid="uid://nh6axq4payaf" path="res://scenes/objects/doors/yard_door.tscn" id="11_sg1mg"]
-[ext_resource type="PackedScene" uid="uid://dwep2fby6tje0" path="res://scenes/objects/yard/garden/plantation.tscn" id="12_r447g"]
-[ext_resource type="PackedScene" uid="uid://dunhrnmfiqk01" path="res://scenes/objects/yard/garden/tomato2.tscn" id="13_bnwnx"]
-[ext_resource type="PackedScene" uid="uid://cc1wew1f5tv8m" path="res://scenes/objects/yard/garden/tomato1.tscn" id="14_slnom"]
-[ext_resource type="PackedScene" uid="uid://ds67qyvurm4ao" path="res://scenes/objects/yard/garden/strawberry1.tscn" id="15_fflau"]
-[ext_resource type="PackedScene" uid="uid://776ecmlvpf1i" path="res://scenes/objects/yard/garden/strawberry2.tscn" id="16_5tmtx"]
-[ext_resource type="PackedScene" uid="uid://q7l4qjsglea6" path="res://scenes/objects/yard/garden/vegetable1.tscn" id="17_87jur"]
-[ext_resource type="PackedScene" uid="uid://bh6yaxx0awhwv" path="res://scenes/objects/yard/garden/vegetable2.tscn" id="18_xm6mc"]
-[ext_resource type="PackedScene" uid="uid://xt17hp5mo0xm" path="res://scenes/objects/yard/garden/vegetable3.tscn" id="19_ph1u1"]
-[ext_resource type="PackedScene" uid="uid://c1vfeoppf77d3" path="res://scenes/objects/yard/garden/flower1.tscn" id="20_8v4ry"]
-[ext_resource type="PackedScene" uid="uid://5x5lpnny1yj5" path="res://scenes/objects/yard/garden/flower2.tscn" id="21_bbf4p"]
-[ext_resource type="PackedScene" uid="uid://cryyea10770y5" path="res://scenes/objects/yard/garden/flower3.tscn" id="22_48w03"]
-[ext_resource type="PackedScene" uid="uid://bo5xhb7vuo755" path="res://scenes/objects/yard/garden/flower4.tscn" id="23_0fmkx"]
-[ext_resource type="PackedScene" uid="uid://deqakpvqlcmph" path="res://scenes/objects/yard/garden/flower5.tscn" id="24_btn10"]
-[ext_resource type="PackedScene" uid="uid://cj80b1ogckeai" path="res://scenes/objects/yard/garden/flower6.tscn" id="25_ienn5"]
+[ext_resource type="PackedScene" uid="uid://vihbkwcp447g" path="res://objects/yard/bench.tscn" id="5_g4210"]
+[ext_resource type="PackedScene" uid="uid://pr6vtnep33ws" path="res://objects/yard/zafacon.tscn" id="6_urrak"]
+[ext_resource type="PackedScene" uid="uid://dkdhs3t5q4731" path="res://objects/yard/poster2.tscn" id="7_67dri"]
+[ext_resource type="PackedScene" uid="uid://to2gqs7amuq6" path="res://objects/yard/window.tscn" id="7_y4r0j"]
+[ext_resource type="PackedScene" uid="uid://c6w6d6qusjaew" path="res://objects/yard/poster3.tscn" id="8_k2tj2"]
+[ext_resource type="PackedScene" uid="uid://yfayi4losjw" path="res://objects/yard/poster.tscn" id="9_3b1jo"]
+[ext_resource type="PackedScene" uid="uid://nh6axq4payaf" path="res://objects/doors/yard_door.tscn" id="11_sg1mg"]
+[ext_resource type="PackedScene" uid="uid://dwep2fby6tje0" path="res://objects/yard/garden/plantation.tscn" id="12_r447g"]
+[ext_resource type="PackedScene" uid="uid://dunhrnmfiqk01" path="res://objects/yard/garden/tomato2.tscn" id="13_bnwnx"]
+[ext_resource type="PackedScene" uid="uid://cc1wew1f5tv8m" path="res://objects/yard/garden/tomato1.tscn" id="14_slnom"]
+[ext_resource type="PackedScene" uid="uid://ds67qyvurm4ao" path="res://objects/yard/garden/strawberry1.tscn" id="15_fflau"]
+[ext_resource type="PackedScene" uid="uid://776ecmlvpf1i" path="res://objects/yard/garden/strawberry2.tscn" id="16_5tmtx"]
+[ext_resource type="PackedScene" uid="uid://q7l4qjsglea6" path="res://objects/yard/garden/vegetable1.tscn" id="17_87jur"]
+[ext_resource type="PackedScene" uid="uid://bh6yaxx0awhwv" path="res://objects/yard/garden/vegetable2.tscn" id="18_xm6mc"]
+[ext_resource type="PackedScene" uid="uid://xt17hp5mo0xm" path="res://objects/yard/garden/vegetable3.tscn" id="19_ph1u1"]
+[ext_resource type="PackedScene" uid="uid://c1vfeoppf77d3" path="res://objects/yard/garden/flower1.tscn" id="20_8v4ry"]
+[ext_resource type="PackedScene" uid="uid://5x5lpnny1yj5" path="res://objects/yard/garden/flower2.tscn" id="21_bbf4p"]
+[ext_resource type="PackedScene" uid="uid://cryyea10770y5" path="res://objects/yard/garden/flower3.tscn" id="22_48w03"]
+[ext_resource type="PackedScene" uid="uid://bo5xhb7vuo755" path="res://objects/yard/garden/flower4.tscn" id="23_0fmkx"]
+[ext_resource type="PackedScene" uid="uid://deqakpvqlcmph" path="res://objects/yard/garden/flower5.tscn" id="24_btn10"]
+[ext_resource type="PackedScene" uid="uid://cj80b1ogckeai" path="res://objects/yard/garden/flower6.tscn" id="25_ienn5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xnhgn"]
 resource_name = "floors and walls"
@@ -162,15 +162,6 @@ spawn = "SpawnYard"
 spawn_direction = "down"
 transparent = true
 transparency_value = 0.5
-
-[node name="SpawnHallwayNorth" type="Node2D" parent="SpawnPoints" index="0"]
-position = Vector2(0, 157)
-
-[node name="SpawnDiningRoom" type="Node2D" parent="SpawnPoints" index="1"]
-position = Vector2(-3514, 2480)
-
-[node name="SpawnHallwaySouth" type="Node2D" parent="SpawnPoints" index="2"]
-position = Vector2(1, 5276)
 
 [node name="Trees" type="Node2D" parent="." index="5"]
 visible = false
@@ -372,3 +363,12 @@ position = Vector2(98.1261, 129.805)
 
 [node name="Plantation6" parent="Garden" index="5" instance=ExtResource("12_r447g")]
 position = Vector2(1800, 1100)
+
+[node name="SpawnHallwayNorth" type="Node2D" parent="SpawnPoints" index="0"]
+position = Vector2(0, 157)
+
+[node name="SpawnDiningRoom" type="Node2D" parent="SpawnPoints" index="1"]
+position = Vector2(-3514, 2480)
+
+[node name="SpawnHallwaySouth" type="Node2D" parent="SpawnPoints" index="2"]
+position = Vector2(1, 5276)

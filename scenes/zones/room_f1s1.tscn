@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://bc2cyot7ikw0c"]
 
-[ext_resource type="PackedScene" path="res://scenes/zones/base_classroom_south.tscn" id="1_p0tah"]
+[ext_resource type="PackedScene" uid="uid://b4ii0x8sqtmxw" path="res://scenes/zones/base_classroom_south.tscn" id="1_p0tah"]
 [ext_resource type="Resource" uid="uid://cb54hfddwnom3" path="res://script/zones/zone_info/resources/room_f1s1.tres" id="2_bfvdj"]
 [ext_resource type="Texture2D" uid="uid://csnek5bda5r4l" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="2_yxtme"]
 
@@ -150,7 +150,6 @@ room_name = "Aula 1-C"
 room_info = ExtResource("2_bfvdj")
 
 [node name="Door" parent="." index="0"]
-position = Vector2(640, -160)
 zone = "f1s_hallway"
 spawn = "SpawnF1S1"
 front = false

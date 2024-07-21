@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://di6ir18naj08g"]
+
+[ext_resource type="PackedScene" uid="uid://bhdwcwp1jcngf" path="res://objects/cafeteria/base_cafe_object.tscn" id="1_25hwt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dx7eg"]
+size = Vector2(368, 155)
+
+[node name="CounterMiddle" instance=ExtResource("1_25hwt")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(774, 195, 368, 240.688)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0, 42.5)
+shape = SubResource("RectangleShape2D_dx7eg")

@@ -154,13 +154,13 @@ position = Vector2(640, 2172)
 zone = "f2n_hallway"
 spawn = "SpawnF2N2"
 
-[node name="Items" type="Node2D" parent="." index="7"]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(-263, -136)
-
-[node name="TileMap" parent="." index="8"]
+[node name="TileMap" parent="." index="1"]
 tile_set = SubResource("TileSet_8cfmj")
 
 [node name="SpawnHallway" parent="SpawnPoints" index="0"]
 position = Vector2(640, 2062)
+
+[node name="Items" type="Node2D" parent="." index="5"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-263, -136)

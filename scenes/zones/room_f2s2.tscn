@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://fn4epws73eg0"]
 
-[ext_resource type="PackedScene" path="res://scenes/zones/base_classroom_south.tscn" id="1_uqpnc"]
+[ext_resource type="PackedScene" uid="uid://b4ii0x8sqtmxw" path="res://scenes/zones/base_classroom_south.tscn" id="1_uqpnc"]
 [ext_resource type="Resource" uid="uid://c81hlmma6i3wx" path="res://script/zones/zone_info/resources/room_f1s2.tres" id="2_g17wl"]
 [ext_resource type="Texture2D" uid="uid://csnek5bda5r4l" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="3_w173r"]
 
@@ -150,22 +150,18 @@ room_name = "Aula 1-D"
 room_info = ExtResource("2_g17wl")
 
 [node name="Door" parent="." index="0"]
-position = Vector2(640, -160)
 zone = "f2s_hallway"
 spawn = "SpawnF2S2"
 transparent = false
 front = false
 
-[node name="Window" parent="." index="3"]
-visible = false
-
-[node name="Items" type="Node2D" parent="." index="7"]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(-263, -136)
-
-[node name="TileMap" parent="." index="8"]
+[node name="TileMap" parent="." index="1"]
 tile_set = SubResource("TileSet_tjb0j")
 
 [node name="SpawnHallway" parent="SpawnPoints" index="0"]
 position = Vector2(640, 10)
+
+[node name="Items" type="Node2D" parent="." index="5"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-263, -136)

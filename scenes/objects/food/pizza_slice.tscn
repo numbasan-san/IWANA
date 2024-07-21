@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dy703dlrjk3c4"]
-
-[ext_resource type="PackedScene" uid="uid://bhdwcwp1jcngf" path="res://scenes/objects/cafeteria/base_cafe_object.tscn" id="1_yv1ms"]
-
-[node name="PizzaSlice" instance=ExtResource("1_yv1ms")]
-
-[node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1695, 615, 65, 55)

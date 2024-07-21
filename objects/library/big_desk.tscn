@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bosobbnf1uyko"]
+
+[ext_resource type="PackedScene" uid="uid://deec72o7wrnl0" path="res://objects/library/base_lib_object.tscn" id="1_5refh"]
+
+[node name="BigDesk" instance=ExtResource("1_5refh")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -176)
+region_rect = Rect2(80, 595, 515, 450)
+
+[node name="StaticBody2D" parent="." index="1"]
+position = Vector2(0, -176)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
+polygon = PackedVector2Array(-257, 224, 257, 224, 257, -128, 122, -128, 122, 32, -122, 32, -122, -128, -257, -128)

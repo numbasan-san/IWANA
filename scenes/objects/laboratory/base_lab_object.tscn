@@ -1,9 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://wj1qx5xeiuf3"]
-
-[ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://scenes/objects/base_object.tscn" id="1_ibbt1"]
-[ext_resource type="Texture2D" uid="uid://dwk1i2v2ns2wk" path="res://assets/rpg_sprites/objects/laboratory.png" id="2_s7kum"]
-
-[node name="BaseLabObject" instance=ExtResource("1_ibbt1")]
-
-[node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_s7kum")

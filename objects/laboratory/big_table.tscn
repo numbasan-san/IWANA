@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://4erefc1g2h2"]
+
+[ext_resource type="PackedScene" uid="uid://wj1qx5xeiuf3" path="res://objects/laboratory/base_lab_object.tscn" id="1_lt4xf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m10on"]
+size = Vector2(1550, 105)
+
+[node name="BigTable" instance=ExtResource("1_lt4xf")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(155, 80, 1560, 240)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0, 67.5)
+shape = SubResource("RectangleShape2D_m10on")

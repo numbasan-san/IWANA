@@ -153,13 +153,13 @@ room_info = ExtResource("2_etkyu")
 zone = "f2n_hallway"
 spawn = "SpawnF2N1"
 
-[node name="Items" type="Node2D" parent="." index="7"]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(-263, -136)
-
-[node name="TileMap" parent="." index="8"]
+[node name="TileMap" parent="." index="1"]
 tile_set = SubResource("TileSet_tjb0j")
 
 [node name="Default" type="Node2D" parent="SpawnPoints" index="0"]
 position = Vector2(144, 256)
+
+[node name="Items" type="Node2D" parent="." index="5"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-263, -136)

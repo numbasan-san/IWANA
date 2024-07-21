@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://jvat66ecbhxs"]
+
+[ext_resource type="PackedScene" uid="uid://wj1qx5xeiuf3" path="res://objects/laboratory/base_lab_object.tscn" id="1_2fxei"]
+
+[node name="ElementsTable" instance=ExtResource("1_2fxei")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(860, 660, 520, 300)

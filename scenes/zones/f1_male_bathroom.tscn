@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dvs7a5k1ejf15" path="res://scenes/zones/base_bathroom.tscn" id="1_pdam1"]
 [ext_resource type="Resource" uid="uid://ba56itmiwasft" path="res://script/zones/zone_info/resources/f1_male_bathroom.tres" id="2_1s1wj"]
-[ext_resource type="PackedScene" uid="uid://cutel42w2vpbu" path="res://scenes/objects/doors/male_bathroom_door.tscn" id="2_204y4"]
+[ext_resource type="PackedScene" uid="uid://cutel42w2vpbu" path="res://objects/doors/male_bathroom_door.tscn" id="2_204y4"]
 
 [node name="F1MaleBathroom" instance=ExtResource("1_pdam1")]
 room_name = "Baño de Chicos"

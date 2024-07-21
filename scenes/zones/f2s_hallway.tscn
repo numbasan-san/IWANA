@@ -2,12 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://scenes/zones/base_zone.tscn" id="1_yu044"]
 [ext_resource type="Resource" uid="uid://3y5bcnvsfjn8" path="res://script/zones/zone_info/resources/f1s_hallway.tres" id="2_2ar5j"]
-[ext_resource type="PackedScene" uid="uid://cn0nlsq5wj8on" path="res://scenes/objects/doors/classroom_door.tscn" id="3_ptcsi"]
-[ext_resource type="PackedScene" uid="uid://nh6axq4payaf" path="res://scenes/objects/doors/yard_door.tscn" id="4_nfafp"]
-[ext_resource type="PackedScene" uid="uid://dmda7enq2l0im" path="res://scenes/objects/general/locker.tscn" id="5_3q67h"]
-[ext_resource type="PackedScene" uid="uid://cc20k433oxy2p" path="res://scenes/objects/general/book_shelf.tscn" id="6_fob5q"]
-[ext_resource type="PackedScene" uid="uid://cydebiqdat3vw" path="res://scenes/objects/doors/portal.tscn" id="6_h0hef"]
-[ext_resource type="PackedScene" uid="uid://bqonqotb6lenr" path="res://scenes/objects/general/info_board.tscn" id="7_6xxgy"]
+[ext_resource type="PackedScene" uid="uid://cn0nlsq5wj8on" path="res://objects/doors/classroom_door.tscn" id="3_ptcsi"]
+[ext_resource type="PackedScene" uid="uid://nh6axq4payaf" path="res://objects/doors/yard_door.tscn" id="4_nfafp"]
+[ext_resource type="PackedScene" uid="uid://dmda7enq2l0im" path="res://objects/general/locker.tscn" id="5_3q67h"]
+[ext_resource type="PackedScene" uid="uid://cc20k433oxy2p" path="res://objects/general/book_shelf.tscn" id="6_fob5q"]
+[ext_resource type="PackedScene" uid="uid://cydebiqdat3vw" path="res://objects/doors/portal.tscn" id="6_h0hef"]
+[ext_resource type="PackedScene" uid="uid://bqonqotb6lenr" path="res://objects/general/info_board.tscn" id="7_6xxgy"]
 [ext_resource type="Texture2D" uid="uid://csnek5bda5r4l" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="8_4grs8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbk1h"]

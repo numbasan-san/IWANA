@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://n4u8y0x5enjf"]
+
+[ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://objects/base_object.tscn" id="1_blhxe"]
+[ext_resource type="Texture2D" uid="uid://dr1qgclbkgriv" path="res://assets/rpg_sprites/objects/classroom.png" id="2_diyto"]
+
+[node name="BaseClassroomObject" instance=ExtResource("1_blhxe")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_diyto")
