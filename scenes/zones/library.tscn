@@ -157,9 +157,6 @@ zone = "f2s_hallway"
 spawn = "SpawnLibrary"
 spawn_direction = "down"
 
-[node name="Objects" type="Node2D" parent="." index="3"]
-y_sort_enabled = true
-
 [node name="BookClubPoster" parent="Objects" index="0" instance=ExtResource("5_kw38m")]
 position = Vector2(834, -1089)
 
@@ -189,42 +186,55 @@ position = Vector2(-192.475, -316.028)
 position = Vector2(195, -333)
 
 [node name="Shelves" type="Node2D" parent="Objects" index="3"]
+y_sort_enabled = true
+position = Vector2(0, 120)
 
 [node name="BookshelfHorizontal" parent="Objects/Shelves" index="0" instance=ExtResource("14_yoypr")]
 position = Vector2(-96, 0)
 
 [node name="Book1" parent="Objects/Shelves/BookshelfHorizontal" index="2" instance=ExtResource("15_2ch87")]
-position = Vector2(-248.844, -75.3962)
+z_index = 0
+position = Vector2(-244.844, -187.396)
 
 [node name="Book2" parent="Objects/Shelves/BookshelfHorizontal" index="3" instance=ExtResource("16_a3fas")]
-position = Vector2(-205.174, -75.6828)
+z_index = 0
+position = Vector2(-201.174, -188.683)
 
 [node name="Book3" parent="Objects/Shelves/BookshelfHorizontal" index="4" instance=ExtResource("17_5hrm3")]
-position = Vector2(-161.838, -75.382)
+z_index = 0
+position = Vector2(-157.838, -188.382)
 
 [node name="Book4" parent="Objects/Shelves/BookshelfHorizontal" index="5" instance=ExtResource("18_mdgsb")]
-position = Vector2(-119.44, -74.9206)
+z_index = 0
+position = Vector2(-115.44, -187.921)
 
 [node name="Book5" parent="Objects/Shelves/BookshelfHorizontal" index="6" instance=ExtResource("19_p3wih")]
-position = Vector2(-66.0555, -74.0954)
+z_index = 0
+position = Vector2(-62.0555, -187.095)
 
 [node name="Book6" parent="Objects/Shelves/BookshelfHorizontal" index="7" instance=ExtResource("20_10at3")]
-position = Vector2(2.20276, -75.8576)
+z_index = 0
+position = Vector2(6.20276, -188.858)
 
 [node name="Book7" parent="Objects/Shelves/BookshelfHorizontal" index="8" instance=ExtResource("21_i2l0w")]
-position = Vector2(63.0484, -75.0954)
+z_index = 0
+position = Vector2(67.0484, -188.095)
 
 [node name="Book8" parent="Objects/Shelves/BookshelfHorizontal" index="9" instance=ExtResource("22_tcq7u")]
-position = Vector2(-277.418, 0.337616)
+z_index = 0
+position = Vector2(-273.418, -112.662)
 
 [node name="Book9" parent="Objects/Shelves/BookshelfHorizontal" index="10" instance=ExtResource("23_pijnj")]
-position = Vector2(-235.369, 5.09982)
+z_index = 0
+position = Vector2(-231.369, -107.9)
 
 [node name="Book10" parent="Objects/Shelves/BookshelfHorizontal" index="11" instance=ExtResource("24_pa5j5")]
-position = Vector2(-169.348, 1.27463)
+z_index = 0
+position = Vector2(-165.348, -111.725)
 
 [node name="Book11" parent="Objects/Shelves/BookshelfHorizontal" index="12" instance=ExtResource("25_xj4qw")]
-position = Vector2(-109.328, -0.312775)
+z_index = 0
+position = Vector2(-105.328, -113.313)
 
 [node name="BookshelfHorizontal2" parent="Objects/Shelves" index="1" instance=ExtResource("14_yoypr")]
 position = Vector2(815, 0)
@@ -253,49 +263,48 @@ position = Vector2(879.284, 1651.73)
 [node name="BookshelfVertical4" parent="Objects/Shelves" index="9" instance=ExtResource("26_ka7ch")]
 position = Vector2(879.284, 2251.73)
 
-[node name="Table" parent="Objects" index="4" instance=ExtResource("27_0eeo3")]
+[node name="TableSet1" type="Node2D" parent="Objects" index="4"]
 y_sort_enabled = true
-position = Vector2(373, 1785)
+position = Vector2(373.958, 1790.24)
 
-[node name="ChairBack" parent="Objects/Table" index="2" instance=ExtResource("28_8adwq")]
-position = Vector2(0, 48)
+[node name="ChairFront" parent="Objects/TableSet1" index="0" instance=ExtResource("29_spwf5")]
+position = Vector2(-0.958435, -133.245)
 
-[node name="ChairFront" parent="Objects/Table" index="3" instance=ExtResource("29_spwf5")]
-z_as_relative = false
-position = Vector2(0, -128)
+[node name="ChairLeft" parent="Objects/TableSet1" index="1" instance=ExtResource("30_e6ols")]
+position = Vector2(151.042, -21.2448)
 
-[node name="ChairLeft" parent="Objects/Table" index="4" instance=ExtResource("30_e6ols")]
-z_as_relative = false
-position = Vector2(152, -16)
+[node name="ChairRight" parent="Objects/TableSet1" index="2" instance=ExtResource("31_ltaqu")]
+position = Vector2(-152.958, -21.2448)
 
-[node name="ChairRight" parent="Objects/Table" index="5" instance=ExtResource("31_ltaqu")]
-z_as_relative = false
-position = Vector2(-152, -16)
+[node name="Lamp" parent="Objects/TableSet1" index="3" instance=ExtResource("13_moc2i")]
+position = Vector2(-0.958435, -115.245)
 
-[node name="Lamp" parent="Objects/Table" index="6" instance=ExtResource("13_moc2i")]
-position = Vector2(0, -110)
+[node name="Table" parent="Objects/TableSet1" index="4" instance=ExtResource("27_0eeo3")]
+position = Vector2(-0.958435, -5.24475)
 
-[node name="Table2" parent="Objects" index="5" instance=ExtResource("27_0eeo3")]
+[node name="ChairBack" parent="Objects/TableSet1" index="5" instance=ExtResource("28_8adwq")]
+position = Vector2(-0.958435, 42.7552)
+
+[node name="TableSet2" type="Node2D" parent="Objects" index="5"]
 y_sort_enabled = true
 position = Vector2(373, 2297)
 
-[node name="ChairBack" parent="Objects/Table2" index="2" instance=ExtResource("28_8adwq")]
-position = Vector2(0, 48)
-
-[node name="ChairFront" parent="Objects/Table2" index="3" instance=ExtResource("29_spwf5")]
-z_as_relative = false
+[node name="ChairFront" parent="Objects/TableSet2" index="0" instance=ExtResource("29_spwf5")]
 position = Vector2(0, -128)
 
-[node name="ChairLeft" parent="Objects/Table2" index="4" instance=ExtResource("30_e6ols")]
-z_as_relative = false
+[node name="ChairLeft" parent="Objects/TableSet2" index="1" instance=ExtResource("30_e6ols")]
 position = Vector2(152, -16)
 
-[node name="ChairRight" parent="Objects/Table2" index="5" instance=ExtResource("31_ltaqu")]
-z_as_relative = false
+[node name="ChairRight" parent="Objects/TableSet2" index="2" instance=ExtResource("31_ltaqu")]
 position = Vector2(-152, -16)
 
-[node name="Lamp" parent="Objects/Table2" index="6" instance=ExtResource("13_moc2i")]
+[node name="Table" parent="Objects/TableSet2" index="3" instance=ExtResource("27_0eeo3")]
+
+[node name="Lamp" parent="Objects/TableSet2" index="4" instance=ExtResource("13_moc2i")]
 position = Vector2(0, -112)
+
+[node name="ChairBack" parent="Objects/TableSet2" index="5" instance=ExtResource("28_8adwq")]
+position = Vector2(0, 48)
 
 [node name="SpawnF2NH" type="Node2D" parent="SpawnPoints" index="0"]
 position = Vector2(361, -751)

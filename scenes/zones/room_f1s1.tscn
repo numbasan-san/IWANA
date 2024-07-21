@@ -1,11 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://bc2cyot7ikw0c"]
+[gd_scene load_steps=15 format=3 uid="uid://bc2cyot7ikw0c"]
 
-[ext_resource type="PackedScene" uid="uid://bqvxhi7wt87t" path="res://scenes/zones/base_classroom.tscn" id="1_p0tah"]
+[ext_resource type="PackedScene" path="res://scenes/zones/base_classroom_south.tscn" id="1_p0tah"]
 [ext_resource type="Resource" uid="uid://cb54hfddwnom3" path="res://script/zones/zone_info/resources/room_f1s1.tres" id="2_bfvdj"]
 [ext_resource type="Texture2D" uid="uid://csnek5bda5r4l" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="2_yxtme"]
-[ext_resource type="Texture2D" uid="uid://dr1qgclbkgriv" path="res://assets/rpg_sprites/objects/classroom.png" id="3_2a0um"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_346tc"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_6eplc"]
 tile_data = PackedInt32Array(0, 65537, 1, 65536, 65537, 2, 131072, 65537, 3, 196608, 65537, 4, 1, 131073, 1, 65537, 131073, 2, 131073, 131073, 3, 196609, 131073, 4, 2, 196609, 1, 65538, 196609, 2, 131074, 196609, 3, 196610, 196609, 4, 3, 262145, 1, 65539, 262145, 2, 131075, 262145, 3, 196611, 262145, 4)
@@ -158,24 +155,13 @@ zone = "f1s_hallway"
 spawn = "SpawnF1S1"
 front = false
 
-[node name="Window" parent="." index="3"]
-visible = false
-
-[node name="Sprite2D2" type="Sprite2D" parent="Window" index="0"]
-texture = ExtResource("3_2a0um")
-region_enabled = true
-region_rect = Rect2(880, 145, 320, 255)
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="Window" index="1"]
-physics_material_override = SubResource("PhysicsMaterial_346tc")
-
-[node name="Items" type="Node2D" parent="." index="7"]
-z_index = 1
-y_sort_enabled = true
-position = Vector2(-263, -136)
-
-[node name="TileMap" parent="." index="8"]
+[node name="TileMap" parent="." index="1"]
 tile_set = SubResource("TileSet_tjb0j")
 
 [node name="SpawnHallway" parent="SpawnPoints" index="0"]
 position = Vector2(640, 10)
+
+[node name="Items" type="Node2D" parent="." index="5"]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(-263, -136)

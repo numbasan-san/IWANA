@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://twhlmwuycj7m"]
 
-[ext_resource type="PackedScene" uid="uid://bqvxhi7wt87t" path="res://scenes/zones/base_classroom.tscn" id="1_x8r2i"]
+[ext_resource type="PackedScene" uid="uid://bqvxhi7wt87t" path="res://scenes/zones/base_classroom_north.tscn" id="1_x8r2i"]
 [ext_resource type="Resource" uid="uid://d3m1k3ynfdasd" path="res://script/zones/zone_info/resources/room_f1n1.tres" id="2_etkyu"]
 [ext_resource type="Texture2D" uid="uid://csnek5bda5r4l" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="3_ctnts"]
 

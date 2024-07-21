@@ -34,8 +34,8 @@ func load(zone_name: String):
 func load_all():
 	# We exclude these files that shouldn't be accessible. This will change
 	# when changing the folder structure
-	var exclude = ["base_bathroom", "base_classroom", "base_zone",
-		"temp_construccion", "world"]
+	var exclude = ["base_bathroom", "base_classroom_north", "base_classroom_south",
+		"base_zone", "temp_construccion", "world"]
 	for file in DirAccess.get_files_at("res://" + folder):
 		var no_ext = file.get_file().get_basename()
 		if not exclude.has(no_ext):

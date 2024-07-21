@@ -8,7 +8,11 @@ size = Vector2(609, 166)
 [node name="BookshelfHorizontal" instance=ExtResource("1_hnaa1")]
 
 [node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -112)
 region_rect = Rect2(1295, 355, 610, 390)
+
+[node name="StaticBody2D" parent="." index="1"]
+position = Vector2(0, -112)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(-0.5, 114)

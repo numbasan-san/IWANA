@@ -8,7 +8,11 @@ size = Vector2(110, 90)
 [node name="ChairRight" instance=ExtResource("1_ie2tu")]
 
 [node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -56)
 region_rect = Rect2(1100, 175, 110, 190)
+
+[node name="StaticBody2D" parent="." index="1"]
+position = Vector2(0, -56)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(1, 51)

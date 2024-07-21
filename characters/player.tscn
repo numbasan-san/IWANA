@@ -32,7 +32,7 @@ inventory = ExtResource("2_ks6fo")
 general_interaction_area = NodePath("GeneralInteraction")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerControl"]
-position = Vector2(-2, -30.5)
+position = Vector2(0, -0.5)
 zoom = Vector2(0.6, 0.6)
 
 [node name="TextureRect" type="TextureRect" parent="PlayerControl/Camera2D"]
@@ -59,7 +59,7 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_p8wqi")
 
 [node name="ItemCollection" type="Area2D" parent="PlayerControl"]
-position = Vector2(-1, -22)
+position = Vector2(1, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerControl/ItemCollection"]
 position = Vector2(-2, -30.5)
@@ -67,7 +67,7 @@ shape = SubResource("RectangleShape2D_tclry")
 debug_color = Color(0.803922, 0.419608, 0, 0.419608)
 
 [node name="DoorInteraction" type="Area2D" parent="PlayerControl"]
-position = Vector2(-1, -22)
+position = Vector2(1, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerControl/DoorInteraction"]
 position = Vector2(-2, -30)
@@ -75,7 +75,7 @@ shape = SubResource("RectangleShape2D_yq1h1")
 debug_color = Color(0.235294, 0.705882, 0.235294, 0.419608)
 
 [node name="TransparencyActivation" type="Area2D" parent="PlayerControl"]
-position = Vector2(-1, -22)
+position = Vector2(1, 8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerControl/TransparencyActivation"]
 position = Vector2(-2, -30.5)
@@ -83,7 +83,7 @@ shape = SubResource("RectangleShape2D_nwfji")
 debug_color = Color(0.705882, 0.705882, 0.705882, 0.419608)
 
 [node name="GeneralInteraction" type="Area2D" parent="PlayerControl"]
-position = Vector2(-1, -40)
+position = Vector2(1, -10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerControl/GeneralInteraction"]
 position = Vector2(-2, 30)
