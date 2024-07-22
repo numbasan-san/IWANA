@@ -1,5 +1,6 @@
 extends Screen
 
+@export var characters: MenuButton
 @export var zones: MenuButton
 @export var scenes: MenuButton
 @export var units: MenuButton
@@ -11,6 +12,10 @@ var first_scene: String
 
 func _process(_delta):
 	if enabled:
+		if Player.character:
+			characters.text = Player.character.char_name.to_pascal_case()
+		else:
+			characters.text = "Ninguno"
 		if Player.character and Player.character.zone:
 			zones.disabled = false
 			zones.text = Player.character.zone.name
@@ -39,6 +44,7 @@ func habilitar():
 	print("Dev Mode On")
 	activate()
 	enabled = true
+	fill_characters_list()
 	fill_zones_list()
 	fill_scenes_list()
 	# Esta función solo busca las unidades de la escena actual, por lo que
@@ -117,6 +123,39 @@ func fill_units_list():
 			ScriptManager.current_scene.load(unit_name)
 		)
 
+# This only allows changing control between characters that have been loaded
+# already
+func fill_characters_list():
+	if not enabled:
+		return
+	var popup: PopupMenu = characters.get_popup()
+	popup.clear()
+	popup.add_theme_font_size_override("font_size", 30)
+	# Esta variable es necesaria porque varias funciones de popup requieren el índice del ítem,
+	# pero al agregar un ítem la función no devuelve su índice asignado, por lo que necesitamos
+	# asignar manualmente un id y obtener el índice a través de ese id
+	var item_id = 0
+	CharacterManager.load_all()
+	for char_name in CharacterManager.characters:
+		var char = CharacterManager.load(char_name)
+		popup.add_item(char.char_name.to_pascal_case(), item_id)
+		var index = popup.get_item_index(item_id)
+		item_id += 1
+		popup.set_item_metadata(index, char)
+		
+	# Al conectar esta señal asumimos que nunca se conectará a otra función fuera de este script.
+	# Si esto cambia en algún momento, necesitamos arreglar este código
+	var world = ScreenManager.rpg_screen.contents
+	if popup.index_pressed.get_connections().size() == 0:
+		popup.index_pressed.connect(func (index) -> void:
+			var char = popup.get_item_metadata(index)
+			Player.control(char)
+			if not Player.character.zone:
+				var def_zone = ZoneManager.load("dev_testing")
+				world.spawn(Player.character, def_zone, "Default", "down", world.SpawnFallback.FIRST)
+		)
+
 func _on_script_reload():
 	ScriptParser.parse_all()
 	ScriptManager.restart()
+

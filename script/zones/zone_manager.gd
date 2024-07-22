@@ -1,7 +1,7 @@
 extends Node
 
 # The path where the zones are searched
-var folder: String = "scenes/zones"
+var folder: String = "res://scenes/zones"
 
 # All the loaded zones. The key is the name of the scene and the value is the
 # node instance
@@ -17,7 +17,7 @@ func load(zone_name: String):
 	if zones.has(zone_name):
 		zone = zones[zone_name]
 	else:
-		var scn = load("res://" + folder + "/" + zone_name + ".tscn")
+		var scn = load(folder + "/" + zone_name + ".tscn")
 		if scn:
 			zone = scn.instantiate()
 			zones[zone_name] = zone

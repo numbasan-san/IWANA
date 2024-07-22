@@ -19,6 +19,8 @@ var size: int:
 var leader: Character:
 	get:
 		return members[0]
+	set(char):
+		move(char, 0)
 
 # A pointer to the path this party is following
 var path: PartyPath
@@ -119,17 +121,25 @@ func move(character: Character, index: int):
 		return
 	if has(character) and members[index] != character:
 		var ix = members.find(character)
+		members.pop_at(ix)
+		members.insert(index, character)
 		# If the character was the leader, now it isn't
 		if ix == 0:
 			character.is_leader = false
-		members.pop_at(ix)
-		members.insert(index, character)
-		# If we changed the leader, we reset the path so that the other members
-		# follow the new leader
-		if index == 0:
+			character.is_following = true
+			members[0].is_leader = true
+			members[0].is_following = false
+		# If we make character into the new leader, the old leader will be
+		# at position 1
+		elif index == 0:
 			character.is_leader = true
-			clear_path()
-			new_path()
+			character.is_following = false
+			members[1].is_leader = false
+			members[1].is_following = true
+		# In any of these cases we changed the leader so we must rebuild the
+		# follower paths
+		if ix == 0 or index == 0:
+			reposition(leader.zone, leader.rpg_model.position, leader.rpg_model.direction)
 
 # The position of the character in the party
 func index(character: Character) -> int:
@@ -183,8 +193,6 @@ func clear_path():
 		if path:
 			leader.zone.remove_party_path(path)
 			path = null
-		for m in members:
-			m.follower_node = null
 
 # Repositions the entire party to a new location, preserving their following status
 # and handling paths correctly. Members that are following the leader will be
