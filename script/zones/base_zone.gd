@@ -112,6 +112,7 @@ func add_party_follower(path: PartyPath, follower: PartyFollower):
 	for p in party_path_node.get_children():
 		if p == path:
 			p.add_child(follower)
+			follower.progress_ratio = 1
 			return
 
 # A path should only exist in one zone at a time, and only one instance, so the

@@ -63,7 +63,7 @@ func set_axis(x, y):
 # Moves this model to a new position in the same zone
 # If we want to move it to a different zone, we must use the reposition
 # function in the Character object
-func reposition(new_position: Vector2, new_direction: String):
+func reposition(new_position: Vector2, new_direction: String = direction):
 	position = new_position
 	direction = new_direction
 
@@ -81,7 +81,7 @@ func deactivate():
 
 
 func enable_collisions():
-	collider.set_deferred("disabled", false)
+	collider.disabled = false
 
 func disable_collisions():
-	collider.set_deferred("disabled", true)
+	collider.disabled = true

@@ -25,7 +25,7 @@ func _init(party: Party, start: Vector2, min_point_distance: float = 50):
 	position = Vector2(0, 0)
 	curve = Curve2D.new()
 	curve.add_point(start)
-	head = Vector2(0, 0)
+	head = start
 	y_sort_enabled = true
 
 # Adds a new point to the path. 

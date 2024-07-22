@@ -14,6 +14,9 @@ var zone: Zone
 # character must be the first character in this array
 var party: Party
 
+signal control_changed(character: Character)
+signal control_removed
+
 # Switches player control to the given character. If the argument is null, we
 # must remove the control from the current character. In theory this function
 # would never be called with null, but it's here just in case it's needed for
@@ -29,15 +32,16 @@ func control(new_character: Character = null):
 		else:
 			var model = character.rpg_model
 			var control = model.get_node("PlayerControl") as PlayerControl
-			model.call_deferred("remove_child", control)
-			call_deferred("add_child", control)
-			control.set_deferred("attached", false)
+			model.remove_child(control)
+			add_child(control)
+			control.attached = false
 			ZoneManager.set_active(null)
 			for m in party.members:
 				m.enable_collisions()
 			party = null
 			zone = null
 			character = null
+			control_removed.emit()
 	# This is the case when we are setting a new character
 	else:
 		var control: PlayerControl
@@ -47,9 +51,9 @@ func control(new_character: Character = null):
 			party = character.party
 			ZoneManager.set_active(zone)
 			control = get_node("PlayerControl")
-			call_deferred("remove_child", control)
-			character.rpg_model.call_deferred("add_child", control)
-			control.set_deferred("attached", true)
+			remove_child(control)
+			character.rpg_model.add_child(control)
+			control.attached = true
 			
 			# When we control a character, it becomes the party leader if it
 			# wasn't already
@@ -60,8 +64,8 @@ func control(new_character: Character = null):
 		else:
 			var model = character.rpg_model
 			control = model.get_node("PlayerControl")
-			model.call_deferred("remove_child", control)
-			new_character.rpg_model.call_deferred("add_child", control)
+			model.remove_child(control)
+			new_character.rpg_model.add_child(control)
 			
 			character = new_character
 			for m in party.members:
@@ -75,6 +79,7 @@ func control(new_character: Character = null):
 		for m in party.members:
 			if not m.is_leader:
 				m.disable_collisions()
+		control_changed.emit(character)
 		# We do this as a patch so that the control has the same position it had
 		# set in the noby scene manually. We must find a better way to set this
 		# dynamically for each character

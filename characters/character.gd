@@ -36,7 +36,7 @@ var is_following: bool = false:
 		if old_value != value and rpg_model:
 			if value:
 				rpg_model.reposition(Vector2(0, 0), rpg_model.direction)
-				call_deferred("_reattach_model", follower_node)
+				_reattach_model(follower_node)
 			else:
 				if  rpg_model.get_parent() == follower_node:
 					var position = follower_node.position
@@ -98,7 +98,7 @@ func reposition(new_zone: Zone, position: Vector2, direction: String, move_party
 		# calls have no effect
 		else:
 			rpg_model.activate()
-			call_deferred("_reattach_model", new_zone)
+			_reattach_model(new_zone)
 			zone = new_zone
 			rpg_model.reposition(position, direction)
 
@@ -106,7 +106,7 @@ func reposition(new_zone: Zone, position: Vector2, direction: String, move_party
 func remove_from_zone():
 	if zone:
 		if rpg_model:
-			call_deferred("_detach_model")
+			_detach_model()
 			rpg_model.deactivate()
 		zone = null
 

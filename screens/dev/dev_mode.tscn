@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsihg6mcq4ysb"]
+[gd_scene load_steps=5 format=3 uid="uid://dsihg6mcq4ysb"]
 
 [ext_resource type="Script" path="res://screens/dev/dev_mode.gd" id="1_cqayl"]
 [ext_resource type="LabelSettings" uid="uid://jda8so48mgcw" path="res://screens/dev/dev_mode_font.tres" id="2_0wr73"]
+[ext_resource type="Script" path="res://screens/dev/dev_mode_party_control.gd" id="2_lmq8p"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fvbuo"]
 line_spacing = 6.0
@@ -9,10 +10,11 @@ font_size = 35
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[node name="DevMode" type="CanvasLayer" node_paths=PackedStringArray("characters", "zones", "scenes", "units", "contents")]
+[node name="DevMode" type="CanvasLayer" node_paths=PackedStringArray("characters", "party", "zones", "scenes", "units", "contents")]
 layer = 100
 script = ExtResource("1_cqayl")
 characters = NodePath("Contents/VBoxContainer/PlayerControl/Characters")
+party = NodePath("Contents/VBoxContainer/PartyControl")
 zones = NodePath("Contents/VBoxContainer/SceneDetails/Menus/Zones")
 scenes = NodePath("Contents/VBoxContainer/SceneDetails/Menus/Scenes")
 units = NodePath("Contents/VBoxContainer/SceneDetails/Menus/Units")
@@ -54,6 +56,81 @@ theme_override_font_sizes/font_size = 35
 text = "Ninguno"
 flat = false
 alignment = 0
+
+[node name="PartyControl" type="HBoxContainer" parent="Contents/VBoxContainer" node_paths=PackedStringArray("party_slots")]
+layout_mode = 2
+script = ExtResource("2_lmq8p")
+party_slots = NodePath("Members")
+
+[node name="PartyLabel" type="Label" parent="Contents/VBoxContainer/PartyControl"]
+layout_mode = 2
+text = "Party: "
+label_settings = SubResource("LabelSettings_fvbuo")
+
+[node name="Members" type="HBoxContainer" parent="Contents/VBoxContainer/PartyControl"]
+layout_mode = 2
+
+[node name="Slot1" type="VBoxContainer" parent="Contents/VBoxContainer/PartyControl/Members"]
+layout_mode = 2
+
+[node name="Character" type="MenuButton" parent="Contents/VBoxContainer/PartyControl/Members/Slot1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+disabled = true
+text = "Lider"
+flat = false
+alignment = 0
+
+[node name="Remove" type="Button" parent="Contents/VBoxContainer/PartyControl/Members/Slot1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+disabled = true
+text = "-"
+
+[node name="Slot2" type="VBoxContainer" parent="Contents/VBoxContainer/PartyControl/Members"]
+layout_mode = 2
+
+[node name="Character" type="MenuButton" parent="Contents/VBoxContainer/PartyControl/Members/Slot2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Member2"
+flat = false
+alignment = 0
+
+[node name="Remove" type="Button" parent="Contents/VBoxContainer/PartyControl/Members/Slot2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "-"
+
+[node name="Slot3" type="VBoxContainer" parent="Contents/VBoxContainer/PartyControl/Members"]
+layout_mode = 2
+
+[node name="Character" type="MenuButton" parent="Contents/VBoxContainer/PartyControl/Members/Slot3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Member3"
+flat = false
+alignment = 0
+
+[node name="Remove" type="Button" parent="Contents/VBoxContainer/PartyControl/Members/Slot3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "-"
+
+[node name="Slot4" type="VBoxContainer" parent="Contents/VBoxContainer/PartyControl/Members"]
+layout_mode = 2
+
+[node name="Character" type="MenuButton" parent="Contents/VBoxContainer/PartyControl/Members/Slot4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Member4"
+flat = false
+alignment = 0
+
+[node name="Remove" type="Button" parent="Contents/VBoxContainer/PartyControl/Members/Slot4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "-"
 
 [node name="SceneDetails" type="HBoxContainer" parent="Contents/VBoxContainer"]
 layout_mode = 2

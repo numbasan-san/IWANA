@@ -54,18 +54,18 @@ func _init(leader: Character, size: int = 4):
 # The added character will be relocated to the new leader
 # The return value indicates if the character was added succesfully
 func add(character: Character, force_party_change: bool = false) -> bool:
-	if members.size() < max_size:
+	if not has(character) and members.size() < max_size:
 		if character.party.members.size() == 1 or force_party_change:
 			character.party.remove(character, false)
 			members.append(character)
 			character.party = self
 			character.is_leader = false
+			character.is_following = true
 			
 			# We have a special case for the player's party to disable collisions
 			# of its members so that it's easier to move around
 			if self == Player.party:
 				character.disable_collisions()
-			
 			character.reposition(leader.zone, leader.rpg_model.position, "down")
 			add_path_follower(character)
 			return true
@@ -173,6 +173,7 @@ func add_path_follower(character: Character):
 		var follower = PartyFollower.new(character)
 		character.follower_node = follower
 		leader.zone.add_party_follower(path, follower)
+		_sync_with_follower(character)
 
 func remove_path_follower(char: Character):
 	if leader and leader.zone and char.follower_node:
@@ -208,7 +209,11 @@ func reposition(zone: Zone, position: Vector2, direction: String):
 	# reform the path where it's standing, including the follower nodes
 	new_path()
 	for m in members:
-		if m.is_following:
-			m.rpg_model.reposition(Vector2(0, 0), direction)
-			m.call_deferred("_reattach_model", m.follower_node)
+		_sync_with_follower(m)
 	pass
+
+func _sync_with_follower(char: Character):
+	if char.is_following:
+		char._reattach_model(char.follower_node)
+		char.rpg_model.reposition(Vector2(0, 0))
+		

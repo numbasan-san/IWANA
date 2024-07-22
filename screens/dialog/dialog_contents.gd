@@ -30,7 +30,7 @@ func add_character(character: Character, pos: Position):
 	# calling this function the model will be outside of the screen and attached
 	# to its character
 	remove_character(character)
-	character.call_deferred("remove_child", model)
+	character.remove_child(model)
 	# TODO: add code to handle animated transitions
 	var target_area = Control
 	var target_position: Position
@@ -48,10 +48,10 @@ func add_character(character: Character, pos: Position):
 			target_position = Position.RIGHT
 			model.look_left()
 	
-	target_area.call_deferred("add_child", model)
+	target_area.add_child(model)
 	model.dialog_position = target_position
 	model.show()
-	call_deferred("_reorder", target_area)
+	_reorder(target_area)
 
 # Removes the model associated with the character if it already is in the
 # character area. If reorder is true the remaining characters are moved so that
@@ -70,10 +70,10 @@ func remove_character(character: Character, reorder: bool = true):
 		Position.RIGHT:
 			area = right_area
 	model.hide()
-	model.get_parent().call_deferred("remove_child", model)
+	model.get_parent().remove_child(model)
 	if reorder:
-		call_deferred("_reorder", area)
-	character.call_deferred("add_child", model)
+		_reorder(area)
+	character.add_child(model)
 	model.dialog_position = Position.NONE
 
 # Removes all character models present in an area
@@ -81,7 +81,7 @@ func empty_area(area: Control):
 	for model in area.get_children():
 		if model is DialogModel:
 			remove_character(model.character, false)
-	call_deferred("_reorder", area)
+	_reorder(area)
 
 # Removes all characters in the dialog screen
 func empty():

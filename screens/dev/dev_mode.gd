@@ -1,6 +1,7 @@
-extends Screen
+class_name DevMode extends Screen
 
 @export var characters: MenuButton
+@export var party: DevPartyControl
 @export var zones: MenuButton
 @export var scenes: MenuButton
 @export var units: MenuButton
@@ -10,12 +11,11 @@ var enabled = false
 # Variable para almacenar el primer elemento de fill_scenes_list
 var first_scene: String
 
+func _ready():
+	party.dev = self
+
 func _process(_delta):
 	if enabled:
-		if Player.character:
-			characters.text = Player.character.char_name.to_pascal_case()
-		else:
-			characters.text = "Ninguno"
 		if Player.character and Player.character.zone:
 			zones.disabled = false
 			zones.text = Player.character.zone.name
@@ -40,16 +40,27 @@ func _process(_delta):
 	else:
 		$Contents/DialogDetails.hide()
 
-func habilitar():
+func enable():
 	print("Dev Mode On")
 	activate()
 	enabled = true
+	
+	Player.control_changed.connect(func(char):
+		characters.text = char.char_name.to_pascal_case())
+	Player.control_removed.connect(func():
+		characters.text = "Ninguno")
+	party.enable()
 	fill_characters_list()
+	if Player.character:
+		var char = Player.character
+		characters.text = char.char_name.to_pascal_case()
 	fill_zones_list()
 	fill_scenes_list()
 	# Esta función solo busca las unidades de la escena actual, por lo que
 	# siempre debería ser seguro llamarla
 	fill_units_list()
+	
+	
 
 func fill_zones_list():
 	if not enabled:
@@ -102,7 +113,7 @@ func fill_scenes_list():
 		)
 
 func fill_units_list():
-	if not enabled:
+	if not enabled or not ScriptManager.current_scene:
 		return
 	var popup: PopupMenu = units.get_popup()
 	popup.clear()

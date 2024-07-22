@@ -22,11 +22,8 @@ func _on_pressed():
 	Player.control(noby)
 	
 	Player.party.add(daniela)
-	daniela.is_following = true
 	Player.party.add(carla)
-	carla.is_following = true
 	Player.party.add(guille)
-	guille.is_following = true
 	
 	var dummy = CharacterManager.load("dummy")
 	var dev_zone = ZoneManager.load("dev_testing")

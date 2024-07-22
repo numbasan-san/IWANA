@@ -25,6 +25,7 @@ func _init(character: Character, speed: float = 800, distance: float = 200):
 	rotates = false
 	y_sort_enabled = true
 	loop = false
+	position = character.rpg_model.position
 
 func _process(delta):
 	var effective_speed = speed * delta
