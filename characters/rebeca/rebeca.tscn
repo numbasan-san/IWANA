@@ -1,19 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://dykkm64a7u1j7"]
+[gd_scene load_steps=15 format=3 uid="uid://dykkm64a7u1j7"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
-[ext_resource type="Script" path="res://combat/stats.gd" id="2_wasvn"]
 [ext_resource type="Texture2D" uid="uid://dngsx0qg0eyhl" path="res://characters/rebeca/vn/neutral.png" id="3_c5xgg"]
 [ext_resource type="Texture2D" uid="uid://bk0g6ds4tjqik" path="res://characters/rebeca/rpg/beca_perspectivas.png" id="4_8jp5f"]
-
-[sub_resource type="Resource" id="Resource_l8467"]
-resource_local_to_scene = true
-script = ExtResource("2_wasvn")
-base_max_health = 1
-base_max_energy = 0
-base_damage = 0
-base_defense = 0
-base_speed = 0
-base_critical = 0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fq57j"]
 resource_local_to_scene = true
@@ -181,7 +170,6 @@ _data = {
 }
 
 [node name="Rebeca" instance=ExtResource("1_begxf")]
-stats = SubResource("Resource_l8467")
 
 [node name="DialogModel" parent="." index="0"]
 visible = false
@@ -190,10 +178,8 @@ visible = false
 scale = Vector2(-1, 1)
 texture = ExtResource("3_c5xgg")
 
-[node name="RPGModel" parent="." index="1"]
-motion_mode = 1
-
 [node name="Sprite2D" parent="RPGModel" index="0"]
+position = Vector2(0, 9)
 texture = ExtResource("4_8jp5f")
 offset = Vector2(0, -163)
 hframes = 1
@@ -201,6 +187,7 @@ region_enabled = true
 region_rect = Rect2(347, 740, 120, 325)
 
 [node name="Collider" parent="RPGModel" index="1"]
+position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_fq57j")
 
 [node name="Animation" parent="RPGModel" index="2"]

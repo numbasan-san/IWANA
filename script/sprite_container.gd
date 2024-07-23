@@ -29,14 +29,14 @@ var targeting_enabled: bool = false:
 # The specific sprite that appears on screen. While the character should
 # generally stay in this container until being defeated, the sprite can change
 # for various reasons
-var sprite: Sprite2D
+var sprite: AnimatedSprite2D
 
 # Adds the character to this container and moves the sprite to show it on screen
 func set_character(new_character: Character = null):
 	super.set_character(new_character)
 	if new_character:
 		var model = new_character.combat_model
-		_change_sprite(null, model.current_sprite)
+		_change_sprite(model.combat_animation)
 		model.update_sprite.connect(_change_sprite)
 		character.combat_handler.stats.health_recovered.connect(number_control.heal)
 		character.combat_handler.stats.damage_received.connect(number_control.damage)
@@ -59,7 +59,7 @@ func remove_character():
 		character.combat_handler.added_lasting_effect.disconnect(icon_control.add_effect)
 		character.combat_handler.removed_lasting_effect.disconnect(icon_control.remove_effect)
 		
-		_change_sprite(null, null)
+		_change_sprite(null)
 	super.remove_character()
 
 # Changes the direction towards which sprites in this container will be looking.
@@ -76,16 +76,23 @@ func set_direction(dir: int):
 
 # This function should be called when a signal is emited indicating that the
 # character's combat sprite has changed
-func _change_sprite(old: Sprite2D, new: Sprite2D):
+func _change_sprite(combat_animation: AnimatedSprite2D):
 	# We will add a duplicate of the sprite because we don't need to store
 	# changes to it. For the same reason we can free it when not using it as
 	# the original will be preserved
-	if sprite:
+	if sprite and not combat_animation:
 		sprite.free()
 		sprite = null
-	if new:
-		sprite = new.duplicate()
+	if not sprite and combat_animation:
+		sprite = combat_animation.duplicate()
 		directional.add_child(sprite)
+	if combat_animation:
+		sprite.animation = combat_animation.animation
+		sprite.play()
+		if sprite.animation != "Idle":
+			await sprite.animation_finished
+			character.combat_model.sprite_animation_ended.emit()
+		
 
 func _on_gui_input(event: InputEvent):
 	if targeting_enabled and event.is_action_released("target_select"):

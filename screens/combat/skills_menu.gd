@@ -45,7 +45,7 @@ func set_character(character: Character = null):
 							printerr("SkillMenu | The selected number of targets don't match " \
 								+ "with the required number for skill " + skill.name)
 						else:
-							character.combat_handler.execute(skill)
+							await character.combat_handler.execute(skill)
 							combat.remove_dead()
 							character.combat_handler.end_turn()
 							await combat.show_party_menu()

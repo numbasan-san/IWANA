@@ -3,27 +3,23 @@ extends Node
 
 signal update_portrait
 signal update_sprite
+signal sprite_animation_ended
 
 var character: Character
 
 @export var portraits: Node
 @export var sprites: Node
+@export var combat_animation: AnimatedSprite2D
 
 # The portrait that will be shown in the party and skills menus.
 var current_portrait: TextureRect
-# The sprite that will be shown in the main combat area.
-# TODO: this might need to be changed to handle animations for the skills, being
-# hit, etc
-var current_sprite: Sprite2D
 
 func _ready():
 	if portraits:
 		for p in portraits.get_children():
 			p.hide()
 		set_portrait("Basic")
-	if sprites:
-		for s in sprites.get_children():
-			s.hide()
+	if combat_animation:
 		set_sprite("Idle")
 
 # Sets the current portrait to one defined in the portraits list
@@ -44,14 +40,13 @@ func set_portrait(name: String):
 # Sets the current sprite to one defined in the sprites list
 func set_sprite(sprite_name: String):
 	sprite_name = sprite_name.to_pascal_case()
-	if sprites.has_node(sprite_name):
-		var old = current_sprite
-		if old:
-			old.hide()
-		current_sprite = sprites.get_node(sprite_name)
-		var new = current_sprite
-		new.show()
-		update_sprite.emit(old, new)
+	if has_sprite(sprite_name):
+		combat_animation.animation = sprite_name
+		update_sprite.emit(combat_animation)
 	elif character:
 		printerr("CombatModel | " + character.name + " doesn't have a sprite " \
 			+ "named " + name)
+
+func has_sprite(sprite_name: String):
+	sprite_name = sprite_name.to_pascal_case()
+	return combat_animation.sprite_frames.has_animation(sprite_name)

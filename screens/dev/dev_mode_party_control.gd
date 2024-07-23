@@ -33,7 +33,7 @@ func reset_party():
 	remove_party()
 	if Player.character:
 		set_text(0, Player.character.char_name)
-		adjust_slots(Player.party.size)
+		adjust_slots(Player.party.max_size)
 		var idx = 1
 		for m in Player.party.members:
 			if m != Player.character:
@@ -65,7 +65,7 @@ func remove_slots(down_to: int):
 		return
 	var n = party_slots.get_child_count() - 1
 	while n >= down_to:
-		party_slots.get_child(n).free
+		party_slots.get_child(n).free()
 		n -= 1
 
 func add_slot():

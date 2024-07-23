@@ -19,7 +19,6 @@ script = ExtResource("3_ylprp")
 
 [node name="RPGModel" type="CharacterBody2D" parent="."]
 z_index = 1
-y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("4_khi8m")
 

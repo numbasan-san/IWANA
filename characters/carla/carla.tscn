@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dorc15lxpd2w4"]
+[gd_scene load_steps=25 format=3 uid="uid://dorc15lxpd2w4"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_vglxn"]
@@ -10,7 +10,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyij3"]
 resource_local_to_scene = true
-size = Vector2(98, 61)
+size = Vector2(98, 51)
 
 [sub_resource type="Animation" id="Animation_6r54w"]
 length = 0.001
@@ -173,6 +173,21 @@ _data = {
 "walk_up": SubResource("Animation_b30q8")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jareu"]
+atlas = ExtResource("4_03jaf")
+region = Rect2(0, 0, 848, 1375)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qgx6d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jareu")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
 [sub_resource type="Resource" id="Resource_4hq1v"]
 resource_local_to_scene = true
 script = ExtResource("2_vglxn")
@@ -214,6 +229,7 @@ scale = Vector2(-1, 1)
 texture = ExtResource("4_03jaf")
 
 [node name="Sprite2D" parent="RPGModel" index="0"]
+position = Vector2(0, 14)
 texture = ExtResource("5_h4af0")
 offset = Vector2(0, -121)
 hframes = 1
@@ -221,6 +237,7 @@ region_enabled = true
 region_rect = Rect2(364, 595, 195, 240)
 
 [node name="Collider" parent="RPGModel" index="1"]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_eyij3")
 
 [node name="Animation" parent="RPGModel" index="2"]
@@ -228,17 +245,21 @@ libraries = {
 "": SubResource("AnimationLibrary_hsahp")
 }
 
+[node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
+combat_animation = NodePath("Sprites/Idle")
+
 [node name="Basic" type="TextureRect" parent="CombatModel/Portraits" index="0"]
+visible = false
 offset_right = 790.0
 offset_bottom = 516.0
 texture = ExtResource("4_03jaf")
 expand_mode = 1
 stretch_mode = 2
 
-[node name="Idle" type="Sprite2D" parent="CombatModel/Sprites" index="0"]
-visible = false
+[node name="Idle" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
 scale = Vector2(0.05, 0.05)
-texture = ExtResource("4_03jaf")
+sprite_frames = SubResource("SpriteFrames_qgx6d")
+animation = &"Idle"
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_4hq1v")

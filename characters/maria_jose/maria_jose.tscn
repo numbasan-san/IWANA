@@ -194,6 +194,7 @@ scale = Vector2(-1, 1)
 texture = ExtResource("4_bra5u")
 
 [node name="Sprite2D" parent="RPGModel" index="0"]
+position = Vector2(0, 8)
 texture = ExtResource("5_vkrab")
 offset = Vector2(0, -150)
 hframes = 1
@@ -201,6 +202,7 @@ region_enabled = true
 region_rect = Rect2(457, 660, 145, 300)
 
 [node name="Collider" parent="RPGModel" index="1"]
+position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_2bal8")
 
 [node name="Animation" parent="RPGModel" index="2"]

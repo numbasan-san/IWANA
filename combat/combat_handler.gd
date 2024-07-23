@@ -54,12 +54,16 @@ func execute(skill: Skill):
 			+ " selecting the skill")
 		return
 	
+	if character.combat_model.has_sprite("skill1"):
+		character.combat_model.set_sprite("skill1")
 	for effect in skill.effects:
 		if effect.is_nullified:
 			continue
 		var copy: Effect = effect.copy()
 		send(copy)
-		
+	if character.combat_model.has_sprite("skill1"):
+		await character.combat_model.sprite_animation_ended
+		character.combat_model.set_sprite("idle")
 	stats.energy -= skill.energy_cost
 
 # Calculates the initial value of this effect, modifies it based on the caster

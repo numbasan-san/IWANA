@@ -264,7 +264,6 @@ position = Vector2(879.284, 1651.73)
 position = Vector2(879.284, 2251.73)
 
 [node name="TableSet1" type="Node2D" parent="Objects" index="4"]
-y_sort_enabled = true
 position = Vector2(373.958, 1790.24)
 
 [node name="ChairFront" parent="Objects/TableSet1" index="0" instance=ExtResource("29_spwf5")]
@@ -276,17 +275,16 @@ position = Vector2(151.042, -21.2448)
 [node name="ChairRight" parent="Objects/TableSet1" index="2" instance=ExtResource("31_ltaqu")]
 position = Vector2(-152.958, -21.2448)
 
-[node name="Lamp" parent="Objects/TableSet1" index="3" instance=ExtResource("13_moc2i")]
-position = Vector2(-0.958435, -115.245)
-
-[node name="Table" parent="Objects/TableSet1" index="4" instance=ExtResource("27_0eeo3")]
+[node name="Table" parent="Objects/TableSet1" index="3" instance=ExtResource("27_0eeo3")]
 position = Vector2(-0.958435, -5.24475)
+
+[node name="Lamp" parent="Objects/TableSet1" index="4" instance=ExtResource("13_moc2i")]
+position = Vector2(-0.958435, -115.245)
 
 [node name="ChairBack" parent="Objects/TableSet1" index="5" instance=ExtResource("28_8adwq")]
 position = Vector2(-0.958435, 42.7552)
 
 [node name="TableSet2" type="Node2D" parent="Objects" index="5"]
-y_sort_enabled = true
 position = Vector2(373, 2297)
 
 [node name="ChairFront" parent="Objects/TableSet2" index="0" instance=ExtResource("29_spwf5")]
