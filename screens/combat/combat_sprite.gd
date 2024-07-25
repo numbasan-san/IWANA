@@ -7,6 +7,11 @@ var target_position: Vector2
 # TODO: Should this be here or in the effects? 
 @export var speed: int = 600
 
+# This should be set to true when the sprite is returning to its original
+# position to indicate it should be flipped. When it reaches its destination it
+# should be set to false and flipped again to be left in its default state.
+var returning: bool = false
+
 signal finished_moving
 
 func _process(delta):
@@ -15,6 +20,9 @@ func _process(delta):
 		actual_position = actual_position.move_toward(target_position, actual_speed)
 		sprite.position = actual_position
 		if actual_position.is_equal_approx(target_position):
+			if returning:
+				sprite.apply_scale(Vector2(-1, 1))
+				returning = false
 			finished_moving.emit()
 	
 
@@ -40,4 +48,8 @@ func move_to(position: Vector2):
 		sprite.play("Moving")
 
 func return_to_origin():
-	move_to(Vector2(0, 0))
+	if not returning:
+		returning = true
+		sprite.apply_scale(Vector2(-1, 1))
+		move_to(Vector2(0, 0))
+	

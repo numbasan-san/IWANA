@@ -4,5 +4,5 @@ class_name Return extends Effect
 
 func on_apply(target: Character):
 	# TODO: replace this with something better
-	caster.combat_model.current_container.combat_sprite.move_to(Vector2(0, 0))
+	caster.combat_model.current_container.combat_sprite.return_to_origin()
 	await caster.combat_model.current_container.combat_sprite.finished_moving

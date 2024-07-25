@@ -84,7 +84,7 @@ func execute(skill: Skill):
 			continue
 		var copy: Effect = effect.copy()
 		await send(copy)
-	
+	character.combat_model.set_sprite("Idle")
 	stats.energy -= skill.energy_cost
 
 # Calculates the initial value of this effect, modifies it based on the caster

@@ -304,6 +304,7 @@ metadata/_edit_vertical_guides_ = [-435.0]
 [node name="CombatSprite" type="Node2D" parent="."]
 position = Vector2(94, 148)
 script = ExtResource("2_qoxvr")
+speed = 1200
 
 [node name="Numbers" type="Panel" parent="." node_paths=PackedStringArray("number_animator", "number")]
 layout_mode = 1
