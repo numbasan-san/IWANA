@@ -18,9 +18,9 @@ func load(character_name: String) -> Character:
 		var scn = load(folder + character_name + "/" + character_name + ".tscn")
 		if scn:
 			character = scn.instantiate()
+			character.char_name = character_name
 			characters[character_name] = character
 			add_child(character)
-			character.char_name = character_name
 		else:
 			printerr("We couldn't find a character with name " \
 				+ character_name + " in the folder " + folder)

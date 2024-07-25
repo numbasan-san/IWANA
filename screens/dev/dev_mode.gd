@@ -15,7 +15,7 @@ func _ready():
 	party.dev = self
 
 func _process(_delta):
-	if enabled:
+	if enabled and is_active:
 		if Player.character and Player.character.zone:
 			zones.disabled = false
 			zones.text = Player.character.zone.name

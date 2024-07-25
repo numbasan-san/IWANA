@@ -30,3 +30,21 @@ func on_receive(caster: Character):
 func on_apply(target: Character):
 	for eff in effects:
 		eff.on_apply(target)
+
+func copy() -> Effect:
+	var new_group = super.copy() as EffectGroup
+	var effects_copy: Array[Effect] = []
+	for eff in effects:
+		effects_copy.append(eff.copy())
+	new_group.effects = effects_copy
+	return new_group
+
+func _set_caster(_caster: Character):
+	super._set_caster(_caster)
+	for eff in effects:
+		eff.caster = _caster
+
+func _set_skill_targets(_targets: Array[Character]):
+	super._set_skill_targets(_targets)
+	for eff in effects:
+		eff.skill_targets = _targets

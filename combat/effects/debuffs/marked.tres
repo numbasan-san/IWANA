@@ -15,11 +15,12 @@ random = false
 allow_repetition = false
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_gkiyx")
 icon = SubResource("AtlasTexture_fg16r")
 type = 1
 modifies = 2
-decrease_duration = "After turn"
+decrease_duration = 3
 duration = 1
 value = -1.0
 target_type = SubResource("Resource_ovc6j")

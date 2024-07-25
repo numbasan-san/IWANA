@@ -15,7 +15,7 @@ allow_repetition = false
 script = ExtResource("1_auus6")
 type = 0
 modifies = 2
-decrease_duration = "After turn"
+decrease_duration = 4
 duration = 1
 value = 1.0
 target_type = SubResource("Resource_evo2y")
@@ -23,6 +23,7 @@ target_type = SubResource("Resource_evo2y")
 [resource]
 script = ExtResource("1_j5dnv")
 name = "Tu harías lo mismo"
+anim_name = "Skill1"
 description = "Salta hacia un aliado y recibe daño por este"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_2yn1x")])
 energy_cost = 5

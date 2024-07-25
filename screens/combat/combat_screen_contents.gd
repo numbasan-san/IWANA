@@ -26,6 +26,10 @@ var selecting_action = false
 var selecting_skill = false
 var selecting_target = false
 
+func _ready():
+	left_area.combat = self
+	right_area.combat = self
+
 func _input(_event):
 	# Para poder cerrar los cuadros de texto.
 	if (Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and $text_box.visible:
@@ -179,4 +183,3 @@ func _focus_action_list():
 func display_text(text):
 	$text_box.show()
 	$text_box/label.text = text
-

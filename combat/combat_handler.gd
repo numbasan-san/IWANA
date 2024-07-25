@@ -7,6 +7,8 @@ var character: Character
 
 signal added_lasting_effect
 signal removed_lasting_effect
+signal showing_graphic(anim: String)
+signal moving_towards(target: Character)
 
 # Status effects are effects that apply to the character the moment the skill
 # lands on it and are removed when a condition is reached
@@ -30,7 +32,25 @@ var outgoing_effect_modifiers: Array[LastingEffect]
 # character sends another effect that hits its target
 var character_hit_monitors: Array[LastingEffect]
 
+# These are special effects that instead of modifying the stats of the character
+# and the effects of skills, play some animation or create some graphical effect
+# when they intercept some other effect. For example, they could trigger
+# an animation on the target when receiving a damage effect.
+# This list should be filled when loading the game and there shouldn't be a reason
+# to change its elements later.
+var hit_animations: Array[LastingEffect]
+
 func init():
+	# We duplicate skills here because even when they're set to "local to resource",
+	# it seems the array itself isn't being duplicated on instantiation, so all
+	# clones share the same skills and mess with caster and target assignation.
+	var new_skills: Array[Skill] = []
+	for s in skills:
+		var new_skill = s.copy()
+		new_skill.caster = character
+		new_skills.append(new_skill)
+	skills = new_skills
+	
 	stats.fainted.connect(func():
 		for eff in stat_modifiers:
 			removed_lasting_effect.emit(eff)
@@ -45,6 +65,9 @@ func init():
 			removed_lasting_effect.emit(eff)
 		character_hit_monitors.clear()
 	)
+	var hit = load("res://combat/effects/animation_effects/graphical_hit_effect.tres").duplicate()
+	hit.target = self.character
+	hit_animations.append(hit)
 
 func execute(skill: Skill):
 	if stats.energy < skill.energy_cost:
@@ -54,16 +77,14 @@ func execute(skill: Skill):
 			+ " selecting the skill")
 		return
 	
-	if character.combat_model.has_sprite("skill1"):
-		character.combat_model.set_sprite("skill1")
+	if skill.anim_name and character.combat_model.has_sprite(skill.anim_name):
+		character.combat_model.set_sprite(skill.anim_name)
 	for effect in skill.effects:
 		if effect.is_nullified:
 			continue
 		var copy: Effect = effect.copy()
-		send(copy)
-	if character.combat_model.has_sprite("skill1"):
-		await character.combat_model.sprite_animation_ended
-		character.combat_model.set_sprite("idle")
+		await send(copy)
+	
 	stats.energy -= skill.energy_cost
 
 # Calculates the initial value of this effect, modifies it based on the caster
@@ -95,9 +116,9 @@ func send(effect: Effect):
 		if copy is EffectGroup:
 			for eff in copy.effects:
 				eff.caster = copy.caster
-				t.combat_handler.receive(eff)
+				await t.combat_handler.receive(eff)
 		else:
-			t.combat_handler.receive(copy)
+			await t.combat_handler.receive(copy)
 
 # Receives an effect sent from a caster, modifies it based on the character's
 # buffs and debuffs, and if the effect survives it is applied.
@@ -136,7 +157,9 @@ func receive(effect: Effect):
 			Mod.CHARACTER_HIT:
 				character_hit_monitors.append(effect)
 		added_lasting_effect.emit(effect)
-	effect.apply(character)
+	await effect.apply(character)
+	for hit in hit_animations:
+		hit.intercept(effect)
 	effect.caster.combat_handler.after_character_hit(character, effect)
 
 # This function should be called when the character's turn has just begun, and

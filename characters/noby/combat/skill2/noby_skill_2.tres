@@ -11,7 +11,7 @@ script = ExtResource("2_fw5sy")
 script = ExtResource("1_wl0a6")
 type = 0
 modifies = 2
-decrease_duration = "Before turn"
+decrease_duration = 2
 duration = 1
 value = 10.0
 target_type = SubResource("Resource_nf3tx")
@@ -19,6 +19,7 @@ target_type = SubResource("Resource_nf3tx")
 [resource]
 script = ExtResource("1_3mjya")
 name = "Inquebrantable"
+anim_name = "Skill2"
 description = "Se coloca un escudo que recibe daño en vez del personaje. Si al siguiente turno el escudo no se ha roto, cura al personaje."
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_3l72c")])
 energy_cost = 5

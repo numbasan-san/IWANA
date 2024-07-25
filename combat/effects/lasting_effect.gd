@@ -13,13 +13,15 @@ enum Type { BUFF, DEBUFF }
 enum Modify { STAT, OUTGOING, INCOMING, CHARACTER_HIT }
 @export var modifies: Modify
 
-@export_enum(
-	"On apply",
-	"Before turn",
-	"After turn",
-	"On intercept",
-	"On character hit"
-) var decrease_duration: String = "After turn"
+enum Decrease {
+	NEVER,
+	ON_APPLY,
+	BEFORE_TURN,
+	AFTER_TURN,
+	ON_INTERCEPT,
+	ON_CHARACTER_HIT
+}
+@export var decrease_duration: Decrease = Decrease.NEVER
 
 # How long it takes before this effect is removed from the target. Instances of
 # this class must decide what this number means and how to decrement it
@@ -41,7 +43,7 @@ var hit: bool = false
 
 func apply(target: Character):
 	super.apply(target)
-	if decrease_duration == "On apply":
+	if decrease_duration == Decrease.ON_APPLY:
 		duration -= 1
 
 # When another character has been hit with an effect (after it's on_apply
@@ -52,7 +54,7 @@ func on_character_hit(who: Character, effect: Effect):
 
 func character_hit(who: Character, effect: Effect):
 	on_character_hit(who, effect)
-	if hit and decrease_duration == "On character hit":
+	if hit and decrease_duration == Decrease.ON_CHARACTER_HIT:
 		duration -= 1
 	hit = false
 
@@ -63,7 +65,7 @@ func before_turn(target: Character):
 
 func start_turn(target: Character):
 	before_turn(target)
-	if decrease_duration == "Before turn":
+	if decrease_duration == Decrease.BEFORE_TURN:
 		duration -= 1
 
 # This is called at the end of the target's turn after it has performed
@@ -74,7 +76,7 @@ func after_turn(target: Character):
 
 func end_turn(target: Character):
 	after_turn(target)
-	if decrease_duration == "After turn":
+	if decrease_duration == Decrease.AFTER_TURN:
 		duration -= 1
 
 # This is called after the effect's duration has run out and the changes
@@ -97,6 +99,6 @@ func on_intercept(effect: Effect):
 
 func intercept(effect: Effect):
 	on_intercept(effect)
-	if interception and decrease_duration == "On intercept":
+	if interception and decrease_duration == Decrease.ON_INTERCEPT:
 		duration -= 1
 	interception = false

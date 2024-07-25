@@ -7,10 +7,11 @@
 script = ExtResource("2_5aqh3")
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_8cxjw")
 type = 0
 modifies = 3
-decrease_duration = "On character hit"
+decrease_duration = 5
 duration = 3
 value = 20.0
 target_type = SubResource("Resource_x7wcd")

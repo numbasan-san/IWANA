@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="GraphicalHitEffect" load_steps=2 format=3 uid="uid://d3t2kiuxq0eyr"]
+
+[ext_resource type="Script" path="res://combat/effects/animation_effects/graphical_hit_effect.gd" id="1_513io"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_513io")
+graphic_name = "Hit"
+type = 0
+modifies = 2
+decrease_duration = 0
+duration = 0
+value = 1.0

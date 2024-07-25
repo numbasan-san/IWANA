@@ -215,6 +215,7 @@ target_type = SubResource("Resource_uletc")
 resource_local_to_scene = true
 script = ExtResource("7_yb3hi")
 name = "Daño Ejemplo"
+anim_name = ""
 description = "Skill de ejemplo para  debuggear"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_7vvuy")])
 energy_cost = 5
@@ -256,7 +257,7 @@ expand_mode = 1
 stretch_mode = 2
 
 [node name="Idle" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
-scale = Vector2(0.05, 0.05)
+scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_5q2ra")
 animation = &"Idle"
 

@@ -11,6 +11,7 @@ random = false
 allow_repetition = false
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_lbl7x")
 value = -1.0
 target_type = SubResource("Resource_cfmng")

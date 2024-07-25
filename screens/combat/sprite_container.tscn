@@ -1,9 +1,12 @@
-[gd_scene load_steps=22 format=3 uid="uid://3d6j1vup2i4s"]
+[gd_scene load_steps=27 format=3 uid="uid://3d6j1vup2i4s"]
 
 [ext_resource type="Script" path="res://script/sprite_container.gd" id="1_ndaat"]
+[ext_resource type="Script" path="res://screens/combat/combat_sprite.gd" id="2_qoxvr"]
 [ext_resource type="Script" path="res://screens/combat/sprite_number_control.gd" id="2_uf8fx"]
 [ext_resource type="PackedScene" uid="uid://ceqe4yrlcfouu" path="res://screens/combat/player_bars.tscn" id="2_xja7c"]
 [ext_resource type="Script" path="res://screens/combat/sprite_icon_control.gd" id="3_6f3g4"]
+[ext_resource type="Script" path="res://screens/combat/graphic_effects.gd" id="3_77t36"]
+[ext_resource type="Texture2D" uid="uid://bmo6hh0wijg8" path="res://combat/effects/animation_effects/impact.png" id="4_f6fsk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gltg8"]
 
@@ -155,6 +158,21 @@ _data = {
 "number_up": SubResource("Animation_1w8jd")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1flp"]
+atlas = ExtResource("4_f6fsk")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_os7q0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1flp")
+}],
+"loop": false,
+"name": &"Hit",
+"speed": 1.0
+}]
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_xihi8"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_khklr"]
@@ -185,7 +203,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Directional:modulate")
+tracks/1/path = NodePath("CombatSprite:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -254,7 +272,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Directional:modulate")
+tracks/0/path = NodePath("CombatSprite:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -270,17 +288,22 @@ _data = {
 "ValidTarget": SubResource("Animation_mrhsd")
 }
 
-[node name="SpriteContainer" type="Panel" node_paths=PackedStringArray("directional", "targeting_animation", "number_control", "icon_control", "fill_bars")]
+[node name="SpriteContainer" type="Panel" node_paths=PackedStringArray("combat_sprite", "targeting_animation", "number_control", "graphics_control", "icon_control", "fill_bars")]
 offset_right = 275.0
 offset_bottom = 325.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_gltg8")
 script = ExtResource("1_ndaat")
-directional = NodePath("Directional")
+combat_sprite = NodePath("CombatSprite")
 targeting_animation = NodePath("TargetingAnimations")
 number_control = NodePath("Numbers")
+graphics_control = NodePath("GraphicEffects")
 icon_control = NodePath("Icons")
 fill_bars = NodePath("FillBars")
 metadata/_edit_vertical_guides_ = [-435.0]
+
+[node name="CombatSprite" type="Node2D" parent="."]
+position = Vector2(94, 148)
+script = ExtResource("2_qoxvr")
 
 [node name="Numbers" type="Panel" parent="." node_paths=PackedStringArray("number_animator", "number")]
 layout_mode = 1
@@ -310,12 +333,16 @@ libraries = {
 "": SubResource("AnimationLibrary_o6iuh")
 }
 
-[node name="GraphicEffects" type="Panel" parent="."]
-layout_mode = 0
-offset_left = 94.0
-offset_top = 148.0
-offset_right = 94.0
-offset_bottom = 148.0
+[node name="GraphicEffects" type="Node2D" parent="." node_paths=PackedStringArray("sprite")]
+position = Vector2(92, 133)
+script = ExtResource("3_77t36")
+sprite = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GraphicEffects"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_os7q0")
+animation = &"Hit"
+frame_progress = 1.0
 
 [node name="Icons" type="Panel" parent="." node_paths=PackedStringArray("icon_placement")]
 layout_mode = 1
@@ -333,10 +360,6 @@ scale = Vector2(0.6, 0.6)
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 6
-
-[node name="Directional" type="Node2D" parent="."]
-position = Vector2(94, 148)
-scale = Vector2(3, 3)
 
 [node name="FillBars" parent="." node_paths=PackedStringArray("container") instance=ExtResource("2_xja7c")]
 layout_mode = 1

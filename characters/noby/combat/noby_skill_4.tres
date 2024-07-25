@@ -32,7 +32,7 @@ script = ExtResource("3_4bbmh")
 icon = SubResource("AtlasTexture_nlge3")
 type = 0
 modifies = 0
-decrease_duration = "After turn"
+decrease_duration = 3
 duration = 2
 value = 20.0
 
@@ -45,7 +45,7 @@ script = ExtResource("5_oupoy")
 icon = SubResource("AtlasTexture_jh20o")
 type = 0
 modifies = 0
-decrease_duration = "After turn"
+decrease_duration = 3
 duration = 2
 value = 20.0
 
@@ -60,6 +60,7 @@ target_type = SubResource("Resource_eaodr")
 [resource]
 script = ExtResource("3_j4mow")
 name = "Los quiero mucho amigos"
+anim_name = ""
 description = "Alienta a sus aliados para que reciban un buff de daño o defensa, dependiendo de si sus aliados tienen menos del 50% de la vida (50%< daño, >50% defensa)"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_mcyxl")])
 energy_cost = 5

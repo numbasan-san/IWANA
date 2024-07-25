@@ -5,6 +5,12 @@ class_name CombatPartyArea extends Control
 
 var characters: Array[Character]
 
+var combat: CombatScreenControl
+
+func _ready():
+	for container in sprite_containers:
+		container.area = self
+
 # Adds a character's sprite.
 # TODO: we must determine if there are only going to be 4 slots to place a
 # character per area, so we can add them to the scene, or if there could be
@@ -41,8 +47,8 @@ func clear():
 		s.remove_character()
 	characters.clear()
 
-func has(character: Character):
+func has(character: Character) -> bool:
 	return characters.has(character)
 
-func is_empty():
+func is_empty() -> bool:
 	return characters.is_empty()

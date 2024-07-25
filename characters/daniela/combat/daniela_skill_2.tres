@@ -11,7 +11,7 @@ script = ExtResource("2_kqo3w")
 script = ExtResource("1_v0wwb")
 type = 0
 modifies = 3
-decrease_duration = "On character hit"
+decrease_duration = 0
 duration = 3
 value = 20.0
 target_type = SubResource("Resource_csls8")
@@ -19,6 +19,7 @@ target_type = SubResource("Resource_csls8")
 [resource]
 script = ExtResource("3_fhlvq")
 name = "Amenaza"
+anim_name = ""
 description = "Daniela amenaza al grupo enemigo y buffea sus siguientes 3 golpes para curarse un porcentaje del daño infligido
 "
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_fijm1")])

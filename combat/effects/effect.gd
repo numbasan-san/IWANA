@@ -18,13 +18,23 @@ class_name Effect extends Resource
 ##
 ## It should be filled when processing the skill, and trying to apply the
 ## effect without a caster should result in an error
-var caster: Character
+var caster: Character:
+	set(value):
+		_set_caster(value)
+	get:
+		return _caster
+var _caster: Character
 
 ## The characters that will be affected by this effect.
 ##
 ## It should be filled when processing the skill, and trying to apply the
 ## effect without targets should result in an error
-var skill_targets: Array[Character]
+var skill_targets: Array[Character]:
+	set(value):
+		_set_skill_targets(value)
+	get:
+		return _skill_targets
+var _skill_targets: Array[Character]
 
 ## The specific target this effect is being sent to
 ##
@@ -73,7 +83,7 @@ func on_apply(target: Character):
 	pass
 
 func apply(target: Character):
-	on_apply(target)
+	await on_apply(target)
 
 func select_targets(allies: Party, enemies: Party):
 	if target_type.is_manual_target():
@@ -118,3 +128,15 @@ func copy() -> Effect:
 	new_effect.skill_targets = skill_targets.duplicate()
 	new_effect.target = target
 	return new_effect
+
+# This should be called as the setter of the caster property. It can be
+# overriden by subclasses that have subeffects to set their caster to the same as
+# the container.
+func _set_caster(_caster: Character):
+	self._caster = _caster
+
+# This should be called as the setter of the skill_targets property. It can be
+# overriden by subclasses that have subeffects to set their targets to the same as
+# the container.
+func _set_skill_targets(_targets: Array[Character]):
+	self._skill_targets = _targets

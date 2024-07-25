@@ -14,6 +14,10 @@ var character: Character
 # The portrait that will be shown in the party and skills menus.
 var current_portrait: TextureRect
 
+# When in combat mode, this point to the SpriteContainer this character is
+# occupying. Outside of combat mode this should be null
+var current_container: SpriteContainer = null
+
 func _ready():
 	if portraits:
 		for p in portraits.get_children():

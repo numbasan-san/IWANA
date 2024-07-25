@@ -12,6 +12,10 @@ class_name Skill extends Resource
 # selection gui
 @export var name: String
 
+# TODO: Only a temporary variable to draw placeholder animations. Remove it when
+# the system is ready
+@export var anim_name: String
+
 # A description that is shown to the player in menus or tooltips that explain
 # what it does
 @export_multiline var description: String
@@ -87,3 +91,14 @@ func is_valid() -> bool:
 		if not group.is_valid():
 			return false
 	return true
+
+# Creates a deep copy of this skill and all its effects. This is necesary in case
+# the same skill is added to different characters or a character is cloned, so
+# that changing the values in one effect don't affect the others
+func copy() -> Skill:
+	var new_skill = self.duplicate(true) as Skill
+	var new_effects: Array[Effect] = []
+	for eff in effects:
+		new_effects.append(eff.copy())
+	new_skill.effects = new_effects
+	return new_skill

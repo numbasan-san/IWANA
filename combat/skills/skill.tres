@@ -3,8 +3,10 @@
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_stlwc"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_stlwc")
 name = ""
+anim_name = ""
 description = ""
 effects = Array[Resource("res://combat/effects/effect.gd")]([])
 energy_cost = 0

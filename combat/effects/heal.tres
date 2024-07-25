@@ -11,6 +11,7 @@ random = false
 allow_repetition = false
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_t4tn7")
 value = 20.0
 target_type = SubResource("Resource_lrql1")

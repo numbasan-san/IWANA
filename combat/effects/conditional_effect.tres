@@ -3,5 +3,6 @@
 [ext_resource type="Script" path="res://combat/effects/conditional_effect.gd" id="1_2hmmb"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_2hmmb")
 value = -1.0

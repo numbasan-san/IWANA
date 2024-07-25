@@ -74,8 +74,6 @@ func _link_components():
 	combat_handler = $CombatHandler
 	combat_handler.character = self
 	combat_handler.init()
-	for skill in combat_handler.skills:
-		skill.caster = self
 	if combat_handler.stats:
 		combat_handler.stats.replenish()
 	

@@ -4,4 +4,8 @@
 
 [resource]
 script = ExtResource("1_hp4d0")
+character = "Target"
 stat = ""
+operation = "<="
+value = 0.0
+percent = false

@@ -2,14 +2,18 @@ class_name SpriteContainer
 extends CharacterContainer
 
 # TODO: rewrite to do it better, this is just a quick fix
-@export var directional: Node2D
+@export var combat_sprite: CombatSprite
 
 # It will play an animation to indicate if the character in this container can
 # be selected as a target or if it has already been selected
 @export var targeting_animation: AnimationPlayer
 
 @export var number_control: SpriteNumberControl
+@export var graphics_control: GraphicEffects
 @export var icon_control: SpriteIconControl
+
+# This should be set by the containing area when this container is added.
+var area: CombatPartyArea
 
 # If the character can be targeted, this signal will be emited when the container
 # is selected
@@ -36,6 +40,7 @@ func set_character(new_character: Character = null):
 	super.set_character(new_character)
 	if new_character:
 		var model = new_character.combat_model
+		model.current_container = self
 		_change_sprite(model.combat_animation)
 		model.update_sprite.connect(_change_sprite)
 		character.combat_handler.stats.health_recovered.connect(number_control.heal)
@@ -45,11 +50,12 @@ func set_character(new_character: Character = null):
 		
 		character.combat_handler.added_lasting_effect.connect(icon_control.add_effect)
 		character.combat_handler.removed_lasting_effect.connect(icon_control.remove_effect)
-	
+		character.combat_handler.showing_graphic.connect(graphics_control.play)
 
 # Clears the container
 func remove_character():
 	if character:
+		character.combat_model.current_container = null
 		character.combat_model.update_sprite.disconnect(_change_sprite)
 		character.combat_handler.stats.health_recovered.disconnect(number_control.heal)
 		character.combat_handler.stats.damage_received.disconnect(number_control.damage)
@@ -58,6 +64,7 @@ func remove_character():
 		
 		character.combat_handler.added_lasting_effect.disconnect(icon_control.add_effect)
 		character.combat_handler.removed_lasting_effect.disconnect(icon_control.remove_effect)
+		character.combat_handler.showing_graphic.disconnect(graphics_control.play)
 		
 		_change_sprite(null)
 	super.remove_character()
@@ -70,9 +77,9 @@ func remove_character():
 func set_direction(dir: int):
 	# If dir is left and sprite is looking right, or if dir is right and sprite
 	# is looking left, we flip the value
-	if (dir < 0 and directional.scale.x < 0
-		or dir >= 0 and directional.scale.x > 0):
-		directional.scale.x *= -1
+	if (dir < 0 and combat_sprite.scale.x < 0
+		or dir >= 0 and combat_sprite.scale.x > 0):
+		combat_sprite.scale.x *= -1
 
 # This function should be called when a signal is emited indicating that the
 # character's combat sprite has changed
@@ -80,19 +87,7 @@ func _change_sprite(combat_animation: AnimatedSprite2D):
 	# We will add a duplicate of the sprite because we don't need to store
 	# changes to it. For the same reason we can free it when not using it as
 	# the original will be preserved
-	if sprite and not combat_animation:
-		sprite.free()
-		sprite = null
-	if not sprite and combat_animation:
-		sprite = combat_animation.duplicate()
-		directional.add_child(sprite)
-	if combat_animation:
-		sprite.animation = combat_animation.animation
-		sprite.play()
-		if sprite.animation != "Idle":
-			await sprite.animation_finished
-			character.combat_model.sprite_animation_ended.emit()
-		
+	await combat_sprite.set_sprite(combat_animation)
 
 func _on_gui_input(event: InputEvent):
 	if targeting_enabled and event.is_action_released("target_select"):

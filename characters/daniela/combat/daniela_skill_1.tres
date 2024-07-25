@@ -18,6 +18,7 @@ target_type = SubResource("Resource_yee67")
 [resource]
 script = ExtResource("1_7twel")
 name = "Golpe rompecorazones"
+anim_name = ""
 description = "es un ataque normal, pero cuando seleccionas el ataque, tienes las opciones de hacer un ataque normal  pero un ataque más fuerte que debuffea la defensa"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_4n31v")])
 energy_cost = 5
