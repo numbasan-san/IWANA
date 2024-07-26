@@ -56,8 +56,11 @@ extends Node2D
 # deleted
 @onready var party_path_node: Node = $PartyPath
 
+# Room Info.
 @export var room_name: String
 @export var room_info: Resource
+
+var zone = Player.zone
 # Thelayers and masks are stored so that they can be restored after
 # reactivating the zone
 var _collision_layers: Array[int]
@@ -71,6 +74,9 @@ func _ready():
 		_collision_masks.append(tile_map.tile_set.get_physics_layer_collision_mask(i))
 		i += 1
 
+func _process(delta):
+	zone = Player.zone
+
 # Activates processing, phisics, visibility and other functionalities of a zone
 func activate():
 	process_mode = Node.PROCESS_MODE_INHERIT
@@ -82,8 +88,9 @@ func activate():
 		tile_map.tile_set.set_physics_layer_collision_mask(i, _collision_masks[i])
 		i += 1
 	show()
-	print('Esto debería ejecutarse al recién abrir la habitación.')
-	print(room_info.name)
+	
+	var zone_layer = ScreenManager.rpg_screen.get_node('zone_layer/zone_layer')
+#	print('El jugador está en: ', (menu_maps.load_zone()).room_info.name)
 
 # Deactivates processing, phisics, visibility and other functionalities of a zone
 func deactivate():

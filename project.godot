@@ -25,6 +25,7 @@ ScriptManager="*res://script/game_script/script_manager.gd"
 ScriptCommands="*res://script/game_script/script_commands.gd"
 Player="*res://characters/player.tscn"
 AudioManager="res://scenes/audio_manager.tscn"
+ItemsMenuCaller="*res://script/menus/items_menu_caller.gd"
 
 [display]
 

@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://b36413u4v0whv"]
 
 [ext_resource type="Script" path="res://script/menus/game_menu/maps_menu.gd" id="1_e7eyw"]
-[ext_resource type="Texture2D" uid="uid://be7fr6rfhhoq4" path="res://assets/menus/game menu/libro_mapa.png" id="1_uqcs6"]
-[ext_resource type="PackedScene" uid="uid://bqcnhygdum144" path="res://scenes/menus/pause_menu/room_represent.tscn" id="4_eqy2w"]
-[ext_resource type="Texture2D" uid="uid://db26xg7yncmgm" path="res://assets/menus/game menu/mascara.png" id="5_gp41n"]
-[ext_resource type="Texture2D" uid="uid://q5md1uvnusab" path="res://assets/menus/game menu/map_menu/mapa_edificio.png" id="6_lrsgn"]
+[ext_resource type="Texture2D" uid="uid://cll10gnbh51xs" path="res://assets/menus/game menu/libro_mapa.png" id="1_uqcs6"]
+[ext_resource type="Texture2D" uid="uid://drx4fonory60c" path="res://assets/menus/mascara.png" id="3_0gv0p"]
+[ext_resource type="PackedScene" uid="uid://bqcnhygdum144" path="res://scenes/menus/room_represent.tscn" id="4_rynxr"]
+[ext_resource type="Texture2D" uid="uid://cq0cs74jmh6fh" path="res://assets/menus/game menu/map_menu/mapa_edificio.png" id="6_lrsgn"]
 
 [node name="maps_menu" type="Control"]
 layout_mode = 3
@@ -36,7 +36,7 @@ offset_left = 20.0
 offset_top = 50.5
 offset_right = 55.0
 offset_bottom = 100.5
-texture_hover = ExtResource("5_gp41n")
+texture_hover = ExtResource("3_0gv0p")
 stretch_mode = 0
 
 [node name="maps_btn" type="TextureButton" parent="background"]
@@ -45,7 +45,7 @@ offset_left = 5.0
 offset_top = 105.5
 offset_right = 40.0
 offset_bottom = 155.5
-texture_hover = ExtResource("5_gp41n")
+texture_hover = ExtResource("3_0gv0p")
 stretch_mode = 0
 
 [node name="items_btn" type="TextureButton" parent="background"]
@@ -54,7 +54,7 @@ offset_left = 15.0
 offset_top = 160.5
 offset_right = 50.0
 offset_bottom = 210.5
-texture_hover = ExtResource("5_gp41n")
+texture_hover = ExtResource("3_0gv0p")
 stretch_mode = 0
 
 [node name="Map" type="Control" parent="background"]
@@ -71,79 +71,79 @@ offset_bottom = 238.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="RF1N1" parent="background/Map" instance=ExtResource("4_eqy2w")]
+[node name="RoomF1N1" parent="background/Map" instance=ExtResource("4_rynxr")]
 offset_left = 184.0
 offset_top = 70.0
 offset_right = 242.0
 offset_bottom = 124.0
 
-[node name="RF1N2" parent="background/Map" instance=ExtResource("4_eqy2w")]
+[node name="RoomF1N2" parent="background/Map" instance=ExtResource("4_rynxr")]
 offset_left = 244.0
 offset_top = 70.0
 offset_right = 302.0
 offset_bottom = 123.0
 
-[node name="LBRT" parent="background/Map" instance=ExtResource("4_eqy2w")]
+[node name="Laboratory" parent="background/Map" instance=ExtResource("4_rynxr")]
 offset_left = 80.0
 offset_top = 62.0
 offset_right = 182.0
 offset_bottom = 124.0
 
-[node name="F1MBTHR" parent="background/Map" instance=ExtResource("4_eqy2w")]
+[node name="F1MaleBathroom" parent="background/Map" instance=ExtResource("4_rynxr")]
 offset_left = 304.0
 offset_top = 70.0
 offset_right = 350.0
 offset_bottom = 124.0
 
-[node name="F1FBTHR" parent="background/Map" instance=ExtResource("4_eqy2w")]
+[node name="F1FemaleBathroom" parent="background/Map" instance=ExtResource("4_rynxr")]
 offset_left = 352.0
 offset_top = 70.0
 offset_right = 402.0
 offset_bottom = 124.0
 
-[node name="HWF1N" parent="background/Map" instance=ExtResource("4_eqy2w")]
+[node name="HallwayF1N" parent="background/Map" instance=ExtResource("4_rynxr")]
 offset_left = 79.0
 offset_top = 126.0
 offset_right = 401.0
 offset_bottom = 156.0
 
-[node name="YRD" parent="background/Map" instance=ExtResource("4_eqy2w")]
+[node name="Yard" parent="background/Map" instance=ExtResource("4_rynxr")]
 offset_left = 158.0
 offset_top = 165.0
 offset_right = 400.0
 offset_bottom = 361.0
 
-[node name="DNR" parent="background/Map" instance=ExtResource("4_eqy2w")]
+[node name="DiningRoom" parent="background/Map" instance=ExtResource("4_rynxr")]
 offset_left = 83.0
 offset_top = 161.0
 offset_right = 151.0
 offset_bottom = 361.0
 
-[node name="HWF1S" parent="background/Map" instance=ExtResource("4_eqy2w")]
+[node name="HallwayF1S" parent="background/Map" instance=ExtResource("4_rynxr")]
 offset_left = 79.0
 offset_top = 370.0
 offset_right = 401.0
 offset_bottom = 400.0
 
-[node name="ARTR" parent="background/Map" instance=ExtResource("4_eqy2w")]
+[node name="ArtRoom" parent="background/Map" instance=ExtResource("4_rynxr")]
 offset_left = 80.0
 offset_top = 402.0
 offset_right = 182.0
 offset_bottom = 464.0
 
-[node name="RF1S1" parent="background/Map" instance=ExtResource("4_eqy2w")]
+[node name="RoomF1S1" parent="background/Map" instance=ExtResource("4_rynxr")]
 offset_left = 184.0
 offset_top = 401.6
 offset_right = 242.0
 offset_bottom = 455.6
 
-[node name="RF1S2" parent="background/Map" instance=ExtResource("4_eqy2w")]
+[node name="RoomF1S2" parent="background/Map" instance=ExtResource("4_rynxr")]
 offset_left = 244.0
 offset_top = 402.0
 offset_right = 302.0
 offset_bottom = 456.0
 
-[node name="RF1S3" parent="background/Map" instance=ExtResource("4_eqy2w")]
+[node name="Infirmary" parent="background/Map" instance=ExtResource("4_rynxr")]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

@@ -1,28 +1,11 @@
 extends Control
 
 var current_room_node = null  # Variable para llevar un seguimiento del nodo actual
-var rooms = {
-	'RoomF1N1': 'RF1N1',
-	'RoomF1N2': 'RF1N2',
-	'Yard': 'YRD',
-	'F1FemaleBathroom': 'F1FBTHR',
-	'F1MaleBathroom': 'F1MBTHR',
-	'Laboratory': 'LBRT',
-	'DiningRoom': 'DNR',
-	'RoomF1S1': 'RF1S1',
-	'RoomF1S2': 'RF1S2',
-	'RoomF1S3': 'RF1S3',
-	'ArtRoom': 'ARTR',
-	'HallwayF1N': 'HWF1N',
-	'HallwayF1S': 'HWF1S',
-}
 
 # Función para reproducir la animación en el nodo correspondiente y detenerla en el nodo anterior
 func play_animation_on_room(room_key):
-	var room_name = rooms.get(room_key, null)
-
-	if room_name:
-		var room_node = get_node('background/Map/' + room_name)
+	if room_key:
+		var room_node = get_node('background/Map/' + room_key)
 
 		if room_node:
 			if current_room_node and current_room_node != room_node:
@@ -49,22 +32,16 @@ func play_animation_on_room(room_key):
 			current_room_node = null  # Resetear el nodo actual
 
 # Función load como ejemplo de uso
-func load():
-	var world = Player.zone
-	
-	if rooms.has(world.name):
-		print('current screen: ' + world.name)
-		var zone_layer = ScreenManager.rpg_screen.get_node('zone_layer/zone_layer')
 
-		(zone_layer.get_node('Label')).text = world.name
-		(zone_layer.get_node('Animation')).play('intro')
-		(zone_layer.get_node('Animation')).play('RESET')
-		
+func load_maps():
+	var world = Player.zone
+	if world.name:
+		print('current screen: ' + world.name)
 		play_animation_on_room(world.name)
 		$background/VBoxContainer/room_name.text = world.room_info.name
 		$background/VBoxContainer2/description.text = world.room_info.description
 	else:
-		play_animation_on_room(null)  # Manejar el caso del pasillo
+		play_animation_on_room(null)  #dw Manejar el caso del pasillo
 
 
 func _on_characters_btn_pressed():

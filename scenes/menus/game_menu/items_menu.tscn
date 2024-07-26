@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cvqnwtk5nq0y6"]
+[gd_scene load_steps=6 format=3 uid="uid://cvqnwtk5nq0y6"]
 
 [ext_resource type="Script" path="res://script/menus/game_menu/items_menu.gd" id="1_1gckd"]
-[ext_resource type="Texture2D" uid="uid://cco6ix3x5ebn3" path="res://assets/menus/game menu/libreta_objetos.png" id="1_33c85"]
-[ext_resource type="FontFile" uid="uid://m557grc4g413" path="res://assets/combat_sprites/font/IWANA.ttf" id="2_10xmb"]
+[ext_resource type="Texture2D" uid="uid://cfj5i2pusaccu" path="res://assets/menus/game menu/libreta_objetos.png" id="1_33c85"]
+[ext_resource type="Texture2D" uid="uid://drx4fonory60c" path="res://assets/menus/mascara.png" id="3_iv8ha"]
+[ext_resource type="Texture2D" uid="uid://cwfhu2ayyaajg" path="res://assets/inventory/inventory_slot.png" id="3_js6ci"]
+[ext_resource type="PackedScene" uid="uid://3a5ilvkkwddg" path="res://scenes/menus/game_menu/utilities/item_card.tscn" id="4_k5wl5"]
 
 [node name="items_menu" type="Control"]
 layout_mode = 3
@@ -28,46 +30,155 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_33c85")
 
-[node name="characters_btn" type="Button" parent="background"]
-modulate = Color(1, 1, 1, 0)
+[node name="characters_btn" type="TextureButton" parent="background"]
 layout_mode = 0
 offset_left = 20.0
-offset_top = 50.5
+offset_top = 49.5
 offset_right = 55.0
-offset_bottom = 100.5
-action_mode = 0
-text = " "
+offset_bottom = 99.5
+texture_hover = ExtResource("3_iv8ha")
 
-[node name="maps_btn" type="Button" parent="background"]
-modulate = Color(1, 1, 1, 0)
+[node name="maps_btn" type="TextureButton" parent="background"]
 layout_mode = 0
 offset_left = 5.0
-offset_top = 105.5
+offset_top = 104.5
 offset_right = 40.0
-offset_bottom = 155.5
-action_mode = 0
-text = " "
+offset_bottom = 154.5
+texture_hover = ExtResource("3_iv8ha")
 
-[node name="items_btn" type="Button" parent="background"]
-modulate = Color(1, 1, 1, 0)
+[node name="items_btn" type="TextureButton" parent="background"]
 layout_mode = 0
 offset_left = 15.0
-offset_top = 160.5
+offset_top = 159.5
 offset_right = 51.0
-offset_bottom = 210.5
-action_mode = 0
-text = " "
+offset_bottom = 209.5
+texture_hover = ExtResource("3_iv8ha")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="background"]
+[node name="items_bar" type="VScrollBar" parent="background"]
 layout_mode = 0
-offset_left = -518.0
-offset_top = -47.0
-offset_right = -86.0
-offset_bottom = 343.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("2_10xmb")
-theme_override_font_sizes/normal_font_size = 50
-text = "Cosas de Items"
+offset_left = 120.0
+offset_top = 121.0
+offset_right = 534.0
+offset_bottom = 677.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="background"]
+layout_mode = 2
+offset_left = 123.0
+offset_top = 134.0
+offset_right = 123.0
+offset_bottom = 134.0
+
+[node name="GridContainer" type="GridContainer" parent="background/NinePatchRect"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 64
+theme_override_constants/v_separation = 85
+columns = 6
+
+[node name="item_card" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+visible = false
+layout_mode = 2
+
+[node name="item_card2" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+visible = false
+layout_mode = 2
+
+[node name="item_card3" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+visible = false
+layout_mode = 2
+
+[node name="item_card4" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+visible = false
+layout_mode = 2
+
+[node name="item_card5" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+visible = false
+layout_mode = 2
+
+[node name="item_card6" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+visible = false
+layout_mode = 2
+
+[node name="item_card7" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+visible = false
+layout_mode = 2
+
+[node name="item_card8" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+visible = false
+layout_mode = 2
+
+[node name="item_card9" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+visible = false
+layout_mode = 2
+
+[node name="item_card10" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+visible = false
+layout_mode = 2
+
+[node name="item_card11" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+visible = false
+layout_mode = 2
+
+[node name="item_card12" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+visible = false
+layout_mode = 2
+
+[node name="item_card13" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+visible = false
+layout_mode = 2
+
+[node name="item_card14" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+visible = false
+layout_mode = 2
+
+[node name="item_card15" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+visible = false
+layout_mode = 2
+
+[node name="item_card16" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+visible = false
+layout_mode = 2
+
+[node name="item_card17" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+visible = false
+layout_mode = 2
+
+[node name="item_card18" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+visible = false
+layout_mode = 2
+
+[node name="item_icon" type="Panel" parent="background"]
+layout_mode = 0
+offset_left = 650.0
+offset_top = 75.0
+offset_right = 1120.0
+offset_bottom = 345.0
+
+[node name="icon" type="TextureRect" parent="background/item_icon"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_js6ci")
+stretch_mode = 5
+
+[node name="item_info" type="RichTextLabel" parent="background"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -547.0
+offset_top = -360.5
+offset_right = -55.0
+offset_bottom = -62.5
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/normal_font_size = 30
+text = "sdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasda"
 
 [connection signal="pressed" from="background/characters_btn" to="." method="_on_characters_btn_pressed"]
 [connection signal="pressed" from="background/maps_btn" to="." method="_on_maps_btn_pressed"]

@@ -7,3 +7,4 @@ func collect(inventory : Inventory):
 	anim.play("taked")
 	await anim.animation_finished
 	super(inventory)
+	ItemsMenuCaller.items_menu_caller()
