@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://scenes/zones/base_zone.tscn" id="1_ljxgf"]
 [ext_resource type="Resource" uid="uid://uwjposnxxqyd" path="res://script/zones/zone_info/resources/dev_testing.tres" id="2_51o28"]
-[ext_resource type="Texture2D" uid="uid://cww7i2gp4ebio" path="res://assets/rpg_sprites/tilesets/dev_zone/tilesetDevTest.png" id="2_xemyy"]
+[ext_resource type="Texture2D" uid="uid://bv40h8gx2prai" path="res://assets/rpg_sprites/tilesets/dev_zone/tilesetDevTest.png" id="2_xemyy"]
 [ext_resource type="PackedScene" uid="uid://ulwb3176yswv" path="res://scenes/inventory/items/perro.tscn" id="5_0qu2l"]
 [ext_resource type="PackedScene" uid="uid://cn0nlsq5wj8on" path="res://scenes/objects/doors/classroom_door.tscn" id="7_7wyss"]
 [ext_resource type="PackedScene" uid="uid://cg87jy7chv1va" path="res://scenes/inventory/items/lagarto.tscn" id="7_a5m8c"]

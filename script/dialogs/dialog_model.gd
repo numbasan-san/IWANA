@@ -17,10 +17,14 @@ func _ready():
 	
 	for child in get_children():
 		child.hide()
-		# The sprite starts centered on the model, but we need it's bottom to
-		# touch the model's position. In order to not change it manually for
-		# every sprite, we move them up by half of their height
-		child.position.y = -(child.texture.get_size().y / 2)
+		# Check if child has a texture and it is not null
+		if child.has_method("get_texture") and child.texture:
+			# The sprite starts centered on the model, but we need its bottom to
+			# touch the model's position. In order to not change it manually for
+			# every sprite, we move them up by half of their height
+			child.position.y = -(child.texture.get_size().y / 2)
+		else:
+			print("Child has no texture or texture is null: ", child)
 		
 	# This codes assumes that all children (or at least the first one) are of
 	# type Sprite2D. If this changes in the future, this code must be rewritten
@@ -31,7 +35,7 @@ func _ready():
 # The sprite is reflected to look left
 func look_left():
 	if scale.x > 0:
-		apply_scale(Vector2(-1, 1))
+		apply_scale(Vector2(-1, 1)) 
 
 # The sprite is reflected to look right
 func look_right():

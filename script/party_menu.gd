@@ -99,8 +99,17 @@ func _on_attack_pressed():
 
 # La defensa del jugador.
 func _on_defense_pressed():
+<<<<<<< Updated upstream:script/party_menu.gd
 	var action = CombatAction.new(Defense.new(), selected_character, null)
 	combat.action_queue.append(action)
 	select_next_character()
 	if not selected_character:
 		combat.action_phase()
+=======
+	Defense.new().execute(selected_character)
+	# We perform this here in case the defense somehow activated an effect
+	# that damaged an enemy
+	combat.remove_dead()
+	select_character_index()
+	combat.next_turn()
+>>>>>>> Stashed changes:screens/combat/party_menu.gd

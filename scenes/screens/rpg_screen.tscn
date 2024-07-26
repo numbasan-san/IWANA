@@ -7,7 +7,15 @@
 [ext_resource type="AudioStream" uid="uid://rpfl8336vthn" path="res://assets/audio/Halls.mp3" id="5_tkbj8"]
 [ext_resource type="PackedScene" uid="uid://4iyphsfraq11" path="res://scenes/menus/pause_menu/pause_menu.tscn" id="5_y5v2l"]
 [ext_resource type="PackedScene" uid="uid://d7w5brnj1hi1" path="res://scenes/menus/game_menu/game_menu.tscn" id="6_bkiw3"]
+<<<<<<< Updated upstream:scenes/screens/rpg_screen.tscn
 [ext_resource type="PackedScene" uid="uid://bos8qlbwslebl" path="res://scenes/menus/game_menu/zone_layer.tscn" id="7_u0u1g"]
+=======
+[ext_resource type="PackedScene" uid="uid://dx8ovcjbdy6m8" path="res://screens/screen_audio.tscn" id="7_cceoh"]
+[ext_resource type="PackedScene" uid="uid://bos8qlbwslebl" path="res://scenes/menus/zone_layer.tscn" id="7_u0u1g"]
+[ext_resource type="Resource" uid="uid://bjryq23ok6dv7" path="res://music_tracks/halls_track.tres" id="8_em7p5"]
+[ext_resource type="AnimationLibrary" uid="uid://b423bn5ptarkn" path="res://music_play_animations.res" id="9_hcj0u"]
+[ext_resource type="AnimationLibrary" uid="uid://k7u1xrby60xn" path="res://music_stop_animations.res" id="10_nldw3"]
+>>>>>>> Stashed changes:screens/rpg/rpg_screen.tscn
 
 [sub_resource type="Animation" id="Animation_pqilx"]
 resource_name = "Hide"
@@ -260,6 +268,24 @@ process_mode = 3
 
 [node name="zone_layer" parent="zone_layer" instance=ExtResource("7_u0u1g")]
 
+<<<<<<< Updated upstream:scenes/screens/rpg_screen.tscn
 [node name="GameMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_tkbj8")
 volume_db = -5.0
+=======
+[node name="Audio" parent="." instance=ExtResource("7_cceoh")]
+music = Array[Resource("res://music_tracks/track_control.gd")]([ExtResource("8_em7p5")])
+current_track = ExtResource("8_em7p5")
+
+[node name="AudioAnimator" parent="Audio" index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_k3v1q"),
+"Play": ExtResource("9_hcj0u"),
+"Stop": ExtResource("10_nldw3")
+}
+
+[node name="AudioPlayer" parent="Audio" index="1"]
+volume_db = -15.0
+
+[editable path="Audio"]
+>>>>>>> Stashed changes:screens/rpg/rpg_screen.tscn

@@ -1,7 +1,11 @@
 [gd_scene load_steps=23 format=3 uid="uid://q2icfu5so7mo"]
 
 [ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://scenes/zones/base_zone.tscn" id="1_kxpea"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://b4ujkp4dw8nfd" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="2_7y2pn"]
+=======
+[ext_resource type="Texture2D" uid="uid://b3pel1cnkqsw3" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="2_7y2pn"]
+>>>>>>> Stashed changes
 [ext_resource type="Resource" uid="uid://cq7tt35lyuux6" path="res://script/zones/zone_info/resources/art_room.tres" id="2_cgimc"]
 [ext_resource type="PackedScene" uid="uid://hed2eep7147o" path="res://scenes/objects/doors/base_door.tscn" id="2_mn125"]
 [ext_resource type="PackedScene" uid="uid://urgl4gycqlbs" path="res://scenes/objects/general/table_round_small.tscn" id="3_rm6vj"]

@@ -15,7 +15,7 @@ func _on_maps_btn_pressed():
 	var selected_menu = self.get_parent()
 	var maps_menu = selected_menu.get_node('maps_menu')
 	maps_menu.visible = true
-	maps_menu.load()
+	maps_menu.load_maps()
 	
 
 func _on_items_btn_pressed():
@@ -23,3 +23,4 @@ func _on_items_btn_pressed():
 	var selected_menu = self.get_parent()
 	var items_menu = selected_menu.get_node('items_menu')
 	items_menu.visible = true
+	items_menu.load_items()

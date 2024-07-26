@@ -233,6 +233,24 @@ libraries = {
 "": SubResource("AnimationLibrary_n7kc0")
 }
 
+<<<<<<< Updated upstream:scenes/screens/main_menu_screen.tscn
 [node name="MainMenuMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_rjv87")
 volume_db = -40.0
+=======
+[node name="Audio" parent="." instance=ExtResource("3_hhkmy")]
+music = Array[Resource("res://music_tracks/track_control.gd")]([ExtResource("4_epqcr")])
+current_track = ExtResource("4_epqcr")
+
+[node name="AudioAnimator" parent="Audio" index="0"]
+libraries = {
+"": SubResource("AnimationLibrary_sisff"),
+"Play": ExtResource("5_iihtl"),
+"Stop": ExtResource("6_egk1r")
+}
+
+[node name="AudioPlayer" parent="Audio" index="1"]
+volume_db = -15.0
+
+[editable path="Audio"]
+>>>>>>> Stashed changes:screens/main_menu/main_menu_screen.tscn

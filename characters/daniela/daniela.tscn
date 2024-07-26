@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=3 uid="uid://d3ltulgb5a8do"]
+
+[ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
+[ext_resource type="Texture2D" uid="uid://c7lntb7mvpqt2" path="res://characters/daniela/vn/daniladino2.png" id="2_mrhog"]
+[ext_resource type="Script" path="res://combat/stats.gd" id="2_rf6nx"]
+[ext_resource type="Resource" uid="uid://sy16m35jo4do" path="res://combat/skill_ejemplo_daño.tres" id="3_vpbm4"]
+[ext_resource type="Texture2D" uid="uid://bhm0ys613ml5g" path="res://characters/daniela/vn/danielaenojadapng.png" id="4_4aw6c"]
+[ext_resource type="Texture2D" uid="uid://dqwab14t6nlyl" path="res://characters/daniela/rpg/movement.png" id="6_xh8t3"]
+[ext_resource type="Texture2D" uid="uid://ckr5arvqsdywg" path="res://characters/daniela/combat/cuernito.png" id="7_k47t8"]
+[ext_resource type="Texture2D" uid="uid://d3un5sww57vjd" path="res://characters/daniela/combat/daniela_combate.png" id="8_h0dso"]
+
+[sub_resource type="Resource" id="Resource_cqid2"]
+resource_local_to_scene = true
+script = ExtResource("2_rf6nx")
+base_max_health = 120
+base_max_energy = 80
+base_damage = 8
+base_defense = 0
+base_speed = 3
+base_critical = 0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqsh1"]
+resource_local_to_scene = true
+size = Vector2(114, 48.5)
+
+[node name="Daniela" instance=ExtResource("1_begxf")]
+stats = SubResource("Resource_cqid2")
+skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("3_vpbm4")])
+
+[node name="DialogModel" parent="." index="0"]
+visible = false
+
+[node name="Neutral" type="Sprite2D" parent="DialogModel" index="0"]
+scale = Vector2(-1, 1)
+texture = ExtResource("2_mrhog")
+
+[node name="Enojada" type="Sprite2D" parent="DialogModel" index="1"]
+scale = Vector2(-1, 1)
+texture = ExtResource("4_4aw6c")
+
+[node name="Sprite2D" parent="RPGModel" index="0"]
+texture = ExtResource("6_xh8t3")
+offset = Vector2(0, -136)
+vframes = 8
+frame = 16
+region_rect = Rect2(630, 144, 135, 270)
+
+[node name="Collider" parent="RPGModel" index="1"]
+position = Vector2(0, -24.75)
+shape = SubResource("RectangleShape2D_fqsh1")
+
+[node name="Basic" type="TextureRect" parent="CombatModel/Portraits" index="0"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_k47t8")
+
+[node name="Idle" type="Sprite2D" parent="CombatModel/Sprites" index="0"]
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("8_h0dso")

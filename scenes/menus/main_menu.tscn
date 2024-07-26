@@ -1,6 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://dfnbjn6yyb7iw"]
 
 [ext_resource type="Script" path="res://script/main_menu.gd" id="1_iukpg"]
+<<<<<<< Updated upstream:scenes/menus/main_menu.tscn
 [ext_resource type="Texture2D" uid="uid://cstfgdme2c8kc" path="res://assets/menus/menuPrincipal.png" id="2_xa41e"]
 [ext_resource type="Texture2D" uid="uid://d6t3c725rxfs" path="res://assets/menus/buttons/nueva_partida.png" id="3_8e8wm"]
 [ext_resource type="Texture2D" uid="uid://ckepqya3kogyu" path="res://assets/menus/buttons/nueva_partida2.png" id="4_7k65r"]
@@ -18,6 +19,26 @@
 [ext_resource type="Texture2D" uid="uid://4vescpl63t4u" path="res://assets/menus/buttons/salir.png" id="16_fe8dm"]
 [ext_resource type="Texture2D" uid="uid://c3sqjwqbek1h3" path="res://assets/menus/buttons/salir2.png" id="17_h0ynq"]
 [ext_resource type="Texture2D" uid="uid://cvqf053l4clvw" path="res://assets/menus/buttons/salir3.png" id="18_1mkem"]
+=======
+[ext_resource type="Texture2D" uid="uid://d37sy8xsdhtq7" path="res://assets/menus/menuPrincipal.png" id="2_xa41e"]
+[ext_resource type="Texture2D" uid="uid://genp03p74lr" path="res://assets/menus/buttons/nueva_partida.png" id="3_8e8wm"]
+[ext_resource type="Texture2D" uid="uid://c3b8xdboqjatl" path="res://assets/menus/buttons/nueva_partida2.png" id="4_7k65r"]
+[ext_resource type="Texture2D" uid="uid://dx7urnd0fkarf" path="res://assets/menus/buttons/nueva_partida3.png" id="5_nqi8q"]
+[ext_resource type="Script" path="res://screens/main_menu/new_game_button.gd" id="6_ckwbc"]
+[ext_resource type="Texture2D" uid="uid://cj15d5p6si287" path="res://assets/menus/buttons/continuar.png" id="7_bjlkw"]
+[ext_resource type="Texture2D" uid="uid://vd5inn7fse7s" path="res://assets/menus/buttons/continuar2.png" id="8_cenkl"]
+[ext_resource type="Texture2D" uid="uid://xuj4sppu5m2h" path="res://assets/menus/buttons/continuar3.png" id="9_81ose"]
+[ext_resource type="Texture2D" uid="uid://s3qdc0ma24bk" path="res://assets/menus/buttons/opciones.png" id="10_o0fyd"]
+[ext_resource type="Texture2D" uid="uid://cixoqb70iere" path="res://assets/menus/buttons/opciones2.png" id="11_tetsu"]
+[ext_resource type="Texture2D" uid="uid://du2an018okdnd" path="res://assets/menus/buttons/opciones3.png" id="12_mp32y"]
+[ext_resource type="Texture2D" uid="uid://4hbl04amorpu" path="res://assets/menus/buttons/extras.png" id="13_s1jvh"]
+[ext_resource type="Texture2D" uid="uid://bldiirggl86c6" path="res://assets/menus/buttons/extras2.png" id="14_xf18f"]
+[ext_resource type="Texture2D" uid="uid://buwrs06nl7f67" path="res://assets/menus/buttons/extras3.png" id="15_6p2ic"]
+[ext_resource type="Texture2D" uid="uid://bi67mri3davc1" path="res://assets/menus/buttons/salir.png" id="16_fe8dm"]
+[ext_resource type="Texture2D" uid="uid://dhv5pj2krjc8u" path="res://assets/menus/buttons/salir2.png" id="17_h0ynq"]
+[ext_resource type="Texture2D" uid="uid://dgml703j2ihhb" path="res://assets/menus/buttons/salir3.png" id="18_1mkem"]
+[ext_resource type="Script" path="res://screens/main_menu/quit_game_button.gd" id="19_sc1md"]
+>>>>>>> Stashed changes:screens/main_menu/main_menu.tscn
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3

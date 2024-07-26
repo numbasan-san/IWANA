@@ -26,6 +26,7 @@ func _start_after_dialog(scene_name: String, unit_name: String):
 func _start_battle():
 	var party = Party.new(4)
 	var dummy: Character = $"..".character
+<<<<<<< Updated upstream:script/characters/dummy_interaction.gd
 	party.add(dummy)
 	var i = 0
 	while i < 3:
@@ -35,3 +36,17 @@ func _start_battle():
 		party.add(d)
 		i += 1
 	ScreenManager.combat_screen.contents.start_battle(party)
+=======
+	var enemy_party = dummy.party
+	var i = 0
+	while i < 3:
+		var d: Character = dummy.clone()
+		d.stats = dummy.stats.duplicate()
+		d.stats.replenish()
+		enemy_party.add(d)
+		i += 1
+	enemy_party.members[1].stats.base_speed = 2
+	enemy_party.members[2].stats.base_speed = 4
+	enemy_party.members[3].stats.base_speed = 6
+	ScreenManager.combat_screen.contents.start_battle(Player.party, enemy_party)
+>>>>>>> Stashed changes:characters/dummy/dummy_interaction.gd

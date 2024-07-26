@@ -44,11 +44,33 @@ extends Node2D
 
 #-----------------------------------------------------
 
+<<<<<<< Updated upstream
 @export var room_name: String
 @export var room_info: Resource
 
 @onready var spawn_points: Node = $SpawnPoints
 @onready var tile_map: TileMap = $TileMap
+=======
+# Stores the points where characters can spawn. It's recommended
+# that there is at least 1 spawn point for each entrance. If there are
+# no spawn points, a default value is used (generaly point (0, 0))
+@onready var spawn_points: Node = $SpawnPoints
+@onready var tile_map: TileMap = $TileMap
+
+# Stores the party path. When the player controled character enters the zone,
+# a Path2D should be added here, and a PathFollow2D should be added to that
+# path for each follower. As the player character moves more points should be
+# added to the path, and when the character leaves the zone, the path should be
+# deleted
+@onready var party_path_node: Node = $PartyPath
+
+# Room Info.
+@export var room_name: String
+@export var room_info: Resource
+
+var zone = Player.zone
+
+>>>>>>> Stashed changes
 # Thelayers and masks are stored so that they can be restored after
 # reactivating the zone
 var _collision_layers: Array[int]
@@ -62,6 +84,9 @@ func _ready():
 		_collision_masks.append(tile_map.tile_set.get_physics_layer_collision_mask(i))
 		i += 1
 
+func _process(delta):
+	zone = Player.zone
+
 # Activates processing, phisics, visibility and other functionalities of a zone
 func activate():
 	process_mode = Node.PROCESS_MODE_INHERIT
@@ -73,8 +98,9 @@ func activate():
 		tile_map.tile_set.set_physics_layer_collision_mask(i, _collision_masks[i])
 		i += 1
 	show()
-	print('Esto debería ejecutarse al recién abrir la habitación.')
-	print(room_info.name)
+	
+	var zone_layer = ScreenManager.rpg_screen.get_node('zone_layer/zone_layer')
+#	print('El jugador está en: ', (menu_maps.load_zone()).room_info.name)
 
 # Deactivates processing, phisics, visibility and other functionalities of a zone
 func deactivate():
