@@ -17,19 +17,19 @@ class_name EffectGroup extends Effect
 
 func on_cast(caster: Character):
 	for eff in effects:
-		eff.on_cast(caster)
+		await eff.cast(caster)
 
 func on_send(target: Character):
 	for eff in effects:
-		eff.on_send(target)
+		await eff.send(target)
 
 func on_receive(caster: Character):
 	for eff in effects:
-		eff.on_receive(caster)
+		await eff.receive(caster)
 
 func on_apply(target: Character):
 	for eff in effects:
-		eff.on_apply(target)
+		await eff.apply(target)
 
 func copy() -> Effect:
 	var new_group = super.copy() as EffectGroup

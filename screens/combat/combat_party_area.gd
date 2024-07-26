@@ -50,5 +50,8 @@ func clear():
 func has(character: Character) -> bool:
 	return characters.has(character)
 
-func is_empty() -> bool:
-	return characters.is_empty()
+func all_defeated() -> bool:
+	for c in characters:
+		if not c.combat_handler.stats.unconscious:
+			return false
+	return true

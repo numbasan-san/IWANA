@@ -58,7 +58,8 @@ func on_cast(caster: Character):
 	pass
 
 func cast(caster: Character):
-	on_cast(caster)
+	if not is_nullified:
+		await on_cast(caster)
 
 # This will be called after the effect has been processed by the caster's
 # buffs and debuffs and before being sent to the target
@@ -66,7 +67,8 @@ func on_send(target: Character):
 	pass
 
 func send(target: Character):
-	on_send(target)
+	if not is_nullified:
+		await on_send(target)
 
 # This will be called when the effect has been received by the target, before
 # any other processing has been done
@@ -74,7 +76,8 @@ func on_receive(caster: Character):
 	pass
 
 func receive(caster: Character):
-	on_receive(caster)
+	if not is_nullified:
+		await on_receive(caster)
 
 # This will be called after the effect has been processed by the target's
 # buffs and debuffs. This should contain the code that modifies the target, for
@@ -83,7 +86,8 @@ func on_apply(target: Character):
 	pass
 
 func apply(target: Character):
-	await on_apply(target)
+	if not is_nullified:
+		await on_apply(target)
 
 func select_targets(allies: Party, enemies: Party):
 	if target_type.is_manual_target():
@@ -93,7 +97,7 @@ func select_targets(allies: Party, enemies: Party):
 	if target_type is TargetSelf:
 		skill_targets = [caster]
 	else:
-		var possible_targets = []
+		var possible_targets: Array[Character] = []
 		# Same as checking if Friend, Party, Anyone or Everyone
 		if not target_type is TargetEnemy and not target_type is TargetEnemyParty:
 			possible_targets.append_array(allies.members)
@@ -102,6 +106,9 @@ func select_targets(allies: Party, enemies: Party):
 		# Same as checking if Enemy, EnemyParty, Anyone or Everyone
 		if not target_type is TargetFriend and not target_type is TargetParty:
 			possible_targets.append_array(enemies.members)
+		# We remove fainted targets
+		possible_targets = possible_targets.filter(func(char: Character):
+			return not char.combat_handler.stats.unconscious)
 		# Same as checking if Party, EnemyParty or Everyone
 		if target_type is TargetFixed:
 			skill_targets = possible_targets
@@ -127,6 +134,7 @@ func copy() -> Effect:
 	new_effect.caster = caster
 	new_effect.skill_targets = skill_targets.duplicate()
 	new_effect.target = target
+	new_effect.is_nullified = is_nullified
 	return new_effect
 
 # This should be called as the setter of the caster property. It can be

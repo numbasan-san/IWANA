@@ -83,23 +83,22 @@ func end_battle():
 # everyone has acted to sort every character's turn for the next round
 func prepare_new_round():
 	for character in left_area.characters:
-		actor_queue.append(character)
+		if not character.combat_handler.stats.unconscious:
+			actor_queue.append(character)
 	for character in right_area.characters:
-		actor_queue.append(character)
+		if not character.combat_handler.stats.unconscious:
+			actor_queue.append(character)
 	actor_queue.sort_custom(func(a: Character, b: Character):
 		var a_handler = a.combat_handler
 		var b_handler = b.combat_handler
 		return a_handler.stats.speed > b_handler.stats.speed)
-	# We only call this to do clean up in case it wasn't called
-	# when appropiate
-	remove_dead()
 	
 func next_turn():
 	# We check here if one party has been defeated and end the battle to fix
 	# a bug that could happen when ending the battle in the code for a skill 
 	# button of a player character before it can call scene animations, which
 	# would cause it to call next_turn on the next battle
-	if left_area.is_empty() or right_area.is_empty():
+	if left_area.all_defeated() or right_area.all_defeated():
 		end_battle()
 	
 	elif actor_queue.is_empty():
@@ -108,6 +107,11 @@ func next_turn():
 	else:
 		var next: Character = actor_queue.pop_front() as Character
 		next.combat_handler.start_turn()
+		# If the next character fainted due to an effect in the previous turn
+		# or at the star of its turn, we skip this turn
+		if next.combat_handler.stats.unconscious:
+			next_turn()
+			
 		# If the next character is in the player's party, we allow the player
 		# to pick an action
 		# We check in the party variable of Player and not in the party menu
@@ -125,7 +129,6 @@ func next_turn():
 					t_type.random = true
 			skill.process_effects(enemy_party, player_party, [])
 			handler.execute(skill)
-			remove_dead()
 			next.combat_handler.end_turn()
 			next_turn()
 
@@ -155,26 +158,6 @@ func show_skills_menu():
 		selecting_target = false
 		if skills_menu.skills_container.get_child_count() > 0:
 			skills_menu.skills_container.get_child(0).grab_focus()
-
-# TODO: consider removing this function, or calling it at the end of the combat
-# to clear all containers. We shouldn't remove characters on death, instead we
-# should only change their sprite and mark them as dead, in case we can recover
-# them later.
-# This function should be called at the end of each turn to remove
-# all characters that have died from the combat area
-func remove_dead():
-	for char in enemy_party.members:
-		if char.combat_handler.stats.health <= 0:
-			# We put this here in case we accidentaly add an actor that was
-			# already removed from the area to the queue 
-			actor_queue.remove_at(actor_queue.find(char))
-			if enemy_area.has(char):
-				enemy_area.remove_character(char)
-	for char in player_party.members:
-		if char.combat_handler.stats.health <= 0:
-			actor_queue.remove_at(actor_queue.find(char))
-			if player_area.has(char):
-				player_area.remove_character(char)
 
 func _focus_action_list():
 	$PartyMenu/Actions/ActionList/Attack.grab_focus()

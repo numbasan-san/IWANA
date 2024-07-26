@@ -43,6 +43,7 @@ func set_character(new_character: Character = null):
 		model.current_container = self
 		_change_sprite(model.combat_animation)
 		model.update_sprite.connect(_change_sprite)
+		combat_sprite.sprite_animation_ended.connect(_notify_animation_ended.bind(model))
 		character.combat_handler.stats.health_recovered.connect(number_control.heal)
 		character.combat_handler.stats.damage_received.connect(number_control.damage)
 		character.combat_handler.stats.energy_recovered.connect(number_control.gain_energy)
@@ -57,6 +58,7 @@ func remove_character():
 	if character:
 		character.combat_model.current_container = null
 		character.combat_model.update_sprite.disconnect(_change_sprite)
+		combat_sprite.sprite_animation_ended.disconnect(_notify_animation_ended)
 		character.combat_handler.stats.health_recovered.disconnect(number_control.heal)
 		character.combat_handler.stats.damage_received.disconnect(number_control.damage)
 		character.combat_handler.stats.energy_recovered.disconnect(number_control.gain_energy)
@@ -87,7 +89,11 @@ func _change_sprite(combat_animation: AnimatedSprite2D):
 	# We will add a duplicate of the sprite because we don't need to store
 	# changes to it. For the same reason we can free it when not using it as
 	# the original will be preserved
-	await combat_sprite.set_sprite(combat_animation)
+	combat_sprite.set_sprite(combat_animation)
+
+# Called to notify the model when the combat sprite has finished animating.
+func _notify_animation_ended(model: CombatModel):
+	model.sprite_animation_ended.emit()
 
 func _on_gui_input(event: InputEvent):
 	if targeting_enabled and event.is_action_released("target_select"):

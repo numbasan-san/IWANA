@@ -98,7 +98,10 @@ func on_intercept(effect: Effect):
 	pass
 
 func intercept(effect: Effect):
-	on_intercept(effect)
-	if interception and decrease_duration == Decrease.ON_INTERCEPT:
-		duration -= 1
-	interception = false
+	# Nullified effects won't trigger an interception and won't decrease the
+	# duration.
+	if not effect.is_nullified:
+		on_intercept(effect)
+		if interception and decrease_duration == Decrease.ON_INTERCEPT:
+			duration -= 1
+		interception = false

@@ -1,8 +1,15 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=6 format=3 uid="uid://fwun0t61uohl"]
+[gd_resource type="Resource" script_class="Skill" load_steps=11 format=3 uid="uid://fwun0t61uohl"]
 
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_3mjya"]
+[ext_resource type="Script" path="res://combat/effects/animation_effects/play_animation.gd" id="1_5khvb"]
 [ext_resource type="Script" path="res://combat/effects/buffs/healing_shield.gd" id="1_wl0a6"]
 [ext_resource type="Script" path="res://combat/targets/target_self.gd" id="2_fw5sy"]
+[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="4_w67dm"]
+
+[sub_resource type="Resource" id="Resource_wdqfd"]
+script = ExtResource("1_5khvb")
+graphic_name = "Skill2"
+value = 1.0
 
 [sub_resource type="Resource" id="Resource_nf3tx"]
 script = ExtResource("2_fw5sy")
@@ -16,10 +23,19 @@ duration = 1
 value = 10.0
 target_type = SubResource("Resource_nf3tx")
 
+[sub_resource type="Resource" id="Resource_iwt8r"]
+script = ExtResource("2_fw5sy")
+
+[sub_resource type="Resource" id="Resource_d0itu"]
+script = ExtResource("4_w67dm")
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_wdqfd"), SubResource("Resource_3l72c")])
+value = 1.0
+target_type = SubResource("Resource_iwt8r")
+
 [resource]
 script = ExtResource("1_3mjya")
 name = "Inquebrantable"
 anim_name = "Skill2"
 description = "Se coloca un escudo que recibe daño en vez del personaje. Si al siguiente turno el escudo no se ha roto, cura al personaje."
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_3l72c")])
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_d0itu")])
 energy_cost = 5

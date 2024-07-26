@@ -24,7 +24,7 @@ func _ready():
 			p.hide()
 		set_portrait("Basic")
 	if combat_animation:
-		set_sprite("Idle")
+		set_sprite("idle")
 
 # Sets the current portrait to one defined in the portraits list
 func set_portrait(name: String):
@@ -43,14 +43,14 @@ func set_portrait(name: String):
 
 # Sets the current sprite to one defined in the sprites list
 func set_sprite(sprite_name: String):
-	sprite_name = sprite_name.to_pascal_case()
+	sprite_name = sprite_name.to_snake_case()
 	if has_sprite(sprite_name):
 		combat_animation.animation = sprite_name
 		update_sprite.emit(combat_animation)
 	elif character:
 		printerr("CombatModel | " + character.name + " doesn't have a sprite " \
-			+ "named " + name)
+			+ "named " + sprite_name)
 
 func has_sprite(sprite_name: String):
-	sprite_name = sprite_name.to_pascal_case()
-	return combat_animation.sprite_frames.has_animation(sprite_name)
+	sprite_name = sprite_name.to_snake_case()
+	return combat_animation and combat_animation.sprite_frames.has_animation(sprite_name)

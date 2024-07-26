@@ -46,7 +46,6 @@ func set_character(character: Character = null):
 								+ "with the required number for skill " + skill.name)
 						else:
 							await character.combat_handler.execute(skill)
-							combat.remove_dead()
 							character.combat_handler.end_turn()
 							await combat.show_party_menu()
 							combat.next_turn()
@@ -94,7 +93,7 @@ func show_possible_targets(t_type: TargetVariable, caster: Character):
 	
 	var callable = _add_target_to_current.bind(t_type.number_of_targets)
 	for container in possible_targets:
-		if container.character and container.character.combat_handler.stats.health > 0:
+		if container.character and not container.character.combat_handler.stats.unconscious:
 			container.targeting_enabled = true
 			container.target_selected.connect(callable)
 

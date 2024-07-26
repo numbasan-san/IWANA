@@ -51,7 +51,11 @@ func init():
 		new_skills.append(new_skill)
 	skills = new_skills
 	
+	stats.raised.connect(func():
+		character.combat_model.set_sprite("idle"))
+	
 	stats.fainted.connect(func():
+		character.combat_model.set_sprite("fainted")
 		for eff in stat_modifiers:
 			removed_lasting_effect.emit(eff)
 		stat_modifiers.clear()
@@ -70,6 +74,8 @@ func init():
 	hit_animations.append(hit)
 
 func execute(skill: Skill):
+	if stats.unconscious:
+		return
 	if stats.energy < skill.energy_cost:
 		printerr("Skill | " + character.name + " tried to use a skill without having" \
 			+ " the required energy of " + str(skill.energy_cost) + ". This shouldn't" \
@@ -77,40 +83,29 @@ func execute(skill: Skill):
 			+ " selecting the skill")
 		return
 	
-	if skill.anim_name and character.combat_model.has_sprite(skill.anim_name):
-		character.combat_model.set_sprite(skill.anim_name)
 	for effect in skill.effects:
 		if effect.is_nullified:
 			continue
 		var copy: Effect = effect.copy()
 		await send(copy)
-	character.combat_model.set_sprite("Idle")
+	character.combat_model.set_sprite("idle")
 	stats.energy -= skill.energy_cost
 
 # Calculates the initial value of this effect, modifies it based on the caster
 # buffs and debuffs, and sends it to the target
 func send(effect: Effect):
 	# If everything went correctly, effect.caster == character
-	effect.cast(effect.caster)
-	# If on_cast nullifies the effect, we interrupt the rest of the process
-	if effect.is_nullified:
-		return
+	await effect.cast(effect.caster)
+	
 	for out in outgoing_effect_modifiers:
-		out.intercept(effect)
+		await out.intercept(effect)
 		# We check if the interception reduced the duration of the interceptor
 		end_of_duration(out)
-		# The effect must survive all interceptions in order to continue
-		if effect.is_nullified:
-			return
 	for t in effect.skill_targets:
 		# We copy the effect for each of the target, so modifications to the
 		# effect sent to one target doesn't alter effects sent to others
 		var copy = effect.copy()
-		copy.send(t)
-		# If on_send nullifies the effect, it only interrupts the copy being sent
-		# to the current target. Other copies might still be sent
-		if copy.is_nullified:
-			continue
+		await copy.send(t)
 		# We split the effect groups here to send all its sub-effects individually
 		# so that the target has the chance to intercept them
 		if copy is EffectGroup:
@@ -132,17 +127,11 @@ func receive(effect: Effect):
 	# will do nothing anyways
 	if effect is ConditionalEffect:
 		effect = effect.evaluate()
-	effect.receive(effect.caster)
-	# If on_receive nullifies the effect, we interrupt the rest of the process
-	if effect.is_nullified:
-		return
+	await effect.receive(effect.caster)
 	for inc in incoming_effect_modifiers:
-		inc.intercept(effect)
+		await inc.intercept(effect)
 		# We check if the interception reduced the duration of the interceptor
 		end_of_duration(inc)
-		# The effect must survive all interceptions in order to continue
-		if effect.is_nullified:
-			return
 	# If we have reached this point, the effect has survived and must be applied.
 	# If it's a lasting effect, it must be added to the corresponding list
 	if effect is LastingEffect:
@@ -159,7 +148,7 @@ func receive(effect: Effect):
 		added_lasting_effect.emit(effect)
 	await effect.apply(character)
 	for hit in hit_animations:
-		hit.intercept(effect)
+		await hit.intercept(effect)
 	effect.caster.combat_handler.after_character_hit(character, effect)
 
 # This function should be called when the character's turn has just begun, and

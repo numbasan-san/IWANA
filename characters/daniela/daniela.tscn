@@ -20,12 +20,17 @@ region = Rect2(0, 0, 290, 399)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0r282"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"fainted",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mt0r0")
 }],
 "loop": true,
-"name": &"Idle",
+"name": &"idle",
 "speed": 5.0
 }]
 
@@ -64,7 +69,7 @@ position = Vector2(0, -0.75)
 shape = SubResource("RectangleShape2D_fqsh1")
 
 [node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
-combat_animation = NodePath("Sprites/Idle")
+combat_animation = NodePath("Sprites/CombatSprite")
 
 [node name="Basic" type="TextureRect" parent="CombatModel/Portraits" index="0"]
 visible = false
@@ -72,9 +77,9 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("7_k47t8")
 
-[node name="Idle" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
+[node name="CombatSprite" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
 sprite_frames = SubResource("SpriteFrames_0r282")
-animation = &"Idle"
+animation = &"fainted"
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_cqid2")

@@ -18,7 +18,12 @@ signal health_recovered
 signal energy_spent
 signal energy_recovered
 
+# Emitted when health reaches 0 or the character is affected by some other
+# condition that prevents it from fighting
 signal fainted
+# Emitted when health goes from 0 to a higher value or is no longer affected by
+# a condition that prevents it from fighting
+signal raised
 
 #The basic stats that every character has and influences combat
 # Most values are clamped between a min and/or a max value for the base stats,
@@ -180,9 +185,12 @@ var critical: int:
 		return clampi(round(base_critical + critical_modifier), 0, 100)
 
 # Can't go above modified max_health or under 0. When this value reaches 0, the
-# character is rendered unconcious
+# character is rendered unconscious
 var health: int:
 	set(value):
+		# If the values are the same we return to prevent emitting signals
+		if health == value:
+			return
 		var old = health
 		health = clampi(value, 0, max_health)
 		var new = health
@@ -196,12 +204,21 @@ var health: int:
 			# to show the full recovery value
 			health_recovered.emit(value - old)
 		if new == 0:
+			unconscious = true
 			fainted.emit()
+		# Because we return immediately when old == new, we only reach this
+		# condition when we are going above 0 health
+		if old == 0:
+			unconscious = false
+			raised.emit()
 
 # Can't go above max_energy or below 0. If the character has less energy than
 # required by a skill, they can't use it
 var energy: int:
 	set(value):
+		# If the values are the same we return to prevent emitting signals
+		if energy == value:
+			return
 		var old = energy
 		energy = clamp(value, 0, max_energy)
 		var new = energy
@@ -217,6 +234,13 @@ var energy: int:
 			# We use value in case the character recovered beyond its max energy
 			# to show the full recovery value
 			energy_recovered.emit(value - old)
+
+# When a character's health has reached 0 or is affected by some equivalent
+# condition, the fainted signal is emited and this is set to true. When recovered
+# and can fight again this is set to false. unconscious characters shouldn't be
+# able to execute skills or be targeted by most skills, but can be the target of
+# items
+var unconscious: bool = false
 
 # Restores health and energy
 func replenish():

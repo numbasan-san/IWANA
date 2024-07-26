@@ -332,12 +332,17 @@ region = Rect2(3120, 0, 120, 110)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ka6c2"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"fainted",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gmbqi")
 }],
 "loop": true,
-"name": &"Idle",
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -369,7 +374,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_wrwxk")
 }],
 "loop": true,
-"name": &"Moving",
+"name": &"moving",
 "speed": 12.0
 }, {
 "frames": [{
@@ -455,7 +460,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_sma55")
 }],
 "loop": false,
-"name": &"Skill1",
+"name": &"skill1",
 "speed": 12.0
 }]
 
@@ -554,7 +559,7 @@ combat_animation = NodePath("Sprites/CombatSprites")
 [node name="CombatSprites" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_ka6c2")
-animation = &"Moving"
+animation = &"fainted"
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_4c1gv")

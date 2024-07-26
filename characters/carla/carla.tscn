@@ -179,12 +179,17 @@ region = Rect2(0, 0, 848, 1375)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qgx6d"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"fainted",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jareu")
 }],
 "loop": true,
-"name": &"Idle",
+"name": &"idle",
 "speed": 5.0
 }]
 
@@ -247,7 +252,7 @@ libraries = {
 }
 
 [node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
-combat_animation = NodePath("Sprites/Idle")
+combat_animation = NodePath("Sprites/CombatSprite")
 
 [node name="Basic" type="TextureRect" parent="CombatModel/Portraits" index="0"]
 visible = false
@@ -257,10 +262,10 @@ texture = ExtResource("4_03jaf")
 expand_mode = 1
 stretch_mode = 2
 
-[node name="Idle" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
+[node name="CombatSprite" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
 scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_qgx6d")
-animation = &"Idle"
+animation = &"fainted"
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_4hq1v")
