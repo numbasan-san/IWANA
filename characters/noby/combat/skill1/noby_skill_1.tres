@@ -1,8 +1,15 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=6 format=3 uid="uid://cjqlcyi4yt74x"]
+[gd_resource type="Resource" script_class="Skill" load_steps=13 format=3 uid="uid://cjqlcyi4yt74x"]
 
 [ext_resource type="Script" path="res://combat/effects/buffs/protected.gd" id="1_auus6"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_j5dnv"]
+[ext_resource type="Texture2D" uid="uid://cdhitokvk18u5" path="res://combat/effects/lasting_effect_icons.png" id="1_vojjr"]
 [ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="2_ad0qx"]
+[ext_resource type="Script" path="res://combat/effects/animation_effects/play_animation.gd" id="4_votv4"]
+[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="5_p667i"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wpjg"]
+atlas = ExtResource("1_vojjr")
+region = Rect2(174, 66, 48, 42)
 
 [sub_resource type="Resource" id="Resource_evo2y"]
 script = ExtResource("2_ad0qx")
@@ -13,6 +20,7 @@ allow_repetition = false
 
 [sub_resource type="Resource" id="Resource_2yn1x"]
 script = ExtResource("1_auus6")
+icon = SubResource("AtlasTexture_5wpjg")
 type = 0
 modifies = 2
 decrease_duration = 4
@@ -20,10 +28,28 @@ duration = 1
 value = 1.0
 target_type = SubResource("Resource_evo2y")
 
+[sub_resource type="Resource" id="Resource_q6dsf"]
+script = ExtResource("4_votv4")
+graphic_name = "jump_protect"
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_wj3e2"]
+script = ExtResource("2_ad0qx")
+exclude_self = false
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_mygx4"]
+script = ExtResource("5_p667i")
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_2yn1x"), SubResource("Resource_q6dsf")])
+value = 1.0
+target_type = SubResource("Resource_wj3e2")
+
 [resource]
 script = ExtResource("1_j5dnv")
 name = "Tu harías lo mismo"
 anim_name = "Skill1"
 description = "Salta hacia un aliado y recibe daño por este"
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_2yn1x")])
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_mygx4")])
 energy_cost = 5
