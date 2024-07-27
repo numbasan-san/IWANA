@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://cbsenaqm4qe7m"]
+[gd_scene load_steps=27 format=3 uid="uid://cbsenaqm4qe7m"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_kpgma"]
 [ext_resource type="Texture2D" uid="uid://bgtgi63coor2s" path="res://characters/guillermo/vn/neutral.png" id="4_43dl1"]
+[ext_resource type="Texture2D" uid="uid://x4ofolrtyl8o" path="res://characters/guillermo/combat/fainted.png" id="4_x4bf4"]
 [ext_resource type="Texture2D" uid="uid://c3r6ys3tuig1j" path="res://characters/guillermo/rpg/guille_perspectivas.png" id="5_0cuqx"]
 [ext_resource type="Script" path="res://combat/effects/damage.gd" id="5_sdrfb"]
 [ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="6_2nwe8"]
@@ -173,13 +174,20 @@ _data = {
 "walk_up": SubResource("Animation_h4kpt")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_25r7v"]
+atlas = ExtResource("4_x4bf4")
+region = Rect2(0, 0, 220, 320)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_cnvdr"]
 atlas = ExtResource("4_43dl1")
 region = Rect2(0, 0, 603, 1732)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5q2ra"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25r7v")
+}],
 "loop": true,
 "name": &"fainted",
 "speed": 5.0

@@ -1,9 +1,10 @@
-[gd_scene load_steps=73 format=3 uid="uid://cxhb1pbyx1uwh"]
+[gd_scene load_steps=75 format=3 uid="uid://cxhb1pbyx1uwh"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_dme1k"]
 [ext_resource type="Texture2D" uid="uid://ccgofqb2mmybt" path="res://characters/dummy/combat/sombra_combate.png" id="4_ejgt2"]
 [ext_resource type="Texture2D" uid="uid://pgii0ntpmdfm" path="res://characters/dummy/rpg/sombra.png" id="4_i5aca"]
+[ext_resource type="Texture2D" uid="uid://c1g8ghpfiih4j" path="res://characters/dummy/combat/fainted.png" id="4_s2m5x"]
 [ext_resource type="Texture2D" uid="uid://df2ppb2mqdooe" path="res://characters/dummy/combat/running-sprite.png" id="5_66v14"]
 [ext_resource type="Script" path="res://characters/dummy/dummy_interaction.gd" id="5_vdbvb"]
 [ext_resource type="Texture2D" uid="uid://bimj7yoitax2w" path="res://characters/dummy/combat/skill6-sprite.png" id="5_vqgvf"]
@@ -182,6 +183,10 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vtrvc"]
 size = Vector2(144, 115)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4yw1"]
+atlas = ExtResource("4_s2m5x")
+region = Rect2(0, 0, 220, 320)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_gmbqi"]
 atlas = ExtResource("4_ejgt2")
 region = Rect2(0, 0, 49, 100)
@@ -332,7 +337,10 @@ region = Rect2(3120, 0, 120, 110)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ka6c2"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4yw1")
+}],
 "loop": true,
 "name": &"fainted",
 "speed": 5.0

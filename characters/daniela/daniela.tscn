@@ -1,9 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://d3ltulgb5a8do"]
+[gd_scene load_steps=16 format=3 uid="uid://d3ltulgb5a8do"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Texture2D" uid="uid://c7lntb7mvpqt2" path="res://characters/daniela/vn/daniladino2.png" id="2_mrhog"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_rf6nx"]
 [ext_resource type="Texture2D" uid="uid://bhm0ys613ml5g" path="res://characters/daniela/vn/danielaenojadapng.png" id="4_4aw6c"]
+[ext_resource type="Texture2D" uid="uid://dv0nvdtneogeu" path="res://characters/daniela/combat/fainted.png" id="6_7wt8b"]
 [ext_resource type="Texture2D" uid="uid://dqwab14t6nlyl" path="res://characters/daniela/rpg/movement.png" id="6_xh8t3"]
 [ext_resource type="Texture2D" uid="uid://ckr5arvqsdywg" path="res://characters/daniela/combat/cuernito.png" id="7_k47t8"]
 [ext_resource type="Texture2D" uid="uid://d3un5sww57vjd" path="res://characters/daniela/combat/daniela_combate.png" id="8_h0dso"]
@@ -14,13 +15,20 @@
 resource_local_to_scene = true
 size = Vector2(114, 48.5)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mgkk"]
+atlas = ExtResource("6_7wt8b")
+region = Rect2(0, 0, 220, 320)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_mt0r0"]
 atlas = ExtResource("8_h0dso")
 region = Rect2(0, 0, 290, 399)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0r282"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mgkk")
+}],
 "loop": true,
 "name": &"fainted",
 "speed": 5.0

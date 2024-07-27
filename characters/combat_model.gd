@@ -41,9 +41,8 @@ func set_portrait(name: String):
 		printerr("CombatModel | " + character.name + " doesn't have a portrait " \
 		 + "named " + name)
 
-# Sets the current sprite to one defined in the sprites list
+# Sets the current sprite animation to one defined in the combat sprite.
 func set_sprite(sprite_name: String):
-	sprite_name = sprite_name.to_snake_case()
 	if has_sprite(sprite_name):
 		combat_animation.animation = sprite_name
 		update_sprite.emit(combat_animation)
@@ -52,5 +51,4 @@ func set_sprite(sprite_name: String):
 			+ "named " + sprite_name)
 
 func has_sprite(sprite_name: String):
-	sprite_name = sprite_name.to_snake_case()
 	return combat_animation and combat_animation.sprite_frames.has_animation(sprite_name)

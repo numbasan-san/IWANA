@@ -111,7 +111,7 @@ func _on_attack_pressed():
 # La defensa del jugador.
 func _on_defense_pressed():
 	# TODO: maybe turn defense into a skill
-	Defense.new().execute(selected_character)
+	await Defense.new().execute(selected_character)
 	selected_character.combat_handler.end_turn()
 	select_character_index()
 	combat.next_turn()

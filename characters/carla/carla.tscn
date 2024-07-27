@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=3 uid="uid://dorc15lxpd2w4"]
+[gd_scene load_steps=27 format=3 uid="uid://dorc15lxpd2w4"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_vglxn"]
 [ext_resource type="Texture2D" uid="uid://c0gujvk7yqw63" path="res://characters/carla/vn/neutral.png" id="4_03jaf"]
+[ext_resource type="Texture2D" uid="uid://cv0u8v1wk5lxp" path="res://characters/carla/combat/fainted.png" id="4_50y82"]
 [ext_resource type="Texture2D" uid="uid://d4hir2kah47k3" path="res://characters/carla/rpg/carla.png" id="5_h4af0"]
 [ext_resource type="Script" path="res://combat/effects/damage.gd" id="5_lkpum"]
 [ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="6_85i0v"]
@@ -173,13 +174,20 @@ _data = {
 "walk_up": SubResource("Animation_b30q8")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dahf2"]
+atlas = ExtResource("4_50y82")
+region = Rect2(0, 0, 220, 320)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_jareu"]
 atlas = ExtResource("4_03jaf")
 region = Rect2(0, 0, 848, 1375)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qgx6d"]
 animations = [{
-"frames": [],
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dahf2")
+}],
 "loop": true,
 "name": &"fainted",
 "speed": 5.0

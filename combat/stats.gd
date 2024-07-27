@@ -188,12 +188,13 @@ var critical: int:
 # character is rendered unconscious
 var health: int:
 	set(value):
-		# If the values are the same we return to prevent emitting signals
-		if health == value:
-			return
 		var old = health
 		health = clampi(value, 0, max_health)
 		var new = health
+		# If the values are the same we return to prevent emitting signals. We
+		# don't use value as that doesn't include the clamping.
+		if old == new:
+			return
 		update_health.emit(old, new)
 		if new < old:
 			# We use value in case the character received more damage than its
@@ -216,12 +217,13 @@ var health: int:
 # required by a skill, they can't use it
 var energy: int:
 	set(value):
-		# If the values are the same we return to prevent emitting signals
-		if energy == value:
-			return
 		var old = energy
 		energy = clamp(value, 0, max_energy)
 		var new = energy
+		# If the values are the same we return to prevent emitting signals. We
+		# don't use value as that doesn't include the clamping.
+		if old == new:
+			return
 		update_energy.emit(old, new)
 		if new < old:
 			# We use value in case the character lost more energy than its

@@ -117,7 +117,7 @@ func next_turn():
 		# We check in the party variable of Player and not in the party menu
 		# in the battle screen in case both battling parties are controled by
 		# the computer
-		if Player.party.has(next):
+		elif Player.party.has(next):
 			party_menu.select_character(next)
 			_focus_action_list()
 		else:
@@ -128,7 +128,7 @@ func next_turn():
 					var t_type = eff.target_type as TargetVariable
 					t_type.random = true
 			skill.process_effects(enemy_party, player_party, [])
-			handler.execute(skill)
+			await handler.execute(skill)
 			next.combat_handler.end_turn()
 			next_turn()
 

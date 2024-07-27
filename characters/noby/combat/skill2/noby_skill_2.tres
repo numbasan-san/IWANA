@@ -8,7 +8,7 @@
 
 [sub_resource type="Resource" id="Resource_wdqfd"]
 script = ExtResource("1_5khvb")
-graphic_name = "Skill2"
+graphic_name = "backpack_shield"
 value = 1.0
 
 [sub_resource type="Resource" id="Resource_nf3tx"]

@@ -210,7 +210,6 @@ func reposition(zone: Zone, position: Vector2, direction: String):
 	new_path()
 	for m in members:
 		_sync_with_follower(m)
-	pass
 
 func _sync_with_follower(char: Character):
 	if char.is_following:
