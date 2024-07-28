@@ -228,7 +228,6 @@ target_type = SubResource("Resource_o0vmu")
 resource_local_to_scene = true
 script = ExtResource("7_2u0rd")
 name = "Daño Ejemplo"
-anim_name = ""
 description = "Skill de ejemplo para  debuggear"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_rdmvj")])
 energy_cost = 5

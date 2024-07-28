@@ -2,54 +2,55 @@
 
 [ext_resource type="Script" path="res://combat/effects/buffs/protected.gd" id="1_auus6"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_j5dnv"]
-[ext_resource type="Texture2D" uid="uid://cdhitokvk18u5" path="res://combat/effects/lasting_effect_icons.png" id="1_vojjr"]
 [ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="2_ad0qx"]
+[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="2_mcybc"]
 [ext_resource type="Script" path="res://combat/effects/animation_effects/play_animation.gd" id="4_votv4"]
-[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="5_p667i"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5wpjg"]
-atlas = ExtResource("1_vojjr")
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6ht6g"]
+load_path = "res://.godot/imported/lasting_effect_icons.png-77f127f496dd8238ff80ee35f581e8c1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i4dso"]
+atlas = SubResource("CompressedTexture2D_6ht6g")
 region = Rect2(174, 66, 48, 42)
 
-[sub_resource type="Resource" id="Resource_evo2y"]
+[sub_resource type="Resource" id="Resource_k4bvu"]
+script = ExtResource("4_votv4")
+graphic_name = "jump_protect"
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_5ekvf"]
+script = ExtResource("4_votv4")
+graphic_name = "idle"
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_ms0ch"]
+script = ExtResource("2_mcybc")
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_k4bvu"), SubResource("Resource_5ekvf")])
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_6d5tn"]
 script = ExtResource("2_ad0qx")
 exclude_self = true
 number_of_targets = 1
 random = false
 allow_repetition = false
 
-[sub_resource type="Resource" id="Resource_2yn1x"]
+[sub_resource type="Resource" id="Resource_0ay3d"]
+resource_local_to_scene = true
 script = ExtResource("1_auus6")
-icon = SubResource("AtlasTexture_5wpjg")
+intercept_effect = SubResource("Resource_ms0ch")
+icon = SubResource("AtlasTexture_i4dso")
 type = 0
 modifies = 2
 decrease_duration = 4
 duration = 1
 value = 1.0
-target_type = SubResource("Resource_evo2y")
-
-[sub_resource type="Resource" id="Resource_q6dsf"]
-script = ExtResource("4_votv4")
-graphic_name = "jump_protect"
-value = 1.0
-
-[sub_resource type="Resource" id="Resource_wj3e2"]
-script = ExtResource("2_ad0qx")
-exclude_self = false
-number_of_targets = 1
-random = false
-allow_repetition = false
-
-[sub_resource type="Resource" id="Resource_mygx4"]
-script = ExtResource("5_p667i")
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_2yn1x"), SubResource("Resource_q6dsf")])
-value = 1.0
-target_type = SubResource("Resource_wj3e2")
+target_type = SubResource("Resource_6d5tn")
 
 [resource]
 script = ExtResource("1_j5dnv")
 name = "Tu harías lo mismo"
 anim_name = "Skill1"
 description = "Salta hacia un aliado y recibe daño por este"
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_mygx4")])
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_0ay3d")])
 energy_cost = 5

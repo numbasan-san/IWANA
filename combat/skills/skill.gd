@@ -12,10 +12,6 @@ class_name Skill extends Resource
 # selection gui
 @export var name: String
 
-# TODO: Only a temporary variable to draw placeholder animations. Remove it when
-# the system is ready
-@export var anim_name: String
-
 # A description that is shown to the player in menus or tooltips that explain
 # what it does
 @export_multiline var description: String
@@ -37,15 +33,6 @@ var caster: Character:
 		caster = value
 		for eff in effects:
 			eff.caster = caster
-
-# The animation that is played when using the skill.
-# TODO: this will probably have to be revised as it's posible we'll need a way
-# to control pauses and timings of the animation to sync with the effects and
-# inputs
-var animation: Animation
-
-# TODO: add variable to represent input presses and their timings that affect
-# the results of the skill
 
 # Performs some initialization before applying the skill.
 # Some skills might have special conditions and effects that can't be easily

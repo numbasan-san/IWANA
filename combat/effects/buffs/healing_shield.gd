@@ -1,6 +1,6 @@
-class_name HealingShield extends LastingEffect
+class_name HealingShield extends ChainedEffect
 
-func intercept(effect: Effect):
+func on_intercept(effect: Effect):
 	if effect is DamageEffect:
 		if effect.type == DamageEffect.DamageType.PHYSICAL:
 			if effect.value <= value:
@@ -15,5 +15,4 @@ func intercept(effect: Effect):
 # could be done by creating a new type of effect called a LinkedEffect that
 # triggers a second effect
 func on_unapply(target: Character):
-	if value > 0:
-		target.combat_handler.stats.health += value
+	unapply_effect.value = value

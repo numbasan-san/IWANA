@@ -1,6 +1,6 @@
-class_name ProtectedEffect extends LastingEffect
+class_name ProtectedEffect extends ChainedEffect
 
-func intercept(effect: Effect):
+func on_intercept(effect: Effect):
 	if effect is DamageEffect:
 		if effect.type == DamageEffect.DamageType.PHYSICAL:
 			var redirected = effect.copy()
