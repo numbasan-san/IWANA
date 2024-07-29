@@ -4,7 +4,7 @@ class_name DamageEffect extends Effect
 # debuffs and properties of the target can modify this effect and apply it in
 # different ways depending on its type
 enum DamageType { PHYSICAL, TRUE, POISON }
-var type: DamageType
+@export var type: DamageType
 
 # Tells if this damage effect has been augmented for being critical damage.
 # The target could behave differently or modify this effect depending on if

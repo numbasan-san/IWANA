@@ -23,5 +23,5 @@ type = 0
 modifies = 0
 decrease_duration = 3
 duration = 2
-value = 0.5
+value = 20.0
 target_type = SubResource("Resource_4dtug")

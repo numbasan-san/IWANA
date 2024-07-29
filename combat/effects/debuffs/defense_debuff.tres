@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="DefenseBuff" load_steps=4 format=3 uid="uid://bciiviswm2dbf"]
+
+[ext_resource type="Texture2D" uid="uid://cdhitokvk18u5" path="res://combat/effects/lasting_effect_icons.png" id="1_xyln8"]
+[ext_resource type="Script" path="res://combat/effects/debuffs/defense_debuff.gd" id="2_hd07o"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jv41"]
+atlas = ExtResource("1_xyln8")
+region = Rect2(270, 72, 48, 42)
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_hd07o")
+icon = SubResource("AtlasTexture_3jv41")
+type = 1
+modifies = 0
+decrease_duration = 3
+duration = 2
+value = 20.0

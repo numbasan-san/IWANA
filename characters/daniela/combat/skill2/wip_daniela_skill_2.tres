@@ -19,7 +19,6 @@ target_type = SubResource("Resource_csls8")
 [resource]
 script = ExtResource("3_fhlvq")
 name = "Amenaza"
-anim_name = ""
 description = "Daniela amenaza al grupo enemigo y buffea sus siguientes 3 golpes para curarse un porcentaje del daño infligido
 "
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_fijm1")])

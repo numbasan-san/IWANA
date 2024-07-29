@@ -16,7 +16,7 @@ script = ExtResource("1_1egtf")
 character = "Target"
 stat = "Health"
 operation = "<"
-value = 10.0
+value = 80.0
 percent = true
 
 [sub_resource type="Resource" id="Resource_vb1r8"]
@@ -116,7 +116,6 @@ target_type = SubResource("Resource_vb1r8")
 [resource]
 script = ExtResource("3_i5072")
 name = "No es para tanto"
-anim_name = ""
 description = "Si un aliado tiene menos del 10% de vida, intercambia vida con este"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_rc2l1")])
 energy_cost = 5

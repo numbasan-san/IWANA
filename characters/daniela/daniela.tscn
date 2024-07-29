@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d3ltulgb5a8do"]
+[gd_scene load_steps=21 format=3 uid="uid://d3ltulgb5a8do"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Texture2D" uid="uid://c7lntb7mvpqt2" path="res://characters/daniela/vn/daniladino2.png" id="2_mrhog"]
@@ -8,8 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://dqwab14t6nlyl" path="res://characters/daniela/rpg/movement.png" id="6_xh8t3"]
 [ext_resource type="Texture2D" uid="uid://ckr5arvqsdywg" path="res://characters/daniela/combat/cuernito.png" id="7_k47t8"]
 [ext_resource type="Texture2D" uid="uid://d3un5sww57vjd" path="res://characters/daniela/combat/daniela_combate.png" id="8_h0dso"]
-[ext_resource type="Resource" uid="uid://ctfi04ropl47o" path="res://characters/daniela/combat/daniela_skill_1.tres" id="8_pr3lj"]
-[ext_resource type="Resource" uid="uid://bx2eg3037k252" path="res://characters/daniela/combat/daniela_skill_2.tres" id="9_ph607"]
+[ext_resource type="Script" path="res://combat/effects/damage.gd" id="9_cg7s2"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="10_aeymw"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="11_ktylc"]
+[ext_resource type="Resource" uid="uid://bx2eg3037k252" path="res://characters/daniela/combat/skill2/wip_daniela_skill_2.tres" id="12_eon4c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fqsh1"]
 resource_local_to_scene = true
@@ -52,6 +54,25 @@ base_defense = 0
 base_speed = 3
 base_critical = 0
 
+[sub_resource type="Resource" id="Resource_yee67"]
+script = ExtResource("10_aeymw")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_4n31v"]
+script = ExtResource("9_cg7s2")
+type = 0
+value = 1.0
+target_type = SubResource("Resource_yee67")
+
+[sub_resource type="Resource" id="Resource_a4wt8"]
+script = ExtResource("11_ktylc")
+name = "Golpe rompecorazones"
+description = "Es un ataque normal, pero cuando seleccionas el ataque, tienes las opciones de hacer un ataque normal  pero un ataque más fuerte que debuffea la defensa"
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_4n31v")])
+energy_cost = 5
+
 [node name="Daniela" instance=ExtResource("1_begxf")]
 
 [node name="DialogModel" parent="." index="0"]
@@ -91,4 +112,4 @@ animation = &"fainted"
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_cqid2")
-skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("8_pr3lj"), ExtResource("9_ph607")])
+skills = Array[ExtResource("11_ktylc")]([SubResource("Resource_a4wt8"), ExtResource("12_eon4c")])
