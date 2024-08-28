@@ -1,7 +1,7 @@
 class_name Character
 extends Node
 
-var char_name: String
+var char_name : String
 
 @export var unique: bool = true
 var is_clone: bool = false:
@@ -50,7 +50,7 @@ var dialog_unit: String
 
 func _ready():
 	_link_components()
-	
+
 # We do this in a separate function instead of on _ready because when we clone
 # a character we don't add it as a child of CharacterManager, which makes it so
 # that _ready is never called.

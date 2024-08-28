@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=28 format=3 uid="uid://3d6j1vup2i4s"]
+=======
+[gd_scene load_steps=27 format=3 uid="uid://3d6j1vup2i4s"]
+>>>>>>> Stashed changes
 
 [ext_resource type="Script" path="res://script/sprite_container.gd" id="1_ndaat"]
 [ext_resource type="Script" path="res://screens/combat/combat_sprite.gd" id="2_qoxvr"]
@@ -6,7 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://ceqe4yrlcfouu" path="res://screens/combat/player_bars.tscn" id="2_xja7c"]
 [ext_resource type="Script" path="res://screens/combat/sprite_icon_control.gd" id="3_6f3g4"]
 [ext_resource type="Script" path="res://screens/combat/graphic_effects.gd" id="3_77t36"]
+<<<<<<< Updated upstream
 [ext_resource type="Script" path="res://screens/combat/projectile_spawner.gd" id="3_mi672"]
+=======
+>>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://bmo6hh0wijg8" path="res://combat/effects/animation_effects/impact.png" id="4_f6fsk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gltg8"]
@@ -302,6 +309,7 @@ icon_control = NodePath("Icons")
 fill_bars = NodePath("FillBars")
 metadata/_edit_vertical_guides_ = [-435.0]
 
+<<<<<<< Updated upstream
 [node name="CombatSprite" type="Node2D" parent="." node_paths=PackedStringArray("projectiles")]
 position = Vector2(94, 148)
 script = ExtResource("2_qoxvr")
@@ -310,6 +318,12 @@ projectiles = NodePath("ProjectileSpawner")
 
 [node name="ProjectileSpawner" type="Node2D" parent="CombatSprite"]
 script = ExtResource("3_mi672")
+=======
+[node name="CombatSprite" type="Node2D" parent="."]
+position = Vector2(94, 148)
+script = ExtResource("2_qoxvr")
+speed = 1200
+>>>>>>> Stashed changes
 
 [node name="Numbers" type="Panel" parent="." node_paths=PackedStringArray("number_animator", "number")]
 layout_mode = 1

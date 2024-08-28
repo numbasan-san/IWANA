@@ -6,6 +6,10 @@ class_name PlayAnimation extends Effect
 
 func on_apply(target: Character):
 	caster.combat_model.set_sprite(graphic_name)
+<<<<<<< Updated upstream
 	if not caster.combat_model.combat_animation.sprite_frames.get_animation_loop(graphic_name):
 		await caster.combat_model.sprite_animation_ended
+=======
+	await caster.combat_model.sprite_animation_ended
+>>>>>>> Stashed changes
 	is_nullified = true

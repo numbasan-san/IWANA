@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 [gd_resource type="Resource" script_class="Skill" load_steps=19 format=3 uid="uid://cg7yssd5gfox3"]
 
 [ext_resource type="Script" path="res://combat/effects/damage.gd" id="1_7ifbf"]
@@ -5,11 +6,18 @@
 [ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="2_026cs"]
 [ext_resource type="Resource" uid="uid://j15r24hfj0sn" path="res://combat/effects/animation_effects/backpack.tres" id="2_f53ec"]
 [ext_resource type="Script" path="res://combat/effects/animation_effects/throw_backpack.gd" id="3_6ydu3"]
+=======
+[gd_resource type="Resource" script_class="Skill" load_steps=14 format=3 uid="uid://cg7yssd5gfox3"]
+
+[ext_resource type="Script" path="res://combat/effects/damage.gd" id="1_7ifbf"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="2_026cs"]
+>>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://cdhitokvk18u5" path="res://combat/effects/lasting_effect_icons.png" id="3_au4vm"]
 [ext_resource type="Script" path="res://combat/effects/debuffs/marked.gd" id="4_pyjo5"]
 [ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="5_trcis"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="6_2i8cv"]
 
+<<<<<<< Updated upstream
 [sub_resource type="Resource" id="Resource_cehfp"]
 script = ExtResource("1_fts0o")
 graphic_name = "throw_backpack"
@@ -22,6 +30,8 @@ speed = 800.0
 target_offset = Vector2(0, 100)
 value = 1.0
 
+=======
+>>>>>>> Stashed changes
 [sub_resource type="Resource" id="Resource_3w0pn"]
 resource_local_to_scene = true
 script = ExtResource("2_026cs")
@@ -32,7 +42,10 @@ allow_repetition = false
 [sub_resource type="Resource" id="Resource_07061"]
 resource_local_to_scene = true
 script = ExtResource("1_7ifbf")
+<<<<<<< Updated upstream
 type = 0
+=======
+>>>>>>> Stashed changes
 value = 1.0
 target_type = SubResource("Resource_3w0pn")
 
@@ -64,13 +77,21 @@ allow_repetition = false
 
 [sub_resource type="Resource" id="Resource_3fou1"]
 script = ExtResource("5_trcis")
+<<<<<<< Updated upstream
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_cehfp"), SubResource("Resource_h00hj"), SubResource("Resource_07061"), SubResource("Resource_28na4")])
+=======
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_07061"), SubResource("Resource_28na4")])
+>>>>>>> Stashed changes
 value = 1.0
 target_type = SubResource("Resource_hcwdp")
 
 [resource]
 script = ExtResource("6_2i8cv")
 name = "Escupo en tu tumba"
+<<<<<<< Updated upstream
+=======
+anim_name = "Skill3"
+>>>>>>> Stashed changes
 description = "Coloca una marca en el enemigo (asegura golpe crítico) y hace daño"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_3fou1")])
 energy_cost = 5

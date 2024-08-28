@@ -2,7 +2,10 @@ class_name CombatSprite extends Node2D
 
 # TODO: Should this be here or in the effects? 
 @export var speed: int = 600
+<<<<<<< Updated upstream
 @export var projectiles: ProjectileSpawner
+=======
+>>>>>>> Stashed changes
 
 var sprite: AnimatedSprite2D
 
@@ -16,8 +19,11 @@ var returning: bool = false
 
 signal sprite_animation_ended
 signal finished_moving
+<<<<<<< Updated upstream
 
 # TODO: considering moving this to a separate projectile class
+=======
+>>>>>>> Stashed changes
 signal projectile_destroyed
 
 func _process(delta):
@@ -44,7 +50,11 @@ func set_sprite(new_sprite: AnimatedSprite2D = null):
 		var anim = new_sprite.animation
 		sprite.animation = anim
 		sprite.play()
+<<<<<<< Updated upstream
 		if not sprite.sprite_frames.get_animation_loop(anim):
+=======
+		if anim != "idle" and not sprite.sprite_frames.get_animation_loop(anim):
+>>>>>>> Stashed changes
 			await sprite.animation_finished
 			sprite_animation_ended.emit()
 
@@ -64,12 +74,16 @@ func return_to_origin():
 		sprite.apply_scale(Vector2(-1, 1))
 		move_to(Vector2(0, 0))
 	
+<<<<<<< Updated upstream
 func spawn_projectile(
 		proj: Projectile,
 		speed: float,
 		target: Character,
 		target_offset: Vector2) -> CombatSprite:
 			
+=======
+func spawn_projectile(proj: Projectile, speed: float, target: Character, target_offset: Vector2):
+>>>>>>> Stashed changes
 	var proj_sprite: CombatSprite = CombatSprite.new()
 	proj_sprite.speed = speed
 	proj_sprite.sprite = AnimatedSprite2D.new()
@@ -77,8 +91,14 @@ func spawn_projectile(
 	add_child(proj_sprite)
 	proj_sprite.add_child(proj_sprite.sprite)
 	proj_sprite.move_to_target(target, target_offset)
+<<<<<<< Updated upstream
 	return proj_sprite
 
 func destroy_projectile(projectile: CombatSprite):
 	projectile.queue_free()
 	projectile_destroyed.emit(projectile)
+=======
+	await proj_sprite.finished_moving
+	proj_sprite.queue_free()
+	projectile_destroyed.emit()
+>>>>>>> Stashed changes

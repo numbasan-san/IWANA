@@ -60,6 +60,7 @@ target_type = SubResource("Resource_eaodr")
 [resource]
 script = ExtResource("3_j4mow")
 name = "Los quiero mucho amigos"
+anim_name = ""
 description = "Alienta a sus aliados para que reciban un buff de daño o defensa, dependiendo de si sus aliados tienen menos del 50% de la vida (50%< daño, >50% defensa)"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_mcyxl")])
 energy_cost = 5

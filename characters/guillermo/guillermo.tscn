@@ -1,10 +1,18 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=17 format=3 uid="uid://cbsenaqm4qe7m"]
+=======
+[gd_scene load_steps=27 format=3 uid="uid://cbsenaqm4qe7m"]
+>>>>>>> Stashed changes
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_kpgma"]
 [ext_resource type="Texture2D" uid="uid://ch3sk4jiilhuk" path="res://characters/guillermo/rpg/movement.png" id="3_1k3jo"]
 [ext_resource type="Texture2D" uid="uid://bgtgi63coor2s" path="res://characters/guillermo/vn/neutral.png" id="4_43dl1"]
 [ext_resource type="Texture2D" uid="uid://x4ofolrtyl8o" path="res://characters/guillermo/combat/fainted.png" id="4_x4bf4"]
+<<<<<<< Updated upstream
+=======
+[ext_resource type="Texture2D" uid="uid://c3r6ys3tuig1j" path="res://characters/guillermo/rpg/guille_perspectivas.png" id="5_0cuqx"]
+>>>>>>> Stashed changes
 [ext_resource type="Script" path="res://combat/effects/damage.gd" id="5_sdrfb"]
 [ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="6_2nwe8"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="7_yb3hi"]
@@ -12,6 +20,33 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ei4ua"]
 resource_local_to_scene = true
 size = Vector2(128, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_25r7v"]
+atlas = ExtResource("4_x4bf4")
+region = Rect2(0, 0, 220, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnvdr"]
+atlas = ExtResource("4_43dl1")
+region = Rect2(0, 0, 603, 1732)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5q2ra"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_25r7v")
+}],
+"loop": true,
+"name": &"fainted",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnvdr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_25r7v"]
 atlas = ExtResource("4_x4bf4")
@@ -68,6 +103,7 @@ target_type = SubResource("Resource_uletc")
 resource_local_to_scene = true
 script = ExtResource("7_yb3hi")
 name = "Daño Ejemplo"
+anim_name = ""
 description = "Skill de ejemplo para  debuggear"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_7vvuy")])
 energy_cost = 5
@@ -82,7 +118,12 @@ scale = Vector2(-1, 1)
 texture = ExtResource("4_43dl1")
 
 [node name="Sprite2D" parent="RPGModel" index="0"]
+<<<<<<< Updated upstream
 texture = ExtResource("3_1k3jo")
+=======
+position = Vector2(0, 9)
+texture = ExtResource("5_0cuqx")
+>>>>>>> Stashed changes
 offset = Vector2(0, -150)
 vframes = 8
 frame = 16
@@ -91,6 +132,14 @@ frame = 16
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_ei4ua")
 
+<<<<<<< Updated upstream
+=======
+[node name="Animation" parent="RPGModel" index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_fn2l4")
+}
+
+>>>>>>> Stashed changes
 [node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
 visible = false
 combat_animation = NodePath("Sprites/CombatSprites")

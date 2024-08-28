@@ -3,10 +3,13 @@ extends Control
 @onready var icon : Texture
 @onready var text : String
 
+<<<<<<< Updated upstream
 func update_card(item):
 	icon = item.texture
 	text = item.name
 
+=======
+>>>>>>> Stashed changes
 func _on_button_pressed():
 	# Quiero una forma más elegante de acceder allá, pero no la tengo.
 	

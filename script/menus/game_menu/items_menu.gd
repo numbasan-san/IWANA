@@ -1,7 +1,12 @@
 extends Control
 
+<<<<<<< Updated upstream
 @onready var inventory : Inventory = preload("res://script/object_inventory/inventory/resources/inventory.tres")
 @onready var item_card_scene : PackedScene = preload('res://scenes/menus/game_menu/utilities/item_card.tscn')
+=======
+@onready var inventory : Inventory = load("res://script/object_inventory/inventory/resources/inventory.tres")
+@onready var item_card_scene : PackedScene = load('res://scenes/menus/game_menu/utilities/item_card.tscn')
+>>>>>>> Stashed changes
 @onready var items_bar : GridContainer = $background/NinePatchRect/GridContainer
 
 var processed_items = []

@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=21 format=3 uid="uid://d3ltulgb5a8do"]
+=======
+[gd_scene load_steps=16 format=3 uid="uid://d3ltulgb5a8do"]
+>>>>>>> Stashed changes
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Texture2D" uid="uid://c7lntb7mvpqt2" path="res://characters/daniela/vn/daniladino2.png" id="2_mrhog"]

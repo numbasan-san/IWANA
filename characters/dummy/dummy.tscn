@@ -2,12 +2,21 @@
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_dme1k"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://ccgofqb2mmybt" path="res://characters/dummy/combat/sombra_combate.png" id="4_ejgt2"]
 [ext_resource type="Texture2D" uid="uid://pgii0ntpmdfm" path="res://characters/dummy/rpg/sombra.png" id="4_i5aca"]
 [ext_resource type="Texture2D" uid="uid://c1g8ghpfiih4j" path="res://characters/dummy/combat/fainted.png" id="4_s2m5x"]
 [ext_resource type="Script" path="res://characters/dummy/dummy_interaction.gd" id="5_vdbvb"]
 [ext_resource type="Texture2D" uid="uid://bimj7yoitax2w" path="res://characters/dummy/combat/skill6-sprite.png" id="5_vqgvf"]
 [ext_resource type="Texture2D" uid="uid://7cx1xp1a807y" path="res://characters/dummy/combat/running.png" id="6_0a7cs"]
+=======
+[ext_resource type="Texture2D" uid="uid://yfji48vxsand" path="res://characters/dummy/combat/sombra_combate.png" id="4_ejgt2"]
+[ext_resource type="Texture2D" uid="uid://nemsmmkto5yf" path="res://characters/dummy/rpg/sombra.png" id="4_i5aca"]
+[ext_resource type="Texture2D" uid="uid://b3xucojpoatn1" path="res://characters/dummy/combat/fainted.png" id="4_s2m5x"]
+[ext_resource type="Texture2D" uid="uid://chc2bnoja076l" path="res://characters/dummy/combat/running-sprite.png" id="5_66v14"]
+[ext_resource type="Script" path="res://characters/dummy/dummy_interaction.gd" id="5_vdbvb"]
+[ext_resource type="Texture2D" uid="uid://bmm45splqo2dw" path="res://characters/dummy/combat/skill6-sprite.png" id="5_vqgvf"]
+>>>>>>> Stashed changes
 [ext_resource type="Script" path="res://combat/effects/damage.gd" id="6_t1edw"]
 [ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="7_8jd57"]
 [ext_resource type="Script" path="res://combat/effects/animation_effects/run_towards_target.gd" id="8_faypt"]
@@ -187,6 +196,7 @@ size = Vector2(144, 115)
 atlas = ExtResource("4_s2m5x")
 region = Rect2(0, 0, 220, 320)
 
+<<<<<<< Updated upstream
 [sub_resource type="AtlasTexture" id="AtlasTexture_l4ixc"]
 atlas = ExtResource("4_ejgt2")
 region = Rect2(0, 0, 156, 320)
@@ -226,6 +236,47 @@ region = Rect2(2660, 0, 380, 320)
 [sub_resource type="AtlasTexture" id="AtlasTexture_5rhix"]
 atlas = ExtResource("6_0a7cs")
 region = Rect2(3040, 0, 380, 320)
+=======
+[sub_resource type="AtlasTexture" id="AtlasTexture_gmbqi"]
+atlas = ExtResource("4_ejgt2")
+region = Rect2(0, 0, 49, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_07pcw"]
+atlas = ExtResource("5_66v14")
+region = Rect2(0, 0, 57, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cq00n"]
+atlas = ExtResource("5_66v14")
+region = Rect2(57, 0, 57, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evnr3"]
+atlas = ExtResource("5_66v14")
+region = Rect2(114, 0, 57, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_746tv"]
+atlas = ExtResource("5_66v14")
+region = Rect2(171, 0, 57, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qo1s"]
+atlas = ExtResource("5_66v14")
+region = Rect2(228, 0, 57, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8b8xw"]
+atlas = ExtResource("5_66v14")
+region = Rect2(285, 0, 57, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ff2r"]
+atlas = ExtResource("5_66v14")
+region = Rect2(342, 0, 57, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uvvy"]
+atlas = ExtResource("5_66v14")
+region = Rect2(399, 0, 57, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrwxk"]
+atlas = ExtResource("5_66v14")
+region = Rect2(456, 0, 57, 108)
+>>>>>>> Stashed changes
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t238q"]
 atlas = ExtResource("5_vqgvf")
@@ -347,7 +398,11 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+<<<<<<< Updated upstream
 "texture": SubResource("AtlasTexture_l4ixc")
+=======
+"texture": SubResource("AtlasTexture_gmbqi")
+>>>>>>> Stashed changes
 }],
 "loop": true,
 "name": &"idle",
@@ -355,6 +410,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+<<<<<<< Updated upstream
 "texture": SubResource("AtlasTexture_ap5bu")
 }, {
 "duration": 1.0,
@@ -380,6 +436,33 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5rhix")
+=======
+"texture": SubResource("AtlasTexture_07pcw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cq00n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evnr3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_746tv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qo1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8b8xw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ff2r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uvvy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrwxk")
+>>>>>>> Stashed changes
 }],
 "loop": true,
 "name": &"moving",
@@ -532,6 +615,7 @@ target_type = SubResource("Resource_nfgit")
 resource_local_to_scene = true
 script = ExtResource("8_jdgy4")
 name = "Daño Ejemplo"
+anim_name = "Skill1"
 description = "Skill de ejemplo para  debuggear"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_0ceox")])
 energy_cost = 5
@@ -565,8 +649,14 @@ debug_color = Color(0.992157, 0, 0.254902, 0.419608)
 combat_animation = NodePath("Sprites/CombatSprites")
 
 [node name="CombatSprites" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
+<<<<<<< Updated upstream
 sprite_frames = SubResource("SpriteFrames_ka6c2")
 animation = &"idle"
+=======
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_ka6c2")
+animation = &"fainted"
+>>>>>>> Stashed changes
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_4c1gv")
