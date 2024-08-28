@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://3a5ilvkkwddg"]
 
 [ext_resource type="Script" path="res://script/menus/game_menu/item_card.gd" id="1_omjpr"]
-[ext_resource type="Texture2D" uid="uid://brswg8kl5ux25" path="res://assets/inventory/items/marco.png" id="2_fa3oq"]
+[ext_resource type="Texture2D" uid="uid://c16fyv1b7p7ec" path="res://assets/inventory/items/marco.png" id="2_11xtv"]
 
 [node name="item_card" type="Control"]
 layout_mode = 3
@@ -19,7 +19,7 @@ offset_bottom = 92.0
 
 [node name="button" type="TextureButton" parent="container"]
 layout_mode = 2
-texture_hover = ExtResource("2_fa3oq")
+texture_hover = ExtResource("2_11xtv")
 
 [node name="icon" type="TextureRect" parent="container/button"]
 layout_mode = 1

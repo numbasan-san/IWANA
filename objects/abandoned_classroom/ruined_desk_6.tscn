@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://d08qodrbtnln0"]
+
+[ext_resource type="PackedScene" uid="uid://cwc3o8rysyn6q" path="res://objects/abandoned_classroom/base_abandoned_room_object.tscn" id="1_grth1"]
+
+[node name="RuinedDesk6" instance=ExtResource("1_grth1")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -16)
+region_rect = Rect2(540, 860, 195, 95)
+
+[node name="StaticBody2D" parent="." index="1"]
+position = Vector2(0, -16)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
+polygon = PackedVector2Array(-90, 30, -20, 55, 10, 7, 92, 34, 104, -5, 11, -22, -94, -31)

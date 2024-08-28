@@ -1,11 +1,10 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://d1ydtshk10gk7"]
 
 [ext_resource type="Script" path="res://script/object_inventory/items/item.gd" id="1_7m73t"]
-[ext_resource type="Texture2D" uid="uid://dc50087e1bwom" path="res://assets/Assests de Pruebas/__diablos_monster_hunter_drawn_by_milkpanda__sample-9be0158f26a0b4307c3de23e035d510e.jpg" id="2_0175x"]
+[ext_resource type="Texture2D" uid="uid://dx42gd7cx3qui" path="res://assets/Assests de Pruebas/__diablos_monster_hunter_drawn_by_milkpanda__sample-9be0158f26a0b4307c3de23e035d510e.jpg" id="2_0175x"]
 
 [resource]
 script = ExtResource("1_7m73t")
 name = "toro"
 texture = ExtResource("2_0175x")
 stack = 2
-description = "Y da gracias de que no es un masacre."

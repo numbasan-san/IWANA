@@ -1,0 +1,58 @@
+[gd_scene load_steps=11 format=3 uid="uid://bdno8lmwlf4dn"]
+
+[ext_resource type="Script" path="res://script/audio_manager.gd" id="1_txosx"]
+[ext_resource type="AudioStream" uid="uid://ti3c0aqnd2fl" path="res://assets/audio/Halls.mp3" id="2_d3s28"]
+[ext_resource type="AudioStream" uid="uid://b3u0qs641wdiv" path="res://assets/audio/Menu.mp3" id="4_y3u8n"]
+[ext_resource type="AudioStream" uid="uid://bplu8q0cnoamk" path="res://assets/audio/ArtClass.mp3" id="5_0027d"]
+[ext_resource type="AudioStream" uid="uid://c5mf80pm3s2tk" path="res://assets/audio/GenFight1.mp3" id="6_0mh04"]
+[ext_resource type="Script" path="res://music_tracks/track_control.gd" id="6_ye247"]
+
+[sub_resource type="Resource" id="Resource_vthyt"]
+script = ExtResource("6_ye247")
+track_name = ""
+stream = ExtResource("5_0027d")
+segments = {}
+
+[sub_resource type="Resource" id="Resource_b5kot"]
+script = ExtResource("6_ye247")
+track_name = ""
+stream = ExtResource("6_0mh04")
+segments = {}
+
+[sub_resource type="Resource" id="Resource_35pcl"]
+script = ExtResource("6_ye247")
+track_name = ""
+stream = ExtResource("2_d3s28")
+segments = {}
+
+[sub_resource type="Resource" id="Resource_dx68n"]
+script = ExtResource("6_ye247")
+track_name = ""
+stream = ExtResource("4_y3u8n")
+segments = {}
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_txosx")
+music = {
+"ArtClass": SubResource("Resource_vthyt"),
+"GenericFight": SubResource("Resource_b5kot"),
+"Hall": SubResource("Resource_35pcl"),
+"MainMenu": SubResource("Resource_dx68n")
+}
+screen_audio = {
+"CombatScreen": "GenericFight",
+"MainMenuScreen": "MainMenu",
+"RPGScreen": "Hall"
+}
+
+[node name="Hall" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_d3s28")
+
+[node name="MainMenu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_y3u8n")
+
+[node name="ArtClass" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_0027d")
+
+[node name="GenericFight" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_0mh04")

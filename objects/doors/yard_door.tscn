@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://nh6axq4payaf"]
+
+[ext_resource type="PackedScene" uid="uid://hed2eep7147o" path="res://objects/doors/base_door.tscn" id="1_5dtag"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3113k"]
+resource_local_to_scene = true
+size = Vector2(369, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5eus5"]
+resource_local_to_scene = true
+size = Vector2(378, 60)
+
+[node name="YardDoor" instance=ExtResource("1_5dtag")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -161)
+region_rect = Rect2(940, 560, 370, 320)
+
+[node name="Collision" parent="." index="1"]
+shape = SubResource("RectangleShape2D_3113k")
+
+[node name="CollisionShape2D" parent="ZoneChange" index="0"]
+shape = SubResource("RectangleShape2D_5eus5")

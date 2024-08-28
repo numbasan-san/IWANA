@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcg1o7ohx2kfa"]
-
-[ext_resource type="PackedScene" uid="uid://bhdwcwp1jcngf" path="res://scenes/objects/cafeteria/base_cafe_object.tscn" id="1_ev6we"]
-
-[node name="Cake" instance=ExtResource("1_ev6we")]
-
-[node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1460, 610, 105, 65)

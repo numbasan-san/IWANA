@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="TargetEnemyParty" load_steps=2 format=3 uid="uid://bc3qemw4258bd"]
+
+[ext_resource type="Script" path="res://combat/targets/target_enemy_party.gd" id="1_ctsxn"]
+
+[resource]
+script = ExtResource("1_ctsxn")

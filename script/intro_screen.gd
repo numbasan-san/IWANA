@@ -24,7 +24,8 @@ func _input(event):
 
 func _initial_push(anim_name):
 	if anim_name == "Inicio":
-		ScreenManager.push(ScreenManager.main_menu_screen, "Hide", "In")
+		await ScreenManager.pop(ScreenManager.intro_screen, "Hide", "Hide")
+		await ScreenManager.push(ScreenManager.main_menu_screen, "Hide", "In")
 
 func activate():
 	transitions.play("Inicio")

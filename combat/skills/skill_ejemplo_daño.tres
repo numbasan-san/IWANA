@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=6 format=3 uid="uid://sy16m35jo4do"]
+
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_dlrnc"]
+[ext_resource type="Script" path="res://combat/effects/damage.gd" id="1_uvjet"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="2_c2puh"]
+
+[sub_resource type="Resource" id="Resource_0qy2o"]
+resource_local_to_scene = true
+script = ExtResource("2_c2puh")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_yjhqe"]
+resource_local_to_scene = true
+script = ExtResource("1_uvjet")
+value = -1.0
+target_type = SubResource("Resource_0qy2o")
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_dlrnc")
+name = "Daño Ejemplo"
+anim_name = ""
+description = "Skill de ejemplo para  debuggear"
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_yjhqe")])
+energy_cost = 5

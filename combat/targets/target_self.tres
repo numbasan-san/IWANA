@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="TargetSelf" load_steps=2 format=3 uid="uid://be635mknot0ia"]
+
+[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="1_a4w6u"]
+
+[resource]
+script = ExtResource("1_a4w6u")

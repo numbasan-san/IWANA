@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://8adovfeebq66"]
+
+[ext_resource type="PackedScene" uid="uid://hed2eep7147o" path="res://objects/doors/base_door.tscn" id="1_efrq7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hdtjl"]
+resource_local_to_scene = true
+size = Vector2(185, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2r4n"]
+resource_local_to_scene = true
+size = Vector2(190, 40)
+
+[node name="FemaleBathroomDoor" instance=ExtResource("1_efrq7")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(595, 560, 185, 325)
+
+[node name="Collision" parent="." index="1"]
+shape = SubResource("RectangleShape2D_hdtjl")
+
+[node name="CollisionShape2D" parent="ZoneChange" index="0"]
+shape = SubResource("RectangleShape2D_b2r4n")

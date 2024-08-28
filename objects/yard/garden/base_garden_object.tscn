@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://bp2h1wt8f4kow"]
+
+[ext_resource type="Texture2D" uid="uid://bmh8rbbc6a468" path="res://objects/yard/garden/garden.png" id="1_g7sim"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_346tc"]
+
+[node name="BaseGardenObject" type="Node2D"]
+z_index = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_g7sim")
+region_enabled = true
+region_rect = Rect2(272, 152, 48, 48)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_346tc")

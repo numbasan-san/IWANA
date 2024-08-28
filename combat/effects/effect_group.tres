@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EffectGroup" load_steps=2 format=3 uid="uid://d0uu8ortr8qft"]
+
+[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="1_n43eu"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_n43eu")
+effects = Array[Resource("res://combat/effects/effect.gd")]([])
+value = -1.0

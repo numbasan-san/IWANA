@@ -1,4 +1,3 @@
-
 class_name Zone
 extends Node2D
 
@@ -44,13 +43,6 @@ extends Node2D
 
 #-----------------------------------------------------
 
-<<<<<<< Updated upstream
-@export var room_name: String
-@export var room_info: Resource
-
-@onready var spawn_points: Node = $SpawnPoints
-@onready var tile_map: TileMap = $TileMap
-=======
 # Stores the points where characters can spawn. It's recommended
 # that there is at least 1 spawn point for each entrance. If there are
 # no spawn points, a default value is used (generaly point (0, 0))
@@ -69,8 +61,6 @@ extends Node2D
 @export var room_info: Resource
 
 var zone = Player.zone
-
->>>>>>> Stashed changes
 # Thelayers and masks are stored so that they can be restored after
 # reactivating the zone
 var _collision_layers: Array[int]
@@ -113,3 +103,44 @@ func deactivate():
 		i += 1
 	set_physics_process(false)
 	process_mode = Node.PROCESS_MODE_DISABLED
+
+# When a party enters the zone, this function should be invoked
+# The function receives a reference to the path to put it in the scene tree, but
+# the actual path is modified in the Character object
+# The caller of this function must make sure to not add a path that was already
+# there
+func add_party_path(path: PartyPath):
+	party_path_node.add_child(path)
+
+# Adds a new node that will follow a party path in this zone
+# The caller of the function must make sure to not add a follower that was
+# already following a path
+func add_party_follower(path: PartyPath, follower: PartyFollower):
+	for p in party_path_node.get_children():
+		if p == path:
+			p.add_child(follower)
+			follower.progress_ratio = 1
+			return
+
+# A path should only exist in one zone at a time, and only one instance, so the
+# caller must make sure to call this function correctly
+func remove_party_path(path: PartyPath):
+	if party_path_node == path.get_parent():
+		party_path_node.remove_child(path)
+		path.queue_free()
+
+# A follower should only follow a single path at a time, so the caller must make
+# sure to call this function correctly
+func remove_party_follower(path: PartyPath, follower: PartyFollower):
+	for p in party_path_node.get_children():
+		if p == path:
+			p.remove_child(follower)
+			follower.queue_free()
+			return
+
+# This function removes all paths, so it only makes sense to call it when
+# removing the zone from the system or reseting it
+func clear_party_path():
+	for p in party_path_node.get_children():
+		party_path_node.remove_child(p)
+		p.queue_free()

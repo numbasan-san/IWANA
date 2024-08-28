@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc0x6r1sqak4r"]
+
+[ext_resource type="PackedScene" uid="uid://n4u8y0x5enjf" path="res://objects/classroom/base_classroom_object.tscn" id="1_cv25d"]
+[ext_resource type="Texture2D" uid="uid://b6ms12d1s4om2" path="res://objects/classroom/classroom.png" id="2_gddo7"]
+
+[node name="TeacherDesk" instance=ExtResource("1_cv25d")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_gddo7")
+offset = Vector2(0, -60)
+region_rect = Rect2(305, 520, 430, 280)
+
+[node name="StaticBody2D" parent="." index="1"]
+position = Vector2(0, -58)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
+polygon = PackedVector2Array(-205, 142, 205, 142, 205, 28, 55, 28, 55, -70, -55, -70, -55, 28, -205, 28)

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="TargetEveryone" load_steps=2 format=3 uid="uid://d2ow501hedp7m"]
+
+[ext_resource type="Script" path="res://combat/targets/target_everyone.gd" id="1_rg3et"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_rg3et")
+exclude_self = false

@@ -236,17 +236,16 @@ func extract_command(line: String) -> Instruction:
 				return Instruction.new("error", "The command " + command_name + \
 					" must not receive arguments, but received " + args)
 		# From this point, the commands must receive arguments. If not, it's an error
-		if args == null:
-			return Instruction.new("error", "The command " + command_name + \
-				" must receive arguments")
-		var split_args = args.split(",")
+		var split_args: PackedStringArray = PackedStringArray([])
+		if args != null:
+			split_args = args.split(",")
 		# This is the case for the commands that only receibe one argument
 		if _commands[command_name] == Variant.Type.TYPE_STRING:
 			if split_args.size() == 1:
 				return Instruction.new(command_name, split_args[0] as String)
 			else:
 				return Instruction.new("error", "The command " + command_name + \
-					" must receibe an argument of type String, but received " + \
+					" must receive an argument of type String, but received " + \
 					split_args)
 		# Finally, this is the case for the commands that receive several arguments
 		var temp: Array[String] = []

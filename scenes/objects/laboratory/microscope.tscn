@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://nqah72kgm2i5"]
-
-[ext_resource type="PackedScene" uid="uid://wj1qx5xeiuf3" path="res://scenes/objects/laboratory/base_lab_object.tscn" id="1_7g3gb"]
-
-[node name="Microscope" instance=ExtResource("1_7g3gb")]
-
-[node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1705, 685, 85, 105)

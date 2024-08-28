@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://h7mki2t1blv5"]
+
+[ext_resource type="PackedScene" uid="uid://n4u8y0x5enjf" path="res://objects/classroom/base_classroom_object.tscn" id="1_3fpm7"]
+[ext_resource type="Texture2D" uid="uid://b6ms12d1s4om2" path="res://objects/classroom/classroom.png" id="2_xj22m"]
+
+[node name="Clock" instance=ExtResource("1_3fpm7")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_xj22m")
+region_rect = Rect2(1280, 160, 75, 75)

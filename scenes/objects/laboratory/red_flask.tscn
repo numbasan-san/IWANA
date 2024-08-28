@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://fcmxmv8jlw3x"]
-
-[ext_resource type="PackedScene" uid="uid://wj1qx5xeiuf3" path="res://scenes/objects/laboratory/base_lab_object.tscn" id="1_6jx20"]
-
-[node name="RedFlask" instance=ExtResource("1_6jx20")]
-
-[node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1445, 475, 30, 50)

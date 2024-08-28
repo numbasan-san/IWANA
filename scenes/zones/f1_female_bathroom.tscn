@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://dvs7a5k1ejf15" path="res://scenes/zones/base_bathroom.tscn" id="1_7md5w"]
 [ext_resource type="Resource" uid="uid://cnu41878wxqeh" path="res://script/zones/zone_info/resources/f1_female_bathroom.tres" id="2_8qi6x"]
-[ext_resource type="PackedScene" uid="uid://jfxa3getivws" path="res://scenes/objects/bathroom/toilet_left.tscn" id="2_25fw0"]
-[ext_resource type="Texture2D" uid="uid://b4ujkp4dw8nfd" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="2_vvrqv"]
-[ext_resource type="PackedScene" uid="uid://5n38y4d4l5hi" path="res://scenes/objects/bathroom/divider.tscn" id="3_jj0ij"]
-[ext_resource type="PackedScene" uid="uid://8adovfeebq66" path="res://scenes/objects/doors/female_bathroom_door.tscn" id="4_m1m5b"]
+[ext_resource type="PackedScene" uid="uid://jfxa3getivws" path="res://objects/bathroom/toilet_left.tscn" id="2_25fw0"]
+[ext_resource type="Texture2D" uid="uid://csnek5bda5r4l" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="2_vvrqv"]
+[ext_resource type="PackedScene" uid="uid://5n38y4d4l5hi" path="res://objects/bathroom/divider.tscn" id="3_jj0ij"]
+[ext_resource type="PackedScene" uid="uid://8adovfeebq66" path="res://objects/doors/female_bathroom_door.tscn" id="4_m1m5b"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_5veu2"]
 tile_data = PackedInt32Array(0, 65537, 6, 65536, 65537, 7, 131072, 65537, 8, 196608, 65537, 9, 1, 131073, 6, 65537, 131073, 7, 131073, 131073, 8, 196609, 131073, 9, 2, 196609, 6, 65538, 196609, 7, 131074, 196609, 8, 196610, 196609, 9, 3, 262145, 6, 65539, 262145, 7, 131075, 262145, 8, 196611, 262145, 9)

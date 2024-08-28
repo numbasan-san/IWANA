@@ -1,27 +1,398 @@
-[gd_scene load_steps=4 format=3 uid="uid://3d6j1vup2i4s"]
+[gd_scene load_steps=28 format=3 uid="uid://3d6j1vup2i4s"]
+
 
 [ext_resource type="Script" path="res://script/sprite_container.gd" id="1_ndaat"]
+[ext_resource type="Script" path="res://screens/combat/combat_sprite.gd" id="2_qoxvr"]
+[ext_resource type="Script" path="res://screens/combat/sprite_number_control.gd" id="2_uf8fx"]
 [ext_resource type="PackedScene" uid="uid://ceqe4yrlcfouu" path="res://screens/combat/player_bars.tscn" id="2_xja7c"]
+[ext_resource type="Script" path="res://screens/combat/sprite_icon_control.gd" id="3_6f3g4"]
+[ext_resource type="Script" path="res://screens/combat/graphic_effects.gd" id="3_77t36"]
+[ext_resource type="Script" path="res://screens/combat/projectile_spawner.gd" id="3_mi672"]
+
+[ext_resource type="Texture2D" uid="uid://bmo6hh0wijg8" path="res://combat/effects/animation_effects/impact.png" id="4_f6fsk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gltg8"]
 
-[node name="SpriteContainer" type="Panel" node_paths=PackedStringArray("directional", "fill_bars")]
+[sub_resource type="Animation" id="Animation_eoejm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_wdpf4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.215686, 0.223529, 0.976471, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_71gqt"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.67451, 0.223529, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0ywyh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.172549, 0.572549, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_n15k2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:theme_override_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.788235, 0.14902, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_1w8jd"]
+length = 1.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0.517632, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -53)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1.62451, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Label:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o6iuh"]
+_data = {
+"RESET": SubResource("Animation_eoejm"),
+"energy+": SubResource("Animation_wdpf4"),
+"energy-": SubResource("Animation_71gqt"),
+"health+": SubResource("Animation_0ywyh"),
+"health-": SubResource("Animation_n15k2"),
+"number_up": SubResource("Animation_1w8jd")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1flp"]
+atlas = ExtResource("4_f6fsk")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_os7q0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1flp")
+}],
+"loop": false,
+"name": &"Hit",
+"speed": 1.0
+}]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_xihi8"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_khklr"]
+resource_local_to_scene = true
+texture = SubResource("CanvasTexture_xihi8")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 6.0
+axis_stretch_horizontal = 1
+modulate_color = Color(0.85098, 0.717647, 0, 0)
+draw_center = false
+
+[sub_resource type="Animation" id="Animation_5m4ps"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TargetSelection:theme_override_styles/panel:modulate_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.85098, 0.717647, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CombatSprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kdwf2"]
+resource_name = "hurt"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portrait:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_atqom"]
+resource_name = "hurt_2"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portrait:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_41fvh"]
+_data = {
+"RESET": SubResource("Animation_5m4ps"),
+"hurt": SubResource("Animation_kdwf2"),
+"hurt_2": SubResource("Animation_atqom")
+}
+
+[sub_resource type="Animation" id="Animation_02r1p"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TargetSelection:theme_override_styles/panel:modulate_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.85098, 0.717647, 0, 0), Color(0.85098, 0.717647, 0, 1), Color(0.85098, 0.717647, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_mrhsd"]
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CombatSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.498039), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bfqfh"]
+_data = {
+"Selected": SubResource("Animation_02r1p"),
+"ValidTarget": SubResource("Animation_mrhsd")
+}
+
+[node name="SpriteContainer" type="Panel" node_paths=PackedStringArray("combat_sprite", "targeting_animation", "number_control", "graphics_control", "icon_control", "fill_bars")]
 offset_right = 275.0
-offset_bottom = 120.0
+offset_bottom = 325.0
 theme_override_styles/panel = SubResource("StyleBoxEmpty_gltg8")
 script = ExtResource("1_ndaat")
-directional = NodePath("Directional")
+combat_sprite = NodePath("CombatSprite")
+targeting_animation = NodePath("TargetingAnimations")
+number_control = NodePath("Numbers")
+graphics_control = NodePath("GraphicEffects")
+icon_control = NodePath("Icons")
 fill_bars = NodePath("FillBars")
 metadata/_edit_vertical_guides_ = [-435.0]
 
-[node name="Directional" type="Node2D" parent="."]
+[node name="CombatSprite" type="Node2D" parent="." node_paths=PackedStringArray("projectiles")]
 position = Vector2(94, 148)
-scale = Vector2(3, 3)
+script = ExtResource("2_qoxvr")
+speed = 1200
+projectiles = NodePath("ProjectileSpawner")
+
+[node name="ProjectileSpawner" type="Node2D" parent="CombatSprite"]
+script = ExtResource("3_mi672")
+
+
+[node name="Numbers" type="Panel" parent="." node_paths=PackedStringArray("number_animator", "number")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_right = 0.3
+offset_top = -45.0
+offset_bottom = -45.0
+grow_horizontal = 2
+script = ExtResource("2_uf8fx")
+number_animator = NodePath("AnimationPlayer")
+number = NodePath("Label")
+
+[node name="Label" type="Label" parent="Numbers"]
+visible = false
+layout_mode = 0
+offset_right = 42.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(0.501961, 0.223529, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 36
+text = "25"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Numbers"]
+libraries = {
+"": SubResource("AnimationLibrary_o6iuh")
+}
+
+[node name="GraphicEffects" type="Node2D" parent="." node_paths=PackedStringArray("sprite")]
+position = Vector2(92, 133)
+script = ExtResource("3_77t36")
+sprite = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="GraphicEffects"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_os7q0")
+animation = &"Hit"
+frame_progress = 1.0
+
+[node name="Icons" type="Panel" parent="." node_paths=PackedStringArray("icon_placement")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.205
+anchor_bottom = 0.205
+script = ExtResource("3_6f3g4")
+icon_placement = NodePath("GridContainer")
+
+[node name="GridContainer" type="GridContainer" parent="Icons"]
+layout_mode = 1
+offset_right = 112.0
+offset_bottom = 54.0
+scale = Vector2(0.6, 0.6)
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 6
 
 [node name="FillBars" parent="." node_paths=PackedStringArray("container") instance=ExtResource("2_xja7c")]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.218182
 anchor_right = -0.218182
+mouse_filter = 1
 container = NodePath("..")
 metadata/_edit_use_anchors_ = true
+
+[node name="TargetSelection" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_khklr")
+
+[node name="TargetingAnimations" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_41fvh"),
+"GUI": SubResource("AnimationLibrary_bfqfh")
+}
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

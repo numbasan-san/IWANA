@@ -1,8 +1,6 @@
 class_name PortraitContainer
 extends CharacterContainer
 
-@export var stats : Resource # ThePlayerResource
-
 @export var slot: int
 @export var background: TextureRect
 @export var portrait: TextureRect

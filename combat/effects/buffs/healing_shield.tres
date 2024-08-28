@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="HealingShield" load_steps=4 format=3 uid="uid://d0bmk7hu6t2tm"]
+
+[ext_resource type="Script" path="res://combat/effects/buffs/healing_shield.gd" id="1_5w8nj"]
+[ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="2_esrgj"]
+
+[sub_resource type="Resource" id="Resource_1u7jb"]
+script = ExtResource("2_esrgj")
+exclude_self = false
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_5w8nj")
+type = 0
+modifies = 2
+decrease_duration = 2
+duration = 1
+value = 10.0
+target_type = SubResource("Resource_1u7jb")

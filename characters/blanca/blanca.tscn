@@ -8,11 +8,14 @@ resource_local_to_scene = true
 size = Vector2(128, 61)
 
 [node name="Blanca" instance=ExtResource("1_begxf")]
-stats = null
 
 [node name="Neutral" type="Sprite2D" parent="DialogModel" index="0"]
 position = Vector2(0, -768)
 texture = ExtResource("3_so0w4")
+
+[node name="Sprite2D" parent="RPGModel" index="0"]
+scale = Vector2(0.3, 0.2)
+hframes = 1
 
 [node name="Collider" parent="RPGModel" index="1"]
 shape = SubResource("RectangleShape2D_mjfq2")

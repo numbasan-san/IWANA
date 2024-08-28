@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://ckr1tc86e7yhl"]
+
+[ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
+[ext_resource type="Texture2D" uid="uid://g8x2h2hmrm32" path="res://characters/lucia/rpg/movement.png" id="3_ondjh"]
+[ext_resource type="Texture2D" uid="uid://bbko0fb78k4j7" path="res://characters/lucia/vn/luciafernanda2.png" id="3_ynhfv"]
+
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0pjf"]
+resource_local_to_scene = true
+size = Vector2(113, 61)
+
+[node name="Lucia" instance=ExtResource("1_begxf")]
+
+[node name="DialogModel" parent="." index="0"]
+visible = false
+
+[node name="Neutral" type="Sprite2D" parent="DialogModel" index="0"]
+scale = Vector2(-1, 1)
+texture = ExtResource("3_ynhfv")
+
+[node name="Sprite2D" parent="RPGModel" index="0"]
+position = Vector2(-2, -14)
+texture = ExtResource("3_ondjh")
+
+offset = Vector2(0, -176)
+vframes = 8
+frame = 16
+region_rect = Rect2(470, 725, 295, 315)
+
+[node name="Collider" parent="RPGModel" index="1"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_v0pjf")

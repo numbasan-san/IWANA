@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkymnhjk0jbr8"]
+
+[ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://objects/base_object.tscn" id="1_new7a"]
+[ext_resource type="Texture2D" uid="uid://ddgc0na3j662u" path="res://assets/rpg_sprites/objects/infirmary.png" id="2_7mbou"]
+
+[node name="Desk1" instance=ExtResource("1_new7a")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_7mbou")
+region_rect = Rect2(880, 480, 495, 280)
+
+[node name="StaticBody2D" parent="." index="1"]
+position = Vector2(-247, 140)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
+polygon = PackedVector2Array(0, 0, 265, 0, 265, -100, 434, -100, 434, -5, 494.5, -5, 494.5, -190, 179, -190, 179, -280, 0, -280)

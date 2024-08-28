@@ -22,7 +22,7 @@ var type: int:
 	get:
 		return _type
 
-# Builds a new isntruction that can be called in the future. It's the job of the
+# Builds a new instruction that can be called in the future. It's the job of the
 # parser to ensure that only defined instructions are built
 func _init(name_arg: String, args: Variant = null):
 	self.name = name_arg
@@ -37,7 +37,7 @@ func _init(name_arg: String, args: Variant = null):
 	else:
 		_type = COMMAND
 	
-	if not args:
+	if args == null:
 		_callable = Callable(ScriptCommands, name)
 	else:
 		_callable = Callable(ScriptCommands, name).bind(args)

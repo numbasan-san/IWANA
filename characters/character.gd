@@ -1,15 +1,17 @@
 class_name Character
 extends Node
 
-var char_name: String
+var char_name : String
 
-@export var unique = true
+@export var unique: bool = true
+var is_clone: bool = false:
+	get:
+		return CharacterManager.is_clone(self)
 
-@export var dialog_model: DialogModel
-@export var rpg_model: ModeloRPG
-@export var combat_model: CombatModel
-@export var stats: Stats
-@export var skills: Array[Skill]
+var dialog_model: DialogModel
+var rpg_model: RPGModel
+var combat_model: CombatModel
+var combat_handler: CombatHandler
 
 # The zone where this character is actually placed in the rpg world
 var zone: Zone
@@ -34,7 +36,7 @@ var is_following: bool = false:
 		if old_value != value and rpg_model:
 			if value:
 				rpg_model.reposition(Vector2(0, 0), rpg_model.direction)
-				call_deferred("_reattach_model", follower_node)
+				_reattach_model(follower_node)
 			else:
 				if  rpg_model.get_parent() == follower_node:
 					var position = follower_node.position
@@ -47,10 +49,36 @@ var is_following: bool = false:
 var dialog_unit: String
 
 func _ready():
-	for skill in skills:
-		skill.user = self
-	# We perform this here because resources don't have a _ready function
-	stats.replenish()
+	_link_components()
+
+# We do this in a separate function instead of on _ready because when we clone
+# a character we don't add it as a child of CharacterManager, which makes it so
+# that _ready is never called.
+func _link_components():
+	dialog_model = $DialogModel
+	if not dialog_model.is_node_ready():
+		dialog_model._ready()
+	dialog_model.character = self
+	
+	rpg_model = $RPGModel
+	if not rpg_model.is_node_ready():
+		rpg_model._ready()
+	rpg_model.character = self
+	rpg_model.deactivate()
+	
+	combat_model = $CombatModel
+	if not combat_model.is_node_ready():
+		combat_model._ready()
+	combat_model.character = self
+	
+	combat_handler = $CombatHandler
+	combat_handler.character = self
+	combat_handler.init()
+	if combat_handler.stats:
+		combat_handler.stats.replenish()
+	
+	
+	party = Party.new(self)
 
 # Changes the position of this character model, possibly moving to a different
 # zone. Calling this function with move_party false will force the character to
@@ -68,7 +96,7 @@ func reposition(new_zone: Zone, position: Vector2, direction: String, move_party
 		# calls have no effect
 		else:
 			rpg_model.activate()
-			call_deferred("_reattach_model", new_zone)
+			_reattach_model(new_zone)
 			zone = new_zone
 			rpg_model.reposition(position, direction)
 
@@ -76,7 +104,7 @@ func reposition(new_zone: Zone, position: Vector2, direction: String, move_party
 func remove_from_zone():
 	if zone:
 		if rpg_model:
-			call_deferred("_detach_model")
+			_detach_model()
 			rpg_model.deactivate()
 		zone = null
 
@@ -128,9 +156,11 @@ func is_colliding() -> bool:
 # copy the script variables
 func clone() -> Character:
 	if not unique:
-		var copy = duplicate(7)
-		copy.party = Party.new(copy)
-		copy.zone = zone
-		return copy
+		return CharacterManager.clone(self)
 	else:
 		return null
+
+# This is just a shortcut for the destroy function in CharacterManager
+func destroy(force: bool = false):
+	CharacterManager.destroy(self, force)
+	

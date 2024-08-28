@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://xuafmq51x84u"]
+
+[ext_resource type="PackedScene" uid="uid://deec72o7wrnl0" path="res://objects/library/base_lib_object.tscn" id="1_ijat1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31rqt"]
+size = Vector2(108, 85)
+
+[node name="ChairLeft" instance=ExtResource("1_ijat1")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -56)
+region_rect = Rect2(790, 175, 110, 190)
+
+[node name="StaticBody2D" parent="." index="1"]
+position = Vector2(0, -56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(-1, 54.5)
+shape = SubResource("RectangleShape2D_31rqt")

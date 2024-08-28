@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://script/object_inventory/items/objects/lagarto.gd" id="1_6dywf"]
 [ext_resource type="Resource" uid="uid://chkjnr1dgyveu" path="res://script/object_inventory/items/resources/perro.tres" id="2_vmkpw"]
-[ext_resource type="Texture2D" uid="uid://cowaku4yupt6m" path="res://assets/Assests de Pruebas/__zinogre_monster_hunter_drawn_by_milkpanda__sample-16d3404318c7aedb577ce1c900a7a272.jpg" id="3_23ato"]
+[ext_resource type="Texture2D" uid="uid://coelj2p8bwjms" path="res://assets/Assests de Pruebas/__zinogre_monster_hunter_drawn_by_milkpanda__sample-16d3404318c7aedb577ce1c900a7a272.jpg" id="3_23ato"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_taxc2"]
 size = Vector2(35, 28.75)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ci1n5lq4unvp5"]
+
+[ext_resource type="PackedScene" uid="uid://deec72o7wrnl0" path="res://objects/library/base_lib_object.tscn" id="1_6eovh"]
+
+[node name="Book5" instance=ExtResource("1_6eovh")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(1600, 825, 60, 55)

@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bqcnhygdum144" path="res://scenes/menus/room_represent.tscn" id="4_rynxr"]
 [ext_resource type="Texture2D" uid="uid://cq0cs74jmh6fh" path="res://assets/menus/game menu/map_menu/mapa_edificio.png" id="6_lrsgn"]
 
+
 [node name="maps_menu" type="Control"]
 layout_mode = 3
 anchors_preset = 15

@@ -1,24 +1,17 @@
-[gd_scene load_steps=18 format=3 uid="uid://dorc15lxpd2w4"]
+[gd_scene load_steps=27 format=3 uid="uid://dorc15lxpd2w4"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_vglxn"]
-[ext_resource type="Resource" uid="uid://sy16m35jo4do" path="res://combat/skill_ejemplo_daño.tres" id="3_fpl8h"]
 [ext_resource type="Texture2D" uid="uid://c0gujvk7yqw63" path="res://characters/carla/vn/neutral.png" id="4_03jaf"]
+[ext_resource type="Texture2D" uid="uid://cv0u8v1wk5lxp" path="res://characters/carla/combat/fainted.png" id="4_50y82"]
 [ext_resource type="Texture2D" uid="uid://d4hir2kah47k3" path="res://characters/carla/rpg/carla.png" id="5_h4af0"]
-
-[sub_resource type="Resource" id="Resource_4hq1v"]
-resource_local_to_scene = true
-script = ExtResource("2_vglxn")
-base_max_health = 50
-base_max_energy = 50
-base_damage = 10
-base_defense = 0
-base_speed = 4
-base_critical = 5
+[ext_resource type="Script" path="res://combat/effects/damage.gd" id="5_lkpum"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="6_85i0v"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="7_2u0rd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyij3"]
 resource_local_to_scene = true
-size = Vector2(98, 61)
+size = Vector2(98, 51)
 
 [sub_resource type="Animation" id="Animation_6r54w"]
 length = 0.001
@@ -181,9 +174,67 @@ _data = {
 "walk_up": SubResource("Animation_b30q8")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dahf2"]
+atlas = ExtResource("4_50y82")
+region = Rect2(0, 0, 220, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jareu"]
+atlas = ExtResource("4_03jaf")
+region = Rect2(0, 0, 848, 1375)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qgx6d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dahf2")
+}],
+"loop": true,
+"name": &"fainted",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jareu")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_4hq1v"]
+resource_local_to_scene = true
+script = ExtResource("2_vglxn")
+base_max_health = 20
+base_max_energy = 40
+base_damage = 10
+base_defense = 0
+base_speed = 4
+base_critical = 5
+
+[sub_resource type="Resource" id="Resource_o0vmu"]
+resource_local_to_scene = true
+script = ExtResource("6_85i0v")
+number_of_targets = 2
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_rdmvj"]
+resource_local_to_scene = true
+script = ExtResource("5_lkpum")
+type = 0
+value = 1.0
+target_type = SubResource("Resource_o0vmu")
+
+[sub_resource type="Resource" id="Resource_nacnq"]
+resource_local_to_scene = true
+script = ExtResource("7_2u0rd")
+name = "Daño Ejemplo"
+anim_name = ""
+description = "Skill de ejemplo para  debuggear"
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_rdmvj")])
+energy_cost = 5
+
 [node name="Carla" instance=ExtResource("1_begxf")]
-stats = SubResource("Resource_4hq1v")
-skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("3_fpl8h")])
 
 [node name="DialogModel" parent="." index="0"]
 visible = false
@@ -193,6 +244,7 @@ scale = Vector2(-1, 1)
 texture = ExtResource("4_03jaf")
 
 [node name="Sprite2D" parent="RPGModel" index="0"]
+position = Vector2(0, 14)
 texture = ExtResource("5_h4af0")
 offset = Vector2(0, -121)
 hframes = 1
@@ -200,6 +252,7 @@ region_enabled = true
 region_rect = Rect2(364, 595, 195, 240)
 
 [node name="Collider" parent="RPGModel" index="1"]
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_eyij3")
 
 [node name="Animation" parent="RPGModel" index="2"]
@@ -207,14 +260,22 @@ libraries = {
 "": SubResource("AnimationLibrary_hsahp")
 }
 
+[node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
+combat_animation = NodePath("Sprites/CombatSprite")
+
 [node name="Basic" type="TextureRect" parent="CombatModel/Portraits" index="0"]
+visible = false
 offset_right = 790.0
 offset_bottom = 516.0
 texture = ExtResource("4_03jaf")
 expand_mode = 1
 stretch_mode = 2
 
-[node name="Idle" type="Sprite2D" parent="CombatModel/Sprites" index="0"]
-visible = false
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("4_03jaf")
+[node name="CombatSprite" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_qgx6d")
+animation = &"fainted"
+
+[node name="CombatHandler" parent="." index="3"]
+stats = SubResource("Resource_4hq1v")
+skills = Array[ExtResource("7_2u0rd")]([SubResource("Resource_nacnq")])

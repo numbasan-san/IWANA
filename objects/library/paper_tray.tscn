@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddpeumi0quhq7"]
+
+[ext_resource type="PackedScene" uid="uid://deec72o7wrnl0" path="res://objects/library/base_lib_object.tscn" id="1_gyvl0"]
+
+[node name="PaperTray" instance=ExtResource("1_gyvl0")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(160, 250, 45, 70)

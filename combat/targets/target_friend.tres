@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="TargetFriend" load_steps=2 format=3 uid="uid://q2bkg2gjf7d6"]
+
+[ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="1_rqhxa"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_rqhxa")
+exclude_self = false
+number_of_targets = 1
+random = false
+allow_repetition = false

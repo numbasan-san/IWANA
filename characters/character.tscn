@@ -1,39 +1,24 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqycf3lwlo2d0"]
+[gd_scene load_steps=8 format=3 uid="uid://dqycf3lwlo2d0"]
 
 [ext_resource type="Script" path="res://characters/character.gd" id="1_wmqne"]
-[ext_resource type="Script" path="res://combat/stats.gd" id="2_fb6vy"]
 [ext_resource type="Script" path="res://characters/dialog_model.gd" id="3_ylprp"]
 [ext_resource type="Script" path="res://characters/rpg_model.gd" id="4_khi8m"]
 [ext_resource type="Script" path="res://characters/combat_model.gd" id="5_4qmt0"]
 [ext_resource type="AnimationLibrary" uid="uid://bwfc2phy8c681" path="res://characters/movement_animation.res" id="5_v7onm"]
-
-[sub_resource type="Resource" id="Resource_5rp3g"]
-resource_local_to_scene = true
-script = ExtResource("2_fb6vy")
-base_max_health = 1
-base_max_energy = 0
-base_damage = 0
-base_defense = 0
-base_speed = 0
-base_critical = 0
+[ext_resource type="PackedScene" uid="uid://bvlih07pswvq1" path="res://combat/combat_handler.tscn" id="7_3nf6a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bncsu"]
 resource_local_to_scene = true
 size = Vector2(128, 61)
 
-[node name="Character" type="Node" node_paths=PackedStringArray("dialog_model", "rpg_model", "combat_model")]
+[node name="Character" type="Node"]
 script = ExtResource("1_wmqne")
-dialog_model = NodePath("DialogModel")
-rpg_model = NodePath("RPGModel")
-combat_model = NodePath("CombatModel")
-stats = SubResource("Resource_5rp3g")
 
 [node name="DialogModel" type="Node2D" parent="."]
 script = ExtResource("3_ylprp")
 
 [node name="RPGModel" type="CharacterBody2D" parent="."]
 z_index = 1
-y_sort_enabled = true
 motion_mode = 1
 script = ExtResource("4_khi8m")
 
@@ -58,3 +43,5 @@ sprites = NodePath("Sprites")
 [node name="Portraits" type="Node" parent="CombatModel"]
 
 [node name="Sprites" type="Node" parent="CombatModel"]
+
+[node name="CombatHandler" parent="." instance=ExtResource("7_3nf6a")]

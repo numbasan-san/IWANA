@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://blp87ejo8kq3e"]
+
+[ext_resource type="PackedScene" uid="uid://bhdwcwp1jcngf" path="res://objects/cafeteria/base_cafe_object.tscn" id="1_keodk"]
+[ext_resource type="Texture2D" uid="uid://c03qbaq7xfcka" path="res://objects/cafeteria/cafeteria.png" id="2_ovwnm"]
+
+[node name="GlassShelf" instance=ExtResource("1_keodk")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_ovwnm")
+region_rect = Rect2(1615, 80, 230, 160)

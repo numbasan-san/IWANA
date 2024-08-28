@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqittnmtd2iji"]
+
+[ext_resource type="PackedScene" uid="uid://bhdwcwp1jcngf" path="res://objects/cafeteria/base_cafe_object.tscn" id="1_1iyh3"]
+[ext_resource type="Texture2D" uid="uid://c03qbaq7xfcka" path="res://objects/cafeteria/cafeteria.png" id="2_tjgaa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p7lg8"]
+size = Vector2(215, 286)
+
+[node name="VerticalGlassShelf" instance=ExtResource("1_1iyh3")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_tjgaa")
+region_rect = Rect2(795, 570, 215, 470)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0, 92)
+shape = SubResource("RectangleShape2D_p7lg8")

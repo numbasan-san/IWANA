@@ -1,0 +1,201 @@
+[gd_scene load_steps=5 format=3 uid="uid://dsihg6mcq4ysb"]
+
+[ext_resource type="Script" path="res://screens/dev/dev_mode.gd" id="1_cqayl"]
+[ext_resource type="LabelSettings" uid="uid://jda8so48mgcw" path="res://screens/dev/dev_mode_font.tres" id="2_0wr73"]
+[ext_resource type="Script" path="res://screens/dev/dev_mode_party_control.gd" id="2_lmq8p"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fvbuo"]
+line_spacing = 6.0
+font_size = 35
+outline_size = 4
+outline_color = Color(0, 0, 0, 1)
+
+[node name="DevMode" type="CanvasLayer" node_paths=PackedStringArray("characters", "party", "zones", "scenes", "units", "contents")]
+layer = 100
+script = ExtResource("1_cqayl")
+characters = NodePath("Contents/VBoxContainer/PlayerControl/Characters")
+party = NodePath("Contents/VBoxContainer/PartyControl")
+zones = NodePath("Contents/VBoxContainer/SceneDetails/Menus/Zones")
+scenes = NodePath("Contents/VBoxContainer/SceneDetails/Menus/Scenes")
+units = NodePath("Contents/VBoxContainer/SceneDetails/Menus/Units")
+contents = NodePath("Contents")
+
+[node name="Contents" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Contents"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 319.0
+offset_bottom = 321.0
+
+[node name="ReloadButton" type="Button" parent="Contents/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 35
+text = "Recargar"
+
+[node name="PlayerControl" type="HBoxContainer" parent="Contents/VBoxContainer"]
+layout_mode = 2
+
+[node name="ControlLabel" type="Label" parent="Contents/VBoxContainer/PlayerControl"]
+layout_mode = 2
+text = "Control: "
+label_settings = SubResource("LabelSettings_fvbuo")
+
+[node name="Characters" type="MenuButton" parent="Contents/VBoxContainer/PlayerControl"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Ninguno"
+flat = false
+alignment = 0
+
+[node name="PartyControl" type="HBoxContainer" parent="Contents/VBoxContainer" node_paths=PackedStringArray("party_slots")]
+layout_mode = 2
+script = ExtResource("2_lmq8p")
+party_slots = NodePath("Members")
+
+[node name="PartyLabel" type="Label" parent="Contents/VBoxContainer/PartyControl"]
+layout_mode = 2
+text = "Party: "
+label_settings = SubResource("LabelSettings_fvbuo")
+
+[node name="Members" type="HBoxContainer" parent="Contents/VBoxContainer/PartyControl"]
+layout_mode = 2
+
+[node name="Slot1" type="VBoxContainer" parent="Contents/VBoxContainer/PartyControl/Members"]
+layout_mode = 2
+
+[node name="Character" type="MenuButton" parent="Contents/VBoxContainer/PartyControl/Members/Slot1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+disabled = true
+text = "Lider"
+flat = false
+alignment = 0
+
+[node name="Remove" type="Button" parent="Contents/VBoxContainer/PartyControl/Members/Slot1"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+disabled = true
+text = "-"
+
+[node name="Slot2" type="VBoxContainer" parent="Contents/VBoxContainer/PartyControl/Members"]
+layout_mode = 2
+
+[node name="Character" type="MenuButton" parent="Contents/VBoxContainer/PartyControl/Members/Slot2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Member2"
+flat = false
+alignment = 0
+
+[node name="Remove" type="Button" parent="Contents/VBoxContainer/PartyControl/Members/Slot2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "-"
+
+[node name="Slot3" type="VBoxContainer" parent="Contents/VBoxContainer/PartyControl/Members"]
+layout_mode = 2
+
+[node name="Character" type="MenuButton" parent="Contents/VBoxContainer/PartyControl/Members/Slot3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Member3"
+flat = false
+alignment = 0
+
+[node name="Remove" type="Button" parent="Contents/VBoxContainer/PartyControl/Members/Slot3"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "-"
+
+[node name="Slot4" type="VBoxContainer" parent="Contents/VBoxContainer/PartyControl/Members"]
+layout_mode = 2
+
+[node name="Character" type="MenuButton" parent="Contents/VBoxContainer/PartyControl/Members/Slot4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Member4"
+flat = false
+alignment = 0
+
+[node name="Remove" type="Button" parent="Contents/VBoxContainer/PartyControl/Members/Slot4"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "-"
+
+[node name="SceneDetails" type="HBoxContainer" parent="Contents/VBoxContainer"]
+layout_mode = 2
+
+[node name="Labels" type="VBoxContainer" parent="Contents/VBoxContainer/SceneDetails"]
+layout_mode = 2
+alignment = 2
+
+[node name="ZoneLabel" type="Label" parent="Contents/VBoxContainer/SceneDetails/Labels"]
+layout_mode = 2
+text = "Zona: "
+label_settings = SubResource("LabelSettings_fvbuo")
+
+[node name="SceneLabel" type="Label" parent="Contents/VBoxContainer/SceneDetails/Labels"]
+layout_mode = 2
+text = "Escena: "
+label_settings = SubResource("LabelSettings_fvbuo")
+
+[node name="UnitLabel" type="Label" parent="Contents/VBoxContainer/SceneDetails/Labels"]
+layout_mode = 2
+text = "Unidad: "
+label_settings = SubResource("LabelSettings_fvbuo")
+
+[node name="Menus" type="VBoxContainer" parent="Contents/VBoxContainer/SceneDetails"]
+layout_mode = 2
+
+[node name="Zones" type="MenuButton" parent="Contents/VBoxContainer/SceneDetails/Menus"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Ninguna"
+flat = false
+alignment = 0
+
+[node name="Scenes" type="MenuButton" parent="Contents/VBoxContainer/SceneDetails/Menus"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Ninguna"
+flat = false
+alignment = 0
+
+[node name="Units" type="MenuButton" parent="Contents/VBoxContainer/SceneDetails/Menus"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Ninguna"
+flat = false
+alignment = 0
+
+[node name="DialogDetails" type="HBoxContainer" parent="Contents"]
+layout_mode = 2
+offset_left = 675.84
+offset_top = 768.8
+offset_right = 970.84
+offset_bottom = 820.8
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LineLabel" type="Label" parent="Contents/DialogDetails"]
+layout_mode = 2
+text = "Linea:
+"
+label_settings = ExtResource("2_0wr73")
+
+[node name="LineNumberLabel" type="Label" parent="Contents/DialogDetails"]
+layout_mode = 2
+text = "0"
+label_settings = ExtResource("2_0wr73")
+
+[connection signal="pressed" from="Contents/VBoxContainer/ReloadButton" to="." method="_on_script_reload"]

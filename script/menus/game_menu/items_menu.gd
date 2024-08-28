@@ -25,8 +25,7 @@ func create_item_card(item, item_card_instance):
 	icon.texture = item.texture  # Assuming the item has a texture property
 	
 	item_card_instance.icon = item.texture
-	item_card_instance.item_name = item.name
-	item_card_instance.description = item.description
+	item_card_instance.text = item.name
 	
 	return item_card_instance
 

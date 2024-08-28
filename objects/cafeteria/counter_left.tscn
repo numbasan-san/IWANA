@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://pclh0t6voskh"]
+
+[ext_resource type="PackedScene" uid="uid://bhdwcwp1jcngf" path="res://objects/cafeteria/base_cafe_object.tscn" id="1_2fcck"]
+[ext_resource type="Texture2D" uid="uid://c03qbaq7xfcka" path="res://objects/cafeteria/cafeteria.png" id="2_1offs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dx7eg"]
+size = Vector2(374, 155)
+
+[node name="CounterLeft" instance=ExtResource("1_2fcck")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_1offs")
+region_rect = Rect2(400, 195, 374, 240.688)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0, 42.5)
+shape = SubResource("RectangleShape2D_dx7eg")

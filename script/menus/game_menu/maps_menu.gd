@@ -32,16 +32,10 @@ func play_animation_on_room(room_key):
 			current_room_node = null  # Resetear el nodo actual
 
 # Función load como ejemplo de uso
-<<<<<<< Updated upstream
-func load():
-	var world = ScreenManager.rpg_screen.contents.player_zone
-	
-	if rooms.has(world.name):
-=======
+
 func load_maps():
 	var world = Player.zone
 	if world.name:
->>>>>>> Stashed changes
 		print('current screen: ' + world.name)
 		play_animation_on_room(world.name)
 		$background/VBoxContainer/room_name.text = world.room_info.name

@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://scenes/zones/base_zone.tscn" id="1_d7yta"]
 [ext_resource type="Texture2D" uid="uid://csnek5bda5r4l" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="2_pl87b"]
-[ext_resource type="PackedScene" uid="uid://b1qlrlui53qis" path="res://scenes/objects/bathroom/sink_bottom.tscn" id="5_2dmbg"]
-[ext_resource type="PackedScene" uid="uid://dbrpal8fvvdd" path="res://scenes/objects/bathroom/sink_middle.tscn" id="6_kvbx5"]
-[ext_resource type="PackedScene" uid="uid://ccr8u24afsy6l" path="res://scenes/objects/bathroom/sink_top.tscn" id="7_583db"]
-[ext_resource type="PackedScene" uid="uid://ddajwcewdj5gy" path="res://scenes/objects/bathroom/stall.tscn" id="8_vfj2d"]
+[ext_resource type="PackedScene" uid="uid://b1qlrlui53qis" path="res://objects/bathroom/sink_bottom.tscn" id="5_2dmbg"]
+[ext_resource type="PackedScene" uid="uid://dbrpal8fvvdd" path="res://objects/bathroom/sink_middle.tscn" id="6_kvbx5"]
+[ext_resource type="PackedScene" uid="uid://ccr8u24afsy6l" path="res://objects/bathroom/sink_top.tscn" id="7_583db"]
+[ext_resource type="PackedScene" uid="uid://ddajwcewdj5gy" path="res://objects/bathroom/stall.tscn" id="8_vfj2d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_owk7j"]
 texture = ExtResource("2_pl87b")
@@ -113,7 +113,6 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_owk7j")
 
 [node name="BaseBathroom" instance=ExtResource("1_d7yta")]
-y_sort_enabled = true
 
 [node name="TileMap" parent="." index="0"]
 tile_set = SubResource("TileSet_tjyj5")
