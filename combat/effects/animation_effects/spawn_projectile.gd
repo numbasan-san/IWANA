@@ -6,11 +6,7 @@ class_name SpawnProjectile extends Effect
 
 func on_apply(target: Character):
 	var combat_sprite = caster.combat_model.current_container.combat_sprite
-<<<<<<< Updated upstream
 	var proj = combat_sprite.spawn_projectile(projectile, speed, target, target_offset)
 	await proj.finished_moving
 	combat_sprite.destroy_projectile(proj)
-=======
-	combat_sprite.spawn_projectile(projectile, speed, target, target_offset)
-	await combat_sprite.projectile_destroyed
->>>>>>> Stashed changes
+

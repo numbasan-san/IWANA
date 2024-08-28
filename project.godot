@@ -26,10 +26,7 @@ ScriptCommands="*res://script/game_script/script_commands.gd"
 Player="*res://characters/player.tscn"
 AudioManager="res://scenes/audio_manager.tscn"
 ItemsMenuCaller="*res://script/menus/items_menu_caller.gd"
-<<<<<<< Updated upstream
-=======
 CharactersMenuCaller="*res://script/menus/characters_menu_caller.gd"
->>>>>>> Stashed changes
 
 [display]
 

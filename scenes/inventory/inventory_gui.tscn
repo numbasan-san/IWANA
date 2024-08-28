@@ -1,10 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c6r4b6vsbtube"]
 
-<<<<<<< Updated upstream
-[ext_resource type="Texture2D" uid="uid://soyi324p6hvg" path="res://assets/inventory/asset_inventario_marco-removebg-preview.png" id="1_eja77"]
-=======
 [ext_resource type="Texture2D" uid="uid://y3sw5i7fypf5" path="res://assets/inventory/asset_inventario_marco-removebg-preview.png" id="1_eja77"]
->>>>>>> Stashed changes
 [ext_resource type="Script" path="res://script/object_inventory/inventory/inventory_gui.gd" id="1_x4ji1"]
 [ext_resource type="PackedScene" uid="uid://mxj2l2ctogvy" path="res://scenes/inventory/slot.tscn" id="2_y5jdi"]
 

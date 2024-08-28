@@ -1,14 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cnf48edckpp1a"]
 
-<<<<<<< Updated upstream
-[ext_resource type="Texture2D" uid="uid://di1v8qdwv44ex" path="res://assets/menus/game menu/libreta_personajes.png" id="1_32527"]
+[ext_resource type="Texture2D" uid="uid://djyk1d7r871m6" path="res://assets/menus/game menu/libreta_personajes.png" id="1_32527"]
 [ext_resource type="Script" path="res://script/menus/game_menu/characters_menu.gd" id="1_giqkv"]
-[ext_resource type="FontFile" uid="uid://dnwin0skanhlv" path="res://assets/combat_sprites/font/IWANA.ttf" id="2_qgmj1"]
-=======
-[ext_resource type="Texture2D" uid="uid://cg7iajjkowxwe" path="res://assets/menus/game menu/libreta_personajes.png" id="1_32527"]
-[ext_resource type="Script" path="res://script/menus/game_menu/characters_menu.gd" id="1_giqkv"]
-[ext_resource type="Texture2D" uid="uid://1lofi3ce43ca" path="res://assets/inventory/inventory_slot.png" id="4_amgq1"]
->>>>>>> Stashed changes
+[ext_resource type="Texture2D" uid="uid://b7xxmj85u1yav" path="res://assets/inventory/inventory_slot.png" id="4_amgq1"]
 
 [node name="characters_menu" type="Control"]
 layout_mode = 3

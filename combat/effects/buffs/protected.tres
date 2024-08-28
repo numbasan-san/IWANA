@@ -21,11 +21,8 @@ script = ExtResource("1_p33c4")
 icon = SubResource("AtlasTexture_8qrrw")
 type = 0
 modifies = 2
-<<<<<<< Updated upstream
 decrease_duration = 4
-=======
-decrease_duration = 3
->>>>>>> Stashed changes
+
 duration = 1
 value = 1.0
 target_type = SubResource("Resource_264t3")

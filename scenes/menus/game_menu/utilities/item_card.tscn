@@ -1,13 +1,9 @@
 [gd_scene load_steps=4 format=3 uid="uid://3a5ilvkkwddg"]
 
 [ext_resource type="Script" path="res://script/menus/game_menu/item_card.gd" id="1_omjpr"]
-<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://bra4w3qku75d7" path="res://assets/inventory/items/refresco.png" id="2_3inhh"]
 [ext_resource type="Texture2D" uid="uid://chjjx7852d32g" path="res://assets/inventory/items/marco.png" id="2_82bix"]
-=======
-[ext_resource type="Texture2D" uid="uid://gx8ah2uiagct" path="res://assets/inventory/items/refresco.png" id="2_3inhh"]
-[ext_resource type="Texture2D" uid="uid://brswg8kl5ux25" path="res://assets/inventory/items/marco.png" id="2_82bix"]
->>>>>>> Stashed changes
+
 
 [node name="item_card" type="Control"]
 layout_mode = 3

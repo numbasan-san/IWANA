@@ -53,7 +53,6 @@ func on_character_hit(who: Character, effect: Effect):
 	pass
 
 func character_hit(who: Character, effect: Effect):
-<<<<<<< Updated upstream
 	# We check this here because if on_character_hit sends another effect to the
 	# target that will also be trigger this effect on hit, it could enter an
 	# infinite loop. Because hit is always made false at the end of this
@@ -67,11 +66,7 @@ func character_hit(who: Character, effect: Effect):
 		on_character_hit(who, effect)
 		if hit and decrease_duration == Decrease.ON_CHARACTER_HIT:
 			duration -= 1
-=======
-	on_character_hit(who, effect)
-	if hit and decrease_duration == Decrease.ON_CHARACTER_HIT:
-		duration -= 1
->>>>>>> Stashed changes
+
 	hit = false
 
 # This is called when the turn of this effect's target has just started
@@ -116,7 +111,6 @@ func on_intercept(effect: Effect):
 func intercept(effect: Effect):
 	# Nullified effects won't trigger an interception and won't decrease the
 	# duration.
-<<<<<<< Updated upstream
 	# We check interception here because if on_intercept sends another effect to
 	# the target that will also be intercepted by this effect, it could enter an
 	# infinite loop. Because interception is always made false at the
@@ -131,10 +125,4 @@ func intercept(effect: Effect):
 		if interception and decrease_duration == Decrease.ON_INTERCEPT:
 			duration -= 1
 	interception = false
-=======
-	if not effect.is_nullified:
-		on_intercept(effect)
-		if interception and decrease_duration == Decrease.ON_INTERCEPT:
-			duration -= 1
-		interception = false
->>>>>>> Stashed changes
+

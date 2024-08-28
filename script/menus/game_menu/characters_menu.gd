@@ -4,7 +4,6 @@ var processed_characters = []
 @onready var char_card_scene : PackedScene = load("res://scenes/menus/game_menu/utilities/character_card.tscn")
 @onready var chars_bar : GridContainer = $background/NinePatchRect/GridContainer
 
-<<<<<<< Updated upstream
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -20,9 +19,7 @@ func _on_maps_btn_pressed():
 	var maps_menu = selected_menu.get_node('maps_menu')
 	maps_menu.visible = true
 	maps_menu.load_maps()
-=======
-func load_characters():
->>>>>>> Stashed changes
+
 	
 	print('char_menu usado.')
 	
@@ -61,13 +58,4 @@ func _on_items_btn_pressed():
 	var items_menu = selected_menu.get_node('items_menu')
 	items_menu.visible = true
 	items_menu.load_items()
-<<<<<<< Updated upstream
-=======
 
-func _on_maps_btn_pressed():
-	self.visible = false
-	var selected_menu = self.get_parent()
-	var maps_menu = selected_menu.get_node('maps_menu')
-	maps_menu.visible = true
-	maps_menu.load_maps()
->>>>>>> Stashed changes
