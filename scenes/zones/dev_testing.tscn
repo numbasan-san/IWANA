@@ -1,10 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://c0vpj0bm2dlof"]
+[gd_scene load_steps=11 format=3 uid="uid://c0vpj0bm2dlof"]
 
 [ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://scenes/zones/base_zone.tscn" id="1_ljxgf"]
 [ext_resource type="Resource" uid="uid://uwjposnxxqyd" path="res://script/zones/zone_info/resources/dev_testing.tres" id="2_51o28"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://bv40h8gx2prai" path="res://assets/rpg_sprites/tilesets/dev_zone/tilesetDevTest.png" id="2_xemyy"]
 [ext_resource type="PackedScene" uid="uid://ulwb3176yswv" path="res://scenes/inventory/items/perro.tscn" id="5_0qu2l"]
 [ext_resource type="PackedScene" uid="uid://cn0nlsq5wj8on" path="res://scenes/objects/doors/classroom_door.tscn" id="7_7wyss"]
+=======
+[ext_resource type="Texture2D" uid="uid://c1mk24pchxkuo" path="res://assets/rpg_sprites/tilesets/dev_zone/tilesetDevTest.png" id="2_xemyy"]
+[ext_resource type="PackedScene" uid="uid://ulwb3176yswv" path="res://scenes/inventory/items/perro.tscn" id="5_0qu2l"]
+[ext_resource type="PackedScene" uid="uid://4shyx47ncjd6" path="res://scenes/inventory/items/refresco.tscn" id="7_0vfmg"]
+[ext_resource type="PackedScene" uid="uid://cn0nlsq5wj8on" path="res://objects/doors/classroom_door.tscn" id="7_7wyss"]
+>>>>>>> Stashed changes
 [ext_resource type="PackedScene" uid="uid://cg87jy7chv1va" path="res://scenes/inventory/items/lagarto.tscn" id="7_a5m8c"]
 [ext_resource type="PackedScene" uid="uid://bntylxciwrpvw" path="res://scenes/inventory/items/toro.tscn" id="8_1s1lq"]
 
@@ -71,6 +78,18 @@ position = Vector2(303, 165)
 
 [node name="perro3" parent="Items" index="8" instance=ExtResource("5_0qu2l")]
 position = Vector2(308, 469)
+
+[node name="refresco" parent="Items" index="9" instance=ExtResource("7_0vfmg")]
+position = Vector2(201.25, 405.5)
+scale = Vector2(0.5, 0.5)
+
+[node name="refresco2" parent="Items" index="10" instance=ExtResource("7_0vfmg")]
+position = Vector2(381.75, 414.5)
+scale = Vector2(0.5, 0.5)
+
+[node name="refresco3" parent="Items" index="11" instance=ExtResource("7_0vfmg")]
+position = Vector2(198.5, 452.75)
+scale = Vector2(0.5, 0.5)
 
 [node name="TileMap" parent="." index="2"]
 scale = Vector2(4, 4)

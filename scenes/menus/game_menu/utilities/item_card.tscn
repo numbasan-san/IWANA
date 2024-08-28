@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://3a5ilvkkwddg"]
+[gd_scene load_steps=3 format=3 uid="uid://3a5ilvkkwddg"]
 
 [ext_resource type="Script" path="res://script/menus/game_menu/item_card.gd" id="1_omjpr"]
-[ext_resource type="Texture2D" uid="uid://bra4w3qku75d7" path="res://assets/inventory/items/refresco.png" id="2_3inhh"]
-[ext_resource type="Texture2D" uid="uid://chjjx7852d32g" path="res://assets/inventory/items/marco.png" id="2_82bix"]
+[ext_resource type="Texture2D" uid="uid://brswg8kl5ux25" path="res://assets/inventory/items/marco.png" id="2_fa3oq"]
 
 [node name="item_card" type="Control"]
 layout_mode = 3
@@ -20,7 +19,7 @@ offset_bottom = 92.0
 
 [node name="button" type="TextureButton" parent="container"]
 layout_mode = 2
-texture_hover = ExtResource("2_82bix")
+texture_hover = ExtResource("2_fa3oq")
 
 [node name="icon" type="TextureRect" parent="container/button"]
 layout_mode = 1
@@ -35,7 +34,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_3inhh")
 expand_mode = 1
 stretch_mode = 5
 

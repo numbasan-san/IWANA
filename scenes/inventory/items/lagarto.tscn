@@ -3,9 +3,13 @@
 [ext_resource type="Script" path="res://script/object_inventory/items/objects/lagarto.gd" id="1_cnojp"]
 [ext_resource type="Resource" uid="uid://ctikhwuojkyw0" path="res://script/object_inventory/items/resources/lagarto.tres" id="2_gkesl"]
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://2aqyc112b5tj" path="res://assets/Assests de Pruebas/__glavenus_monster_hunter_drawn_by_milkpanda__sample-b42e3db21a9939973e0e50a33878d1ec.jpg" id="2_vjr7p"]
 =======
 [ext_resource type="Texture2D" uid="uid://bi1taf3l2ohbr" path="res://assets/Assests de Pruebas/__glavenus_monster_hunter_drawn_by_milkpanda__sample-b42e3db21a9939973e0e50a33878d1ec.jpg" id="2_vjr7p"]
+>>>>>>> Stashed changes
+=======
+[ext_resource type="Texture2D" uid="uid://cljrt6dgrqhox" path="res://assets/Assests de Pruebas/__glavenus_monster_hunter_drawn_by_milkpanda__sample-b42e3db21a9939973e0e50a33878d1ec.jpg" id="2_vjr7p"]
 >>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_taxc2"]

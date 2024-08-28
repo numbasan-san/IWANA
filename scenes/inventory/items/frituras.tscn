@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ulwb3176yswv"]
+[gd_scene load_steps=8 format=3 uid="uid://dc46ogkngfe1k"]
 
-[ext_resource type="Script" path="res://script/object_inventory/items/objects/lagarto.gd" id="1_6dywf"]
-[ext_resource type="Resource" uid="uid://chkjnr1dgyveu" path="res://script/object_inventory/items/resources/perro.tres" id="2_vmkpw"]
-[ext_resource type="Texture2D" uid="uid://cowaku4yupt6m" path="res://assets/Assests de Pruebas/__zinogre_monster_hunter_drawn_by_milkpanda__sample-16d3404318c7aedb577ce1c900a7a272.jpg" id="3_23ato"]
+[ext_resource type="Script" path="res://script/object_inventory/items/objects/lagarto.gd" id="1_m8g0x"]
+[ext_resource type="Resource" uid="uid://cpdkuowf23cn0" path="res://script/object_inventory/items/resources/frituras.tres" id="2_hogtx"]
+[ext_resource type="Texture2D" uid="uid://buu0s3287ten3" path="res://assets/inventory/items/frituras.png" id="3_dpsnv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_taxc2"]
-size = Vector2(35, 28.75)
+size = Vector2(30.25, 16.8753)
 
 [sub_resource type="Animation" id="Animation_7fiyo"]
 length = 0.001
@@ -68,17 +68,17 @@ _data = {
 "taked": SubResource("Animation_yjsyo")
 }
 
-[node name="perro" type="Area2D"]
-script = ExtResource("1_6dywf")
-item_res = ExtResource("2_vmkpw")
+[node name="frituras" type="Area2D"]
+script = ExtResource("1_m8g0x")
+item_res = ExtResource("2_hogtx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 37.6991
 shape = SubResource("RectangleShape2D_taxc2")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-scale = Vector2(0.042, 0.042)
-texture = ExtResource("3_23ato")
+scale = Vector2(0.21, 0.21)
+texture = ExtResource("3_dpsnv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

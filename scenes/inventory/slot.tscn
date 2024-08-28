@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://mxj2l2ctogvy"]
 
 [ext_resource type="Script" path="res://script/object_inventory/slot_gui.gd" id="1_q4u2l"]
-[ext_resource type="Texture2D" uid="uid://i77qfkg5q4nc" path="res://assets/inventory/inventory_slot.png" id="2_5xxl4"]
+[ext_resource type="Texture2D" uid="uid://1lofi3ce43ca" path="res://assets/inventory/inventory_slot.png" id="2_5xxl4"]
 
 [node name="slot" type="Panel"]
 custom_minimum_size = Vector2(40, 40)
 script = ExtResource("1_q4u2l")
 
 [node name="background" type="Sprite2D" parent="."]
-position = Vector2(21, 20)
+position = Vector2(20, 20)
 texture = ExtResource("2_5xxl4")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
@@ -19,9 +19,18 @@ offset_bottom = 40.0
 [node name="Panel" type="Panel" parent="CenterContainer"]
 layout_mode = 2
 
-[node name="item" type="Sprite2D" parent="CenterContainer/Panel"]
+[node name="item0" type="Sprite2D" parent="CenterContainer/Panel"]
 position = Vector2(0.999998, -1.90735e-06)
 scale = Vector2(0.042, 0.042)
+
+[node name="item" type="TextureRect" parent="CenterContainer/Panel"]
+layout_mode = 0
+offset_left = -15.0
+offset_top = -16.0
+offset_right = 17.0
+offset_bottom = 17.0
+expand_mode = 1
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="CenterContainer/Panel"]
 layout_mode = 2

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://script/object_inventory/items/objects/lagarto.gd" id="1_pg1v6"]
 [ext_resource type="Resource" uid="uid://cfluktlrbrlsw" path="res://script/object_inventory/items/resources/refresco.tres" id="2_nk478"]
-[ext_resource type="Texture2D" uid="uid://bra4w3qku75d7" path="res://assets/inventory/items/refresco.png" id="3_4hjuq"]
+[ext_resource type="Texture2D" uid="uid://gx8ah2uiagct" path="res://assets/inventory/items/refresco.png" id="3_4hjuq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_taxc2"]
 size = Vector2(22.5, 31.7501)

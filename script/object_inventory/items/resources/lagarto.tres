@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://ctikhwuojkyw0"]
 
 [ext_resource type="Script" path="res://script/object_inventory/items/item.gd" id="1_hgieg"]
-[ext_resource type="Texture2D" uid="uid://bi1taf3l2ohbr" path="res://assets/Assests de Pruebas/__glavenus_monster_hunter_drawn_by_milkpanda__sample-b42e3db21a9939973e0e50a33878d1ec.jpg" id="2_qbfnx"]
+[ext_resource type="Texture2D" uid="uid://cljrt6dgrqhox" path="res://assets/Assests de Pruebas/__glavenus_monster_hunter_drawn_by_milkpanda__sample-b42e3db21a9939973e0e50a33878d1ec.jpg" id="2_qbfnx"]
 
 [resource]
 script = ExtResource("1_hgieg")
 name = "lagarto"
 texture = ExtResource("2_qbfnx")
 stack = 3
+description = "Coshita bonita :3"
