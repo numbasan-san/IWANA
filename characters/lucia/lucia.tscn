@@ -1,173 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://ckr1tc86e7yhl"]
+[gd_scene load_steps=5 format=3 uid="uid://ckr1tc86e7yhl"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
+[ext_resource type="Texture2D" uid="uid://g8x2h2hmrm32" path="res://characters/lucia/rpg/movement.png" id="3_ondjh"]
 [ext_resource type="Texture2D" uid="uid://bbko0fb78k4j7" path="res://characters/lucia/vn/luciafernanda2.png" id="3_ynhfv"]
-[ext_resource type="Texture2D" uid="uid://byaj52ronb7mi" path="res://characters/lucia/rpg/lucia.png" id="4_gnwlb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0pjf"]
 resource_local_to_scene = true
 size = Vector2(113, 61)
-
-[sub_resource type="Animation" id="Animation_itc8x"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(470, 725, 295, 315)]
-}
-
-[sub_resource type="Animation" id="Animation_pkvl6"]
-resource_name = "stop_player_down"
-length = 0.1
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(470, 725, 295, 315)]
-}
-
-[sub_resource type="Animation" id="Animation_15y4e"]
-resource_name = "stop_player_left"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(70, 385, 260, 335)]
-}
-
-[sub_resource type="Animation" id="Animation_yghin"]
-resource_name = "stop_player_right"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(885, 380, 260, 335)]
-}
-
-[sub_resource type="Animation" id="Animation_wd1bb"]
-resource_name = "stop_player_up"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(520, 30, 295, 315)]
-}
-
-[sub_resource type="Animation" id="Animation_uy5oj"]
-resource_name = "walk_player_down"
-length = 0.7
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(470, 725, 295, 315)]
-}
-
-[sub_resource type="Animation" id="Animation_g1yef"]
-resource_name = "walk_player_left"
-length = 0.7
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(70, 385, 260, 335)]
-}
-
-[sub_resource type="Animation" id="Animation_vwf6a"]
-resource_name = "walk_player_right"
-length = 0.7
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(885, 380, 260, 335)]
-}
-
-[sub_resource type="Animation" id="Animation_ngowl"]
-resource_name = "walk_player_up"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(520, 30, 295, 315)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_tladh"]
-_data = {
-"RESET": SubResource("Animation_itc8x"),
-"stop_down": SubResource("Animation_pkvl6"),
-"stop_left": SubResource("Animation_15y4e"),
-"stop_right": SubResource("Animation_yghin"),
-"stop_up": SubResource("Animation_wd1bb"),
-"walk_down": SubResource("Animation_uy5oj"),
-"walk_left": SubResource("Animation_g1yef"),
-"walk_right": SubResource("Animation_vwf6a"),
-"walk_up": SubResource("Animation_ngowl")
-}
 
 [node name="Lucia" instance=ExtResource("1_begxf")]
 
@@ -179,18 +18,13 @@ scale = Vector2(-1, 1)
 texture = ExtResource("3_ynhfv")
 
 [node name="Sprite2D" parent="RPGModel" index="0"]
-position = Vector2(-2, 31)
-texture = ExtResource("4_gnwlb")
+position = Vector2(-2, -14)
+texture = ExtResource("3_ondjh")
 offset = Vector2(0, -176)
-hframes = 1
-region_enabled = true
+vframes = 8
+frame = 16
 region_rect = Rect2(470, 725, 295, 315)
 
 [node name="Collider" parent="RPGModel" index="1"]
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_v0pjf")
-
-[node name="Animation" parent="RPGModel" index="2"]
-libraries = {
-"": SubResource("AnimationLibrary_tladh")
-}

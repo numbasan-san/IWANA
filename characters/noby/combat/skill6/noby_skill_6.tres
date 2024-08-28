@@ -14,13 +14,13 @@ allow_repetition = false
 [sub_resource type="Resource" id="Resource_hv3wa"]
 resource_local_to_scene = true
 script = ExtResource("1_bbjeb")
+type = 0
 value = 1.0
 target_type = SubResource("Resource_8hkyi")
 
 [resource]
 script = ExtResource("3_83yos")
 name = "El derribador"
-anim_name = "Skill6"
 description = "Mete una patada de barrido que hace daño y reduce el próximo ataque del objetivo"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_hv3wa")])
 energy_cost = 5

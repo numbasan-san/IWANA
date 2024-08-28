@@ -32,6 +32,7 @@ allow_repetition = false
 [sub_resource type="Resource" id="Resource_07061"]
 resource_local_to_scene = true
 script = ExtResource("1_7ifbf")
+type = 0
 value = 1.0
 target_type = SubResource("Resource_3w0pn")
 
@@ -70,7 +71,6 @@ target_type = SubResource("Resource_hcwdp")
 [resource]
 script = ExtResource("6_2i8cv")
 name = "Escupo en tu tumba"
-anim_name = "Skill3"
 description = "Coloca una marca en el enemigo (asegura golpe crítico) y hace daño"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_3fou1")])
 energy_cost = 5
