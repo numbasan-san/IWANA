@@ -1,9 +1,8 @@
 extends Control
-# $container/button/portrait
+
 @onready var portrait : Texture
 @onready var char_name : String
 @onready var description : String
-
 
 func _on_button_pressed():
 	# Quiero una forma más elegante de acceder allá, pero no la tengo.
@@ -16,4 +15,3 @@ func _on_button_pressed():
 	char_portrait.texture = portrait
 	var character_info = background.get_node('character_info')
 	character_info.text = char_name + '. ' + description
-	

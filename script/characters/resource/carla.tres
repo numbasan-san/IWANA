@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterInfo" load_steps=3 format=3 uid="uid://dqghkllfgkd3g"]
+
+[ext_resource type="Texture2D" uid="uid://djp2h8njfsy7k" path="res://characters/carla/rpg/carla_portrait.png" id="1_afkti"]
+[ext_resource type="Script" path="res://script/characters/character_info.gd" id="2_7urfo"]
+
+[resource]
+script = ExtResource("2_7urfo")
+name = "Carla"
+portrait = ExtResource("1_afkti")
+description = "Tsundere."
+affinity = ""

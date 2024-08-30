@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterInfo" load_steps=3 format=3 uid="uid://mqfek00juk2e"]
+
+[ext_resource type="Texture2D" uid="uid://o4t8illa1yka" path="res://characters/rebeca/rpg/beca_portrait.png" id="1_xohne"]
+[ext_resource type="Script" path="res://script/characters/character_info.gd" id="2_draxa"]
+
+[resource]
+script = ExtResource("2_draxa")
+name = "Rebeca"
+portrait = ExtResource("1_xohne")
+description = "Esto latam y todos asabemos lo que ocultan las tímidas: su yaoi súper hardcore."
+affinity = "Amiga"

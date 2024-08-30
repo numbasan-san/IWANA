@@ -1,8 +1,10 @@
-[gd_scene load_steps=15 format=3 uid="uid://dykkm64a7u1j7"]
+[gd_scene load_steps=18 format=3 uid="uid://dykkm64a7u1j7"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
-[ext_resource type="Texture2D" uid="uid://dngsx0qg0eyhl" path="res://characters/rebeca/vn/neutral.png" id="3_c5xgg"]
-[ext_resource type="Texture2D" uid="uid://bk0g6ds4tjqik" path="res://characters/rebeca/rpg/beca_perspectivas.png" id="4_8jp5f"]
+[ext_resource type="Resource" uid="uid://mqfek00juk2e" path="res://script/characters/resource/rebeca.tres" id="2_w6kso"]
+[ext_resource type="Texture2D" uid="uid://dwhwgb8lf4rge" path="res://characters/rebeca/vn/neutral.png" id="3_c5xgg"]
+[ext_resource type="Texture2D" uid="uid://dvwimr50e7d38" path="res://characters/rebeca/rpg/beca_perspectivas.png" id="4_8jp5f"]
+[ext_resource type="Script" path="res://characters/rebeca/rebeca_interaction.gd" id="4_jhgcw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fq57j"]
 resource_local_to_scene = true
@@ -169,7 +171,11 @@ _data = {
 "walk_up": SubResource("Animation_ch8vn")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1p1ar"]
+size = Vector2(144, 115)
+
 [node name="Rebeca" instance=ExtResource("1_begxf")]
+char_info = ExtResource("2_w6kso")
 
 [node name="DialogModel" parent="." index="0"]
 visible = false
@@ -194,3 +200,11 @@ shape = SubResource("RectangleShape2D_fq57j")
 libraries = {
 "": SubResource("AnimationLibrary_2vea1")
 }
+
+[node name="GeneralInteraction" type="Area2D" parent="RPGModel" index="3"]
+script = ExtResource("4_jhgcw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel/GeneralInteraction" index="0"]
+position = Vector2(-2, -47.5)
+shape = SubResource("RectangleShape2D_1p1ar")
+debug_color = Color(0.992157, 0, 0.254902, 0.419608)

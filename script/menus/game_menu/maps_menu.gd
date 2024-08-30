@@ -49,9 +49,11 @@ func _on_characters_btn_pressed():
 	var selected_menu = self.get_parent()
 	var characters_menu = selected_menu.get_node('characters_menu')
 	characters_menu.visible = true
+	characters_menu.load_characters()
 
 func _on_items_btn_pressed():
 	self.visible = false
 	var selected_menu = self.get_parent()
-	var characters_menu = selected_menu.get_node('items_menu')
-	characters_menu.visible = true
+	var items_menu = selected_menu.get_node('items_menu')
+	items_menu.visible = true
+	items_menu.load_items()

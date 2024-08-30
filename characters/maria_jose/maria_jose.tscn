@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://maeacjbhexlb"]
+[gd_scene load_steps=19 format=3 uid="uid://maeacjbhexlb"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_jrk70"]
-[ext_resource type="Texture2D" uid="uid://b6b1hd1e1oi0x" path="res://characters/maria_jose/vn/mariajose.png" id="3_xswt3"]
-[ext_resource type="Texture2D" uid="uid://cdfpuvxcdepsg" path="res://characters/maria_jose/vn/jm_neutral.png" id="4_bra5u"]
-[ext_resource type="Texture2D" uid="uid://yos8ptcii3lf" path="res://characters/maria_jose/rpg/mj_perspertiva.png" id="5_vkrab"]
+[ext_resource type="Resource" uid="uid://bi4hew6bkrrqx" path="res://script/characters/resource/maria_jose.tres" id="2_rcxgb"]
+[ext_resource type="Texture2D" uid="uid://ccg26gex2ejtb" path="res://characters/maria_jose/vn/mariajose.png" id="3_xswt3"]
+[ext_resource type="Texture2D" uid="uid://cgpqwentikshp" path="res://characters/maria_jose/vn/jm_neutral.png" id="4_bra5u"]
+[ext_resource type="Texture2D" uid="uid://bol1616jqbwva" path="res://characters/maria_jose/rpg/mj_perspertiva.png" id="5_vkrab"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2bal8"]
 resource_local_to_scene = true
@@ -181,6 +182,7 @@ base_speed = 0
 base_critical = 0
 
 [node name="MariaJose" instance=ExtResource("1_begxf")]
+char_info = ExtResource("2_rcxgb")
 
 [node name="DialogModel" parent="." index="0"]
 visible = false

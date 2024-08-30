@@ -1,14 +1,14 @@
-[gd_scene load_steps=75 format=3 uid="uid://cxhb1pbyx1uwh"]
+[gd_scene load_steps=76 format=3 uid="uid://cxhb1pbyx1uwh"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_dme1k"]
-[ext_resource type="Texture2D" uid="uid://ccgofqb2mmybt" path="res://characters/dummy/combat/sombra_combate.png" id="4_ejgt2"]
-[ext_resource type="Texture2D" uid="uid://pgii0ntpmdfm" path="res://characters/dummy/rpg/sombra.png" id="4_i5aca"]
-[ext_resource type="Texture2D" uid="uid://c1g8ghpfiih4j" path="res://characters/dummy/combat/fainted.png" id="4_s2m5x"]
+[ext_resource type="Resource" uid="uid://cxtj3edywymeh" path="res://script/characters/resource/dummy.tres" id="2_nwx1m"]
+[ext_resource type="Texture2D" uid="uid://dtkmu3ri5hnn0" path="res://characters/dummy/combat/sombra_combate.png" id="4_ejgt2"]
+[ext_resource type="Texture2D" uid="uid://e1lmjk6p6jks" path="res://characters/dummy/rpg/sombra.png" id="4_i5aca"]
+[ext_resource type="Texture2D" uid="uid://v2lyabyqfdsn" path="res://characters/dummy/combat/fainted.png" id="4_s2m5x"]
 [ext_resource type="Script" path="res://characters/dummy/dummy_interaction.gd" id="5_vdbvb"]
-[ext_resource type="Texture2D" uid="uid://bimj7yoitax2w" path="res://characters/dummy/combat/skill6-sprite.png" id="5_vqgvf"]
-[ext_resource type="Texture2D" uid="uid://7cx1xp1a807y" path="res://characters/dummy/combat/running.png" id="6_0a7cs"]
-
+[ext_resource type="Texture2D" uid="uid://coqc6wiwf5luj" path="res://characters/dummy/combat/skill6-sprite.png" id="5_vqgvf"]
+[ext_resource type="Texture2D" uid="uid://t44uknlx2qo8" path="res://characters/dummy/combat/running.png" id="6_0a7cs"]
 [ext_resource type="Script" path="res://combat/effects/damage.gd" id="6_t1edw"]
 [ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="7_8jd57"]
 [ext_resource type="Script" path="res://combat/effects/animation_effects/run_towards_target.gd" id="8_faypt"]
@@ -228,7 +228,6 @@ region = Rect2(2660, 0, 380, 320)
 atlas = ExtResource("6_0a7cs")
 region = Rect2(3040, 0, 380, 320)
 
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_t238q"]
 atlas = ExtResource("5_vqgvf")
 region = Rect2(0, 0, 120, 110)
@@ -350,7 +349,6 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l4ixc")
-
 }],
 "loop": true,
 "name": &"idle",
@@ -383,7 +381,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5rhix")
-
 }],
 "loop": true,
 "name": &"moving",
@@ -542,6 +539,7 @@ effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resour
 energy_cost = 5
 
 [node name="Dummy" instance=ExtResource("1_begxf")]
+char_info = ExtResource("2_nwx1m")
 unique = false
 
 [node name="Sprite2D" parent="RPGModel" index="0"]
