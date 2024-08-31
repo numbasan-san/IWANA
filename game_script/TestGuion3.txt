@@ -20,4 +20,14 @@ Guillermo: A la próxima que me digan por llevar "coca" a una fiesta, preguntar�
 Daniela: Me gusta usar máscaras de animales, es como una puerta para liberar quien soy en verad. Mi favorita es mi máscara de pollo. La llamo Richard.
 [Fin: Dialogo Daniela]
 
+[Asignar: Dialogo Maria Jose -> Maria Jose]
+[Unidad: Dialogo Maria Jose]
+Maria Jose: Mato a quien me diga que Black Cat no es buena pareja.
+[Fin: Dialogo Maria Jose]
+
+[Asignar: Dialogo Carla -> Carla]
+[Unidad: Dialogo Carla]
+Carla: ¡No soy una tsundere!
+[Fin: Dialogo Carla]
+
 [Fin: escena 1]

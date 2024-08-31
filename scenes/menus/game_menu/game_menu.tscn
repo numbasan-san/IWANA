@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://d7w5brnj1hi1"]
+[gd_scene load_steps=13 format=3 uid="uid://d7w5brnj1hi1"]
 
 [ext_resource type="Shader" path="res://scenes/menus/pause_menu/pause_menu.gdshader" id="1_x1dvp"]
 [ext_resource type="Script" path="res://script/menus/game_menu/game_menu.gd" id="2_s06a2"]
 [ext_resource type="PackedScene" uid="uid://d1wqt5c6664v3" path="res://scenes/menus/game_menu/default_menu.tscn" id="3_drnfj"]
 [ext_resource type="PackedScene" uid="uid://cvqnwtk5nq0y6" path="res://scenes/menus/game_menu/items_menu.tscn" id="5_uwh7u"]
 [ext_resource type="PackedScene" uid="uid://cnf48edckpp1a" path="res://scenes/menus/game_menu/characters_menu.tscn" id="6_rbgto"]
+[ext_resource type="PackedScene" uid="uid://dsb567erwwxj1" path="res://scenes/menus/game_menu/contacts_menu.tscn" id="7_27s7p"]
 [ext_resource type="PackedScene" uid="uid://b36413u4v0whv" path="res://scenes/menus/game_menu/maps_menu.tscn" id="7_13826"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3tjfk"]
@@ -141,5 +142,9 @@ visible = false
 layout_mode = 1
 
 [node name="items_menu" parent="selected_menu" instance=ExtResource("5_uwh7u")]
+visible = false
+layout_mode = 1
+
+[node name="contacts_menu" parent="selected_menu" instance=ExtResource("7_27s7p")]
 visible = false
 layout_mode = 1

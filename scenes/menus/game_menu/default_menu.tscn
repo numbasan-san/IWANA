@@ -44,6 +44,16 @@ offset_bottom = 425.0
 texture_hover = ExtResource("3_6x1fg")
 stretch_mode = 0
 
+[node name="contacts_btn" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1193.0
+offset_top = 430.0
+offset_right = 1228.0
+offset_bottom = 480.0
+texture_hover = ExtResource("3_6x1fg")
+stretch_mode = 0
+
 [connection signal="pressed" from="characters_btn" to="." method="_on_characters_btn_pressed"]
 [connection signal="pressed" from="maps_btn" to="." method="_on_maps_btn_pressed"]
 [connection signal="pressed" from="items_btn" to="." method="_on_items_btn_pressed"]
+[connection signal="pressed" from="contacts_btn" to="." method="_on_contacts_btn_pressed"]

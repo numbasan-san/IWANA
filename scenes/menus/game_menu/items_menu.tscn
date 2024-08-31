@@ -49,9 +49,17 @@ texture_hover = ExtResource("3_iv8ha")
 [node name="items_btn" type="TextureButton" parent="background"]
 layout_mode = 0
 offset_left = 15.0
-offset_top = 159.5
+offset_top = 160.5
 offset_right = 51.0
-offset_bottom = 209.5
+offset_bottom = 210.5
+texture_hover = ExtResource("3_iv8ha")
+
+[node name="contacts_btn" type="TextureButton" parent="background"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 219.5
+offset_right = 44.0
+offset_bottom = 269.5
 texture_hover = ExtResource("3_iv8ha")
 
 [node name="items_bar" type="Panel" parent="background"]
@@ -183,3 +191,4 @@ text = "sdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasda"
 
 [connection signal="pressed" from="background/characters_btn" to="." method="_on_characters_btn_pressed"]
 [connection signal="pressed" from="background/maps_btn" to="." method="_on_maps_btn_pressed"]
+[connection signal="pressed" from="background/contacts_btn" to="." method="_on_contacts_btn_pressed"]

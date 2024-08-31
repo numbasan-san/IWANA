@@ -15,9 +15,6 @@ func load_items():
 			items_bar.add_child(item_node)
 			processed_items.append(slot.item)  # Marcar el objeto como procesado
 
-#		else: # Por si lo necesito después.
-#			print('Slot ' + str(i) + ' vacío.')
-
 # Helper function to create a node for an item card
 func create_item_card(item, item_card_instance):
 	# Set the icon and name of the item in the item_card instance
@@ -39,8 +36,6 @@ func _on_characters_btn_pressed():
 	var selected_menu = self.get_parent()
 	var characters_menu = selected_menu.get_node('characters_menu')
 	characters_menu.visible = true
-	characters_menu.load_characters()
-	
 
 func _on_maps_btn_pressed():
 	self.visible = false
@@ -48,3 +43,10 @@ func _on_maps_btn_pressed():
 	var maps_menu = selected_menu.get_node('maps_menu')
 	maps_menu.visible = true
 	maps_menu.load_maps()
+
+func _on_contacts_btn_pressed():
+	self.visible = false
+	var selected_menu = self.get_parent()
+	var contacts_menu = selected_menu.get_node('contacts_menu')
+	contacts_menu.visible = true
+	contacts_menu.load_characters()

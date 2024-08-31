@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Marked" load_steps=6 format=3 uid="uid://ghwuqh7qac47"]
 
 [ext_resource type="Script" path="res://combat/effects/debuffs/marked.gd" id="1_gkiyx"]
-[ext_resource type="Texture2D" uid="uid://cdhitokvk18u5" path="res://combat/effects/lasting_effect_icons.png" id="1_xpfy0"]
+[ext_resource type="Texture2D" uid="uid://j1gnnvbcys8d" path="res://combat/effects/lasting_effect_icons.png" id="1_xpfy0"]
 [ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="2_64vgb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fg16r"]

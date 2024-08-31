@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://maeacjbhexlb"]
+[gd_scene load_steps=21 format=3 uid="uid://maeacjbhexlb"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_jrk70"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://ccg26gex2ejtb" path="res://characters/maria_jose/vn/mariajose.png" id="3_xswt3"]
 [ext_resource type="Texture2D" uid="uid://cgpqwentikshp" path="res://characters/maria_jose/vn/jm_neutral.png" id="4_bra5u"]
 [ext_resource type="Texture2D" uid="uid://bol1616jqbwva" path="res://characters/maria_jose/rpg/mj_perspertiva.png" id="5_vkrab"]
+[ext_resource type="Script" path="res://characters/maria_jose/mj_interaction.gd" id="6_wh8qx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2bal8"]
 resource_local_to_scene = true
@@ -172,6 +173,9 @@ _data = {
 "walk_up": SubResource("Animation_swq2p")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jnst"]
+size = Vector2(144, 115)
+
 [sub_resource type="Resource" id="Resource_dus7f"]
 script = ExtResource("2_jrk70")
 base_max_health = 1
@@ -211,6 +215,14 @@ shape = SubResource("RectangleShape2D_2bal8")
 libraries = {
 "": SubResource("AnimationLibrary_r5p10")
 }
+
+[node name="GeneralInteraction" type="Area2D" parent="RPGModel" index="3"]
+script = ExtResource("6_wh8qx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel/GeneralInteraction" index="0"]
+position = Vector2(-2, -47.5)
+shape = SubResource("RectangleShape2D_1jnst")
+debug_color = Color(0.992157, 0, 0.254902, 0.419608)
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_dus7f")
