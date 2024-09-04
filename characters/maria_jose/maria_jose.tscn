@@ -2,9 +2,11 @@
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_jrk70"]
+[ext_resource type="Resource" uid="uid://bi4hew6bkrrqx" path="res://script/characters/resource/maria_jose.tres" id="2_rcxgb"]
 [ext_resource type="Texture2D" uid="uid://d31y0igqd5jjx" path="res://characters/maria_jose/vn/mariajose.png" id="3_xswt3"]
 [ext_resource type="Texture2D" uid="uid://i2nyri0gtmgh" path="res://characters/maria_jose/vn/jm_neutral.png" id="4_bra5u"]
 [ext_resource type="Texture2D" uid="uid://bv2sddtx06t7y" path="res://characters/maria_jose/rpg/movement.png" id="4_ptk1p"]
+[ext_resource type="Script" path="res://characters/maria_jose/mj_interaction.gd" id="6_wh8qx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2bal8"]
 resource_local_to_scene = true
@@ -20,6 +22,12 @@ base_speed = 0
 base_critical = 0
 
 [node name="MariaJose" instance=ExtResource("1_begxf")]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bal8"]
+resource_local_to_scene = true
+size = Vector2(128, 61)
+[node name="MariaJose" instance=ExtResource("1_begxf")]
+char_info = ExtResource("2_rcxgb")
 
 [node name="DialogModel" parent="." index="0"]
 visible = false
@@ -43,6 +51,14 @@ region_rect = Rect2(457, 660, 145, 300)
 [node name="Collider" parent="RPGModel" index="1"]
 position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_2bal8")
+
+[node name="GeneralInteraction" type="Area2D" parent="RPGModel" index="3"]
+script = ExtResource("6_wh8qx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel/GeneralInteraction" index="0"]
+position = Vector2(-2, -47.5)
+shape = SubResource("RectangleShape2D_1jnst")
+debug_color = Color(0.992157, 0, 0.254902, 0.419608)
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_dus7f")

@@ -3,10 +3,6 @@ extends Control
 @onready var icon : Texture
 @onready var text : String
 
-func update_card(item):
-	icon = item.texture
-	text = item.name
-
 func _on_button_pressed():
 	# Quiero una forma más elegante de acceder allá, pero no la tengo.
 	

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" path="res://script/menus/game_menu/zone_layer.gd" id="1_ku6ae"]
 
+
 [sub_resource type="Animation" id="Animation_bbsjq"]
 length = 0.001
 tracks/0/type = "value"
@@ -18,6 +19,7 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_nrvnk"]
+
 resource_name = "intro"
 length = 2.0
 tracks/0/type = "value"
@@ -48,6 +50,7 @@ offset_left = -301.0
 offset_top = 48.0
 offset_right = 302.0
 offset_bottom = 104.0
+
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4

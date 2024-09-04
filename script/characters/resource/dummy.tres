@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterInfo" load_steps=3 format=3 uid="uid://cxtj3edywymeh"]
+
+[ext_resource type="Texture2D" uid="uid://bkfdkubhlpwp5" path="res://characters/dummy/rpg/sombra_portrait.png" id="1_w1mxm"]
+[ext_resource type="Script" path="res://script/characters/character_info.gd" id="2_to4ds"]
+
+[resource]
+script = ExtResource("2_to4ds")
+name = "Dummy"
+portrait = ExtResource("1_w1mxm")
+description = "No creo que tenga un \"nombre\" siquiera. No recordaré su cara en absoluto."
+affinity = "Enemigo"

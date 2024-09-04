@@ -3,7 +3,9 @@ extends Node
 
 var char_name: String
 
+@export var char_info : Resource
 @export var unique: bool = true
+
 var is_clone: bool = false:
 	get:
 		return CharacterManager.is_clone(self)

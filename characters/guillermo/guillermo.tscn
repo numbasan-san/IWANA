@@ -1,10 +1,12 @@
-[gd_scene load_steps=17 format=3 uid="uid://cbsenaqm4qe7m"]
+[gd_scene load_steps=20 format=3 uid="uid://cbsenaqm4qe7m"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
+[ext_resource type="Resource" uid="uid://csb8r8xe32g78" path="res://script/characters/resource/guillermo.tres" id="2_fj7it"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_kpgma"]
-[ext_resource type="Texture2D" uid="uid://ch3sk4jiilhuk" path="res://characters/guillermo/rpg/movement.png" id="3_1k3jo"]
-[ext_resource type="Texture2D" uid="uid://bgtgi63coor2s" path="res://characters/guillermo/vn/neutral.png" id="4_43dl1"]
-[ext_resource type="Texture2D" uid="uid://x4ofolrtyl8o" path="res://characters/guillermo/combat/fainted.png" id="4_x4bf4"]
+[ext_resource type="Texture2D" uid="uid://cal2l5ldxl25p" path="res://characters/guillermo/rpg/movement.png" id="3_1k3jo"]
+[ext_resource type="Texture2D" uid="uid://bve26ijtgvt6s" path="res://characters/guillermo/vn/neutral.png" id="4_43dl1"]
+[ext_resource type="Texture2D" uid="uid://cix4ig5awwf47" path="res://characters/guillermo/combat/fainted.png" id="4_x4bf4"]
+[ext_resource type="Script" path="res://characters/guillermo/guillermo_interaction.gd" id="5_idyit"]
 [ext_resource type="Script" path="res://combat/effects/damage.gd" id="5_sdrfb"]
 [ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="6_2nwe8"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="7_yb3hi"]
@@ -12,6 +14,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ei4ua"]
 resource_local_to_scene = true
 size = Vector2(128, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfv2y"]
+size = Vector2(144, 115)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_25r7v"]
 atlas = ExtResource("4_x4bf4")
@@ -73,6 +78,7 @@ effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resour
 energy_cost = 5
 
 [node name="Guillermo" instance=ExtResource("1_begxf")]
+char_info = ExtResource("2_fj7it")
 
 [node name="DialogModel" parent="." index="0"]
 visible = false
@@ -90,6 +96,14 @@ frame = 16
 [node name="Collider" parent="RPGModel" index="1"]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_ei4ua")
+
+[node name="GeneralInteraction" type="Area2D" parent="RPGModel" index="3"]
+script = ExtResource("5_idyit")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel/GeneralInteraction" index="0"]
+position = Vector2(-2, -47.5)
+shape = SubResource("RectangleShape2D_rfv2y")
+debug_color = Color(0.992157, 0, 0.254902, 0.419608)
 
 [node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
 visible = false

@@ -1,13 +1,15 @@
-[gd_scene load_steps=21 format=3 uid="uid://d3ltulgb5a8do"]
+[gd_scene load_steps=24 format=3 uid="uid://d3ltulgb5a8do"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
-[ext_resource type="Texture2D" uid="uid://c7lntb7mvpqt2" path="res://characters/daniela/vn/daniladino2.png" id="2_mrhog"]
+[ext_resource type="Resource" uid="uid://chcyry721t4nl" path="res://script/characters/resource/daniela.tres" id="2_kncc3"]
+[ext_resource type="Texture2D" uid="uid://ctbwvmfyixq7j" path="res://characters/daniela/vn/daniladino2.png" id="2_mrhog"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_rf6nx"]
-[ext_resource type="Texture2D" uid="uid://bhm0ys613ml5g" path="res://characters/daniela/vn/danielaenojadapng.png" id="4_4aw6c"]
-[ext_resource type="Texture2D" uid="uid://dv0nvdtneogeu" path="res://characters/daniela/combat/fainted.png" id="6_7wt8b"]
-[ext_resource type="Texture2D" uid="uid://dqwab14t6nlyl" path="res://characters/daniela/rpg/movement.png" id="6_xh8t3"]
-[ext_resource type="Texture2D" uid="uid://ckr5arvqsdywg" path="res://characters/daniela/combat/cuernito.png" id="7_k47t8"]
-[ext_resource type="Texture2D" uid="uid://d3un5sww57vjd" path="res://characters/daniela/combat/daniela_combate.png" id="8_h0dso"]
+[ext_resource type="Texture2D" uid="uid://bljb0vg12nwo6" path="res://characters/daniela/vn/danielaenojadapng.png" id="4_4aw6c"]
+[ext_resource type="Script" path="res://characters/daniela/daniela_interaction.gd" id="5_d7a8g"]
+[ext_resource type="Texture2D" uid="uid://cbqngpckeh8le" path="res://characters/daniela/combat/fainted.png" id="6_7wt8b"]
+[ext_resource type="Texture2D" uid="uid://mnydlg6lq5vg" path="res://characters/daniela/rpg/movement.png" id="6_xh8t3"]
+[ext_resource type="Texture2D" uid="uid://dl8t1u7rp7i0s" path="res://characters/daniela/combat/cuernito.png" id="7_k47t8"]
+[ext_resource type="Texture2D" uid="uid://606b6pxu3pt0" path="res://characters/daniela/combat/daniela_combate.png" id="8_h0dso"]
 [ext_resource type="Script" path="res://combat/effects/damage.gd" id="9_cg7s2"]
 [ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="10_aeymw"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="11_ktylc"]
@@ -16,6 +18,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fqsh1"]
 resource_local_to_scene = true
 size = Vector2(114, 48.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_moyr0"]
+size = Vector2(144, 115)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5mgkk"]
 atlas = ExtResource("6_7wt8b")
@@ -74,6 +79,7 @@ effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resour
 energy_cost = 5
 
 [node name="Daniela" instance=ExtResource("1_begxf")]
+char_info = ExtResource("2_kncc3")
 
 [node name="DialogModel" parent="." index="0"]
 visible = false
@@ -96,6 +102,14 @@ region_rect = Rect2(630, 144, 135, 270)
 [node name="Collider" parent="RPGModel" index="1"]
 position = Vector2(0, -0.75)
 shape = SubResource("RectangleShape2D_fqsh1")
+
+[node name="GeneralInteraction" type="Area2D" parent="RPGModel" index="3"]
+script = ExtResource("5_d7a8g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel/GeneralInteraction" index="0"]
+position = Vector2(-2, -47.5)
+shape = SubResource("RectangleShape2D_moyr0")
+debug_color = Color(0.992157, 0, 0.254902, 0.419608)
 
 [node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
 combat_animation = NodePath("Sprites/CombatSprite")

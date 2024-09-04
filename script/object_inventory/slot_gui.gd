@@ -2,7 +2,7 @@
 extends Panel
 
 @onready var background_sprite : Sprite2D = $background
-@onready var item_sprite : Sprite2D = $CenterContainer/Panel/item
+@onready var item_sprite : TextureRect = $CenterContainer/Panel/item
 @onready var amount_label : Label = $CenterContainer/Panel/Label
 
 func update(slot : Slot):

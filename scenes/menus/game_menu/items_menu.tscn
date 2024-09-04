@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://cvqnwtk5nq0y6"]
 
 [ext_resource type="Script" path="res://script/menus/game_menu/items_menu.gd" id="1_1gckd"]
-[ext_resource type="Texture2D" uid="uid://cfj5i2pusaccu" path="res://assets/menus/game menu/libreta_objetos.png" id="1_33c85"]
-[ext_resource type="Texture2D" uid="uid://drx4fonory60c" path="res://assets/menus/mascara.png" id="3_iv8ha"]
-[ext_resource type="Texture2D" uid="uid://cwfhu2ayyaajg" path="res://assets/inventory/inventory_slot.png" id="3_js6ci"]
+[ext_resource type="Texture2D" uid="uid://bka87mqtrcy3f" path="res://assets/menus/game menu/libreta_objetos.png" id="1_33c85"]
+[ext_resource type="Texture2D" uid="uid://dnuohapu7jjgs" path="res://assets/menus/mascara.png" id="3_iv8ha"]
+[ext_resource type="Texture2D" uid="uid://cykcrgrl1quqk" path="res://assets/inventory/inventory_slot.png" id="3_js6ci"]
 [ext_resource type="PackedScene" uid="uid://3a5ilvkkwddg" path="res://scenes/menus/game_menu/utilities/item_card.tscn" id="4_k5wl5"]
 
 [node name="items_menu" type="Control"]
@@ -49,12 +49,20 @@ texture_hover = ExtResource("3_iv8ha")
 [node name="items_btn" type="TextureButton" parent="background"]
 layout_mode = 0
 offset_left = 15.0
-offset_top = 159.5
+offset_top = 160.5
 offset_right = 51.0
-offset_bottom = 209.5
+offset_bottom = 210.5
 texture_hover = ExtResource("3_iv8ha")
 
-[node name="items_bar" type="VScrollBar" parent="background"]
+[node name="contacts_btn" type="TextureButton" parent="background"]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 219.5
+offset_right = 44.0
+offset_bottom = 269.5
+texture_hover = ExtResource("3_iv8ha")
+
+[node name="items_bar" type="Panel" parent="background"]
 layout_mode = 0
 offset_left = 120.0
 offset_top = 121.0
@@ -162,6 +170,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_js6ci")
+expand_mode = 1
 stretch_mode = 5
 
 [node name="item_info" type="RichTextLabel" parent="background"]
@@ -182,3 +191,4 @@ text = "sdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasda"
 
 [connection signal="pressed" from="background/characters_btn" to="." method="_on_characters_btn_pressed"]
 [connection signal="pressed" from="background/maps_btn" to="." method="_on_maps_btn_pressed"]
+[connection signal="pressed" from="background/contacts_btn" to="." method="_on_contacts_btn_pressed"]

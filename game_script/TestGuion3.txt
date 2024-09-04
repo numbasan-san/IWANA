@@ -1,0 +1,38 @@
+[Escena: escena 1]
+
+[Asignar: Dialogo Rebeca -> Rebeca]
+[Unidad: Dialogo Rebeca]
+Rebeca: Tengo mucho cuidado con no morderme la lengua al hablar porque es muy larga.
+[Fin: Dialogo Rebeca]
+
+[Asignar: Dialogo Lucia -> Lucia]
+[Unidad: Dialogo Lucia]
+Lucia: ¿Me puedes decir cómo se siente tocar el suelo? ¿Siente dolor? ¿Siente mucho dolor?
+[Fin: Dialogo Lucia]
+
+[Asignar: Dialogo Guillermo -> Guillermo]
+[Unidad: Dialogo Guillermo]
+Guillermo: A la próxima que me digan por llevar "coca" a una fiesta, preguntaré cuál.
+[Fin: Dialogo Guillermo]
+
+[Asignar: Dialogo Daniela -> Daniela]
+[Unidad: Dialogo Daniela]
+Daniela: Me gusta usar máscaras de animales, es como una puerta para liberar quien soy en verad. Mi favorita es mi máscara de pollo. La llamo Richard.
+[Fin: Dialogo Daniela]
+
+[Asignar: Dialogo Maria Jose -> Maria Jose]
+[Unidad: Dialogo Maria Jose]
+Maria Jose: Mato a quien me diga que Black Cat no es buena pareja.
+[Fin: Dialogo Maria Jose]
+
+[Asignar: Dialogo Carla -> Carla]
+[Unidad: Dialogo Carla]
+Carla: ¡No soy una tsundere!
+[Fin: Dialogo Carla]
+
+[Asignar: Dialogo Noby -> Noby]
+[Unidad: Dialogo Noby]
+Noby: *Está callado*
+[Fin: Dialogo Noby]
+
+[Fin: escena 1]

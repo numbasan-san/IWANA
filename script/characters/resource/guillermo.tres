@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterInfo" load_steps=3 format=3 uid="uid://csb8r8xe32g78"]
+
+[ext_resource type="Texture2D" uid="uid://du5ym1ww7quw5" path="res://characters/guillermo/rpg/guillermo_portrait.png" id="1_5qbsh"]
+[ext_resource type="Script" path="res://script/characters/character_info.gd" id="2_6dt4h"]
+
+[resource]
+script = ExtResource("2_6dt4h")
+name = "Guillermo"
+portrait = ExtResource("1_5qbsh")
+description = "Según dicen, en una fiesta dijeron que llevara \"coca\", y fue con un bloque de polvillo blanco diciendo \"Me aseguré de conseguir el más fino y puro que pude\"."
+affinity = ""

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterInfo" load_steps=3 format=3 uid="uid://dqnynbd1aov8j"]
+
+[ext_resource type="Texture2D" uid="uid://rlegpfelq0q5" path="res://characters/noby/rpg/noby_portrait.png" id="1_o4ucj"]
+[ext_resource type="Script" path="res://script/characters/character_info.gd" id="2_8b7jx"]
+
+[resource]
+script = ExtResource("2_8b7jx")
+name = "Noby"
+portrait = ExtResource("1_o4ucj")
+description = "Se parece a alguien, pero si se menciona quizás hayan represalias legales :P"
+affinity = ""
