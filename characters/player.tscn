@@ -29,7 +29,7 @@ script = ExtResource("1_oj7ea")
 [node name="PlayerControl" type="Node2D" parent="." node_paths=PackedStringArray("general_interaction_area")]
 script = ExtResource("1_cfkfe")
 inventory = ExtResource("2_ks6fo")
-general_interaction_area = NodePath("GeneralInteraction")
+general_interaction_area = NodePath("")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerControl"]
 position = Vector2(0, -0.5)

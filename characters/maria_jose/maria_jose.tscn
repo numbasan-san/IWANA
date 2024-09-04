@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_jrk70"]
 [ext_resource type="Resource" uid="uid://bi4hew6bkrrqx" path="res://script/characters/resource/maria_jose.tres" id="2_rcxgb"]
-[ext_resource type="Texture2D" uid="uid://ccg26gex2ejtb" path="res://characters/maria_jose/vn/mariajose.png" id="3_xswt3"]
-[ext_resource type="Texture2D" uid="uid://cgpqwentikshp" path="res://characters/maria_jose/vn/jm_neutral.png" id="4_bra5u"]
-[ext_resource type="Texture2D" uid="uid://bol1616jqbwva" path="res://characters/maria_jose/rpg/mj_perspertiva.png" id="5_vkrab"]
+[ext_resource type="Texture2D" uid="uid://c5gohsvkobyul" path="res://characters/maria_jose/vn/mariajose.png" id="3_xswt3"]
+[ext_resource type="Texture2D" uid="uid://q715wbhms5sh" path="res://characters/maria_jose/vn/jm_neutral.png" id="4_bra5u"]
+[ext_resource type="Texture2D" uid="uid://dm7bk2fo8on2p" path="res://characters/maria_jose/rpg/mj_perspertiva.png" id="5_vkrab"]
 [ext_resource type="Script" path="res://characters/maria_jose/mj_interaction.gd" id="6_wh8qx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2bal8"]

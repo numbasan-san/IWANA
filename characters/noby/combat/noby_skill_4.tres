@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://combat/effects/buffs/defense_buff.gd" id="3_4bbmh"]
 [ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="3_8862q"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="3_j4mow"]
-[ext_resource type="Texture2D" uid="uid://j1gnnvbcys8d" path="res://combat/effects/lasting_effect_icons.png" id="4_5dnuk"]
+[ext_resource type="Texture2D" uid="uid://dtgvhh3hdkw6c" path="res://combat/effects/lasting_effect_icons.png" id="4_5dnuk"]
 [ext_resource type="Script" path="res://combat/effects/buffs/damage_buff.gd" id="5_oupoy"]
 
 [sub_resource type="Resource" id="Resource_omxej"]

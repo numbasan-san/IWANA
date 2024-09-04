@@ -59,7 +59,8 @@ func enable():
 	# Esta función solo busca las unidades de la escena actual, por lo que
 	# siempre debería ser seguro llamarla
 	fill_units_list()
-
+	
+	
 
 func fill_zones_list():
 	if not enabled:

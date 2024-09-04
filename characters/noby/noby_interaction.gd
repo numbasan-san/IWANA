@@ -19,9 +19,10 @@ func interaction(_player: PlayerControl):
 		ProcessedCharacters.append_char(character.char_info)
 
 func _start_after_dialog(scene_name: String, unit_name: String):
-	if unit_name == $"..".character.dialog_unit:
-		ProcessedCharacters.append_char(character.char_info)
-		_start_battle() 
+	pass
+#	if unit_name == $"..".character.dialog_unit:
+#		_start_battle()
+#	ProcessedCharacters.append_char(character.char_info)
 		
 func _start_battle():
 	var dummy: Character = $"..".character

@@ -30,4 +30,9 @@ Maria Jose: Mato a quien me diga que Black Cat no es buena pareja.
 Carla: ¡No soy una tsundere!
 [Fin: Dialogo Carla]
 
+[Asignar: Dialogo Noby -> Noby]
+[Unidad: Dialogo Noby]
+Noby: *Está callado*
+[Fin: Dialogo Noby]
+
 [Fin: escena 1]

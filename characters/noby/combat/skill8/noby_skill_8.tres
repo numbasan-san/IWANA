@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://combat/effects/animation_effects/play_animation.gd" id="4_87dbu"]
 [ext_resource type="Script" path="res://combat/effects/animation_effects/projectile.gd" id="5_ml8ge"]
 [ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="6_brdvk"]
-[ext_resource type="Texture2D" uid="uid://c5si404cn55de" path="res://characters/noby/combat/skill8/corazon.png" id="6_bscu7"]
+[ext_resource type="Texture2D" uid="uid://rjdot3bw8wc" path="res://characters/noby/combat/skill8/corazon.png" id="6_bscu7"]
 [ext_resource type="Script" path="res://combat/effects/animation_effects/spawn_projectile.gd" id="7_goam3"]
 
 [sub_resource type="Resource" id="Resource_xjins"]
@@ -17,7 +17,6 @@ character = "Target"
 stat = "Health"
 operation = "<"
 value = 80.0
-
 percent = true
 
 [sub_resource type="Resource" id="Resource_vb1r8"]
@@ -117,7 +116,7 @@ target_type = SubResource("Resource_vb1r8")
 [resource]
 script = ExtResource("3_i5072")
 name = "No es para tanto"
-
+anim_name = ""
 description = "Si un aliado tiene menos del 10% de vida, intercambia vida con este"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_rc2l1")])
 energy_cost = 5

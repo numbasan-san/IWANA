@@ -1,16 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://cnf48edckpp1a"]
+[gd_scene load_steps=5 format=3 uid="uid://cnf48edckpp1a"]
 
-[ext_resource type="Texture2D" uid="uid://cgaeusn7mujry" path="res://assets/menus/game menu/libreta_personajes.png" id="1_32527"]
+[ext_resource type="Texture2D" uid="uid://clkbk73juixnm" path="res://Assets/Menus/game menu/libreta_personajes.png" id="1_32527"]
 [ext_resource type="Script" path="res://script/menus/game_menu/characters_menu.gd" id="1_giqkv"]
-[ext_resource type="Texture2D" uid="uid://dnuohapu7jjgs" path="res://assets/menus/mascara.png" id="3_mgeg8"]
-[ext_resource type="Texture2D" uid="uid://cykcrgrl1quqk" path="res://assets/inventory/inventory_slot.png" id="4_amgq1"]
-[ext_resource type="Script" path="res://screens/dev/dev_mode_party_control.gd" id="4_ifxtv"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_ske5c"]
-line_spacing = 6.0
-font_size = 35
-outline_size = 4
-outline_color = Color(0, 0, 0, 1)
+[ext_resource type="Texture2D" uid="uid://cs17ysjbty85h" path="res://Assets/Menus/mascara.png" id="3_mgeg8"]
+[ext_resource type="Texture2D" uid="uid://d3g13j3liqlyd" path="res://Assets/inventory/inventory_slot.png" id="4_amgq1"]
 
 [node name="characters_menu" type="Control"]
 layout_mode = 3
@@ -134,133 +127,24 @@ offset_top = 630.5
 offset_right = 1033.0
 offset_bottom = 672.5
 
-[node name="ascend" type="Button" parent="background/HBoxContainer"]
+[node name="ascend_btn" type="Button" parent="background/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Ascender"
 
-[node name="acept" type="Button" parent="background/HBoxContainer"]
+[node name="accept_btn" type="Button" parent="background/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Aceptar"
 
-[node name="get_out" type="Button" parent="background/HBoxContainer"]
+[node name="get_out_btn" type="Button" parent="background/HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "Sacar"
 
-[node name="Contents" type="Control" parent="."]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -300.0
-offset_top = -125.0
-offset_right = -300.0
-offset_bottom = -125.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Contents"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 319.0
-offset_bottom = 321.0
-
-[node name="PlayerControl" type="HBoxContainer" parent="Contents/VBoxContainer"]
-layout_mode = 2
-
-[node name="ControlLabel" type="Label" parent="Contents/VBoxContainer/PlayerControl"]
-layout_mode = 2
-text = "Control: "
-label_settings = SubResource("LabelSettings_ske5c")
-
-[node name="Characters" type="MenuButton" parent="Contents/VBoxContainer/PlayerControl"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 35
-text = "Ninguno"
-flat = false
-alignment = 0
-
-[node name="PartyControl" type="HBoxContainer" parent="Contents/VBoxContainer"]
-layout_mode = 2
-script = ExtResource("4_ifxtv")
-
-[node name="PartyLabel" type="Label" parent="Contents/VBoxContainer/PartyControl"]
-layout_mode = 2
-text = "Party: "
-label_settings = SubResource("LabelSettings_ske5c")
-
-[node name="Members" type="HBoxContainer" parent="Contents/VBoxContainer/PartyControl"]
-layout_mode = 2
-
-[node name="Slot1" type="VBoxContainer" parent="Contents/VBoxContainer/PartyControl/Members"]
-layout_mode = 2
-
-[node name="Character" type="MenuButton" parent="Contents/VBoxContainer/PartyControl/Members/Slot1"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 35
-disabled = true
-text = "Lider"
-flat = false
-alignment = 0
-
-[node name="Remove" type="Button" parent="Contents/VBoxContainer/PartyControl/Members/Slot1"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-disabled = true
-text = "-"
-
-[node name="Slot2" type="VBoxContainer" parent="Contents/VBoxContainer/PartyControl/Members"]
-layout_mode = 2
-
-[node name="Character" type="MenuButton" parent="Contents/VBoxContainer/PartyControl/Members/Slot2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 35
-text = "Member2"
-flat = false
-alignment = 0
-
-[node name="Remove" type="Button" parent="Contents/VBoxContainer/PartyControl/Members/Slot2"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "-"
-
-[node name="Slot3" type="VBoxContainer" parent="Contents/VBoxContainer/PartyControl/Members"]
-layout_mode = 2
-
-[node name="Character" type="MenuButton" parent="Contents/VBoxContainer/PartyControl/Members/Slot3"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 35
-text = "Member3"
-flat = false
-alignment = 0
-
-[node name="Remove" type="Button" parent="Contents/VBoxContainer/PartyControl/Members/Slot3"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "-"
-
-[node name="Slot4" type="VBoxContainer" parent="Contents/VBoxContainer/PartyControl/Members"]
-layout_mode = 2
-
-[node name="Character" type="MenuButton" parent="Contents/VBoxContainer/PartyControl/Members/Slot4"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 35
-text = "Member4"
-flat = false
-alignment = 0
-
-[node name="Remove" type="Button" parent="Contents/VBoxContainer/PartyControl/Members/Slot4"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 30
-text = "-"
-
 [connection signal="pressed" from="background/maps_btn" to="." method="_on_maps_btn_pressed"]
 [connection signal="pressed" from="background/items_btn" to="." method="_on_items_btn_pressed"]
 [connection signal="pressed" from="background/contacts_btn" to="." method="_on_contacts_btn_pressed"]
+[connection signal="pressed" from="background/HBoxContainer/ascend_btn" to="." method="_on_ascend_btn_pressed"]
+[connection signal="pressed" from="background/HBoxContainer/accept_btn" to="." method="_on_accept_btn_pressed"]
+[connection signal="pressed" from="background/HBoxContainer/get_out_btn" to="." method="_on_get_out_btn_pressed"]
