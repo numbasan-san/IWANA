@@ -12,7 +12,8 @@ func load_canditates():
 			# Check if character already exists in chars_bar
 			var exists = false
 			for existing_card in chars_bar.get_children():
-				if existing_card.char_name == member.name:
+				var modified_name = existing_card.char_name.to_snake_case()
+				if modified_name == member.char_name:
 					exists = true
 					break
 

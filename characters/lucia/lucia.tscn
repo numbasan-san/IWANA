@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Resource" uid="uid://gu834xt13rlq" path="res://script/characters/resource/lucia.tres" id="2_frrw5"]
-[ext_resource type="Texture2D" uid="uid://bl1tjaqdvfv6k" path="res://characters/lucia/rpg/movement.png" id="3_ondjh"]
-[ext_resource type="Texture2D" uid="uid://biex4wf32htkk" path="res://characters/lucia/vn/luciafernanda2.png" id="3_ynhfv"]
+[ext_resource type="Texture2D" uid="uid://g8x2h2hmrm32" path="res://characters/lucia/rpg/movement.png" id="3_ondjh"]
+[ext_resource type="Texture2D" uid="uid://sf2t1puiohxr" path="res://characters/lucia/vn/luciafernanda2.png" id="3_ynhfv"]
 [ext_resource type="Script" path="res://characters/lucia/lucia_interaction.gd" id="4_m0a8n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v0pjf"]

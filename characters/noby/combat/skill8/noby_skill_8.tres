@@ -8,7 +8,7 @@
 [ext_resource type="Script" path="res://combat/effects/animation_effects/play_animation.gd" id="4_87dbu"]
 [ext_resource type="Script" path="res://combat/effects/animation_effects/projectile.gd" id="5_ml8ge"]
 [ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="6_brdvk"]
-[ext_resource type="Texture2D" uid="uid://rjdot3bw8wc" path="res://characters/noby/combat/skill8/corazon.png" id="6_bscu7"]
+[ext_resource type="Texture2D" uid="uid://b5hjdykoolcbh" path="res://characters/noby/combat/skill8/corazon.png" id="6_bscu7"]
 [ext_resource type="Script" path="res://combat/effects/animation_effects/spawn_projectile.gd" id="7_goam3"]
 
 [sub_resource type="Resource" id="Resource_xjins"]

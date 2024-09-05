@@ -1,9 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cnf48edckpp1a"]
+[gd_scene load_steps=3 format=3 uid="uid://cnf48edckpp1a"]
 
-[ext_resource type="Texture2D" uid="uid://clkbk73juixnm" path="res://Assets/Menus/game menu/libreta_personajes.png" id="1_32527"]
 [ext_resource type="Script" path="res://script/menus/game_menu/characters_menu.gd" id="1_giqkv"]
-[ext_resource type="Texture2D" uid="uid://cs17ysjbty85h" path="res://Assets/Menus/mascara.png" id="3_mgeg8"]
-[ext_resource type="Texture2D" uid="uid://d3g13j3liqlyd" path="res://Assets/inventory/inventory_slot.png" id="4_amgq1"]
+[ext_resource type="Texture2D" uid="uid://djyk1d7r871m6" path="res://assets/menus/game menu/libreta_personajes.png" id="2_woco1"]
 
 [node name="characters_menu" type="Control"]
 layout_mode = 3
@@ -27,7 +25,7 @@ offset_right = 595.0
 offset_bottom = 372.5
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_32527")
+texture = ExtResource("2_woco1")
 
 [node name="characters_btn" type="TextureButton" parent="background"]
 layout_mode = 0
@@ -35,7 +33,6 @@ offset_left = 20.0
 offset_top = 49.5
 offset_right = 55.0
 offset_bottom = 99.5
-texture_hover = ExtResource("3_mgeg8")
 
 [node name="maps_btn" type="TextureButton" parent="background"]
 layout_mode = 0
@@ -43,7 +40,6 @@ offset_left = 5.0
 offset_top = 104.5
 offset_right = 40.0
 offset_bottom = 154.5
-texture_hover = ExtResource("3_mgeg8")
 
 [node name="items_btn" type="TextureButton" parent="background"]
 layout_mode = 0
@@ -51,7 +47,6 @@ offset_left = 15.0
 offset_top = 159.5
 offset_right = 50.0
 offset_bottom = 209.5
-texture_hover = ExtResource("3_mgeg8")
 
 [node name="contacts_btn" type="TextureButton" parent="background"]
 layout_mode = 0
@@ -59,7 +54,6 @@ offset_left = 15.0
 offset_top = 218.5
 offset_right = 50.0
 offset_bottom = 268.5
-texture_hover = ExtResource("3_mgeg8")
 
 [node name="bar" type="Panel" parent="background"]
 layout_mode = 0
@@ -96,7 +90,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_amgq1")
 stretch_mode = 5
 
 [node name="bar2" type="Panel" parent="background"]

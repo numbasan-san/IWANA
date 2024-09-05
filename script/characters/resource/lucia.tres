@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="CharacterInfo" load_steps=3 format=3 uid="uid://gu834xt13rlq"]
 
-[ext_resource type="Texture2D" uid="uid://deywf34fqbjfx" path="res://characters/lucia/rpg/lucia_portrait.png" id="1_35gll"]
+[ext_resource type="Texture2D" uid="uid://f1vw4muiuvna" path="res://characters/lucia/rpg/lucia_portrait.png" id="1_35gll"]
 [ext_resource type="Script" path="res://script/characters/character_info.gd" id="2_flgo6"]
 
 [resource]
 script = ExtResource("2_flgo6")
-name = "Lucía"
+name = "Lucia"
 portrait = ExtResource("1_35gll")
 description = "Dicen que un día alguien intentó asaltarla a mano armada, y ella le mantuvo la mirada aun bajo amenaza de muerte, y el asaltante solo se puso pálido y dejó de pensar. No estaba exactamente muerto, pero \"era como un cadáver con un corazón aún palpitante\" según los rumores."
 affinity = ""

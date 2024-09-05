@@ -21,11 +21,10 @@ base_defense = 0
 base_speed = 0
 base_critical = 0
 
-[node name="MariaJose" instance=ExtResource("1_begxf")]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bal8"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jnst"]
 resource_local_to_scene = true
-size = Vector2(128, 61)
+size = Vector2(144, 115)
+
 [node name="MariaJose" instance=ExtResource("1_begxf")]
 char_info = ExtResource("2_rcxgb")
 

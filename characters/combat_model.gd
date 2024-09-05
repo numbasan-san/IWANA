@@ -24,6 +24,7 @@ func _ready():
 			p.hide()
 		set_portrait("Basic")
 	if combat_animation:
+		combat_animation.hide()
 		set_sprite("idle")
 
 # Sets the current portrait to one defined in the portraits list

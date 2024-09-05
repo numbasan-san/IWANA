@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="2_026cs"]
 [ext_resource type="Resource" uid="uid://j15r24hfj0sn" path="res://combat/effects/animation_effects/backpack.tres" id="2_f53ec"]
 [ext_resource type="Script" path="res://combat/effects/animation_effects/throw_backpack.gd" id="3_6ydu3"]
-[ext_resource type="Texture2D" uid="uid://dtgvhh3hdkw6c" path="res://combat/effects/lasting_effect_icons.png" id="3_au4vm"]
+[ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="3_au4vm"]
 [ext_resource type="Script" path="res://combat/effects/debuffs/marked.gd" id="4_pyjo5"]
 [ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="5_trcis"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="6_2i8cv"]
