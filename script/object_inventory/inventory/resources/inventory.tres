@@ -1,21 +1,24 @@
-[gd_resource type="Resource" script_class="Inventory" load_steps=19 format=3 uid="uid://dfuucb5spinx8"]
+[gd_resource type="Resource" script_class="Inventory" load_steps=20 format=3 uid="uid://dfuucb5spinx8"]
 
 [ext_resource type="Script" path="res://script/object_inventory/inventory/classes/inventory.gd" id="1_6asg5"]
 [ext_resource type="Resource" uid="uid://cfluktlrbrlsw" path="res://script/object_inventory/items/resources/refresco.tres" id="2_5t2dp"]
 [ext_resource type="Script" path="res://script/object_inventory/inventory/classes/slot.gd" id="2_r5c4h"]
+[ext_resource type="Resource" uid="uid://cfx577x5y8wk" path="res://script/object_inventory/items/resources/frituras.tres" id="6_yn4s8"]
 
 [sub_resource type="Resource" id="Resource_i8vky"]
 script = ExtResource("2_r5c4h")
 item = ExtResource("2_5t2dp")
-amount = 0
+amount = 3
 
 [sub_resource type="Resource" id="Resource_6bqrd"]
 script = ExtResource("2_r5c4h")
-amount = 0
+item = ExtResource("2_5t2dp")
+amount = 2
 
 [sub_resource type="Resource" id="Resource_p6dg4"]
 script = ExtResource("2_r5c4h")
-amount = 0
+item = ExtResource("2_5t2dp")
+amount = 3
 
 [sub_resource type="Resource" id="Resource_d3kce"]
 script = ExtResource("2_r5c4h")
@@ -31,7 +34,8 @@ amount = 0
 
 [sub_resource type="Resource" id="Resource_ukrma"]
 script = ExtResource("2_r5c4h")
-amount = 0
+item = ExtResource("6_yn4s8")
+amount = 1
 
 [sub_resource type="Resource" id="Resource_v5luy"]
 script = ExtResource("2_r5c4h")
@@ -39,7 +43,8 @@ amount = 0
 
 [sub_resource type="Resource" id="Resource_2jfps"]
 script = ExtResource("2_r5c4h")
-amount = 0
+item = ExtResource("6_yn4s8")
+amount = 2
 
 [sub_resource type="Resource" id="Resource_1yq65"]
 script = ExtResource("2_r5c4h")
@@ -63,7 +68,8 @@ amount = 0
 
 [sub_resource type="Resource" id="Resource_jw43w"]
 script = ExtResource("2_r5c4h")
-amount = 0
+item = ExtResource("6_yn4s8")
+amount = 9
 
 [resource]
 script = ExtResource("1_6asg5")

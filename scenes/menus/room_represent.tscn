@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bqcnhygdum144"]
 
-[ext_resource type="Texture2D" uid="uid://jehu13y6he5u" path="res://assets/menus/game menu/map_menu/player_icon.png" id="1_ndjqi"]
+[ext_resource type="Texture2D" uid="uid://crqoe871ecm6c" path="res://assets/menus/game menu/map_menu/player_icon.png" id="1_ndjqi"]
 
 [sub_resource type="Animation" id="Animation_vwuvi"]
 length = 0.001

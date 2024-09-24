@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dbrpal8fvvdd"]
 
 [ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://objects/base_object.tscn" id="1_6mgd6"]
-[ext_resource type="Texture2D" uid="uid://bowi2a1nggnp3" path="res://assets/rpg_sprites/objects/bathroom.png" id="2_8k7uy"]
+[ext_resource type="Texture2D" uid="uid://6c3gisnld8sn" path="res://objects/bathroom/bathroom.png" id="2_pbh1r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glq66"]
 size = Vector2(115, 109)
@@ -9,7 +9,7 @@ size = Vector2(115, 109)
 [node name="SinkMiddle" instance=ExtResource("1_6mgd6")]
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_8k7uy")
+texture = ExtResource("2_pbh1r")
 offset = Vector2(0, -64)
 region_rect = Rect2(1410, 314, 115, 109)
 

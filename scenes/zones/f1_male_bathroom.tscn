@@ -9,6 +9,7 @@ room_name = "Baño de Chicos"
 room_info = ExtResource("2_1s1wj")
 
 [node name="MaleBathroomDoor" parent="." index="0" instance=ExtResource("2_204y4")]
+modulate = Color(1, 1, 1, 0.509804)
 position = Vector2(560, 1466)
 zone = "f1n_hallway"
 spawn = "SpawnF1MB"

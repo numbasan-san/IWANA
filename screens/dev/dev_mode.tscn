@@ -10,9 +10,15 @@ font_size = 35
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[node name="DevMode" type="CanvasLayer"]
+[node name="DevMode" type="CanvasLayer" node_paths=PackedStringArray("characters", "party", "zones", "scenes", "units", "contents")]
 layer = 100
 script = ExtResource("1_cqayl")
+characters = NodePath("Contents/VBoxContainer/PlayerControl/Characters")
+party = NodePath("Contents/VBoxContainer/PartyControl")
+zones = NodePath("Contents/VBoxContainer/SceneDetails/Menus/Zones")
+scenes = NodePath("Contents/VBoxContainer/SceneDetails/Menus/Scenes")
+units = NodePath("Contents/VBoxContainer/SceneDetails/Menus/Units")
+contents = NodePath("Contents")
 
 [node name="Contents" type="Control" parent="."]
 layout_mode = 3
@@ -51,9 +57,10 @@ text = "Ninguno"
 flat = false
 alignment = 0
 
-[node name="PartyControl" type="HBoxContainer" parent="Contents/VBoxContainer"]
+[node name="PartyControl" type="HBoxContainer" parent="Contents/VBoxContainer" node_paths=PackedStringArray("party_slots")]
 layout_mode = 2
 script = ExtResource("2_lmq8p")
+party_slots = NodePath("Members")
 
 [node name="PartyLabel" type="Label" parent="Contents/VBoxContainer/PartyControl"]
 layout_mode = 2
@@ -190,3 +197,5 @@ label_settings = ExtResource("2_0wr73")
 layout_mode = 2
 text = "0"
 label_settings = ExtResource("2_0wr73")
+
+[connection signal="pressed" from="Contents/VBoxContainer/ReloadButton" to="." method="_on_script_reload"]

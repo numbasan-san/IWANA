@@ -4,7 +4,6 @@ class_name CombatSprite extends Node2D
 @export var speed: int = 600
 @export var projectiles: ProjectileSpawner
 
-
 var sprite: AnimatedSprite2D
 
 var actual_position: Vector2 = Vector2(0, 0)
@@ -19,7 +18,6 @@ signal sprite_animation_ended
 signal finished_moving
 
 # TODO: considering moving this to a separate projectile class
-
 signal projectile_destroyed
 
 func _process(delta):
@@ -47,7 +45,6 @@ func set_sprite(new_sprite: AnimatedSprite2D = null):
 		sprite.animation = anim
 		sprite.play()
 		if not sprite.sprite_frames.get_animation_loop(anim):
-
 			await sprite.animation_finished
 			sprite_animation_ended.emit()
 
@@ -72,8 +69,7 @@ func spawn_projectile(
 		speed: float,
 		target: Character,
 		target_offset: Vector2) -> CombatSprite:
-
-
+			
 	var proj_sprite: CombatSprite = CombatSprite.new()
 	proj_sprite.speed = speed
 	proj_sprite.sprite = AnimatedSprite2D.new()
@@ -86,4 +82,3 @@ func spawn_projectile(
 func destroy_projectile(projectile: CombatSprite):
 	projectile.queue_free()
 	projectile_destroyed.emit(projectile)
-

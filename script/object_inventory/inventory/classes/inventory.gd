@@ -32,6 +32,16 @@ func count_empty_slot() -> int:
 			empty_slot += 1
 	return empty_slot
 
+# Actualiza el resource en el index correspondiente si éste está vacío.
+func remove_slot(inventory_slot: Slot):
+	var index = slots.find(inventory_slot)
+	if index < 0 : return
+	slots[index] = Slot.new()
+
+# Para actualizar el resource del inventario con los index que corresponden a cada objeto.
+func insert_slot(index: int, slot: Slot):
+	slots[index] = slot
+
 # Para verificar que hay espacio en el stack del último espacio del inventario.
 func count_stacks() -> bool:
 	var stack = true

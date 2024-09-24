@@ -1,14 +1,14 @@
 [gd_scene load_steps=12 format=3 uid="uid://c5e4qy0u1ix8h"]
 
 [ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://scenes/zones/base_zone.tscn" id="1_loat0"]
-[ext_resource type="Resource" uid="uid://5xdnh81gn5f6" path="res://script/zones/zone_info/resources/f1n_hallway.tres" id="2_w5n30"]
+[ext_resource type="Resource" uid="uid://dah7nykl5wjom" path="res://script/zones/zone_info/resources/f2n_hallway.tres" id="2_apjya"]
 [ext_resource type="PackedScene" uid="uid://cn0nlsq5wj8on" path="res://objects/doors/classroom_door.tscn" id="3_gxt50"]
 [ext_resource type="PackedScene" uid="uid://cutel42w2vpbu" path="res://objects/doors/male_bathroom_door.tscn" id="4_5xoji"]
 [ext_resource type="PackedScene" uid="uid://8adovfeebq66" path="res://objects/doors/female_bathroom_door.tscn" id="5_s7y7p"]
 [ext_resource type="PackedScene" uid="uid://nh6axq4payaf" path="res://objects/doors/yard_door.tscn" id="6_gvj4c"]
 [ext_resource type="PackedScene" uid="uid://cydebiqdat3vw" path="res://objects/doors/portal.tscn" id="7_t4bdn"]
 [ext_resource type="PackedScene" uid="uid://dmda7enq2l0im" path="res://objects/general/locker.tscn" id="8_gaqbp"]
-[ext_resource type="Texture2D" uid="uid://csnek5bda5r4l" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="9_bhy1l"]
+[ext_resource type="Texture2D" uid="uid://bwmsd3ghoqe5o" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="9_bhy1l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbk1h"]
 texture = ExtResource("9_bhy1l")
@@ -117,7 +117,7 @@ sources/0 = SubResource("TileSetAtlasSource_tbk1h")
 
 [node name="HallwayF2N" instance=ExtResource("1_loat0")]
 room_name = "Pasillo Norte Segundo Piro"
-room_info = ExtResource("2_w5n30")
+room_info = ExtResource("2_apjya")
 
 [node name="Doors" type="Node2D" parent="." index="0"]
 y_sort_enabled = true

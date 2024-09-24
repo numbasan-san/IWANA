@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cucs4g480lerj"
-path="res://.godot/imported/__pink_rathian_monster_hunter_drawn_by_milkpanda__sample-167c0a3d5565992476dc0686841d9291.jpg-df97d1d7d80d0176a5c6f3c4f49005c4.ctex"
+uid="uid://bdut32sduvbed"
+path="res://.godot/imported/__pink_rathian_monster_hunter_drawn_by_milkpanda__sample-167c0a3d5565992476dc0686841d9291.jpg-8ff1447d23997642e1d0fe1a32c91f2d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Assests de Pruebas/__pink_rathian_monster_hunter_drawn_by_milkpanda__sample-167c0a3d5565992476dc0686841d9291.jpg"
-dest_files=["res://.godot/imported/__pink_rathian_monster_hunter_drawn_by_milkpanda__sample-167c0a3d5565992476dc0686841d9291.jpg-df97d1d7d80d0176a5c6f3c4f49005c4.ctex"]
+source_file="res://assets/Assests de Pruebas/__pink_rathian_monster_hunter_drawn_by_milkpanda__sample-167c0a3d5565992476dc0686841d9291.jpg"
+dest_files=["res://.godot/imported/__pink_rathian_monster_hunter_drawn_by_milkpanda__sample-167c0a3d5565992476dc0686841d9291.jpg-8ff1447d23997642e1d0fe1a32c91f2d.ctex"]
 
 [params]
 

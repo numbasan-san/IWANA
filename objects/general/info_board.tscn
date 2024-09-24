@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://bqonqotb6lenr"]
 
 [ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://objects/base_object.tscn" id="1_o8swd"]
-[ext_resource type="Texture2D" uid="uid://qec508em3jlf" path="res://objects/general/hallway.png" id="2_q6e8d"]
+[ext_resource type="Texture2D" uid="uid://b5ujeqaf0xwif" path="res://objects/general/hallway.png" id="2_wdhkr"]
 
 [node name="InfoBoard" instance=ExtResource("1_o8swd")]
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_q6e8d")
+texture = ExtResource("2_wdhkr")
 region_rect = Rect2(695, 635, 440, 215)

@@ -9,4 +9,3 @@ func on_apply(target: Character):
 	var proj = combat_sprite.spawn_projectile(projectile, speed, target, target_offset)
 	await proj.finished_moving
 	combat_sprite.destroy_projectile(proj)
-

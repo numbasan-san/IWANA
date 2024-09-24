@@ -3,12 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_dme1k"]
 [ext_resource type="Resource" uid="uid://cxtj3edywymeh" path="res://script/characters/resource/dummy.tres" id="2_nwx1m"]
-[ext_resource type="Texture2D" uid="uid://dtkmu3ri5hnn0" path="res://characters/dummy/combat/sombra_combate.png" id="4_ejgt2"]
-[ext_resource type="Texture2D" uid="uid://e1lmjk6p6jks" path="res://characters/dummy/rpg/sombra.png" id="4_i5aca"]
-[ext_resource type="Texture2D" uid="uid://v2lyabyqfdsn" path="res://characters/dummy/combat/fainted.png" id="4_s2m5x"]
+[ext_resource type="Texture2D" uid="uid://dwtt5f0nbnjrk" path="res://characters/dummy/combat/sombra_combate.png" id="4_ejgt2"]
+[ext_resource type="Texture2D" uid="uid://pa67arphlyky" path="res://characters/dummy/rpg/sombra.png" id="4_i5aca"]
+[ext_resource type="Texture2D" uid="uid://q6p2nbvfl777" path="res://characters/dummy/combat/fainted.png" id="4_s2m5x"]
 [ext_resource type="Script" path="res://characters/dummy/dummy_interaction.gd" id="5_vdbvb"]
-[ext_resource type="Texture2D" uid="uid://coqc6wiwf5luj" path="res://characters/dummy/combat/skill6-sprite.png" id="5_vqgvf"]
-[ext_resource type="Texture2D" uid="uid://t44uknlx2qo8" path="res://characters/dummy/combat/running.png" id="6_0a7cs"]
+[ext_resource type="Texture2D" uid="uid://c1bntettjgsi4" path="res://characters/dummy/combat/skill6-sprite.png" id="5_vqgvf"]
+[ext_resource type="Texture2D" uid="uid://7cx1xp1a807y" path="res://characters/dummy/combat/running.png" id="6_0a7cs"]
 [ext_resource type="Script" path="res://combat/effects/damage.gd" id="6_t1edw"]
 [ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="7_8jd57"]
 [ext_resource type="Script" path="res://combat/effects/animation_effects/run_towards_target.gd" id="8_faypt"]
@@ -477,7 +477,7 @@ animations = [{
 resource_local_to_scene = true
 script = ExtResource("2_dme1k")
 base_max_health = 20
-base_max_energy = 20
+base_max_energy = 999
 base_damage = 2
 base_defense = 0
 base_speed = 0
@@ -533,7 +533,6 @@ target_type = SubResource("Resource_nfgit")
 resource_local_to_scene = true
 script = ExtResource("8_jdgy4")
 name = "Daño Ejemplo"
-anim_name = "Skill1"
 description = "Skill de ejemplo para  debuggear"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_0ceox")])
 energy_cost = 5

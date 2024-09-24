@@ -66,7 +66,6 @@ func character_hit(who: Character, effect: Effect):
 		on_character_hit(who, effect)
 		if hit and decrease_duration == Decrease.ON_CHARACTER_HIT:
 			duration -= 1
-
 	hit = false
 
 # This is called when the turn of this effect's target has just started
@@ -125,4 +124,3 @@ func intercept(effect: Effect):
 		if interception and decrease_duration == Decrease.ON_INTERCEPT:
 			duration -= 1
 	interception = false
-

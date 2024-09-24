@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://05135e00wy1m"
-path="res://.godot/imported/__deviljho_monster_hunter_drawn_by_milkpanda__sample-e368f5963e0818f6fafe39a7d62443d2.jpg-4039f0d58f9221204562556bcf08d851.ctex"
+uid="uid://3q45gkk1oj43"
+path="res://.godot/imported/__deviljho_monster_hunter_drawn_by_milkpanda__sample-e368f5963e0818f6fafe39a7d62443d2.jpg-c216ec19a95b73cd51fef2456a038880.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Assests de Pruebas/__deviljho_monster_hunter_drawn_by_milkpanda__sample-e368f5963e0818f6fafe39a7d62443d2.jpg"
-dest_files=["res://.godot/imported/__deviljho_monster_hunter_drawn_by_milkpanda__sample-e368f5963e0818f6fafe39a7d62443d2.jpg-4039f0d58f9221204562556bcf08d851.ctex"]
+source_file="res://assets/Assests de Pruebas/__deviljho_monster_hunter_drawn_by_milkpanda__sample-e368f5963e0818f6fafe39a7d62443d2.jpg"
+dest_files=["res://.godot/imported/__deviljho_monster_hunter_drawn_by_milkpanda__sample-e368f5963e0818f6fafe39a7d62443d2.jpg-c216ec19a95b73cd51fef2456a038880.ctex"]
 
 [params]
 

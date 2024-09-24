@@ -40,6 +40,7 @@ func set_character(new_character: Character = null):
 	super.set_character(new_character)
 	if new_character:
 		var model = new_character.combat_model
+		model.combat_animation.show()
 		model.current_container = self
 		_change_sprite(model.combat_animation)
 		model.update_sprite.connect(_change_sprite)
@@ -55,9 +56,11 @@ func set_character(new_character: Character = null):
 
 # Clears the container
 func remove_character():
-	if character:
-		character.combat_model.current_container = null
-		character.combat_model.update_sprite.disconnect(_change_sprite)
+	if character and character.combat_model:
+		var model = character.combat_model
+		model.combat_animation.hide()
+		model.current_container = null
+		model.update_sprite.disconnect(_change_sprite)
 		combat_sprite.sprite_animation_ended.disconnect(_notify_animation_ended)
 		character.combat_handler.stats.health_recovered.disconnect(number_control.heal)
 		character.combat_handler.stats.damage_received.disconnect(number_control.damage)

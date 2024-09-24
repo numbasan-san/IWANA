@@ -8,5 +8,4 @@ func on_apply(target: Character):
 	caster.combat_model.set_sprite(graphic_name)
 	if not caster.combat_model.combat_animation.sprite_frames.get_animation_loop(graphic_name):
 		await caster.combat_model.sprite_animation_ended
-
 	is_nullified = true

@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://c6w6d6qusjaew"]
 
 [ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://objects/base_object.tscn" id="1_qdlon"]
-[ext_resource type="Texture2D" uid="uid://dg5t5ijofg3pw" path="res://assets/rpg_sprites/objects/parte_de_afuera_de_la_escuela_v3.png" id="2_epsrx"]
+[ext_resource type="Texture2D" uid="uid://b2lg7a1ww3uuo" path="res://objects/yard/yard.png" id="2_l2r1d"]
 
 [node name="Poster3" instance=ExtResource("1_qdlon")]
 y_sort_enabled = true
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_epsrx")
+texture = ExtResource("2_l2r1d")
 region_rect = Rect2(45, 60, 37, 33)

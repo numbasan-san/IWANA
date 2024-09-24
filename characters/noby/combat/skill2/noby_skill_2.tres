@@ -41,7 +41,6 @@ target_type = SubResource("Resource_iwt8r")
 [resource]
 script = ExtResource("1_3mjya")
 name = "Inquebrantable"
-anim_name = ""
 description = "Se coloca un escudo que recibe daño en vez del personaje. Si al siguiente turno el escudo no se ha roto, cura al personaje."
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_d0itu")])
 energy_cost = 5

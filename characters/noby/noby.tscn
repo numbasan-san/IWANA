@@ -3,25 +3,25 @@
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_iq20k"]
 [ext_resource type="Resource" uid="uid://dqnynbd1aov8j" path="res://script/characters/resource/noby.tres" id="2_salyo"]
 [ext_resource type="Resource" uid="uid://7o4a34iaa12l" path="res://characters/noby/noby_stats.tres" id="2_yag6e"]
-[ext_resource type="Texture2D" uid="uid://dnfwmevfrgfo3" path="res://characters/noby/combat/skill2/backpack_shield.png" id="5_jo43e"]
+[ext_resource type="Texture2D" uid="uid://c8b4f32wfn3ua" path="res://characters/noby/combat/skill2/backpack_shield.png" id="5_jo43e"]
 [ext_resource type="Script" path="res://characters/noby/noby_interaction.gd" id="5_kobiw"]
-[ext_resource type="Texture2D" uid="uid://dtji1ojh11ga2" path="res://characters/noby/vn/neutral.png" id="5_xv3aq"]
-[ext_resource type="Texture2D" uid="uid://mwj85hct5kt7" path="res://characters/noby/combat/running-sprite.png" id="6_5ress"]
-[ext_resource type="Texture2D" uid="uid://dxts57ivthp3h" path="res://characters/noby/combat/fainted.png" id="6_hy513"]
+[ext_resource type="Texture2D" uid="uid://vqpjwwbie0iy" path="res://characters/noby/vn/neutral.png" id="5_xv3aq"]
+[ext_resource type="Texture2D" uid="uid://qf8ry6dyd3af" path="res://characters/noby/combat/running-sprite.png" id="6_5ress"]
+[ext_resource type="Texture2D" uid="uid://dkyn4ncrr42yn" path="res://characters/noby/combat/fainted.png" id="6_hy513"]
 [ext_resource type="Resource" uid="uid://cjqlcyi4yt74x" path="res://characters/noby/combat/skill1/noby_skill_1.tres" id="7_diqpc"]
-[ext_resource type="Texture2D" uid="uid://bqanpih58r2mk" path="res://characters/noby/rpg/movement.png" id="7_g4a1h"]
-[ext_resource type="Texture2D" uid="uid://fy74c3up3bn6" path="res://characters/noby/combat/skill1/noby-protect.png" id="8_lnph5"]
-[ext_resource type="Texture2D" uid="uid://0ew1xcvubm2o" path="res://characters/noby/combat/skill6/skill6-sprite.png" id="8_qu5mb"]
-[ext_resource type="Texture2D" uid="uid://da7u36ww5npbk" path="res://characters/noby/combat/portrait.png" id="9_8n6x7"]
+[ext_resource type="Texture2D" uid="uid://3tpwagjqr3d8" path="res://characters/noby/rpg/movement.png" id="7_g4a1h"]
+[ext_resource type="Texture2D" uid="uid://cngpw42ckdwif" path="res://characters/noby/combat/skill1/noby-protect.png" id="8_lnph5"]
+[ext_resource type="Texture2D" uid="uid://ca6y7hhovm738" path="res://characters/noby/combat/skill6/skill6-sprite.png" id="8_qu5mb"]
+[ext_resource type="Texture2D" uid="uid://bhlnajoa7y4xi" path="res://characters/noby/combat/portrait.png" id="9_8n6x7"]
 [ext_resource type="Resource" uid="uid://fwun0t61uohl" path="res://characters/noby/combat/skill2/noby_skill_2.tres" id="9_l81a1"]
 [ext_resource type="Resource" uid="uid://7itin0wyy3p7" path="res://characters/noby/combat/noby_skill_4.tres" id="10_8umm1"]
-[ext_resource type="Texture2D" uid="uid://cp66mybysou2u" path="res://characters/noby/combat/idle.png" id="10_ef5y1"]
+[ext_resource type="Texture2D" uid="uid://b1chpmd3y1sjk" path="res://characters/noby/combat/idle.png" id="10_ef5y1"]
 [ext_resource type="Resource" uid="uid://b7fxwd6xs8en2" path="res://characters/noby/combat/noby_skill_5.tres" id="11_aps8n"]
-[ext_resource type="Texture2D" uid="uid://bulldtym0swye" path="res://characters/noby/combat/skill8/noby_lose_heart.png" id="11_ckxmu"]
-[ext_resource type="Texture2D" uid="uid://5a2xik6vjkck" path="res://characters/noby/combat/skill8/noby_throw_heart.png" id="12_sqdd4"]
+[ext_resource type="Texture2D" uid="uid://xln0hw0r2r1e" path="res://characters/noby/combat/skill8/noby_lose_heart.png" id="11_ckxmu"]
+[ext_resource type="Texture2D" uid="uid://c4r6s12jn6oni" path="res://characters/noby/combat/skill8/noby_throw_heart.png" id="12_sqdd4"]
 [ext_resource type="Resource" uid="uid://cg7yssd5gfox3" path="res://characters/noby/combat/skill3/noby_skill_3.tres" id="12_unjal"]
 [ext_resource type="Resource" uid="uid://cfgwxyygngwto" path="res://characters/noby/combat/noby_skill_7.tres" id="13_8jxr4"]
-[ext_resource type="Texture2D" uid="uid://bgeck8avmfmqn" path="res://characters/noby/combat/skill3/throw_backpack.png" id="13_bmf1e"]
+[ext_resource type="Texture2D" uid="uid://ciiua1p3qt4b3" path="res://characters/noby/combat/skill3/throw_backpack.png" id="13_bmf1e"]
 [ext_resource type="Resource" uid="uid://grb2j13upg08" path="res://characters/noby/combat/skill6/noby_skill_6.tres" id="14_j1r65"]
 [ext_resource type="Resource" uid="uid://dh0djp8kvvo8l" path="res://characters/noby/combat/skill8/noby_skill_8.tres" id="19_e8254"]
 
@@ -1358,9 +1358,6 @@ rotation = 3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("5_xv3aq")
 
-[node name="RPGModel" parent="." index="1"]
-visible = false
-
 [node name="Sprite2D" parent="RPGModel" index="0"]
 position = Vector2(0, 14)
 texture = ExtResource("7_g4a1h")
@@ -1388,9 +1385,8 @@ visible = false
 texture = ExtResource("9_8n6x7")
 
 [node name="CombatSprites" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
-visible = false
 sprite_frames = SubResource("SpriteFrames_7mxob")
-animation = &"throw_backpack"
+animation = &"idle"
 
 [node name="CombatHandler" parent="." index="3"]
 stats = ExtResource("2_yag6e")

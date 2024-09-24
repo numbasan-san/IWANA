@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://bv416onpsv8q"]
 
 [ext_resource type="PackedScene" uid="uid://bhdwcwp1jcngf" path="res://objects/cafeteria/base_cafe_object.tscn" id="1_bsbs4"]
-[ext_resource type="Texture2D" uid="uid://c03qbaq7xfcka" path="res://objects/cafeteria/cafeteria.png" id="2_xlawo"]
+[ext_resource type="Texture2D" uid="uid://b2q5aewf5arsp" path="res://objects/cafeteria/cafeteria.png" id="2_2e1ut"]
 
 [node name="Entry" instance=ExtResource("1_bsbs4")]
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_xlawo")
+texture = ExtResource("2_2e1ut")
 region_rect = Rect2(15, 20, 345, 435)
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]

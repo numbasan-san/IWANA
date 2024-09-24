@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://combat/effects/buffs/damage_buff.gd" id="1_71yih"]
 [ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="1_jkqhc"]
-[ext_resource type="Texture2D" uid="uid://j1gnnvbcys8d" path="res://combat/effects/lasting_effect_icons.png" id="1_s0o5p"]
+[ext_resource type="Texture2D" uid="uid://cdhitokvk18u5" path="res://combat/effects/lasting_effect_icons.png" id="1_s0o5p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pv503"]
 atlas = ExtResource("1_s0o5p")

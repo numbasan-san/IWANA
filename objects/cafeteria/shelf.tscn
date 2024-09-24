@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b6n42a0qju780"]
 
 [ext_resource type="PackedScene" uid="uid://bhdwcwp1jcngf" path="res://objects/cafeteria/base_cafe_object.tscn" id="1_kkg87"]
-[ext_resource type="Texture2D" uid="uid://c03qbaq7xfcka" path="res://objects/cafeteria/cafeteria.png" id="2_kgo15"]
+[ext_resource type="Texture2D" uid="uid://b2q5aewf5arsp" path="res://objects/cafeteria/cafeteria.png" id="2_qyyjr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6nnse"]
 size = Vector2(680, 162)
@@ -9,7 +9,7 @@ size = Vector2(680, 162)
 [node name="Shelf" instance=ExtResource("1_kkg87")]
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_kgo15")
+texture = ExtResource("2_qyyjr")
 region_rect = Rect2(40, 605, 680, 355)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]

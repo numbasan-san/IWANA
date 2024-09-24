@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dmda7enq2l0im"]
 
 [ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://objects/base_object.tscn" id="1_mavtk"]
-[ext_resource type="Texture2D" uid="uid://qec508em3jlf" path="res://objects/general/hallway.png" id="2_fv8ee"]
+[ext_resource type="Texture2D" uid="uid://b5ujeqaf0xwif" path="res://objects/general/hallway.png" id="2_dtomb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wd2n"]
 size = Vector2(170, 136)
@@ -10,7 +10,7 @@ size = Vector2(170, 136)
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -173)
-texture = ExtResource("2_fv8ee")
+texture = ExtResource("2_dtomb")
 region_rect = Rect2(1520, 280, 170, 345)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]

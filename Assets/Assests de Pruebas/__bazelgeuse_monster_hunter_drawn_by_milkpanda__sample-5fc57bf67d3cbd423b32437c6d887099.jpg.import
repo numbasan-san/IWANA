@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bv7bds8gmipnt"
-path="res://.godot/imported/__bazelgeuse_monster_hunter_drawn_by_milkpanda__sample-5fc57bf67d3cbd423b32437c6d887099.jpg-5d93fcff632cfe62feca4cf2d285484f.ctex"
+uid="uid://b6wwqqy251fto"
+path="res://.godot/imported/__bazelgeuse_monster_hunter_drawn_by_milkpanda__sample-5fc57bf67d3cbd423b32437c6d887099.jpg-659764ef9b1d5e874e9e3cd0dcc57ece.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Assests de Pruebas/__bazelgeuse_monster_hunter_drawn_by_milkpanda__sample-5fc57bf67d3cbd423b32437c6d887099.jpg"
-dest_files=["res://.godot/imported/__bazelgeuse_monster_hunter_drawn_by_milkpanda__sample-5fc57bf67d3cbd423b32437c6d887099.jpg-5d93fcff632cfe62feca4cf2d285484f.ctex"]
+source_file="res://assets/Assests de Pruebas/__bazelgeuse_monster_hunter_drawn_by_milkpanda__sample-5fc57bf67d3cbd423b32437c6d887099.jpg"
+dest_files=["res://.godot/imported/__bazelgeuse_monster_hunter_drawn_by_milkpanda__sample-5fc57bf67d3cbd423b32437c6d887099.jpg-659764ef9b1d5e874e9e3cd0dcc57ece.ctex"]
 
 [params]
 

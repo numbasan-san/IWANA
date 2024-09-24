@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7kbjre1dyxb"]
+[gd_scene load_steps=4 format=3 uid="uid://b7kbjre1dyxb"]
 
 [ext_resource type="PackedScene" uid="uid://bexdhvmbe3drg" path="res://objects/infirmary/base_inf_object.tscn" id="1_cjqil"]
+[ext_resource type="Texture2D" uid="uid://bvnuys1snn1q2" path="res://objects/infirmary/infirmary.png" id="2_6556f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8edkj"]
 size = Vector2(375, 132)
@@ -8,6 +9,7 @@ size = Vector2(375, 132)
 [node name="BedCyan" instance=ExtResource("1_cjqil")]
 
 [node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_6556f")
 region_rect = Rect2(1470, 30, 375, 210)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]

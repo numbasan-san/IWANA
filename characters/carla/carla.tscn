@@ -3,10 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Resource" uid="uid://dqghkllfgkd3g" path="res://script/characters/resource/carla.tres" id="2_g18jn"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_vglxn"]
-[ext_resource type="Texture2D" uid="uid://di5pwitv2c687" path="res://characters/carla/vn/neutral.png" id="4_03jaf"]
-[ext_resource type="Texture2D" uid="uid://dhmy74np4tsm" path="res://characters/carla/combat/fainted.png" id="4_50y82"]
+[ext_resource type="Texture2D" uid="uid://boe2ejslup8co" path="res://characters/carla/vn/neutral.png" id="4_03jaf"]
+[ext_resource type="Texture2D" uid="uid://bwmjdrfbyflyo" path="res://characters/carla/combat/fainted.png" id="4_50y82"]
 [ext_resource type="Script" path="res://characters/carla/carla_interaction.gd" id="4_kadpm"]
-[ext_resource type="Texture2D" uid="uid://dww7l4yrj5k82" path="res://characters/carla/rpg/carla.png" id="5_h4af0"]
+[ext_resource type="Texture2D" uid="uid://d3rs37jucja0n" path="res://characters/carla/rpg/carla.png" id="5_h4af0"]
 [ext_resource type="Script" path="res://combat/effects/damage.gd" id="5_lkpum"]
 [ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="6_85i0v"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="7_2u0rd"]
@@ -234,7 +234,6 @@ target_type = SubResource("Resource_o0vmu")
 resource_local_to_scene = true
 script = ExtResource("7_2u0rd")
 name = "Daño Ejemplo"
-anim_name = ""
 description = "Skill de ejemplo para  debuggear"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_rdmvj")])
 energy_cost = 5

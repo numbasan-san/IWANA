@@ -3,9 +3,9 @@
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Resource" uid="uid://csb8r8xe32g78" path="res://script/characters/resource/guillermo.tres" id="2_fj7it"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_kpgma"]
-[ext_resource type="Texture2D" uid="uid://cal2l5ldxl25p" path="res://characters/guillermo/rpg/movement.png" id="3_1k3jo"]
-[ext_resource type="Texture2D" uid="uid://bve26ijtgvt6s" path="res://characters/guillermo/vn/neutral.png" id="4_43dl1"]
-[ext_resource type="Texture2D" uid="uid://cix4ig5awwf47" path="res://characters/guillermo/combat/fainted.png" id="4_x4bf4"]
+[ext_resource type="Texture2D" uid="uid://boaqa7ht4th0k" path="res://characters/guillermo/rpg/movement.png" id="3_1k3jo"]
+[ext_resource type="Texture2D" uid="uid://stlskboc1s4i" path="res://characters/guillermo/vn/neutral.png" id="4_43dl1"]
+[ext_resource type="Texture2D" uid="uid://bpq3lld2sb83i" path="res://characters/guillermo/combat/fainted.png" id="4_x4bf4"]
 [ext_resource type="Script" path="res://characters/guillermo/guillermo_interaction.gd" id="5_idyit"]
 [ext_resource type="Script" path="res://combat/effects/damage.gd" id="5_sdrfb"]
 [ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="6_2nwe8"]
@@ -73,7 +73,6 @@ target_type = SubResource("Resource_uletc")
 resource_local_to_scene = true
 script = ExtResource("7_yb3hi")
 name = "Daño Ejemplo"
-anim_name = ""
 description = "Skill de ejemplo para  debuggear"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_7vvuy")])
 energy_cost = 5

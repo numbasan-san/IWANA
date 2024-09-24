@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Projectile" load_steps=28 format=3 uid="uid://j15r24hfj0sn"]
 
 [ext_resource type="Script" path="res://combat/effects/animation_effects/projectile.gd" id="1_1musu"]
-[ext_resource type="Texture2D" uid="uid://bhsn3uog733k1" path="res://combat/effects/animation_effects/landing_backpack.png" id="2_1x42n"]
-[ext_resource type="Texture2D" uid="uid://cgtn28ev5kej8" path="res://combat/effects/animation_effects/backpack.png" id="3_tt2t6"]
+[ext_resource type="Texture2D" uid="uid://dxrkwx1h24nmm" path="res://combat/effects/animation_effects/landing_backpack.png" id="2_1x42n"]
+[ext_resource type="Texture2D" uid="uid://dapuli1ykh5gs" path="res://combat/effects/animation_effects/backpack.png" id="3_tt2t6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u2ueh"]
 atlas = ExtResource("2_1x42n")

@@ -21,7 +21,6 @@ target_type = SubResource("Resource_8hkyi")
 [resource]
 script = ExtResource("3_o0kkp")
 name = "Navaja suiza"
-anim_name = ""
 description = "Selecciona un debuff. Noby ataca al oponente, inflige daño y aplica el debuff"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_hv3wa")])
 energy_cost = 5

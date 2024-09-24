@@ -50,7 +50,6 @@ target_type = SubResource("Resource_6d5tn")
 [resource]
 script = ExtResource("1_j5dnv")
 name = "Tu harías lo mismo"
-anim_name = ""
 description = "Salta hacia un aliado y recibe daño por este"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_0ay3d")])
 energy_cost = 5

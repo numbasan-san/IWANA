@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://fn4epws73eg0"]
 
 [ext_resource type="PackedScene" uid="uid://b4ii0x8sqtmxw" path="res://scenes/zones/base_classroom_south.tscn" id="1_uqpnc"]
-[ext_resource type="Resource" uid="uid://c81hlmma6i3wx" path="res://script/zones/zone_info/resources/room_f1s2.tres" id="2_g17wl"]
-[ext_resource type="Texture2D" uid="uid://csnek5bda5r4l" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="3_w173r"]
+[ext_resource type="Resource" uid="uid://yik5m7hvn1lo" path="res://script/zones/zone_info/resources/room_f2s2.tres" id="2_sb0l1"]
+[ext_resource type="Texture2D" uid="uid://bwmsd3ghoqe5o" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="3_w173r"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_6eplc"]
 tile_data = PackedInt32Array(0, 65537, 1, 65536, 65537, 2, 131072, 65537, 3, 196608, 65537, 4, 1, 131073, 1, 65537, 131073, 2, 131073, 131073, 3, 196609, 131073, 4, 2, 196609, 1, 65538, 196609, 2, 131074, 196609, 3, 196610, 196609, 4, 3, 262145, 1, 65539, 262145, 2, 131075, 262145, 3, 196611, 262145, 4)
@@ -147,7 +147,7 @@ pattern_8 = SubResource("TileMapPattern_n40g6")
 
 [node name="RoomF2S2" instance=ExtResource("1_uqpnc")]
 room_name = "Aula 1-D"
-room_info = ExtResource("2_g17wl")
+room_info = ExtResource("2_sb0l1")
 
 [node name="Door" parent="." index="0"]
 zone = "f2s_hallway"

@@ -1,11 +1,12 @@
 extends Control
 
 var current_room_node = null  # Variable para llevar un seguimiento del nodo actual
+var floor = 'F1/'
 
 # Función para reproducir la animación en el nodo correspondiente y detenerla en el nodo anterior
 func play_animation_on_room(room_key):
 	if room_key:
-		var room_node = get_node('background/Map/' + room_key)
+		var room_node = get_node('background/Map/' + floor + room_key)
 
 		if room_node:
 			if current_room_node and current_room_node != room_node:
@@ -32,7 +33,6 @@ func play_animation_on_room(room_key):
 			current_room_node = null  # Resetear el nodo actual
 
 # Función load como ejemplo de uso
-
 func load_maps():
 	var world = Player.zone
 	if world.name:
@@ -41,7 +41,7 @@ func load_maps():
 		$background/VBoxContainer/room_name.text = world.room_info.name
 		$background/VBoxContainer2/description.text = world.room_info.description
 	else:
-		play_animation_on_room(null)  #dw Manejar el caso del pasillo
+		print('Localidad no encontrada.')
 
 
 func _on_characters_btn_pressed():
@@ -49,6 +49,7 @@ func _on_characters_btn_pressed():
 	var selected_menu = self.get_parent()
 	var characters_menu = selected_menu.get_node('characters_menu')
 	characters_menu.visible = true
+	characters_menu.load_canditates()
 
 func _on_items_btn_pressed():
 	self.visible = false
@@ -63,3 +64,16 @@ func _on_contacts_btn_pressed():
 	var contacts_menu = selected_menu.get_node('contacts_menu')
 	contacts_menu.visible = true
 	contacts_menu.load_characters()
+
+
+func _on_floor_1_btn_2_pressed():
+	floor = 'F2/'
+	$background/Map/F1.visible = false
+	$background/Map/F2.visible = true
+	load_maps()
+
+func _on_floor_1_btn_pressed():
+	floor = 'F1/'
+	$background/Map/F1.visible = true
+	$background/Map/F2.visible = false
+	load_maps()

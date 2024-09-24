@@ -12,17 +12,13 @@ allow_repetition = false
 
 [sub_resource type="Resource" id="Resource_4n31v"]
 script = ExtResource("1_qhoq8")
+type = 0
 value = 1.0
 target_type = SubResource("Resource_yee67")
 
 [resource]
 script = ExtResource("3_agt56")
 name = "Golpe rompecorazones"
-<<<<<<< Updated upstream:characters/daniela/combat/skill1/wip_daniela_skill_1.tres
 description = "Es un ataque normal, pero cuando seleccionas el ataque, tienes las opciones de hacer un ataque normal  pero un ataque más fuerte que debuffea la defensa"
-=======
-anim_name = ""
-description = "es un ataque normal, pero cuando seleccionas el ataque, tienes las opciones de hacer un ataque normal  pero un ataque más fuerte que debuffea la defensa"
->>>>>>> Stashed changes:characters/daniela/combat/daniela_skill_1.tres
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_4n31v")])
 energy_cost = 5

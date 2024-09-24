@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://bwf4jlfnd2n2o"]
 
 [ext_resource type="PackedScene" uid="uid://wj1qx5xeiuf3" path="res://objects/laboratory/base_lab_object.tscn" id="1_hegaf"]
-[ext_resource type="Texture2D" uid="uid://1d3njo6dunim" path="res://objects/laboratory/laboratory.png" id="2_cssq5"]
+[ext_resource type="Texture2D" uid="uid://choasg1uid36p" path="res://objects/laboratory/laboratory.png" id="2_53vud"]
 
 [node name="Burner" instance=ExtResource("1_hegaf")]
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_cssq5")
+texture = ExtResource("2_53vud")
 region_rect = Rect2(1715, 450, 50, 75)

@@ -21,7 +21,6 @@ target_type = SubResource("Resource_8hkyi")
 [resource]
 script = ExtResource("2_mbf26")
 name = "Nadie toca a mis amigos"
-anim_name = ""
 description = "Ataca"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_hv3wa")])
 energy_cost = 5

@@ -12,10 +12,6 @@ class_name Skill extends Resource
 # selection gui
 @export var name: String
 
-# TODO: Only a temporary variable to draw placeholder animations. Remove it when
-# the system is ready
-@export var anim_name: String
-
 # A description that is shown to the player in menus or tooltips that explain
 # what it does
 @export_multiline var description: String

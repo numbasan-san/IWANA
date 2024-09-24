@@ -1,12 +1,12 @@
 [gd_scene load_steps=3 format=3 uid="uid://bc0x6r1sqak4r"]
 
 [ext_resource type="PackedScene" uid="uid://n4u8y0x5enjf" path="res://objects/classroom/base_classroom_object.tscn" id="1_cv25d"]
-[ext_resource type="Texture2D" uid="uid://b6ms12d1s4om2" path="res://objects/classroom/classroom.png" id="2_gddo7"]
+[ext_resource type="Texture2D" uid="uid://c30rsgc02mw3w" path="res://objects/classroom/classroom.png" id="2_p3exn"]
 
 [node name="TeacherDesk" instance=ExtResource("1_cv25d")]
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_gddo7")
+texture = ExtResource("2_p3exn")
 offset = Vector2(0, -60)
 region_rect = Rect2(305, 520, 430, 280)
 

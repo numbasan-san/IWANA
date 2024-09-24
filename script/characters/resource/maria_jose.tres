@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="CharacterInfo" load_steps=3 format=3 uid="uid://bi4hew6bkrrqx"]
 
-[ext_resource type="Texture2D" uid="uid://b2wcpd5gpyys0" path="res://characters/maria_jose/rpg/mj_portrait.png" id="1_ygyxm"]
+[ext_resource type="Texture2D" uid="uid://bfqmq7ioihtin" path="res://characters/maria_jose/rpg/mj_portrait.png" id="1_ygyxm"]
 [ext_resource type="Script" path="res://script/characters/character_info.gd" id="2_1ihv3"]
 
 [resource]
 script = ExtResource("2_1ihv3")
-name = "María José"
+name = "Maria Jose"
 portrait = ExtResource("1_ygyxm")
 description = "No le agrada Marie Jane, dice que Black Cat es mejor pareja para Spider-man."
 affinity = ""

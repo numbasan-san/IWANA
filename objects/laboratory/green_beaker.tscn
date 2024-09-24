@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://y0g7n7xt3vhb"]
 
 [ext_resource type="PackedScene" uid="uid://wj1qx5xeiuf3" path="res://objects/laboratory/base_lab_object.tscn" id="1_b4rvh"]
-[ext_resource type="Texture2D" uid="uid://1d3njo6dunim" path="res://objects/laboratory/laboratory.png" id="2_c0w4f"]
+[ext_resource type="Texture2D" uid="uid://choasg1uid36p" path="res://objects/laboratory/laboratory.png" id="2_r2ryn"]
 
 [node name="GreenBeaker" instance=ExtResource("1_b4rvh")]
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_c0w4f")
+texture = ExtResource("2_r2ryn")
 region_rect = Rect2(1295, 470, 60, 60)

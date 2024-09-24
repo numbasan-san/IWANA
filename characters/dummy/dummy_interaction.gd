@@ -26,14 +26,14 @@ func _start_after_dialog(scene_name: String, unit_name: String):
 func _start_battle():
 	var dummy: Character = $"..".character
 	var enemy_party = dummy.party
-	# En este caso, es la primera vez que hablamos con el dummy y el
-	# grupo de enemigos no ha sido llenado
+	# In this case this is the first time we talk with the dummy and the
+	# party hasn't been filled
 	if enemy_party.size == 1:
 		var i = 0
 		while i < 3:
 			var d: Character = dummy.clone()
 			d.combat_handler.stats.replenish()
-			d.rpg_model.get_node("GeneralInteraction").disable()
+			d.rpg_model.get_node("GeneralInteraction").disable
 			d.disable_collisions()
 			d.rpg_model.reposition(Vector2(0, 0), "down")
 			enemy_party.add(d)
@@ -46,7 +46,7 @@ func _start_battle():
 	enemy_party.members[3].combat_handler.stats.base_damage = 1
 	ScreenManager.combat_screen.contents.start_battle(Player.party, enemy_party)
 
-# Función temporal que será utilizada para deshabilitar interacciones en clones
-# del dummy.
+# TODO: Temporary function that will be used to disable interactions on clones
+# of the dummy.
 func disable():
 	$CollisionShape2D.disabled = true

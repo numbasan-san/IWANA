@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dnjubi70m176s"]
+[gd_scene load_steps=12 format=3 uid="uid://dnjubi70m176s"]
 
 [ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://scenes/zones/base_zone.tscn" id="1_wq0ga"]
 [ext_resource type="Resource" uid="uid://5xdnh81gn5f6" path="res://script/zones/zone_info/resources/f1n_hallway.tres" id="2_asqt2"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cutel42w2vpbu" path="res://objects/doors/male_bathroom_door.tscn" id="5_sa3qh"]
 [ext_resource type="PackedScene" uid="uid://8adovfeebq66" path="res://objects/doors/female_bathroom_door.tscn" id="6_6gxcv"]
 [ext_resource type="PackedScene" uid="uid://nh6axq4payaf" path="res://objects/doors/yard_door.tscn" id="6_jkrm3"]
-[ext_resource type="Texture2D" uid="uid://0ua0r2lkhfl1" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="7_sj31s"]
+[ext_resource type="Texture2D" uid="uid://csnek5bda5r4l" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="7_sj31s"]
 [ext_resource type="PackedScene" uid="uid://cydebiqdat3vw" path="res://objects/doors/portal.tscn" id="7_yc0at"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbk1h"]

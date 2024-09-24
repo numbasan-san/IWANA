@@ -18,7 +18,9 @@ func _on_button_pressed():
 	character_info.text = char_name + '. ' + description
 	
 	var menu = background.get_parent()
-	menu.selected_char = character
+	
+	if character != null:
+		menu.selected_char = character
 	
 	var ascend_btn = background.get_node_or_null('HBoxContainer/ascend_btn')
 	var accept_btn = background.get_node_or_null('HBoxContainer/accept_btn')

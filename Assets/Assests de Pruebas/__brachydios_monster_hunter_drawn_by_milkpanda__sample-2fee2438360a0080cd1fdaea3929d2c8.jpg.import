@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ci733nuk0daef"
-path="res://.godot/imported/__brachydios_monster_hunter_drawn_by_milkpanda__sample-2fee2438360a0080cd1fdaea3929d2c8.jpg-990451ba29908e2107fbd32e61e99d5a.ctex"
+uid="uid://cicrv6x30nnw4"
+path="res://.godot/imported/__brachydios_monster_hunter_drawn_by_milkpanda__sample-2fee2438360a0080cd1fdaea3929d2c8.jpg-c19aa3abe79ea3b4d3836fe674b66894.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Assests de Pruebas/__brachydios_monster_hunter_drawn_by_milkpanda__sample-2fee2438360a0080cd1fdaea3929d2c8.jpg"
-dest_files=["res://.godot/imported/__brachydios_monster_hunter_drawn_by_milkpanda__sample-2fee2438360a0080cd1fdaea3929d2c8.jpg-990451ba29908e2107fbd32e61e99d5a.ctex"]
+source_file="res://assets/Assests de Pruebas/__brachydios_monster_hunter_drawn_by_milkpanda__sample-2fee2438360a0080cd1fdaea3929d2c8.jpg"
+dest_files=["res://.godot/imported/__brachydios_monster_hunter_drawn_by_milkpanda__sample-2fee2438360a0080cd1fdaea3929d2c8.jpg-c19aa3abe79ea3b4d3836fe674b66894.ctex"]
 
 [params]
 

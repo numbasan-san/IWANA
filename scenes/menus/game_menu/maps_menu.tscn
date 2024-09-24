@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b36413u4v0whv"]
+[gd_scene load_steps=7 format=3 uid="uid://b36413u4v0whv"]
 
 [ext_resource type="Script" path="res://script/menus/game_menu/maps_menu.gd" id="1_e7eyw"]
-[ext_resource type="Texture2D" uid="uid://rh4m3t2727f4" path="res://assets/menus/game menu/libro_mapa.png" id="1_uqcs6"]
-[ext_resource type="Texture2D" uid="uid://dnuohapu7jjgs" path="res://assets/menus/mascara.png" id="3_0gv0p"]
+[ext_resource type="Texture2D" uid="uid://bnal1eetbe0b4" path="res://assets/menus/game menu/libro_mapa.png" id="1_uqcs6"]
+[ext_resource type="Texture2D" uid="uid://d4ga2cbo5mfov" path="res://assets/menus/mascara.png" id="3_0gv0p"]
+[ext_resource type="Texture2D" uid="uid://cnvhmpqb5l1se" path="res://assets/menus/btn.png" id="4_jqaan"]
 [ext_resource type="PackedScene" uid="uid://bqcnhygdum144" path="res://scenes/menus/room_represent.tscn" id="4_rynxr"]
-[ext_resource type="Texture2D" uid="uid://dokc7jrpimbw8" path="res://assets/menus/game menu/map_menu/mapa_edificio.png" id="6_lrsgn"]
+[ext_resource type="Texture2D" uid="uid://be0n5k0448c0w" path="res://assets/menus/game menu/map_menu/mapa_edificio.png" id="6_lrsgn"]
 
 [node name="maps_menu" type="Control"]
 layout_mode = 3
@@ -66,6 +67,41 @@ offset_bottom = 275.5
 texture_hover = ExtResource("3_0gv0p")
 stretch_mode = 0
 
+[node name="floor1_btn" type="TextureButton" parent="background"]
+layout_mode = 0
+offset_left = 735.0
+offset_top = 4.5
+offset_right = 770.0
+offset_bottom = 54.5
+rotation = 1.5708
+texture_normal = ExtResource("4_jqaan")
+texture_hover = ExtResource("3_0gv0p")
+stretch_mode = 0
+
+[node name="floor1_btn2" type="TextureButton" parent="background"]
+modulate = Color(1, 1, 0, 1)
+layout_mode = 0
+offset_left = 1093.0
+offset_top = 4.5
+offset_right = 1128.0
+offset_bottom = 54.5
+rotation = 1.5708
+texture_normal = ExtResource("4_jqaan")
+texture_hover = ExtResource("3_0gv0p")
+stretch_mode = 0
+
+[node name="floor1_btn3" type="TextureButton" parent="background"]
+visible = false
+layout_mode = 0
+offset_left = 927.0
+offset_top = 4.5
+offset_right = 962.0
+offset_bottom = 54.5
+rotation = 1.5708
+texture_normal = ExtResource("4_jqaan")
+texture_hover = ExtResource("3_0gv0p")
+stretch_mode = 0
+
 [node name="Map" type="Control" parent="background"]
 layout_mode = 1
 anchors_preset = 6
@@ -80,89 +116,194 @@ offset_bottom = 238.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="RoomF1N1" parent="background/Map" instance=ExtResource("4_rynxr")]
-offset_left = 184.0
-offset_top = 70.0
-offset_right = 242.0
-offset_bottom = 124.0
+[node name="F1" type="Control" parent="background/Map"]
+anchors_preset = 0
+offset_left = 28.0
+offset_top = 8.0
+offset_right = 439.0
+offset_bottom = 546.0
 
-[node name="RoomF1N2" parent="background/Map" instance=ExtResource("4_rynxr")]
-offset_left = 244.0
-offset_top = 70.0
-offset_right = 302.0
-offset_bottom = 123.0
+[node name="RoomF1N1" parent="background/Map/F1" instance=ExtResource("4_rynxr")]
+offset_left = 155.0
+offset_top = 61.0
+offset_right = 213.0
+offset_bottom = 115.0
 
-[node name="Laboratory" parent="background/Map" instance=ExtResource("4_rynxr")]
-offset_left = 80.0
-offset_top = 62.0
-offset_right = 182.0
-offset_bottom = 124.0
+[node name="RoomF1N2" parent="background/Map/F1" instance=ExtResource("4_rynxr")]
+offset_left = 215.0
+offset_top = 61.0
+offset_right = 273.0
+offset_bottom = 114.0
 
-[node name="F1MaleBathroom" parent="background/Map" instance=ExtResource("4_rynxr")]
-offset_left = 304.0
-offset_top = 70.0
-offset_right = 350.0
-offset_bottom = 124.0
+[node name="Laboratory" parent="background/Map/F1" instance=ExtResource("4_rynxr")]
+offset_left = 51.0
+offset_top = 53.0
+offset_right = 153.0
+offset_bottom = 115.0
 
-[node name="F1FemaleBathroom" parent="background/Map" instance=ExtResource("4_rynxr")]
-offset_left = 352.0
-offset_top = 70.0
-offset_right = 402.0
-offset_bottom = 124.0
+[node name="F1MaleBathroom" parent="background/Map/F1" instance=ExtResource("4_rynxr")]
+offset_left = 275.0
+offset_top = 61.0
+offset_right = 321.0
+offset_bottom = 115.0
 
-[node name="HallwayF1N" parent="background/Map" instance=ExtResource("4_rynxr")]
-offset_left = 79.0
-offset_top = 126.0
-offset_right = 401.0
-offset_bottom = 156.0
+[node name="F1FemaleBathroom" parent="background/Map/F1" instance=ExtResource("4_rynxr")]
+offset_left = 323.0
+offset_top = 61.0
+offset_right = 373.0
+offset_bottom = 115.0
 
-[node name="Yard" parent="background/Map" instance=ExtResource("4_rynxr")]
-offset_left = 158.0
-offset_top = 165.0
-offset_right = 400.0
-offset_bottom = 361.0
+[node name="HallwayF1N" parent="background/Map/F1" instance=ExtResource("4_rynxr")]
+offset_left = 50.0
+offset_top = 117.0
+offset_right = 372.0
+offset_bottom = 147.0
 
-[node name="DiningRoom" parent="background/Map" instance=ExtResource("4_rynxr")]
-offset_left = 83.0
-offset_top = 161.0
-offset_right = 151.0
-offset_bottom = 361.0
+[node name="Yard" parent="background/Map/F1" instance=ExtResource("4_rynxr")]
+offset_left = 129.0
+offset_top = 156.0
+offset_right = 371.0
+offset_bottom = 352.0
 
-[node name="HallwayF1S" parent="background/Map" instance=ExtResource("4_rynxr")]
-offset_left = 79.0
-offset_top = 370.0
-offset_right = 401.0
-offset_bottom = 400.0
+[node name="DiningRoom" parent="background/Map/F1" instance=ExtResource("4_rynxr")]
+offset_left = 54.0
+offset_top = 152.0
+offset_right = 122.0
+offset_bottom = 352.0
 
-[node name="ArtRoom" parent="background/Map" instance=ExtResource("4_rynxr")]
-offset_left = 80.0
-offset_top = 402.0
-offset_right = 182.0
-offset_bottom = 464.0
+[node name="HallwayF1S" parent="background/Map/F1" instance=ExtResource("4_rynxr")]
+offset_left = 50.0
+offset_top = 361.0
+offset_right = 372.0
+offset_bottom = 391.0
 
-[node name="RoomF1S1" parent="background/Map" instance=ExtResource("4_rynxr")]
-offset_left = 184.0
-offset_top = 401.6
-offset_right = 242.0
-offset_bottom = 455.6
+[node name="ArtRoom" parent="background/Map/F1" instance=ExtResource("4_rynxr")]
+offset_left = 51.0
+offset_top = 393.0
+offset_right = 153.0
+offset_bottom = 455.0
 
-[node name="RoomF1S2" parent="background/Map" instance=ExtResource("4_rynxr")]
-offset_left = 244.0
-offset_top = 402.0
-offset_right = 302.0
-offset_bottom = 456.0
+[node name="RoomF1S1" parent="background/Map/F1" instance=ExtResource("4_rynxr")]
+offset_left = 155.0
+offset_top = 392.6
+offset_right = 213.0
+offset_bottom = 446.6
 
-[node name="Infirmary" parent="background/Map" instance=ExtResource("4_rynxr")]
+[node name="RoomF1S2" parent="background/Map/F1" instance=ExtResource("4_rynxr")]
+offset_left = 215.0
+offset_top = 393.0
+offset_right = 273.0
+offset_bottom = 447.0
+
+[node name="Infirmary" parent="background/Map/F1" instance=ExtResource("4_rynxr")]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 69.0
-offset_top = -154.0
-offset_right = 167.0
-offset_bottom = -100.0
+offset_left = 69.5
+offset_top = -144.0
+offset_right = 167.5
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="F2" type="Control" parent="background/Map"]
+visible = false
+anchors_preset = 0
+offset_left = 28.0
+offset_top = 8.0
+offset_right = 439.0
+offset_bottom = 546.0
+
+[node name="RoomF2N1" parent="background/Map/F2" instance=ExtResource("4_rynxr")]
+offset_left = 155.0
+offset_top = 61.0
+offset_right = 213.0
+offset_bottom = 115.0
+
+[node name="RoomF2N2" parent="background/Map/F2" instance=ExtResource("4_rynxr")]
+offset_left = 215.0
+offset_top = 61.0
+offset_right = 273.0
+offset_bottom = 114.0
+
+[node name="Laboratory" parent="background/Map/F2" instance=ExtResource("4_rynxr")]
+visible = false
+offset_left = 51.0
+offset_top = 53.0
+offset_right = 153.0
+offset_bottom = 115.0
+
+[node name="F2MaleBathroom" parent="background/Map/F2" instance=ExtResource("4_rynxr")]
+offset_left = 275.0
+offset_top = 61.0
+offset_right = 321.0
+offset_bottom = 115.0
+
+[node name="F2FemaleBathroom" parent="background/Map/F2" instance=ExtResource("4_rynxr")]
+offset_left = 323.0
+offset_top = 61.0
+offset_right = 373.0
+offset_bottom = 115.0
+
+[node name="HallwayF2N" parent="background/Map/F2" instance=ExtResource("4_rynxr")]
+offset_left = 50.0
+offset_top = 117.0
+offset_right = 372.0
+offset_bottom = 147.0
+
+[node name="Yard" parent="background/Map/F2" instance=ExtResource("4_rynxr")]
+visible = false
+offset_left = 129.0
+offset_top = 156.0
+offset_right = 371.0
+offset_bottom = 352.0
+
+[node name="Library" parent="background/Map/F2" instance=ExtResource("4_rynxr")]
+offset_left = 54.0
+offset_top = 152.0
+offset_right = 122.0
+offset_bottom = 352.0
+
+[node name="HallwayF2S" parent="background/Map/F2" instance=ExtResource("4_rynxr")]
+offset_left = 50.0
+offset_top = 361.0
+offset_right = 372.0
+offset_bottom = 391.0
+
+[node name="ArtRoom" parent="background/Map/F2" instance=ExtResource("4_rynxr")]
+visible = false
+offset_left = 51.0
+offset_top = 393.0
+offset_right = 153.0
+offset_bottom = 455.0
+
+[node name="AbandonedRoom" parent="background/Map/F2" instance=ExtResource("4_rynxr")]
+offset_left = 155.0
+offset_top = 393.6
+offset_right = 213.0
+offset_bottom = 447.6
+
+[node name="RoomF2S2" parent="background/Map/F2" instance=ExtResource("4_rynxr")]
+offset_left = 215.0
+offset_top = 393.0
+offset_right = 273.0
+offset_bottom = 447.0
+
+[node name="Infirmary" parent="background/Map/F2" instance=ExtResource("4_rynxr")]
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 69.5
+offset_top = -144.0
+offset_right = 167.5
+offset_bottom = -90.0
 grow_horizontal = 2
 grow_vertical = 0
 
@@ -228,3 +369,6 @@ vertical_alignment = 1
 [connection signal="pressed" from="background/characters_btn" to="." method="_on_characters_btn_pressed"]
 [connection signal="pressed" from="background/items_btn" to="." method="_on_items_btn_pressed"]
 [connection signal="pressed" from="background/contacts_btn" to="." method="_on_contacts_btn_pressed"]
+[connection signal="pressed" from="background/floor1_btn" to="." method="_on_floor_1_btn_pressed"]
+[connection signal="pressed" from="background/floor1_btn2" to="." method="_on_floor_1_btn_2_pressed"]
+[connection signal="pressed" from="background/floor1_btn3" to="." method="_on_contacts_btn_pressed"]

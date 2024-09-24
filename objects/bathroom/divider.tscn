@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://5n38y4d4l5hi"]
 
 [ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://objects/base_object.tscn" id="1_sq6rw"]
-[ext_resource type="Texture2D" uid="uid://bowi2a1nggnp3" path="res://assets/rpg_sprites/objects/bathroom.png" id="2_ilit6"]
+[ext_resource type="Texture2D" uid="uid://6c3gisnld8sn" path="res://objects/bathroom/bathroom.png" id="2_4yeoo"]
 [ext_resource type="Script" path="res://script/transparency.gd" id="3_1n5ou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3jmb"]
@@ -14,7 +14,7 @@ size = Vector2(334, 42)
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -162)
-texture = ExtResource("2_ilit6")
+texture = ExtResource("2_4yeoo")
 region_rect = Rect2(365, 155, 320, 290)
 
 [node name="StaticBody2D" parent="." index="1"]
