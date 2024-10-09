@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://de2qo3u2jeq1"]
+[gd_scene load_steps=5 format=3 uid="uid://de2qo3u2jeq1"]
 
 [ext_resource type="Script" path="res://script/menus/game_menu/contacts_menu.gd" id="1_287x6"]
-[ext_resource type="Texture2D" uid="uid://bi0k3dd3frgkw" path="res://assets/menus/game menu/libreta_contactos.png" id="2_jg64c"]
+[ext_resource type="Texture2D" uid="uid://chop4buqvd0jo" path="res://assets/menus/game menu/libreta_contactos.png" id="2_jg64c"]
+[ext_resource type="Texture2D" uid="uid://cnvhmpqb5l1se" path="res://assets/menus/btn.png" id="3_csmkw"]
+[ext_resource type="Texture2D" uid="uid://d4ga2cbo5mfov" path="res://assets/menus/mascara.png" id="4_x40m8"]
 
 [node name="contacts_menu" type="Control"]
 layout_mode = 3
@@ -56,6 +58,8 @@ offset_left = 15.0
 offset_top = 218.5
 offset_right = 50.0
 offset_bottom = 268.5
+texture_normal = ExtResource("3_csmkw")
+texture_hover = ExtResource("4_x40m8")
 
 [node name="bar" type="Panel" parent="background"]
 layout_mode = 0

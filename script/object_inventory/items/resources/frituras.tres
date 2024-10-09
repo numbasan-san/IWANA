@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cfx577x5y8wk"]
+
+[ext_resource type="Script" path="res://script/object_inventory/items/item.gd" id="1_v37t1"]
+[ext_resource type="Texture2D" uid="uid://w2u2s357pfgg" path="res://assets/inventory/items/frituras.png" id="2_1tnlv"]
+
+[resource]
+script = ExtResource("1_v37t1")
+name = "frituras"
+texture = ExtResource("2_1tnlv")
+stack = 10

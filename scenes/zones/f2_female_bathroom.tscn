@@ -1,8 +1,8 @@
 [gd_scene load_steps=16 format=3 uid="uid://cr1xtren1xpsh"]
 
 [ext_resource type="PackedScene" uid="uid://dvs7a5k1ejf15" path="res://scenes/zones/base_bathroom.tscn" id="1_nuuid"]
-[ext_resource type="Resource" uid="uid://cnu41878wxqeh" path="res://script/zones/zone_info/resources/f1_female_bathroom.tres" id="2_xlq8j"]
-[ext_resource type="Texture2D" uid="uid://csnek5bda5r4l" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="3_i8vq3"]
+[ext_resource type="Resource" uid="uid://b16vs3x2mtyrg" path="res://script/zones/zone_info/resources/f2_female_bathroom.tres" id="2_3y1p5"]
+[ext_resource type="Texture2D" uid="uid://bwmsd3ghoqe5o" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="3_i8vq3"]
 [ext_resource type="PackedScene" uid="uid://8adovfeebq66" path="res://objects/doors/female_bathroom_door.tscn" id="4_xnluj"]
 [ext_resource type="PackedScene" uid="uid://jfxa3getivws" path="res://objects/bathroom/toilet_left.tscn" id="5_r6jqy"]
 [ext_resource type="PackedScene" uid="uid://5n38y4d4l5hi" path="res://objects/bathroom/divider.tscn" id="6_7s2hw"]
@@ -143,7 +143,7 @@ pattern_6 = SubResource("TileMapPattern_amtg8")
 
 [node name="F2FemaleBathroom" instance=ExtResource("1_nuuid")]
 room_name = "Baño de Chicas"
-room_info = ExtResource("2_xlq8j")
+room_info = ExtResource("2_3y1p5")
 
 [node name="TileMap" parent="." index="0"]
 position = Vector2(-647, 0)
@@ -152,6 +152,7 @@ layer_0/tile_data = PackedInt32Array(393216, 131073, 1, 458752, 131073, 2, 52428
 layer_1/tile_data = PackedInt32Array(393227, 458753, 2, 458763, 458753, 2, 524299, 458753, 2, 589835, 458753, 2, 655371, 458753, 2, 720907, 458753, 2, 786443, 458753, 2, 851979, 458753, 2, 917515, 458753, 2, 983051, 458753, 2, 1048587, 458753, 2, 1114123, 458753, 2, 458751, 327681, 3, 524287, 327681, 3, 589823, 327681, 3, 655359, 327681, 3, 720895, 327681, 3, 786431, 327681, 3, 851967, 327681, 3, 917503, 327681, 3, 983039, 327681, 3, 1048575, 327681, 3, 1114111, 327681, 3, 1179647, 327681, 3, 1245183, 327681, 4, 1179659, 458753, 4, 1179656, 393217, 4, 1179657, 393217, 4, 1179658, 393217, 4, 1179648, 393217, 4, 1179649, 393217, 4, 1179650, 393217, 4, 1179653, 393217, 4, 1179654, 393217, 4, 1179655, 393217, 4)
 
 [node name="FemaleBathroomDoor" parent="." index="1" instance=ExtResource("4_xnluj")]
+modulate = Color(1, 1, 1, 0.509804)
 position = Vector2(-320, 1466)
 zone = "f2n_hallway"
 spawn = "SpawnF2FB"

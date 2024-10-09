@@ -1,7 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://uy5bvtcgqhhf"]
 
-[ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://objects/base_object.tscn" id="1_mt0ry"]
-[ext_resource type="Texture2D" uid="uid://ddgc0na3j662u" path="res://assets/rpg_sprites/objects/infirmary.png" id="2_o6kla"]
+[ext_resource type="PackedScene" uid="uid://bexdhvmbe3drg" path="res://objects/infirmary/base_inf_object.tscn" id="1_mt0ry"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrm2d"]
 size = Vector2(180, 80)
@@ -9,7 +8,6 @@ size = Vector2(180, 80)
 [node name="Desk4" instance=ExtResource("1_mt0ry")]
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_o6kla")
 region_rect = Rect2(880, 385, 180, 80)
 
 [node name="StaticBody2D" parent="." index="1"]

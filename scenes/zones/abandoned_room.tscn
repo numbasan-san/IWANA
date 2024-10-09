@@ -1,24 +1,24 @@
 [gd_scene load_steps=31 format=3 uid="uid://cyqm3eiyruyil"]
 
-[ext_resource type="Script" path="res://script/zones/base_zone.gd" id="1_kes5l"]
-[ext_resource type="Resource" uid="uid://cb54hfddwnom3" path="res://script/zones/zone_info/resources/room_f1s1.tres" id="2_3xrcs"]
-[ext_resource type="PackedScene" uid="uid://cn0nlsq5wj8on" path="res://objects/doors/classroom_door.tscn" id="3_os0qm"]
-[ext_resource type="Texture2D" uid="uid://csnek5bda5r4l" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="4_sirof"]
-[ext_resource type="PackedScene" uid="uid://bkufo5tdslrd8" path="res://objects/abandoned_classroom/ruined_blackboard.tscn" id="5_1jjwk"]
-[ext_resource type="PackedScene" uid="uid://h7mki2t1blv5" path="res://objects/classroom/clock.tscn" id="6_1fbmo"]
-[ext_resource type="PackedScene" uid="uid://bik5yj4yr6axi" path="res://objects/abandoned_classroom/ruined_desk_1.tscn" id="7_tc8xw"]
-[ext_resource type="PackedScene" uid="uid://de2sf6e0mtq16" path="res://objects/abandoned_classroom/ruined_chair_1.tscn" id="8_1ihlg"]
-[ext_resource type="PackedScene" uid="uid://bd08mqnx2fb62" path="res://objects/abandoned_classroom/ruined_desk_2.tscn" id="9_yfvty"]
-[ext_resource type="PackedScene" uid="uid://uwfxqb13mg84" path="res://objects/abandoned_classroom/ruined_desk_3.tscn" id="10_xkfui"]
-[ext_resource type="PackedScene" uid="uid://yujugm0wckom" path="res://objects/abandoned_classroom/ruined_desk_4.tscn" id="11_0tw1i"]
-[ext_resource type="PackedScene" uid="uid://nh4vt70ro38j" path="res://objects/abandoned_classroom/ruined_desk_5.tscn" id="12_30jpf"]
-[ext_resource type="PackedScene" uid="uid://bjurxi44hex4x" path="res://objects/abandoned_classroom/ruined_chair_2.tscn" id="13_lskn6"]
-[ext_resource type="PackedScene" uid="uid://cxiv0g0lqtam1" path="res://objects/abandoned_classroom/ruined_chair_3.tscn" id="14_y3tes"]
-[ext_resource type="PackedScene" uid="uid://d08qodrbtnln0" path="res://objects/abandoned_classroom/ruined_desk_6.tscn" id="15_ylj4k"]
-[ext_resource type="PackedScene" uid="uid://bu120feg8gdot" path="res://objects/abandoned_classroom/ruined_teacher_desk.tscn" id="16_p41p8"]
-[ext_resource type="PackedScene" uid="uid://covocgwvcv6su" path="res://objects/abandoned_classroom/paper_stack_1.tscn" id="17_85am1"]
-[ext_resource type="PackedScene" uid="uid://ugpvke2kn4nn" path="res://objects/abandoned_classroom/paper_stack_2.tscn" id="18_e1m7c"]
-[ext_resource type="PackedScene" uid="uid://cxpd506efwfjc" path="res://objects/abandoned_classroom/paper_stack_3.tscn" id="19_qovqn"]
+[ext_resource type="Script" path="res://script/zones/base_zone.gd" id="1_r0u6j"]
+[ext_resource type="Resource" uid="uid://bm0leyuna0ys1" path="res://script/zones/zone_info/resources/abandoned_room.tres" id="2_bupol"]
+[ext_resource type="PackedScene" uid="uid://cn0nlsq5wj8on" path="res://objects/doors/classroom_door.tscn" id="3_al0eh"]
+[ext_resource type="Texture2D" uid="uid://bwmsd3ghoqe5o" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="4_3kteh"]
+[ext_resource type="PackedScene" uid="uid://bkufo5tdslrd8" path="res://objects/abandoned_classroom/ruined_blackboard.tscn" id="5_5slyr"]
+[ext_resource type="PackedScene" uid="uid://h7mki2t1blv5" path="res://objects/classroom/clock.tscn" id="6_vu1yr"]
+[ext_resource type="PackedScene" uid="uid://bik5yj4yr6axi" path="res://objects/abandoned_classroom/ruined_desk_1.tscn" id="7_xuqeu"]
+[ext_resource type="PackedScene" uid="uid://de2sf6e0mtq16" path="res://objects/abandoned_classroom/ruined_chair_1.tscn" id="8_0ipjv"]
+[ext_resource type="PackedScene" uid="uid://bd08mqnx2fb62" path="res://objects/abandoned_classroom/ruined_desk_2.tscn" id="9_cyj5d"]
+[ext_resource type="PackedScene" uid="uid://uwfxqb13mg84" path="res://objects/abandoned_classroom/ruined_desk_3.tscn" id="10_o15gn"]
+[ext_resource type="PackedScene" uid="uid://yujugm0wckom" path="res://objects/abandoned_classroom/ruined_desk_4.tscn" id="11_7vpkd"]
+[ext_resource type="PackedScene" uid="uid://nh4vt70ro38j" path="res://objects/abandoned_classroom/ruined_desk_5.tscn" id="12_3e6tt"]
+[ext_resource type="PackedScene" uid="uid://bjurxi44hex4x" path="res://objects/abandoned_classroom/ruined_chair_2.tscn" id="13_4m248"]
+[ext_resource type="PackedScene" uid="uid://cxiv0g0lqtam1" path="res://objects/abandoned_classroom/ruined_chair_3.tscn" id="14_pji6d"]
+[ext_resource type="PackedScene" uid="uid://d08qodrbtnln0" path="res://objects/abandoned_classroom/ruined_desk_6.tscn" id="15_knt5g"]
+[ext_resource type="PackedScene" uid="uid://bu120feg8gdot" path="res://objects/abandoned_classroom/ruined_teacher_desk.tscn" id="16_xw5l5"]
+[ext_resource type="PackedScene" uid="uid://covocgwvcv6su" path="res://objects/abandoned_classroom/paper_stack_1.tscn" id="17_0hup6"]
+[ext_resource type="PackedScene" uid="uid://ugpvke2kn4nn" path="res://objects/abandoned_classroom/paper_stack_2.tscn" id="18_tx37d"]
+[ext_resource type="PackedScene" uid="uid://cxpd506efwfjc" path="res://objects/abandoned_classroom/paper_stack_3.tscn" id="19_me4ef"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_6eplc"]
 tile_data = PackedInt32Array(0, 65537, 1, 65536, 65537, 2, 131072, 65537, 3, 196608, 65537, 4, 1, 131073, 1, 65537, 131073, 2, 131073, 131073, 3, 196609, 131073, 4, 2, 196609, 1, 65538, 196609, 2, 131074, 196609, 3, 196610, 196609, 4, 3, 262145, 1, 65539, 262145, 2, 131075, 262145, 3, 196611, 262145, 4)
@@ -48,7 +48,7 @@ tile_data = PackedInt32Array(0, 524289, 2, 65536, 524289, 3, 131072, 524289, 4)
 tile_data = PackedInt32Array(0, 458753, 4, 1, 458753, 4, 2, 458753, 4, 3, 458753, 4, 4, 458753, 4)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8igch"]
-texture = ExtResource("4_sirof")
+texture = ExtResource("4_3kteh")
 texture_region_size = Vector2i(80, 80)
 1:1/0 = 0
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -163,11 +163,11 @@ pattern_8 = SubResource("TileMapPattern_n40g6")
 
 [node name="AbandonedRoom" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_kes5l")
-room_name = "Aula 1-C"
-room_info = ExtResource("2_3xrcs")
+script = ExtResource("1_r0u6j")
+room_name = "Aula Abandonada"
+room_info = ExtResource("2_bupol")
 
-[node name="Door" parent="." instance=ExtResource("3_os0qm")]
+[node name="Door" parent="." instance=ExtResource("3_al0eh")]
 position = Vector2(640, -160)
 zone = "f2s_hallway"
 spawn = "SpawnF2S1"
@@ -191,95 +191,95 @@ layer_1/tile_data = PackedInt32Array(1834994, 393216, 4, 1834995, 393216, 4, 183
 [node name="Objects" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="RuinedBlackboard" parent="Objects" instance=ExtResource("5_1jjwk")]
+[node name="RuinedBlackboard" parent="Objects" instance=ExtResource("5_5slyr")]
 position = Vector2(27, -428)
 
-[node name="Clock" parent="Objects" instance=ExtResource("6_1fbmo")]
+[node name="Clock" parent="Objects" instance=ExtResource("6_vu1yr")]
 position = Vector2(436, -508)
 
 [node name="Desks" type="Node2D" parent="Objects"]
 y_sort_enabled = true
 position = Vector2(-298, 42)
 
-[node name="RuinedDesk1" parent="Objects/Desks" instance=ExtResource("7_tc8xw")]
+[node name="RuinedDesk1" parent="Objects/Desks" instance=ExtResource("7_xuqeu")]
 position = Vector2(-556, 392)
 
-[node name="RuinedChair1" parent="Objects/Desks" instance=ExtResource("8_1ihlg")]
+[node name="RuinedChair1" parent="Objects/Desks" instance=ExtResource("8_0ipjv")]
 position = Vector2(-524, 456)
 
-[node name="RuinedDesk2" parent="Objects/Desks" instance=ExtResource("9_yfvty")]
+[node name="RuinedDesk2" parent="Objects/Desks" instance=ExtResource("9_cyj5d")]
 position = Vector2(630.188, 1356.82)
 
-[node name="RuinedDesk3" parent="Objects/Desks" instance=ExtResource("10_xkfui")]
+[node name="RuinedDesk3" parent="Objects/Desks" instance=ExtResource("10_o15gn")]
 position = Vector2(-460.931, 930.189)
 
-[node name="RuinedDesk4" parent="Objects/Desks" instance=ExtResource("11_0tw1i")]
+[node name="RuinedDesk4" parent="Objects/Desks" instance=ExtResource("11_7vpkd")]
 position = Vector2(158.251, 835.801)
 
-[node name="RuinedDesk5" parent="Objects/Desks" instance=ExtResource("12_30jpf")]
+[node name="RuinedDesk5" parent="Objects/Desks" instance=ExtResource("12_3e6tt")]
 position = Vector2(71.4144, 511.108)
 
-[node name="RuinedChair2" parent="Objects/Desks" instance=ExtResource("13_lskn6")]
+[node name="RuinedChair2" parent="Objects/Desks" instance=ExtResource("13_4m248")]
 position = Vector2(-75.83, 1239.78)
 
-[node name="RuinedChair3" parent="Objects/Desks" instance=ExtResource("14_y3tes")]
+[node name="RuinedChair3" parent="Objects/Desks" instance=ExtResource("14_pji6d")]
 position = Vector2(456.515, 1051)
 
-[node name="RuinedChair7" parent="Objects/Desks" instance=ExtResource("13_lskn6")]
+[node name="RuinedChair7" parent="Objects/Desks" instance=ExtResource("13_4m248")]
 position = Vector2(1370.19, 492.231)
 
-[node name="RuinedChair8" parent="Objects/Desks" instance=ExtResource("14_y3tes")]
+[node name="RuinedChair8" parent="Objects/Desks" instance=ExtResource("14_pji6d")]
 position = Vector2(78.9658, 73.1508)
 
-[node name="RuinedChair4" parent="Objects/Desks" instance=ExtResource("8_1ihlg")]
+[node name="RuinedChair4" parent="Objects/Desks" instance=ExtResource("8_0ipjv")]
 position = Vector2(694.371, 1526.72)
 
-[node name="RuinedChair5" parent="Objects/Desks" instance=ExtResource("13_lskn6")]
+[node name="RuinedChair5" parent="Objects/Desks" instance=ExtResource("13_4m248")]
 position = Vector2(747.229, 681.006)
 
-[node name="RuinedChair6" parent="Objects/Desks" instance=ExtResource("14_y3tes")]
+[node name="RuinedChair6" parent="Objects/Desks" instance=ExtResource("14_pji6d")]
 position = Vector2(694.372, 144.885)
 
-[node name="RuinedDesk6" parent="Objects/Desks" instance=ExtResource("15_ylj4k")]
+[node name="RuinedDesk6" parent="Objects/Desks" instance=ExtResource("15_knt5g")]
 position = Vector2(883.146, 586.618)
 
-[node name="RuinedDesk7" parent="Objects/Desks" instance=ExtResource("7_tc8xw")]
+[node name="RuinedDesk7" parent="Objects/Desks" instance=ExtResource("7_xuqeu")]
 position = Vector2(-302.36, 1356.82)
 
-[node name="RuinedDesk8" parent="Objects/Desks" instance=ExtResource("9_yfvty")]
+[node name="RuinedDesk8" parent="Objects/Desks" instance=ExtResource("9_cyj5d")]
 position = Vector2(505.597, 556.414)
 
-[node name="RuinedDesk9" parent="Objects/Desks" instance=ExtResource("10_xkfui")]
+[node name="RuinedDesk9" parent="Objects/Desks" instance=ExtResource("10_o15gn")]
 position = Vector2(1071.92, 1190.7)
 
-[node name="RuinedDesk10" parent="Objects/Desks" instance=ExtResource("11_0tw1i")]
+[node name="RuinedDesk10" parent="Objects/Desks" instance=ExtResource("11_7vpkd")]
 position = Vector2(279.067, 1579.57)
 
-[node name="RuinedDesk11" parent="Objects/Desks" instance=ExtResource("12_30jpf")]
+[node name="RuinedDesk11" parent="Objects/Desks" instance=ExtResource("12_3e6tt")]
 position = Vector2(1022.84, 1504.06)
 
-[node name="RuinedDesk12" parent="Objects/Desks" instance=ExtResource("15_ylj4k")]
+[node name="RuinedDesk12" parent="Objects/Desks" instance=ExtResource("15_knt5g")]
 position = Vector2(-94.7074, 1643.76)
 
-[node name="RuinedTeacherDesk" parent="Objects" instance=ExtResource("16_p41p8")]
+[node name="RuinedTeacherDesk" parent="Objects" instance=ExtResource("16_xw5l5")]
 position = Vector2(-500, 21)
 
-[node name="PaperStack1" parent="Objects" instance=ExtResource("17_85am1")]
+[node name="PaperStack1" parent="Objects" instance=ExtResource("17_0hup6")]
 position = Vector2(-587.886, 178.574)
 
-[node name="PaperStack2" parent="Objects" instance=ExtResource("18_e1m7c")]
+[node name="PaperStack2" parent="Objects" instance=ExtResource("18_tx37d")]
 position = Vector2(-572.767, 788.376)
 
-[node name="PaperStack3" parent="Objects" instance=ExtResource("19_qovqn")]
+[node name="PaperStack3" parent="Objects" instance=ExtResource("19_me4ef")]
 position = Vector2(1165.92, 984.923)
 
-[node name="PaperStack4" parent="Objects" instance=ExtResource("17_85am1")]
+[node name="PaperStack4" parent="Objects" instance=ExtResource("17_0hup6")]
 position = Vector2(944.178, 1640.08)
 
-[node name="PaperStack5" parent="Objects" instance=ExtResource("18_e1m7c")]
+[node name="PaperStack5" parent="Objects" instance=ExtResource("18_tx37d")]
 position = Vector2(-865.069, 1750.96)
 
-[node name="PaperStack6" parent="Objects" instance=ExtResource("19_qovqn")]
+[node name="PaperStack6" parent="Objects" instance=ExtResource("19_me4ef")]
 position = Vector2(309.178, 1866.87)
 
 [node name="SpawnPoints" type="Node" parent="."]

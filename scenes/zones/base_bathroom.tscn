@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dvs7a5k1ejf15"]
 
 [ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://scenes/zones/base_zone.tscn" id="1_d7yta"]
-[ext_resource type="Texture2D" uid="uid://csnek5bda5r4l" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="2_pl87b"]
+[ext_resource type="Texture2D" uid="uid://bwmsd3ghoqe5o" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="2_pl87b"]
 [ext_resource type="PackedScene" uid="uid://b1qlrlui53qis" path="res://objects/bathroom/sink_bottom.tscn" id="5_2dmbg"]
 [ext_resource type="PackedScene" uid="uid://dbrpal8fvvdd" path="res://objects/bathroom/sink_middle.tscn" id="6_kvbx5"]
 [ext_resource type="PackedScene" uid="uid://ccr8u24afsy6l" path="res://objects/bathroom/sink_top.tscn" id="7_583db"]

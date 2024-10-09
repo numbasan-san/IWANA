@@ -1,7 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dapnu1a66ssi5"]
 
-[ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://objects/base_object.tscn" id="1_yvkxn"]
-[ext_resource type="Texture2D" uid="uid://ddgc0na3j662u" path="res://assets/rpg_sprites/objects/infirmary.png" id="2_38rn1"]
+[ext_resource type="PackedScene" uid="uid://bexdhvmbe3drg" path="res://objects/infirmary/base_inf_object.tscn" id="1_yvkxn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u3cwn"]
 size = Vector2(97, 66)
@@ -9,7 +8,6 @@ size = Vector2(97, 66)
 [node name="Chair" instance=ExtResource("1_yvkxn")]
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_38rn1")
 region_rect = Rect2(1320, 810, 120, 230)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]

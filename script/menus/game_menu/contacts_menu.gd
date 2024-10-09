@@ -51,3 +51,4 @@ func _on_characters_btn_pressed():
 	var selected_menu = self.get_parent()
 	var characters_menu = selected_menu.get_node('characters_menu')
 	characters_menu.visible = true
+	characters_menu.load_canditates()

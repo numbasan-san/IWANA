@@ -14,5 +14,3 @@ func _on_button_pressed():
 	item_icon.texture = icon
 	var item_info = background.get_node('item_info')
 	item_info.text = text
-	
-	print(background)

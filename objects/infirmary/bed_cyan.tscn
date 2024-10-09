@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7kbjre1dyxb"]
+[gd_scene load_steps=4 format=3 uid="uid://b7kbjre1dyxb"]
 
 [ext_resource type="PackedScene" uid="uid://bexdhvmbe3drg" path="res://objects/infirmary/base_inf_object.tscn" id="1_cjqil"]
 

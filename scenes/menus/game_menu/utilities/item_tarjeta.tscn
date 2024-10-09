@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://ikr3d1omcq3d"]
+
+[ext_resource type="Script" path="res://scenes/menus/game_menu/utilities/item_tarjeta.gd" id="1_m5s2x"]
+[ext_resource type="Texture2D" uid="uid://bnal1eetbe0b4" path="res://assets/menus/game menu/libro_mapa.png" id="2_wlagl"]
+
+[node name="item_tarjeta" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 251.0
+offset_bottom = 31.0
+script = ExtResource("1_m5s2x")
+
+[node name="container" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="button" type="TextureButton" parent="container"]
+layout_mode = 2
+
+[node name="Panel2" type="Panel" parent="container/button"]
+layout_mode = 1
+offset_left = -125.0
+offset_top = -15.0
+offset_right = 126.0
+offset_bottom = 16.0
+
+[node name="Label" type="Label" parent="container/button"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -13.0
+offset_right = 64.0
+offset_bottom = 13.0
+grow_vertical = 2
+text = "aasdadasda"
+
+[node name="Label2" type="Label" parent="container/button"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 98.0
+offset_top = -13.0
+offset_right = 126.0
+offset_bottom = 13.0
+grow_horizontal = 0
+grow_vertical = 2
+text = "213"
+
+[node name="Panel" type="TextureRect" parent="container/button"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -720.0
+offset_top = -395.0
+offset_right = 470.0
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_wlagl")
+stretch_mode = 4
+
+[connection signal="pressed" from="container/button" to="." method="_on_button_pressed"]

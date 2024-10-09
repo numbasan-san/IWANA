@@ -18,10 +18,7 @@ func _on_button_pressed():
 	character_info.text = char_name + '. ' + description
 	
 	var menu = background.get_parent()
-	#Julian: En contacts_menu al hacer click en un contacto, character es null y
-	# este código tira error en el editor. Agregué una condición para que funcione
-	# pero despues puedes cambiarlo porque no sé cual es la intención de este
-	# código
+	
 	if character != null:
 		menu.selected_char = character
 	

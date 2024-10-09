@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cfluktlrbrlsw"]
 
 [ext_resource type="Script" path="res://script/object_inventory/items/item.gd" id="1_tf8rr"]
-[ext_resource type="Texture2D" uid="uid://bra4w3qku75d7" path="res://assets/inventory/items/refresco.png" id="2_ctsvf"]
+[ext_resource type="Texture2D" uid="uid://yi55144ssahn" path="res://assets/inventory/items/refresco.png" id="2_ctsvf"]
 
 [resource]
 script = ExtResource("1_tf8rr")
 name = "refresco"
 texture = ExtResource("2_ctsvf")
-stack = 3
+stack = 6

@@ -1,7 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://vihbkwcp447g"]
 
-[ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://objects/base_object.tscn" id="1_w3vgl"]
-[ext_resource type="Texture2D" uid="uid://dg5t5ijofg3pw" path="res://assets/rpg_sprites/objects/parte_de_afuera_de_la_escuela_v3.png" id="2_1i1u2"]
+[ext_resource type="PackedScene" uid="uid://cahhguph112nt" path="res://objects/yard/base_yard_object.tscn" id="1_w3vgl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtqo8"]
 size = Vector2(24, 48)
@@ -10,7 +9,6 @@ size = Vector2(24, 48)
 y_sort_enabled = true
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_1i1u2")
 region_rect = Rect2(120, 133, 32, 56)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
