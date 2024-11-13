@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://script/object_inventory/items/objects/lagarto.gd" id="1_cnojp"]
 [ext_resource type="Resource" uid="uid://ctikhwuojkyw0" path="res://script/object_inventory/items/resources/lagarto.tres" id="2_gkesl"]
-[ext_resource type="Texture2D" uid="uid://bm83bwt5qklwb" path="res://assets/Assests de Pruebas/__glavenus_monster_hunter_drawn_by_milkpanda__sample-b42e3db21a9939973e0e50a33878d1ec.jpg" id="2_vjr7p"]
+[ext_resource type="Texture2D" uid="uid://c8knhlhrmgo4" path="res://assets/Assests de Pruebas/__glavenus_monster_hunter_drawn_by_milkpanda__sample-b42e3db21a9939973e0e50a33878d1ec.jpg" id="2_vjr7p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_taxc2"]
 size = Vector2(35, 33.5)
@@ -69,6 +69,8 @@ _data = {
 }
 
 [node name="lagarto" type="Area2D"]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_cnojp")
 item_res = ExtResource("2_gkesl")
 

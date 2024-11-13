@@ -16,10 +16,6 @@ var _target_interaction_areas: Array[GeneralInteractionArea]
 
 func _unhandled_input(event):
 	if event.is_action_released("rpg_interact"):
-		print("Areas: ")
-		for a in general_interaction_area.get_overlapping_areas():
-			print(a.to_string() + " | (" + str(a.position.x) + ", " + str(a.position.y) + ")")
-			
 		if not _target_interaction_areas.is_empty():
 			_target_interaction_areas[0].interaction(self)
 

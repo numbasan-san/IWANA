@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://7phviww7v48c"]
+
+[ext_resource type="PackedScene" uid="uid://biiwse0aflo38" path="res://objects/abandoned_bathroom/base_broken_bathroom_object.tscn" id="1_2jyo5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pumgp"]
+size = Vector2(170, 67)
+
+[node name="BrokenToiletLeft1" instance=ExtResource("1_2jyo5")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -2)
+offset = Vector2(0, -98)
+region_rect = Rect2(870, 545, 180, 200)
+
+[node name="StaticBody2D" parent="." index="1"]
+position = Vector2(0, -112)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0, 78.5)
+shape = SubResource("RectangleShape2D_pumgp")

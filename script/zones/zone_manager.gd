@@ -1,7 +1,7 @@
 extends Node
 
 # The path where the zones are searched
-var folder: String = "res://scenes/zones"
+var folder: String = "res://zones"
 
 # All the loaded zones. The key is the name of the scene and the value is the
 # node instance

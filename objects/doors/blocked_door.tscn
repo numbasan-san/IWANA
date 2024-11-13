@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcg106cqf2lo4"]
+
+[ext_resource type="PackedScene" uid="uid://hed2eep7147o" path="res://objects/doors/base_door.tscn" id="1_12rmk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aco3x"]
+resource_local_to_scene = true
+size = Vector2(185, 50)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0tnko"]
+resource_local_to_scene = true
+size = Vector2(190, 60)
+
+[node name="BlockedDoor" instance=ExtResource("1_12rmk")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(1460, 555, 355, 325)
+
+[node name="Collision" parent="." index="1"]
+shape = SubResource("RectangleShape2D_aco3x")
+
+[node name="ZoneChange" parent="." index="2"]
+is_active = false
+
+[node name="CollisionShape2D" parent="ZoneChange" index="0"]
+shape = SubResource("RectangleShape2D_0tnko")

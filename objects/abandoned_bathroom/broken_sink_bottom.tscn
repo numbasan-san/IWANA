@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://2cxcxhb2lss4"]
+
+[ext_resource type="PackedScene" uid="uid://biiwse0aflo38" path="res://objects/abandoned_bathroom/base_broken_bathroom_object.tscn" id="1_pskov"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glq66"]
+size = Vector2(115, 208)
+
+[node name="BrokenSinkBottom" instance=ExtResource("1_pskov")]
+
+[node name="Sprite2D" parent="." index="0"]
+offset = Vector2(0, -88)
+region_rect = Rect2(1165, 272, 115, 208)
+
+[node name="StaticBody2D" parent="." index="1"]
+position = Vector2(0, -96)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_glq66")

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c0865h182o71f"]
+
+[ext_resource type="PackedScene" uid="uid://biiwse0aflo38" path="res://objects/abandoned_bathroom/base_broken_bathroom_object.tscn" id="1_7bd8s"]
+
+[node name="Water4" instance=ExtResource("1_7bd8s")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(633, 964, 204, 64)

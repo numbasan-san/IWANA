@@ -1,7 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://5n38y4d4l5hi"]
+[gd_scene load_steps=5 format=3 uid="uid://cganrjtnqh35k"]
 
-[ext_resource type="PackedScene" uid="uid://dj1fgnd3hus27" path="res://objects/bathroom/base_bathroom_object.tscn" id="1_sq6rw"]
-[ext_resource type="Script" path="res://script/transparency.gd" id="3_1n5ou"]
+[ext_resource type="PackedScene" uid="uid://biiwse0aflo38" path="res://objects/abandoned_bathroom/base_broken_bathroom_object.tscn" id="1_tukua"]
+[ext_resource type="Script" path="res://script/transparency.gd" id="2_yppkl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3jmb"]
 size = Vector2(321, 20)
@@ -9,11 +9,11 @@ size = Vector2(321, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b2dii"]
 size = Vector2(334, 42)
 
-[node name="Divider" instance=ExtResource("1_sq6rw")]
+[node name="BrokenDivider3" instance=ExtResource("1_tukua")]
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -162)
-region_rect = Rect2(365, 155, 320, 290)
+region_rect = Rect2(10, 325, 320, 290)
 
 [node name="StaticBody2D" parent="." index="1"]
 position = Vector2(0, -10)
@@ -26,7 +26,7 @@ shape = SubResource("RectangleShape2D_x3jmb")
 position = Vector2(0, -41)
 collision_layer = 16
 collision_mask = 16
-script = ExtResource("3_1n5ou")
+script = ExtResource("2_yppkl")
 sprite = NodePath("../Sprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActivateTransparency" index="0"]

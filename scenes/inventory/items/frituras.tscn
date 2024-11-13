@@ -1,8 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dmw36ae12ir0a"]
+[gd_scene load_steps=8 format=3 uid="uid://bh4ujh7wlpg0y"]
 
 [ext_resource type="Script" path="res://script/object_inventory/items/objects/lagarto.gd" id="1_4xjwa"]
-[ext_resource type="Resource" uid="uid://cfx577x5y8wk" path="res://script/object_inventory/items/resources/frituras.tres" id="2_b805v"]
-[ext_resource type="Texture2D" uid="uid://w2u2s357pfgg" path="res://assets/inventory/items/frituras.png" id="3_h500j"]
+[ext_resource type="Resource" path="res://script/object_inventory/items/resources/frituras.tres" id="2_b805v"]
+[ext_resource type="Texture2D" uid="uid://b5xmecm4hhtj7" path="res://assets/inventory/items/frituras.png" id="3_h500j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_taxc2"]
 size = Vector2(86.8746, 45.6884)
@@ -69,6 +69,8 @@ _data = {
 }
 
 [node name="frituras" type="Area2D"]
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_4xjwa")
 item_res = ExtResource("2_b805v")
 
