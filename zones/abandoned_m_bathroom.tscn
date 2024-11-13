@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b03e3gnrqad7e"]
+[gd_scene load_steps=24 format=3 uid="uid://b03e3gnrqad7e"]
 
 [ext_resource type="Script" path="res://script/zones/base_zone.gd" id="1_tyd5e"]
 [ext_resource type="Resource" uid="uid://ba56itmiwasft" path="res://script/zones/zone_info/resources/f1_male_bathroom.tres" id="2_vlplr"]
@@ -19,6 +19,14 @@
 [ext_resource type="PackedScene" uid="uid://dv54tvh1btji8" path="res://objects/abandoned_bathroom/blood.tscn" id="17_ntowr"]
 [ext_resource type="PackedScene" uid="uid://buxlx7bckxk2a" path="res://objects/abandoned_bathroom/hole.tscn" id="18_eyvgf"]
 [ext_resource type="PackedScene" uid="uid://cydebiqdat3vw" path="res://objects/doors/portal.tscn" id="19_i47fj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wx7vg"]
+resource_local_to_scene = true
+size = Vector2(185, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcrtp"]
+resource_local_to_scene = true
+size = Vector2(190, 40)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_owk7j"]
 texture = ExtResource("4_glbao")
@@ -138,6 +146,15 @@ zone = "f2s_hallway"
 spawn = "SpawnF2MB"
 front = false
 
+[node name="Sprite2D" parent="MaleBathroomDoor" index="0"]
+region_rect = Rect2(920, 155, 185, 325)
+
+[node name="Collision" parent="MaleBathroomDoor" index="1"]
+shape = SubResource("RectangleShape2D_wx7vg")
+
+[node name="CollisionShape2D" parent="MaleBathroomDoor/ZoneChange" index="0"]
+shape = SubResource("RectangleShape2D_qcrtp")
+
 [node name="PortalF2S2" parent="." instance=ExtResource("19_i47fj")]
 position = Vector2(-72.7501, 991.204)
 zone = "abandoned_room_2"
@@ -240,3 +257,5 @@ position = Vector2(733.502, 1359.6)
 
 [node name="PartyPath" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[editable path="MaleBathroomDoor"]

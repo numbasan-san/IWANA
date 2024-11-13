@@ -130,7 +130,7 @@ layer_1/tile_data = PackedInt32Array(524451, 458752, 3, 589987, 458752, 3, 65552
 y_sort_enabled = true
 
 [node name="DoorRoomF2S1" parent="Doors" index="0" instance=ExtResource("4_tcmr7")]
-position = Vector2(5521, 1306)
+position = Vector2(4793, 1306)
 zone = "abandoned_room_1"
 spawn = "SpawnHallway"
 spawn_direction = "down"
@@ -139,7 +139,7 @@ front = false
 enabled = false
 
 [node name="DoorRoomF2S2" parent="Doors" index="1" instance=ExtResource("4_tcmr7")]
-position = Vector2(8000, 1305)
+position = Vector2(7272, 1305)
 zone = "abandoned_room_2"
 spawn = "SpawnHallway"
 spawn_direction = "down"
@@ -148,12 +148,14 @@ front = false
 enabled = false
 
 [node name="DoorLibrary" parent="Doors" index="2" instance=ExtResource("4_nfafp")]
-position = Vector2(771.217, 639.905)
+position = Vector2(2251.22, 1302.91)
 zone = "library"
 spawn = "SpawnF2SH"
+spawn_direction = "down"
+transparent = true
 
 [node name="DoorBathroomM" parent="Doors" index="3" instance=ExtResource("6_15j2g")]
-position = Vector2(9067, 1302)
+position = Vector2(8339, 1302)
 zone = "abandoned_m_bathroom"
 spawn = "SpawnHallway"
 spawn_direction = "down"
@@ -161,7 +163,7 @@ transparent = true
 front = false
 
 [node name="DoorBathroomF" parent="Doors" index="4" instance=ExtResource("7_a6cuq")]
-position = Vector2(10276, 1302)
+position = Vector2(9548, 1302)
 zone = "abandoned_f_bathroom"
 spawn = "SpawnHallway"
 spawn_direction = "down"
@@ -177,7 +179,7 @@ spawn_direction = "right"
 
 [node name="Lockers1" type="Node2D" parent="." index="3"]
 y_sort_enabled = true
-position = Vector2(4922, 760)
+position = Vector2(4194, 760)
 
 [node name="Locker1" parent="Lockers1" index="0" instance=ExtResource("5_3q67h")]
 position = Vector2(70, 0)
@@ -199,7 +201,7 @@ position = Vector2(920, 0)
 
 [node name="Lockers2" type="Node2D" parent="." index="4"]
 y_sort_enabled = true
-position = Vector2(7416, 760)
+position = Vector2(6688, 760)
 
 [node name="Locker1" parent="Lockers2" index="0" instance=ExtResource("5_3q67h")]
 position = Vector2(70, 0)
@@ -220,25 +222,25 @@ position = Vector2(750, 0)
 position = Vector2(920, 0)
 
 [node name="BookShelf" parent="." index="5" instance=ExtResource("6_fob5q")]
-position = Vector2(9221, 626)
+position = Vector2(8493, 626)
 
 [node name="InfoBoard" parent="." index="6" instance=ExtResource("7_6xxgy")]
-position = Vector2(4234, 406)
+position = Vector2(3506, 406)
 
 [node name="SpawnF2S1" type="Node2D" parent="SpawnPoints" index="0"]
-position = Vector2(5521, 1192)
+position = Vector2(4793, 1192)
 
 [node name="SpawnF2S2" type="Node2D" parent="SpawnPoints" index="1"]
-position = Vector2(8000, 1192)
+position = Vector2(7272, 1192)
 
 [node name="SpawnF2MB" type="Node2D" parent="SpawnPoints" index="2"]
-position = Vector2(9067, 1192)
+position = Vector2(8339, 1192)
 
 [node name="SpawnF2FB" type="Node2D" parent="SpawnPoints" index="3"]
-position = Vector2(10276, 1192)
+position = Vector2(9548, 1192)
 
 [node name="SpawnLibrary" type="Node2D" parent="SpawnPoints" index="4"]
-position = Vector2(770.033, 738.013)
+position = Vector2(2250.03, 1154.01)
 
 [node name="SpawnF1SH" type="Node2D" parent="SpawnPoints" index="5"]
 position = Vector2(507.691, 974.749)

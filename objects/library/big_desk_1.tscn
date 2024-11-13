@@ -2,14 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://deec72o7wrnl0" path="res://objects/library/base_lib_object.tscn" id="1_5refh"]
 
-[node name="BigDesk" instance=ExtResource("1_5refh")]
+[node name="BigDesk1" instance=ExtResource("1_5refh")]
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -176)
-region_rect = Rect2(80, 595, 515, 450)
+region_rect = Rect2(760, 20, 345, 560)
 
 [node name="StaticBody2D" parent="." index="1"]
 position = Vector2(0, -176)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
-polygon = PackedVector2Array(-257, 224, 257, 224, 257, -128, 122, -128, 122, 32, -122, 32, -122, -128, -257, -128)
+polygon = PackedVector2Array(-170, 280, 173, 280, 173, -178, -170, -178, -170, -28, 38, -28, 38, 120, -170, 120)

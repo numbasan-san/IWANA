@@ -5,4 +5,4 @@
 [node name="Blood" instance=ExtResource("1_shta8")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1262, 900, 216, 140)
+region_rect = Rect2(1206, 542, 217, 139)

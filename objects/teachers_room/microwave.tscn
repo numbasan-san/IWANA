@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0stv3ewtjgbv"]
+
+[ext_resource type="PackedScene" uid="uid://dgwqqhay2fl5f" path="res://objects/teachers_room/base_teachers_room_object.tscn" id="1_5g122"]
+
+[node name="Microwave" instance=ExtResource("1_5g122")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(1040, 65, 140, 105)

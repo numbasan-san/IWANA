@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://cktnmx723uca7"]
+
+[ext_resource type="PackedScene" uid="uid://deec72o7wrnl0" path="res://objects/library/base_lib_object.tscn" id="1_exepq"]
+
+[node name="ComputerBack" instance=ExtResource("1_exepq")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -48)
+region_rect = Rect2(375, 75, 230, 160)
+
+[node name="StaticBody2D" parent="." index="1"]
+position = Vector2(0, -48)

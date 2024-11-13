@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dftgvqxbpewr1"]
+
+[ext_resource type="PackedScene" uid="uid://deec72o7wrnl0" path="res://objects/library/base_lib_object.tscn" id="1_po2ee"]
+
+[node name="WallSocket" instance=ExtResource("1_po2ee")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(590, 875, 55, 85)

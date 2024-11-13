@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjox03w6juoit"]
+
+[ext_resource type="PackedScene" uid="uid://dgwqqhay2fl5f" path="res://objects/teachers_room/base_teachers_room_object.tscn" id="1_8q3p3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4cjwr"]
+size = Vector2(355, 105)
+
+[node name="TableMiddle" instance=ExtResource("1_8q3p3")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(80, 700, 355, 105)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+shape = SubResource("RectangleShape2D_4cjwr")

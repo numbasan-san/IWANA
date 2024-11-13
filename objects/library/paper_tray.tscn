@@ -5,4 +5,4 @@
 [node name="PaperTray" instance=ExtResource("1_gyvl0")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(160, 250, 45, 70)
+region_rect = Rect2(100, 410, 45, 70)

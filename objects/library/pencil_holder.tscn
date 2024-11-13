@@ -5,4 +5,4 @@
 [node name="PencilHolder" instance=ExtResource("1_a032y")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(480, 240, 40, 80)
+region_rect = Rect2(355, 400, 40, 80)

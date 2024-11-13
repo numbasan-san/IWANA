@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bytopg1xx8gf4"]
+
+[ext_resource type="PackedScene" uid="uid://dgwqqhay2fl5f" path="res://objects/teachers_room/base_teachers_room_object.tscn" id="1_c2525"]
+
+[node name="LTable" instance=ExtResource("1_c2525")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(550, 535, 450, 535)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
+polygon = PackedVector2Array(-220, 270, 225, 270, 225, -160, 70, -160, 70, 100, -220, 100)

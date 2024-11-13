@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://deec72o7wrnl0"]
 
 [ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://objects/base_object.tscn" id="1_4h2a2"]
-[ext_resource type="Texture2D" uid="uid://b1isggj1uc5wj" path="res://objects/library/library.png" id="2_d7yf8"]
+[ext_resource type="Texture2D" uid="uid://dx4j28iybl0kg" path="res://objects/library/library.png" id="2_d7yf8"]
 
 [node name="BaseLibraryObject" instance=ExtResource("1_4h2a2")]
 

@@ -5,4 +5,4 @@
 [node name="Phone" instance=ExtResource("1_pb33r")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(20, 245, 75, 75)
+region_rect = Rect2(5, 405, 75, 75)

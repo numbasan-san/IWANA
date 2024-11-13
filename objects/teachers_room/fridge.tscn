@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dpnrgk1q2d65o"]
+
+[ext_resource type="PackedScene" uid="uid://dgwqqhay2fl5f" path="res://objects/teachers_room/base_teachers_room_object.tscn" id="1_voayv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjcvr"]
+size = Vector2(195, 143)
+
+[node name="Fridge" instance=ExtResource("1_voayv")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(1280, 55, 190, 345)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0.5, 100.5)
+shape = SubResource("RectangleShape2D_cjcvr")

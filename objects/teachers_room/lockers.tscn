@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ba4n0uh6ienki"]
+
+[ext_resource type="PackedScene" uid="uid://dgwqqhay2fl5f" path="res://objects/teachers_room/base_teachers_room_object.tscn" id="1_thpxv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_le5lx"]
+size = Vector2(135, 116)
+
+[node name="Lockers" instance=ExtResource("1_thpxv")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(810, 60, 135, 260)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(-0.5, 72)
+shape = SubResource("RectangleShape2D_le5lx")

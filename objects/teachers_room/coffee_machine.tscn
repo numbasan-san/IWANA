@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnde3gtutjnfb"]
+
+[ext_resource type="PackedScene" uid="uid://dgwqqhay2fl5f" path="res://objects/teachers_room/base_teachers_room_object.tscn" id="1_hc4du"]
+
+[node name="CoffeeMachine" instance=ExtResource("1_hc4du")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(1050, 240, 120, 160)

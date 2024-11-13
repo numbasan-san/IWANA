@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dogpwqic7qfi1"]
+[gd_scene load_steps=32 format=3 uid="uid://dogpwqic7qfi1"]
 
 [ext_resource type="Script" path="res://script/zones/base_zone.gd" id="1_m6bqu"]
 [ext_resource type="Resource" uid="uid://cnu41878wxqeh" path="res://script/zones/zone_info/resources/f1_female_bathroom.tres" id="2_qywou"]
@@ -155,6 +155,14 @@ pattern_4 = SubResource("TileMapPattern_2gc4b")
 pattern_5 = SubResource("TileMapPattern_nv177")
 pattern_6 = SubResource("TileMapPattern_amtg8")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8x18c"]
+resource_local_to_scene = true
+size = Vector2(185, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ut04"]
+resource_local_to_scene = true
+size = Vector2(190, 40)
+
 [node name="F2FemaleBathroom" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_m6bqu")
@@ -183,6 +191,15 @@ zone = "f2s_hallway"
 spawn = "SpawnF2FB"
 front = false
 enabled = false
+
+[node name="Sprite2D" parent="FemaleBathroomDoor" index="0"]
+region_rect = Rect2(1145, 155, 185, 325)
+
+[node name="Collision" parent="FemaleBathroomDoor" index="1"]
+shape = SubResource("RectangleShape2D_8x18c")
+
+[node name="CollisionShape2D" parent="FemaleBathroomDoor/ZoneChange" index="0"]
+shape = SubResource("RectangleShape2D_0ut04")
 
 [node name="PortalF2MB" parent="." instance=ExtResource("5_6ypet")]
 position = Vector2(-708.078, 1335.58)
@@ -274,3 +291,5 @@ y_sort_enabled = true
 
 [node name="WetFloor" parent="." instance=ExtResource("19_eqfaw")]
 position = Vector2(-265, 810)
+
+[editable path="FemaleBathroomDoor"]

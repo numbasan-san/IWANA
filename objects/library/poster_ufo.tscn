@@ -5,4 +5,4 @@
 [node name="UFOPoster" instance=ExtResource("1_3p20h")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1730, 35, 95, 200)
+region_rect = Rect2(1185, 395, 110, 210)
