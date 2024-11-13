@@ -58,17 +58,20 @@ func _ready():
 # that _ready is never called.
 func _link_components():
 	dialog_model = $DialogModel
+	dialog_model.name = char_name.to_pascal_case() + "DialogModel"
 	if not dialog_model.is_node_ready():
 		dialog_model._ready()
 	dialog_model.character = self
 	
 	rpg_model = $RPGModel
+	rpg_model.name = char_name.to_pascal_case() + "RPGModel"
 	if not rpg_model.is_node_ready():
 		rpg_model._ready()
 	rpg_model.character = self
 	rpg_model.deactivate()
 	
 	combat_model = $CombatModel
+	combat_model.name = char_name.to_pascal_case() + "CombatModel"
 	if not combat_model.is_node_ready():
 		combat_model._ready()
 	combat_model.character = self

@@ -10,6 +10,8 @@ signal update_damage
 signal update_defense
 signal update_speed
 signal update_critical
+signal update_precision
+signal update_evasion
 signal update_health
 signal update_energy
 
@@ -104,6 +106,22 @@ signal raised
 		var new = critical
 		update_critical.emit(old, new)
 
+# Raw chance of hitting the target.
+@export var base_precision: int = 100:
+	set(value):
+		var old = precision
+		base_precision = clampi(value, 0, 100)
+		var new = precision
+		update_precision.emit(old, new)
+
+# Raw chance of evading an attack.
+@export var base_evasion: int = 0:
+	set(value):
+		var old = evasion
+		base_evasion = clampi(value, 0, 100)
+		var new = evasion
+		update_evasion.emit(old, new)
+
 # The following variables are multipliers that are applied to the base values
 # and are changed with items and skills
 var max_health_modifier: float = 1:
@@ -159,6 +177,20 @@ var critical_modifier: float = 0:
 		var new = critical
 		update_critical.emit(old, new)
 
+var precision_modifier: float = 0:
+	set(value):
+		var old = precision
+		precision_modifier = _clampf_min(value, 0.0)
+		var new = precision
+		update_precision.emit(old, new)
+
+var evasion_modifier: float = 0:
+	set(value):
+		var old = evasion
+		evasion_modifier = _clampf_min(value, 0.0)
+		var new = evasion
+		update_evasion.emit(old, new)
+
 # The following variables are the effective stats of the characters after
 # applying the modifiers, and they should be used by the combat code
 var max_health: int:
@@ -175,6 +207,7 @@ var damage: int:
 var defense: int:
 	get:
 		return clampi(round(base_defense + defense_modifier), 0, 100)
+		
 var speed: int:
 	get:
 		return round(base_speed * speed_modifier)
@@ -183,6 +216,14 @@ var speed: int:
 var critical: int:
 	get:
 		return clampi(round(base_critical + critical_modifier), 0, 100)
+
+var precision: int:
+	get:
+		return clampi(round(base_precision + precision_modifier), 0, 100)
+
+var evasion: int:
+	get:
+		return clampi(round(base_evasion + evasion_modifier), 0, 100)
 
 # Can't go above modified max_health or under 0. When this value reaches 0, the
 # character is rendered unconscious

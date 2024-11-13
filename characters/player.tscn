@@ -52,13 +52,15 @@ grow_vertical = 2
 texture = SubResource("CanvasTexture_pds3y")
 
 [node name="CameraCollision" type="Area2D" parent="PlayerControl/Camera2D"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 0
+collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerControl/Camera2D/CameraCollision"]
 shape = SubResource("RectangleShape2D_p8wqi")
 
 [node name="ItemCollection" type="Area2D" parent="PlayerControl"]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerControl/ItemCollection"]
 shape = SubResource("RectangleShape2D_tclry")
@@ -66,6 +68,8 @@ debug_color = Color(0.803922, 0.419608, 0, 0.419608)
 
 [node name="DoorInteraction" type="Area2D" parent="PlayerControl"]
 position = Vector2(0, -1)
+collision_layer = 8
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerControl/DoorInteraction"]
 position = Vector2(-1, 1.5)
@@ -73,6 +77,8 @@ shape = SubResource("RectangleShape2D_yq1h1")
 debug_color = Color(0.235294, 0.705882, 0.235294, 0.419608)
 
 [node name="TransparencyActivation" type="Area2D" parent="PlayerControl"]
+collision_layer = 16
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerControl/TransparencyActivation"]
 shape = SubResource("RectangleShape2D_nwfji")
@@ -80,11 +86,13 @@ debug_color = Color(0.705882, 0.705882, 0.705882, 0.419608)
 
 [node name="GeneralInteraction" type="Area2D" parent="PlayerControl"]
 position = Vector2(0, -1)
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerControl/GeneralInteraction"]
 position = Vector2(0, 24)
 shape = SubResource("RectangleShape2D_2a8vr")
-debug_color = Color(0.705882, 0.705882, 0.705882, 0.419608)
+debug_color = Color(0.992157, 0, 0.254902, 0.419608)
 
 [connection signal="area_entered" from="PlayerControl/ItemCollection" to="PlayerControl" method="_on_item_contact"]
 [connection signal="area_entered" from="PlayerControl/DoorInteraction" to="PlayerControl" method="_on_door_contact"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://maeacjbhexlb"]
+[gd_scene load_steps=14 format=3 uid="uid://maeacjbhexlb"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_jrk70"]
@@ -6,24 +6,44 @@
 [ext_resource type="Texture2D" uid="uid://d31y0igqd5jjx" path="res://characters/maria_jose/vn/mariajose.png" id="3_xswt3"]
 [ext_resource type="Texture2D" uid="uid://i2nyri0gtmgh" path="res://characters/maria_jose/vn/jm_neutral.png" id="4_bra5u"]
 [ext_resource type="Texture2D" uid="uid://bv2sddtx06t7y" path="res://characters/maria_jose/rpg/movement.png" id="4_ptk1p"]
-[ext_resource type="Script" path="res://characters/maria_jose/mj_interaction.gd" id="6_wh8qx"]
+[ext_resource type="Texture2D" uid="uid://dy3elht7x5ofk" path="res://characters/maria_jose/rpg/mj_portrait.png" id="7_qbub8"]
+[ext_resource type="Texture2D" uid="uid://b0ainjfp61ope" path="res://characters/noby_combate.png" id="7_whste"]
+[ext_resource type="Resource" uid="uid://sy16m35jo4do" path="res://combat/skills/skill_ejemplo_daño.tres" id="10_hka1x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2bal8"]
 resource_local_to_scene = true
 size = Vector2(128, 61)
 
-[sub_resource type="Resource" id="Resource_dus7f"]
-script = ExtResource("2_jrk70")
-base_max_health = 1
-base_max_energy = 0
-base_damage = 0
-base_defense = 0
-base_speed = 0
-base_critical = 0
+[sub_resource type="AtlasTexture" id="AtlasTexture_dft0n"]
+atlas = ExtResource("7_whste")
+region = Rect2(0, 0, 220, 408)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jnst"]
-resource_local_to_scene = true
-size = Vector2(144, 115)
+[sub_resource type="SpriteFrames" id="SpriteFrames_o8ufn"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"fainted",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dft0n")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_uay8k"]
+script = ExtResource("2_jrk70")
+base_max_health = 20
+base_max_energy = 40
+base_damage = 8
+base_defense = 0
+base_speed = 4
+base_critical = 2
+base_precision = 100
+base_evasion = 0
 
 [node name="MariaJose" instance=ExtResource("1_begxf")]
 char_info = ExtResource("2_rcxgb")
@@ -51,13 +71,18 @@ region_rect = Rect2(457, 660, 145, 300)
 position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_2bal8")
 
-[node name="GeneralInteraction" type="Area2D" parent="RPGModel" index="3"]
-script = ExtResource("6_wh8qx")
+[node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
+combat_animation = NodePath("Sprites/AnimatedSprite2D")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel/GeneralInteraction" index="0"]
-position = Vector2(-2, -47.5)
-shape = SubResource("RectangleShape2D_1jnst")
-debug_color = Color(0.992157, 0, 0.254902, 0.419608)
+[node name="Basic" type="TextureRect" parent="CombatModel/Portraits" index="0"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_qbub8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
+sprite_frames = SubResource("SpriteFrames_o8ufn")
+animation = &"idle"
 
 [node name="CombatHandler" parent="." index="3"]
-stats = SubResource("Resource_dus7f")
+stats = SubResource("Resource_uay8k")
+skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("10_hka1x")])

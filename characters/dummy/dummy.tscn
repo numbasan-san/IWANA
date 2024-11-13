@@ -1,4 +1,4 @@
-[gd_scene load_steps=76 format=3 uid="uid://cxhb1pbyx1uwh"]
+[gd_scene load_steps=75 format=3 uid="uid://cxhb1pbyx1uwh"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_dme1k"]
@@ -180,9 +180,6 @@ _data = {
 "walk_right": SubResource("Animation_2sq4i"),
 "walk_up": SubResource("Animation_o7tbv")
 }
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtrvc"]
-size = Vector2(144, 115)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a4yw1"]
 atlas = ExtResource("4_s2m5x")
@@ -482,6 +479,8 @@ base_damage = 2
 base_defense = 0
 base_speed = 0
 base_critical = 0
+base_precision = 100
+base_evasion = 0
 
 [sub_resource type="Resource" id="Resource_14112"]
 script = ExtResource("7_8jd57")
@@ -555,13 +554,9 @@ libraries = {
 "": SubResource("AnimationLibrary_xxbjd")
 }
 
-[node name="GeneralInteraction" type="Area2D" parent="RPGModel" index="3"]
+[node name="GeneralInteraction" parent="RPGModel" index="3"]
 script = ExtResource("5_vdbvb")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel/GeneralInteraction" index="0"]
-position = Vector2(-2, -47.5)
-shape = SubResource("RectangleShape2D_vtrvc")
-debug_color = Color(0.992157, 0, 0.254902, 0.419608)
+will_fight = true
 
 [node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
 combat_animation = NodePath("Sprites/CombatSprites")

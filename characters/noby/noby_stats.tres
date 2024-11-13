@@ -11,3 +11,5 @@ base_damage = 5
 base_defense = 0
 base_speed = 5
 base_critical = 2
+base_precision = 100
+base_evasion = 0

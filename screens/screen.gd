@@ -10,7 +10,14 @@ extends CanvasLayer
 # Handles the audio separately from the transition animator
 @export var audio: AudioPlayer
 
-var is_active:bool  = false
+var is_active: bool = false:
+	set(value):
+		if value != is_active:
+			is_active = value
+			if value:
+				activate()
+			else:
+				deactivate()
 
 # Indicates if this screen should only have one instance in the stack. If this
 # is true, if the screen was already buried in the stack when pushing it, that
@@ -32,7 +39,10 @@ var push_requested = false
 # Activates the processes of the contents of the screen and shows them.
 func activate():
 	show()
-	contents.process_mode = Node.PROCESS_MODE_INHERIT
+	#contents.process_mode = Node.PROCESS_MODE_INHERIT
+	contents.set_physics_process(true)
+	set_process_unhandled_key_input(true)
+	set_process_unhandled_input(true)
 	set_process_input(true)
 	is_active = true
 
@@ -45,8 +55,10 @@ func activate():
 func deactivate(_visible: bool = false):
 	is_active = false
 	set_process_input(false)
+	set_process_unhandled_input(false)
+	set_process_unhandled_key_input(false)
 	contents.set_physics_process(false)
-	contents.process_mode = Node.PROCESS_MODE_DISABLED
+	#contents.process_mode = Node.PROCESS_MODE_DISABLED
 	if _visible:
 		show()
 	else:

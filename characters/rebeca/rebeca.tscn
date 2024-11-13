@@ -1,17 +1,48 @@
-[gd_scene load_steps=8 format=3 uid="uid://dykkm64a7u1j7"]
+[gd_scene load_steps=13 format=3 uid="uid://dykkm64a7u1j7"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Resource" uid="uid://mqfek00juk2e" path="res://script/characters/resource/rebeca.tres" id="2_w6kso"]
 [ext_resource type="Texture2D" uid="uid://prfcnbmofw2l" path="res://characters/rebeca/vn/neutral.png" id="3_c5xgg"]
 [ext_resource type="Texture2D" uid="uid://5t34714w71kf" path="res://characters/rebeca/rpg/movement.png" id="3_n50m7"]
-[ext_resource type="Script" path="res://characters/rebeca/rebeca_interaction.gd" id="4_jhgcw"]
+[ext_resource type="Texture2D" uid="uid://bhtqxh36hwckf" path="res://characters/rebeca/rpg/beca_portrait.png" id="6_3flp4"]
+[ext_resource type="Texture2D" uid="uid://b0ainjfp61ope" path="res://characters/noby_combate.png" id="6_g3xgt"]
+[ext_resource type="Script" path="res://combat/stats.gd" id="8_rmlj5"]
+[ext_resource type="Resource" uid="uid://sy16m35jo4do" path="res://combat/skills/skill_ejemplo_daño.tres" id="9_xs2lm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fq57j"]
 resource_local_to_scene = true
 size = Vector2(128, 61)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1p1ar"]
-size = Vector2(144, 115)
+[sub_resource type="AtlasTexture" id="AtlasTexture_0n6bl"]
+atlas = ExtResource("6_g3xgt")
+region = Rect2(220, 0, 220, 408)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ago17"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"fainted",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0n6bl")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_hwklp"]
+script = ExtResource("8_rmlj5")
+base_max_health = 10
+base_max_energy = 40
+base_damage = 4
+base_defense = 0
+base_speed = 3
+base_critical = 0
+base_precision = 100
+base_evasion = 0
 
 [node name="Rebeca" instance=ExtResource("1_begxf")]
 char_info = ExtResource("2_w6kso")
@@ -35,10 +66,18 @@ region_rect = Rect2(347, 740, 120, 325)
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_fq57j")
 
-[node name="GeneralInteraction" type="Area2D" parent="RPGModel" index="3"]
-script = ExtResource("4_jhgcw")
+[node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
+combat_animation = NodePath("Sprites/AnimatedSprite2D")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel/GeneralInteraction" index="0"]
-position = Vector2(-2, -47.5)
-shape = SubResource("RectangleShape2D_1p1ar")
-debug_color = Color(0.992157, 0, 0.254902, 0.419608)
+[node name="Basic" type="TextureRect" parent="CombatModel/Portraits" index="0"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("6_3flp4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
+sprite_frames = SubResource("SpriteFrames_ago17")
+animation = &"idle"
+
+[node name="CombatHandler" parent="." index="3"]
+stats = SubResource("Resource_hwklp")
+skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("9_xs2lm")])

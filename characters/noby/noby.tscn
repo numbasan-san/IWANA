@@ -1,10 +1,9 @@
-[gd_scene load_steps=206 format=3 uid="uid://ciibuctohu7f8"]
+[gd_scene load_steps=204 format=3 uid="uid://ciibuctohu7f8"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_iq20k"]
 [ext_resource type="Resource" uid="uid://dqnynbd1aov8j" path="res://script/characters/resource/noby.tres" id="2_salyo"]
 [ext_resource type="Resource" uid="uid://7o4a34iaa12l" path="res://characters/noby/noby_stats.tres" id="2_yag6e"]
 [ext_resource type="Texture2D" uid="uid://c8b4f32wfn3ua" path="res://characters/noby/combat/skill2/backpack_shield.png" id="5_jo43e"]
-[ext_resource type="Script" path="res://characters/noby/noby_interaction.gd" id="5_kobiw"]
 [ext_resource type="Texture2D" uid="uid://vqpjwwbie0iy" path="res://characters/noby/vn/neutral.png" id="5_xv3aq"]
 [ext_resource type="Texture2D" uid="uid://qf8ry6dyd3af" path="res://characters/noby/combat/running-sprite.png" id="6_5ress"]
 [ext_resource type="Texture2D" uid="uid://dkyn4ncrr42yn" path="res://characters/noby/combat/fainted.png" id="6_hy513"]
@@ -14,8 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://ca6y7hhovm738" path="res://characters/noby/combat/skill6/skill6-sprite.png" id="8_qu5mb"]
 [ext_resource type="Texture2D" uid="uid://bhlnajoa7y4xi" path="res://characters/noby/combat/portrait.png" id="9_8n6x7"]
 [ext_resource type="Resource" uid="uid://fwun0t61uohl" path="res://characters/noby/combat/skill2/noby_skill_2.tres" id="9_l81a1"]
+[ext_resource type="Texture2D" uid="uid://b0ainjfp61ope" path="res://characters/noby_combate.png" id="9_ml1qh"]
 [ext_resource type="Resource" uid="uid://7itin0wyy3p7" path="res://characters/noby/combat/noby_skill_4.tres" id="10_8umm1"]
-[ext_resource type="Texture2D" uid="uid://b1chpmd3y1sjk" path="res://characters/noby/combat/idle.png" id="10_ef5y1"]
 [ext_resource type="Resource" uid="uid://b7fxwd6xs8en2" path="res://characters/noby/combat/noby_skill_5.tres" id="11_aps8n"]
 [ext_resource type="Texture2D" uid="uid://xln0hw0r2r1e" path="res://characters/noby/combat/skill8/noby_lose_heart.png" id="11_ckxmu"]
 [ext_resource type="Texture2D" uid="uid://c4r6s12jn6oni" path="res://characters/noby/combat/skill8/noby_throw_heart.png" id="12_sqdd4"]
@@ -28,9 +27,6 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_el1kc"]
 resource_local_to_scene = true
 size = Vector2(128, 61)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvoli"]
-size = Vector2(144, 115)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xsnp6"]
 atlas = ExtResource("5_jo43e")
@@ -100,9 +96,9 @@ region = Rect2(3195, 0, 213, 320)
 atlas = ExtResource("6_hy513")
 region = Rect2(0, 0, 220, 320)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kf77t"]
-atlas = ExtResource("10_ef5y1")
-region = Rect2(0, 0, 220, 320)
+[sub_resource type="AtlasTexture" id="AtlasTexture_c28e7"]
+atlas = ExtResource("9_ml1qh")
+region = Rect2(1320, 0, 220, 408)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m6tgt"]
 atlas = ExtResource("8_lnph5")
@@ -809,7 +805,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kf77t")
+"texture": SubResource("AtlasTexture_c28e7")
 }],
 "loop": true,
 "name": &"idle",
@@ -1368,14 +1364,6 @@ frame = 16
 [node name="Collider" parent="RPGModel" index="1"]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_el1kc")
-
-[node name="GeneralInteraction" type="Area2D" parent="RPGModel" index="3"]
-script = ExtResource("5_kobiw")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel/GeneralInteraction" index="0"]
-position = Vector2(-2, -47.5)
-shape = SubResource("RectangleShape2D_hvoli")
-debug_color = Color(0.992157, 0, 0.254902, 0.419608)
 
 [node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
 combat_animation = NodePath("Sprites/CombatSprites")

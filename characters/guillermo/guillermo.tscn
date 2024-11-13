@@ -3,28 +3,26 @@
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Resource" uid="uid://csb8r8xe32g78" path="res://script/characters/resource/guillermo.tres" id="2_fj7it"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_kpgma"]
-[ext_resource type="Texture2D" uid="uid://cal2l5ldxl25p" path="res://characters/guillermo/rpg/movement.png" id="3_1k3jo"]
-[ext_resource type="Texture2D" uid="uid://bve26ijtgvt6s" path="res://characters/guillermo/vn/neutral.png" id="4_43dl1"]
-[ext_resource type="Texture2D" uid="uid://cix4ig5awwf47" path="res://characters/guillermo/combat/fainted.png" id="4_x4bf4"]
-[ext_resource type="Script" path="res://characters/guillermo/guillermo_interaction.gd" id="5_idyit"]
+[ext_resource type="Texture2D" uid="uid://ch3sk4jiilhuk" path="res://characters/guillermo/rpg/movement.png" id="3_1k3jo"]
+[ext_resource type="Texture2D" uid="uid://bjw3m76gpdtwe" path="res://characters/guillermo/vn/neutral.png" id="4_43dl1"]
+[ext_resource type="Texture2D" uid="uid://6fr2j3075r1f" path="res://characters/guillermo/combat/fainted.png" id="4_x4bf4"]
 [ext_resource type="Script" path="res://combat/effects/damage.gd" id="5_sdrfb"]
 [ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="6_2nwe8"]
+[ext_resource type="Texture2D" uid="uid://dbsds7656htwx" path="res://characters/guillermo/rpg/guillermo_portrait.png" id="6_ugdgc"]
+[ext_resource type="Texture2D" uid="uid://b0ainjfp61ope" path="res://characters/noby_combate.png" id="7_vcwol"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="7_yb3hi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ei4ua"]
 resource_local_to_scene = true
 size = Vector2(128, 61)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rfv2y"]
-size = Vector2(144, 115)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_25r7v"]
 atlas = ExtResource("4_x4bf4")
 region = Rect2(0, 0, 220, 320)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cnvdr"]
-atlas = ExtResource("4_43dl1")
-region = Rect2(0, 0, 603, 1732)
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr0tp"]
+atlas = ExtResource("7_vcwol")
+region = Rect2(660, 0, 220, 408)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5q2ra"]
 animations = [{
@@ -38,7 +36,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_cnvdr")
+"texture": SubResource("AtlasTexture_pr0tp")
 }],
 "loop": true,
 "name": &"idle",
@@ -54,6 +52,8 @@ base_damage = 12
 base_defense = 0
 base_speed = 3
 base_critical = 0
+base_precision = 100
+base_evasion = 0
 
 [sub_resource type="Resource" id="Resource_uletc"]
 resource_local_to_scene = true
@@ -97,14 +97,6 @@ frame = 16
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_ei4ua")
 
-[node name="GeneralInteraction" type="Area2D" parent="RPGModel" index="3"]
-script = ExtResource("5_idyit")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel/GeneralInteraction" index="0"]
-position = Vector2(-2, -47.5)
-shape = SubResource("RectangleShape2D_rfv2y")
-debug_color = Color(0.992157, 0, 0.254902, 0.419608)
-
 [node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
 visible = false
 combat_animation = NodePath("Sprites/CombatSprites")
@@ -112,14 +104,13 @@ combat_animation = NodePath("Sprites/CombatSprites")
 [node name="Basic" type="TextureRect" parent="CombatModel/Portraits" index="0"]
 offset_right = 562.0
 offset_bottom = 431.0
-texture = ExtResource("4_43dl1")
+texture = ExtResource("6_ugdgc")
 expand_mode = 1
 stretch_mode = 2
 
 [node name="CombatSprites" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
-scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_5q2ra")
-animation = &"fainted"
+animation = &"idle"
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_csewl")

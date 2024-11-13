@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dqycf3lwlo2d0"]
+[gd_scene load_steps=9 format=3 uid="uid://dqycf3lwlo2d0"]
 
 [ext_resource type="Script" path="res://characters/character.gd" id="1_wmqne"]
 [ext_resource type="Script" path="res://characters/dialog_model.gd" id="3_ylprp"]
 [ext_resource type="Script" path="res://characters/rpg_model.gd" id="4_khi8m"]
 [ext_resource type="Script" path="res://characters/combat_model.gd" id="5_4qmt0"]
+[ext_resource type="PackedScene" uid="uid://c60uminjudclr" path="res://characters/general_interaction.tscn" id="5_pcoyc"]
 [ext_resource type="AnimationLibrary" uid="uid://bwfc2phy8c681" path="res://characters/movement_animation.res" id="5_v7onm"]
 [ext_resource type="PackedScene" uid="uid://bvlih07pswvq1" path="res://combat/combat_handler.tscn" id="7_3nf6a"]
 
@@ -34,6 +35,8 @@ shape = SubResource("RectangleShape2D_bncsu")
 libraries = {
 "": ExtResource("5_v7onm")
 }
+
+[node name="GeneralInteraction" parent="RPGModel" instance=ExtResource("5_pcoyc")]
 
 [node name="CombatModel" type="Node2D" parent="." node_paths=PackedStringArray("portraits", "sprites")]
 script = ExtResource("5_4qmt0")

@@ -2,6 +2,7 @@ class_name RPGModel
 extends CharacterBody2D
 
 @onready var collider: CollisionShape2D = $Collider
+@onready var interaction_area: GeneralInteractionArea = $GeneralInteraction
 
 var character: Character
 
@@ -85,3 +86,9 @@ func enable_collisions():
 
 func disable_collisions():
 	collider.disabled = true
+
+func enable_interactions():
+	interaction_area.enable()
+
+func disable_interactions():
+	interaction_area.disable()

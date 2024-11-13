@@ -5,26 +5,24 @@
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_vglxn"]
 [ext_resource type="Texture2D" uid="uid://boe2ejslup8co" path="res://characters/carla/vn/neutral.png" id="4_03jaf"]
 [ext_resource type="Texture2D" uid="uid://bwmjdrfbyflyo" path="res://characters/carla/combat/fainted.png" id="4_50y82"]
-[ext_resource type="Script" path="res://characters/carla/carla_interaction.gd" id="4_kadpm"]
 [ext_resource type="Texture2D" uid="uid://b772roe40ywqq" path="res://characters/carla/rpg/movement.png" id="4_uvmvw"]
 [ext_resource type="Script" path="res://combat/effects/damage.gd" id="5_lkpum"]
 [ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="6_85i0v"]
+[ext_resource type="Texture2D" uid="uid://hrxhwymn3xxf" path="res://characters/carla/rpg/carla_portrait.png" id="6_m1qib"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="7_2u0rd"]
+[ext_resource type="Texture2D" uid="uid://b0ainjfp61ope" path="res://characters/noby_combate.png" id="7_yjqap"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyij3"]
 resource_local_to_scene = true
 size = Vector2(98, 51)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xuru6"]
-size = Vector2(144, 115)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_dahf2"]
 atlas = ExtResource("4_50y82")
 region = Rect2(0, 0, 220, 320)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jareu"]
-atlas = ExtResource("4_03jaf")
-region = Rect2(0, 0, 848, 1375)
+[sub_resource type="AtlasTexture" id="AtlasTexture_n3hmm"]
+atlas = ExtResource("7_yjqap")
+region = Rect2(880, 0, 220, 408)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qgx6d"]
 animations = [{
@@ -38,7 +36,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jareu")
+"texture": SubResource("AtlasTexture_n3hmm")
 }],
 "loop": true,
 "name": &"idle",
@@ -54,6 +52,8 @@ base_damage = 10
 base_defense = 0
 base_speed = 4
 base_critical = 5
+base_precision = 100
+base_evasion = 0
 
 [sub_resource type="Resource" id="Resource_o0vmu"]
 resource_local_to_scene = true
@@ -98,15 +98,7 @@ region_rect = Rect2(364, 595, 195, 240)
 [node name="Collider" parent="RPGModel" index="1"]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_eyij3")
-debug_color = Color(0, 0.6, 0.701961, 0)
-
-[node name="GeneralInteraction" type="Area2D" parent="RPGModel" index="3"]
-script = ExtResource("4_kadpm")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel/GeneralInteraction" index="0"]
-position = Vector2(-2, -47.5)
-shape = SubResource("RectangleShape2D_xuru6")
-debug_color = Color(0.992157, 0, 0.254902, 0)
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
 combat_animation = NodePath("Sprites/CombatSprite")
@@ -115,14 +107,13 @@ combat_animation = NodePath("Sprites/CombatSprite")
 visible = false
 offset_right = 790.0
 offset_bottom = 516.0
-texture = ExtResource("4_03jaf")
+texture = ExtResource("6_m1qib")
 expand_mode = 1
 stretch_mode = 2
 
 [node name="CombatSprite" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
-scale = Vector2(0.15, 0.15)
 sprite_frames = SubResource("SpriteFrames_qgx6d")
-animation = &"fainted"
+animation = &"idle"
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_4hq1v")

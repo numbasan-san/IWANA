@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c60uminjudclr"]
+
+[ext_resource type="Script" path="res://characters/general_interaction.gd" id="1_3bjdu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_moyr0"]
+size = Vector2(144, 115)
+
+[node name="GeneralInteraction" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_3bjdu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -47.5)
+shape = SubResource("RectangleShape2D_moyr0")
+debug_color = Color(0.992157, 0, 0.254902, 0.419608)

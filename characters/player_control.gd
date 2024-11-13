@@ -9,13 +9,19 @@ extends Node2D
 var attached = false
 
 # While the player's GeneralInteraction node is intersecting the
-# GeneralInteractionArea node of an object or npc, this variable is set to that
-# node so that one can perform actions on the target
-var _target_interaction_area: GeneralInteractionArea
+# GeneralInteractionArea node of an object or npc, that node is added to this
+# array so that one can perform actions on the target. Only the first element
+# will be interacted with, but more can be added in case there is an overlap.
+var _target_interaction_areas: Array[GeneralInteractionArea]
 
 func _unhandled_input(event):
-	if event.is_action_released("rpg_interact") and _target_interaction_area:
-		_target_interaction_area.interaction(self)
+	if event.is_action_released("rpg_interact"):
+		print("Areas: ")
+		for a in general_interaction_area.get_overlapping_areas():
+			print(a.to_string() + " | (" + str(a.position.x) + ", " + str(a.position.y) + ")")
+			
+		if not _target_interaction_areas.is_empty():
+			_target_interaction_areas[0].interaction(self)
 
 # Avatar movement
 func _process(_delta):
@@ -55,13 +61,13 @@ func _on_door_contact(area):
 
 # Enter the interaction area of an object or npc
 func _on_interaction_area_enter(area):
-	if area is GeneralInteractionArea:
-		_target_interaction_area = area
+	if area is GeneralInteractionArea and not _target_interaction_areas.has(area):
+		_target_interaction_areas.push_front(area)
 		
 # Exit the interaction area of an object or npc
 func _on_interaction_area_exit(area):
-	if area is GeneralInteractionArea:
-		_target_interaction_area = null
+	if area is GeneralInteractionArea and _target_interaction_areas.has(area):
+		_target_interaction_areas.erase(area)
 
 # Enter the interaction area of an object with transparency
 func _on_transparency_enter(area):

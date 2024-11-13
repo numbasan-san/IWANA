@@ -34,6 +34,7 @@ func control(new_character: Character = null):
 			var control = model.get_node("PlayerControl") as PlayerControl
 			model.remove_child(control)
 			add_child(control)
+			model.disable_interactions()
 			control.attached = false
 			ZoneManager.set_active(null)
 			for m in party.members:
@@ -52,7 +53,9 @@ func control(new_character: Character = null):
 			ZoneManager.set_active(zone)
 			control = get_node("PlayerControl")
 			remove_child(control)
-			character.rpg_model.add_child(control)
+			var model = character.rpg_model
+			model.disable_interactions()
+			model.add_child(control)
 			control.attached = true
 			
 			# When we control a character, it becomes the party leader if it
@@ -65,7 +68,10 @@ func control(new_character: Character = null):
 			var model = character.rpg_model
 			control = model.get_node("PlayerControl")
 			model.remove_child(control)
-			new_character.rpg_model.add_child(control)
+			model.activate_interactions()
+			model = new_character.rpg_model
+			model.deactivate_interactions()
+			model.add_child(control)
 			
 			character = new_character
 			for m in party.members:
