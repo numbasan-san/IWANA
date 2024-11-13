@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cnfxi5ksisdbl"]
+
+[ext_resource type="PackedScene" uid="uid://cdkd5rptah77s" path="res://objects/music_room/base_music_room_object.tscn" id="1_myy2q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jspw2"]
+size = Vector2(519, 75)
+
+[node name="Drums" instance=ExtResource("1_myy2q")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(90, 670, 553, 294)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(3.5, 107.5)
+shape = SubResource("RectangleShape2D_jspw2")

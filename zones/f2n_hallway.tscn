@@ -123,33 +123,33 @@ room_info = ExtResource("2_apjya")
 y_sort_enabled = true
 
 [node name="DoorRoomF2N1" parent="Doors" index="0" instance=ExtResource("3_gxt50")]
-position = Vector2(5527, 640)
+position = Vector2(4799, 640)
 zone = "room_f2n1"
 spawn = "SpawnHallway"
 transparency_value = 0.5
 
 [node name="DoorRoomF2N2" parent="Doors" index="1" instance=ExtResource("3_gxt50")]
-position = Vector2(8017, 640)
+position = Vector2(7289, 640)
 zone = "room_f2n2"
 spawn = "SpawnHallway"
 transparency_value = 0.5
 
 [node name="DoorBathroomM" parent="Doors" index="2" instance=ExtResource("4_5xoji")]
-position = Vector2(9067, 640)
+position = Vector2(8339, 640)
 zone = "f2_male_bathroom"
 spawn = "SpawnHallway"
 transparency_value = 0.5
 
 [node name="DoorBathroomF" parent="Doors" index="3" instance=ExtResource("5_s7y7p")]
-position = Vector2(10276, 640)
+position = Vector2(9548, 640)
 zone = "f2_female_bathroom"
 spawn = "SpawnHallway"
 transparency_value = 0.5
 
-[node name="DoorLibrary" parent="Doors" index="4" instance=ExtResource("6_gvj4c")]
+[node name="DoorTeachersRoom" parent="Doors" index="4" instance=ExtResource("6_gvj4c")]
 modulate = Color(1, 1, 1, 0.627451)
-position = Vector2(800, 1306)
-zone = "library"
+position = Vector2(1192, 1306)
+zone = "teachers_room"
 spawn = "SpawnF2NH"
 spawn_direction = "down"
 transparent = true
@@ -162,7 +162,7 @@ spawn_direction = "right"
 
 [node name="Lockers1" type="Node2D" parent="." index="1"]
 y_sort_enabled = true
-position = Vector2(4178, 760)
+position = Vector2(3450, 760)
 
 [node name="Locker1" parent="Lockers1" index="0" instance=ExtResource("8_gaqbp")]
 position = Vector2(70, 0)
@@ -184,7 +184,7 @@ position = Vector2(920, 0)
 
 [node name="Lockers2" type="Node2D" parent="." index="2"]
 y_sort_enabled = true
-position = Vector2(6672, 760)
+position = Vector2(5944, 760)
 
 [node name="Locker1" parent="Lockers2" index="0" instance=ExtResource("8_gaqbp")]
 position = Vector2(70, 0)
@@ -213,19 +213,16 @@ layer_1/tile_data = PackedInt32Array(524451, 458752, 3, 589987, 458752, 3, 65552
 position = Vector2(592.297, 976.26)
 
 [node name="SpawnF2N1" type="Node2D" parent="SpawnPoints" index="1"]
-position = Vector2(5528, 800)
+position = Vector2(4800, 800)
 
 [node name="SpawnF2N2" type="Node2D" parent="SpawnPoints" index="2"]
-position = Vector2(8022, 800)
+position = Vector2(7294, 800)
 
 [node name="SpawnF2MB" type="Node2D" parent="SpawnPoints" index="3"]
-position = Vector2(9067, 800)
+position = Vector2(8339, 800)
 
 [node name="SpawnF2FB" type="Node2D" parent="SpawnPoints" index="4"]
-position = Vector2(10276, 800)
+position = Vector2(9548, 800)
 
-[node name="SpawnLab" type="Node2D" parent="SpawnPoints" index="5"]
-position = Vector2(3270, 800)
-
-[node name="SpawnLibrary" type="Node2D" parent="SpawnPoints" index="6"]
-position = Vector2(800, 1196)
+[node name="SpawnTeachersRoom" type="Node2D" parent="SpawnPoints" index="5"]
+position = Vector2(1192, 1148)

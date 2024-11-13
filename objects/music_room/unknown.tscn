@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ck84vxv6ptkra"]
+
+[ext_resource type="PackedScene" uid="uid://cdkd5rptah77s" path="res://objects/music_room/base_music_room_object.tscn" id="1_ac31l"]
+
+[node name="Unknown" instance=ExtResource("1_ac31l")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(425, 60, 115, 175)

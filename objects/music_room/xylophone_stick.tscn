@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpalwx4ke4jyl"]
+
+[ext_resource type="PackedScene" uid="uid://cdkd5rptah77s" path="res://objects/music_room/base_music_room_object.tscn" id="1_1km5t"]
+
+[node name="XylophoneStick" instance=ExtResource("1_1km5t")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(155, 220, 105, 25)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cm0yvlpm63enx"]
+
+[ext_resource type="PackedScene" uid="uid://cdkd5rptah77s" path="res://objects/music_room/base_music_room_object.tscn" id="1_qy8gw"]
+
+[node name="TurnTable" instance=ExtResource("1_qy8gw")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(860, 945, 165, 90)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbjjw7on4l5ys"]
+
+[ext_resource type="PackedScene" uid="uid://cdkd5rptah77s" path="res://objects/music_room/base_music_room_object.tscn" id="1_352x8"]
+
+[node name="PanFlute" instance=ExtResource("1_352x8")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(1530, 950, 75, 85)

@@ -131,7 +131,7 @@ layer_1/tile_data = PackedInt32Array(-655366, 327680, 2, -589830, 327680, 2, -52
 [node name="DoorF2NH" parent="." index="1" instance=ExtResource("4_mo10q")]
 position = Vector2(361, -879)
 zone = "f2n_hallway"
-spawn = "SpawnLibrary"
+spawn = "SpawnTeachersRoom"
 
 [node name="TableSet1" type="Node2D" parent="Objects" index="0"]
 position = Vector2(373.958, 1790.24)
@@ -198,4 +198,4 @@ position = Vector2(1059, -11)
 position = Vector2(1059, 152)
 
 [node name="SpawnF2NH" type="Node2D" parent="SpawnPoints" index="0"]
-position = Vector2(361, -751)
+position = Vector2(361, -679)

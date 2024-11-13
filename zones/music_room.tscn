@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb7syavhi5pje"]
+
+[ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://zones/base_zone.tscn" id="1_mc4o3"]
+
+[node name="MusicRoom" instance=ExtResource("1_mc4o3")]

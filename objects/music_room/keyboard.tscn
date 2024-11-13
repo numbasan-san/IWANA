@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://m1h61a5hb3tv"]
+
+[ext_resource type="PackedScene" uid="uid://cdkd5rptah77s" path="res://objects/music_room/base_music_room_object.tscn" id="1_t5jrg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eiefo"]
+size = Vector2(310, 103)
+
+[node name="Keyboard" instance=ExtResource("1_t5jrg")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(1490, 30, 325, 290)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(2, 93.5)
+shape = SubResource("RectangleShape2D_eiefo")
