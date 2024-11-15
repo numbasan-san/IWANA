@@ -1,32 +1,30 @@
 extends Control
 
+# menu and menu's elements settings
+func menus_setting(default, settings):
+	$default_menu.visible = default
+	$settings_menu.visible = settings
+
+func _ready():
+	menus_setting(true, false)
+
+func _process(delta):
+	test_pause()
+
 func resume():
 	$AnimationPlayer.play_backwards("blur")
-	get_tree().paused = false
+	menus_setting(false, false)
 	self.visible = false
+	get_tree().paused = false
 
 func pause():
 	self.visible = true
 	get_tree().paused = true
 	$AnimationPlayer.play("blur")
+	menus_setting(true, false)
 
 func test_pause():
 	if Input.is_action_just_pressed("pause_button") and get_tree().paused == false:
 		pause()
 	elif Input.is_action_just_pressed("pause_button") and get_tree().paused == true:
 		resume()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	test_pause()
-
-
-func _on_resume_pressed():
-	resume()
-
-func _on_restart_pressed():
-	resume()
-	get_tree().reload_current_scene()
-
-func _on_quit_pressed():
-	get_tree().quit()

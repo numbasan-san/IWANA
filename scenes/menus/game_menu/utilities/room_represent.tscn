@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bqcnhygdum144"]
 
-[ext_resource type="Texture2D" uid="uid://crqoe871ecm6c" path="res://assets/menus/game menu/map_menu/player_icon.png" id="1_ndjqi"]
+[ext_resource type="Texture2D" uid="uid://crqoe871ecm6c" path="res://assets/menus/game menu/map_menu/player_icon.png" id="1_x1suw"]
 
 [sub_resource type="Animation" id="Animation_vwuvi"]
 length = 0.001
@@ -95,7 +95,7 @@ grow_vertical = 2
 scale = Vector2(0.5, 0.5)
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture = ExtResource("1_ndjqi")
+texture = ExtResource("1_x1suw")
 expand_mode = 1
 stretch_mode = 3
 

@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://chkjnr1dgyveu"]
 
 [ext_resource type="Script" path="res://script/object_inventory/items/item.gd" id="1_0xw5c"]
-[ext_resource type="Texture2D" uid="uid://j767v6f13kai" path="res://assets/Assests de Pruebas/__zinogre_monster_hunter_drawn_by_milkpanda__sample-16d3404318c7aedb577ce1c900a7a272.jpg" id="2_5cvil"]
+[ext_resource type="Texture2D" uid="uid://d2yscobgi17et" path="res://assets/Assests de Pruebas/__zinogre_monster_hunter_drawn_by_milkpanda__sample-16d3404318c7aedb577ce1c900a7a272.jpg" id="2_5cvil"]
 
 [resource]
 script = ExtResource("1_0xw5c")
-name = "lagarto"
+name = "perro"
 texture = ExtResource("2_5cvil")
-stack = 1
+stack = 99

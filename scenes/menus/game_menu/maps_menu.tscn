@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bnal1eetbe0b4" path="res://assets/menus/game menu/libro_mapa.png" id="1_uqcs6"]
 [ext_resource type="Texture2D" uid="uid://d4ga2cbo5mfov" path="res://assets/menus/mascara.png" id="3_0gv0p"]
 [ext_resource type="Texture2D" uid="uid://cnvhmpqb5l1se" path="res://assets/menus/btn.png" id="4_jqaan"]
-[ext_resource type="PackedScene" uid="uid://bqcnhygdum144" path="res://scenes/menus/room_represent.tscn" id="4_rynxr"]
+[ext_resource type="PackedScene" uid="uid://bqcnhygdum144" path="res://scenes/menus/game_menu/utilities/room_represent.tscn" id="4_rynxr"]
 [ext_resource type="Texture2D" uid="uid://be0n5k0448c0w" path="res://assets/menus/game menu/map_menu/mapa_edificio.png" id="6_lrsgn"]
 
 [node name="maps_menu" type="Control"]
@@ -90,18 +90,6 @@ texture_normal = ExtResource("4_jqaan")
 texture_hover = ExtResource("3_0gv0p")
 stretch_mode = 0
 
-[node name="floor1_btn3" type="TextureButton" parent="background"]
-visible = false
-layout_mode = 0
-offset_left = 927.0
-offset_top = 4.5
-offset_right = 962.0
-offset_bottom = 54.5
-rotation = 1.5708
-texture_normal = ExtResource("4_jqaan")
-texture_hover = ExtResource("3_0gv0p")
-stretch_mode = 0
-
 [node name="Map" type="Control" parent="background"]
 layout_mode = 1
 anchors_preset = 6
@@ -115,6 +103,15 @@ offset_right = -69.0
 offset_bottom = 238.0
 grow_horizontal = 0
 grow_vertical = 2
+
+[node name="Panel" type="ColorRect" parent="background/Map"]
+modulate = Color(1, 0.0666667, 0.203922, 1)
+layout_mode = 0
+offset_left = 65.0
+offset_top = 49.0
+offset_right = 421.0
+offset_bottom = 504.0
+color = Color(0.337255, 0.0666667, 0.203922, 1)
 
 [node name="F1" type="Control" parent="background/Map"]
 anchors_preset = 0
@@ -371,4 +368,3 @@ vertical_alignment = 1
 [connection signal="pressed" from="background/contacts_btn" to="." method="_on_contacts_btn_pressed"]
 [connection signal="pressed" from="background/floor1_btn" to="." method="_on_floor_1_btn_pressed"]
 [connection signal="pressed" from="background/floor1_btn2" to="." method="_on_floor_1_btn_2_pressed"]
-[connection signal="pressed" from="background/floor1_btn3" to="." method="_on_contacts_btn_pressed"]

@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://script/menus/game_menu/items_menu.gd" id="1_1gckd"]
 [ext_resource type="Texture2D" uid="uid://b0vq82fo81wgn" path="res://assets/menus/game menu/libreta_objetos.png" id="1_33c85"]
 [ext_resource type="Texture2D" uid="uid://d4ga2cbo5mfov" path="res://assets/menus/mascara.png" id="3_iv8ha"]
-[ext_resource type="Texture2D" uid="uid://bijt407dbbadm" path="res://assets/inventory/inventory_slot.png" id="3_js6ci"]
 [ext_resource type="PackedScene" uid="uid://3a5ilvkkwddg" path="res://scenes/menus/game_menu/utilities/item_card.tscn" id="4_k5wl5"]
+[ext_resource type="FontFile" uid="uid://br8cbymt4vm3x" path="res://assets/combat_sprites/font/ChiKareGo2.ttf" id="6_ub44k"]
 
 [node name="items_menu" type="Control"]
 layout_mode = 3
@@ -66,92 +66,95 @@ texture_hover = ExtResource("3_iv8ha")
 layout_mode = 0
 offset_left = 120.0
 offset_top = 121.0
-offset_right = 534.0
+offset_right = 577.0
 offset_bottom = 677.0
 
-[node name="NinePatchRect" type="NinePatchRect" parent="background"]
-layout_mode = 2
-offset_left = 123.0
-offset_top = 134.0
-offset_right = 123.0
-offset_bottom = 134.0
+[node name="NinePatchRect" type="NinePatchRect" parent="background/items_bar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="GridContainer" type="GridContainer" parent="background/NinePatchRect"]
+[node name="GridContainer" type="GridContainer" parent="background/items_bar/NinePatchRect"]
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_constants/h_separation = 64
+theme_override_constants/h_separation = 90
 theme_override_constants/v_separation = 85
-columns = 6
+columns = 5
 
-[node name="item_card" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+[node name="item_card" parent="background/items_bar/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
 visible = false
 layout_mode = 2
 
-[node name="item_card2" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+[node name="item_card2" parent="background/items_bar/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
 visible = false
 layout_mode = 2
 
-[node name="item_card3" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+[node name="item_card3" parent="background/items_bar/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
 visible = false
 layout_mode = 2
 
-[node name="item_card4" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+[node name="item_card4" parent="background/items_bar/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
 visible = false
 layout_mode = 2
 
-[node name="item_card5" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+[node name="item_card5" parent="background/items_bar/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
 visible = false
 layout_mode = 2
 
-[node name="item_card6" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+[node name="item_card6" parent="background/items_bar/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
 visible = false
 layout_mode = 2
 
-[node name="item_card7" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+[node name="item_card7" parent="background/items_bar/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
 visible = false
 layout_mode = 2
 
-[node name="item_card8" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+[node name="item_card8" parent="background/items_bar/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
 visible = false
 layout_mode = 2
 
-[node name="item_card9" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+[node name="item_card9" parent="background/items_bar/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
 visible = false
 layout_mode = 2
 
-[node name="item_card10" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+[node name="item_card10" parent="background/items_bar/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
 visible = false
 layout_mode = 2
 
-[node name="item_card11" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+[node name="item_card11" parent="background/items_bar/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
 visible = false
 layout_mode = 2
 
-[node name="item_card12" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+[node name="item_card12" parent="background/items_bar/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
 visible = false
 layout_mode = 2
 
-[node name="item_card13" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+[node name="item_card13" parent="background/items_bar/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
 visible = false
 layout_mode = 2
 
-[node name="item_card14" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+[node name="item_card14" parent="background/items_bar/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
 visible = false
 layout_mode = 2
 
-[node name="item_card15" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+[node name="item_card15" parent="background/items_bar/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
 visible = false
 layout_mode = 2
 
-[node name="item_card16" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+[node name="item_card16" parent="background/items_bar/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
 visible = false
 layout_mode = 2
 
-[node name="item_card17" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+[node name="item_card17" parent="background/items_bar/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
 visible = false
 layout_mode = 2
 
-[node name="item_card18" parent="background/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
+[node name="item_card18" parent="background/items_bar/NinePatchRect/GridContainer" instance=ExtResource("4_k5wl5")]
 visible = false
 layout_mode = 2
 
@@ -169,7 +172,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_js6ci")
 expand_mode = 1
 stretch_mode = 5
 
@@ -186,8 +188,9 @@ offset_right = -55.0
 offset_bottom = -62.5
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_font_sizes/normal_font_size = 30
-text = "sdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasda"
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("6_ub44k")
+theme_override_font_sizes/normal_font_size = 35
 
 [connection signal="pressed" from="background/characters_btn" to="." method="_on_characters_btn_pressed"]
 [connection signal="pressed" from="background/maps_btn" to="." method="_on_maps_btn_pressed"]

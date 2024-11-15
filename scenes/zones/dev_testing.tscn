@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c0vpj0bm2dlof"]
+[gd_scene load_steps=12 format=3 uid="uid://c0vpj0bm2dlof"]
 
 [ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://scenes/zones/base_zone.tscn" id="1_ljxgf"]
 [ext_resource type="Resource" uid="uid://uwjposnxxqyd" path="res://script/zones/zone_info/resources/dev_testing.tres" id="2_51o28"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cn0nlsq5wj8on" path="res://objects/doors/classroom_door.tscn" id="7_7wyss"]
 [ext_resource type="PackedScene" uid="uid://cg87jy7chv1va" path="res://scenes/inventory/items/lagarto.tscn" id="7_a5m8c"]
 [ext_resource type="PackedScene" uid="uid://bntylxciwrpvw" path="res://scenes/inventory/items/toro.tscn" id="8_1s1lq"]
+[ext_resource type="PackedScene" uid="uid://4shyx47ncjd6" path="res://scenes/inventory/items/refresco.tscn" id="9_nvnle"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ptxj"]
 resource_name = "DevTest"
@@ -96,6 +97,30 @@ scale = Vector2(0.25, 0.25)
 [node name="frituras6" parent="Items" index="14" instance=ExtResource("4_dckh2")]
 position = Vector2(367, 190.75)
 scale = Vector2(0.25, 0.25)
+
+[node name="refresco" parent="Items" index="15" instance=ExtResource("9_nvnle")]
+position = Vector2(87.25, 450.75)
+scale = Vector2(0.125, 0.125)
+
+[node name="refresco2" parent="Items" index="16" instance=ExtResource("9_nvnle")]
+position = Vector2(449.5, 504.75)
+scale = Vector2(0.125, 0.125)
+
+[node name="refresco3" parent="Items" index="17" instance=ExtResource("9_nvnle")]
+position = Vector2(13, 532.75)
+scale = Vector2(0.125, 0.125)
+
+[node name="refresco4" parent="Items" index="18" instance=ExtResource("9_nvnle")]
+position = Vector2(92, 362.25)
+scale = Vector2(0.125, 0.125)
+
+[node name="refresco5" parent="Items" index="19" instance=ExtResource("9_nvnle")]
+position = Vector2(213.75, 429)
+scale = Vector2(0.125, 0.125)
+
+[node name="refresco6" parent="Items" index="20" instance=ExtResource("9_nvnle")]
+position = Vector2(271.5, 400.5)
+scale = Vector2(0.125, 0.125)
 
 [node name="TileMap" parent="." index="2"]
 scale = Vector2(4, 4)
