@@ -2,8 +2,8 @@
 
 [ext_resource type="Shader" path="res://scenes/menus/pause_menu/pause_menu.gdshader" id="1_4k21p"]
 [ext_resource type="Script" path="res://script/menus/pause_menu/pause_menu.gd" id="2_b8fmq"]
-[ext_resource type="PackedScene" uid="uid://bkrwx6su2nmuj" path="res://scenes/menus/pause_menu/settings_menu.tscn" id="3_a6qpl"]
 [ext_resource type="PackedScene" uid="uid://dyneef04rixu" path="res://scenes/menus/pause_menu/default_menu.tscn" id="3_k7y1k"]
+[ext_resource type="PackedScene" uid="uid://1vuniuexlffu" path="res://scenes/menus/pause_menu/settings/settings_menu.tscn" id="4_er7yu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3tjfk"]
 shader = ExtResource("1_4k21p")
@@ -73,7 +73,7 @@ grow_vertical = 2
 [node name="default_menu" parent="." instance=ExtResource("3_k7y1k")]
 layout_mode = 1
 
-[node name="settings_menu" parent="." instance=ExtResource("3_a6qpl")]
+[node name="settings_menu" parent="." instance=ExtResource("4_er7yu")]
 layout_mode = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

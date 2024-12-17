@@ -110,4 +110,5 @@ libraries = {
 }
 
 [node name="AudioPlayer" type="AudioStreamPlayer" parent="."]
-volume_db = -60.0
+volume_db = -5.0
+bus = &"Music"
