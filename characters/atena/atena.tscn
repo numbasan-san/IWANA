@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqecyw054rkpr"]
+
+[ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_071dr"]
+[ext_resource type="Texture2D" uid="uid://msttj3ecaxgl" path="res://characters/others/rpg/npcs.png" id="2_p7ch1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1y18m"]
+resource_local_to_scene = true
+size = Vector2(128, 61)
+
+[node name="Atena" instance=ExtResource("1_071dr")]
+
+[node name="Neutral" type="Sprite2D" parent="DialogModel" index="0"]
+scale = Vector2(-1, 1)
+
+[node name="Sprite2D" parent="RPGModel" index="0"]
+position = Vector2(0, -160)
+texture = ExtResource("2_p7ch1")
+hframes = 1
+region_enabled = true
+region_rect = Rect2(990, 280, 115, 320)
+
+[node name="Collider" parent="RPGModel" index="1"]
+shape = SubResource("RectangleShape2D_1y18m")

@@ -13,10 +13,20 @@ func _on_pressed():
 	var beca = CharacterManager.load("rebeca")
 	var lucia = CharacterManager.load("lucia")
 	
+	# Teachers
+	var rosario = CharacterManager.load("rosario")
+	var atena = CharacterManager.load("atena")
+	var whalter = CharacterManager.load("whalter")
+	var barbara = CharacterManager.load("barbara")
+	
 	var hallway_north = ZoneManager.load("f1n_hallway")
 	world.reposition_character(mj, hallway_north, Vector2(6600, 900))
 	world.reposition_character(beca, hallway_north, Vector2(6900, 900))
 	world.reposition_character(lucia, hallway_north, Vector2(7200, 900))
+	world.reposition_character(rosario, hallway_north, Vector2(7500, 900))
+	world.reposition_character(atena, hallway_north, Vector2(7800, 900))
+	world.reposition_character(whalter, hallway_north, Vector2(8100, 900))
+	world.reposition_character(barbara, hallway_north, Vector2(8400, 900))
 	var starting_zone = ZoneManager.load("room_f1n1")
 	world.spawn(noby, starting_zone)
 	Player.control(noby)

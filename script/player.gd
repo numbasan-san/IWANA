@@ -34,6 +34,7 @@ func control(new_character: Character = null):
 			var control = model.get_node("PlayerControl") as PlayerControl
 			model.remove_child(control)
 			add_child(control)
+			control.is_enabled = ScreenManager.rpg_screen.is_active
 			model.disable_interactions()
 			control.attached = false
 			ZoneManager.set_active(null)
@@ -56,6 +57,7 @@ func control(new_character: Character = null):
 			var model = character.rpg_model
 			model.disable_interactions()
 			model.add_child(control)
+			control.is_enabled = ScreenManager.rpg_screen.is_active
 			control.attached = true
 			
 			# When we control a character, it becomes the party leader if it
@@ -72,6 +74,7 @@ func control(new_character: Character = null):
 			model = new_character.rpg_model
 			model.deactivate_interactions()
 			model.add_child(control)
+			control.is_enabled = ScreenManager.rpg_screen.is_active
 			
 			character = new_character
 			for m in party.members:

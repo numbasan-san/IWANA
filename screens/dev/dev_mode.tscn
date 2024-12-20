@@ -83,6 +83,7 @@ alignment = 0
 
 [node name="Remove" type="Button" parent="Contents/VBoxContainer/PartyControl/Members/Slot1"]
 layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 30
 disabled = true
 text = "-"
@@ -99,6 +100,7 @@ alignment = 0
 
 [node name="Remove" type="Button" parent="Contents/VBoxContainer/PartyControl/Members/Slot2"]
 layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 30
 text = "-"
 
@@ -114,6 +116,7 @@ alignment = 0
 
 [node name="Remove" type="Button" parent="Contents/VBoxContainer/PartyControl/Members/Slot3"]
 layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 30
 text = "-"
 
@@ -129,6 +132,7 @@ alignment = 0
 
 [node name="Remove" type="Button" parent="Contents/VBoxContainer/PartyControl/Members/Slot4"]
 layout_mode = 2
+focus_mode = 0
 theme_override_font_sizes/font_size = 30
 text = "-"
 
