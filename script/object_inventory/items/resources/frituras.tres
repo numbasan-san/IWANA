@@ -7,4 +7,4 @@
 script = ExtResource("1_v37t1")
 name = "frituras"
 texture = ExtResource("2_1tnlv")
-stack = 10
+stack = 99

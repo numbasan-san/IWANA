@@ -7,4 +7,4 @@
 script = ExtResource("1_tf8rr")
 name = "refresco"
 texture = ExtResource("2_ctsvf")
-stack = 6
+stack = 99
