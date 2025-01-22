@@ -8,7 +8,7 @@ size = Vector2(180, 315)
 [node name="VerticalTable" instance=ExtResource("1_hn1le")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(475, 605, 180, 435)
+region_rect = Rect2(95, 121, 36, 87)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(0, 60.5)

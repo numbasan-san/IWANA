@@ -8,7 +8,7 @@ size = Vector2(106, 99)
 [node name="Guitar2" instance=ExtResource("1_kpgmg")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(730, 235, 105, 215)
+region_rect = Rect2(146, 47, 21, 43)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(2, 60.5)

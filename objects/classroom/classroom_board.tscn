@@ -5,4 +5,4 @@
 [node name="ClassroomBoard" instance=ExtResource("1_e5nim")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(320, 120, 320, 205)
+region_rect = Rect2(64, 24, 64, 41)

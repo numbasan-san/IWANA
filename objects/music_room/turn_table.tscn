@@ -5,4 +5,4 @@
 [node name="TurnTable" instance=ExtResource("1_qy8gw")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(860, 945, 165, 90)
+region_rect = Rect2(172, 189, 33, 18)

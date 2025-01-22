@@ -3,17 +3,17 @@
 [ext_resource type="PackedScene" uid="uid://biiwse0aflo38" path="res://objects/abandoned_bathroom/base_broken_bathroom_object.tscn" id="1_sbk4t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glq66"]
-size = Vector2(115, 109)
+size = Vector2(115, 110)
 
 [node name="BrokenSinkMiddle" instance=ExtResource("1_sbk4t")]
 
 [node name="Sprite2D" parent="." index="0"]
-offset = Vector2(0, -64)
-region_rect = Rect2(1605, 480, 115, 109)
+offset = Vector2(0, -13)
+region_rect = Rect2(321, 96, 23, 22)
 
 [node name="StaticBody2D" parent="." index="1"]
 position = Vector2(0, -69)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0, 5)
+position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_glq66")

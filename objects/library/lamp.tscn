@@ -5,4 +5,4 @@
 [node name="Lamp" instance=ExtResource("1_m4cgq")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(235, 330, 90, 155)
+region_rect = Rect2(47, 66, 18, 31)

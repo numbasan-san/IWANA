@@ -157,7 +157,7 @@ pattern_8 = SubResource("TileMapPattern_1g0qu")
 position = Vector2(640, -160)
 zone = "f1n_hallway"
 spawn_direction = "down"
-transparent = true
+front = false
 
 [node name="TileMap" parent="." index="1"]
 tile_set = SubResource("TileSet_5ghrd")

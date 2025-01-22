@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://dgwqqhay2fl5f"]
 
 [ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://objects/base_object.tscn" id="1_f3b03"]
-[ext_resource type="Texture2D" uid="uid://dwyn3r63je2g6" path="res://objects/teachers_room/teachers_room.png" id="2_cev15"]
+[ext_resource type="Texture2D" uid="uid://cssn4lbrx8inw" path="res://objects/teachers_room/teachers_room_384x240.png" id="2_uj1sa"]
 
 [node name="BaseTeachersRoomObject" instance=ExtResource("1_f3b03")]
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_cev15")
+texture = ExtResource("2_uj1sa")

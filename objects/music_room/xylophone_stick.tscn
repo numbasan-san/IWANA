@@ -5,4 +5,4 @@
 [node name="XylophoneStick" instance=ExtResource("1_1km5t")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(155, 220, 105, 25)
+region_rect = Rect2(31, 44, 21, 5)

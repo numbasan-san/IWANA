@@ -5,4 +5,4 @@
 [node name="Cake" instance=ExtResource("1_ev6we")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1460, 610, 105, 65)
+region_rect = Rect2(292, 122, 21, 13)

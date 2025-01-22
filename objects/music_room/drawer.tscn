@@ -8,7 +8,7 @@ size = Vector2(138, 78)
 [node name="Drawer" instance=ExtResource("1_mupkd")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1290, 625, 145, 175)
+region_rect = Rect2(258, 125, 29, 35)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(2, 50)

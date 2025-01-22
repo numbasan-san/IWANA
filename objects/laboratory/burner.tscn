@@ -5,4 +5,4 @@
 [node name="Burner" instance=ExtResource("1_hegaf")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1715, 450, 50, 75)
+region_rect = Rect2(343, 90, 10, 15)

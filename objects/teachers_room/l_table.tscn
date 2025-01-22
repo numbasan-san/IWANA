@@ -5,7 +5,7 @@
 [node name="LTable" instance=ExtResource("1_c2525")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(550, 535, 450, 535)
+region_rect = Rect2(110, 107, 90, 107)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
 polygon = PackedVector2Array(-220, 270, 225, 270, 225, -160, 70, -160, 70, 100, -220, 100)

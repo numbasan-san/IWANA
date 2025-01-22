@@ -5,4 +5,4 @@
 [node name="PanFlute" instance=ExtResource("1_352x8")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1530, 950, 75, 85)
+region_rect = Rect2(306, 190, 15, 17)

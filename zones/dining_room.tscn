@@ -141,13 +141,13 @@ spawn_direction = "right"
 position = Vector2(-226, -405)
 
 [node name="CounterLeft" parent="." index="4" instance=ExtResource("5_3iotj")]
-position = Vector2(167, -308)
+position = Vector2(168, -308)
 
 [node name="CounterMiddle" parent="." index="5" instance=ExtResource("6_k35ds")]
 position = Vector2(538, -308)
 
 [node name="CounterRight" parent="." index="6" instance=ExtResource("7_al4fv")]
-position = Vector2(906, -308)
+position = Vector2(903, -308)
 
 [node name="Kitchen" parent="." index="7" instance=ExtResource("8_8vud0")]
 position = Vector2(586, -679)

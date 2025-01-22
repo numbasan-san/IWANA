@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://ugpvke2kn4nn"]
+[gd_scene load_steps=3 format=3 uid="uid://ugpvke2kn4nn"]
 
 [ext_resource type="PackedScene" uid="uid://cwc3o8rysyn6q" path="res://objects/abandoned_classroom/base_abandoned_room_object.tscn" id="1_ufufl"]
+[ext_resource type="Texture2D" uid="uid://c0w28npklobgf" path="res://objects/abandoned_classroom/abandoned_classroom_384x240.png" id="2_pqi0r"]
 
 [node name="PaperStack2" instance=ExtResource("1_ufufl")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1490, 440, 100, 120)
+texture = ExtResource("2_pqi0r")
+region_rect = Rect2(298, 88, 20, 24)

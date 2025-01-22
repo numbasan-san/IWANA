@@ -1,8 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2ij4md3egcl1"]
+[gd_scene load_steps=2 format=3 uid="uid://c2ij4md3egcl1"]
 
 [ext_resource type="PackedScene" uid="uid://bexdhvmbe3drg" path="res://objects/infirmary/base_inf_object.tscn" id="1_neeoh"]
 
 [node name="Item4" instance=ExtResource("1_neeoh")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(575, 745, 55, 20)
+region_rect = Rect2(115, 149, 11, 4)

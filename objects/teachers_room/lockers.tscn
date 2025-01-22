@@ -8,7 +8,7 @@ size = Vector2(135, 116)
 [node name="Lockers" instance=ExtResource("1_thpxv")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(810, 60, 135, 260)
+region_rect = Rect2(162, 12, 27, 52)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(-0.5, 72)

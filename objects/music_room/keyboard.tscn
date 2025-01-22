@@ -8,7 +8,7 @@ size = Vector2(310, 103)
 [node name="Keyboard" instance=ExtResource("1_t5jrg")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1490, 30, 325, 290)
+region_rect = Rect2(298, 6, 65, 58)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(2, 93.5)

@@ -5,4 +5,4 @@
 [node name="CoffeeMachine" instance=ExtResource("1_hc4du")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1050, 240, 120, 160)
+region_rect = Rect2(210, 48, 24, 32)

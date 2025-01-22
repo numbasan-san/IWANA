@@ -13,7 +13,7 @@ size = Vector2(190, 40)
 [node name="MaleBathroomDoor" instance=ExtResource("1_soj6h")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(395, 560, 185, 325)
+region_rect = Rect2(79, 112, 37, 65)
 
 [node name="Collision" parent="." index="1"]
 shape = SubResource("RectangleShape2D_tvvh6")

@@ -8,7 +8,7 @@ size = Vector2(519, 75)
 [node name="Drums" instance=ExtResource("1_myy2q")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(90, 670, 553, 294)
+region_rect = Rect2(17, 133, 111, 60)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(3.5, 107.5)

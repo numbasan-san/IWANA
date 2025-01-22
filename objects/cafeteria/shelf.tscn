@@ -8,7 +8,7 @@ size = Vector2(680, 162)
 [node name="Shelf" instance=ExtResource("1_kkg87")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(40, 605, 680, 355)
+region_rect = Rect2(8, 121, 136, 71)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(0, 95)

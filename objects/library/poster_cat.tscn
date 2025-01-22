@@ -5,4 +5,4 @@
 [node name="CatPoster" instance=ExtResource("1_l8smm")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1180, 120, 120, 215)
+region_rect = Rect2(236, 24, 24, 43)

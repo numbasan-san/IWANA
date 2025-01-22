@@ -193,7 +193,7 @@ front = false
 enabled = false
 
 [node name="Sprite2D" parent="FemaleBathroomDoor" index="0"]
-region_rect = Rect2(1145, 155, 185, 325)
+region_rect = Rect2(229, 31, 37, 65)
 
 [node name="Collision" parent="FemaleBathroomDoor" index="1"]
 shape = SubResource("RectangleShape2D_8x18c")

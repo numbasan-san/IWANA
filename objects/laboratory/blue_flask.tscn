@@ -5,4 +5,4 @@
 [node name="BlueFlask" instance=ExtResource("1_6snlj")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1480, 475, 30, 50)
+region_rect = Rect2(295, 94, 8, 12)

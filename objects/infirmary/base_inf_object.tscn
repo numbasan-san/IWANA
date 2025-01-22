@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://bexdhvmbe3drg"]
 
 [ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://objects/base_object.tscn" id="1_gbu17"]
-[ext_resource type="Texture2D" uid="uid://lvi1cn51mmgq" path="res://objects/infirmary/infirmary.png" id="2_hl3er"]
+[ext_resource type="Texture2D" uid="uid://u5f1qvs3lbbc" path="res://objects/infirmary/infirmary_384x240.png" id="2_vjcbo"]
 
 [node name="BaseInfirmaryObject" instance=ExtResource("1_gbu17")]
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_hl3er")
+texture = ExtResource("2_vjcbo")

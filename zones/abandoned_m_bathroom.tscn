@@ -147,7 +147,7 @@ spawn = "SpawnF2MB"
 front = false
 
 [node name="Sprite2D" parent="MaleBathroomDoor" index="0"]
-region_rect = Rect2(920, 155, 185, 325)
+region_rect = Rect2(184, 31, 37, 65)
 
 [node name="Collision" parent="MaleBathroomDoor" index="1"]
 shape = SubResource("RectangleShape2D_wx7vg")

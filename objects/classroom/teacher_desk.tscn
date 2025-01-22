@@ -5,8 +5,9 @@
 [node name="TeacherDesk" instance=ExtResource("1_cv25d")]
 
 [node name="Sprite2D" parent="." index="0"]
-offset = Vector2(0, -60)
-region_rect = Rect2(305, 520, 430, 280)
+position = Vector2(0, -4.29153e-06)
+offset = Vector2(0, -11)
+region_rect = Rect2(61, 104, 86, 56)
 
 [node name="StaticBody2D" parent="." index="1"]
 position = Vector2(0, -58)

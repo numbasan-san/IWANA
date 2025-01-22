@@ -8,7 +8,7 @@ size = Vector2(195, 143)
 [node name="Fridge" instance=ExtResource("1_voayv")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1280, 55, 190, 345)
+region_rect = Rect2(256, 11, 38, 69)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(0.5, 100.5)

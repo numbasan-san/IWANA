@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://script/door/zone_change.gd" id="1_2qge8"]
 [ext_resource type="Script" path="res://script/door/portal.gd" id="1_6dlhj"]
-[ext_resource type="Texture2D" uid="uid://bfwa78eaf8mvb" path="res://objects/doors/doors.png" id="2_y66ju"]
+[ext_resource type="Texture2D" uid="uid://dauqya4i8u8vl" path="res://objects/doors/doors_384x240.png" id="2_cexoh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_346tc"]
 
@@ -23,9 +23,10 @@ transparency_value = 0.6
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -163)
-texture = ExtResource("2_y66ju")
+scale = Vector2(5, 5)
+texture = ExtResource("2_cexoh")
 region_enabled = true
-region_rect = Rect2(80, 565, 185, 325)
+region_rect = Rect2(16, 113, 37, 65)
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(0, -10)

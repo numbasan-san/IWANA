@@ -8,7 +8,7 @@ size = Vector2(355, 40.5)
 [node name="TableTop" instance=ExtResource("1_dipvo")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(80, 555, 355, 105)
+region_rect = Rect2(16, 111, 71, 21)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(0, 32)

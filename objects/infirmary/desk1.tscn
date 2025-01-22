@@ -1,11 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkymnhjk0jbr8"]
+[gd_scene load_steps=2 format=3 uid="uid://dkymnhjk0jbr8"]
 
 [ext_resource type="PackedScene" uid="uid://bexdhvmbe3drg" path="res://objects/infirmary/base_inf_object.tscn" id="1_new7a"]
 
 [node name="Desk1" instance=ExtResource("1_new7a")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(880, 480, 495, 280)
+region_rect = Rect2(176, 96, 99, 56)
 
 [node name="StaticBody2D" parent="." index="1"]
 position = Vector2(-247, 140)

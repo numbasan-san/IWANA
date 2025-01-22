@@ -5,4 +5,4 @@
 [node name="FruitBowl" instance=ExtResource("1_dmxle")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(570, 770, 135, 105)
+region_rect = Rect2(275, 154, 27, 21)

@@ -5,4 +5,4 @@
 [node name="Hole" instance=ExtResource("1_redjq")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1560, 935, 120, 105)
+region_rect = Rect2(312, 187, 24, 21)

@@ -8,7 +8,7 @@ size = Vector2(80, 42)
 [node name="SheetStand2" instance=ExtResource("1_lue7y")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1240, 60, 105, 175)
+region_rect = Rect2(248, 12, 21, 35)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(0, 67)

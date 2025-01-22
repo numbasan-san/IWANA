@@ -8,7 +8,7 @@ size = Vector2(94, 49)
 [node name="Stool" instance=ExtResource("1_dwmf0")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1530, 700, 95, 170)
+region_rect = Rect2(306, 140, 19, 34)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(0, 59.5)

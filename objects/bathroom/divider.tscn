@@ -12,8 +12,8 @@ size = Vector2(334, 42)
 [node name="Divider" instance=ExtResource("1_sq6rw")]
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, -162)
-region_rect = Rect2(365, 155, 320, 290)
+position = Vector2(0, -146)
+region_rect = Rect2(73, 31, 64, 58)
 
 [node name="StaticBody2D" parent="." index="1"]
 position = Vector2(0, -10)

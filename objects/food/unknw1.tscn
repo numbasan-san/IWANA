@@ -5,4 +5,4 @@
 [node name="Unknown1" instance=ExtResource("1_dbcei")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1360, 480, 45, 65)
+region_rect = Rect2(272, 96, 9, 13)

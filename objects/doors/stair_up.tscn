@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cd4c21dp0up02"]
 
 [ext_resource type="PackedScene" uid="uid://cydebiqdat3vw" path="res://objects/doors/portal.tscn" id="1_ejrs0"]
-[ext_resource type="Texture2D" uid="uid://blvrkj20horil" path="res://objects/doors/stairs.png" id="2_wlodh"]
+[ext_resource type="Texture2D" uid="uid://b71ouje6drcxt" path="res://objects/doors/stairs_384x240.png" id="2_ti0cj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8m6ej"]
 resource_local_to_scene = true
@@ -10,10 +10,10 @@ size = Vector2(391, 192)
 [node name="StairUp" instance=ExtResource("1_ejrs0")]
 
 [node name="Sprite2D" parent="." index="0"]
-scale = Vector2(1, 1)
-texture = ExtResource("2_wlodh")
+scale = Vector2(5, 5)
+texture = ExtResource("2_ti0cj")
 region_enabled = true
-region_rect = Rect2(1140, 120, 415, 390)
+region_rect = Rect2(236, 16, 83, 96)
 
 [node name="CollisionShape2D" parent="ZoneChange" index="0"]
 position = Vector2(12.5, 101)

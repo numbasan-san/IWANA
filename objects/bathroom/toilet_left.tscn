@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://jfxa3getivws"]
+[gd_scene load_steps=3 format=3 uid="uid://jfxa3getivws"]
 
 [ext_resource type="PackedScene" uid="uid://dj1fgnd3hus27" path="res://objects/bathroom/base_bathroom_object.tscn" id="1_o1evd"]
 
@@ -9,8 +9,8 @@ size = Vector2(170, 67)
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -2)
-offset = Vector2(0, -98)
-region_rect = Rect2(1050, 215, 170, 200)
+offset = Vector2(0, -20)
+region_rect = Rect2(210, 43, 34, 40)
 
 [node name="StaticBody2D" parent="." index="1"]
 position = Vector2(0, -112)

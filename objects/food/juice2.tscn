@@ -5,4 +5,4 @@
 [node name="Juice2" instance=ExtResource("1_ssy57")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1505, 505, 25, 45)
+region_rect = Rect2(301, 101, 5, 9)

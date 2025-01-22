@@ -5,4 +5,4 @@
 [node name="Book7" instance=ExtResource("1_slcij")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(530, 575, 40, 55)
+region_rect = Rect2(106, 115, 8, 11)

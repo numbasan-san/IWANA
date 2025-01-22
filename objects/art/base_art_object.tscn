@@ -1,10 +1,10 @@
 [gd_scene load_steps=3 format=3 uid="uid://c3hohlexko4k6"]
 
 [ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://objects/base_object.tscn" id="1_tp22h"]
-[ext_resource type="Texture2D" uid="uid://0ekior3ahh4n" path="res://objects/art/art_room.png" id="2_notw1"]
+[ext_resource type="Texture2D" uid="uid://d4an8eqxh0d7m" path="res://objects/art/art_room_384x240.png" id="2_s2jis"]
 
 [node name="BaseArtObject" instance=ExtResource("1_tp22h")]
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_notw1")
+texture = ExtResource("2_s2jis")
 region_rect = Rect2(32.6411, 284.056, 4.71591, 4.71588)

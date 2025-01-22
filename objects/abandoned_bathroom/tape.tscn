@@ -8,8 +8,9 @@ size = Vector2(449, 87)
 [node name="Tape" instance=ExtResource("1_gv8vs")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1375, 15, 445, 190)
+offset = Vector2(0, -15)
+region_rect = Rect2(275, 3, 89, 38)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(-0.5, 52.5)
+position = Vector2(-0.5, -27.5)
 shape = SubResource("RectangleShape2D_11lf7")

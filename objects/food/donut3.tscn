@@ -5,4 +5,4 @@
 [node name="Donut3" instance=ExtResource("1_2mdal")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1645, 515, 40, 35)
+region_rect = Rect2(329, 103, 8, 7)

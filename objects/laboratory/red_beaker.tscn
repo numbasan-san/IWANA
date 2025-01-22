@@ -5,4 +5,4 @@
 [node name="RedBeaker" instance=ExtResource("1_28wmx")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1370, 470, 60, 60)
+region_rect = Rect2(274, 94, 12, 12)

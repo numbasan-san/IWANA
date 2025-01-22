@@ -6,6 +6,7 @@
 z_index = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
 region_enabled = true
 region_rect = Rect2(272, 152, 48, 48)
 

@@ -37,5 +37,5 @@ extends Node2D
 # sprite is at a constant distance above the front one, so the y
 # coordinate will be always set to a constant value known beforehand.
 # If the files change, we have to change these values
-var y_front = 560
-var y_back = 155
+var y_front = 113
+var y_back = 32

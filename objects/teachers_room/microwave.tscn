@@ -5,4 +5,4 @@
 [node name="Microwave" instance=ExtResource("1_5g122")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1040, 65, 140, 105)
+region_rect = Rect2(208, 13, 28, 21)

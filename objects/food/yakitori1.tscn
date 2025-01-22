@@ -5,4 +5,4 @@
 [node name="Yakitori1" instance=ExtResource("1_u4pnc")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1355, 610, 70, 25)
+region_rect = Rect2(271, 122, 14, 5)

@@ -13,7 +13,8 @@ size = Vector2(190, 60)
 [node name="BlockedDoor" instance=ExtResource("1_12rmk")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1460, 555, 355, 325)
+position = Vector2(12, -163)
+region_rect = Rect2(292, 111, 71, 65)
 
 [node name="Collision" parent="." index="1"]
 shape = SubResource("RectangleShape2D_aco3x")

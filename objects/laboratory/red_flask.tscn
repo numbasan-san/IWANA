@@ -5,4 +5,4 @@
 [node name="RedFlask" instance=ExtResource("1_6jx20")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1445, 475, 30, 50)
+region_rect = Rect2(289, 95, 6, 10)

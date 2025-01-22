@@ -8,7 +8,7 @@ size = Vector2(243, 109)
 [node name="VendingMachine" instance=ExtResource("1_atd8m")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(35, 160, 245, 320)
+region_rect = Rect2(7, 32, 49, 64)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(0.5, 104.5)

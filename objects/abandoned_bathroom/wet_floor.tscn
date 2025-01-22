@@ -8,8 +8,9 @@ size = Vector2(114, 70)
 [node name="WetFloor" instance=ExtResource("1_adbn6")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1710, 890, 115, 145)
+offset = Vector2(0, -12)
+region_rect = Rect2(342, 178, 23, 29)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0, 39)
+position = Vector2(0, -23)
 shape = SubResource("RectangleShape2D_ytr2g")

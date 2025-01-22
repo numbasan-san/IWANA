@@ -5,4 +5,4 @@
 [node name="GlassShelf" instance=ExtResource("1_keodk")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1615, 80, 230, 160)
+region_rect = Rect2(323, 16, 46, 32)

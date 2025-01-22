@@ -6,7 +6,7 @@
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -64)
-region_rect = Rect2(1360, 760, 430, 285)
+region_rect = Rect2(272, 152, 86, 57)
 
 [node name="StaticBody2D" parent="." index="1"]
 position = Vector2(0, -64)

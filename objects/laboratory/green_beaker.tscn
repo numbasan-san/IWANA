@@ -5,4 +5,4 @@
 [node name="GreenBeaker" instance=ExtResource("1_b4rvh")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1295, 470, 60, 60)
+region_rect = Rect2(259, 94, 12, 12)

@@ -5,4 +5,4 @@
 [node name="Milk" instance=ExtResource("1_pnbh1")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1710, 330, 25, 40)
+region_rect = Rect2(342, 66, 5, 8)

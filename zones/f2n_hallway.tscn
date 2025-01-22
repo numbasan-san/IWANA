@@ -128,25 +128,31 @@ zone = "room_f2n1"
 spawn = "SpawnHallway"
 transparency_value = 0.5
 
-[node name="DoorRoomF2N2" parent="Doors" index="1" instance=ExtResource("3_gxt50")]
+[node name="DoorMusicRoom" parent="Doors" index="1" instance=ExtResource("3_gxt50")]
+position = Vector2(1192, 637)
+zone = "music_room"
+spawn = "SpawnHallway"
+transparency_value = 0.5
+
+[node name="DoorRoomF2N2" parent="Doors" index="2" instance=ExtResource("3_gxt50")]
 position = Vector2(7289, 640)
 zone = "room_f2n2"
 spawn = "SpawnHallway"
 transparency_value = 0.5
 
-[node name="DoorBathroomM" parent="Doors" index="2" instance=ExtResource("4_5xoji")]
+[node name="DoorBathroomM" parent="Doors" index="3" instance=ExtResource("4_5xoji")]
 position = Vector2(8339, 640)
 zone = "f2_male_bathroom"
 spawn = "SpawnHallway"
 transparency_value = 0.5
 
-[node name="DoorBathroomF" parent="Doors" index="3" instance=ExtResource("5_s7y7p")]
+[node name="DoorBathroomF" parent="Doors" index="4" instance=ExtResource("5_s7y7p")]
 position = Vector2(9548, 640)
 zone = "f2_female_bathroom"
 spawn = "SpawnHallway"
 transparency_value = 0.5
 
-[node name="DoorTeachersRoom" parent="Doors" index="4" instance=ExtResource("6_gvj4c")]
+[node name="DoorTeachersRoom" parent="Doors" index="5" instance=ExtResource("6_gvj4c")]
 modulate = Color(1, 1, 1, 0.627451)
 position = Vector2(1192, 1306)
 zone = "teachers_room"
@@ -154,7 +160,7 @@ spawn = "SpawnF2NH"
 spawn_direction = "down"
 transparent = true
 
-[node name="Portal" parent="Doors" index="5" instance=ExtResource("7_t4bdn")]
+[node name="Portal" parent="Doors" index="6" instance=ExtResource("7_t4bdn")]
 position = Vector2(268, 985)
 zone = "f1n_hallway"
 spawn = "SpawnF2NH"
@@ -226,3 +232,6 @@ position = Vector2(9548, 800)
 
 [node name="SpawnTeachersRoom" type="Node2D" parent="SpawnPoints" index="5"]
 position = Vector2(1192, 1148)
+
+[node name="SpawnMusicRoom" type="Node2D" parent="SpawnPoints" index="6"]
+position = Vector2(1192, 820)

@@ -9,7 +9,7 @@ size = Vector2(180, 57)
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -98)
-region_rect = Rect2(535, 65, 200, 255)
+region_rect = Rect2(268, 13, 40, 51)
 
 [node name="StaticBody2D" parent="." index="1"]
 position = Vector2(0, -98)

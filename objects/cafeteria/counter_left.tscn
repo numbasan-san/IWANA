@@ -8,7 +8,7 @@ size = Vector2(374, 155)
 [node name="CounterLeft" instance=ExtResource("1_2fcck")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(400, 195, 374, 240.688)
+region_rect = Rect2(80, 39, 74, 48)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(0, 42.5)

@@ -5,4 +5,4 @@
 [node name="Trophy" instance=ExtResource("1_fjx30")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1530, 635, 60, 160)
+region_rect = Rect2(306, 127, 12, 32)

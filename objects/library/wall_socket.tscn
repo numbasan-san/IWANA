@@ -5,4 +5,4 @@
 [node name="WallSocket" instance=ExtResource("1_po2ee")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(590, 875, 55, 85)
+region_rect = Rect2(118, 175, 11, 17)

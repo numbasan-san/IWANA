@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://wj1qx5xeiuf3"]
 
 [ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://objects/base_object.tscn" id="1_ibbt1"]
-[ext_resource type="Texture2D" uid="uid://g2jn7v75nom1" path="res://objects/laboratory/laboratory.png" id="2_owv5l"]
+[ext_resource type="Texture2D" uid="uid://dt1axe06x7qnr" path="res://objects/laboratory/laboratory_384x240.png" id="2_q34v8"]
 
 [node name="BaseLabObject" instance=ExtResource("1_ibbt1")]
 
 [node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_owv5l")
+texture = ExtResource("2_q34v8")

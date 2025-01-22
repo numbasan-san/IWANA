@@ -5,4 +5,4 @@
 [node name="Water3" instance=ExtResource("1_xdfcf")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(900, 1005, 225, 45)
+region_rect = Rect2(126, 193, 42, 13)

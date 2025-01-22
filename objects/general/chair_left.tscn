@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ygl1oqh1604x"]
 
 [ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://objects/base_object.tscn" id="1_2d2h6"]
-[ext_resource type="Texture2D" uid="uid://yxonjbiosogp" path="res://objects/general/chairs_and_tables.png" id="2_ssa4t"]
+[ext_resource type="Texture2D" uid="uid://bmnpiur6fnpci" path="res://objects/general/chairs_and_tables_384x240.png" id="2_mt72x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtqo8"]
 size = Vector2(87, 47.5)
@@ -10,8 +10,8 @@ size = Vector2(87, 47.5)
 
 [node name="Sprite2D" parent="." index="0"]
 position = Vector2(0, -69)
-texture = ExtResource("2_ssa4t")
-region_rect = Rect2(615, 211, 85, 185)
+texture = ExtResource("2_mt72x")
+region_rect = Rect2(176, 59, 17, 37)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(0.5, 0)

@@ -8,7 +8,7 @@ size = Vector2(215, 286)
 [node name="VerticalGlassShelf" instance=ExtResource("1_1iyh3")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(795, 570, 215, 470)
+region_rect = Rect2(159, 114, 43, 94)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(0, 92)

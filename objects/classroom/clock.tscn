@@ -5,4 +5,4 @@
 [node name="Clock" instance=ExtResource("1_3fpm7")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1280, 160, 75, 75)
+region_rect = Rect2(256, 32, 15, 15)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://b67rhdi4whspe"]
+[gd_scene load_steps=3 format=3 uid="uid://b67rhdi4whspe"]
 
 [ext_resource type="PackedScene" uid="uid://bexdhvmbe3drg" path="res://objects/infirmary/base_inf_object.tscn" id="1_spohn"]
 
@@ -8,7 +8,7 @@ size = Vector2(245, 144)
 [node name="Bookshelf" instance=ExtResource("1_spohn")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(80, 595, 245, 365)
+region_rect = Rect2(16, 119, 49, 73)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(0.5, 110)
