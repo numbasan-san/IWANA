@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ProtectedEffect" load_steps=6 format=3 uid="uid://dgcylu03fgifl"]
 
-[ext_resource type="Texture2D" uid="uid://cdhitokvk18u5" path="res://combat/effects/lasting_effect_icons.png" id="1_8b5b7"]
+[ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="1_8b5b7"]
 [ext_resource type="Script" path="res://combat/effects/buffs/protected.gd" id="1_p33c4"]
 [ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="2_xf5q8"]
 

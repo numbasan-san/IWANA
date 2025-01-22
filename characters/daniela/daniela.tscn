@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://cg8a33nsebwjm" path="res://characters/daniela/vn/daniladino2.png" id="2_mrhog"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_rf6nx"]
 [ext_resource type="Texture2D" uid="uid://b2fe5e2h7ytuw" path="res://characters/daniela/vn/danielaenojadapng.png" id="4_4aw6c"]
+[ext_resource type="Texture2D" uid="uid://cfwdpyaaq0cdl" path="res://characters/daniela/rpg/movement_384x240.png" id="5_qbeq8"]
 [ext_resource type="Texture2D" uid="uid://bl7vlhrf33l1" path="res://characters/daniela/combat/fainted.png" id="6_7wt8b"]
-[ext_resource type="Texture2D" uid="uid://cqwk76th7ccy4" path="res://characters/daniela/rpg/movement.png" id="6_xh8t3"]
 [ext_resource type="Texture2D" uid="uid://b0wpoca15nrtu" path="res://characters/daniela/combat/cuernito.png" id="7_k47t8"]
 [ext_resource type="Script" path="res://combat/effects/damage.gd" id="9_cg7s2"]
 [ext_resource type="Texture2D" uid="uid://b0ainjfp61ope" path="res://characters/noby_combate.png" id="9_ujn7e"]
@@ -91,8 +91,9 @@ scale = Vector2(-1, 1)
 texture = ExtResource("4_4aw6c")
 
 [node name="Sprite2D" parent="RPGModel" index="0"]
-texture = ExtResource("6_xh8t3")
-offset = Vector2(0, -136)
+scale = Vector2(5, 5)
+texture = ExtResource("5_qbeq8")
+offset = Vector2(0, -40)
 vframes = 8
 frame = 16
 region_rect = Rect2(630, 144, 135, 270)

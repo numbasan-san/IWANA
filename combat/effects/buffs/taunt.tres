@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Taunt" load_steps=4 format=3 uid="uid://hen87gwbrxuu"]
+
+[ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="1_746yw"]
+[ext_resource type="Script" path="res://combat/effects/buffs/taunt.gd" id="1_fd4nj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b1dj"]
+atlas = ExtResource("1_746yw")
+region = Rect2(174, 66, 48, 42)
+
+[resource]
+script = ExtResource("1_fd4nj")
+icon = SubResource("AtlasTexture_4b1dj")
+type = 0
+modifies = 2
+decrease_duration = 2
+duration = 1
+value = 1.0

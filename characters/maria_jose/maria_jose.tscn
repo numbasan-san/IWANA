@@ -1,11 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://maeacjbhexlb"]
+[gd_scene load_steps=15 format=3 uid="uid://maeacjbhexlb"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_jrk70"]
 [ext_resource type="Resource" uid="uid://bi4hew6bkrrqx" path="res://script/characters/resource/maria_jose.tres" id="2_rcxgb"]
 [ext_resource type="Texture2D" uid="uid://d31y0igqd5jjx" path="res://characters/maria_jose/vn/mariajose.png" id="3_xswt3"]
 [ext_resource type="Texture2D" uid="uid://i2nyri0gtmgh" path="res://characters/maria_jose/vn/jm_neutral.png" id="4_bra5u"]
-[ext_resource type="Texture2D" uid="uid://bv2sddtx06t7y" path="res://characters/maria_jose/rpg/movement.png" id="4_ptk1p"]
+[ext_resource type="Texture2D" uid="uid://c50cebss7r2lo" path="res://characters/maria_jose/rpg/movement_384x240.png" id="5_2187o"]
+[ext_resource type="AnimationLibrary" uid="uid://b4bbcb4ves016" path="res://characters/movement_animation_incomplete.res" id="6_wk3fa"]
 [ext_resource type="Texture2D" uid="uid://dy3elht7x5ofk" path="res://characters/maria_jose/rpg/mj_portrait.png" id="7_qbub8"]
 [ext_resource type="Texture2D" uid="uid://b0ainjfp61ope" path="res://characters/noby_combate.png" id="7_whste"]
 [ext_resource type="Resource" uid="uid://sy16m35jo4do" path="res://combat/skills/skill_ejemplo_daño.tres" id="10_hka1x"]
@@ -61,8 +62,9 @@ texture = ExtResource("4_bra5u")
 
 [node name="Sprite2D" parent="RPGModel" index="0"]
 position = Vector2(0, 8)
-texture = ExtResource("4_ptk1p")
-offset = Vector2(0, -150)
+scale = Vector2(5, 5)
+texture = ExtResource("5_2187o")
+offset = Vector2(0, -42)
 vframes = 8
 frame = 16
 region_rect = Rect2(457, 660, 145, 300)
@@ -70,6 +72,11 @@ region_rect = Rect2(457, 660, 145, 300)
 [node name="Collider" parent="RPGModel" index="1"]
 position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_2bal8")
+
+[node name="Animation" parent="RPGModel" index="2"]
+libraries = {
+"": ExtResource("6_wk3fa")
+}
 
 [node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
 combat_animation = NodePath("Sprites/AnimatedSprite2D")

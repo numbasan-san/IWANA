@@ -51,11 +51,10 @@ func _process(_delta):
 	anim = "walk_" + direction
 	stop_anim = "stop_" + direction
 	if has_node("Animation"):
-		$Animation.play(anim)
-	if  axis.x == 0 and axis.y == 0 and has_node("Animation"):
-		# Stoping animation depending on the last direction the character was
-		# moving
-		$Animation.play(stop_anim)
+		if  axis.x == 0 and axis.y == 0:
+			$Animation.play(stop_anim)
+		else:
+			$Animation.play(anim)
 
 func set_axis(x, y):
 	axis = Vector2(x, y).normalized()

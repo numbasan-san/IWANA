@@ -1,16 +1,15 @@
-[gd_scene load_steps=20 format=3 uid="uid://dorc15lxpd2w4"]
+[gd_scene load_steps=16 format=3 uid="uid://dorc15lxpd2w4"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Resource" uid="uid://dqghkllfgkd3g" path="res://script/characters/resource/carla.tres" id="2_g18jn"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_vglxn"]
 [ext_resource type="Texture2D" uid="uid://boe2ejslup8co" path="res://characters/carla/vn/neutral.png" id="4_03jaf"]
 [ext_resource type="Texture2D" uid="uid://bwmjdrfbyflyo" path="res://characters/carla/combat/fainted.png" id="4_50y82"]
-[ext_resource type="Texture2D" uid="uid://b772roe40ywqq" path="res://characters/carla/rpg/movement.png" id="4_uvmvw"]
-[ext_resource type="Script" path="res://combat/effects/damage.gd" id="5_lkpum"]
-[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="6_85i0v"]
+[ext_resource type="Texture2D" uid="uid://dk1vdl2oqyw8r" path="res://characters/carla/rpg/movement_384x240.png" id="4_74ne1"]
+[ext_resource type="AnimationLibrary" uid="uid://b4bbcb4ves016" path="res://characters/movement_animation_incomplete.res" id="5_qtphw"]
 [ext_resource type="Texture2D" uid="uid://hrxhwymn3xxf" path="res://characters/carla/rpg/carla_portrait.png" id="6_m1qib"]
-[ext_resource type="Script" path="res://combat/skills/skill.gd" id="7_2u0rd"]
 [ext_resource type="Texture2D" uid="uid://b0ainjfp61ope" path="res://characters/noby_combate.png" id="7_yjqap"]
+[ext_resource type="Resource" uid="uid://dictbrxqi37wy" path="res://characters/carla/combat/skill8/carla_skill_8.tres" id="16_ofr3g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyij3"]
 resource_local_to_scene = true
@@ -55,28 +54,6 @@ base_critical = 5
 base_precision = 100
 base_evasion = 0
 
-[sub_resource type="Resource" id="Resource_o0vmu"]
-resource_local_to_scene = true
-script = ExtResource("6_85i0v")
-number_of_targets = 2
-random = false
-allow_repetition = false
-
-[sub_resource type="Resource" id="Resource_rdmvj"]
-resource_local_to_scene = true
-script = ExtResource("5_lkpum")
-type = 0
-value = 1.0
-target_type = SubResource("Resource_o0vmu")
-
-[sub_resource type="Resource" id="Resource_nacnq"]
-resource_local_to_scene = true
-script = ExtResource("7_2u0rd")
-name = "Daño Ejemplo"
-description = "Skill de ejemplo para  debuggear"
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_rdmvj")])
-energy_cost = 5
-
 [node name="Carla" instance=ExtResource("1_begxf")]
 char_info = ExtResource("2_g18jn")
 
@@ -89,8 +66,9 @@ texture = ExtResource("4_03jaf")
 
 [node name="Sprite2D" parent="RPGModel" index="0"]
 position = Vector2(0, 14)
-texture = ExtResource("4_uvmvw")
-offset = Vector2(0, -121)
+scale = Vector2(5, 5)
+texture = ExtResource("4_74ne1")
+offset = Vector2(0, -43)
 vframes = 8
 frame = 16
 region_rect = Rect2(364, 595, 195, 240)
@@ -99,6 +77,11 @@ region_rect = Rect2(364, 595, 195, 240)
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_eyij3")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="Animation" parent="RPGModel" index="2"]
+libraries = {
+"": ExtResource("5_qtphw")
+}
 
 [node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
 combat_animation = NodePath("Sprites/CombatSprite")
@@ -117,4 +100,4 @@ animation = &"idle"
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_4hq1v")
-skills = Array[ExtResource("7_2u0rd")]([SubResource("Resource_nacnq")])
+skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("16_ofr3g"), ExtResource("16_ofr3g"), ExtResource("16_ofr3g"), ExtResource("16_ofr3g"), ExtResource("16_ofr3g"), ExtResource("16_ofr3g"), ExtResource("16_ofr3g"), ExtResource("16_ofr3g")])
