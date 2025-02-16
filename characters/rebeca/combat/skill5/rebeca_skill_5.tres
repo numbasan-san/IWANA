@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://kdu0qkpipef2"]
+
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_uetsa"]
+
+[resource]
+script = ExtResource("1_uetsa")
+name = "Alquimista de piedra"
+description = "Usando su equipo de química, crea un vial que aplica un efecto al enemigo"
+effects = Array[Resource("res://combat/effects/effect.gd")]([])
+energy_cost = 0

@@ -5,6 +5,7 @@ class_name DevMode extends Screen
 @export var zones: MenuButton
 @export var scenes: MenuButton
 @export var units: MenuButton
+@export var test: Label
 
 var enabled = false
 

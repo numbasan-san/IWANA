@@ -2,11 +2,9 @@
 
 [ext_resource type="Script" path="res://combat/effects/conditions/stat_condition.gd" id="1_s6n1s"]
 [ext_resource type="Script" path="res://combat/effects/conditional_effect.gd" id="2_c712b"]
-[ext_resource type="Script" path="res://combat/effects/buffs/defense_buff.gd" id="3_4bbmh"]
 [ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="3_8862q"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="3_j4mow"]
-[ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="4_5dnuk"]
-[ext_resource type="Script" path="res://combat/effects/buffs/damage_buff.gd" id="5_oupoy"]
+[ext_resource type="Script" path="res://combat/effects/stat_moding_effect.gd" id="5_5aow1"]
 
 [sub_resource type="Resource" id="Resource_omxej"]
 script = ExtResource("1_s6n1s")
@@ -23,37 +21,45 @@ number_of_targets = 1
 random = false
 allow_repetition = false
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nlge3"]
-atlas = ExtResource("4_5dnuk")
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i1tfb"]
+load_path = "res://.godot/imported/lasting_effect_icons.png-77f127f496dd8238ff80ee35f581e8c1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vb2pp"]
+atlas = SubResource("CompressedTexture2D_i1tfb")
 region = Rect2(174, 66, 48, 42)
 
-[sub_resource type="Resource" id="Resource_c160h"]
-script = ExtResource("3_4bbmh")
-icon = SubResource("AtlasTexture_nlge3")
+[sub_resource type="Resource" id="Resource_hrkxe"]
+script = ExtResource("5_5aow1")
+stat = "Defense"
+additive_modifier = true
+icon = SubResource("AtlasTexture_vb2pp")
 type = 0
-modifies = 0
 decrease_duration = 3
 duration = 2
-value = 20.0
+value = 5.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jh20o"]
-atlas = ExtResource("4_5dnuk")
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6n6bk"]
+load_path = "res://.godot/imported/lasting_effect_icons.png-77f127f496dd8238ff80ee35f581e8c1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_by724"]
+atlas = SubResource("CompressedTexture2D_6n6bk")
 region = Rect2(174, 66, 48, 42)
 
-[sub_resource type="Resource" id="Resource_rxn1j"]
-script = ExtResource("5_oupoy")
-icon = SubResource("AtlasTexture_jh20o")
+[sub_resource type="Resource" id="Resource_0abjb"]
+script = ExtResource("5_5aow1")
+stat = "Damage"
+additive_modifier = true
+icon = SubResource("AtlasTexture_by724")
 type = 0
-modifies = 0
 decrease_duration = 3
 duration = 2
-value = 20.0
+value = 5.0
 
 [sub_resource type="Resource" id="Resource_mcyxl"]
 script = ExtResource("2_c712b")
 condition = SubResource("Resource_omxej")
-when_true = SubResource("Resource_rxn1j")
-when_false = SubResource("Resource_c160h")
+when_true = SubResource("Resource_0abjb")
+when_false = SubResource("Resource_hrkxe")
 value = 1.0
 target_type = SubResource("Resource_eaodr")
 

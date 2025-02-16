@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=10 format=3 uid="uid://dk71niqdnaxym"]
+
+[ext_resource type="Script" path="res://combat/effects/heal.gd" id="1_uhsam"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_xdw2i"]
+[ext_resource type="Script" path="res://combat/effects/buffs/regen.gd" id="2_gqqfn"]
+[ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="3_gu6np"]
+
+[sub_resource type="Resource" id="Resource_td1j7"]
+resource_local_to_scene = true
+script = ExtResource("1_uhsam")
+value = 20.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1u8hh"]
+load_path = "res://.godot/imported/lasting_effect_icons.png-77f127f496dd8238ff80ee35f581e8c1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qc3lu"]
+atlas = SubResource("CompressedTexture2D_1u8hh")
+region = Rect2(174, 66, 48, 42)
+
+[sub_resource type="Resource" id="Resource_cwdh4"]
+script = ExtResource("3_gu6np")
+exclude_self = true
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_ujx4m"]
+script = ExtResource("2_gqqfn")
+after_turn_effect = SubResource("Resource_td1j7")
+icon = SubResource("AtlasTexture_qc3lu")
+type = 0
+decrease_duration = 3
+duration = 3
+value = 1.0
+target_type = SubResource("Resource_cwdh4")
+
+[resource]
+script = ExtResource("1_xdw2i")
+name = "Abracito dulce"
+description = "Apapacho, da regeneración a un aliado."
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_ujx4m")])
+energy_cost = 0

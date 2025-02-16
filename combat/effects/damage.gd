@@ -20,13 +20,14 @@ func on_cast(caster: Character):
 	
 
 func on_apply(target: Character):
-	# Defense is a value from 0 to 100 that acts as a percentage. We turn into a
-	# value from 0 to 1
-	var t_defense = float(target.combat_handler.stats.defense) / 100
-	# This is the value that we're multiplying by the incoming damage.
-	var mod = 1 - t_defense
-	value = value * mod
-	if is_critical:
-		value *= 2
+	if type != DamageType.TRUE:
+		# Defense is a value from 0 to 100 that acts as a percentage. We turn into a
+		# value from 0 to 1
+		var t_defense = float(target.combat_handler.stats.defense) / 100
+		# This is the value that we're multiplying by the incoming damage.
+		var mod = 1 - t_defense
+		value = value * mod
+		if is_critical:
+			value *= 2
 	
 	target.combat_handler.stats.health -= value

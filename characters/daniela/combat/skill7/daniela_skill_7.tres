@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=12 format=3 uid="uid://c865syw7hp84r"]
+
+[ext_resource type="Script" path="res://combat/effects/damage.gd" id="1_hjr3m"]
+[ext_resource type="Script" path="res://combat/effects/stat_moding_effect.gd" id="2_32ur5"]
+[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="3_eyg8x"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="4_nlith"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="5_pw7sq"]
+
+[sub_resource type="Resource" id="Resource_2dfu3"]
+script = ExtResource("1_hjr3m")
+type = 0
+value = 1.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vqju7"]
+load_path = "res://.godot/imported/lasting_effect_icons.png-77f127f496dd8238ff80ee35f581e8c1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b085f"]
+atlas = SubResource("CompressedTexture2D_vqju7")
+region = Rect2(270, 72, 48, 42)
+
+[sub_resource type="Resource" id="Resource_251fl"]
+script = ExtResource("2_32ur5")
+stat = "Defense"
+additive_modifier = true
+icon = SubResource("AtlasTexture_b085f")
+type = 1
+decrease_duration = 3
+duration = 2
+value = 5.0
+
+[sub_resource type="Resource" id="Resource_7wvwr"]
+script = ExtResource("4_nlith")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_yrcf1"]
+script = ExtResource("3_eyg8x")
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_2dfu3"), SubResource("Resource_251fl")])
+value = 1.0
+target_type = SubResource("Resource_7wvwr")
+
+[resource]
+script = ExtResource("5_pw7sq")
+name = "Cometa de Geeko"
+description = "Salta y ataca a su enemigo con un poderoso puño desde el cielo, Hace daño y rompe defensa."
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_yrcf1")])
+energy_cost = 0

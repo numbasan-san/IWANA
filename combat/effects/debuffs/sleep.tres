@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Sleep" load_steps=4 format=3 uid="uid://ddlfj3bexjilk"]
+
+[ext_resource type="Script" path="res://combat/effects/debuffs/sleep.gd" id="1_iglal"]
+[ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="1_vitte"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y0p2u"]
+atlas = ExtResource("1_vitte")
+region = Rect2(270, 72, 48, 42)
+
+[resource]
+script = ExtResource("1_iglal")
+icon = SubResource("AtlasTexture_y0p2u")
+type = 1
+decrease_duration = 3
+duration = 3
+value = 1.0

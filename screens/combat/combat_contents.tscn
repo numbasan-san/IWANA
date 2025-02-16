@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://f2oog5xfhsha"]
+[gd_scene load_steps=25 format=3 uid="uid://f2oog5xfhsha"]
 
 [ext_resource type="Script" path="res://screens/combat/combat_screen_contents.gd" id="1_o364i"]
 [ext_resource type="Texture2D" uid="uid://ddusl4u64qj4v" path="res://assets/combat_sprites/background1.png" id="2_lv2pp"]
@@ -17,6 +17,7 @@
 [ext_resource type="FontFile" uid="uid://bjh56wfvej2vg" path="res://assets/combat_sprites/font/IWANA.ttf" id="15_5rv14"]
 [ext_resource type="Script" path="res://screens/combat/skills_menu.gd" id="16_3nacl"]
 [ext_resource type="Texture2D" uid="uid://4xwrses4uu7v" path="res://assets/combat_sprites/skills_paper.png" id="17_n5htp"]
+[ext_resource type="PackedScene" uid="uid://dus506xg66heq" path="res://scenes/sfx.tscn" id="18_l7cxu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4841x"]
 atlas = ExtResource("9_1667j")
@@ -654,6 +655,8 @@ offset_right = 155.0
 offset_bottom = 43.0
 theme_override_font_sizes/font_size = 40
 text = "asdadasdas"
+
+[node name="SFX" parent="." instance=ExtResource("18_l7cxu")]
 
 [connection signal="pressed" from="PartyMenu/Actions/ActionList/Attack" to="PartyMenu" method="_on_attack_pressed"]
 [connection signal="pressed" from="PartyMenu/Actions/ActionList/Defense" to="PartyMenu" method="_on_defense_pressed"]

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=6 format=3 uid="uid://ctfi04ropl47o"]
+
+[ext_resource type="Script" path="res://combat/effects/damage.gd" id="1_buk15"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="2_nr78o"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="3_s8on4"]
+
+[sub_resource type="Resource" id="Resource_yee67"]
+script = ExtResource("2_nr78o")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_4n31v"]
+script = ExtResource("1_buk15")
+type = 0
+value = 1.0
+target_type = SubResource("Resource_yee67")
+
+[resource]
+script = ExtResource("3_s8on4")
+name = "Golpe rompecorazones"
+description = "Es un ataque normal, pero cuando seleccionas el ataque, tienes las opciones de hacer un ataque normal  pero un ataque más fuerte que debuffea la defensa"
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_4n31v")])
+energy_cost = 5

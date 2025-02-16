@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SFXResource" load_steps=3 format=3 uid="uid://cikixpkwkbn28"]
+
+[ext_resource type="Script" path="res://audio_tracks/sfx_resource.gd" id="1_e74qw"]
+[ext_resource type="AudioStream" uid="uid://kody70ans230" path="res://assets/audio/curac.mp3" id="2_pcvms"]
+
+[resource]
+script = ExtResource("1_e74qw")
+track_name = "Heal"
+stream = ExtResource("2_pcvms")

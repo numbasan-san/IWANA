@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=8 format=3 uid="uid://b033x27at84lq"]
+
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_gyelh"]
+[ext_resource type="Script" path="res://combat/effects/stat_moding_effect.gd" id="1_xcdlw"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="2_t1bli"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jjqqq"]
+load_path = "res://.godot/imported/lasting_effect_icons.png-77f127f496dd8238ff80ee35f581e8c1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wlwo"]
+atlas = SubResource("CompressedTexture2D_jjqqq")
+region = Rect2(270, 72, 48, 42)
+
+[sub_resource type="Resource" id="Resource_65ttr"]
+script = ExtResource("2_t1bli")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_tn6ib"]
+script = ExtResource("1_xcdlw")
+stat = "Precision"
+additive_modifier = true
+icon = SubResource("AtlasTexture_5wlwo")
+type = 1
+decrease_duration = 3
+duration = 2
+value = 5.0
+target_type = SubResource("Resource_65ttr")
+
+[resource]
+script = ExtResource("1_gyelh")
+name = "Golpe falso"
+description = "Finge atacar, pero le pica los ojos al enemigo y le baja la precisión."
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_tn6ib")])
+energy_cost = 0

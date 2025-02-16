@@ -1,0 +1,20 @@
+[gd_scene load_steps=8 format=3 uid="uid://dus506xg66heq"]
+
+[ext_resource type="Script" path="res://screens/combat/SFX.gd" id="1_ekrsb"]
+[ext_resource type="Resource" uid="uid://cb3n3de2b1vdt" path="res://audio_tracks/sfx_attack1.tres" id="2_bstoj"]
+[ext_resource type="Resource" uid="uid://cm648330oxgeg" path="res://audio_tracks/sfx_block.tres" id="3_pmce6"]
+[ext_resource type="Resource" uid="uid://dphmqsj3g6j8g" path="res://audio_tracks/sfx_energy.tres" id="4_j33y0"]
+[ext_resource type="Resource" uid="uid://cikixpkwkbn28" path="res://audio_tracks/sfx_heal.tres" id="5_cbk0i"]
+[ext_resource type="Resource" uid="uid://besqfgl4j0x64" path="res://audio_tracks/sfx_hit1.tres" id="6_uodfj"]
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_c40cs"]
+
+[node name="SFX" type="Node" node_paths=PackedStringArray("stream_player")]
+script = ExtResource("1_ekrsb")
+stream_player = NodePath("AudioStreamPlayer")
+sounds = Array[Resource("res://audio_tracks/sfx_resource.gd")]([ExtResource("2_bstoj"), ExtResource("3_pmce6"), ExtResource("4_j33y0"), ExtResource("5_cbk0i"), ExtResource("6_uodfj")])
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPolyphonic_c40cs")
+max_polyphony = 16
+bus = &"Sfx"

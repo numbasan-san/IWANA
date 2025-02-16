@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Track" load_steps=2 format=3 uid="uid://bu85rlxojud0n"]
+
+[ext_resource type="Script" path="res://audio_tracks/track_control.gd" id="1_relad"]
+
+[resource]
+script = ExtResource("1_relad")
+track_name = ""
+segments = {}

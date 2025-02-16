@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=12 format=3 uid="uid://eepmyvydnl4"]
+
+[ext_resource type="Script" path="res://combat/effects/stat_moding_effect.gd" id="1_xnf7t"]
+[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="2_l8u7b"]
+[ext_resource type="Script" path="res://combat/effects/damage.gd" id="3_3pdxe"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="4_wjfcd"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="5_aid8m"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y5qb5"]
+load_path = "res://.godot/imported/lasting_effect_icons.png-77f127f496dd8238ff80ee35f581e8c1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pbhkf"]
+atlas = SubResource("CompressedTexture2D_y5qb5")
+region = Rect2(174, 66, 48, 42)
+
+[sub_resource type="Resource" id="Resource_1tdn7"]
+script = ExtResource("2_l8u7b")
+
+[sub_resource type="Resource" id="Resource_mm51i"]
+script = ExtResource("1_xnf7t")
+stat = "Damage"
+additive_modifier = true
+icon = SubResource("AtlasTexture_pbhkf")
+type = 0
+decrease_duration = 3
+duration = 1
+value = 5.0
+target_type = SubResource("Resource_1tdn7")
+
+[sub_resource type="Resource" id="Resource_4kjlw"]
+script = ExtResource("4_wjfcd")
+number_of_targets = 3
+random = true
+allow_repetition = true
+
+[sub_resource type="Resource" id="Resource_sphn7"]
+script = ExtResource("3_3pdxe")
+type = 0
+value = 1.0
+target_type = SubResource("Resource_4kjlw")
+
+[resource]
+script = ExtResource("5_aid8m")
+name = "Liberar frustración"
+description = "Intenta dibujar, pero no le sale, le da un buff y golpea 3 veces de forma aleatoria,enemigo (Berserker)"
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_mm51i"), SubResource("Resource_sphn7")])
+energy_cost = 8

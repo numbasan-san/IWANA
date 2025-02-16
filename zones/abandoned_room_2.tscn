@@ -162,7 +162,7 @@ pattern_6 = SubResource("TileMapPattern_j68bv")
 pattern_7 = SubResource("TileMapPattern_22pgg")
 pattern_8 = SubResource("TileMapPattern_n40g6")
 
-[node name="AbandonedRoom1" type="Node2D"]
+[node name="AbandonedRoom2" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_e10qj")
 room_name = "Aula Abandonada"

@@ -1,56 +1,32 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=15 format=3 uid="uid://dictbrxqi37wy"]
+[gd_resource type="Resource" script_class="Skill" load_steps=8 format=3 uid="uid://lc58o03rwf5i"]
 
-[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_1v8p5"]
-[ext_resource type="Script" path="res://combat/effects/buffs/defense_buff.gd" id="1_mews8"]
-[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="2_48qf5"]
-[ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="3_bqxo7"]
-[ext_resource type="Script" path="res://combat/effects/damage.gd" id="4_i0umr"]
-[ext_resource type="Script" path="res://combat/effects/buffs/spikes.gd" id="5_52qoe"]
-[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="6_ai5c1"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_nio7f"]
+[ext_resource type="Script" path="res://combat/effects/buffs/shield.gd" id="2_k4yd2"]
+[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="3_w10g6"]
 
-[sub_resource type="Resource" id="Resource_2qim4"]
-script = ExtResource("2_48qf5")
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wewhd"]
+load_path = "res://.godot/imported/lasting_effect_icons.png-77f127f496dd8238ff80ee35f581e8c1.ctex"
 
-[sub_resource type="Resource" id="Resource_2dqdv"]
-script = ExtResource("1_mews8")
-type = 0
-modifies = 0
-decrease_duration = 2
-duration = 1
-value = 10.0
-target_type = SubResource("Resource_2qim4")
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e3cb6"]
-atlas = ExtResource("3_bqxo7")
+[sub_resource type="AtlasTexture" id="AtlasTexture_sppn6"]
+atlas = SubResource("CompressedTexture2D_wewhd")
 region = Rect2(174, 66, 48, 42)
 
-[sub_resource type="Resource" id="Resource_homao"]
-script = ExtResource("4_i0umr")
+[sub_resource type="Resource" id="Resource_sdjhi"]
+script = ExtResource("3_w10g6")
+
+[sub_resource type="Resource" id="Resource_746vw"]
+resource_local_to_scene = true
+script = ExtResource("2_k4yd2")
+icon = SubResource("AtlasTexture_sppn6")
 type = 0
-value = 1.0
-
-[sub_resource type="Resource" id="Resource_ewc8x"]
-script = ExtResource("5_52qoe")
-intercept_effect = SubResource("Resource_homao")
-icon = SubResource("AtlasTexture_e3cb6")
-type = 0
-modifies = 2
-decrease_duration = 2
-duration = 1
-value = 4.0
-
-[sub_resource type="Resource" id="Resource_5bp0p"]
-script = ExtResource("2_48qf5")
-
-[sub_resource type="Resource" id="Resource_0yvmd"]
-script = ExtResource("6_ai5c1")
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_2dqdv"), SubResource("Resource_ewc8x")])
-value = 1.0
-target_type = SubResource("Resource_5bp0p")
+decrease_duration = 3
+duration = 4
+value = 10.0
+target_type = SubResource("Resource_sdjhi")
 
 [resource]
-script = ExtResource("1_1v8p5")
-name = "Cota de espinas"
-description = "Consigue espinas, aumenta su defensa."
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_0yvmd")])
+script = ExtResource("1_nio7f")
+name = "Un recuerdo feliz"
+description = " Saca su dibujo favorito, obtiene un escudo varios turnos."
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_746vw")])
 energy_cost = 0

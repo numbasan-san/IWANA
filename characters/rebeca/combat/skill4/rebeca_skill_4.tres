@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://dvomnx82s73uu"]
+
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_3nlsj"]
+
+[resource]
+script = ExtResource("1_3nlsj")
+name = "Cabezazo"
+description = "cuando usas la habilidad permite que beca tenga una carga por cada otra habilidad que use, cuando vuelvas a usar la habilidad esta será un ataque que aumenta el daño por cada carga conseguida."
+effects = Array[Resource("res://combat/effects/effect.gd")]([])
+energy_cost = 0

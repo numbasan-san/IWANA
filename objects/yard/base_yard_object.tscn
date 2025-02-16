@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cahhguph112nt"]
 
-[ext_resource type="Texture2D" uid="uid://deloi8kmfrsfv" path="res://objects/yard/yard.png" id="1_man28"]
+[ext_resource type="Texture2D" uid="uid://deloi8kmfrsfv" path="res://objects/yard/yard_384x240.png" id="1_7hfjh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_346tc"]
 
@@ -8,7 +8,8 @@
 z_index = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_man28")
+scale = Vector2(5, 5)
+texture = ExtResource("1_7hfjh")
 region_enabled = true
 region_rect = Rect2(272, 152, 48, 48)
 

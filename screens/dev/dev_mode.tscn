@@ -10,7 +10,7 @@ font_size = 35
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
-[node name="DevMode" type="CanvasLayer" node_paths=PackedStringArray("characters", "party", "zones", "scenes", "units", "contents")]
+[node name="DevMode" type="CanvasLayer" node_paths=PackedStringArray("characters", "party", "zones", "scenes", "units", "test", "contents")]
 layer = 100
 script = ExtResource("1_cqayl")
 characters = NodePath("Contents/VBoxContainer/PlayerControl/Characters")
@@ -18,6 +18,7 @@ party = NodePath("Contents/VBoxContainer/PartyControl")
 zones = NodePath("Contents/VBoxContainer/SceneDetails/Menus/Zones")
 scenes = NodePath("Contents/VBoxContainer/SceneDetails/Menus/Scenes")
 units = NodePath("Contents/VBoxContainer/SceneDetails/Menus/Units")
+test = NodePath("Contents/VBoxContainer/ScrollContainer/Label")
 contents = NodePath("Contents")
 
 [node name="Contents" type="Control" parent="."]
@@ -33,8 +34,8 @@ mouse_filter = 2
 layout_mode = 0
 offset_left = 20.0
 offset_top = 20.0
-offset_right = 319.0
-offset_bottom = 321.0
+offset_right = 749.0
+offset_bottom = 863.0
 
 [node name="ReloadButton" type="Button" parent="Contents/VBoxContainer"]
 layout_mode = 2
@@ -181,6 +182,17 @@ theme_override_font_sizes/font_size = 35
 text = "Ninguna"
 flat = false
 alignment = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Contents/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Contents/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 32
+autowrap_mode = 1
 
 [node name="DialogDetails" type="HBoxContainer" parent="Contents"]
 layout_mode = 2

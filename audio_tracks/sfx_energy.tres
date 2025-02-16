@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SFXResource" load_steps=3 format=3 uid="uid://dphmqsj3g6j8g"]
+
+[ext_resource type="Script" path="res://audio_tracks/sfx_resource.gd" id="1_307lg"]
+[ext_resource type="AudioStream" uid="uid://b1743ua0hsvqu" path="res://assets/audio/energu.mp3" id="2_mj4fb"]
+
+[resource]
+script = ExtResource("1_307lg")
+track_name = "Energy"
+stream = ExtResource("2_mj4fb")

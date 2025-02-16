@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://he102qhdr2lh"]
+
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_4qe04"]
+
+[resource]
+script = ExtResource("1_4qe04")
+name = "Amo el olor a sangre en la mañana"
+description = "Ataca, si el enemigo está sangrando, hace un critico."
+effects = Array[Resource("res://combat/effects/effect.gd")]([])
+energy_cost = 0

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://d67ssq0mgikq"]
+
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_v31qi"]
+
+[resource]
+script = ExtResource("1_v31qi")
+name = "El temible refresco 3000"
+description = "Tira una lata de refresco que explota en fierros y aplica fuego."
+effects = Array[Resource("res://combat/effects/effect.gd")]([])
+energy_cost = 0

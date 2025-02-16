@@ -12,6 +12,7 @@ script = ExtResource("1_fd4nj")
 icon = SubResource("AtlasTexture_4b1dj")
 type = 0
 modifies = 2
+numeric_modifier = false
 decrease_duration = 2
 duration = 1
 value = 1.0

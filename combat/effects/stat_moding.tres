@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="StatModingEffect" load_steps=4 format=3 uid="uid://cc66g6uxkh1kf"]
+
+[ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="1_ubkh7"]
+[ext_resource type="Script" path="res://combat/effects/stat_moding_effect.gd" id="2_0pt77"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdi16"]
+atlas = ExtResource("1_ubkh7")
+
+[resource]
+script = ExtResource("2_0pt77")
+stat = ""
+additive_modifier = false
+icon = SubResource("AtlasTexture_mdi16")
+type = 0
+decrease_duration = 0
+duration = 0
+value = 1.0

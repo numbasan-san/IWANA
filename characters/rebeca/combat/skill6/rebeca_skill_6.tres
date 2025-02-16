@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=8 format=3 uid="uid://c177yrcp3pnra"]
+
+[ext_resource type="Script" path="res://combat/effects/heal.gd" id="1_cpni4"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_p84d8"]
+[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="2_e552q"]
+[ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="3_5mugv"]
+
+[sub_resource type="Resource" id="Resource_htbc3"]
+resource_local_to_scene = true
+script = ExtResource("1_cpni4")
+value = 20.0
+
+[sub_resource type="Resource" id="Resource_tf60k"]
+script = ExtResource("3_5mugv")
+exclude_self = true
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_nb1pj"]
+script = ExtResource("2_e552q")
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_htbc3"), null])
+value = 1.0
+target_type = SubResource("Resource_tf60k")
+
+[resource]
+script = ExtResource("1_p84d8")
+name = "Monster-cola"
+description = "Cura a un aliado y hace que el siguiente ataque del aliado tenga efectos de quemadura."
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_nb1pj")])
+energy_cost = 0

@@ -7,11 +7,11 @@ class_name LastingEffect extends Effect
 
 @export var icon: AtlasTexture
 
+# This is used to identify a lasting effect as being positive or negative towards
+# the target. Some skills might target only one of these types, and enhance or
+# diminish them.
 enum Type { BUFF, DEBUFF }
 @export var type: Type
-
-enum Modify { STAT, OUTGOING, INCOMING, CHARACTER_HIT }
-@export var modifies: Modify
 
 enum Decrease {
 	NEVER,
@@ -54,7 +54,7 @@ func on_character_hit(who: Character, effect: Effect):
 
 func character_hit(who: Character, effect: Effect):
 	# We check this here because if on_character_hit sends another effect to the
-	# target that will also be trigger this effect on hit, it could enter an
+	# target that will also trigger this effect on hit, it could enter an
 	# infinite loop. Because hit is always made false at the end of this
 	# function, if it is true at this point it's because we are calling this
 	# recursively. If the second call wouldn't trigger the effect anyways, this

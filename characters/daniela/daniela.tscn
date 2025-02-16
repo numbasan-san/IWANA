@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://d3ltulgb5a8do"]
+[gd_scene load_steps=23 format=3 uid="uid://d3ltulgb5a8do"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Resource" uid="uid://chcyry721t4nl" path="res://script/characters/resource/daniela.tres" id="2_kncc3"]
@@ -8,11 +8,15 @@
 [ext_resource type="Texture2D" uid="uid://cfwdpyaaq0cdl" path="res://characters/daniela/rpg/movement_384x240.png" id="5_qbeq8"]
 [ext_resource type="Texture2D" uid="uid://bl7vlhrf33l1" path="res://characters/daniela/combat/fainted.png" id="6_7wt8b"]
 [ext_resource type="Texture2D" uid="uid://b0wpoca15nrtu" path="res://characters/daniela/combat/cuernito.png" id="7_k47t8"]
-[ext_resource type="Script" path="res://combat/effects/damage.gd" id="9_cg7s2"]
 [ext_resource type="Texture2D" uid="uid://b0ainjfp61ope" path="res://characters/noby_combate.png" id="9_ujn7e"]
-[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="10_aeymw"]
-[ext_resource type="Script" path="res://combat/skills/skill.gd" id="11_ktylc"]
-[ext_resource type="Resource" uid="uid://bx2eg3037k252" path="res://characters/daniela/combat/skill2/wip_daniela_skill_2.tres" id="12_eon4c"]
+[ext_resource type="Resource" uid="uid://ctfi04ropl47o" path="res://characters/daniela/combat/skill1/daniela_skill_1.tres" id="10_uw2v6"]
+[ext_resource type="Resource" uid="uid://bkh1ox28jkmet" path="res://characters/daniela/combat/skill3/daniela_skill_3.tres" id="12_itpv5"]
+[ext_resource type="Resource" uid="uid://sotak7dpn74e" path="res://characters/daniela/combat/skill2/daniela_skill_2.tres" id="13_a6c0t"]
+[ext_resource type="Resource" uid="uid://eepmyvydnl4" path="res://characters/daniela/combat/skill4/daniela_skill_4.tres" id="13_xaosh"]
+[ext_resource type="Resource" uid="uid://cte6bdu5ck1vb" path="res://characters/daniela/combat/skill5/daniela_skill_5.tres" id="14_6iis0"]
+[ext_resource type="Resource" uid="uid://dy8iao35wkjdn" path="res://characters/daniela/combat/skill6/daniela_skill_6.tres" id="15_p0xby"]
+[ext_resource type="Resource" uid="uid://c865syw7hp84r" path="res://characters/daniela/combat/skill7/daniela_skill_7.tres" id="16_66rww"]
+[ext_resource type="Resource" uid="uid://dmvj4kyndncv6" path="res://characters/daniela/combat/skill8/daniela_skill_8.tres" id="17_e8jih"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fqsh1"]
 resource_local_to_scene = true
@@ -52,29 +56,10 @@ base_max_health = 30
 base_max_energy = 40
 base_damage = 8
 base_defense = 0
-base_speed = 3
+base_speed = 8
 base_critical = 0
 base_precision = 100
 base_evasion = 0
-
-[sub_resource type="Resource" id="Resource_yee67"]
-script = ExtResource("10_aeymw")
-number_of_targets = 1
-random = false
-allow_repetition = false
-
-[sub_resource type="Resource" id="Resource_4n31v"]
-script = ExtResource("9_cg7s2")
-type = 0
-value = 1.0
-target_type = SubResource("Resource_yee67")
-
-[sub_resource type="Resource" id="Resource_a4wt8"]
-script = ExtResource("11_ktylc")
-name = "Golpe rompecorazones"
-description = "Es un ataque normal, pero cuando seleccionas el ataque, tienes las opciones de hacer un ataque normal  pero un ataque más fuerte que debuffea la defensa"
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_4n31v")])
-energy_cost = 5
 
 [node name="Daniela" instance=ExtResource("1_begxf")]
 char_info = ExtResource("2_kncc3")
@@ -118,4 +103,4 @@ animation = &"idle"
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_cqid2")
-skills = Array[ExtResource("11_ktylc")]([SubResource("Resource_a4wt8"), ExtResource("12_eon4c")])
+skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("10_uw2v6"), ExtResource("13_a6c0t"), ExtResource("12_itpv5"), ExtResource("13_xaosh"), ExtResource("14_6iis0"), ExtResource("15_p0xby"), ExtResource("16_66rww"), ExtResource("17_e8jih")])

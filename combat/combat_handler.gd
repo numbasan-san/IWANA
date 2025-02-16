@@ -5,6 +5,12 @@ class_name CombatHandler extends Node
 
 var character: Character
 
+# This indicate if the character is stuned, asleep, or under some other effect
+# that forces it to skip a turn. This is different to being unconscious (0 hp)
+# as this doesn't prevent the character from being targeted and don't count
+# towards a victory condition.
+var incapacitated: bool = false
+
 signal added_lasting_effect
 signal removed_lasting_effect
 signal showing_graphic(anim: String)
@@ -31,6 +37,9 @@ var outgoing_effect_modifiers: Array[LastingEffect]
 # These are buffs and debuffs that activate their effects when the affected
 # character sends another effect that hits its target
 var character_hit_monitors: Array[LastingEffect]
+
+# These are buffs and debuffs that don't fit in the other categories.
+var other_modifiers: Array[LastingEffect]
 
 # These are special effects that instead of modifying the stats of the character
 # and the effects of skills, play some animation or create some graphical effect
@@ -68,6 +77,9 @@ func init():
 		for eff in character_hit_monitors:
 			removed_lasting_effect.emit(eff)
 		character_hit_monitors.clear()
+		for eff in other_modifiers:
+			removed_lasting_effect.emit(eff)
+		other_modifiers.clear()
 	)
 	var hit = load("res://combat/effects/animation_effects/graphical_hit_effect.tres").duplicate()
 	hit.target = self.character
@@ -135,17 +147,8 @@ func receive(effect: Effect):
 	# If we have reached this point, the effect has survived and must be applied.
 	# If it's a lasting effect, it must be added to the corresponding list
 	if effect is LastingEffect:
-		var Mod = LastingEffect.Modify
-		match effect.modifies:
-			Mod.STAT:
-				stat_modifiers.append(effect)
-			Mod.INCOMING:
-				incoming_effect_modifiers.append(effect)
-			Mod.OUTGOING:
-				outgoing_effect_modifiers.append(effect)
-			Mod.CHARACTER_HIT:
-				character_hit_monitors.append(effect)
-		added_lasting_effect.emit(effect)
+		add_lasting_effect(effect)
+		
 	await effect.apply(character)
 	for hit in hit_animations:
 		await hit.intercept(effect)
@@ -171,19 +174,40 @@ func after_character_hit(who: Character, effect: Effect):
 # effect is removed from its list and it's unapplied
 func end_of_duration(effect: LastingEffect):
 	if effect.duration <= 0:
-		var Mod = LastingEffect.Modify
-		match effect.modifies:
-			Mod.STAT:
-				stat_modifiers.erase(effect)
-			Mod.INCOMING:
-				incoming_effect_modifiers.erase(effect)
-			Mod.OUTGOING:
-				outgoing_effect_modifiers.erase(effect)
-			Mod.CHARACTER_HIT:
-				character_hit_monitors.erase(effect)
-		removed_lasting_effect.emit(effect)
-		effect.unapply(character)
+		remove_lasting_effect(effect)
 
+# Adds an effect to the corresponding array and sends a signal. This can be called
+# from outside this class to ensure an effect is properly added.
+func add_lasting_effect(effect: LastingEffect):
+	if effect is StatModingEffect:
+		stat_modifiers.append(effect)
+	elif effect is InModingEffect:
+		incoming_effect_modifiers.append(effect)
+	elif effect is OutModingEffect:
+		outgoing_effect_modifiers.append(effect)
+	elif effect is HitModingEffect:
+		character_hit_monitors.append(effect)
+	else:
+		other_modifiers.append(effect)
+	
+	added_lasting_effect.emit(effect)
+	
+# Removes an effect from the corresponding array and sends a signal. This can be called
+# from outside this class to ensure an effect is properly removed.
+func remove_lasting_effect(effect: LastingEffect):
+	if effect is StatModingEffect:
+		stat_modifiers.erase(effect)
+	elif effect is InModingEffect:
+		incoming_effect_modifiers.erase(effect)
+	elif effect is OutModingEffect:
+		outgoing_effect_modifiers.erase(effect)
+	elif effect is HitModingEffect:
+		character_hit_monitors.erase(effect)
+	else:
+		other_modifiers.erase(effect)
+	removed_lasting_effect.emit(effect)
+	effect.unapply(character)
+	
 # Calls the given function on all the lasting effects registered for this handler,
 # and checks if the duration has decreased. The passed function must be one of
 # before_turn, after_turn, before_hit or after_hit
@@ -192,6 +216,7 @@ func _perform_on_lasting_effects(function_name: String):
 	lasting.append_array(incoming_effect_modifiers)
 	lasting.append_array(outgoing_effect_modifiers)
 	lasting.append_array(character_hit_monitors)
+	lasting.append_array(other_modifiers)
 	for eff in lasting:
 		eff.call(function_name, character)
 		# This is checked here in case some effect decreases its duration at the

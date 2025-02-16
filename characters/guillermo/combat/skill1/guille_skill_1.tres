@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=10 format=3 uid="uid://2qrcbncw64ml"]
+
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_0rlj7"]
+[ext_resource type="Script" path="res://combat/effects/damage.gd" id="1_ls5mh"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="2_7bry3"]
+[ext_resource type="Script" path="res://combat/effects/heal.gd" id="3_bf3a2"]
+[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="4_0dyam"]
+
+[sub_resource type="Resource" id="Resource_k06t8"]
+script = ExtResource("2_7bry3")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_bxukp"]
+script = ExtResource("1_ls5mh")
+type = 0
+value = 1.0
+target_type = SubResource("Resource_k06t8")
+
+[sub_resource type="Resource" id="Resource_6wqvl"]
+script = ExtResource("4_0dyam")
+
+[sub_resource type="Resource" id="Resource_mmipj"]
+script = ExtResource("3_bf3a2")
+value = 1.0
+target_type = SubResource("Resource_6wqvl")
+
+[resource]
+script = ExtResource("1_0rlj7")
+name = "Mordisco"
+description = "Hace un mordisco hace daño y se cura."
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_bxukp"), SubResource("Resource_mmipj")])
+energy_cost = 0

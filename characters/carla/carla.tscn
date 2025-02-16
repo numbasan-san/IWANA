@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dorc15lxpd2w4"]
+[gd_scene load_steps=23 format=3 uid="uid://dorc15lxpd2w4"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Resource" uid="uid://dqghkllfgkd3g" path="res://script/characters/resource/carla.tres" id="2_g18jn"]
@@ -9,7 +9,14 @@
 [ext_resource type="AnimationLibrary" uid="uid://b4bbcb4ves016" path="res://characters/movement_animation_incomplete.res" id="5_qtphw"]
 [ext_resource type="Texture2D" uid="uid://hrxhwymn3xxf" path="res://characters/carla/rpg/carla_portrait.png" id="6_m1qib"]
 [ext_resource type="Texture2D" uid="uid://b0ainjfp61ope" path="res://characters/noby_combate.png" id="7_yjqap"]
-[ext_resource type="Resource" uid="uid://dictbrxqi37wy" path="res://characters/carla/combat/skill8/carla_skill_8.tres" id="16_ofr3g"]
+[ext_resource type="Resource" uid="uid://dictbrxqi37wy" path="res://characters/carla/combat/skill1/carla_skill_1.tres" id="10_5wqqk"]
+[ext_resource type="Resource" uid="uid://c7ctd4sjh66jy" path="res://characters/carla/combat/skill2/carla_skill_2.tres" id="11_tpjcy"]
+[ext_resource type="Resource" uid="uid://7x7yb7nln5n7" path="res://characters/carla/combat/skill3/carla_skill_3.tres" id="12_bm1yd"]
+[ext_resource type="Resource" uid="uid://c01m60qj02xxd" path="res://characters/carla/combat/skill4/carla_skill_4.tres" id="13_0o6jo"]
+[ext_resource type="Resource" uid="uid://lc58o03rwf5i" path="res://characters/carla/combat/skill5/carla_skill_5.tres" id="14_xvl0x"]
+[ext_resource type="Resource" uid="uid://cow8xqqtaylai" path="res://characters/carla/combat/skill6/carla_skill_6.tres" id="15_atl7k"]
+[ext_resource type="Resource" uid="uid://tng2hnsmo7qg" path="res://characters/carla/combat/skill7/carla_skill_7.tres" id="16_rc7xj"]
+[ext_resource type="Resource" uid="uid://bijh26ssy4mxy" path="res://characters/carla/combat/skill8/carla_skill_8.tres" id="17_lptqu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyij3"]
 resource_local_to_scene = true
@@ -49,7 +56,7 @@ base_max_health = 20
 base_max_energy = 40
 base_damage = 10
 base_defense = 0
-base_speed = 4
+base_speed = 10
 base_critical = 5
 base_precision = 100
 base_evasion = 0
@@ -100,4 +107,4 @@ animation = &"idle"
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_4hq1v")
-skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("16_ofr3g"), ExtResource("16_ofr3g"), ExtResource("16_ofr3g"), ExtResource("16_ofr3g"), ExtResource("16_ofr3g"), ExtResource("16_ofr3g"), ExtResource("16_ofr3g"), ExtResource("16_ofr3g")])
+skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("10_5wqqk"), ExtResource("11_tpjcy"), ExtResource("12_bm1yd"), ExtResource("13_0o6jo"), ExtResource("14_xvl0x"), ExtResource("15_atl7k"), ExtResource("16_rc7xj"), ExtResource("17_lptqu")])

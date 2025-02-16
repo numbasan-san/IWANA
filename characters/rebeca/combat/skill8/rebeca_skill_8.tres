@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=8 format=3 uid="uid://d1acsh5awfpq6"]
+
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_di0wb"]
+[ext_resource type="Script" path="res://combat/effects/damage.gd" id="1_lenkw"]
+[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="2_byw4a"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="3_oybih"]
+
+[sub_resource type="Resource" id="Resource_03w2j"]
+script = ExtResource("1_lenkw")
+type = 0
+value = 5.0
+
+[sub_resource type="Resource" id="Resource_6see7"]
+script = ExtResource("3_oybih")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_7yi24"]
+script = ExtResource("2_byw4a")
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_03w2j")])
+value = 1.0
+target_type = SubResource("Resource_6see7")
+
+[resource]
+script = ExtResource("1_di0wb")
+name = "Silencio en la biblioteca"
+description = "Bloquea la última habilidad usada por el enemigo y hace un poco de daño"
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_7yi24")])
+energy_cost = 0

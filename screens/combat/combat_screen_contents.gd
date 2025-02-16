@@ -62,6 +62,17 @@ func start_battle(player_party: Party, enemy_party: Party):
 	for enemy in enemy_party.members:
 		left_area.add_character(enemy)
 	await ScreenManager.push(ScreenManager.combat_screen, "Out", "In")
+	var characters: Array[Character] = []
+	characters.append_array(player_party.members)
+	characters.append_array(enemy_party.members)
+	
+	# TODO: this could generate some errors if the queue is reordering while the
+	# next actor is being selected. This could happen if there is not enough time
+	# between when the speed is changed and the next turn. We must add some waiting
+	# time after the skills are executed to prevent this.
+	for char in characters:
+		char.combat_handler.stats.update_speed.connect(_reorder_from_speed_change)
+	
 	show_party_menu()
 	prepare_new_round()
 	next_turn()
@@ -75,6 +86,14 @@ func end_battle():
 	#TODO: replace this with more permanent solution to rebattle
 	for m in enemy_party.members:
 		m.combat_handler.stats.replenish()
+		
+	var characters: Array[Character] = []
+	characters.append_array(player_party.members)
+	characters.append_array(enemy_party.members)
+	
+	for char in characters:
+		char.combat_handler.stats.update_speed.disconnect(_reorder_from_speed_change)
+	
 	enemy_party = null
 	player_party = null
 	actor_queue.clear()
@@ -88,10 +107,7 @@ func prepare_new_round():
 	for character in right_area.characters:
 		if not character.combat_handler.stats.unconscious:
 			actor_queue.append(character)
-	actor_queue.sort_custom(func(a: Character, b: Character):
-		var a_handler = a.combat_handler
-		var b_handler = b.combat_handler
-		return a_handler.stats.speed > b_handler.stats.speed)
+	_reorder_queue()
 	
 func next_turn():
 	# We check here if one party has been defeated and end the battle to fix
@@ -110,6 +126,9 @@ func next_turn():
 		# If the next character fainted due to an effect in the previous turn
 		# or at the star of its turn, we skip this turn
 		if next.combat_handler.stats.unconscious:
+			next_turn()
+		if next.combat_handler.incapacitated:
+			next.combat_handler.end_turn()
 			next_turn()
 			
 		# If the next character is in the player's party, we allow the player
@@ -131,6 +150,19 @@ func next_turn():
 			await handler.execute(skill)
 			next.combat_handler.end_turn()
 			next_turn()
+
+# Reorder the actor queue in response of the speed of a character changing
+func _reorder_from_speed_change(old, new):
+	# We ignore the arguments. This is only required because the speed change
+	# signal calls functions with 2 parameters
+	_reorder_queue()
+
+# Called when the actor queue must be reordered
+func _reorder_queue():
+	actor_queue.sort_custom(func(a: Character, b: Character):
+		var a_handler = a.combat_handler
+		var b_handler = b.combat_handler
+		return a_handler.stats.speed > b_handler.stats.speed)
 
 # Shows the party menu and hides the skills menu
 func show_party_menu():

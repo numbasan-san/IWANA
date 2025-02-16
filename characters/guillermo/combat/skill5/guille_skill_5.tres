@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://cirodg6t5sypk"]
+
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_do6ap"]
+
+[resource]
+script = ExtResource("1_do6ap")
+name = "Arañazos"
+description = "Ataca y aplica el estado Sangrado"
+effects = Array[Resource("res://combat/effects/effect.gd")]([])
+energy_cost = 0

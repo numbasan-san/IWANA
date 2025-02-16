@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="ConsumePoison" load_steps=2 format=3 uid="uid://nqi3ufurcm6i"]
+
+[ext_resource type="Script" path="res://combat/effects/consume_poison.gd" id="1_s5wb7"]
+
+[resource]
+script = ExtResource("1_s5wb7")
+value = 1.0

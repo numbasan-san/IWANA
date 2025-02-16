@@ -15,11 +15,11 @@ func _start_battle():
 			d.rpg_model.reposition(Vector2(0, 0), "down")
 			enemy_party.add(d)
 			i += 1
-	enemy_party.members[1].combat_handler.stats.base_speed = 2
+	enemy_party.members[1].combat_handler.stats.base_speed = 9
 	enemy_party.members[1].combat_handler.stats.base_damage = 3
-	enemy_party.members[2].combat_handler.stats.base_speed = 4
+	enemy_party.members[2].combat_handler.stats.base_speed = 9
 	enemy_party.members[2].combat_handler.stats.base_damage = 4
-	enemy_party.members[3].combat_handler.stats.base_speed = 6
+	enemy_party.members[3].combat_handler.stats.base_speed = 9
 	enemy_party.members[3].combat_handler.stats.base_damage = 1
 	ScreenManager.combat_screen.contents.start_battle(Player.party, enemy_party)
 	print("Leaving start battle function")

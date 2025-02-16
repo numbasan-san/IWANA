@@ -163,10 +163,10 @@ var defense_modifier: float = 0:
 		var new = defense
 		update_defense.emit(old, new)
 		
-var speed_modifier: float = 1:
+var speed_modifier: float = 0:
 	set(value):
 		var old = speed
-		speed_modifier = _clampf_min(value, 0.0)
+		speed_modifier = value
 		var new = speed
 		update_speed.emit(old, new)
 
@@ -210,7 +210,7 @@ var defense: int:
 		
 var speed: int:
 	get:
-		return round(base_speed * speed_modifier)
+		return round(base_speed + speed_modifier)
 # Because critical is a percentage from 0 to 100, the modifier is additive
 # instead of multiplicative
 var critical: int:

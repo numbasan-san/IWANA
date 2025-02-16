@@ -23,6 +23,7 @@ func load(zone_name: String):
 			zones[zone_name] = zone
 			add_child(zone)
 			zone.deactivate()
+			var a: String = ""
 		else:
 			printerr("We couldn't find a zone with name " \
 				+ zone_name + " in the folder " + folder)
@@ -37,7 +38,7 @@ func load_all():
 	var exclude = ["base_bathroom", "base_classroom_north", "base_classroom_south",
 		"base_zone", "temp_construccion", "world"]
 	for file in DirAccess.get_files_at(folder):
-		var no_ext = file.get_file().get_basename()
+		var no_ext = file.split(".")[0]
 		if not exclude.has(no_ext):
 			self.load(no_ext)
 		

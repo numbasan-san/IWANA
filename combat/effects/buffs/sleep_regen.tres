@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="SleepRegen" load_steps=6 format=3 uid="uid://ceoq0omafpint"]
+
+[ext_resource type="Script" path="res://combat/effects/heal.gd" id="1_a0nuh"]
+[ext_resource type="Script" path="res://combat/effects/buffs/sleep_regen.gd" id="1_u4jf4"]
+[ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="2_8rt0x"]
+
+[sub_resource type="Resource" id="Resource_oln51"]
+script = ExtResource("1_a0nuh")
+value = 2.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1h52h"]
+atlas = ExtResource("2_8rt0x")
+region = Rect2(174, 66, 48, 42)
+
+[resource]
+script = ExtResource("1_u4jf4")
+after_turn_effect = SubResource("Resource_oln51")
+icon = SubResource("AtlasTexture_1h52h")
+type = 0
+decrease_duration = 0
+duration = 0
+value = 1.0

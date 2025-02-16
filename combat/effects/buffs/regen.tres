@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Regen" load_steps=6 format=3 uid="uid://c2vrp5x7v58na"]
+
+[ext_resource type="Script" path="res://combat/effects/buffs/regen.gd" id="1_aorgj"]
+[ext_resource type="Script" path="res://combat/effects/heal.gd" id="1_guo1q"]
+[ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="2_4iaro"]
+
+[sub_resource type="Resource" id="Resource_31xvh"]
+resource_local_to_scene = true
+script = ExtResource("1_guo1q")
+value = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_to874"]
+atlas = ExtResource("2_4iaro")
+region = Rect2(174, 66, 48, 42)
+
+[resource]
+script = ExtResource("1_aorgj")
+after_turn_effect = SubResource("Resource_31xvh")
+icon = SubResource("AtlasTexture_to874")
+type = 0
+decrease_duration = 3
+duration = 3
+value = 1.0

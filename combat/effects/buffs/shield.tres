@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Shield" load_steps=4 format=3 uid="uid://ck8sk1boeunmr"]
+
+[ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="1_2vrmp"]
+[ext_resource type="Script" path="res://combat/effects/buffs/shield.gd" id="1_bl15m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbyea"]
+atlas = ExtResource("1_2vrmp")
+region = Rect2(174, 66, 48, 42)
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_bl15m")
+icon = SubResource("AtlasTexture_kbyea")
+type = 0
+modifies = 2
+numeric_modifier = false
+decrease_duration = 3
+duration = 4
+value = 10.0

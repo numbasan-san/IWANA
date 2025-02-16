@@ -12,7 +12,6 @@ value = 2.0
 script = ExtResource("1_j542i")
 after_turn_effect = SubResource("Resource_u1a7f")
 type = 1
-modifies = 0
 decrease_duration = 3
 duration = 3
 value = 1.0

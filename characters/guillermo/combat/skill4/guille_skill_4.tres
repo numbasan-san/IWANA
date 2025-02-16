@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=16 format=3 uid="uid://h7lwhs1snj1r"]
+
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_fj11o"]
+[ext_resource type="Script" path="res://combat/effects/debuffs/sleep.gd" id="1_n3epa"]
+[ext_resource type="Script" path="res://combat/effects/buffs/sleep_regen.gd" id="2_mausp"]
+[ext_resource type="Script" path="res://combat/effects/heal.gd" id="2_mwh54"]
+[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="3_j28ab"]
+[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="4_j1db7"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5bew6"]
+load_path = "res://.godot/imported/lasting_effect_icons.png-77f127f496dd8238ff80ee35f581e8c1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3fndm"]
+atlas = SubResource("CompressedTexture2D_5bew6")
+region = Rect2(270, 72, 48, 42)
+
+[sub_resource type="Resource" id="Resource_qqgu5"]
+script = ExtResource("1_n3epa")
+icon = SubResource("AtlasTexture_3fndm")
+type = 1
+decrease_duration = 3
+duration = 3
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_0c67x"]
+script = ExtResource("2_mwh54")
+value = 3.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8ilay"]
+load_path = "res://.godot/imported/lasting_effect_icons.png-77f127f496dd8238ff80ee35f581e8c1.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sua4f"]
+atlas = SubResource("CompressedTexture2D_8ilay")
+region = Rect2(174, 66, 48, 42)
+
+[sub_resource type="Resource" id="Resource_d2iub"]
+script = ExtResource("2_mausp")
+after_turn_effect = SubResource("Resource_0c67x")
+icon = SubResource("AtlasTexture_sua4f")
+type = 0
+decrease_duration = 0
+duration = 0
+value = 1.0
+
+[sub_resource type="Resource" id="Resource_ghlol"]
+script = ExtResource("4_j1db7")
+
+[sub_resource type="Resource" id="Resource_hlutd"]
+script = ExtResource("3_j28ab")
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_qqgu5"), SubResource("Resource_d2iub")])
+value = 1.0
+target_type = SubResource("Resource_ghlol")
+
+[resource]
+script = ExtResource("1_fj11o")
+name = "Me vale vrga"
+description = "se duerme, cada turno con el efecto se cura una cantidad"
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_hlutd")])
+energy_cost = 0
