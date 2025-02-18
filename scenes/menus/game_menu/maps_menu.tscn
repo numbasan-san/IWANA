@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ely53w7kp76p" path="res://assets/menus/game menu/libro_mapa.png" id="1_uqcs6"]
 [ext_resource type="Texture2D" uid="uid://cavh2jribhxeq" path="res://assets/menus/mascara.png" id="3_0gv0p"]
 [ext_resource type="Texture2D" uid="uid://c8bc5fdvpohv0" path="res://assets/menus/btn.png" id="4_jqaan"]
-[ext_resource type="PackedScene" path="res://scenes/menus/game_menu/utilities/room_represent.tscn" id="4_rynxr"]
+[ext_resource type="PackedScene" uid="uid://bqcnhygdum144" path="res://scenes/menus/game_menu/utilities/room_represent.tscn" id="4_rynxr"]
 [ext_resource type="Texture2D" uid="uid://d1kebbcj1onft" path="res://assets/menus/game menu/map_menu/mapa_edificio.png" id="6_lrsgn"]
 
 [node name="maps_menu" type="Control"]

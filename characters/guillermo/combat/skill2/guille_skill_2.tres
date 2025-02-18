@@ -7,4 +7,4 @@ script = ExtResource("1_tcbr8")
 name = "Herida abierta"
 description = "aplica (herido)"
 effects = Array[Resource("res://combat/effects/effect.gd")]([])
-energy_cost = 0
+energy_cost = 999999

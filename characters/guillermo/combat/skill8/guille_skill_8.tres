@@ -7,4 +7,4 @@ script = ExtResource("1_v31qi")
 name = "El temible refresco 3000"
 description = "Tira una lata de refresco que explota en fierros y aplica fuego."
 effects = Array[Resource("res://combat/effects/effect.gd")]([])
-energy_cost = 0
+energy_cost = 999999999

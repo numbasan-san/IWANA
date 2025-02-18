@@ -7,4 +7,4 @@ script = ExtResource("1_do6ap")
 name = "Arañazos"
 description = "Ataca y aplica el estado Sangrado"
 effects = Array[Resource("res://combat/effects/effect.gd")]([])
-energy_cost = 0
+energy_cost = 9999999

@@ -7,4 +7,4 @@ script = ExtResource("1_uetsa")
 name = "Alquimista de piedra"
 description = "Usando su equipo de química, crea un vial que aplica un efecto al enemigo"
 effects = Array[Resource("res://combat/effects/effect.gd")]([])
-energy_cost = 0
+energy_cost = 99999999

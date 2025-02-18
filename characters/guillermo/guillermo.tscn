@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cbsenaqm4qe7m"]
+[gd_scene load_steps=23 format=3 uid="uid://cbsenaqm4qe7m"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Resource" uid="uid://csb8r8xe32g78" path="res://script/characters/resource/guillermo.tres" id="2_fj7it"]
@@ -16,6 +16,7 @@
 [ext_resource type="Resource" uid="uid://cirodg6t5sypk" path="res://characters/guillermo/combat/skill5/guille_skill_5.tres" id="14_vmg2i"]
 [ext_resource type="Resource" uid="uid://he102qhdr2lh" path="res://characters/guillermo/combat/skill6/guille_skill_6.tres" id="15_iy545"]
 [ext_resource type="Resource" uid="uid://cgvcmj4buh4ib" path="res://characters/guillermo/combat/skill7/guille_skill_7.tres" id="16_hxhol"]
+[ext_resource type="Resource" uid="uid://d67ssq0mgikq" path="res://characters/guillermo/combat/skill8/guille_skill_8.tres" id="17_q4xpq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ei4ua"]
 resource_local_to_scene = true
@@ -103,4 +104,4 @@ animation = &"idle"
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_csewl")
-skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("10_ahs5w"), ExtResource("11_3bxh1"), ExtResource("12_th4y3"), ExtResource("13_lw6qq"), ExtResource("14_vmg2i"), ExtResource("15_iy545"), ExtResource("16_hxhol"), null])
+skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("10_ahs5w"), ExtResource("11_3bxh1"), ExtResource("12_th4y3"), ExtResource("13_lw6qq"), ExtResource("14_vmg2i"), ExtResource("15_iy545"), ExtResource("16_hxhol"), ExtResource("17_q4xpq")])

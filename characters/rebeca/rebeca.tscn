@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dykkm64a7u1j7"]
+[gd_scene load_steps=21 format=3 uid="uid://dykkm64a7u1j7"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Resource" uid="uid://mqfek00juk2e" path="res://script/characters/resource/rebeca.tres" id="2_w6kso"]
@@ -8,7 +8,14 @@
 [ext_resource type="Texture2D" uid="uid://bhtqxh36hwckf" path="res://characters/rebeca/rpg/beca_portrait.png" id="6_3flp4"]
 [ext_resource type="Texture2D" uid="uid://b0ainjfp61ope" path="res://characters/noby_combate.png" id="6_g3xgt"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="8_rmlj5"]
-[ext_resource type="Resource" uid="uid://sy16m35jo4do" path="res://combat/skills/skill_ejemplo_daño.tres" id="9_xs2lm"]
+[ext_resource type="Resource" uid="uid://bh1355m3ns053" path="res://characters/rebeca/combat/skill1/rebeca_skill_1.tres" id="9_u0nat"]
+[ext_resource type="Resource" uid="uid://d2yn3ndyf2vk4" path="res://characters/rebeca/combat/skill2/rebeca_skill_2.tres" id="10_cog8o"]
+[ext_resource type="Resource" uid="uid://dk71niqdnaxym" path="res://characters/rebeca/combat/skill3/rebeca_skill_3.tres" id="11_5x32w"]
+[ext_resource type="Resource" uid="uid://dvomnx82s73uu" path="res://characters/rebeca/combat/skill4/rebeca_skill_4.tres" id="12_45wwq"]
+[ext_resource type="Resource" uid="uid://kdu0qkpipef2" path="res://characters/rebeca/combat/skill5/rebeca_skill_5.tres" id="13_cfw72"]
+[ext_resource type="Resource" uid="uid://c177yrcp3pnra" path="res://characters/rebeca/combat/skill6/rebeca_skill_6.tres" id="14_iktp1"]
+[ext_resource type="Resource" uid="uid://jmdx3dv0rbse" path="res://characters/rebeca/combat/skill7/rebeca_skill_7.tres" id="15_f6jb1"]
+[ext_resource type="Resource" uid="uid://d1acsh5awfpq6" path="res://characters/rebeca/combat/skill8/rebeca_skill_8.tres" id="16_j46l7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fq57j"]
 resource_local_to_scene = true
@@ -87,4 +94,4 @@ animation = &"idle"
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_hwklp")
-skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("9_xs2lm")])
+skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("9_u0nat"), ExtResource("10_cog8o"), ExtResource("11_5x32w"), ExtResource("12_45wwq"), ExtResource("13_cfw72"), ExtResource("14_iktp1"), ExtResource("15_f6jb1"), ExtResource("16_j46l7")])

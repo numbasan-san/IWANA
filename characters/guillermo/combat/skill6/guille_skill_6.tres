@@ -7,4 +7,4 @@ script = ExtResource("1_4qe04")
 name = "Amo el olor a sangre en la mañana"
 description = "Ataca, si el enemigo está sangrando, hace un critico."
 effects = Array[Resource("res://combat/effects/effect.gd")]([])
-energy_cost = 0
+energy_cost = 999999

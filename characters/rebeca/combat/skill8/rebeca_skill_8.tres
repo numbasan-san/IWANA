@@ -27,4 +27,4 @@ script = ExtResource("1_di0wb")
 name = "Silencio en la biblioteca"
 description = "Bloquea la última habilidad usada por el enemigo y hace un poco de daño"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_7yi24")])
-energy_cost = 0
+energy_cost = 99999999999
