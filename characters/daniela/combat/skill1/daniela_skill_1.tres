@@ -13,7 +13,7 @@ allow_repetition = false
 [sub_resource type="Resource" id="Resource_4n31v"]
 script = ExtResource("1_buk15")
 type = 0
-value = 1.0
+base_value = 1.0
 target_type = SubResource("Resource_yee67")
 
 [resource]

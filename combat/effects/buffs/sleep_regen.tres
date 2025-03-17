@@ -19,4 +19,5 @@ icon = SubResource("AtlasTexture_1h52h")
 type = 0
 decrease_duration = 0
 duration = 0
+stacks = false
 value = 1.0

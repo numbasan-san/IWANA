@@ -1,7 +1,19 @@
-[gd_resource type="Resource" script_class="HealingShield" load_steps=2 format=3 uid="uid://d0bmk7hu6t2tm"]
+[gd_resource type="Resource" script_class="HealingShield" load_steps=4 format=3 uid="uid://d0bmk7hu6t2tm"]
 
 [ext_resource type="Script" path="res://combat/effects/buffs/healing_shield.gd" id="1_5w8nj"]
+[ext_resource type="Script" path="res://combat/effects/heal.gd" id="2_jwf3y"]
+
+[sub_resource type="Resource" id="Resource_nwoxa"]
+script = ExtResource("2_jwf3y")
+base_value = 1.0
 
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_5w8nj")
+unapply_effect = SubResource("Resource_nwoxa")
+intercept_type = ""
+type = 0
+decrease_duration = 0
+duration = 0
+stacks = true
+base_value = 1.0

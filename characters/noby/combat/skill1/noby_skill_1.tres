@@ -16,17 +16,17 @@ region = Rect2(174, 66, 48, 42)
 [sub_resource type="Resource" id="Resource_k4bvu"]
 script = ExtResource("4_votv4")
 graphic_name = "jump_protect"
-value = 1.0
+base_value = 1.0
 
 [sub_resource type="Resource" id="Resource_5ekvf"]
 script = ExtResource("4_votv4")
 graphic_name = "idle"
-value = 1.0
+base_value = 1.0
 
 [sub_resource type="Resource" id="Resource_ms0ch"]
 script = ExtResource("2_mcybc")
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_k4bvu"), SubResource("Resource_5ekvf")])
-value = 1.0
+base_value = 1.0
 
 [sub_resource type="Resource" id="Resource_6d5tn"]
 script = ExtResource("2_ad0qx")
@@ -39,12 +39,13 @@ allow_repetition = false
 resource_local_to_scene = true
 script = ExtResource("1_auus6")
 intercept_effect = SubResource("Resource_ms0ch")
+intercept_type = "In"
 icon = SubResource("AtlasTexture_i4dso")
 type = 0
-modifies = 2
 decrease_duration = 4
 duration = 1
-value = 1.0
+stacks = false
+base_value = 1.0
 target_type = SubResource("Resource_6d5tn")
 
 [resource]

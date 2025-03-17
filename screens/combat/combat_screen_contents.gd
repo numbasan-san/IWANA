@@ -79,6 +79,13 @@ func start_battle(player_party: Party, enemy_party: Party):
 
 # Called at the end of the battle to clean the screen
 func end_battle():
+	var characters: Array[Character] = []
+	characters.append_array(player_party.members)
+	characters.append_array(enemy_party.members)
+	for char in characters:
+		char.combat_handler.clear_lasting_effects()
+		char.combat_handler.stats.update_speed.disconnect(_reorder_from_speed_change)
+	
 	await ScreenManager.pop(ScreenManager.combat_screen, "Out", "In")
 	party_menu.clear()
 	right_area.clear()
@@ -86,13 +93,6 @@ func end_battle():
 	#TODO: replace this with more permanent solution to rebattle
 	for m in enemy_party.members:
 		m.combat_handler.stats.replenish()
-		
-	var characters: Array[Character] = []
-	characters.append_array(player_party.members)
-	characters.append_array(enemy_party.members)
-	
-	for char in characters:
-		char.combat_handler.stats.update_speed.disconnect(_reorder_from_speed_change)
 	
 	enemy_party = null
 	player_party = null
@@ -141,14 +141,18 @@ func next_turn():
 			_focus_action_list()
 		else:
 			var handler = next.combat_handler
-			var skill: Skill = handler.skills.pick_random()
-			for eff in skill.effects:
-				if eff.target_type.is_manual_target():
-					var t_type = eff.target_type as TargetVariable
-					t_type.random = true
-			skill.process_effects(enemy_party, player_party, [])
-			await handler.execute(skill)
-			next.combat_handler.end_turn()
+			var available_skills: Array[Skill] = handler.skills.filter(func(skill):
+				return skill.enabled)
+			if available_skills.size() > 0:
+				var skill: Skill = available_skills.pick_random()
+				handler.last_skill = skill
+				for eff in skill.effects:
+					if eff.target_type.is_manual_target():
+						var t_type = eff.target_type as TargetVariable
+						t_type.random = true
+				skill.process_effects(enemy_party, player_party, [])
+				await handler.execute(skill)
+				next.combat_handler.end_turn()
 			next_turn()
 
 # Reorder the actor queue in response of the speed of a character changing

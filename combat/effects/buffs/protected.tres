@@ -18,9 +18,11 @@ allow_repetition = false
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_p33c4")
+intercept_type = ""
 icon = SubResource("AtlasTexture_8qrrw")
 type = 0
 decrease_duration = 4
 duration = 1
-value = 1.0
+stacks = false
+base_value = 1.0
 target_type = SubResource("Resource_264t3")

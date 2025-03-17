@@ -22,6 +22,10 @@ class_name ChainedEffect extends LastingEffect
 # effect
 @export var intercept_effect: Effect
 
+# If this chain will trigger when it intercepts some effect, this determines if
+# it will intercept incoming effects, outgoing, or a different skill hitting the target.
+@export_enum("In", "Out", "Hit") var intercept_type: String
+
 func character_hit(who: Character, effect: Effect):
 	if not hit:
 		on_character_hit(who, effect)
@@ -59,7 +63,13 @@ func intercept(effect: Effect):
 		on_intercept(effect)
 		if interception:
 			if intercept_effect:
-				await target.combat_handler.receive(intercept_effect)
+				# Because this effect is passed directly to the receive function,
+				# the on_cast function of the effect and out_moding effects of
+				# the caster will be bypassed. This means the effect value won't
+				# be modified before reaching the target and it will use the value
+				# set in the editor. In particular, triggering a damage effect
+				# won't use the caster's damage to calculate the value.
+				await intercept_effect.target.combat_handler.receive(intercept_effect)
 			if decrease_duration == Decrease.ON_INTERCEPT:
 				duration -= 1
 	interception = false

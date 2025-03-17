@@ -70,9 +70,9 @@ func control(new_character: Character = null):
 			var model = character.rpg_model
 			control = model.get_node("PlayerControl")
 			model.remove_child(control)
-			model.activate_interactions()
+			model.enable_interactions()
 			model = new_character.rpg_model
-			model.deactivate_interactions()
+			model.disable_interactions()
 			model.add_child(control)
 			control.is_enabled = ScreenManager.rpg_screen.is_active
 			

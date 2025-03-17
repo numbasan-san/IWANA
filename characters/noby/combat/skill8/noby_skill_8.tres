@@ -29,7 +29,7 @@ allow_repetition = false
 [sub_resource type="Resource" id="Resource_0015k"]
 script = ExtResource("4_87dbu")
 graphic_name = "noby_throw_heart"
-value = 1.0
+base_value = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nxh0j"]
 atlas = ExtResource("6_bscu7")
@@ -90,27 +90,27 @@ script = ExtResource("7_goam3")
 projectile = SubResource("Resource_mqxe5")
 speed = 1000.0
 target_offset = Vector2(0, -100)
-value = 1.0
+base_value = 1.0
 
 [sub_resource type="Resource" id="Resource_ifmww"]
 script = ExtResource("3_68xyr")
-value = 1.0
+base_value = 1.0
 
 [sub_resource type="Resource" id="Resource_xefvu"]
 script = ExtResource("4_87dbu")
 graphic_name = "noby_lose_heart"
-value = 1.0
+base_value = 1.0
 
 [sub_resource type="Resource" id="Resource_p7cge"]
 script = ExtResource("6_brdvk")
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_0015k"), SubResource("Resource_t613u"), SubResource("Resource_ifmww"), SubResource("Resource_xefvu")])
-value = 1.0
+base_value = 1.0
 
 [sub_resource type="Resource" id="Resource_rc2l1"]
 script = ExtResource("1_cjewu")
 condition = SubResource("Resource_xjins")
 when_true = SubResource("Resource_p7cge")
-value = 1.0
+base_value = 1.0
 target_type = SubResource("Resource_vb1r8")
 
 [resource]

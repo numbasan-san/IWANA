@@ -9,7 +9,7 @@
 [sub_resource type="Resource" id="Resource_14uvd"]
 script = ExtResource("1_bbjeb")
 type = 0
-value = 1.0
+base_value = 1.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tjuuh"]
 load_path = "res://.godot/imported/lasting_effect_icons.png-77f127f496dd8238ff80ee35f581e8c1.ctex"
@@ -21,12 +21,13 @@ region = Rect2(270, 72, 48, 42)
 [sub_resource type="Resource" id="Resource_m46um"]
 script = ExtResource("4_2crx7")
 stat = "Damage"
-additive_modifier = true
+additive_modifier = false
 icon = SubResource("AtlasTexture_8b78p")
 type = 1
-decrease_duration = 3
+decrease_duration = 5
 duration = 1
-value = 5.0
+stacks = false
+base_value = 2.0
 
 [sub_resource type="Resource" id="Resource_uo4ev"]
 script = ExtResource("2_6khfy")
@@ -37,7 +38,7 @@ allow_repetition = false
 [sub_resource type="Resource" id="Resource_swbux"]
 script = ExtResource("3_5nnvd")
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_14uvd"), SubResource("Resource_m46um")])
-value = 1.0
+base_value = 1.0
 target_type = SubResource("Resource_uo4ev")
 
 [resource]

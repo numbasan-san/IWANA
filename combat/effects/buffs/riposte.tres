@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Riposte" load_steps=6 format=3 uid="uid://boqd67bov4np3"]
+
+[ext_resource type="Script" path="res://combat/effects/damage.gd" id="1_81bq4"]
+[ext_resource type="Script" path="res://combat/effects/buffs/riposte.gd" id="2_edp1b"]
+[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="3_w161e"]
+
+[sub_resource type="Resource" id="Resource_bdp7f"]
+script = ExtResource("1_81bq4")
+type = 0
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_ont6d"]
+script = ExtResource("3_w161e")
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_edp1b")
+intercept_effect = SubResource("Resource_bdp7f")
+intercept_type = "In"
+type = 0
+decrease_duration = 2
+duration = 1
+stacks = false
+base_value = 1.0
+target_type = SubResource("Resource_ont6d")

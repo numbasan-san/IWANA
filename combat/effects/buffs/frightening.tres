@@ -1,0 +1,49 @@
+[gd_resource type="Resource" script_class="ChainedEffect" load_steps=10 format=3 uid="uid://bk2bxw66yx3n8"]
+
+[ext_resource type="Script" path="res://combat/effects/chained_effect.gd" id="1_acy5g"]
+[ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="1_pxp53"]
+[ext_resource type="Script" path="res://combat/effects/stat_moding_effect.gd" id="1_s0tvq"]
+[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="2_nlp3y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qb8mo"]
+atlas = ExtResource("1_pxp53")
+region = Rect2(174, 66, 48, 42)
+
+[sub_resource type="Resource" id="Resource_htiip"]
+script = ExtResource("1_s0tvq")
+stat = "Damage"
+icon = SubResource("AtlasTexture_qb8mo")
+type = 0
+decrease_duration = 3
+duration = 2
+stacks = true
+base_value = 2.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hipoj"]
+atlas = ExtResource("1_pxp53")
+region = Rect2(174, 66, 48, 42)
+
+[sub_resource type="Resource" id="Resource_7ad7d"]
+script = ExtResource("1_s0tvq")
+stat = "Defense"
+icon = SubResource("AtlasTexture_hipoj")
+type = 0
+decrease_duration = 3
+duration = 2
+stacks = true
+base_value = 2.0
+
+[sub_resource type="Resource" id="Resource_qi1pc"]
+script = ExtResource("2_nlp3y")
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_htiip"), SubResource("Resource_7ad7d")])
+base_value = 1.0
+
+[resource]
+script = ExtResource("1_acy5g")
+intercept_effect = SubResource("Resource_qi1pc")
+intercept_type = ""
+type = 0
+decrease_duration = 0
+duration = 0
+stacks = false
+base_value = 1.0

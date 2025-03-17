@@ -26,7 +26,7 @@ func set_character(character: Character = null):
 			# through defending and possibly using items, and that regeneration
 			# happens between turns, so there is no need to change the button
 			# status after they have been added
-			if skill.energy_cost <= character.combat_handler.stats.energy:
+			if skill.enabled and skill.energy_cost <= character.combat_handler.stats.energy:
 				button.pressed.connect(
 					func():
 						combat.selecting_action = false

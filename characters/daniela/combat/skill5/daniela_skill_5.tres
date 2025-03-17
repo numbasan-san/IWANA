@@ -9,7 +9,7 @@ load_path = "res://.godot/imported/lasting_effect_icons.png-77f127f496dd8238ff80
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mxs75"]
 atlas = SubResource("CompressedTexture2D_v77qg")
-region = Rect2(174, 66, 48, 42)
+region = Rect2(270, 72, 48, 42)
 
 [sub_resource type="Resource" id="Resource_apcvj"]
 script = ExtResource("2_pq3d1")
@@ -20,12 +20,12 @@ allow_repetition = false
 [sub_resource type="Resource" id="Resource_jdesu"]
 script = ExtResource("1_n2xhy")
 stat = "Defense"
-additive_modifier = true
 icon = SubResource("AtlasTexture_mxs75")
-type = 0
+type = 1
 decrease_duration = 3
 duration = 2
-value = 5.0
+stacks = true
+base_value = 1.0
 target_type = SubResource("Resource_apcvj")
 
 [resource]

@@ -9,10 +9,8 @@ func on_intercept(effect: Effect):
 			else:
 				effect.value -= value
 				value = 0
+				target.combat_handler.remove_lasting_effect(self)
 			interception = true
 
-# TODO: this should be changed so it casts a healing effect instead. This
-# could be done by creating a new type of effect called a LinkedEffect that
-# triggers a second effect
 func on_unapply(target: Character):
 	unapply_effect.value = value

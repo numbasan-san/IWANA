@@ -5,6 +5,14 @@ class_name CombatHandler extends Node
 
 var character: Character
 
+# Last skill used by the character. Currently used in effects that block the last
+# skill.
+var last_skill: Skill
+
+# Used to determine how likely is this character to be targeted by a skill selecting
+# random targets.
+var target_weight: int = 1
+
 # This indicate if the character is stuned, asleep, or under some other effect
 # that forces it to skip a turn. This is different to being unconscious (0 hp)
 # as this doesn't prevent the character from being targeted and don't count
@@ -94,7 +102,11 @@ func execute(skill: Skill):
 			+ " happen as this should be prevented in the combat screen before" \
 			+ " selecting the skill")
 		return
-	
+	# If the skill is disabled, it shouldn't have been selected in the first place
+	# and the code shouldn't reach this point, but this is here just in case something
+	# failed somewhere else.
+	if not skill.enabled:
+		return
 	for effect in skill.effects:
 		if effect.is_nullified:
 			continue
@@ -113,7 +125,25 @@ func send(effect: Effect):
 		await out.intercept(effect)
 		# We check if the interception reduced the duration of the interceptor
 		end_of_duration(out)
+	
+	if effect.is_nullified:
+		return
 	for t in effect.skill_targets:
+		# We calculate here if the target evades the effect as this allows for
+		# each target to evade independently.
+		# If the evasion is succesful the rest of the code is ignored, but maybe
+		# this should be changed to trigger some special animation or graphical
+		# effect to give feedback.
+		if not _hit(effect.caster, t):
+			# TODO: Change this so it isn't a dedicated code for the dodge effect.
+			# Maybe we should add an on_evade event that triggers on the caster
+			# and the target when an effect is evaded.
+			var dodge = t.combat_handler.stat_modifiers.filter(func(eff):
+				return eff is Dodge)
+			if dodge.size() > 0:
+				t.combat_handler.remove_lasting_effect(dodge[0])
+			continue
+		
 		# We copy the effect for each of the target, so modifications to the
 		# effect sent to one target doesn't alter effects sent to others
 		var copy = effect.copy()
@@ -134,6 +164,7 @@ func receive(effect: Effect):
 	# caller forgot to set it. As the effect was sent to this character, it is
 	# assumed that it is the intended target
 	effect.target = character
+	
 	# We check this here in case this function was called directly.
 	# We don't check if the conditional is nullified as its on_receive function 
 	# will do nothing anyways
@@ -144,9 +175,13 @@ func receive(effect: Effect):
 		await inc.intercept(effect)
 		# We check if the interception reduced the duration of the interceptor
 		end_of_duration(inc)
+	if effect.is_nullified:
+		return
 	# If we have reached this point, the effect has survived and must be applied.
 	# If it's a lasting effect, it must be added to the corresponding list
 	if effect is LastingEffect:
+		if not effect.stacks:
+			remove_lasting_effect(effect)
 		add_lasting_effect(effect)
 		
 	await effect.apply(character)
@@ -179,13 +214,17 @@ func end_of_duration(effect: LastingEffect):
 # Adds an effect to the corresponding array and sends a signal. This can be called
 # from outside this class to ensure an effect is properly added.
 func add_lasting_effect(effect: LastingEffect):
+	var eff_name = effect.get_script().get_name()
 	if effect is StatModingEffect:
 		stat_modifiers.append(effect)
-	elif effect is InModingEffect:
+	elif effect is InModingEffect or \
+			(effect is ChainedEffect and effect.intercept_type == "In"):
 		incoming_effect_modifiers.append(effect)
-	elif effect is OutModingEffect:
+	elif effect is OutModingEffect or \
+			(effect is ChainedEffect and effect.intercept_type == "Out"):
 		outgoing_effect_modifiers.append(effect)
-	elif effect is HitModingEffect:
+	elif effect is HitModingEffect or \
+			(effect is ChainedEffect and effect.intercept_type == "Hit"):
 		character_hit_monitors.append(effect)
 	else:
 		other_modifiers.append(effect)
@@ -195,24 +234,50 @@ func add_lasting_effect(effect: LastingEffect):
 # Removes an effect from the corresponding array and sends a signal. This can be called
 # from outside this class to ensure an effect is properly removed.
 func remove_lasting_effect(effect: LastingEffect):
-	if effect is StatModingEffect:
+	var removed: bool = false
+	if effect is StatModingEffect and stat_modifiers.find(effect) != -1:
+		removed = true
 		stat_modifiers.erase(effect)
-	elif effect is InModingEffect:
+	elif (effect is InModingEffect or \
+			(effect is ChainedEffect and effect.intercept_type == "In")) and \
+			incoming_effect_modifiers.find(effect) != -1:
+		removed = true
 		incoming_effect_modifiers.erase(effect)
-	elif effect is OutModingEffect:
+	elif (effect is OutModingEffect or \
+			(effect is ChainedEffect and effect.intercept_type == "Out")) and \
+			outgoing_effect_modifiers.find(effect) != -1:
+		removed = true
 		outgoing_effect_modifiers.erase(effect)
-	elif effect is HitModingEffect:
+	elif (effect is HitModingEffect or \
+			(effect is ChainedEffect and effect.intercept_type == "Hit")) and \
+			character_hit_monitors.find(effect) != -1:
+		removed = true
 		character_hit_monitors.erase(effect)
-	else:
+	elif other_modifiers.find(effect) != -1:
+		removed = true
 		other_modifiers.erase(effect)
-	removed_lasting_effect.emit(effect)
-	effect.unapply(character)
+	if removed:
+		removed_lasting_effect.emit(effect)
+		effect.unapply(character)
+
+func clear_lasting_effects():
+	var _clear = func(array: Array[LastingEffect]):
+		for eff in array:
+			removed_lasting_effect.emit(eff)
+			eff.unapply(character)
+		array.clear()
+	_clear.call(stat_modifiers)
+	_clear.call(outgoing_effect_modifiers)
+	_clear.call(incoming_effect_modifiers)
+	_clear.call(character_hit_monitors)
+	_clear.call(other_modifiers)
 	
 # Calls the given function on all the lasting effects registered for this handler,
 # and checks if the duration has decreased. The passed function must be one of
 # before_turn, after_turn, before_hit or after_hit
 func _perform_on_lasting_effects(function_name: String):
-	var lasting: Array[LastingEffect] = stat_modifiers.duplicate()
+	var lasting: Array[LastingEffect] = []
+	lasting.append_array(stat_modifiers)
 	lasting.append_array(incoming_effect_modifiers)
 	lasting.append_array(outgoing_effect_modifiers)
 	lasting.append_array(character_hit_monitors)
@@ -222,3 +287,14 @@ func _perform_on_lasting_effects(function_name: String):
 		# This is checked here in case some effect decreases its duration at the
 		# beginning of the turn
 		end_of_duration(eff)
+
+# Calculates if the target can be hit by the effects, given by the precision and
+# evasion values.
+func _hit(caster: Character, target: Character) -> bool:
+	if caster == target:
+		return true
+	var precision = caster.combat_handler.stats.precision
+	var evasion = target.combat_handler.stats.evasion
+	var chance = clampi(precision - evasion, 0, 100)
+	var rnd = randi_range(1, 100)
+	return chance >= rnd

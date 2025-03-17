@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Bleeding" load_steps=6 format=3 uid="uid://gv6nhguet25"]
+
+[ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="1_10s73"]
+[ext_resource type="Script" path="res://combat/effects/damage.gd" id="1_axvkk"]
+[ext_resource type="Script" path="res://combat/effects/debuffs/bleeding.gd" id="1_r5o4w"]
+
+[sub_resource type="Resource" id="Resource_iqp6s"]
+script = ExtResource("1_axvkk")
+type = 2
+base_value = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvx7e"]
+atlas = ExtResource("1_10s73")
+region = Rect2(75, 63, 54, 54)
+
+[resource]
+script = ExtResource("1_r5o4w")
+after_turn_effect = SubResource("Resource_iqp6s")
+intercept_type = ""
+icon = SubResource("AtlasTexture_tvx7e")
+type = 1
+decrease_duration = 3
+duration = 0
+stacks = false
+base_value = 1.0

@@ -9,6 +9,7 @@ func add_effect(effect: LastingEffect):
 	texture.texture = effect.icon
 	icon_placement.add_child(texture)
 	effects_to_textures[effect] = texture
+	pass
 
 func remove_effect(effect: LastingEffect):
 	var texture = effects_to_textures[effect]

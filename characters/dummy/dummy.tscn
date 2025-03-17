@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://cxhb1pbyx1uwh"]
+[gd_scene load_steps=78 format=3 uid="uid://cxhb1pbyx1uwh"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_dme1k"]
@@ -493,7 +493,7 @@ resource_local_to_scene = true
 script = ExtResource("8_faypt")
 graphic_name = "Moving"
 offset = Vector2(-100, 0)
-value = 1.0
+base_value = 1.0
 target_type = SubResource("Resource_14112")
 
 [sub_resource type="Resource" id="Resource_jt2bj"]
@@ -506,14 +506,14 @@ allow_repetition = false
 resource_local_to_scene = true
 script = ExtResource("6_t1edw")
 type = 0
-value = 1.0
+base_value = 1.0
 target_type = SubResource("Resource_jt2bj")
 
 [sub_resource type="Resource" id="Resource_e4hoq"]
 resource_local_to_scene = true
 script = ExtResource("11_b8rgq")
 graphic_name = "Moving"
-value = 1.0
+base_value = 1.0
 
 [sub_resource type="Resource" id="Resource_nfgit"]
 script = ExtResource("7_8jd57")
@@ -525,7 +525,7 @@ allow_repetition = false
 resource_local_to_scene = true
 script = ExtResource("11_24omm")
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_fyxcm"), SubResource("Resource_76x28"), SubResource("Resource_e4hoq")])
-value = 1.0
+base_value = 1.0
 target_type = SubResource("Resource_nfgit")
 
 [sub_resource type="Resource" id="Resource_ct2mh"]
@@ -534,6 +534,25 @@ script = ExtResource("8_jdgy4")
 name = "Daño Ejemplo"
 description = "Skill de ejemplo para  debuggear"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_0ceox")])
+energy_cost = 5
+
+[sub_resource type="Resource" id="Resource_o1nlr"]
+script = ExtResource("7_8jd57")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_h8et8"]
+script = ExtResource("6_t1edw")
+type = 0
+base_value = 0.5
+target_type = SubResource("Resource_o1nlr")
+
+[sub_resource type="Resource" id="Resource_x2ycg"]
+script = ExtResource("8_jdgy4")
+name = "Daño 2"
+description = "Otra skill de daño, por si alguna está bloqueada."
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_h8et8")])
 energy_cost = 5
 
 [node name="Dummy" instance=ExtResource("1_begxf")]
@@ -567,4 +586,4 @@ animation = &"idle"
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_4c1gv")
-skills = Array[ExtResource("8_jdgy4")]([SubResource("Resource_ct2mh")])
+skills = Array[ExtResource("8_jdgy4")]([SubResource("Resource_ct2mh"), SubResource("Resource_x2ycg")])

@@ -29,6 +29,10 @@ enum Decrease {
 	set(value):
 		duration = clampi(value, 0, 9223372036854775807)
 
+# If true several buffs of the same type can be applied at the same time. If not,
+# when applying the same kind of buff twice the oldest one is removed.
+@export var stacks: bool = false
+
 # Variable intended to be used in lasting effects that override the on_intercept
 # function. As these effects should only be able to intercept specific kinds of
 # effects, when that is the case this should be set to true so that the duration
@@ -62,7 +66,7 @@ func character_hit(who: Character, effect: Effect):
 	# from starting. This only prevents looping hits. If more than one effect of
 	# the same type are sent from outside this function, it will still work as
 	# intended.
-	if not hit:
+	if not effect.is_nullified and not hit:
 		on_character_hit(who, effect)
 		if hit and decrease_duration == Decrease.ON_CHARACTER_HIT:
 			duration -= 1
@@ -74,9 +78,10 @@ func before_turn(target: Character):
 	pass
 
 func start_turn(target: Character):
-	before_turn(target)
-	if decrease_duration == Decrease.BEFORE_TURN:
-		duration -= 1
+	if not is_nullified:
+		before_turn(target)
+		if decrease_duration == Decrease.BEFORE_TURN:
+			duration -= 1
 
 # This is called at the end of the target's turn after it has performed
 # all its actions. This can be used for example to decrease the effect's
@@ -85,9 +90,10 @@ func after_turn(target: Character):
 	pass
 
 func end_turn(target: Character):
-	after_turn(target)
-	if decrease_duration == Decrease.AFTER_TURN:
-		duration -= 1
+	if not is_nullified:
+		after_turn(target)
+		if decrease_duration == Decrease.AFTER_TURN:
+			duration -= 1
 
 # This is called after the effect's duration has run out and the changes
 # it had on the target have to be reverted.

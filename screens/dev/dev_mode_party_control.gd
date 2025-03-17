@@ -31,9 +31,16 @@ func enable_button(index: int, value: bool):
 
 func reset_party():
 	remove_party()
+	var heal_button = party_slots.get_child(0).get_node("Heal") as Button
+	var sig = heal_button.button_up as Signal
+	for conn in sig.get_connections():
+		sig.disconnect(conn["callable"])
 	if Player.character:
 		set_text(0, Player.character.char_name)
 		adjust_slots(Player.party.max_size)
+		heal_button.disabled = false
+		heal_button.button_up.connect(func():
+			Player.character.combat_handler.stats.replenish())
 		var idx = 1
 		for m in Player.party.members:
 			if m != Player.character:
@@ -86,15 +93,24 @@ func set_character(idx: int, character: Character):
 	
 func connect_button(idx: int, character: Character):
 	var rem_button = party_slots.get_child(idx).get_node("Remove") as Button
+	var heal_button = party_slots.get_child(idx).get_node("Heal") as Button
 	rem_button.disabled = false
 	rem_button.button_up.connect(func():
 		Player.party.remove(character)
 		reset_slot(idx))
+	heal_button.disabled = false
+	heal_button.button_up.connect(func():
+		character.combat_handler.stats.replenish())
 
 func reset_button(idx: int):
 	var rem_button = party_slots.get_child(idx).get_node("Remove") as Button
+	var heal_button = party_slots.get_child(idx).get_node("Heal") as Button
 	rem_button.disabled = true
+	heal_button.disabled = true
 	var sig = rem_button.button_up as Signal
+	for conn in sig.get_connections():
+		sig.disconnect(conn["callable"])
+	sig = heal_button.button_up as Signal
 	for conn in sig.get_connections():
 		sig.disconnect(conn["callable"])
 

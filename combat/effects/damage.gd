@@ -3,7 +3,7 @@ class_name DamageEffect extends Effect
 # Lists the possible types this damage effect can have. Different buffs, 
 # debuffs and properties of the target can modify this effect and apply it in
 # different ways depending on its type
-enum DamageType { PHYSICAL, TRUE, POISON }
+enum DamageType { PHYSICAL, TRUE, BLEEDING, POISON, FIRE }
 @export var type: DamageType
 
 # Tells if this damage effect has been augmented for being critical damage.
@@ -17,17 +17,20 @@ func on_cast(caster: Character):
 	var rnd = randi_range(1, 100)
 	value *= c_damage
 	is_critical = c_crit >= rnd
-	
 
 func on_apply(target: Character):
-	if type != DamageType.TRUE:
-		# Defense is a value from 0 to 100 that acts as a percentage. We turn into a
-		# value from 0 to 1
-		var t_defense = float(target.combat_handler.stats.defense) / 100
-		# This is the value that we're multiplying by the incoming damage.
-		var mod = 1 - t_defense
-		value = value * mod
+	if _hit(target):
+		if type == DamageType.PHYSICAL:
+			var defense = target.combat_handler.stats.defense
+			value -= defense
 		if is_critical:
 			value *= 2
-	
-	target.combat_handler.stats.health -= value
+		
+		target.combat_handler.stats.health -= value
+
+func _hit(target: Character) -> bool:
+	var precision = caster.combat_handler.stats.precision
+	var evasion = target.combat_handler.stats.evasion
+	var chance = clampi(precision - evasion, 0, 100)
+	var rnd = randi_range(1, 100)
+	return chance >= rnd

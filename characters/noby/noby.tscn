@@ -1,9 +1,9 @@
-[gd_scene load_steps=204 format=3 uid="uid://ciibuctohu7f8"]
+[gd_scene load_steps=209 format=3 uid="uid://ciibuctohu7f8"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_iq20k"]
 [ext_resource type="Resource" uid="uid://dqnynbd1aov8j" path="res://script/characters/resource/noby.tres" id="2_salyo"]
 [ext_resource type="Resource" uid="uid://7o4a34iaa12l" path="res://characters/noby/noby_stats.tres" id="2_yag6e"]
-[ext_resource type="Texture2D" uid="uid://pc7ihc6dq5a" path="res://characters/noby/rpg/prueba_export.png" id="4_de17o"]
+[ext_resource type="Texture2D" uid="uid://bj3eautift314" path="res://characters/noby/rpg/movement_384x240.png" id="4_gkvo8"]
 [ext_resource type="Texture2D" uid="uid://c8b4f32wfn3ua" path="res://characters/noby/combat/skill2/backpack_shield.png" id="5_jo43e"]
 [ext_resource type="Texture2D" uid="uid://vqpjwwbie0iy" path="res://characters/noby/vn/neutral.png" id="5_xv3aq"]
 [ext_resource type="Texture2D" uid="uid://qf8ry6dyd3af" path="res://characters/noby/combat/running-sprite.png" id="6_5ress"]
@@ -14,15 +14,17 @@
 [ext_resource type="Texture2D" uid="uid://bhlnajoa7y4xi" path="res://characters/noby/combat/portrait.png" id="9_8n6x7"]
 [ext_resource type="Resource" uid="uid://fwun0t61uohl" path="res://characters/noby/combat/skill2/noby_skill_2.tres" id="9_l81a1"]
 [ext_resource type="Texture2D" uid="uid://b0ainjfp61ope" path="res://characters/noby_combate.png" id="9_ml1qh"]
-[ext_resource type="Resource" uid="uid://7itin0wyy3p7" path="res://characters/noby/combat/noby_skill_4.tres" id="10_8umm1"]
-[ext_resource type="Resource" uid="uid://b7fxwd6xs8en2" path="res://characters/noby/combat/noby_skill_5.tres" id="11_aps8n"]
 [ext_resource type="Texture2D" uid="uid://xln0hw0r2r1e" path="res://characters/noby/combat/skill8/noby_lose_heart.png" id="11_ckxmu"]
 [ext_resource type="Texture2D" uid="uid://c4r6s12jn6oni" path="res://characters/noby/combat/skill8/noby_throw_heart.png" id="12_sqdd4"]
 [ext_resource type="Resource" uid="uid://cg7yssd5gfox3" path="res://characters/noby/combat/skill3/noby_skill_3.tres" id="12_unjal"]
-[ext_resource type="Resource" uid="uid://cfgwxyygngwto" path="res://characters/noby/combat/noby_skill_7.tres" id="13_8jxr4"]
 [ext_resource type="Texture2D" uid="uid://ciiua1p3qt4b3" path="res://characters/noby/combat/skill3/throw_backpack.png" id="13_bmf1e"]
 [ext_resource type="Resource" uid="uid://grb2j13upg08" path="res://characters/noby/combat/skill6/noby_skill_6.tres" id="14_j1r65"]
 [ext_resource type="Resource" uid="uid://dh0djp8kvvo8l" path="res://characters/noby/combat/skill8/noby_skill_8.tres" id="19_e8254"]
+[ext_resource type="Resource" uid="uid://7itin0wyy3p7" path="res://characters/noby/combat/skill4/noby_skill_4.tres" id="19_i1grm"]
+[ext_resource type="Script" path="res://combat/effects/damage.gd" id="20_tnvy5"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="21_jktky"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="22_n73rd"]
+[ext_resource type="Resource" uid="uid://cfgwxyygngwto" path="res://characters/noby/combat/skill7/noby_skill_7.tres" id="24_1tpg8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_el1kc"]
 resource_local_to_scene = true
@@ -1342,6 +1344,27 @@ animations = [{
 "speed": 16.0
 }]
 
+[sub_resource type="Resource" id="Resource_8hkyi"]
+resource_local_to_scene = true
+script = ExtResource("21_jktky")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_hv3wa"]
+resource_local_to_scene = true
+script = ExtResource("20_tnvy5")
+type = 0
+base_value = 1.0
+target_type = SubResource("Resource_8hkyi")
+
+[sub_resource type="Resource" id="Resource_vobi5"]
+script = ExtResource("22_n73rd")
+name = "Navaja suiza"
+description = "Selecciona un debuff. Noby ataca al oponente, inflige daño y aplica el debuff"
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_hv3wa")])
+energy_cost = 5
+
 [node name="Noby" instance=ExtResource("1_iq20k")]
 char_info = ExtResource("2_salyo")
 
@@ -1357,7 +1380,7 @@ texture = ExtResource("5_xv3aq")
 [node name="Sprite2D" parent="RPGModel" index="0"]
 position = Vector2(0, -0.999999)
 scale = Vector2(5, 5)
-texture = ExtResource("4_de17o")
+texture = ExtResource("4_gkvo8")
 offset = Vector2(0, -39)
 vframes = 8
 frame = 16
@@ -1379,4 +1402,4 @@ animation = &"idle"
 
 [node name="CombatHandler" parent="." index="3"]
 stats = ExtResource("2_yag6e")
-skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("7_diqpc"), ExtResource("9_l81a1"), ExtResource("12_unjal"), ExtResource("10_8umm1"), ExtResource("11_aps8n"), ExtResource("14_j1r65"), ExtResource("13_8jxr4"), ExtResource("19_e8254")])
+skills = Array[ExtResource("22_n73rd")]([ExtResource("7_diqpc"), ExtResource("9_l81a1"), ExtResource("12_unjal"), ExtResource("19_i1grm"), SubResource("Resource_vobi5"), ExtResource("14_j1r65"), ExtResource("24_1tpg8"), ExtResource("19_e8254")])

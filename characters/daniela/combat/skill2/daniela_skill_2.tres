@@ -1,18 +1,32 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=6 format=3 uid="uid://sotak7dpn74e"]
+[gd_resource type="Resource" script_class="Skill" load_steps=10 format=3 uid="uid://sotak7dpn74e"]
 
+[ext_resource type="Script" path="res://combat/effects/heal.gd" id="1_iohne"]
 [ext_resource type="Script" path="res://combat/effects/buffs/life_steal.gd" id="1_rtvb8"]
+[ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="2_mndv6"]
 [ext_resource type="Script" path="res://combat/targets/target_self.gd" id="2_so1d2"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="3_ymvr7"]
+
+[sub_resource type="Resource" id="Resource_ottrk"]
+script = ExtResource("1_iohne")
+base_value = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psyfg"]
+atlas = ExtResource("2_mndv6")
+region = Rect2(174, 66, 48, 42)
 
 [sub_resource type="Resource" id="Resource_csls8"]
 script = ExtResource("2_so1d2")
 
 [sub_resource type="Resource" id="Resource_fijm1"]
 script = ExtResource("1_rtvb8")
+character_hit_effect = SubResource("Resource_ottrk")
+intercept_type = "Hit"
+icon = SubResource("AtlasTexture_psyfg")
 type = 0
-decrease_duration = 0
+decrease_duration = 5
 duration = 3
-value = 20.0
+stacks = false
+base_value = 1.0
 target_type = SubResource("Resource_csls8")
 
 [resource]

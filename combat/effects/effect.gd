@@ -3,16 +3,24 @@ class_name Effect extends Resource
 # An effect is anything that causes some change on characters' stats as a result
 # of a skill, like causing damage or healing, applying a buff or debuff, etc.
 
-## The value of this effect.
+## The base value of this effect.
 ##
-## What this value means, how it is calculated, or if it's going to be used at
-## all depends on the specific effect.
-@export var value: float = 1:
+## If the actual value of the effect is modified before being applied, this base
+## value can be used to restore the original value.
+@export var base_value: float = 1:
 	set(new_value):
-		value = clampf(new_value, 0, 9223372036854775807)
+		base_value = clampf(new_value, 0, 9223372036854775807)
+		value = base_value
 
 ## What kind of targets can be selected to apply these effects
 @export var target_type: TargetType
+
+## The value that will be used when applying the effect.
+##
+## What this number means and how it is calculated depends on the specifics of
+## the effect. That script is responsible of calculating this value correctly and
+## restoring it if the base value changes.
+var value: float = base_value
 
 ## The character that triggered this effect.
 ##
@@ -106,17 +114,28 @@ func select_targets(allies: Party, enemies: Party):
 		# Same as checking if Enemy, EnemyParty, Anyone or Everyone
 		if not target_type is TargetFriend and not target_type is TargetParty:
 			possible_targets.append_array(enemies.members)
-		# We remove fainted targets
+		# We remove fainted targets and targets with a weight lower than 1.
 		possible_targets = possible_targets.filter(func(char: Character):
-			return not char.combat_handler.stats.unconscious)
+			return not char.combat_handler.stats.unconscious and \
+				char.combat_handler.target_weight > 0)
 		# Same as checking if Party, EnemyParty or Everyone
 		if target_type is TargetFixed:
 			skill_targets = possible_targets
 			return
-		# If we reach this condition the type is variable and not manual, so it
+		# If we reach this point the type is variable and not manual, so it
 		# must be set to random
 		var var_t = target_type as TargetVariable
 		var n_targets = var_t.number_of_targets
+		# If a character has a target weight greater than 1, we add more instances
+		# of that character to the array so it is more likely to be selected.
+		var extra_targets: Array[Character] = []
+		for char in possible_targets:
+			var n = char.combat_handler.target_weight
+			if n > 1:
+				while n - 1 > 0:
+					extra_targets.append(char)
+					n = n - 1
+		possible_targets.append_array(extra_targets)
 		while n_targets > 0 and not possible_targets.is_empty():
 			var picked_target = possible_targets.pick_random()
 			skill_targets.append(picked_target)
@@ -131,6 +150,7 @@ func is_valid() -> bool:
 # copy all fields
 func copy() -> Effect:
 	var new_effect = self.duplicate(true) as Effect
+	new_effect.value = value
 	new_effect.caster = caster
 	new_effect.skill_targets = skill_targets.duplicate()
 	new_effect.target = target

@@ -34,6 +34,10 @@ var caster: Character:
 		for eff in effects:
 			eff.caster = caster
 
+# If this is false, the skill has been disabled by some other skill, a debuff or
+# some other external condition, and it cannot be used.
+var enabled: bool = true
+
 # Performs some initialization before applying the skill.
 # Some skills might have special conditions and effects that can't be easily
 # represented by this system and they need to extend this script and override

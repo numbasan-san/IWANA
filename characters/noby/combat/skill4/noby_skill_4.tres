@@ -36,7 +36,8 @@ icon = SubResource("AtlasTexture_vb2pp")
 type = 0
 decrease_duration = 3
 duration = 2
-value = 5.0
+stacks = true
+base_value = 1.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6n6bk"]
 load_path = "res://.godot/imported/lasting_effect_icons.png-77f127f496dd8238ff80ee35f581e8c1.ctex"
@@ -53,14 +54,15 @@ icon = SubResource("AtlasTexture_by724")
 type = 0
 decrease_duration = 3
 duration = 2
-value = 5.0
+stacks = true
+base_value = 1.0
 
 [sub_resource type="Resource" id="Resource_mcyxl"]
 script = ExtResource("2_c712b")
 condition = SubResource("Resource_omxej")
 when_true = SubResource("Resource_0abjb")
 when_false = SubResource("Resource_hrkxe")
-value = 1.0
+base_value = 1.0
 target_type = SubResource("Resource_eaodr")
 
 [resource]

@@ -1,6 +1,6 @@
 class_name Marked extends LastingEffect
 
-func intercept(effect: Effect):
+func on_intercept(effect: Effect):
 	if effect is DamageEffect:
 		if effect.type == DamageEffect.DamageType.PHYSICAL and not effect.is_critical:
 			# This assumes that a critical always multiplies by 2, which won't

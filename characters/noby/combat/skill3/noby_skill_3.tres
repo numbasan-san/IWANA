@@ -13,14 +13,14 @@
 [sub_resource type="Resource" id="Resource_cehfp"]
 script = ExtResource("1_fts0o")
 graphic_name = "throw_backpack"
-value = 1.0
+base_value = 1.0
 
 [sub_resource type="Resource" id="Resource_h00hj"]
 script = ExtResource("3_6ydu3")
 projectile = ExtResource("2_f53ec")
 speed = 800.0
 target_offset = Vector2(0, 100)
-value = 1.0
+base_value = 1.0
 
 [sub_resource type="Resource" id="Resource_3w0pn"]
 resource_local_to_scene = true
@@ -33,7 +33,7 @@ allow_repetition = false
 resource_local_to_scene = true
 script = ExtResource("1_7ifbf")
 type = 0
-value = 1.0
+base_value = 1.0
 target_type = SubResource("Resource_3w0pn")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uv7xu"]
@@ -50,10 +50,10 @@ allow_repetition = false
 script = ExtResource("4_pyjo5")
 icon = SubResource("AtlasTexture_uv7xu")
 type = 1
-modifies = 2
 decrease_duration = 3
-duration = 1
-value = 1.0
+duration = 2
+stacks = false
+base_value = 1.0
 target_type = SubResource("Resource_6yq50")
 
 [sub_resource type="Resource" id="Resource_hcwdp"]
@@ -65,7 +65,7 @@ allow_repetition = false
 [sub_resource type="Resource" id="Resource_3fou1"]
 script = ExtResource("5_trcis")
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_cehfp"), SubResource("Resource_h00hj"), SubResource("Resource_07061"), SubResource("Resource_28na4")])
-value = 1.0
+base_value = 1.0
 target_type = SubResource("Resource_hcwdp")
 
 [resource]

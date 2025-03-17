@@ -76,10 +76,7 @@ signal raised
 @export var base_defense: int = 0:
 	set(value):
 		var old = defense
-		# It was decided that the max defense a character can have before 
-		# applying modifiers is 50. Also, because this is a percentage, we don't
-		# let it go lower than 0
-		base_defense = clampi(value, 0, 50)
+		base_defense = _clampi_min(value, 0)
 		var new = defense
 		update_defense.emit(old, new)
 
@@ -99,10 +96,7 @@ signal raised
 @export var base_critical: int = 0:
 	set(value):
 		var old = critical
-		# Because this value is a success percentage, we clamp it between 0 and
-		# 100 as there is no point in having higher values, unless we decide 
-		# that a higher value could cancel a debuff
-		base_critical = clampi(value, 0, 100)
+		base_critical = _clampi_min(value, 0)
 		var new = critical
 		update_critical.emit(old, new)
 
@@ -110,7 +104,7 @@ signal raised
 @export var base_precision: int = 100:
 	set(value):
 		var old = precision
-		base_precision = clampi(value, 0, 100)
+		base_precision = _clampi_min(value, 0)
 		var new = precision
 		update_precision.emit(old, new)
 
@@ -118,19 +112,18 @@ signal raised
 @export var base_evasion: int = 0:
 	set(value):
 		var old = evasion
-		base_evasion = clampi(value, 0, 100)
+		base_evasion = _clampi_min(value, 0)
 		var new = evasion
 		update_evasion.emit(old, new)
 
-# The following variables are multipliers that are applied to the base values
+# The following variables are additive modifiers that are applied to the base values
 # and are changed with items and skills
-var max_health_modifier: float = 1:
+var max_health_modifier: float = 0:
 	set(value):
 		var old = max_health
-		# This guarantees a minimum value of 0.0. A factor of 0 makes the
-		# effective max health 0, but because we need to clamp it anyways to
-		# prevent rounding errors that make it 0, we can allow this one to be 0. 
-		max_health_modifier = _clampf_min(value, 0.0)
+		# We don't clamp this value as negative values could be allowed to decrease
+		# the max health from its initial value.
+		max_health_modifier = value
 		var new = max_health
 		update_max_health.emit(old, new)
 		# This ensures that health stays at or below the max health, and it also
@@ -138,10 +131,10 @@ var max_health_modifier: float = 1:
 		if health > new:
 			health = new
 		
-var max_energy_modifier: float = 1:
+var max_energy_modifier: float = 0:
 	set(value):
 		var old = max_energy
-		max_energy_modifier = _clampf_min(value, 0.0)
+		max_energy_modifier = value
 		var new = max_energy
 		update_max_energy.emit(old, new)
 		# This ensures that energy stays at or below the max energy, and it also
@@ -149,17 +142,17 @@ var max_energy_modifier: float = 1:
 		if energy > new:
 			energy = new
 		
-var damage_modifier: float = 1:
+var damage_modifier: float = 0:
 	set(value):
 		var old = damage
-		damage_modifier = _clampf_min(value, 0.0)
+		damage_modifier = value
 		var new = damage
 		update_damage.emit(old, new)
 
 var defense_modifier: float = 0:
 	set(value):
 		var old = defense
-		defense_modifier = _clampf_min(value, 0.0)
+		defense_modifier = value
 		var new = defense
 		update_defense.emit(old, new)
 		
@@ -173,21 +166,21 @@ var speed_modifier: float = 0:
 var critical_modifier: float = 0:
 	set(value):
 		var old = critical
-		critical_modifier = _clampf_min(value, 0.0)
+		critical_modifier = value
 		var new = critical
 		update_critical.emit(old, new)
 
 var precision_modifier: float = 0:
 	set(value):
 		var old = precision
-		precision_modifier = _clampf_min(value, 0.0)
+		precision_modifier = value
 		var new = precision
 		update_precision.emit(old, new)
 
 var evasion_modifier: float = 0:
 	set(value):
 		var old = evasion
-		evasion_modifier = _clampf_min(value, 0.0)
+		evasion_modifier = value
 		var new = evasion
 		update_evasion.emit(old, new)
 
@@ -195,18 +188,16 @@ var evasion_modifier: float = 0:
 # applying the modifiers, and they should be used by the combat code
 var max_health: int:
 	get:
-		return _clampi_min(round(base_max_health * max_health_modifier), 1)
+		return _clampi_min(round(base_max_health + max_health_modifier), 1)
 var max_energy: int:
 	get:
-		return _clampi_min(round(base_max_energy * max_energy_modifier), 0)
+		return _clampi_min(round(base_max_energy + max_energy_modifier), 0)
 var damage: int:
 	get:
-		return _clampi_min(round(base_damage * damage_modifier), 0)
-# Because defense is a percentage from 0 to 100, the modifier is additive
-# instead of multiplicative
+		return _clampi_min(round(base_damage + damage_modifier), 0)
 var defense: int:
 	get:
-		return clampi(round(base_defense + defense_modifier), 0, 100)
+		return _clampi_min(round(base_defense + defense_modifier), 0)
 		
 var speed: int:
 	get:
@@ -219,11 +210,11 @@ var critical: int:
 
 var precision: int:
 	get:
-		return clampi(round(base_precision + precision_modifier), 0, 100)
+		return _clampi_min(round(base_precision + precision_modifier), 0)
 
 var evasion: int:
 	get:
-		return clampi(round(base_evasion + evasion_modifier), 0, 100)
+		return _clampi_min(round(base_evasion + evasion_modifier), 0)
 
 # Can't go above modified max_health or under 0. When this value reaches 0, the
 # character is rendered unconscious
