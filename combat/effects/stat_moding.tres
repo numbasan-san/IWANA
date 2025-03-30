@@ -5,13 +5,14 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mdi16"]
 atlas = ExtResource("1_ubkh7")
+region = Rect2(48, 0, 16, 14)
 
 [resource]
 script = ExtResource("2_0pt77")
 stat = ""
-additive_modifier = false
 icon = SubResource("AtlasTexture_mdi16")
 type = 0
 decrease_duration = 0
 duration = 0
-value = 1.0
+stacks = false
+base_value = 1.0

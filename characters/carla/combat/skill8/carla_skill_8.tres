@@ -23,7 +23,8 @@ icon = SubResource("AtlasTexture_2upj8")
 type = 1
 decrease_duration = 3
 duration = 1
-value = 1.0
+stacks = false
+base_value = 1.0
 target_type = SubResource("Resource_hvwmm")
 
 [resource]

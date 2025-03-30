@@ -11,7 +11,7 @@ base_value = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_to874"]
 atlas = ExtResource("2_4iaro")
-region = Rect2(174, 66, 48, 42)
+region = Rect2(16, 65, 15, 15)
 
 [resource]
 script = ExtResource("1_aorgj")

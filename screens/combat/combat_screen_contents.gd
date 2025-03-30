@@ -152,7 +152,7 @@ func next_turn():
 						t_type.random = true
 				skill.process_effects(enemy_party, player_party, [])
 				await handler.execute(skill)
-				next.combat_handler.end_turn()
+			next.combat_handler.end_turn()
 			next_turn()
 
 # Reorder the actor queue in response of the speed of a character changing

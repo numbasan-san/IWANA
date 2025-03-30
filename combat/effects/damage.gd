@@ -19,18 +19,10 @@ func on_cast(caster: Character):
 	is_critical = c_crit >= rnd
 
 func on_apply(target: Character):
-	if _hit(target):
-		if type == DamageType.PHYSICAL:
-			var defense = target.combat_handler.stats.defense
-			value -= defense
-		if is_critical:
-			value *= 2
+	if type == DamageType.PHYSICAL:
+		var defense = target.combat_handler.stats.defense
+		value -= defense
+	if is_critical:
+		value *= 2
 		
-		target.combat_handler.stats.health -= value
-
-func _hit(target: Character) -> bool:
-	var precision = caster.combat_handler.stats.precision
-	var evasion = target.combat_handler.stats.evasion
-	var chance = clampi(precision - evasion, 0, 100)
-	var rnd = randi_range(1, 100)
-	return chance >= rnd
+	target.combat_handler.stats.health -= value

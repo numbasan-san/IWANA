@@ -1,8 +1,13 @@
-[gd_resource type="Resource" script_class="Spikes" load_steps=6 format=3 uid="uid://qt6rib7mevna"]
+[gd_resource type="Resource" script_class="Spikes" load_steps=8 format=3 uid="uid://qt6rib7mevna"]
 
 [ext_resource type="Script" path="res://combat/effects/buffs/spikes.gd" id="1_1w4sb"]
 [ext_resource type="Script" path="res://combat/effects/damage.gd" id="1_1w13x"]
+[ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="1_ijkkd"]
 [ext_resource type="Script" path="res://combat/targets/target_self.gd" id="3_arb0l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yimci"]
+atlas = ExtResource("1_ijkkd")
+region = Rect2(48, 32, 16, 16)
 
 [sub_resource type="Resource" id="Resource_ntju8"]
 script = ExtResource("1_1w13x")
@@ -17,6 +22,7 @@ resource_local_to_scene = true
 script = ExtResource("1_1w4sb")
 intercept_effect = SubResource("Resource_ntju8")
 intercept_type = "In"
+icon = SubResource("AtlasTexture_yimci")
 type = 0
 decrease_duration = 2
 duration = 1

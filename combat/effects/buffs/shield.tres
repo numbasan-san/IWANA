@@ -5,7 +5,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kbyea"]
 atlas = ExtResource("1_2vrmp")
-region = Rect2(174, 66, 48, 42)
+region = Rect2(17, 32, 14, 16)
 
 [resource]
 resource_local_to_scene = true

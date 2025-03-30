@@ -1,9 +1,13 @@
-[gd_resource type="Resource" script_class="ChainedEffect" load_steps=10 format=3 uid="uid://bk2bxw66yx3n8"]
+[gd_resource type="Resource" script_class="ChainedEffect" load_steps=11 format=3 uid="uid://bk2bxw66yx3n8"]
 
 [ext_resource type="Script" path="res://combat/effects/chained_effect.gd" id="1_acy5g"]
 [ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="1_pxp53"]
 [ext_resource type="Script" path="res://combat/effects/stat_moding_effect.gd" id="1_s0tvq"]
 [ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="2_nlp3y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12u63"]
+atlas = ExtResource("1_pxp53")
+region = Rect2(17, 98, 14, 12)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qb8mo"]
 atlas = ExtResource("1_pxp53")
@@ -42,6 +46,7 @@ base_value = 1.0
 script = ExtResource("1_acy5g")
 intercept_effect = SubResource("Resource_qi1pc")
 intercept_type = ""
+icon = SubResource("AtlasTexture_12u63")
 type = 0
 decrease_duration = 0
 duration = 0

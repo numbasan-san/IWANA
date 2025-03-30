@@ -11,7 +11,7 @@ base_value = 1.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tvx7e"]
 atlas = ExtResource("1_10s73")
-region = Rect2(75, 63, 54, 54)
+region = Rect2(21, 131, 8, 10)
 
 [resource]
 script = ExtResource("1_r5o4w")
@@ -20,6 +20,6 @@ intercept_type = ""
 icon = SubResource("AtlasTexture_tvx7e")
 type = 1
 decrease_duration = 3
-duration = 0
+duration = 2
 stacks = false
 base_value = 1.0

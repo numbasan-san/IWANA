@@ -5,7 +5,7 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y0p2u"]
 atlas = ExtResource("1_vitte")
-region = Rect2(270, 72, 48, 42)
+region = Rect2(81, 65, 14, 15)
 
 [resource]
 script = ExtResource("1_iglal")
@@ -13,4 +13,5 @@ icon = SubResource("AtlasTexture_y0p2u")
 type = 1
 decrease_duration = 3
 duration = 3
-value = 1.0
+stacks = false
+base_value = 1.0

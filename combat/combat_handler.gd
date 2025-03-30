@@ -110,6 +110,19 @@ func execute(skill: Skill):
 	for effect in skill.effects:
 		if effect.is_nullified:
 			continue
+		# TODO: non stackable effects aren't working as every time a new instance
+		# is applied it doesn't delete the previous one. This is most likely because
+		# each effect is copied before sending it, and each copy counts as a
+		# different instance, so they will be added to the lasting effects lists.
+		# We should either find another way to ensure instance equality, maybe
+		# implementing equals and hash functions, or remove the copy and make sure
+		# that when we implement the skills each effect is a different instance
+		# of the resource, which should already be the case. That way we could send
+		# the original effect and no changes in other places should affect them.
+		# This would still have the problem that if we change the values of an
+		# effect in the skill resource, all the elements in the effects lists that
+		# correspond to that effect will also change. We would have to make sure
+		# that all changes to effects are done outside of combat.
 		var copy: Effect = effect.copy()
 		await send(copy)
 	character.combat_model.set_sprite("idle")
@@ -180,6 +193,10 @@ func receive(effect: Effect):
 	# If we have reached this point, the effect has survived and must be applied.
 	# If it's a lasting effect, it must be added to the corresponding list
 	if effect is LastingEffect:
+		# TODO: this isn't working. Every time the same effect is invoked, a copy
+		# of that effect is actually created with a different id, so when trying to
+		# remove it it doesn't find the previous instance, as they are considered
+		# different. 
 		if not effect.stacks:
 			remove_lasting_effect(effect)
 		add_lasting_effect(effect)

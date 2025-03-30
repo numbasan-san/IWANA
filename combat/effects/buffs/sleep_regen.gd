@@ -1,8 +1,12 @@
 class_name SleepRegen extends ChainedEffect
 
 func before_turn(target: Character):
-	for eff in target.combat_handler.other_modifiers:
-		if eff is Sleep:
-			return
-	# The target isn't sleeping, so we stop regen
-	target.combat_handler.remove_lasting_effect(self)
+	target.combat_handler.incapacitated = true
+
+func on_unapply(target: Character):
+	target.combat_handler.incapacitated = false
+
+func on_intercept(effect: Effect):
+	if effect is DamageEffect:
+		target.combat_handler.remove_lasting_effect(self)
+		

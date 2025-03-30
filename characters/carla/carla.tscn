@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://dorc15lxpd2w4"]
+[gd_scene load_steps=22 format=3 uid="uid://dorc15lxpd2w4"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Resource" uid="uid://dqghkllfgkd3g" path="res://script/characters/resource/carla.tres" id="2_g18jn"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://boe2ejslup8co" path="res://characters/carla/vn/neutral.png" id="4_03jaf"]
 [ext_resource type="Texture2D" uid="uid://bwmjdrfbyflyo" path="res://characters/carla/combat/fainted.png" id="4_50y82"]
 [ext_resource type="Texture2D" uid="uid://dk1vdl2oqyw8r" path="res://characters/carla/rpg/movement_384x240.png" id="4_74ne1"]
-[ext_resource type="AnimationLibrary" uid="uid://b4bbcb4ves016" path="res://characters/movement_animation_incomplete.res" id="5_qtphw"]
 [ext_resource type="Texture2D" uid="uid://hrxhwymn3xxf" path="res://characters/carla/rpg/carla_portrait.png" id="6_m1qib"]
 [ext_resource type="Texture2D" uid="uid://b0ainjfp61ope" path="res://characters/noby_combate.png" id="7_yjqap"]
 [ext_resource type="Resource" uid="uid://dictbrxqi37wy" path="res://characters/carla/combat/skill1/carla_skill_1.tres" id="10_5wqqk"]
@@ -84,11 +83,6 @@ region_rect = Rect2(364, 595, 195, 240)
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_eyij3")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
-
-[node name="Animation" parent="RPGModel" index="2"]
-libraries = {
-"": ExtResource("5_qtphw")
-}
 
 [node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
 combat_animation = NodePath("Sprites/CombatSprite")

@@ -21,7 +21,8 @@ icon = SubResource("AtlasTexture_sppn6")
 type = 0
 decrease_duration = 3
 duration = 4
-value = 10.0
+stacks = true
+base_value = 5.0
 target_type = SubResource("Resource_sdjhi")
 
 [resource]
@@ -29,4 +30,4 @@ script = ExtResource("1_nio7f")
 name = "Un recuerdo feliz"
 description = " Saca su dibujo favorito, obtiene un escudo varios turnos."
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_746vw")])
-energy_cost = 0
+energy_cost = 5

@@ -31,7 +31,6 @@ region = Rect2(174, 66, 48, 42)
 [sub_resource type="Resource" id="Resource_hrkxe"]
 script = ExtResource("5_5aow1")
 stat = "Defense"
-additive_modifier = true
 icon = SubResource("AtlasTexture_vb2pp")
 type = 0
 decrease_duration = 3
@@ -49,7 +48,6 @@ region = Rect2(174, 66, 48, 42)
 [sub_resource type="Resource" id="Resource_0abjb"]
 script = ExtResource("5_5aow1")
 stat = "Damage"
-additive_modifier = true
 icon = SubResource("AtlasTexture_by724")
 type = 0
 decrease_duration = 3

@@ -1,23 +1,23 @@
-[gd_resource type="Resource" script_class="Bleeding" load_steps=6 format=3 uid="uid://7pcxx208qqpx"]
+[gd_resource type="Resource" script_class="Burnt" load_steps=6 format=3 uid="uid://7pcxx208qqpx"]
 
 [ext_resource type="Script" path="res://combat/effects/damage.gd" id="1_rd27d"]
 [ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="2_2ng7q"]
-[ext_resource type="Script" path="res://combat/effects/debuffs/bleeding.gd" id="3_bfp2h"]
+[ext_resource type="Script" path="res://combat/effects/debuffs/burnt.gd" id="3_gaf2o"]
 
-[sub_resource type="Resource" id="Resource_iqp6s"]
+[sub_resource type="Resource" id="Resource_se78k"]
 script = ExtResource("1_rd27d")
-type = 4
+type = 0
 base_value = 1.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tvx7e"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_3tcrj"]
 atlas = ExtResource("2_2ng7q")
-region = Rect2(75, 63, 54, 54)
+region = Rect2(82, 129, 11, 12)
 
 [resource]
-script = ExtResource("3_bfp2h")
-after_turn_effect = SubResource("Resource_iqp6s")
+script = ExtResource("3_gaf2o")
+after_turn_effect = SubResource("Resource_se78k")
 intercept_type = "In"
-icon = SubResource("AtlasTexture_tvx7e")
+icon = SubResource("AtlasTexture_3tcrj")
 type = 1
 decrease_duration = 3
 duration = 3

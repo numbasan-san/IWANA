@@ -1,4 +1,4 @@
-[gd_scene load_steps=209 format=3 uid="uid://ciibuctohu7f8"]
+[gd_scene load_steps=204 format=3 uid="uid://ciibuctohu7f8"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_iq20k"]
 [ext_resource type="Resource" uid="uid://dqnynbd1aov8j" path="res://script/characters/resource/noby.tres" id="2_salyo"]
@@ -21,9 +21,7 @@
 [ext_resource type="Resource" uid="uid://grb2j13upg08" path="res://characters/noby/combat/skill6/noby_skill_6.tres" id="14_j1r65"]
 [ext_resource type="Resource" uid="uid://dh0djp8kvvo8l" path="res://characters/noby/combat/skill8/noby_skill_8.tres" id="19_e8254"]
 [ext_resource type="Resource" uid="uid://7itin0wyy3p7" path="res://characters/noby/combat/skill4/noby_skill_4.tres" id="19_i1grm"]
-[ext_resource type="Script" path="res://combat/effects/damage.gd" id="20_tnvy5"]
-[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="21_jktky"]
-[ext_resource type="Script" path="res://combat/skills/skill.gd" id="22_n73rd"]
+[ext_resource type="Resource" uid="uid://b7fxwd6xs8en2" path="res://characters/noby/combat/skill5/noby_skill_5.tres" id="20_bk2wv"]
 [ext_resource type="Resource" uid="uid://cfgwxyygngwto" path="res://characters/noby/combat/skill7/noby_skill_7.tres" id="24_1tpg8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_el1kc"]
@@ -1344,27 +1342,6 @@ animations = [{
 "speed": 16.0
 }]
 
-[sub_resource type="Resource" id="Resource_8hkyi"]
-resource_local_to_scene = true
-script = ExtResource("21_jktky")
-number_of_targets = 1
-random = false
-allow_repetition = false
-
-[sub_resource type="Resource" id="Resource_hv3wa"]
-resource_local_to_scene = true
-script = ExtResource("20_tnvy5")
-type = 0
-base_value = 1.0
-target_type = SubResource("Resource_8hkyi")
-
-[sub_resource type="Resource" id="Resource_vobi5"]
-script = ExtResource("22_n73rd")
-name = "Navaja suiza"
-description = "Selecciona un debuff. Noby ataca al oponente, inflige daño y aplica el debuff"
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_hv3wa")])
-energy_cost = 5
-
 [node name="Noby" instance=ExtResource("1_iq20k")]
 char_info = ExtResource("2_salyo")
 
@@ -1402,4 +1379,4 @@ animation = &"idle"
 
 [node name="CombatHandler" parent="." index="3"]
 stats = ExtResource("2_yag6e")
-skills = Array[ExtResource("22_n73rd")]([ExtResource("7_diqpc"), ExtResource("9_l81a1"), ExtResource("12_unjal"), ExtResource("19_i1grm"), SubResource("Resource_vobi5"), ExtResource("14_j1r65"), ExtResource("24_1tpg8"), ExtResource("19_e8254")])
+skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("7_diqpc"), ExtResource("9_l81a1"), ExtResource("12_unjal"), ExtResource("19_i1grm"), ExtResource("20_bk2wv"), ExtResource("14_j1r65"), ExtResource("24_1tpg8"), ExtResource("19_e8254")])
