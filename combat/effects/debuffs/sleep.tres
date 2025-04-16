@@ -1,17 +1,21 @@
-[gd_resource type="Resource" script_class="Sleep" load_steps=4 format=3 uid="uid://ddlfj3bexjilk"]
+[gd_resource type="Resource" script_class="Sleep" load_steps=5 format=3 uid="uid://ddlfj3bexjilk"]
 
+[ext_resource type="Resource" uid="uid://dc2eona3nrx26" path="res://combat/effects/debuffs/sleep_data.tres" id="1_idil4"]
 [ext_resource type="Script" path="res://combat/effects/debuffs/sleep.gd" id="1_iglal"]
-[ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="1_vitte"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="3_rm3pr"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_y0p2u"]
-atlas = ExtResource("1_vitte")
-region = Rect2(81, 65, 14, 15)
+[sub_resource type="Resource" id="Resource_jq4wd"]
+script = ExtResource("3_rm3pr")
+number_of_targets = 1
+random = false
+allow_repetition = false
 
 [resource]
 script = ExtResource("1_iglal")
-icon = SubResource("AtlasTexture_y0p2u")
 type = 1
-decrease_duration = 3
+decrease_duration = 2
 duration = 3
 stacks = false
+base_data = ExtResource("1_idil4")
 base_value = 1.0
+target_type = SubResource("Resource_jq4wd")

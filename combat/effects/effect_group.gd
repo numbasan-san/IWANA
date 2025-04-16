@@ -48,3 +48,19 @@ func _set_skill_targets(_targets: Array[Character]):
 	super._set_skill_targets(_targets)
 	for eff in effects:
 		eff.skill_targets = _targets
+
+func _set_target(_target: Character):
+	super._set_target(_target)
+	for eff in effects:
+		eff.target = _target
+
+func _set_skill(_skill: Skill):
+	super._set_skill(_skill)
+	for eff in effects:
+		eff.skill = _skill
+
+func _flatten() -> Array[Effect]:
+	var result: Array[Effect] = []
+	for eff in effects:
+		result.append_array(eff._flatten())
+	return result

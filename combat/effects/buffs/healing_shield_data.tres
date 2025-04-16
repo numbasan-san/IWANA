@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EffectBaseData" load_steps=3 format=3 uid="uid://dmsj8enfrgptt"]
+
+[ext_resource type="Texture2D" uid="uid://daf4jjtejhoif" path="res://combat/effects/buffs/shield_icon.tres" id="1_bd862"]
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="1_mbhdr"]
+
+[resource]
+script = ExtResource("1_mbhdr")
+name = "Healing shield"
+description = "Blocks an amount of damage from any source. If when its duration is 0 there is still some shield left, it heals the character by that amount."
+icon = ExtResource("1_bd862")

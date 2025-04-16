@@ -10,7 +10,10 @@ var effects_to_textures: Dictionary
 # effect are removed.
 func add_effect(effect: LastingEffect):
 	var texture = TextureRect.new()
-	texture.texture = effect.icon
+	effect.init_base_data()
+	texture.texture = effect.base_data.icon
+	texture.tooltip_text = effect.base_data.name + "\n" + \
+		effect.base_data.description
 	icon_placement.add_child(texture)
 	effects_to_textures[effect] = texture
 

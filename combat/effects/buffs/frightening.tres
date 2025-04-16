@@ -1,54 +1,44 @@
-[gd_resource type="Resource" script_class="ChainedEffect" load_steps=11 format=3 uid="uid://bk2bxw66yx3n8"]
+[gd_resource type="Resource" script_class="ChainedEffect" load_steps=10 format=3 uid="uid://bk2bxw66yx3n8"]
 
+[ext_resource type="Resource" uid="uid://bq1xq1qyl6520" path="res://combat/effects/buffs/frightening_data.tres" id="1_5mon5"]
 [ext_resource type="Script" path="res://combat/effects/chained_effect.gd" id="1_acy5g"]
-[ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="1_pxp53"]
-[ext_resource type="Script" path="res://combat/effects/stat_moding_effect.gd" id="1_s0tvq"]
-[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="2_nlp3y"]
+[ext_resource type="Script" path="res://combat/effects/stat_moding_effect.gd" id="2_fg8kt"]
+[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="3_xibu4"]
+[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="5_ejaah"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_12u63"]
-atlas = ExtResource("1_pxp53")
-region = Rect2(17, 98, 14, 12)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qb8mo"]
-atlas = ExtResource("1_pxp53")
-region = Rect2(174, 66, 48, 42)
-
-[sub_resource type="Resource" id="Resource_htiip"]
-script = ExtResource("1_s0tvq")
+[sub_resource type="Resource" id="Resource_fp8bp"]
+script = ExtResource("2_fg8kt")
 stat = "Damage"
-icon = SubResource("AtlasTexture_qb8mo")
-type = 0
-decrease_duration = 3
+type = 1
+decrease_duration = 2
 duration = 2
 stacks = true
-base_value = 2.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hipoj"]
-atlas = ExtResource("1_pxp53")
-region = Rect2(174, 66, 48, 42)
-
-[sub_resource type="Resource" id="Resource_7ad7d"]
-script = ExtResource("1_s0tvq")
-stat = "Defense"
-icon = SubResource("AtlasTexture_hipoj")
-type = 0
-decrease_duration = 3
-duration = 2
-stacks = true
-base_value = 2.0
-
-[sub_resource type="Resource" id="Resource_qi1pc"]
-script = ExtResource("2_nlp3y")
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_htiip"), SubResource("Resource_7ad7d")])
 base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_p4d5w"]
+script = ExtResource("2_fg8kt")
+stat = "Defense"
+type = 1
+decrease_duration = 2
+duration = 2
+stacks = true
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_og3on"]
+script = ExtResource("3_xibu4")
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_fp8bp"), SubResource("Resource_p4d5w")])
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_3nl63"]
+script = ExtResource("5_ejaah")
 
 [resource]
 script = ExtResource("1_acy5g")
-intercept_effect = SubResource("Resource_qi1pc")
-intercept_type = ""
-icon = SubResource("AtlasTexture_12u63")
+incoming_effect = SubResource("Resource_og3on")
 type = 0
-decrease_duration = 0
-duration = 0
+decrease_duration = 4
+duration = 2
 stacks = false
+base_data = ExtResource("1_5mon5")
 base_value = 1.0
+target_type = SubResource("Resource_3nl63")

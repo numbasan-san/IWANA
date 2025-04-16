@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EffectBaseData" load_steps=3 format=3 uid="uid://dc2eona3nrx26"]
+
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="1_4sqxo"]
+[ext_resource type="Texture2D" uid="uid://dxm2w7h5yilb3" path="res://combat/effects/debuffs/sleep_icon.tres" id="1_nvkvi"]
+
+[resource]
+script = ExtResource("1_4sqxo")
+name = "Sleeping"
+description = "The target is sleeping and can't act. Any received damage will wake it up."
+icon = ExtResource("1_nvkvi")

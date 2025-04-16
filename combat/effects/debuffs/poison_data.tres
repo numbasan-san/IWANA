@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EffectBaseData" load_steps=3 format=3 uid="uid://vvn3c4it7p7o"]
+
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="1_g4eem"]
+[ext_resource type="Texture2D" uid="uid://b1xvorcalr8h0" path="res://combat/effects/debuffs/poison_icon.tres" id="1_tlh4s"]
+
+[resource]
+script = ExtResource("1_g4eem")
+name = "Poison"
+description = "This character receives poison damage each turn and it's defense is reduced."
+icon = ExtResource("1_tlh4s")

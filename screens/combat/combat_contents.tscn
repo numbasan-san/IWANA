@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://f2oog5xfhsha"]
+[gd_scene load_steps=27 format=3 uid="uid://f2oog5xfhsha"]
 
 [ext_resource type="Script" path="res://screens/combat/combat_screen_contents.gd" id="1_o364i"]
 [ext_resource type="Texture2D" uid="uid://ddusl4u64qj4v" path="res://assets/combat_sprites/background1.png" id="2_lv2pp"]
@@ -18,10 +18,18 @@
 [ext_resource type="Script" path="res://screens/combat/skills_menu.gd" id="16_3nacl"]
 [ext_resource type="Texture2D" uid="uid://4xwrses4uu7v" path="res://assets/combat_sprites/skills_paper.png" id="17_n5htp"]
 [ext_resource type="PackedScene" uid="uid://dus506xg66heq" path="res://scenes/sfx.tscn" id="18_l7cxu"]
+[ext_resource type="Script" path="res://screens/combat/effect_selection_box.gd" id="18_xq4ua"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4841x"]
 atlas = ExtResource("9_1667j")
 region = Rect2(1271, 222, 396, 318)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrbcw"]
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.18, 0.18, 0.18, 1)
 
 [sub_resource type="Animation" id="Animation_lhdi0"]
 resource_name = "ShowSkills_2"
@@ -291,6 +299,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_o364i")
 right_area = NodePath("RightArea")
 left_area = NodePath("LeftArea")
@@ -331,6 +340,7 @@ anchor_bottom = 0.508
 offset_left = 0.319946
 offset_top = -3.05176e-05
 offset_bottom = 0.359985
+mouse_filter = 2
 script = ExtResource("4_fhsny")
 sprite_containers = [NodePath("SpriteContainer1"), NodePath("SpriteContainer2"), NodePath("SpriteContainer3"), NodePath("SpriteContainer4")]
 direction = -1
@@ -568,7 +578,7 @@ texture_pressed = ExtResource("12_1rras")
 texture_hover = ExtResource("12_1rras")
 texture_focused = ExtResource("12_1rras")
 
-[node name="SkillsMenu" type="Control" parent="." node_paths=PackedStringArray("combat", "character_slot", "skills_container", "button_model")]
+[node name="SkillsMenu" type="Control" parent="." node_paths=PackedStringArray("combat", "character_slot", "skills_container", "button_model", "effect_selection_box")]
 visible = false
 layout_mode = 1
 anchor_left = 0.133
@@ -586,6 +596,7 @@ combat = NodePath("..")
 character_slot = NodePath("Character")
 skills_container = NodePath("SkillArea/Skills/VBoxContainer")
 button_model = NodePath("ButtonModel")
+effect_selection_box = NodePath("EffectSelection")
 
 [node name="ButtonModel" type="Button" parent="SkillsMenu"]
 layout_mode = 0
@@ -631,6 +642,59 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 theme_override_constants/separation = 20
 
+[node name="EffectSelection" type="Panel" parent="SkillsMenu" node_paths=PackedStringArray("grid")]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -392.0
+offset_top = -345.0
+offset_right = -72.0
+offset_bottom = -58.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("18_xq4ua")
+grid = NodePath("GridContainer")
+
+[node name="GridContainer" type="GridContainer" parent="SkillsMenu/EffectSelection"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+columns = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SkillsMenu/EffectSelection"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.85
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -8.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Accept" type="Button" parent="SkillsMenu/EffectSelection/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_mrbcw")
+text = "Accept"
+
+[node name="Cancel" type="Button" parent="SkillsMenu/EffectSelection/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Cancel
+"
+
 [node name="MenuChangeAnimation" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_1dyyx")
@@ -664,3 +728,5 @@ text = "asdadasdas"
 [connection signal="pressed" from="PartyMenu/Actions/ActionList/Attack" to="PartyMenu" method="_on_attack_pressed"]
 [connection signal="pressed" from="PartyMenu/Actions/ActionList/Defense" to="PartyMenu" method="_on_defense_pressed"]
 [connection signal="pressed" from="PartyMenu/Actions/ActionList/Run" to="PartyMenu" method="_on_run_pressed"]
+[connection signal="pressed" from="SkillsMenu/EffectSelection/HBoxContainer/Accept" to="SkillsMenu/EffectSelection" method="on_accept_pressed"]
+[connection signal="pressed" from="SkillsMenu/EffectSelection/HBoxContainer/Cancel" to="SkillsMenu/EffectSelection" method="on_cancel_pressed"]

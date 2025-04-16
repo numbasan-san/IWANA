@@ -3,6 +3,8 @@ class_name Effect extends Resource
 # An effect is anything that causes some change on characters' stats as a result
 # of a skill, like causing damage or healing, applying a buff or debuff, etc.
 
+@export var base_data: EffectBaseData
+
 ## The base value of this effect.
 ##
 ## If the actual value of the effect is modified before being applied, this base
@@ -50,13 +52,36 @@ var _skill_targets: Array[Character]
 ## be modified in custom code if it's going to be executed after the outgoing
 ## modifier phase, that is, in functions on_send, on_receive, on_apply and
 ## intercept in lasting effects of type INCOMING
-var target: Character
+var target: Character:
+	set(value):
+		_set_target(value)
+	get:
+		return _target
+var _target: Character
+
+## The skill casted to apply this effect.
+##
+## Some effects might need to know this so they can monitor when other skills are
+## used.
+var skill: Skill:
+	set(value):
+		_set_skill(value)
+	get:
+		return _skill
+var _skill: Skill
 
 ## Effects that are nullified will stop being processed by the system.
 ##
 ## Some effects might nullify other incoming or outgoing effects and prevent
 ## them from being applied or from reaching the target
 var is_nullified: bool = false
+
+# If this effect doesn't have a predefined data resource, it creates an empty one
+# so that it doesn't throw errors when being accesed.
+# Effects that must load this data dinamically should override this function.
+func init_base_data():
+	if base_data == null:
+		base_data = EffectBaseData.new()
 
 # This will be called when the caster's combat handler starts processing
 # this effect and after being initialized or cloned from the base resource.
@@ -146,6 +171,11 @@ func select_targets(allies: Party, enemies: Party):
 func is_valid() -> bool:
 	return caster and skill_targets and skill_targets.size() > 0
 
+# By default, two effects have the same type if they inherit the same script.
+# Some effects might want to override this to refine how they are compared.
+func is_same_type(other: Effect) -> bool:
+	return self.get_script() == other.get_script()
+
 # Copies this effect. This is necessary as using the duplicate method doesn't
 # copy all fields
 func copy() -> Effect:
@@ -163,8 +193,26 @@ func copy() -> Effect:
 func _set_caster(_caster: Character):
 	self._caster = _caster
 
+# This should be called as the setter of the target property. It can be
+# overriden by subclasses that have subeffects to set their target to the same as
+# the container.
+func _set_target(_target: Character):
+	self._target = _target
+
 # This should be called as the setter of the skill_targets property. It can be
 # overriden by subclasses that have subeffects to set their targets to the same as
 # the container.
 func _set_skill_targets(_targets: Array[Character]):
 	self._skill_targets = _targets
+
+# This should be called as the setter of the skill property. It can be
+# overriden by subclasses that have subeffects to set their skill to the same as
+# the container.
+func _set_skill(_skill: Skill):
+	self._skill = _skill
+
+# Some effects can contain one or more effects inside. This function is used to
+# recursively return those efects in a 1-D array so that they can be used regardless
+# of the nested structure.
+func _flatten() -> Array[Effect]:
+	return [self]

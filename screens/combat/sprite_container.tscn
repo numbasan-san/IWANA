@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://screens/combat/sprite_icon_control.gd" id="3_6f3g4"]
 [ext_resource type="Script" path="res://screens/combat/graphic_effects.gd" id="3_77t36"]
 [ext_resource type="Script" path="res://screens/combat/projectile_spawner.gd" id="3_mi672"]
-[ext_resource type="Texture2D" uid="uid://bmo6hh0wijg8" path="res://combat/effects/animation_effects/impact.png" id="4_f6fsk"]
+[ext_resource type="Texture2D" uid="uid://c70j0nh30hq4n" path="res://combat/effects/animation_effects/impact.png" id="4_f6fsk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gltg8"]
 
@@ -292,6 +292,7 @@ _data = {
 [node name="SpriteContainer" type="Panel" node_paths=PackedStringArray("combat_sprite", "targeting_animation", "number_control", "graphics_control", "icon_control", "fill_bars")]
 offset_right = 275.0
 offset_bottom = 325.0
+mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxEmpty_gltg8")
 script = ExtResource("1_ndaat")
 combat_sprite = NodePath("CombatSprite")
@@ -319,6 +320,7 @@ anchor_right = 0.3
 offset_top = -45.0
 offset_bottom = -45.0
 grow_horizontal = 2
+mouse_filter = 2
 script = ExtResource("2_uf8fx")
 number_animator = NodePath("AnimationPlayer")
 number = NodePath("Label")
@@ -350,23 +352,6 @@ sprite_frames = SubResource("SpriteFrames_os7q0")
 animation = &"Hit"
 frame_progress = 1.0
 
-[node name="Icons" type="Panel" parent="." node_paths=PackedStringArray("icon_placement")]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.205
-anchor_bottom = 0.205
-script = ExtResource("3_6f3g4")
-icon_placement = NodePath("GridContainer")
-
-[node name="GridContainer" type="GridContainer" parent="Icons"]
-layout_mode = 1
-offset_right = 112.0
-offset_bottom = 54.0
-scale = Vector2(0.6, 0.6)
-theme_override_constants/h_separation = 8
-theme_override_constants/v_separation = 8
-columns = 6
-
 [node name="FillBars" parent="." node_paths=PackedStringArray("container") instance=ExtResource("2_xja7c")]
 layout_mode = 1
 anchors_preset = -1
@@ -385,6 +370,24 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 theme_override_styles/panel = SubResource("StyleBoxTexture_khklr")
+
+[node name="Icons" type="Panel" parent="." node_paths=PackedStringArray("icon_placement")]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.205
+anchor_bottom = 0.205
+mouse_filter = 1
+script = ExtResource("3_6f3g4")
+icon_placement = NodePath("GridContainer")
+
+[node name="GridContainer" type="GridContainer" parent="Icons"]
+layout_mode = 1
+offset_right = 112.0
+offset_bottom = 54.0
+scale = Vector2(2, 2)
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+columns = 6
 
 [node name="TargetingAnimations" type="AnimationPlayer" parent="."]
 libraries = {

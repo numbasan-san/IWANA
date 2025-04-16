@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EffectBaseData" load_steps=3 format=3 uid="uid://b55e4sulfykil"]
+
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="1_a5fpc"]
+[ext_resource type="Texture2D" uid="uid://bjw1sppdvjw37" path="res://combat/effects/buffs/regen_icon.tres" id="1_ab1s2"]
+
+[resource]
+script = ExtResource("1_a5fpc")
+name = "Regeneration"
+description = "The character recovers some health each turn."
+icon = ExtResource("1_ab1s2")

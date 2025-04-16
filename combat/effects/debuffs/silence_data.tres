@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EffectBaseData" load_steps=3 format=3 uid="uid://ch7mttfy6eafn"]
+
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="1_qbdob"]
+[ext_resource type="Texture2D" uid="uid://bcpbnhdnlcimh" path="res://combat/effects/debuffs/silence_icon.tres" id="1_stny8"]
+
+[resource]
+script = ExtResource("1_qbdob")
+name = "Silenced"
+description = "Blocks the last skill used by the target."
+icon = ExtResource("1_stny8")

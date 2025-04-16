@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EffectBaseData" load_steps=3 format=3 uid="uid://bh60aic7tvtqn"]
+
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="1_47k8f"]
+[ext_resource type="Texture2D" uid="uid://cuhxfgqdtkth3" path="res://combat/effects/debuffs/burnt_icon.tres" id="1_aw432"]
+
+[resource]
+script = ExtResource("1_47k8f")
+name = "Burning"
+description = "This character receives fire damage each turn and can't receive buffs."
+icon = ExtResource("1_aw432")

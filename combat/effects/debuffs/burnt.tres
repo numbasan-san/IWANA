@@ -1,25 +1,31 @@
-[gd_resource type="Resource" script_class="Burnt" load_steps=6 format=3 uid="uid://7pcxx208qqpx"]
+[gd_resource type="Resource" script_class="Burnt" load_steps=8 format=3 uid="uid://7pcxx208qqpx"]
 
-[ext_resource type="Script" path="res://combat/effects/damage.gd" id="1_rd27d"]
-[ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="2_2ng7q"]
+[ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="1_rd27d"]
+[ext_resource type="Resource" uid="uid://dayloxpwj30t4" path="res://combat/effects/instant/damage_data.tres" id="1_sw5je"]
 [ext_resource type="Script" path="res://combat/effects/debuffs/burnt.gd" id="3_gaf2o"]
+[ext_resource type="Resource" uid="uid://bh60aic7tvtqn" path="res://combat/effects/debuffs/burnt_data.tres" id="3_u0miw"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="5_5b0v2"]
 
 [sub_resource type="Resource" id="Resource_se78k"]
 script = ExtResource("1_rd27d")
-type = 0
+type = 4
+percentage_ignored = 0.0
+base_data = ExtResource("1_sw5je")
 base_value = 1.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3tcrj"]
-atlas = ExtResource("2_2ng7q")
-region = Rect2(82, 129, 11, 12)
+[sub_resource type="Resource" id="Resource_7503b"]
+script = ExtResource("5_5b0v2")
+number_of_targets = 1
+random = false
+allow_repetition = false
 
 [resource]
 script = ExtResource("3_gaf2o")
 after_turn_effect = SubResource("Resource_se78k")
-intercept_type = "In"
-icon = SubResource("AtlasTexture_3tcrj")
 type = 1
-decrease_duration = 3
+decrease_duration = 2
 duration = 3
 stacks = true
+base_data = ExtResource("3_u0miw")
 base_value = 1.0
+target_type = SubResource("Resource_7503b")

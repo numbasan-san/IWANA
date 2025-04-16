@@ -1,44 +1,51 @@
-[gd_resource type="Resource" script_class="Wounded" load_steps=10 format=3 uid="uid://c2r15raveo1cq"]
+[gd_resource type="Resource" script_class="Wounded" load_steps=12 format=3 uid="uid://c2r15raveo1cq"]
 
-[ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="1_5mgi8"]
+[ext_resource type="Resource" uid="uid://co4103aibcp1f" path="res://combat/effects/debuffs/wounded_data.tres" id="1_2fwgg"]
 [ext_resource type="Script" path="res://combat/effects/debuffs/wounded.gd" id="2_3yosb"]
-[ext_resource type="Script" path="res://combat/effects/damage.gd" id="2_swr0u"]
+[ext_resource type="Resource" uid="uid://dayloxpwj30t4" path="res://combat/effects/instant/damage_data.tres" id="2_gxaq7"]
+[ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="3_8rr3x"]
 [ext_resource type="Script" path="res://combat/effects/debuffs/bleeding.gd" id="3_hr8rh"]
+[ext_resource type="Resource" uid="uid://dxx1cepr7wwds" path="res://combat/effects/debuffs/bleeding_data.tres" id="4_87lcn"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="7_54wal"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qapfm"]
-atlas = ExtResource("1_5mgi8")
-region = Rect2(82, 99, 12, 10)
-
-[sub_resource type="Resource" id="Resource_ygyrw"]
-script = ExtResource("2_swr0u")
+[sub_resource type="Resource" id="Resource_jnjmc"]
+resource_local_to_scene = true
+script = ExtResource("3_8rr3x")
 type = 2
+percentage_ignored = 0.0
+base_data = ExtResource("2_gxaq7")
 base_value = 1.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_vs224"]
-load_path = "res://.godot/imported/lasting_effect_icons.png-77f127f496dd8238ff80ee35f581e8c1.ctex"
+[sub_resource type="Resource" id="Resource_em1g5"]
+script = ExtResource("7_54wal")
+number_of_targets = 1
+random = false
+allow_repetition = false
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_850dr"]
-atlas = SubResource("CompressedTexture2D_vs224")
-region = Rect2(75, 63, 54, 54)
-
-[sub_resource type="Resource" id="Resource_wrehc"]
+[sub_resource type="Resource" id="Resource_cvdjj"]
 script = ExtResource("3_hr8rh")
-after_turn_effect = SubResource("Resource_ygyrw")
-intercept_type = ""
-icon = SubResource("AtlasTexture_850dr")
+after_turn_effect = SubResource("Resource_jnjmc")
 type = 1
-decrease_duration = 3
-duration = 3
+decrease_duration = 2
+duration = 2
 stacks = true
+base_data = ExtResource("4_87lcn")
 base_value = 1.0
+target_type = SubResource("Resource_em1g5")
+
+[sub_resource type="Resource" id="Resource_lh222"]
+script = ExtResource("7_54wal")
+number_of_targets = 1
+random = false
+allow_repetition = false
 
 [resource]
 script = ExtResource("2_3yosb")
-intercept_effect = SubResource("Resource_wrehc")
-intercept_type = "In"
-icon = SubResource("AtlasTexture_qapfm")
+incoming_effect = SubResource("Resource_cvdjj")
 type = 1
 decrease_duration = 4
 duration = 1
 stacks = false
+base_data = ExtResource("1_2fwgg")
 base_value = 1.0
+target_type = SubResource("Resource_lh222")

@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="PiercingDamage" load_steps=2 format=3 uid="uid://dg3gxqy2qie2k"]
-
-[ext_resource type="Script" path="res://combat/effects/piercing_damage.gd" id="1_grgmy"]
-
-[resource]
-script = ExtResource("1_grgmy")
-percentage_ignored = 0.0
-type = 0
-base_value = 1.0

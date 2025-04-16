@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EffectBaseData" load_steps=3 format=3 uid="uid://co4103aibcp1f"]
+
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="1_uwqd0"]
+[ext_resource type="Texture2D" uid="uid://b5vqumsiou073" path="res://combat/effects/debuffs/wounded_icon.tres" id="1_vedsm"]
+
+[resource]
+script = ExtResource("1_uwqd0")
+name = "Wounded"
+description = "When the target is hit it receives a bleeding stack."
+icon = ExtResource("1_vedsm")

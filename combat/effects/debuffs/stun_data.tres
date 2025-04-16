@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EffectBaseData" load_steps=3 format=3 uid="uid://cqudm6yd60ho3"]
+
+[ext_resource type="Texture2D" uid="uid://dverjwadkdwxm" path="res://combat/effects/debuffs/stun_icon.tres" id="1_8rxx8"]
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="1_j1cwu"]
+
+[resource]
+script = ExtResource("1_j1cwu")
+name = "Stuned"
+description = "The target is stuned and can't act."
+icon = ExtResource("1_8rxx8")

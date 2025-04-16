@@ -4,6 +4,7 @@ class_name SkillsMenu extends Control
 @export var character_slot: PortraitContainer
 @export var skills_container: Container
 @export var button_model: Button
+@export var effect_selection_box: EffectSelectionBox
 
 # TODO: This is temporary, it might go somewhere more global
 @onready var font = load("res://assets/combat_sprites/font/IWANA.ttf")
@@ -20,6 +21,7 @@ func set_character(character: Character = null):
 		for skill in character.combat_handler.skills:
 			var button = button_model.duplicate() as Button
 			button.text = skill.name
+			button.tooltip_text = skill.description
 			button.show()
 			# We can enable or disable the buttons here based on the energy of
 			# the selected character. The only way of regaining energy is
@@ -34,13 +36,52 @@ func set_character(character: Character = null):
 						combat.selecting_target = true
 						var required_targets = skill.get_manual_targets()
 						var target_sets = []
-						for t_type in required_targets:
-							show_possible_targets(t_type, character)
-							await finished_targeting
-							target_sets.append(current_targets)
-							current_targets = []
-						hide_targets()
-						skill.process_effects(combat.player_party, combat.enemy_party, target_sets)
+						# TODO: see if there is a better way to execute this code,
+						# maybe from inside the skill class.
+						for effect in skill.effects:
+							var t_type = effect.target_type
+							# Select manual targets
+							if t_type.is_manual_target():
+								show_possible_targets(t_type, character)
+								await finished_targeting
+								effect.skill_targets = current_targets
+								current_targets = []
+							# Select automatic targets
+							else:
+								effect.select_targets(combat.player_party, combat.enemy_party)
+							hide_targets()
+							# Choose effects from selection list
+							# TODO: this doesn't work if the selection effect is inside
+							# another effect, like a group.
+							if effect is SelectionEffect:
+								effect_selection_box.fill_effects_list(effect)
+								effect_selection_box.start_selection()
+								var complete = await effect_selection_box.selection_ended
+								# If the selection was canceled, the effect processing stops
+								# and the skill's is_valid function will return false.
+								if not complete:
+									break
+							# TODO: change this code. This is only temporary until I
+							# think of something better. For now there are only a few
+							# skills that allow effect selection, and it is either on the
+							# top level or inside a group, so this should work. However
+							# this must be changed to work correctly for conditional and
+							# chained effects, and we must think how we will handle when 
+							# there are several selections in a group.
+							elif effect is EffectGroup:
+								for eff in effect.effects:
+									# This only works for the first selection effect found
+									# in the group, and it doesn't search recursively. That
+									# is enough for the current skills but it's not robust.
+									if eff is SelectionEffect:
+										effect_selection_box.fill_effects_list(eff)
+										effect_selection_box.start_selection()
+										var complete = await effect_selection_box.selection_ended
+										# If the selection was canceled, the effect processing stops
+										# and the skill's is_valid function will return false.
+										if not complete:
+											break
+						
 						if not skill.is_valid():
 							printerr("SkillMenu | The selected number of targets don't match " \
 								+ "with the required number for skill " + skill.name)
@@ -89,7 +130,9 @@ func show_possible_targets(t_type: TargetVariable, caster: Character):
 	if t_type is TargetFriend or t_type is TargetAnyone:
 		possible_targets.append_array(combat.player_area.get_children())
 		if t_type.exclude_self:
-			possible_targets.erase(caster)
+			possible_targets = possible_targets.filter(func(container):
+				return not (container.character == caster)
+			)
 	
 	var callable = _add_target_to_current.bind(t_type.number_of_targets)
 	for container in possible_targets:

@@ -1,8 +1,8 @@
-class_name Marked extends InModingEffect
+class_name Marked extends LastingEffect
 
-func on_intercept(effect: Effect):
+func on_incoming(effect: Effect):
 	if effect is DamageEffect:
-		if effect.type == DamageEffect.DamageType.PHYSICAL and not effect.is_critical:
+		if effect.type == DamageEffect.DamageType.PHYSICAL:
 			effect.is_critical = true
 			
-			interception = true
+			incoming_intercepted = true

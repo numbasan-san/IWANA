@@ -14,7 +14,6 @@ class_name ConditionalEffect extends Effect
 ## Effect to select when the condition is false
 @export var when_false: Effect
 
-
 # This function will be called before calling on_send
 func evaluate() -> Effect:
 	var cond = condition.evaluate(caster, target)
@@ -37,7 +36,7 @@ func evaluate() -> Effect:
 	# conditional effect must be nullified
 	else:
 		is_nullified = true
-		return self
+		return null
 
 func on_cast(caster: Character):
 	if when_true:
@@ -59,6 +58,14 @@ func _set_caster(_caster: Character):
 	if when_false:
 		when_false.caster = _caster
 
+# Recursively sets the target of all sub-effects
+func _set_target(_target: Character):
+	super._set_target(_target)
+	if when_true:
+		when_true.target = _target
+	if when_false:
+		when_false.target = _target
+
 # Recursively sets the targets of all sub-effects
 func _set_skill_targets(_targets: Array[Character]):
 	super._set_skill_targets(_targets)
@@ -66,3 +73,18 @@ func _set_skill_targets(_targets: Array[Character]):
 		when_true.skill_targets = _targets
 	if when_false:
 		when_false.skill_targets = _targets
+
+# Recursively sets the skill of all sub-effects
+func _set_skill(_skill: Skill):
+	super._set_skill(_skill)
+	if when_true:
+		when_true.skill = _skill
+	if when_false:
+		when_false.skill = _skill
+
+func _flatten() -> Array[Effect]:
+	var eval = evaluate()
+	if eval != null:
+		return eval._flatten()
+	else:
+		return []

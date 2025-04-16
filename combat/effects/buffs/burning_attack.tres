@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="BurningAttack" load_steps=9 format=3 uid="uid://cx2f5kwik7dtd"]
+
+[ext_resource type="Resource" uid="uid://dpoli8wo1ymvf" path="res://combat/effects/buffs/burning_attack_data.tres" id="1_af1n6"]
+[ext_resource type="Script" path="res://combat/effects/buffs/burning_attack.gd" id="1_jc2hh"]
+[ext_resource type="Resource" uid="uid://dayloxpwj30t4" path="res://combat/effects/instant/damage_data.tres" id="2_jywjs"]
+[ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="3_06eu2"]
+[ext_resource type="Resource" uid="uid://bh60aic7tvtqn" path="res://combat/effects/debuffs/burnt_data.tres" id="4_g62ws"]
+[ext_resource type="Script" path="res://combat/effects/debuffs/burnt.gd" id="5_1m8fx"]
+
+[sub_resource type="Resource" id="Resource_se78k"]
+script = ExtResource("3_06eu2")
+type = 4
+percentage_ignored = 0.0
+base_data = ExtResource("2_jywjs")
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_rcvam"]
+script = ExtResource("5_1m8fx")
+after_turn_effect = SubResource("Resource_se78k")
+type = 0
+decrease_duration = 3
+duration = 3
+stacks = true
+base_data = ExtResource("4_g62ws")
+base_value = 1.0
+
+[resource]
+script = ExtResource("1_jc2hh")
+character_hit_effect = SubResource("Resource_rcvam")
+type = 0
+decrease_duration = 5
+duration = 1
+stacks = false
+base_data = ExtResource("1_af1n6")
+base_value = 1.0

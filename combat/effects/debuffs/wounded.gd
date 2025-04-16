@@ -12,8 +12,8 @@ class_name Wounded extends ChainedEffect
 # The system must be changed so that only one icon is ever shown with the info
 # of all the related effects, and when all of them have been removed, the icon can
 # be removed.
-func on_intercept(effect: Effect):
+func on_incoming(effect: Effect):
 	if effect is DamageEffect:
 		if effect.type == DamageEffect.DamageType.PHYSICAL:
-			intercept_effect.target = effect.target
-			interception = true
+			incoming_effect.target = effect.target
+			incoming_intercepted = true
