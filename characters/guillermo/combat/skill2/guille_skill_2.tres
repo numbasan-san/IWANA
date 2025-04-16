@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://dcnqwmqync6py"]
+[gd_resource type="Resource" script_class="Skill" load_steps=3 format=3 uid="uid://dcnqwmqync6py"]
 
+[ext_resource type="Resource" uid="uid://c2r15raveo1cq" path="res://combat/effects/debuffs/wounded.tres" id="1_7myv0"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_tcbr8"]
 
 [resource]
 script = ExtResource("1_tcbr8")
 name = "Herida abierta"
 description = "aplica (herido)"
-effects = Array[Resource("res://combat/effects/effect.gd")]([])
-energy_cost = 999999
+effects = Array[Resource("res://combat/effects/effect.gd")]([ExtResource("1_7myv0")])
+energy_cost = 5

@@ -2,14 +2,13 @@
 
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_7dya4"]
 [ext_resource type="Script" path="res://combat/effects/stat_moding_effect.gd" id="1_pk56j"]
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="1_yjyx6"]
 [ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="2_1ud0x"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tn3ql"]
-load_path = "res://.godot/imported/lasting_effect_icons.png-77f127f496dd8238ff80ee35f581e8c1.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ic1es"]
-atlas = SubResource("CompressedTexture2D_tn3ql")
-region = Rect2(270, 72, 48, 42)
+[sub_resource type="Resource" id="Resource_uuimr"]
+script = ExtResource("1_yjyx6")
+name = ""
+description = ""
 
 [sub_resource type="Resource" id="Resource_3khk6"]
 script = ExtResource("2_1ud0x")
@@ -20,12 +19,12 @@ allow_repetition = false
 [sub_resource type="Resource" id="Resource_cay54"]
 script = ExtResource("1_pk56j")
 stat = "Precision"
-icon = SubResource("AtlasTexture_ic1es")
 type = 1
-decrease_duration = 3
+decrease_duration = 2
 duration = 2
 stacks = true
-base_value = 20.0
+base_data = SubResource("Resource_uuimr")
+base_value = 50.0
 target_type = SubResource("Resource_3khk6")
 
 [resource]

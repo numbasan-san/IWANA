@@ -1,38 +1,37 @@
 [gd_resource type="Resource" script_class="Skill" load_steps=10 format=3 uid="uid://sotak7dpn74e"]
 
-[ext_resource type="Script" path="res://combat/effects/heal.gd" id="1_iohne"]
+[ext_resource type="Script" path="res://combat/effects/instant/heal.gd" id="1_iohne"]
 [ext_resource type="Script" path="res://combat/effects/buffs/life_steal.gd" id="1_rtvb8"]
-[ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="2_mndv6"]
+[ext_resource type="Resource" uid="uid://b08i77oxgv52d" path="res://combat/effects/buffs/life_steal_data.tres" id="1_skxg8"]
+[ext_resource type="Resource" uid="uid://cqkvtlmmen8kn" path="res://combat/effects/instant/heal_data.tres" id="2_sm0ts"]
 [ext_resource type="Script" path="res://combat/targets/target_self.gd" id="2_so1d2"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="3_ymvr7"]
 
-[sub_resource type="Resource" id="Resource_ottrk"]
+[sub_resource type="Resource" id="Resource_et36p"]
+resource_local_to_scene = true
 script = ExtResource("1_iohne")
+base_data = ExtResource("2_sm0ts")
 base_value = 1.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_psyfg"]
-atlas = ExtResource("2_mndv6")
-region = Rect2(174, 66, 48, 42)
-
-[sub_resource type="Resource" id="Resource_csls8"]
+[sub_resource type="Resource" id="Resource_x7wcd"]
 script = ExtResource("2_so1d2")
 
-[sub_resource type="Resource" id="Resource_fijm1"]
+[sub_resource type="Resource" id="Resource_yjmf2"]
+resource_local_to_scene = true
 script = ExtResource("1_rtvb8")
-character_hit_effect = SubResource("Resource_ottrk")
-intercept_type = "Hit"
-icon = SubResource("AtlasTexture_psyfg")
+character_hit_effect = SubResource("Resource_et36p")
 type = 0
 decrease_duration = 5
 duration = 3
 stacks = false
+base_data = ExtResource("1_skxg8")
 base_value = 1.0
-target_type = SubResource("Resource_csls8")
+target_type = SubResource("Resource_x7wcd")
 
 [resource]
 script = ExtResource("3_ymvr7")
 name = "Amenaza"
 description = "Daniela amenaza al grupo enemigo y buffea sus siguientes 3 golpes para curarse un porcentaje del daño infligido
 "
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_fijm1")])
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_yjmf2")])
 energy_cost = 5

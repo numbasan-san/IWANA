@@ -1,31 +1,27 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=8 format=3 uid="uid://dmvj4kyndncv6"]
+[gd_resource type="Resource" script_class="Skill" load_steps=7 format=3 uid="uid://dmvj4kyndncv6"]
 
-[ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="1_258am"]
+[ext_resource type="Resource" uid="uid://blv2ww70x2hv" path="res://combat/effects/buffs/dodge_data.tres" id="1_5o0hu"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_ft2od"]
 [ext_resource type="Script" path="res://combat/effects/buffs/dodge.gd" id="2_mcqle"]
 [ext_resource type="Script" path="res://combat/targets/target_self.gd" id="2_p56h1"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u3bie"]
-atlas = ExtResource("1_258am")
-region = Rect2(174, 66, 48, 42)
-
-[sub_resource type="Resource" id="Resource_w8bop"]
+[sub_resource type="Resource" id="Resource_qslp4"]
 script = ExtResource("2_p56h1")
 
-[sub_resource type="Resource" id="Resource_uwosm"]
+[sub_resource type="Resource" id="Resource_0da6c"]
 script = ExtResource("2_mcqle")
 stat = "Evasion"
-icon = SubResource("AtlasTexture_u3bie")
 type = 0
 decrease_duration = 0
 duration = 1
 stacks = false
+base_data = ExtResource("1_5o0hu")
 base_value = 9999.0
-target_type = SubResource("Resource_w8bop")
+target_type = SubResource("Resource_qslp4")
 
 [resource]
 script = ExtResource("1_ft2od")
 name = "Escape ninja"
 description = "Deja un tronco (naruto) o Deja atrás su cola, evitando el daño del siguiente ataque."
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_uwosm")])
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_0da6c")])
 energy_cost = 3

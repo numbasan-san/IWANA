@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=15 format=3 uid="uid://7itin0wyy3p7"]
+[gd_resource type="Resource" script_class="Skill" load_steps=11 format=3 uid="uid://7itin0wyy3p7"]
 
 [ext_resource type="Script" path="res://combat/effects/conditions/stat_condition.gd" id="1_s6n1s"]
 [ext_resource type="Script" path="res://combat/effects/conditional_effect.gd" id="2_c712b"]
@@ -21,36 +21,20 @@ number_of_targets = 1
 random = false
 allow_repetition = false
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i1tfb"]
-load_path = "res://.godot/imported/lasting_effect_icons.png-77f127f496dd8238ff80ee35f581e8c1.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vb2pp"]
-atlas = SubResource("CompressedTexture2D_i1tfb")
-region = Rect2(174, 66, 48, 42)
-
 [sub_resource type="Resource" id="Resource_hrkxe"]
 script = ExtResource("5_5aow1")
 stat = "Defense"
-icon = SubResource("AtlasTexture_vb2pp")
 type = 0
-decrease_duration = 3
+decrease_duration = 2
 duration = 2
 stacks = true
 base_value = 1.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6n6bk"]
-load_path = "res://.godot/imported/lasting_effect_icons.png-77f127f496dd8238ff80ee35f581e8c1.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_by724"]
-atlas = SubResource("CompressedTexture2D_6n6bk")
-region = Rect2(174, 66, 48, 42)
-
 [sub_resource type="Resource" id="Resource_0abjb"]
 script = ExtResource("5_5aow1")
 stat = "Damage"
-icon = SubResource("AtlasTexture_by724")
 type = 0
-decrease_duration = 3
+decrease_duration = 2
 duration = 2
 stacks = true
 base_value = 1.0

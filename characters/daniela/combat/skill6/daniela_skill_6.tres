@@ -1,52 +1,11 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=14 format=3 uid="uid://dy8iao35wkjdn"]
+[gd_resource type="Resource" script_class="Skill" load_steps=3 format=3 uid="uid://dy8iao35wkjdn"]
 
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_50alj"]
-[ext_resource type="Script" path="res://combat/effects/damage.gd" id="1_a8bun"]
-[ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="2_lf820"]
-[ext_resource type="Script" path="res://combat/effects/debuffs/poison.gd" id="2_qddsf"]
-[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="3_43enr"]
-[ext_resource type="Script" path="res://combat/effects/consume_poison.gd" id="3_ahd8n"]
-[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="4_ne4px"]
-
-[sub_resource type="Resource" id="Resource_sbnw7"]
-script = ExtResource("1_a8bun")
-type = 3
-base_value = 1.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mdipc"]
-atlas = ExtResource("2_lf820")
-region = Rect2(270, 72, 48, 42)
-
-[sub_resource type="Resource" id="Resource_wt10y"]
-script = ExtResource("2_qddsf")
-after_turn_effect = SubResource("Resource_sbnw7")
-intercept_type = ""
-icon = SubResource("AtlasTexture_mdipc")
-type = 1
-decrease_duration = 3
-duration = 3
-stacks = true
-base_value = 1.0
-
-[sub_resource type="Resource" id="Resource_iw5pi"]
-script = ExtResource("3_ahd8n")
-base_value = 2.0
-
-[sub_resource type="Resource" id="Resource_1rg5c"]
-script = ExtResource("3_43enr")
-number_of_targets = 1
-random = false
-allow_repetition = false
-
-[sub_resource type="Resource" id="Resource_xwkbi"]
-script = ExtResource("4_ne4px")
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_wt10y"), SubResource("Resource_iw5pi")])
-base_value = 1.0
-target_type = SubResource("Resource_1rg5c")
+[ext_resource type="Resource" uid="uid://bi2wsyy3pwtcu" path="res://characters/daniela/combat/skill6/consume_poison.tres" id="1_y23qq"]
 
 [resource]
 script = ExtResource("1_50alj")
 name = "A veces me siento"
 description = "Aplica veneno, ataca al enemigo, consumiendo el efecto de veneno del enemigo y lo convierte en daño."
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_xwkbi")])
+effects = Array[Resource("res://combat/effects/effect.gd")]([ExtResource("1_y23qq")])
 energy_cost = 5

@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cbsenaqm4qe7m"]
+[gd_scene load_steps=22 format=3 uid="uid://cbsenaqm4qe7m"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Resource" uid="uid://csb8r8xe32g78" path="res://script/characters/resource/guillermo.tres" id="2_fj7it"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://hhs7i2sr3qc0" path="res://characters/guillermo/rpg/movement_384x240.png" id="4_5wuw6"]
 [ext_resource type="Texture2D" uid="uid://bjw3m76gpdtwe" path="res://characters/guillermo/vn/neutral.png" id="4_43dl1"]
 [ext_resource type="Texture2D" uid="uid://6fr2j3075r1f" path="res://characters/guillermo/combat/fainted.png" id="4_x4bf4"]
-[ext_resource type="AnimationLibrary" uid="uid://b4bbcb4ves016" path="res://characters/movement_animation_incomplete.res" id="5_5dm6x"]
 [ext_resource type="Texture2D" uid="uid://dbsds7656htwx" path="res://characters/guillermo/rpg/guillermo_portrait.png" id="6_ugdgc"]
 [ext_resource type="Texture2D" uid="uid://b0ainjfp61ope" path="res://characters/noby_combate.png" id="7_vcwol"]
 [ext_resource type="Resource" uid="uid://2qrcbncw64ml" path="res://characters/guillermo/combat/skill1/guille_skill_1.tres" id="10_ahs5w"]
@@ -81,11 +80,6 @@ frame = 16
 [node name="Collider" parent="RPGModel" index="1"]
 position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_ei4ua")
-
-[node name="Animation" parent="RPGModel" index="2"]
-libraries = {
-"": ExtResource("5_5dm6x")
-}
 
 [node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
 visible = false

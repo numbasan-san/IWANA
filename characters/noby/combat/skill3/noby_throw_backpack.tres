@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EffectGroup" load_steps=7 format=3 uid="uid://cmqr5lu7lmvgg"]
+
+[ext_resource type="Script" path="res://combat/effects/animation_effects/play_animation.gd" id="1_71hb7"]
+[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="1_bk07j"]
+[ext_resource type="Resource" uid="uid://j15r24hfj0sn" path="res://characters/noby/combat/skill3/backpack.tres" id="1_x0ivh"]
+[ext_resource type="Script" path="res://characters/noby/combat/skill3/throw_backpack.gd" id="2_uksoy"]
+
+[sub_resource type="Resource" id="Resource_yhjnw"]
+script = ExtResource("1_71hb7")
+graphic_name = "throw_backpack"
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_irx1l"]
+script = ExtResource("2_uksoy")
+projectile = ExtResource("1_x0ivh")
+speed = 430.0
+target_offset = Vector2(0, 60)
+base_value = 1.0
+
+[resource]
+script = ExtResource("1_bk07j")
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_yhjnw"), SubResource("Resource_irx1l")])
+base_value = 1.0

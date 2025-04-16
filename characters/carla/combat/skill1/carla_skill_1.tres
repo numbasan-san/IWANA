@@ -1,66 +1,11 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=16 format=3 uid="uid://dictbrxqi37wy"]
+[gd_resource type="Resource" script_class="Skill" load_steps=3 format=3 uid="uid://dictbrxqi37wy"]
 
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_1v8p5"]
-[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="2_48qf5"]
-[ext_resource type="Script" path="res://combat/effects/stat_moding_effect.gd" id="2_onxee"]
-[ext_resource type="Script" path="res://combat/effects/damage.gd" id="4_i0umr"]
-[ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="4_w8q1u"]
-[ext_resource type="Script" path="res://combat/effects/buffs/spikes.gd" id="5_52qoe"]
-[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="6_ai5c1"]
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0la7j"]
-load_path = "res://.godot/imported/lasting_effect_icons.png-77f127f496dd8238ff80ee35f581e8c1.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_68gar"]
-atlas = SubResource("CompressedTexture2D_0la7j")
-region = Rect2(174, 66, 48, 42)
-
-[sub_resource type="Resource" id="Resource_f3n5k"]
-script = ExtResource("2_onxee")
-stat = "Defense"
-icon = SubResource("AtlasTexture_68gar")
-type = 0
-decrease_duration = 3
-duration = 2
-stacks = true
-base_value = 1.0
-
-[sub_resource type="Resource" id="Resource_g313m"]
-script = ExtResource("4_i0umr")
-type = 0
-base_value = 1.0
-
-[sub_resource type="Resource" id="Resource_iotol"]
-script = ExtResource("4_w8q1u")
-exclude_self = true
-number_of_targets = 1
-random = false
-allow_repetition = false
-
-[sub_resource type="Resource" id="Resource_tgqe3"]
-resource_local_to_scene = true
-script = ExtResource("5_52qoe")
-intercept_effect = SubResource("Resource_g313m")
-intercept_type = "In"
-type = 0
-decrease_duration = 2
-duration = 1
-stacks = false
-base_value = 1.0
-target_type = SubResource("Resource_iotol")
-
-[sub_resource type="Resource" id="Resource_5bp0p"]
-script = ExtResource("2_48qf5")
-
-[sub_resource type="Resource" id="Resource_0yvmd"]
-script = ExtResource("6_ai5c1")
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_f3n5k"), SubResource("Resource_tgqe3")])
-base_value = 1.0
-target_type = SubResource("Resource_5bp0p")
+[ext_resource type="Resource" uid="uid://c1ydb1tmh44kv" path="res://characters/carla/combat/skill1/buffs.tres" id="1_dc8p2"]
 
 [resource]
 script = ExtResource("1_1v8p5")
 name = "Cota de espinas"
 description = "Consigue espinas, aumenta su defensa."
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_0yvmd")])
+effects = Array[Resource("res://combat/effects/effect.gd")]([ExtResource("1_dc8p2")])
 energy_cost = 5

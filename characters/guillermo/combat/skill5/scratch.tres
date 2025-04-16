@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="EffectGroup" load_steps=11 format=3 uid="uid://cmipvf2aq55wy"]
+
+[ext_resource type="Resource" uid="uid://dayloxpwj30t4" path="res://combat/effects/instant/damage_data.tres" id="1_p36b3"]
+[ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="2_r2i20"]
+[ext_resource type="Resource" uid="uid://dxx1cepr7wwds" path="res://combat/effects/debuffs/bleeding_data.tres" id="3_ey14y"]
+[ext_resource type="Script" path="res://combat/effects/debuffs/bleeding.gd" id="4_1iqrl"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="5_5hfpb"]
+[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="6_i0yyf"]
+
+[sub_resource type="Resource" id="Resource_jslqi"]
+script = ExtResource("2_r2i20")
+type = 0
+percentage_ignored = 0.0
+base_data = ExtResource("1_p36b3")
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_jnjmc"]
+resource_local_to_scene = true
+script = ExtResource("2_r2i20")
+type = 2
+percentage_ignored = 0.0
+base_data = ExtResource("1_p36b3")
+base_value = 4.0
+
+[sub_resource type="Resource" id="Resource_ift47"]
+script = ExtResource("4_1iqrl")
+after_turn_effect = SubResource("Resource_jnjmc")
+type = 1
+decrease_duration = 2
+duration = 2
+stacks = true
+base_data = ExtResource("3_ey14y")
+base_value = 4.0
+
+[sub_resource type="Resource" id="Resource_l7ylf"]
+script = ExtResource("5_5hfpb")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[resource]
+script = ExtResource("6_i0yyf")
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_jslqi"), SubResource("Resource_ift47")])
+base_value = 1.0
+target_type = SubResource("Resource_l7ylf")

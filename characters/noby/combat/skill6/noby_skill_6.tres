@@ -1,32 +1,25 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=12 format=3 uid="uid://grb2j13upg08"]
+[gd_resource type="Resource" script_class="Skill" load_steps=10 format=3 uid="uid://grb2j13upg08"]
 
-[ext_resource type="Script" path="res://combat/effects/damage.gd" id="1_bbjeb"]
+[ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="1_js037"]
 [ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="2_6khfy"]
+[ext_resource type="Script" path="res://combat/effects/stat_moding_effect_attack.gd" id="2_v8w6o"]
 [ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="3_5nnvd"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="3_83yos"]
-[ext_resource type="Script" path="res://combat/effects/stat_moding_effect.gd" id="4_2crx7"]
 
-[sub_resource type="Resource" id="Resource_14uvd"]
-script = ExtResource("1_bbjeb")
+[sub_resource type="Resource" id="Resource_8kca4"]
+script = ExtResource("1_js037")
 type = 0
+percentage_ignored = 0.0
 base_value = 1.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tjuuh"]
-load_path = "res://.godot/imported/lasting_effect_icons.png-77f127f496dd8238ff80ee35f581e8c1.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8b78p"]
-atlas = SubResource("CompressedTexture2D_tjuuh")
-region = Rect2(270, 72, 48, 42)
-
-[sub_resource type="Resource" id="Resource_m46um"]
-script = ExtResource("4_2crx7")
+[sub_resource type="Resource" id="Resource_bm6bi"]
+script = ExtResource("2_v8w6o")
 stat = "Damage"
-icon = SubResource("AtlasTexture_8b78p")
 type = 1
-decrease_duration = 3
+decrease_duration = 5
 duration = 1
 stacks = false
-base_value = 2.0
+base_value = 1.0
 
 [sub_resource type="Resource" id="Resource_uo4ev"]
 script = ExtResource("2_6khfy")
@@ -36,7 +29,7 @@ allow_repetition = false
 
 [sub_resource type="Resource" id="Resource_swbux"]
 script = ExtResource("3_5nnvd")
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_14uvd"), SubResource("Resource_m46um")])
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_8kca4"), SubResource("Resource_bm6bi")])
 base_value = 1.0
 target_type = SubResource("Resource_uo4ev")
 

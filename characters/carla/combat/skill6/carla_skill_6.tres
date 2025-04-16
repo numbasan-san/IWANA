@@ -2,14 +2,13 @@
 
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_cppuq"]
 [ext_resource type="Script" path="res://combat/effects/stat_moding_effect.gd" id="1_holqy"]
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="1_l3ll7"]
 [ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="3_j61dd"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_i8fnu"]
-load_path = "res://.godot/imported/lasting_effect_icons.png-77f127f496dd8238ff80ee35f581e8c1.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s26kn"]
-atlas = SubResource("CompressedTexture2D_i8fnu")
-region = Rect2(174, 66, 48, 42)
+[sub_resource type="Resource" id="Resource_lp6pi"]
+script = ExtResource("1_l3ll7")
+name = ""
+description = ""
 
 [sub_resource type="Resource" id="Resource_rs65b"]
 script = ExtResource("3_j61dd")
@@ -21,11 +20,11 @@ allow_repetition = false
 [sub_resource type="Resource" id="Resource_if7k6"]
 script = ExtResource("1_holqy")
 stat = "Damage"
-icon = SubResource("AtlasTexture_s26kn")
 type = 0
-decrease_duration = 3
+decrease_duration = 2
 duration = 2
 stacks = true
+base_data = SubResource("Resource_lp6pi")
 base_value = 2.0
 target_type = SubResource("Resource_rs65b")
 

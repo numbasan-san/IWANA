@@ -1375,7 +1375,7 @@ texture = ExtResource("9_8n6x7")
 
 [node name="CombatSprites" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
 sprite_frames = SubResource("SpriteFrames_7mxob")
-animation = &"idle"
+animation = &"backpack_shield"
 
 [node name="CombatHandler" parent="." index="3"]
 stats = ExtResource("2_yag6e")

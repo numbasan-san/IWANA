@@ -1,43 +1,39 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=10 format=3 uid="uid://c01m60qj02xxd"]
+[gd_resource type="Resource" script_class="Skill" load_steps=9 format=3 uid="uid://c01m60qj02xxd"]
 
-[ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="1_jdrq8"]
-[ext_resource type="Script" path="res://combat/effects/damage.gd" id="1_lur3k"]
+[ext_resource type="Resource" uid="uid://wulcp83et30s" path="res://combat/effects/buffs/spikes_data.tres" id="1_itk6e"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_ok838"]
 [ext_resource type="Script" path="res://combat/effects/buffs/spikes.gd" id="2_2u4j6"]
+[ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="3_bwuci"]
 [ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="3_l3yhn"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4s6ks"]
-atlas = ExtResource("1_jdrq8")
-region = Rect2(174, 66, 48, 42)
-
-[sub_resource type="Resource" id="Resource_ntju8"]
-script = ExtResource("1_lur3k")
+[sub_resource type="Resource" id="Resource_nc6m3"]
+script = ExtResource("3_bwuci")
 type = 0
+percentage_ignored = 0.0
 base_value = 1.0
 
-[sub_resource type="Resource" id="Resource_sldsj"]
+[sub_resource type="Resource" id="Resource_cqs2e"]
 script = ExtResource("3_l3yhn")
 exclude_self = true
 number_of_targets = 1
 random = false
 allow_repetition = false
 
-[sub_resource type="Resource" id="Resource_0tiby"]
+[sub_resource type="Resource" id="Resource_65fth"]
 resource_local_to_scene = true
 script = ExtResource("2_2u4j6")
-intercept_effect = SubResource("Resource_ntju8")
-intercept_type = "In"
-icon = SubResource("AtlasTexture_4s6ks")
+incoming_effect = SubResource("Resource_nc6m3")
 type = 0
-decrease_duration = 2
-duration = 2
+decrease_duration = 1
+duration = 3
 stacks = false
+base_data = ExtResource("1_itk6e")
 base_value = 1.0
-target_type = SubResource("Resource_sldsj")
+target_type = SubResource("Resource_cqs2e")
 
 [resource]
 script = ExtResource("1_ok838")
 name = "Spindash"
 description = "Pone el efecto espinas a un aliado"
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_0tiby")])
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_65fth")])
 energy_cost = 5

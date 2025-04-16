@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="EffectGroup" load_steps=13 format=3 uid="uid://c1ydb1tmh44kv"]
+
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="1_cwb5v"]
+[ext_resource type="Script" path="res://combat/effects/stat_moding_effect.gd" id="2_36l51"]
+[ext_resource type="Resource" uid="uid://wulcp83et30s" path="res://combat/effects/buffs/spikes_data.tres" id="3_2dsvf"]
+[ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="5_ef76q"]
+[ext_resource type="Script" path="res://combat/effects/buffs/spikes.gd" id="6_i6yah"]
+[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="7_ihkx3"]
+[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="8_1kbbl"]
+
+[sub_resource type="Resource" id="Resource_2s62d"]
+script = ExtResource("1_cwb5v")
+name = ""
+description = ""
+
+[sub_resource type="Resource" id="Resource_724rg"]
+script = ExtResource("2_36l51")
+stat = "Defense"
+type = 0
+decrease_duration = 2
+duration = 3
+stacks = true
+base_data = SubResource("Resource_2s62d")
+base_value = 4.0
+
+[sub_resource type="Resource" id="Resource_8oax0"]
+script = ExtResource("5_ef76q")
+type = 0
+percentage_ignored = 0.0
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_v4u1p"]
+resource_local_to_scene = true
+script = ExtResource("6_i6yah")
+incoming_effect = SubResource("Resource_8oax0")
+type = 0
+decrease_duration = 2
+duration = 3
+stacks = false
+base_data = ExtResource("3_2dsvf")
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_yfnec"]
+script = ExtResource("8_1kbbl")
+
+[resource]
+script = ExtResource("7_ihkx3")
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_724rg"), SubResource("Resource_v4u1p")])
+base_value = 1.0
+target_type = SubResource("Resource_yfnec")
