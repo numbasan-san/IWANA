@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EffectBaseData" load_steps=3 format=3 uid="uid://degfqqsjbsc2e"]
+
+[ext_resource type="Texture2D" uid="uid://d1ivfpn81qlay" path="res://combat/effects/debuffs/marked_icon.tres" id="1_u6fe5"]
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="2_e7qqn"]
+
+[resource]
+script = ExtResource("2_e7qqn")
+name = "Quiromancy"
+description = "This character is accumulating damage per turn."
+icon = ExtResource("1_u6fe5")

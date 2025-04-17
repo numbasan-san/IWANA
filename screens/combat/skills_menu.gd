@@ -5,6 +5,7 @@ class_name SkillsMenu extends Control
 @export var skills_container: Container
 @export var button_model: Button
 @export var effect_selection_box: EffectSelectionBox
+@export var skill_selection_box: SkillSelectionBox
 
 # TODO: This is temporary, it might go somewhere more global
 @onready var font = load("res://assets/combat_sprites/font/IWANA.ttf")
@@ -56,7 +57,26 @@ func set_character(character: Character = null):
 							if effect is SelectionEffect:
 								effect_selection_box.fill_effects_list(effect)
 								effect_selection_box.start_selection()
-								var complete = await effect_selection_box.selection_ended
+								var complete = false
+								# If selecting randomly, we can't wait to receive a signal.
+								
+								if effect.select_random:
+									# If we didn't make a selection or there was an error,
+									# the chosen array will be empty.
+									complete = effect.chosen.size() > 0
+								else:
+									complete = await effect_selection_box.selection_ended
+								# If the selection was canceled, the effect processing stops
+								# and the skill's is_valid function will return false.
+								if not complete:
+									break
+							# Choose skills from selection list
+							# TODO: this doesn't work if the selection effect is inside
+							# another effect, like a group.
+							if effect is SkillSelectionEffect:
+								skill_selection_box.fill_skills_list(effect)
+								skill_selection_box.start_selection()
+								var complete = await skill_selection_box.selection_ended
 								# If the selection was canceled, the effect processing stops
 								# and the skill's is_valid function will return false.
 								if not complete:
@@ -77,6 +97,17 @@ func set_character(character: Character = null):
 										effect_selection_box.fill_effects_list(eff)
 										effect_selection_box.start_selection()
 										var complete = await effect_selection_box.selection_ended
+										# If the selection was canceled, the effect processing stops
+										# and the skill's is_valid function will return false.
+										if not complete:
+											break
+									# This only works for the first selection effect found
+									# in the group, and it doesn't search recursively. That
+									# is enough for the current skills but it's not robust.
+									if eff is SkillSelectionEffect:
+										skill_selection_box.fill_skills_list(eff)
+										skill_selection_box.start_selection()
+										var complete = await skill_selection_box.selection_ended
 										# If the selection was canceled, the effect processing stops
 										# and the skill's is_valid function will return false.
 										if not complete:

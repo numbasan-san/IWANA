@@ -1,10 +1,9 @@
-[gd_resource type="Resource" script_class="ChainedEffect" load_steps=10 format=3 uid="uid://bk2bxw66yx3n8"]
+[gd_resource type="Resource" script_class="Frightening" load_steps=8 format=3 uid="uid://bk2bxw66yx3n8"]
 
 [ext_resource type="Resource" uid="uid://bq1xq1qyl6520" path="res://combat/effects/buffs/frightening_data.tres" id="1_5mon5"]
-[ext_resource type="Script" path="res://combat/effects/chained_effect.gd" id="1_acy5g"]
 [ext_resource type="Script" path="res://combat/effects/stat_moding_effect.gd" id="2_fg8kt"]
 [ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="3_xibu4"]
-[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="5_ejaah"]
+[ext_resource type="Script" path="res://combat/effects/buffs/frightening.gd" id="4_u3n70"]
 
 [sub_resource type="Resource" id="Resource_fp8bp"]
 script = ExtResource("2_fg8kt")
@@ -24,21 +23,17 @@ duration = 2
 stacks = true
 base_value = 1.0
 
-[sub_resource type="Resource" id="Resource_og3on"]
+[sub_resource type="Resource" id="Resource_t1jlj"]
 script = ExtResource("3_xibu4")
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_fp8bp"), SubResource("Resource_p4d5w")])
 base_value = 1.0
 
-[sub_resource type="Resource" id="Resource_3nl63"]
-script = ExtResource("5_ejaah")
-
 [resource]
-script = ExtResource("1_acy5g")
-incoming_effect = SubResource("Resource_og3on")
+script = ExtResource("4_u3n70")
+character_hit_effect = SubResource("Resource_t1jlj")
 type = 0
-decrease_duration = 4
+decrease_duration = 2
 duration = 2
 stacks = false
 base_data = ExtResource("1_5mon5")
 base_value = 1.0
-target_type = SubResource("Resource_3nl63")

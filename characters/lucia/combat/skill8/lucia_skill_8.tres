@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=13 format=3 uid="uid://1ycnifpc07hb"]
+
+[ext_resource type="Resource" uid="uid://bybws0h2klgpd" path="res://combat/effects/debuffs/marked_data.tres" id="1_3dxnt"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_s53sv"]
+[ext_resource type="Script" path="res://combat/effects/debuffs/marked.gd" id="2_4gn7e"]
+[ext_resource type="Script" path="res://combat/effects/conditions/effect_condition.gd" id="4_coawi"]
+[ext_resource type="Script" path="res://combat/effects/conditional_effect.gd" id="5_e535a"]
+[ext_resource type="Resource" uid="uid://vdoyjayyhxnm" path="res://combat/effects/debuffs/controled_data.tres" id="5_px7rp"]
+[ext_resource type="Script" path="res://combat/effects/debuffs/controled.gd" id="6_cdsar"]
+
+[sub_resource type="Resource" id="Resource_opik8"]
+script = ExtResource("2_4gn7e")
+type = 0
+decrease_duration = 0
+duration = 0
+stacks = false
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_fdvp1"]
+script = ExtResource("4_coawi")
+character = "Target"
+has = true
+effects = Array[Resource("res://combat/effects/lasting_effect.gd")]([SubResource("Resource_opik8")])
+
+[sub_resource type="Resource" id="Resource_g8c8b"]
+resource_local_to_scene = true
+script = ExtResource("2_4gn7e")
+type = 1
+decrease_duration = 4
+duration = 1
+stacks = false
+base_data = ExtResource("1_3dxnt")
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_xt8q0"]
+script = ExtResource("6_cdsar")
+select_random = false
+quantity = 1
+type = 1
+decrease_duration = 2
+duration = 1
+stacks = false
+base_data = ExtResource("5_px7rp")
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_0bgf3"]
+script = ExtResource("5_e535a")
+condition = SubResource("Resource_fdvp1")
+when_true = SubResource("Resource_xt8q0")
+when_false = SubResource("Resource_g8c8b")
+base_value = 1.0
+
+[resource]
+script = ExtResource("1_s53sv")
+name = "Muñeca de clavos"
+description = "Marca un enemigo,(asegura crítico), si un enemigo ya esta marcado, puedes seleccionar la siguiente habilidad que va a usar el enemigo."
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_0bgf3")])
+energy_cost = 5

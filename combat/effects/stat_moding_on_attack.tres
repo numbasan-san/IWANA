@@ -11,7 +11,7 @@ description = ""
 [resource]
 script = ExtResource("2_jq3o1")
 stat = "Damage"
-type = ""
+type = 0
 decrease_duration = 6
 duration = 1
 stacks = false

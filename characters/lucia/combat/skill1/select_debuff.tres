@@ -1,0 +1,67 @@
+[gd_resource type="Resource" script_class="SelectionEffect" load_steps=15 format=3 uid="uid://3vsg27wlp0pp"]
+
+[ext_resource type="Resource" uid="uid://dayloxpwj30t4" path="res://combat/effects/instant/damage_data.tres" id="1_tkfy8"]
+[ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="2_7r70i"]
+[ext_resource type="Resource" uid="uid://dxx1cepr7wwds" path="res://combat/effects/debuffs/bleeding_data.tres" id="3_c2bbb"]
+[ext_resource type="Script" path="res://combat/effects/debuffs/bleeding.gd" id="4_5kt47"]
+[ext_resource type="Resource" uid="uid://vvn3c4it7p7o" path="res://combat/effects/debuffs/poison_data.tres" id="5_ame2t"]
+[ext_resource type="Script" path="res://combat/effects/debuffs/poison.gd" id="6_87wvu"]
+[ext_resource type="Script" path="res://combat/effects/selection_effect.gd" id="7_iad02"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="8_ocs7u"]
+
+[sub_resource type="Resource" id="Resource_jnjmc"]
+resource_local_to_scene = true
+script = ExtResource("2_7r70i")
+type = 2
+percentage_ignored = 0.0
+base_data = ExtResource("1_tkfy8")
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_5tnnp"]
+script = ExtResource("4_5kt47")
+after_turn_effect = SubResource("Resource_jnjmc")
+type = 1
+decrease_duration = 2
+duration = 2
+stacks = true
+base_data = ExtResource("3_c2bbb")
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_pcc7g"]
+resource_local_to_scene = true
+script = ExtResource("2_7r70i")
+type = 0
+percentage_ignored = 0.0
+base_data = ExtResource("1_tkfy8")
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_u1a7f"]
+script = ExtResource("2_7r70i")
+type = 3
+percentage_ignored = 0.0
+base_data = ExtResource("1_tkfy8")
+base_value = 4.0
+
+[sub_resource type="Resource" id="Resource_laxkr"]
+script = ExtResource("6_87wvu")
+after_turn_effect = SubResource("Resource_u1a7f")
+type = 1
+decrease_duration = 2
+duration = 3
+stacks = true
+base_data = ExtResource("5_ame2t")
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_mggy2"]
+script = ExtResource("8_ocs7u")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[resource]
+script = ExtResource("7_iad02")
+list = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_5tnnp"), SubResource("Resource_pcc7g"), SubResource("Resource_laxkr")])
+select_random = true
+quantity = 1
+base_value = 1.0
+target_type = SubResource("Resource_mggy2")

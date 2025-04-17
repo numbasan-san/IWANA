@@ -31,7 +31,7 @@ func character_hit(who: Character, effect: Effect):
 		on_character_hit(who, effect)
 		if hit:
 			if character_hit_effect:
-				await target.combat_handler.receive(character_hit_effect)
+				await character_hit_effect.target.combat_handler.receive(character_hit_effect)
 			if decrease_duration == Decrease.ON_CHARACTER_HIT:
 				duration -= 1
 	hit = false
@@ -39,15 +39,14 @@ func character_hit(who: Character, effect: Effect):
 func start_turn(target: Character):
 	before_turn(target)
 	if before_turn_effect:
-		await target.combat_handler.receive(before_turn_effect)
+		await before_turn_effect.target.combat_handler.receive(before_turn_effect)
 	if decrease_duration == Decrease.BEFORE_TURN:
 		duration -= 1
 	
-
 func end_turn(target: Character):
 	after_turn(target)
 	if after_turn_effect:
-		await target.combat_handler.receive(after_turn_effect)
+		await after_turn_effect.target.combat_handler.receive(after_turn_effect)
 	if decrease_duration == Decrease.AFTER_TURN:
 		duration -= 1
 
@@ -56,7 +55,7 @@ func unapply(target: Character):
 	# duration has already reached 0
 	on_unapply(target)
 	if unapply_effect:
-		await target.combat_handler.receive(unapply_effect)
+		await unapply_effect.target.combat_handler.receive(unapply_effect)
 
 func incoming(effect: Effect):
 	if not effect.is_nullified and not incoming_intercepted:

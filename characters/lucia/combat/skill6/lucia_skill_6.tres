@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=7 format=3 uid="uid://ckj34swiilpaq"]
+
+[ext_resource type="Resource" uid="uid://degfqqsjbsc2e" path="res://combat/effects/debuffs/quiromancy_data.tres" id="1_17alb"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_exa5g"]
+[ext_resource type="Script" path="res://combat/effects/debuffs/quiromancy.gd" id="2_pmc7k"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="3_apff5"]
+
+[sub_resource type="Resource" id="Resource_hpaai"]
+script = ExtResource("3_apff5")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_1je5y"]
+script = ExtResource("2_pmc7k")
+damage_per_turn = 1.0
+type = 1
+decrease_duration = 0
+duration = 1
+stacks = false
+base_data = ExtResource("1_17alb")
+base_value = 1.0
+target_type = SubResource("Resource_hpaai")
+
+[resource]
+script = ExtResource("1_exa5g")
+name = "Quiromancia"
+description = "Lee la mano del enemigo, prediciendo un daño que crece por cada turno, cuando vuelva a usar la habilidad hace ese daño al enemigo"
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_1je5y")])
+energy_cost = 5

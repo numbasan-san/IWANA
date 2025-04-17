@@ -1,0 +1,56 @@
+[gd_resource type="Resource" script_class="SelectionEffect" load_steps=14 format=3 uid="uid://bwl3qfwghb8ns"]
+
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="1_7wllo"]
+[ext_resource type="Script" path="res://combat/effects/stat_moding_effect.gd" id="2_4ro4y"]
+[ext_resource type="Resource" uid="uid://cqkvtlmmen8kn" path="res://combat/effects/instant/heal_data.tres" id="3_ogc23"]
+[ext_resource type="Script" path="res://combat/effects/instant/heal.gd" id="4_8dkm8"]
+[ext_resource type="Resource" uid="uid://b7807k5ix7mc2" path="res://combat/effects/buffs/shield_data.tres" id="5_dr6fa"]
+[ext_resource type="Script" path="res://combat/effects/buffs/shield.gd" id="6_hn0h0"]
+[ext_resource type="Script" path="res://combat/effects/selection_effect.gd" id="7_52w16"]
+[ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="8_3ms8b"]
+
+[sub_resource type="Resource" id="Resource_2s62d"]
+script = ExtResource("1_7wllo")
+name = ""
+description = ""
+
+[sub_resource type="Resource" id="Resource_vuatn"]
+script = ExtResource("2_4ro4y")
+stat = "Evasion"
+type = 0
+decrease_duration = 2
+duration = 3
+stacks = true
+base_data = SubResource("Resource_2s62d")
+base_value = 50.0
+
+[sub_resource type="Resource" id="Resource_0362j"]
+resource_local_to_scene = true
+script = ExtResource("4_8dkm8")
+base_data = ExtResource("3_ogc23")
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_m0wi6"]
+resource_local_to_scene = true
+script = ExtResource("6_hn0h0")
+type = 0
+decrease_duration = 2
+duration = 3
+stacks = true
+base_data = ExtResource("5_dr6fa")
+base_value = 10.0
+
+[sub_resource type="Resource" id="Resource_hl5i6"]
+script = ExtResource("8_3ms8b")
+exclude_self = false
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[resource]
+script = ExtResource("7_52w16")
+list = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_vuatn"), SubResource("Resource_0362j"), SubResource("Resource_m0wi6")])
+select_random = true
+quantity = 1
+base_value = 1.0
+target_type = SubResource("Resource_hl5i6")
