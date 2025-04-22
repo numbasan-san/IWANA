@@ -37,3 +37,10 @@ var chosen: Array[Skill] = []:
 func is_valid():
 	return super.is_valid() and chosen.size() <= quantity
 
+func _manual_select(combat: CombatScreenControl) -> Array[Skill]:
+	# Show selection box
+	return []
+
+func _auto_select() -> Array[Skill]:
+	# Select random or with algorithm
+	return []

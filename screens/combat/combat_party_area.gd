@@ -3,6 +3,12 @@ class_name CombatPartyArea extends Control
 @export var sprite_containers: Array[SpriteContainer]
 @export_range(-1, 1, 2) var direction: int
 
+## If the player is controlling this group, it's characters will appear in the
+## party menu and the skill menu will open to select skills.
+# TODO: for now, only the right party area should be controlled by the player,
+# we could change this later.
+var player_controled = false
+
 var characters: Array[Character]
 
 var combat: CombatScreenControl
@@ -23,6 +29,11 @@ func add_character(character: Character):
 			s.set_character(character)
 			s.set_direction(direction)
 			characters.append(character)
+			# TODO: this could generate some errors if the queue is reordering while the
+			# next actor is being selected. This could happen if there is not enough time
+			# between when the speed is changed and the next turn. We must add some waiting
+			# time after the skills are executed to prevent this.
+			character.combat_handler.stats.update_speed.connect(combat._reorder_from_speed_change)
 			return
 	# If we reach this point it means all the slots were full so we can't add
 	# the new character
@@ -35,11 +46,17 @@ func remove_character(character: Character):
 		if s.character == character:
 			s.remove_character()
 			characters.erase(character)
+			character.combat_handler.stats.update_speed.disconnect(combat._reorder_from_speed_change)
+			character.combat_handler.clear_lasting_effects()
 			# We assume the character can only exist in 1 slot at a time
 			return
 	# If we reach this point it means the character wasn't found
 	printerr("CombatPartyArea | Couldn't remove character " + character.name \
 		+ " cause it wasn't found.")
+
+func add_all(characters: Array[Character]):
+	for char in characters:
+		add_character(char)
 
 # Remove every sprite in this area
 func clear():

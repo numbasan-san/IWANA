@@ -25,5 +25,4 @@ func remove_effect(effect: LastingEffect):
 func _update_icon(texture: TextureRect, effect: Effect):
 	texture.texture = effect.base_data.icon
 	texture.tooltip_text = effect.base_data.name + "\n" + \
-		effect.base_data.description + "\n" + \
-		effect.base_data.variable_info
+		effect.base_data.description + "\n"

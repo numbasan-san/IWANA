@@ -3,6 +3,8 @@ class_name PartyMenu extends Control
 @export var combat: CombatScreenControl
 @export var party_slots: Array[PortraitContainer]
 
+var combat_party_area: CombatPartyArea
+
 # If a character is selected then it will be highlighted in the party menu and
 # its portrait and skills will be shown in the skills menu
 var selected_character: Character
@@ -98,20 +100,14 @@ func select_previous_character(loop: bool = false):
 
 # Para terminar el combate por la fuerza.
 func _on_run_pressed():
-	combat.display_text('Como buen cobarde, huiste.')
-	await combat.textbox_closed
-	await get_tree().create_timer(0.5).timeout
-	combat.end_battle()
+	combat.action_selected.emit(combat.Action.RUN)
 
 # El ataque del jugador.
 func _on_attack_pressed():
+	combat.action_selected.emit(combat.Action.ATTACK)
 	combat.skills_menu.set_character(selected_character)
 	combat.show_skills_menu()
 
 # La defensa del jugador.
 func _on_defense_pressed():
-	# TODO: maybe turn defense into a skill
-	await Defense.new().execute(selected_character)
-	selected_character.combat_handler.end_turn()
-	select_character_index()
-	combat.next_turn()
+	combat.action_selected.emit(combat.Action.DEFEND)

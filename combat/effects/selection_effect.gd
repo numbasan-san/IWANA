@@ -13,7 +13,6 @@ var chosen: Array[Effect] = []:
 		for eff in new_choice:
 			eff.caster = caster
 			eff.target = target
-			eff.skill_targets = skill_targets
 		chosen = new_choice
 	get:
 		return chosen
@@ -56,6 +55,39 @@ func copy() -> Effect:
 	new_selector.chosen = chosen_copy
 	return new_selector
 
+func process_effect(
+		allies: Array[Character],
+		enemies: Array[Character],
+		combat: CombatScreenControl,
+		parent_target: Character = null) -> Array[Effect]:
+	
+	var copies = super.process_effect(allies, enemies, combat, parent_target)
+	
+	var processed: Array[Effect] = []
+	for copy in copies:
+		var selection: Array[Effect] = []
+		# This replaces chosen variable
+		# Because the copies have the same values, we can get the effect lists
+		# from the original, as they will be copied after processing anyways.
+		if select_random:
+			selection = _auto_select()
+		else:
+			selection = await _manual_select(combat)
+		for eff in selection:
+			eff.caster = caster
+			processed.append_array(eff.process_effect(allies, enemies, combat, copy.target))
+		
+		# We only return the selected effects, not this effect itself.
+	return processed
+
+func _manual_select(combat: CombatScreenControl) -> Array[Effect]:
+	# Show selection box
+	return []
+
+func _auto_select() -> Array[Effect]:
+	# Select random or with algorithm
+	return []
+
 func _set_caster(_caster: Character):
 	super._set_caster(_caster)
 	for eff in list:
@@ -63,29 +95,9 @@ func _set_caster(_caster: Character):
 	for eff in chosen:
 		eff.caster = _caster
 
-func _set_target(_target: Character):
-	super._set_target(_target)
-	for eff in list:
-		eff.target = _target
-	for eff in chosen:
-		eff.target = _target
-
-func _set_skill_targets(_targets: Array[Character]):
-	super._set_skill_targets(_targets)
-	for eff in list:
-		eff.skill_targets = _targets
-	for eff in chosen:
-		eff.skill_targets = _targets
-
 func _set_skill(_skill: Skill):
 	super._set_skill(_skill)
 	for eff in list:
 		eff.skill = _skill
 	for eff in chosen:
 		eff.skill = _skill
-
-func _flatten() -> Array[Effect]:
-	var result: Array[Effect] = []
-	for eff in chosen:
-		result.append_array(eff._flatten())
-	return result

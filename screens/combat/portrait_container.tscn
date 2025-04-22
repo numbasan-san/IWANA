@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://screens/combat/portrait_container.gd" id="1_bqrju"]
 [ext_resource type="PackedScene" uid="uid://ceqe4yrlcfouu" path="res://screens/combat/player_bars.tscn" id="2_vx11a"]
-[ext_resource type="FontFile" uid="uid://bvx3kwcljl1mv" path="res://assets/combat_sprites/font/IWANA.ttf" id="3_rttqh"]
+[ext_resource type="FontFile" uid="uid://bjh56wfvej2vg" path="res://assets/combat_sprites/font/IWANA.ttf" id="3_rttqh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h3i3n"]
 

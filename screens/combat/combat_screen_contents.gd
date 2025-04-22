@@ -2,11 +2,16 @@ class_name CombatScreenControl
 extends Control
 
 signal textbox_closed
+signal battle_ended
+signal request_battle_end
+signal action_selected(action: Action)
+signal skill_selected(skill: Skill)
 
 @export var right_area: CombatPartyArea
 @export var left_area: CombatPartyArea
 @export var party_menu: PartyMenu
 @export var skills_menu: SkillsMenu
+@export var selection_module: SelectionModule
 @export var change_menu_animation: AnimationPlayer
 
 # The turn order is decided at the beginning of the round according to the
@@ -14,10 +19,7 @@ signal textbox_closed
 # will be removed as they perform their actions
 var actor_queue: Array[Character]
 
-var enemy_party: Party = null
 var enemy_area: CombatPartyArea = null
-
-var player_party: Party = null
 var player_area: CombatPartyArea = null
 
 var showing_skills = false
@@ -26,9 +28,25 @@ var selecting_action = false
 var selecting_skill = false
 var selecting_target = false
 
+enum Action {
+	NONE,
+	ATTACK,
+	DEFEND,
+	RUN
+}
+
+enum State {
+	SELECTING_ACTION, # The character is deciding to attack, defend or run.
+	SELECTING_SKILL, # The character is selecting a skill to use.
+	FILLING_DATA, # The character is selecting targets, effects and evaluating conditions.
+	EXECUTING, # The skill has been processed and can now be applied.
+	END # The process for the current character has stopped and a new character must be chosen.
+}
+
 func _ready():
 	left_area.combat = self
 	right_area.combat = self
+	selection_module.combat = self
 
 func _input(_event):
 	# Para poder cerrar los cuadros de texto.
@@ -41,16 +59,27 @@ func _input(_event):
 		else:
 			party_menu.select_previous_character()
 
+func battle(player_party: Array[Character], enemy_party: Array[Character]):
+	var running = false
+	request_battle_end.connect(func():
+		running = false
+	, CONNECT_ONE_SHOT)
+	start_battle(player_party, enemy_party)
+	while(running):
+		pass
+	end_battle()
+
 # Fills the screen with the battling characters and their info and begins combat
-func start_battle(player_party: Party, enemy_party: Party):
+func start_battle(player_party: Array[Character], enemy_party: Array[Character]):
 	# This is here to fix a bug where the menus of the combat screen would move
 	# out of their default place sometimes after opening the editor
 	change_menu_animation.play("RESET")
 	# TODO: change this so that we can control which area corresponds with which
 	# party
 	player_area = right_area
-	self.player_party = player_party
-	for member in player_party.members:
+	player_area.player_controled = true
+	selection_module.right_area = right_area
+	for member in player_party:
 		party_menu.add_character(member)
 		right_area.add_character(member)
 	# We start with no character selected in case one
@@ -58,20 +87,11 @@ func start_battle(player_party: Party, enemy_party: Party):
 	party_menu.select_character_index()
 	
 	enemy_area = left_area
-	self.enemy_party = enemy_party
-	for enemy in enemy_party.members:
+	enemy_area.player_controled = false
+	selection_module.left_area = left_area
+	for enemy in enemy_party:
 		left_area.add_character(enemy)
 	await ScreenManager.push(ScreenManager.combat_screen, "Out", "In")
-	var characters: Array[Character] = []
-	characters.append_array(player_party.members)
-	characters.append_array(enemy_party.members)
-	
-	# TODO: this could generate some errors if the queue is reordering while the
-	# next actor is being selected. This could happen if there is not enough time
-	# between when the speed is changed and the next turn. We must add some waiting
-	# time after the skills are executed to prevent this.
-	for char in characters:
-		char.combat_handler.stats.update_speed.connect(_reorder_from_speed_change)
 	
 	show_party_menu()
 	prepare_new_round()
@@ -79,24 +99,17 @@ func start_battle(player_party: Party, enemy_party: Party):
 
 # Called at the end of the battle to clean the screen
 func end_battle():
-	var characters: Array[Character] = []
-	characters.append_array(player_party.members)
-	characters.append_array(enemy_party.members)
-	for char in characters:
-		char.combat_handler.clear_lasting_effects()
-		char.combat_handler.stats.update_speed.disconnect(_reorder_from_speed_change)
-	
 	await ScreenManager.pop(ScreenManager.combat_screen, "Out", "In")
+	#TODO: replace this with more permanent solution to rebattle
+	# This assumes that the enemies are in the left area.
+	for m in left_area.characters:
+		m.combat_handler.stats.replenish()
 	party_menu.clear()
 	right_area.clear()
 	left_area.clear()
-	#TODO: replace this with more permanent solution to rebattle
-	for m in enemy_party.members:
-		m.combat_handler.stats.replenish()
 	
-	enemy_party = null
-	player_party = null
 	actor_queue.clear()
+	battle_ended.emit()
 
 # This function should be called at the start of the combat or after
 # everyone has acted to sort every character's turn for the next round
@@ -115,6 +128,7 @@ func next_turn():
 	# button of a player character before it can call scene animations, which
 	# would cause it to call next_turn on the next battle
 	if left_area.all_defeated() or right_area.all_defeated():
+		# request_battle_end.emit()
 		end_battle()
 	
 	elif actor_queue.is_empty():
@@ -150,7 +164,7 @@ func next_turn():
 					if eff.target_type.is_manual_target():
 						var t_type = eff.target_type as TargetVariable
 						t_type.random = true
-				skill.process_effects(enemy_party, player_party, [])
+				skill.process_effects(left_area.characters, right_area.characters, [])
 				await handler.execute(skill)
 			next.combat_handler.end_turn()
 			next_turn()

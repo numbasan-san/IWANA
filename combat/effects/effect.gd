@@ -2,7 +2,6 @@ class_name Effect extends Resource
 
 # An effect is anything that causes some change on characters' stats as a result
 # of a skill, like causing damage or healing, applying a buff or debuff, etc.
-
 @export var base_data: EffectBaseData
 
 ## The base value of this effect.
@@ -39,12 +38,7 @@ var _caster: Character
 ##
 ## It should be filled when processing the skill, and trying to apply the
 ## effect without targets should result in an error
-var skill_targets: Array[Character]:
-	set(value):
-		_set_skill_targets(value)
-	get:
-		return _skill_targets
-var _skill_targets: Array[Character]
+var skill_targets: Array[Character]
 
 ## The specific target this effect is being sent to
 ##
@@ -52,12 +46,7 @@ var _skill_targets: Array[Character]
 ## be modified in custom code if it's going to be executed after the outgoing
 ## modifier phase, that is, in functions on_send, on_receive, on_apply and
 ## intercept in lasting effects of type INCOMING
-var target: Character:
-	set(value):
-		_set_target(value)
-	get:
-		return _target
-var _target: Character
+var target: Character
 
 ## The skill casted to apply this effect.
 ##
@@ -122,31 +111,111 @@ func apply(target: Character):
 	if not is_nullified:
 		await on_apply(target)
 
-func select_targets(allies: Party, enemies: Party):
-	if target_type.is_manual_target():
-		return
+func is_valid() -> bool:
+	return caster and target
+
+# By default, two effects have the same type if they inherit the same script.
+# Some effects might want to override this to refine how they are compared.
+func is_same_type(other: Effect) -> bool:
+	return self.get_script() == other.get_script()
+
+# Copies this effect. This is necessary as using the duplicate method doesn't
+# copy all fields
+func copy() -> Effect:
+	var new_effect = self.duplicate(true) as Effect
+	new_effect.value = value
+	new_effect.caster = caster
+	new_effect.target = target
+	new_effect.skill = skill
+	new_effect.is_nullified = is_nullified
+	return new_effect
+
+## Find targets for this effect and all sub effects, and evaluate selection effects
+## and conditional effects.
+##
+## It should return a flattened array, that is when called recursively it will
+## append the results in a single 1D array regardless of the depth of the structure.
+## If this effect doesn't have a target type, it inherits the found target from
+## its parent. If it doesn't have a type and the parent's target is null, it is an error.
+func process_effect(
+		allies: Array[Character],
+		enemies: Array[Character],
+		combat: CombatScreenControl,
+		parent_target: Character = null) -> Array[Effect]:
 	
-	skill_targets = []
+	if !target_type:
+		var effect = self.copy()
+		# We make it null in case it was left with a value from a previous process.
+		# If the target type is null, the target is set to the same as the parent.
+		if parent_target:
+			effect.target = parent_target
+			return [effect]
+		else:
+			printerr("Effect | " + self.to_string() + " doesn't have a target type " + \
+				" and its parent target is null.")
+			return []
+	
+	var targets: Array[Character] = []
+	
+	# If we reach this point, this effect must set its own targets.
+	targets = _select_targets(allies, enemies, combat)
+	
+	# This could happen if the player cancels the skill before selecting targets.
+	if targets.size() == 0:
+		printerr("Effect | " + self.to_string() + " couldn't find any target.")
+		return []
+	elif targets.size() == 1:
+		var effect = self.copy()
+		# Change target to no longer recursively update children
+		effect.target = targets[0]
+		return [effect]
+	else:
+		var copies: Array[Effect] = []
+		# We set the target type to null so that when recursively processing
+		# them we don't search for targets again. Because this is a copy, it won't
+		# affect the target type of the original effect.
+		for target in targets:
+			var effect = self.copy()
+			effect.target = target
+			effect.target_type = null
+			copies.append(effect)
+		return copies
+
+func _select_targets(
+		allies: Array[Character],
+		enemies: Array[Character],
+		combat: CombatScreenControl) -> Array[Character]:
+	
+	if target_type.is_manual_target():
+		# TODO: Array of manually selected targets, fill from combat screen.
+		var targets: Array[Character] = []
+		
+		return targets
+	else:
+		# TODO: this currently modifies the skill_targets in place. Change it so
+		# it returns an array of effects.
+		return _select_auto_targets(allies, enemies)
+
+func _select_auto_targets(allies: Array[Character], enemies: Array[Character]) -> Array[Character]:
 	if target_type is TargetSelf:
-		skill_targets = [caster]
+		return [caster]
 	else:
 		var possible_targets: Array[Character] = []
 		# Same as checking if Friend, Party, Anyone or Everyone
 		if not target_type is TargetEnemy and not target_type is TargetEnemyParty:
-			possible_targets.append_array(allies.members)
+			possible_targets.append_array(allies)
 			if target_type.exclude_self:
 				possible_targets.erase(caster)
 		# Same as checking if Enemy, EnemyParty, Anyone or Everyone
 		if not target_type is TargetFriend and not target_type is TargetParty:
-			possible_targets.append_array(enemies.members)
+			possible_targets.append_array(enemies)
 		# We remove fainted targets and targets with a weight lower than 1.
 		possible_targets = possible_targets.filter(func(char: Character):
 			return not char.combat_handler.stats.unconscious and \
 				char.combat_handler.target_weight > 0)
 		# Same as checking if Party, EnemyParty or Everyone
 		if target_type is TargetFixed:
-			skill_targets = possible_targets
-			return
+			return possible_targets
 		# If we reach this point the type is variable and not manual, so it
 		# must be set to random
 		var var_t = target_type as TargetVariable
@@ -161,31 +230,15 @@ func select_targets(allies: Party, enemies: Party):
 					extra_targets.append(char)
 					n = n - 1
 		possible_targets.append_array(extra_targets)
+		var targets: Array[Character] = []
 		while n_targets > 0 and not possible_targets.is_empty():
 			var picked_target = possible_targets.pick_random()
-			skill_targets.append(picked_target)
+			targets.append(picked_target)
 			n_targets -= 1
 			if not var_t.allow_repetition:
 				possible_targets.erase(picked_target)
-	
-func is_valid() -> bool:
-	return caster and skill_targets and skill_targets.size() > 0
-
-# By default, two effects have the same type if they inherit the same script.
-# Some effects might want to override this to refine how they are compared.
-func is_same_type(other: Effect) -> bool:
-	return self.get_script() == other.get_script()
-
-# Copies this effect. This is necessary as using the duplicate method doesn't
-# copy all fields
-func copy() -> Effect:
-	var new_effect = self.duplicate(true) as Effect
-	new_effect.value = value
-	new_effect.caster = caster
-	new_effect.skill_targets = skill_targets.duplicate()
-	new_effect.target = target
-	new_effect.is_nullified = is_nullified
-	return new_effect
+		
+		return targets
 
 # This should be called as the setter of the caster property. It can be
 # overriden by subclasses that have subeffects to set their caster to the same as
@@ -193,26 +246,8 @@ func copy() -> Effect:
 func _set_caster(_caster: Character):
 	self._caster = _caster
 
-# This should be called as the setter of the target property. It can be
-# overriden by subclasses that have subeffects to set their target to the same as
-# the container.
-func _set_target(_target: Character):
-	self._target = _target
-
-# This should be called as the setter of the skill_targets property. It can be
-# overriden by subclasses that have subeffects to set their targets to the same as
-# the container.
-func _set_skill_targets(_targets: Array[Character]):
-	self._skill_targets = _targets
-
 # This should be called as the setter of the skill property. It can be
 # overriden by subclasses that have subeffects to set their skill to the same as
 # the container.
 func _set_skill(_skill: Skill):
 	self._skill = _skill
-
-# Some effects can contain one or more effects inside. This function is used to
-# recursively return those efects in a 1-D array so that they can be used regardless
-# of the nested structure.
-func _flatten() -> Array[Effect]:
-	return [self]

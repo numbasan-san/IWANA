@@ -5,12 +5,13 @@ class_name Uzumaki extends LastingEffect
 # the next time it's used it can target an enemy to do the damage.
 func on_apply(target: Character):
 	if target_type is TargetSelf:
+		value = base_value
 		# The default values are 1 target, not random, not repeated
 		target_type = TargetEnemy.new()
 	elif target_type is TargetEnemy:
 		var damage = DamageEffect.new()
 		damage.value = value
-		value = 0
+		value = base_value
 		damage.type = DamageEffect.DamageType.PHYSICAL
 		damage.caster = caster
 		damage.target = target

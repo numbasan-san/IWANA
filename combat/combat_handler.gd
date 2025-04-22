@@ -44,8 +44,6 @@ func init():
 	for s in skills:
 		var new_skill = s.copy()
 		new_skill.caster = character
-		for eff in new_skill.effects:
-			eff.skill = new_skill
 		new_skills.append(new_skill)
 	skills = new_skills
 	
@@ -62,43 +60,48 @@ func init():
 	hit.target = self.character
 	hit_animations.append(hit)
 
-func execute(skill: Skill):
+## Processes all the effects of the skill and sends them to their targets.
+##
+## This function doesn't check that the executed skill actually belongs in the
+## character's skill list, which allows it to execute slightly modified skills,
+## skills that are available in cutscenes or specific parts of the story, or
+## or for any other situation one can think of.
+func execute(
+		skill: Skill,
+		allies: Array[Character],
+		enemies: Array[Character],
+		combat: CombatScreenControl):
 	if stats.unconscious:
+		skill.status = skill.Status.UNCONSCIOUS
 		return
 	if stats.energy < skill.energy_cost:
 		printerr("Skill | " + character.name + " tried to use a skill without having" \
 			+ " the required energy of " + str(skill.energy_cost) + ". This shouldn't" \
 			+ " happen as this should be prevented in the combat screen before" \
 			+ " selecting the skill")
+		skill.status = skill.Status.LOW_ENERGY
 		return
 	# If the skill is disabled, it shouldn't have been selected in the first place
 	# and the code shouldn't reach this point, but this is here just in case something
 	# failed somewhere else.
 	if not skill.enabled:
+		skill.status = skill.Status.DISABLED
 		return
+	
 	for eff in lasting_effects:
 		await eff.skill_used(skill)
 		end_of_duration(eff)
-	for effect in skill.effects:
+	
+	var processed: Array[Effect] = skill.process_effects(allies, enemies, combat)
+	
+	for effect in processed:
 		if effect.is_nullified:
 			continue
-		# TODO: non stackable effects aren't working as every time a new instance
-		# is applied it doesn't delete the previous one. This is most likely because
-		# each effect is copied before sending it, and each copy counts as a
-		# different instance, so they will be added to the lasting effects lists.
-		# We should either find another way to ensure instance equality, maybe
-		# implementing equals and hash functions, or remove the copy and make sure
-		# that when we implement the skills each effect is a different instance
-		# of the resource, which should already be the case. That way we could send
-		# the original effect and no changes in other places should affect them.
-		# This would still have the problem that if we change the values of an
-		# effect in the skill resource, all the elements in the effects lists that
-		# correspond to that effect will also change. We would have to make sure
-		# that all changes to effects are done outside of combat.
-		var copy: Effect = effect.copy()
-		await send(copy)
+		await send(effect)
+		
 	character.combat_model.set_sprite("idle")
 	stats.energy -= skill.energy_cost
+	skill.status = skill.Status.EXECUTED
 
 # Calculates the initial value of this effect, modifies it based on the caster
 # buffs and debuffs, and sends it to the target
@@ -159,12 +162,12 @@ func receive(effect: Effect):
 		# If we have reached this point, the effect has survived and must be applied.
 		# If it's a lasting effect, it must be added to the corresponding list
 		if eff is LastingEffect:
-			# TODO: this isn't working. Every time the same effect is invoked, a copy
-			# of that effect is actually created with a different id, so when trying to
-			# remove it it doesn't find the previous instance, as they are considered
-			# different. 
 			if not eff.stacks:
-				remove_lasting_effect(eff)
+				# We create a copy to safely remove elements from the original.
+				var copy = lasting_effects.duplicate()
+				for e in copy:
+					if eff.is_same_type(e):
+						remove_lasting_effect(e)
 			add_lasting_effect(eff)
 			
 		await eff.apply(character)

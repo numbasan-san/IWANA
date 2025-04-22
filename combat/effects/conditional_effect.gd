@@ -18,19 +18,9 @@ class_name ConditionalEffect extends Effect
 func evaluate() -> Effect:
 	var cond = condition.evaluate(caster, target)
 	if cond and when_true:
-		when_true.caster = caster
-		when_true.target = target
-		if when_true is ConditionalEffect:
-			return when_true.evaluate()
-		else:
-			return when_true
+		return when_true
 	elif not cond and when_false:
-		when_false.caster = caster
-		when_false.target = target
-		if when_false is ConditionalEffect:
-			return when_false.evaluate()
-		else:
-			return when_false
+		return when_false
 	# At this point the condition has been evaluated but the corresponding effect
 	# was missing, which means a path with no effect was chosen and the
 	# conditional effect must be nullified
@@ -50,6 +40,49 @@ func on_send(target: Character):
 	if when_false:
 		when_false.send(caster)
 
+func search_effect_selections() -> Array[SelectionEffect]:
+	var found: Array[SelectionEffect] = []
+	var temp: Array[SelectionEffect]
+	if when_true:
+		temp = when_true.search_effect_selections()
+		for e in temp:
+			found.append(e)
+	if when_false:
+		temp = when_false.search_effect_selections()
+		for e in temp:
+			found.append(e)
+	
+	return found
+
+func search_skill_selections() -> Array[SkillSelectionEffect]:
+	var found: Array[SkillSelectionEffect] = []
+	var temp: Array[SkillSelectionEffect]
+	if when_true:
+		temp = when_true.search_skill_selections()
+		for e in temp:
+			found.append(e)
+	if when_false:
+		temp = when_false.search_skill_selections()
+		for e in temp:
+			found.append(e)
+	
+	return found
+
+func process_effect(
+		allies: Array[Character],
+		enemies: Array[Character],
+		combat: CombatScreenControl,
+		parent_target: Character = null) -> Array[Effect]:
+	
+	var copies = super.process_effect(allies, enemies, combat, parent_target)
+	var processed: Array[Effect] = []
+	for eff  in copies:
+		var eval = eff.evaluate()
+		eval.caster = caster
+		processed.append_array(eval.process_effect(allies, enemies, combat, eff.target))
+		
+	return processed
+	
 # Recursively sets the caster of all sub-effects
 func _set_caster(_caster: Character):
 	super._set_caster(_caster)
@@ -58,22 +91,6 @@ func _set_caster(_caster: Character):
 	if when_false:
 		when_false.caster = _caster
 
-# Recursively sets the target of all sub-effects
-func _set_target(_target: Character):
-	super._set_target(_target)
-	if when_true:
-		when_true.target = _target
-	if when_false:
-		when_false.target = _target
-
-# Recursively sets the targets of all sub-effects
-func _set_skill_targets(_targets: Array[Character]):
-	super._set_skill_targets(_targets)
-	if when_true:
-		when_true.skill_targets = _targets
-	if when_false:
-		when_false.skill_targets = _targets
-
 # Recursively sets the skill of all sub-effects
 func _set_skill(_skill: Skill):
 	super._set_skill(_skill)
@@ -81,10 +98,3 @@ func _set_skill(_skill: Skill):
 		when_true.skill = _skill
 	if when_false:
 		when_false.skill = _skill
-
-func _flatten() -> Array[Effect]:
-	var eval = evaluate()
-	if eval != null:
-		return eval._flatten()
-	else:
-		return []

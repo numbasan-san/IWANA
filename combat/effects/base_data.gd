@@ -16,15 +16,6 @@ class_name EffectBaseData extends Resource
 		description = new_desc
 		emit_changed()
 
-## Information that will be shown in tooltips that changes as the values of the
-## effect change.
-## 
-## This can be used to update the tooltips without having to change the description.
-var variable_info: String:
-	set(new_info):
-		variable_info = new_info
-		emit_changed()
-
 ## Icon that will be used to show in the buffs/debuffs list or in the effect
 ## selection menu.
 @export var icon: AtlasTexture:

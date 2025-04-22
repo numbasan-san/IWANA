@@ -30,98 +30,13 @@ func set_character(character: Character = null):
 			# happens between turns, so there is no need to change the button
 			# status after they have been added
 			if skill.enabled and skill.energy_cost <= character.combat_handler.stats.energy:
-				button.pressed.connect(
-					func():
-						combat.selecting_action = false
-						combat.selecting_skill = false
-						combat.selecting_target = true
-						var required_targets = skill.get_manual_targets()
-						var target_sets = []
-						# TODO: see if there is a better way to execute this code,
-						# maybe from inside the skill class.
-						for effect in skill.effects:
-							var t_type = effect.target_type
-							# Select manual targets
-							if t_type.is_manual_target():
-								show_possible_targets(t_type, character)
-								await finished_targeting
-								effect.skill_targets = current_targets
-								current_targets = []
-							# Select automatic targets
-							else:
-								effect.select_targets(combat.player_party, combat.enemy_party)
-							hide_targets()
-							# Choose effects from selection list
-							# TODO: this doesn't work if the selection effect is inside
-							# another effect, like a group.
-							if effect is SelectionEffect:
-								effect_selection_box.fill_effects_list(effect)
-								effect_selection_box.start_selection()
-								var complete = false
-								# If selecting randomly, we can't wait to receive a signal.
-								
-								if effect.select_random:
-									# If we didn't make a selection or there was an error,
-									# the chosen array will be empty.
-									complete = effect.chosen.size() > 0
-								else:
-									complete = await effect_selection_box.selection_ended
-								# If the selection was canceled, the effect processing stops
-								# and the skill's is_valid function will return false.
-								if not complete:
-									break
-							# Choose skills from selection list
-							# TODO: this doesn't work if the selection effect is inside
-							# another effect, like a group.
-							if effect is SkillSelectionEffect:
-								skill_selection_box.fill_skills_list(effect)
-								skill_selection_box.start_selection()
-								var complete = await skill_selection_box.selection_ended
-								# If the selection was canceled, the effect processing stops
-								# and the skill's is_valid function will return false.
-								if not complete:
-									break
-							# TODO: change this code. This is only temporary until I
-							# think of something better. For now there are only a few
-							# skills that allow effect selection, and it is either on the
-							# top level or inside a group, so this should work. However
-							# this must be changed to work correctly for conditional and
-							# chained effects, and we must think how we will handle when 
-							# there are several selections in a group.
-							elif effect is EffectGroup:
-								for eff in effect.effects:
-									# This only works for the first selection effect found
-									# in the group, and it doesn't search recursively. That
-									# is enough for the current skills but it's not robust.
-									if eff is SelectionEffect:
-										effect_selection_box.fill_effects_list(eff)
-										effect_selection_box.start_selection()
-										var complete = await effect_selection_box.selection_ended
-										# If the selection was canceled, the effect processing stops
-										# and the skill's is_valid function will return false.
-										if not complete:
-											break
-									# This only works for the first selection effect found
-									# in the group, and it doesn't search recursively. That
-									# is enough for the current skills but it's not robust.
-									if eff is SkillSelectionEffect:
-										skill_selection_box.fill_skills_list(eff)
-										skill_selection_box.start_selection()
-										var complete = await skill_selection_box.selection_ended
-										# If the selection was canceled, the effect processing stops
-										# and the skill's is_valid function will return false.
-										if not complete:
-											break
-						
-						if not skill.is_valid():
-							printerr("SkillMenu | The selected number of targets don't match " \
-								+ "with the required number for skill " + skill.name)
-						else:
-							await character.combat_handler.execute(skill)
-							character.combat_handler.end_turn()
-							await combat.show_party_menu()
-							combat.next_turn()
-				)
+				# TODO: when the new system is implemented, we must remove this and
+				# make it so it triggers the skill selection in the selection module.
+				#button.pressed.connect(
+				#	func():
+				#		combat.skill_selected.emit(skill)
+				#)
+				button.pressed.connect(func(): combat.skill_selected.emit(skill))
 			else:
 				button.disabled = true
 			buttons.append(button)

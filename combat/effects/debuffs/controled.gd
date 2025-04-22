@@ -33,6 +33,9 @@ func after_turn(target: Character):
 func on_unapply(target: Character):
 	# This is to restore the original state just in case the debuff is removed
 	# before it runs out naturally
-	for skill in target.combat_handler.skills:
-		skill.enabled = skill_enabled.pop_front()
+	# The size of skill_enabled should always be the same as the skill array when
+	# the effect is applied correctly, or 0 otherwise.
+	if skill_enabled.size() == target.combat_handler.skills.size():
+		for skill in target.combat_handler.skills:
+			skill.enabled = skill_enabled.pop_front()
 	chosen.clear()

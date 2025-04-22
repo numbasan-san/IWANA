@@ -1,36 +1,13 @@
-[gd_scene load_steps=28 format=3 uid="uid://f2oog5xfhsha"]
+[gd_scene load_steps=14 format=3 uid="uid://f2oog5xfhsha"]
 
 [ext_resource type="Script" path="res://screens/combat/combat_screen_contents.gd" id="1_o364i"]
 [ext_resource type="Texture2D" uid="uid://ddusl4u64qj4v" path="res://assets/combat_sprites/background1.png" id="2_lv2pp"]
 [ext_resource type="Texture2D" uid="uid://fmslxpw5ctsi" path="res://assets/combat_sprites/frame.png" id="3_qe1v6"]
-[ext_resource type="PackedScene" uid="uid://dbuixiuq0ijmx" path="res://screens/combat/portrait_container.tscn" id="3_v8xkj"]
-[ext_resource type="Script" path="res://screens/combat/combat_party_area.gd" id="4_fhsny"]
-[ext_resource type="PackedScene" uid="uid://3d6j1vup2i4s" path="res://screens/combat/sprite_container.tscn" id="4_vgjmr"]
-[ext_resource type="Texture2D" uid="uid://bptcs2n2oxrnv" path="res://assets/combat_sprites/buttons/ataque_no_selecccionado.png" id="7_k3t3k"]
-[ext_resource type="Texture2D" uid="uid://dkan7xpea78m2" path="res://assets/combat_sprites/buttons/ataque_selecccionado.png" id="8_fewc1"]
-[ext_resource type="Script" path="res://screens/combat/party_menu.gd" id="8_hf5qu"]
-[ext_resource type="Texture2D" uid="uid://cm64jidg3k4ae" path="res://assets/combat_sprites/containers.png" id="9_1667j"]
-[ext_resource type="Texture2D" uid="uid://qbx8ont43lkk" path="res://assets/combat_sprites/buttons/defensa_no_selecccionado.png" id="9_j2r3x"]
-[ext_resource type="Texture2D" uid="uid://w8agfh6y8rtq" path="res://assets/combat_sprites/buttons/defensa_selecccionado.png" id="10_wpyws"]
-[ext_resource type="Texture2D" uid="uid://bo7bc57ao6vyw" path="res://assets/combat_sprites/buttons/huir_no_selecccionado.png" id="11_wxol7"]
-[ext_resource type="Texture2D" uid="uid://bhovu86cekktn" path="res://assets/combat_sprites/buttons/huir_selecccionado.png" id="12_1rras"]
-[ext_resource type="FontFile" uid="uid://bjh56wfvej2vg" path="res://assets/combat_sprites/font/IWANA.ttf" id="15_5rv14"]
-[ext_resource type="Script" path="res://screens/combat/skills_menu.gd" id="16_3nacl"]
-[ext_resource type="Texture2D" uid="uid://4xwrses4uu7v" path="res://assets/combat_sprites/skills_paper.png" id="17_n5htp"]
+[ext_resource type="PackedScene" uid="uid://ftvcnmtm10jp" path="res://screens/combat/combat_party_area.tscn" id="4_524bj"]
+[ext_resource type="PackedScene" uid="uid://b8el7o7t4udjg" path="res://screens/combat/party_menu.tscn" id="6_fnso2"]
+[ext_resource type="Script" path="res://screens/combat/selection_module.gd" id="7_54dix"]
+[ext_resource type="PackedScene" uid="uid://o2kmt3v50ans" path="res://screens/combat/skills_menu.tscn" id="7_djut6"]
 [ext_resource type="PackedScene" uid="uid://dus506xg66heq" path="res://scenes/sfx.tscn" id="18_l7cxu"]
-[ext_resource type="Script" path="res://screens/combat/effect_selection_box.gd" id="18_xq4ua"]
-[ext_resource type="Script" path="res://screens/combat/skill_selection_box.gd" id="19_anoa2"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4841x"]
-atlas = ExtResource("9_1667j")
-region = Rect2(1271, 222, 396, 318)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mrbcw"]
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.18, 0.18, 0.18, 1)
 
 [sub_resource type="Animation" id="Animation_lhdi0"]
 resource_name = "ShowSkills_2"
@@ -293,7 +270,7 @@ _data = {
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hg3jf"]
 bg_color = Color(0, 0, 0, 1)
 
-[node name="CombatContents" type="Control" node_paths=PackedStringArray("right_area", "left_area", "party_menu", "skills_menu", "change_menu_animation")]
+[node name="CombatContents" type="Control" node_paths=PackedStringArray("right_area", "left_area", "party_menu", "skills_menu", "selection_module", "change_menu_animation")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -306,6 +283,7 @@ right_area = NodePath("RightArea")
 left_area = NodePath("LeftArea")
 party_menu = NodePath("PartyMenu")
 skills_menu = NodePath("SkillsMenu")
+selection_module = NodePath("SelectionModule")
 change_menu_animation = NodePath("MenuChangeAnimation")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -332,423 +310,39 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_qe1v6")
 
-[node name="RightArea" type="Control" parent="." node_paths=PackedStringArray("sprite_containers")]
+[node name="RightArea" parent="." node_paths=PackedStringArray("sprite_containers") instance=ExtResource("4_524bj")]
 layout_mode = 1
-anchor_left = 0.654
-anchor_top = 0.35
-anchor_right = 0.9
-anchor_bottom = 0.508
-offset_left = 0.319946
-offset_top = -3.05176e-05
-offset_bottom = 0.359985
-mouse_filter = 2
-script = ExtResource("4_fhsny")
-sprite_containers = [NodePath("SpriteContainer1"), NodePath("SpriteContainer2"), NodePath("SpriteContainer3"), NodePath("SpriteContainer4")]
-direction = -1
+sprite_containers = []
 
-[node name="SpriteContainer1" parent="RightArea" instance=ExtResource("4_vgjmr")]
+[node name="LeftArea" parent="." node_paths=PackedStringArray("sprite_containers") instance=ExtResource("4_524bj")]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -149.5
-offset_right = 100.0
-offset_bottom = 150.5
-grow_vertical = 2
+offset_left = -938.68
+offset_right = -939.0
+sprite_containers = []
+direction = 1
 
-[node name="SpriteContainer2" parent="RightArea" instance=ExtResource("4_vgjmr")]
+[node name="PartyMenu" parent="." node_paths=PackedStringArray("combat") instance=ExtResource("6_fnso2")]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -100.0
-offset_top = -150.0
-offset_right = 99.9999
-offset_bottom = 150.0
-grow_horizontal = 2
-
-[node name="SpriteContainer3" parent="RightArea" instance=ExtResource("4_vgjmr")]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -102.0
-offset_top = -151.0
-offset_right = 97.9999
-offset_bottom = 149.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="SpriteContainer4" parent="RightArea" instance=ExtResource("4_vgjmr")]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -146.5
-offset_right = 100.0
-offset_bottom = 153.5
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="LeftArea" type="Control" parent="." node_paths=PackedStringArray("sprite_containers")]
-layout_mode = 1
-anchor_left = 0.165
-anchor_top = 0.35
-anchor_right = 0.435
-anchor_bottom = 0.5
-offset_left = 0.199982
-offset_top = -3.05176e-05
-offset_right = -0.200073
-script = ExtResource("4_fhsny")
-sprite_containers = [NodePath("SpriteContainer1"), NodePath("SpriteContainer2"), NodePath("SpriteContainer3"), NodePath("SpriteContainer4")]
-
-[node name="SpriteContainer1" parent="LeftArea" instance=ExtResource("4_vgjmr")]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -99.9999
-offset_top = -145.0
-offset_right = 100.0
-offset_bottom = 155.0
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="SpriteContainer2" parent="LeftArea" instance=ExtResource("4_vgjmr")]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -102.0
-offset_top = -150.0
-offset_right = 98.0
-offset_bottom = 150.0
-grow_horizontal = 2
-
-[node name="SpriteContainer3" parent="LeftArea" instance=ExtResource("4_vgjmr")]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -100.0
-offset_top = -142.0
-offset_right = 100.0
-offset_bottom = 158.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="SpriteContainer4" parent="LeftArea" instance=ExtResource("4_vgjmr")]
-layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = -93.0
-offset_top = -142.0
-offset_right = 107.0
-offset_bottom = 158.0
-grow_vertical = 2
-
-[node name="PartyMenu" type="Control" parent="." node_paths=PackedStringArray("combat", "party_slots")]
-layout_mode = 1
-anchor_left = 0.133
-anchor_top = 0.633
-anchor_right = 0.962
-anchor_bottom = 0.926
-offset_left = 255.0
-offset_top = 684.0
-offset_right = 255.36
-offset_bottom = 684.0
-grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("8_hf5qu")
-combat = NodePath("..")
-party_slots = [NodePath("Characters/Character1"), NodePath("Characters/Character2"), NodePath("Characters/Character3"), NodePath("Characters/Character4")]
-
-[node name="Characters" type="Control" parent="PartyMenu"]
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-offset_right = 1208.0
-grow_vertical = 2
-
-[node name="Character1" parent="PartyMenu/Characters" instance=ExtResource("3_v8xkj")]
-layout_mode = 1
-anchor_right = 0.24
-anchor_bottom = 1.0
-offset_right = 0.0299988
+offset_left = -0.360001
+offset_top = 0.359985
+offset_right = 0.0
 offset_bottom = 0.0
-slot = 1
-
-[node name="Character2" parent="PartyMenu/Characters" instance=ExtResource("3_v8xkj")]
-layout_mode = 1
-anchor_left = 0.25
-anchor_right = 0.49
-anchor_bottom = 1.0
-slot = 2
-
-[node name="Character3" parent="PartyMenu/Characters" instance=ExtResource("3_v8xkj")]
-layout_mode = 1
-anchor_left = 0.5
-anchor_right = 0.74
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-slot = 3
-
-[node name="Character4" parent="PartyMenu/Characters" instance=ExtResource("3_v8xkj")]
-layout_mode = 1
-anchor_left = 0.75
-anchor_right = 0.99
-anchor_bottom = 1.0
-offset_left = 10.1046
-offset_top = 0.00799561
-offset_right = 10.9446
-offset_bottom = 0.40799
-grow_horizontal = 2
-grow_vertical = 2
-slot = 4
-
-[node name="Actions" type="Control" parent="PartyMenu"]
-layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -353.0
-offset_bottom = 1.0
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="ActionsBackground" type="TextureRect" parent="PartyMenu/Actions"]
-layout_mode = 0
-offset_right = 396.0
-offset_bottom = 318.0
-texture = SubResource("AtlasTexture_4841x")
-
-[node name="ActionList" type="VBoxContainer" parent="PartyMenu/Actions"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 118.904
-offset_top = 20.056
-offset_right = -66.0958
-offset_bottom = 73.056
-grow_vertical = 2
-scale = Vector2(0.8, 0.8)
-theme_override_constants/separation = 10
-alignment = 1
-
-[node name="Attack" type="TextureButton" parent="PartyMenu/Actions/ActionList"]
-layout_mode = 2
-size_flags_horizontal = 0
-focus_neighbor_top = NodePath("../Run")
-focus_neighbor_bottom = NodePath("../Defense")
-texture_normal = ExtResource("7_k3t3k")
-texture_pressed = ExtResource("8_fewc1")
-texture_hover = ExtResource("8_fewc1")
-texture_focused = ExtResource("8_fewc1")
-
-[node name="Defense" type="TextureButton" parent="PartyMenu/Actions/ActionList"]
-layout_mode = 2
-size_flags_horizontal = 0
-focus_neighbor_top = NodePath("../Attack")
-focus_neighbor_bottom = NodePath("../Run")
-texture_normal = ExtResource("9_j2r3x")
-texture_pressed = ExtResource("10_wpyws")
-texture_hover = ExtResource("10_wpyws")
-texture_focused = ExtResource("10_wpyws")
-
-[node name="Run" type="TextureButton" parent="PartyMenu/Actions/ActionList"]
-layout_mode = 2
-size_flags_horizontal = 0
-focus_neighbor_top = NodePath("../Defense")
-focus_neighbor_bottom = NodePath("../Attack")
-texture_normal = ExtResource("11_wxol7")
-texture_pressed = ExtResource("12_1rras")
-texture_hover = ExtResource("12_1rras")
-texture_focused = ExtResource("12_1rras")
-
-[node name="SkillsMenu" type="Control" parent="." node_paths=PackedStringArray("combat", "character_slot", "skills_container", "button_model", "effect_selection_box", "skill_selection_box")]
-visible = false
-layout_mode = 1
-anchor_left = 0.133
-anchor_top = 0.633
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 255.0
-offset_top = 1150.0
-offset_right = 255.36
-offset_bottom = 1150.0
-grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("16_3nacl")
 combat = NodePath("..")
-character_slot = NodePath("Character")
-skills_container = NodePath("SkillArea/Skills/VBoxContainer")
-button_model = NodePath("ButtonModel")
-effect_selection_box = NodePath("EffectSelection")
-skill_selection_box = NodePath("SkillSelection")
 
-[node name="ButtonModel" type="Button" parent="SkillsMenu"]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 8
-theme_override_fonts/font = ExtResource("15_5rv14")
-theme_override_font_sizes/font_size = 30
-flat = true
-
-[node name="Character" parent="SkillsMenu" instance=ExtResource("3_v8xkj")]
+[node name="SkillsMenu" parent="." node_paths=PackedStringArray("combat") instance=ExtResource("7_djut6")]
+visible = false
 layout_mode = 1
+offset_left = -0.360001
+offset_top = 466.36
+offset_right = 0.0
+offset_bottom = 466.36
+combat = NodePath("..")
+
+[node name="SelectionModule" type="Control" parent="."]
 anchors_preset = 0
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_right = 303.0
-offset_bottom = 340.0
-
-[node name="SkillArea" type="Control" parent="SkillsMenu"]
-layout_mode = 1
-anchor_left = 0.194
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="Paper" type="TextureRect" parent="SkillsMenu/SkillArea"]
-layout_mode = 0
-offset_left = -57.0
-offset_top = -65.0
-offset_right = 1342.0
-offset_bottom = 396.0
-texture = ExtResource("17_n5htp")
-
-[node name="Skills" type="ScrollContainer" parent="SkillsMenu/SkillArea"]
-layout_mode = 1
-offset_left = 171.99
-offset_top = 70.0
-offset_right = 1279.99
-offset_bottom = 339.0
-horizontal_scroll_mode = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="SkillsMenu/SkillArea/Skills"]
-layout_mode = 2
-theme_override_constants/separation = 20
-
-[node name="EffectSelection" type="Panel" parent="SkillsMenu" node_paths=PackedStringArray("grid")]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -392.0
-offset_top = -345.0
-offset_right = -72.0
-offset_bottom = -58.0
-grow_horizontal = 0
-grow_vertical = 0
-script = ExtResource("18_xq4ua")
-grid = NodePath("GridContainer")
-
-[node name="GridContainer" type="GridContainer" parent="SkillsMenu/EffectSelection"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -20.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(3, 3)
-columns = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="SkillsMenu/EffectSelection"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.85
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -8.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Accept" type="Button" parent="SkillsMenu/EffectSelection/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_mrbcw")
-text = "Accept"
-
-[node name="Cancel" type="Button" parent="SkillsMenu/EffectSelection/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Cancel
-"
-
-[node name="SkillSelection" type="Panel" parent="SkillsMenu" node_paths=PackedStringArray("grid")]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -392.0
-offset_top = -345.0
-offset_right = -72.0
-offset_bottom = -58.0
-grow_horizontal = 0
-grow_vertical = 0
-script = ExtResource("19_anoa2")
-grid = NodePath("GridContainer")
-
-[node name="GridContainer" type="GridContainer" parent="SkillsMenu/SkillSelection"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -20.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(3, 3)
-columns = 3
-
-[node name="HBoxContainer" type="HBoxContainer" parent="SkillsMenu/SkillSelection"]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.85
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -8.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="Accept" type="Button" parent="SkillsMenu/SkillSelection/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_styles/normal = SubResource("StyleBoxFlat_mrbcw")
-text = "Accept"
-
-[node name="Cancel" type="Button" parent="SkillsMenu/SkillSelection/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Cancel
-"
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_54dix")
 
 [node name="MenuChangeAnimation" type="AnimationPlayer" parent="."]
 libraries = {
@@ -779,11 +373,3 @@ theme_override_font_sizes/font_size = 40
 text = "asdadasdas"
 
 [node name="SFX" parent="." instance=ExtResource("18_l7cxu")]
-
-[connection signal="pressed" from="PartyMenu/Actions/ActionList/Attack" to="PartyMenu" method="_on_attack_pressed"]
-[connection signal="pressed" from="PartyMenu/Actions/ActionList/Defense" to="PartyMenu" method="_on_defense_pressed"]
-[connection signal="pressed" from="PartyMenu/Actions/ActionList/Run" to="PartyMenu" method="_on_run_pressed"]
-[connection signal="pressed" from="SkillsMenu/EffectSelection/HBoxContainer/Accept" to="SkillsMenu/EffectSelection" method="on_accept_pressed"]
-[connection signal="pressed" from="SkillsMenu/EffectSelection/HBoxContainer/Cancel" to="SkillsMenu/EffectSelection" method="on_cancel_pressed"]
-[connection signal="pressed" from="SkillsMenu/SkillSelection/HBoxContainer/Accept" to="SkillsMenu/SkillSelection" method="on_accept_pressed"]
-[connection signal="pressed" from="SkillsMenu/SkillSelection/HBoxContainer/Cancel" to="SkillsMenu/SkillSelection" method="on_cancel_pressed"]
