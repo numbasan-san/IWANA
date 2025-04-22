@@ -44,15 +44,17 @@ func update():
 
 # Se permite la apertura del inventario.
 func open():
-	visible = true
-	is_open = true
-	opened.emit()
+	if false:
+		visible = true
+		is_open = true
+		opened.emit()
 
 # Se permite el cierre del inventario.
 func close():
-	visible = false
-	is_open = false
-	closed.emit()
+	if false:
+		visible = false
+		is_open = false
+		closed.emit()
 
 # Acciones que ocurren cuando se "cliquea" un objeto en el inventario.
 func on_slot_clicked(slot):

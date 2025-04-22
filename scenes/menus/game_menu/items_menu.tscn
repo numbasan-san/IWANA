@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cvqnwtk5nq0y6"]
 
-[ext_resource type="Script" path="res://script/menus/game_menu/items_menu.gd" id="1_1gckd"]
+[ext_resource type="Script" path="res://script/combat/menus/items_menu.gd" id="1_8p4qr"]
 [ext_resource type="Texture2D" uid="uid://b0vq82fo81wgn" path="res://assets/menus/game menu/libreta_objetos.png" id="1_33c85"]
 [ext_resource type="Texture2D" uid="uid://d4ga2cbo5mfov" path="res://assets/menus/mascara.png" id="3_iv8ha"]
 [ext_resource type="PackedScene" uid="uid://3a5ilvkkwddg" path="res://scenes/menus/game_menu/utilities/item_card.tscn" id="4_k5wl5"]
@@ -13,7 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_1gckd")
+script = ExtResource("1_8p4qr")
 
 [node name="background" type="TextureRect" parent="."]
 layout_mode = 1

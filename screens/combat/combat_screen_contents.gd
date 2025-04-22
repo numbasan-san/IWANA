@@ -13,6 +13,7 @@ signal textbox_closed
 # actors' speed stat and buffs. This is where they will be stored, and they
 # will be removed as they perform their actions
 var actor_queue: Array[Character]
+var select_to_use = false
 
 var enemy_party: Party = null
 var enemy_area: CombatPartyArea = null
@@ -32,7 +33,8 @@ func _ready():
 
 func _input(_event):
 	# Para poder cerrar los cuadros de texto.
-	if (Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and $text_box.visible:
+	if (Input.is_action_just_pressed("ui_accept") or 
+	Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and $text_box.visible:
 		$text_box.hide()
 		emit_signal("textbox_closed")
 	if Input.is_action_just_released("combat_menu_back"):
@@ -134,15 +136,17 @@ func next_turn():
 
 # Shows the party menu and hides the skills menu
 func show_party_menu():
-	if not party_menu.visible:
+	if not party_menu.visible or select_to_use:
+		if select_to_use:
+			$ItemsMenu.visible = false
+			$PartyMenu/Actions/ActionList.visible = false
+			$PartyMenu/Actions/ItemsAction.visible = true
 		skills_menu.hide_targets()
 		change_menu_animation.play("HideSkills")
 		await change_menu_animation.animation_finished
 		# TODO: think of a better way to control in which state is the combat
 		# screen
-		selecting_action = true
-		selecting_skill = false
-		selecting_target = false
+		selecting_set(true, false, false)
 		if party_menu.selected_character:
 			# TODO: change it so that we don't need to refer to the button
 			# directly
@@ -153,11 +157,14 @@ func show_skills_menu():
 	if party_menu.visible:
 		change_menu_animation.play("ShowSkills")
 		await change_menu_animation.animation_finished
-		selecting_action = false
-		selecting_skill = true
-		selecting_target = false
+		selecting_set(false, true, false)
 		if skills_menu.skills_container.get_child_count() > 0:
 			skills_menu.skills_container.get_child(0).grab_focus()
+
+func selecting_set(selecting_action, selecting_skill, selecting_target):
+	selecting_action = selecting_action
+	selecting_skill = selecting_skill
+	selecting_target = selecting_target
 
 func _focus_action_list():
 	$PartyMenu/Actions/ActionList/Attack.grab_focus()
@@ -166,3 +173,17 @@ func _focus_action_list():
 func display_text(text):
 	$text_box.show()
 	$text_box/label.text = text
+
+func _on_item_pressed():
+#	print('Debería aparecer el menú de los objetos.')
+	$MenuChangeAnimation.play("ShowItems")
+	var items_menu = $ItemsMenu
+	items_menu.load_items()
+
+func _on_close_pressed():
+	$MenuChangeAnimation.play("HideItems")
+	pass # Replace with function body.
+
+func _on_items_menu_select_to_use():
+	select_to_use = true
+	show_party_menu()

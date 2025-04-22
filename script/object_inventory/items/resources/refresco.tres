@@ -1,10 +1,25 @@
-[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cfluktlrbrlsw"]
+[gd_resource type="Resource" script_class="Item" load_steps=7 format=3 uid="uid://cfluktlrbrlsw"]
 
+[ext_resource type="Script" path="res://combat/effects/heal.gd" id="1_ackp4"]
 [ext_resource type="Script" path="res://script/object_inventory/items/item.gd" id="1_tf8rr"]
 [ext_resource type="Texture2D" uid="uid://ctlq8fduayw2s" path="res://assets/inventory/items/refresco.png" id="2_ctsvf"]
+[ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="2_g6u15"]
+
+[sub_resource type="Resource" id="Resource_mx3f6"]
+script = ExtResource("2_g6u15")
+exclude_self = false
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_ghoqw"]
+script = ExtResource("1_ackp4")
+value = 20.0
+target_type = SubResource("Resource_mx3f6")
 
 [resource]
 script = ExtResource("1_tf8rr")
 name = "refresco"
 texture = ExtResource("2_ctsvf")
 stack = 99
+effect = SubResource("Resource_ghoqw")

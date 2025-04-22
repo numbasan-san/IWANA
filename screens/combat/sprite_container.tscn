@@ -7,7 +7,7 @@
 [ext_resource type="Script" path="res://screens/combat/sprite_icon_control.gd" id="3_6f3g4"]
 [ext_resource type="Script" path="res://screens/combat/graphic_effects.gd" id="3_77t36"]
 [ext_resource type="Script" path="res://screens/combat/projectile_spawner.gd" id="3_mi672"]
-[ext_resource type="Texture2D" uid="uid://bmo6hh0wijg8" path="res://combat/effects/animation_effects/impact.png" id="4_f6fsk"]
+[ext_resource type="Texture2D" uid="uid://buff35s7o4pxi" path="res://combat/effects/animation_effects/impact.png" id="4_f6fsk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gltg8"]
 
