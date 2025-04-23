@@ -44,10 +44,10 @@ func on_send(target: Character):
 func process_effect(
 		allies: Array[Character],
 		enemies: Array[Character],
-		combat: CombatScreenControl,
+		handler: TurnHandler,
 		parent_target: Character = null) -> Array[Effect]:
 	
-	var copies = await super.process_effect(allies, enemies, combat, parent_target)
+	var copies = await super.process_effect(allies, enemies, handler, parent_target)
 	# Before processing the skill is set to NEW unless it failed some check.
 	# During processing it should still be NEW unless it was manually cancelled
 	# or something failed.
@@ -57,7 +57,7 @@ func process_effect(
 	var processed = copies.reduce(func(prev, next):
 		var eval = next.evaluate()
 		eval.caster = caster
-		return prev.append_array(await eval.process_effect(allies, enemies, combat, next.target)),
+		return prev.append_array(await eval.process_effect(allies, enemies, handler, next.target)),
 	[])
 	return processed
 

@@ -64,7 +64,7 @@ var status: Status
 func process_effects(
 		allies: Array[Character],
 		enemies: Array[Character],
-		combat: CombatScreenControl) -> Array[Effect]:
+		handler: TurnHandler) -> Array[Effect]:
 	
 	var result: Array[Effect] = []
 	for eff in effects:
@@ -73,7 +73,7 @@ func process_effects(
 		# In that case, we will return an empty array and let the caller deal with it.
 		# TODO: add some kind of error system, maybe emiting error signals that
 		# can be listened to.
-		var processed = await eff.process_effect(allies, enemies, combat)
+		var processed = await eff.process_effect(allies, enemies, handler)
 		# This status is set while manually selecting targets to indicate the
 		# player cancelled the selection.
 		if status == Status.CANCELLED:

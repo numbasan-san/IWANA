@@ -4,8 +4,6 @@ class_name SkillsMenu extends Control
 @export var character_slot: PortraitContainer
 @export var skills_container: Container
 @export var button_model: Button
-@export var effect_selection_box: EffectSelectionBox
-@export var skill_selection_box: SkillSelectionBox
 
 # TODO: This is temporary, it might go somewhere more global
 @onready var font = load("res://assets/combat_sprites/font/IWANA.ttf")
@@ -30,12 +28,6 @@ func set_character(character: Character = null):
 			# happens between turns, so there is no need to change the button
 			# status after they have been added
 			if skill.enabled and skill.energy_cost <= character.combat_handler.stats.energy:
-				# TODO: when the new system is implemented, we must remove this and
-				# make it so it triggers the skill selection in the selection module.
-				#button.pressed.connect(
-				#	func():
-				#		combat.skill_selected.emit(skill)
-				#)
 				button.pressed.connect(func(): combat.skill_selected.emit(skill))
 			else:
 				button.disabled = true

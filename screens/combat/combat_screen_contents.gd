@@ -11,7 +11,7 @@ signal skill_selected(skill: Skill)
 @export var left_area: CombatPartyArea
 @export var party_menu: PartyMenu
 @export var skills_menu: SkillsMenu
-@export var selection_module: SelectionModule
+@export var turn_handler: TurnHandler
 @export var change_menu_animation: AnimationPlayer
 
 # The turn order is decided at the beginning of the round according to the
@@ -40,7 +40,7 @@ enum State {
 func _ready():
 	left_area.combat = self
 	right_area.combat = self
-	selection_module.combat = self
+	turn_handler.combat = self
 
 func _input(_event):
 	# Para poder cerrar los cuadros de texto.
@@ -73,7 +73,7 @@ func start_battle(player_party: Array[Character], enemy_party: Array[Character])
 	# party
 	player_area = right_area
 	player_area.player_controled = true
-	selection_module.right_area = right_area
+	turn_handler.right_area = right_area
 	for member in player_party:
 		party_menu.add_character(member)
 		right_area.add_character(member)
@@ -83,7 +83,7 @@ func start_battle(player_party: Array[Character], enemy_party: Array[Character])
 	
 	enemy_area = left_area
 	enemy_area.player_controled = false
-	selection_module.left_area = left_area
+	turn_handler.left_area = left_area
 	for enemy in enemy_party:
 		left_area.add_character(enemy)
 	await ScreenManager.push(ScreenManager.combat_screen, "Out", "In")
@@ -138,7 +138,7 @@ func next_turn():
 		# If we reach this point, we can run the character's turn and hand the
 		# execution to the selection module, which will be stuck in its loop
 		# until the character's turn ends, be it by defending or using a skill.
-		await selection_module.run_turn(next)
+		await turn_handler.run_turn(next)
 		
 		# After run_turn returns, we are guaranteed that the character's turn
 		# has ended

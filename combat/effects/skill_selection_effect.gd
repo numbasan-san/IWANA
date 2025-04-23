@@ -39,7 +39,7 @@ func is_valid():
 
 #TODO: implement process_effect
 
-func _manual_select(combat: CombatScreenControl) -> Array[Skill]:
+func _manual_select(handler: TurnHandler) -> Array[Skill]:
 	# Show selection box
 	return []
 

@@ -71,10 +71,10 @@ func search_skill_selections() -> Array[SkillSelectionEffect]:
 func process_effect(
 		allies: Array[Character],
 		enemies: Array[Character],
-		combat: CombatScreenControl,
+		handler: TurnHandler,
 		parent_target: Character = null) -> Array[Effect]:
 	
-	var copies = await super.process_effect(allies, enemies, combat, parent_target)
+	var copies = await super.process_effect(allies, enemies, handler, parent_target)
 	# Before processing the skill is set to NEW unless it failed some check.
 	# During processing it should still be NEW unless it was manually cancelled
 	# or something failed.
@@ -85,7 +85,7 @@ func process_effect(
 	for eff  in copies:
 		var eval = eff.evaluate()
 		eval.caster = caster
-		processed.append_array(await eval.process_effect(allies, enemies, combat, eff.target))
+		processed.append_array(await eval.process_effect(allies, enemies, handler, eff.target))
 		
 	return processed
 	

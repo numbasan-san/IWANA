@@ -1,18 +1,14 @@
-class_name EffectSelectionBox extends Panel
+class_name EffectSelectionPanel extends Panel
 
 @export var grid: GridContainer
 
-# The effect that is currently loaded to the grid.
-var selection_effect: SelectionEffect
-
 var selection: Array[Effect] = []
 
-signal selection_ended(selected: bool)
+signal selection_ended(selected: Array[Effect])
 
 func fill_effects_list(effect: SelectionEffect):
 	_clear_grid()
-	selection_effect = effect
-	for eff in selection_effect.list:
+	for eff in effect.list:
 		var button = Button.new()
 		eff.init_base_data()
 		button.icon = eff.base_data.icon
@@ -23,7 +19,7 @@ func fill_effects_list(effect: SelectionEffect):
 		# TODO: Make the style changing code better
 		button.disabled = true
 		button.pressed.connect(func():
-			if selection.size() >= selection_effect.quantity:
+			if selection.size() >= effect.quantity:
 				var old_effect = selection.pop_front()
 				for child in grid.get_children():
 					var eff_button = child as Button
@@ -43,37 +39,12 @@ func _clear_grid():
 	for child in grid.get_children():
 		grid.remove_child(child)
 		child.free()
-	selection_effect = null
 	selection = []
 
-func _select_random():
+func start_selection(effect: SelectionEffect):
 	selection = []
-	if selection_effect == null:
-		printerr("EffectSelectionBox | No SelectionEffect to select from")
-		return
-	var list = selection_effect.list.duplicate()
-	var n = selection_effect.quantity
-	if n > list.size():
-		printerr("EffectSelectionBox | Trying to select " + str(n) + " effects " + \
-			"from a list of " + str(list.size()))
-		return
-	
-	while n > 0:
-		var eff = list.pick_random()
-		list.erase(eff)
-		selection.append(eff)
-		n -= 1
-
-func start_selection():
-	# We clean the chosen array because if it's empty, it means there was an error.
-	if selection_effect:
-		selection_effect.chosen = []
-	if selection_effect.select_random:
-		_select_random()
-		selection_effect.chosen = selection
-		selection = []
-	else:
-		show_selection()
+	fill_effects_list(effect)
+	show_selection()
 
 func show_selection():
 	if not self.visible:
@@ -88,12 +59,11 @@ func hide_selection():
 			button.disabled = true
 
 func on_accept_pressed():
-	selection_effect.chosen = selection
+	selection_ended.emit(selection)
 	selection = []
 	hide_selection()
-	selection_ended.emit(true)
 	
 func on_cancel_pressed():
 	selection = []
+	selection_ended.emit(selection)
 	hide_selection()
-	selection_ended.emit(false)

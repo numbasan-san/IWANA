@@ -140,7 +140,7 @@ func copy() -> Effect:
 func process_effect(
 		allies: Array[Character],
 		enemies: Array[Character],
-		combat: CombatScreenControl,
+		handler: TurnHandler,
 		parent_target: Character = null) -> Array[Effect]:
 	
 	# Before processing the skill is set to NEW unless it failed some check.
@@ -162,7 +162,7 @@ func process_effect(
 			return []
 	
 	# If we reach this point, this effect must set its own targets.
-	var targets: Array[Character] = await _select_targets(allies, enemies, combat)
+	var targets: Array[Character] = await _select_targets(allies, enemies, handler)
 	
 	# This could happen if the player cancels the skill before selecting targets.
 	if targets.size() == 0:
@@ -188,22 +188,22 @@ func process_effect(
 func _select_targets(
 		allies: Array[Character],
 		enemies: Array[Character],
-		combat: CombatScreenControl) -> Array[Character]:
+		handler: TurnHandler) -> Array[Character]:
 	
 	if target_type.is_manual_target():
-		return await _select_manual_targets(allies, enemies, combat)
+		return await _select_manual_targets(allies, enemies, handler)
 	else:
 		return _select_auto_targets(allies, enemies)
 
 func _select_manual_targets(
 		allies: Array[Character],
 		enemies: Array[Character],
-		combat: CombatScreenControl) -> Array[Character]:
+		handler: TurnHandler) -> Array[Character]:
 	
 	# The caster should have already been set recursively for all effects of the
 	# skill.
-	combat.selection_module.show_possible_targets(self)
-	var targets = await combat.selection_module.finished_targeting
+	handler.show_possible_targets(self)
+	var targets = await handler.finished_targeting
 	
 	# If targets size is 0, the selection was interrupted
 	if targets.size() == 0:

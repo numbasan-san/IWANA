@@ -70,7 +70,7 @@ func execute(
 		skill: Skill,
 		allies: Array[Character],
 		enemies: Array[Character],
-		combat: CombatScreenControl):
+		handler: TurnHandler):
 	
 	skill.status = skill.Status.NEW
 	
@@ -97,7 +97,7 @@ func execute(
 		await eff.skill_used(skill)
 		end_of_duration(eff)
 	
-	var processed: Array[Effect] = await skill.process_effects(allies, enemies, combat)
+	var processed: Array[Effect] = await skill.process_effects(allies, enemies, handler)
 	if skill.status != skill.Status.INITIALIZED:
 		return
 	

@@ -42,10 +42,10 @@ func copy() -> Effect:
 func process_effect(
 		allies: Array[Character],
 		enemies: Array[Character],
-		combat: CombatScreenControl,
+		handler: TurnHandler,
 		parent_target: Character = null) -> Array[Effect]:
 	
-	var copies = await super.process_effect(allies, enemies, combat, parent_target)
+	var copies = await super.process_effect(allies, enemies, handler, parent_target)
 	# Before processing the skill is set to NEW unless it failed some check.
 	# During processing it should still be NEW unless it was manually cancelled
 	# or something failed.
@@ -57,7 +57,7 @@ func process_effect(
 	for group in copies:
 		# Each copy has its own target already set, we must pass them to each child.
 		for eff in group.effects:
-			processed.append_array(await eff.process_effect(allies, enemies, combat, group.target))
+			processed.append_array(await eff.process_effect(allies, enemies, handler, group.target))
 	
 	return processed
 

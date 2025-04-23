@@ -130,10 +130,10 @@ func copy() -> Effect:
 func process_effect(
 		allies: Array[Character],
 		enemies: Array[Character],
-		combat: CombatScreenControl,
+		handler: TurnHandler,
 		parent_target: Character = null) -> Array[Effect]:
 	
-	var copies = await super.process_effect(allies, enemies, combat, parent_target)
+	var copies = await super.process_effect(allies, enemies, handler, parent_target)
 	# Before processing the skill is set to NEW unless it failed some check.
 	# During processing it should still be NEW unless it was manually cancelled
 	# or something failed.
@@ -145,7 +145,7 @@ func process_effect(
 	for chain in copies:
 		chain = chain as ChainedEffect
 		var process = func(eff):
-			return await eff.process_effect(allies, enemies, combat, chain.target)
+			return await eff.process_effect(allies, enemies, handler, chain.target)
 		# This will iterate over each effect, process it, and append it to the
 		# result of processing the previous one. We use the empty array as the
 		# first value to force the processing of the first element of the array

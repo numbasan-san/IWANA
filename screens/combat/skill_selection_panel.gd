@@ -1,6 +1,6 @@
 # TODO: This is a duplicate of the EffectSelectionBox. Make it so they inherit
 # from the same superclass, or change the code so that it works for any selection
-class_name SkillSelectionBox extends Panel
+class_name SkillSelectionPanel extends Panel
 
 @export var grid: GridContainer
 

@@ -7,11 +7,14 @@
 ## the appropiate branches.
 ## Once it's all done, the skill has all the information to be executed and its
 ## effects applied.
-class_name SelectionModule extends Control
+class_name TurnHandler extends Control
 
 signal finished_targeting(targets: Array[Character])
 # Can be null if we attempted to process a character that wasn't in this group.
 signal turn_finished(character: Character)
+
+@export var effect_selection_panel: EffectSelectionPanel
+@export var skill_selection_panel: SkillSelectionPanel
 
 var combat: CombatScreenControl
 var left_area: CombatPartyArea
@@ -94,7 +97,7 @@ func run_turn(character: Character):
 				skill,
 				current_area.characters,
 				enemy_area.characters,
-				combat)
+				self)
 			
 			if skill.status == skill.Status.EXECUTED:
 				current_state = combat.State.END
