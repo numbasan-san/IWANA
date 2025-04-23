@@ -283,7 +283,7 @@ right_area = NodePath("RightArea")
 left_area = NodePath("LeftArea")
 party_menu = NodePath("PartyMenu")
 skills_menu = NodePath("SkillsMenu")
-turn_handler = NodePath("SelectionModule")
+turn_handler = NodePath("TurnHandler")
 change_menu_animation = NodePath("MenuChangeAnimation")
 
 [node name="Background" type="TextureRect" parent="."]
@@ -321,22 +321,14 @@ looking_left = false
 
 [node name="PartyMenu" parent="." node_paths=PackedStringArray("combat") instance=ExtResource("6_fnso2")]
 layout_mode = 1
-offset_left = -0.360001
-offset_top = 0.359985
-offset_right = 0.0
-offset_bottom = 0.0
 combat = NodePath("..")
 
 [node name="SkillsMenu" parent="." node_paths=PackedStringArray("combat") instance=ExtResource("7_djut6")]
 visible = false
 layout_mode = 1
-offset_left = -0.360001
-offset_top = 466.36
-offset_right = 0.0
-offset_bottom = 466.36
 combat = NodePath("..")
 
-[node name="SelectionModule" parent="." instance=ExtResource("7_tej7b")]
+[node name="TurnHandler" parent="." instance=ExtResource("7_tej7b")]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -349,7 +341,6 @@ offset_right = 0.0
 offset_bottom = 0.0
 grow_horizontal = 0
 grow_vertical = 0
-mouse_filter = 1
 
 [node name="MenuChangeAnimation" type="AnimationPlayer" parent="."]
 libraries = {

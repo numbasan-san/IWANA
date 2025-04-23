@@ -13,6 +13,11 @@ var current_targets: Array[Character] = []
 signal finished_targeting
 
 func set_character(character: Character = null):
+	# If we try to set the same character, we return to prevent doing useless
+	# work and to avoid clearing the buttons list while they are potentially still
+	# being pressed
+	if character_slot.character == character:
+		return
 	character_slot.set_character(character)
 	_clear_skill_buttons()
 	if character:

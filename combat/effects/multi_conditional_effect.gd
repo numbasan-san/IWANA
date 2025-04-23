@@ -38,14 +38,10 @@ func process_effect(
 	if skill.status != skill.Status.NEW:
 		return []
 	
-	var processed = copies.reduce(func(prev, next):
-		var eval = next.evaluate()
-		var arr: Array[Effect] = []
-		for eff in eval:
-			eff.caster = caster
-			arr.append_array(await eff.process_effect(allies, enemies, handler, next.target))
-		return prev.append_array(arr),
-	[])
+	var processed: Array[Effect]
+	for copy in copies:
+		for eff in copy.evaluate():
+			processed.append_array(await eff.process_effect(allies, enemies, handler, copy.target))
 	
 	return processed
 

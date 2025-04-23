@@ -75,7 +75,7 @@ func run_turn(character: Character):
 			if action == combat.Action.NONE:
 				continue
 			elif action == combat.Action.RUN:
-				_action_run()
+				await _action_run()
 			elif action == combat.Action.DEFEND:
 				_action_defend(character)
 			elif action == combat.Action.ATTACK:

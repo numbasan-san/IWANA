@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://cg7yssd5gfox3"]
+[gd_resource type="Resource" script_class="Skill" load_steps=3 format=3 uid="uid://cg7yssd5gfox3"]
 
+[ext_resource type="Resource" uid="uid://cmqr5lu7lmvgg" path="res://characters/noby/combat/skill3/noby_throw_backpack.tres" id="1_m6xwf"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="6_2i8cv"]
 
 [resource]
 script = ExtResource("6_2i8cv")
 name = "Escupo en tu tumba"
 description = "Coloca una marca en el enemigo (asegura golpe crítico) y hace daño"
-effects = Array[Resource("res://combat/effects/effect.gd")]([])
+effects = Array[Resource("res://combat/effects/effect.gd")]([ExtResource("1_m6xwf")])
 energy_cost = 5

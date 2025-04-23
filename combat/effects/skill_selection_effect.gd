@@ -39,10 +39,51 @@ func is_valid():
 
 #TODO: implement process_effect
 
+func process_effect(
+		allies: Array[Character],
+		enemies: Array[Character],
+		handler: TurnHandler,
+		parent_target: Character = null) -> Array[Effect]:
+	
+	var copies = await super.process_effect(allies, enemies, handler, parent_target)
+	# Before processing the skill is set to NEW unless it failed some check.
+	# During processing it should still be NEW unless it was manually cancelled
+	# or something failed.
+	if skill.status != skill.Status.NEW:
+		return []
+	
+	for copy in copies:
+		var selection: Array[Skill] = []
+		# Because the copies have the same values, we can get the effect lists
+		# from the original, as they will be copied after processing anyways.
+		if quantity >= list.size():
+			selection = list
+		elif select_random:
+			selection = _auto_select()
+		else:
+			selection = await _manual_select(handler)
+		
+		if selection.size() == 0:
+			skill.status = skill.Status.CANCELLED
+			return []
+		
+		copy.chosen = selection
+		
+	return copies
+
 func _manual_select(handler: TurnHandler) -> Array[Skill]:
-	# Show selection box
-	return []
+	handler.skill_selection_panel.start_selection(self)
+	return await handler.skill_selection_panel.selection_ended
 
 func _auto_select() -> Array[Skill]:
-	# Select random or with algorithm
-	return []
+	var n = quantity
+	var selection: Array[Skill]
+	var list_copy = list.duplicate()
+	
+	while n > 0:
+		var skill = list_copy.pick_random()
+		list_copy.erase(skill)
+		selection.append(skill)
+		n -= 1
+		
+	return selection

@@ -54,11 +54,11 @@ func process_effect(
 	if skill.status != skill.Status.NEW:
 		return []
 	
-	var processed = copies.reduce(func(prev, next):
-		var eval = next.evaluate()
-		eval.caster = caster
-		return prev.append_array(await eval.process_effect(allies, enemies, handler, next.target)),
-	[])
+	var processed: Array[Effect]
+	for copy in copies:
+		var eval = copy.evaluate()
+		processed.append_array(await eval.process_effect(allies, enemies, handler, copy.target))
+
 	return processed
 
 # Recursively sets the caster of all sub-effects

@@ -22,6 +22,9 @@ var actor_queue: Array[Character]
 var enemy_area: CombatPartyArea = null
 var player_area: CombatPartyArea = null
 
+## It should be true if the main loop of the combat controller is running.
+var running: bool = false
+
 enum Action {
 	NONE,
 	ATTACK,
@@ -49,7 +52,7 @@ func _input(_event):
 		emit_signal("textbox_closed")
 
 func battle(player_party: Array[Character], enemy_party: Array[Character]):
-	var running = true
+	running = true
 	request_battle_end.connect(func():
 		running = false
 	, CONNECT_ONE_SHOT)

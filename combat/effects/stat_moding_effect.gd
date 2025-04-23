@@ -17,15 +17,15 @@ class_name StatModingEffect extends LastingEffect
 func init_base_data():
 	if base_data == null:
 		base_data = EffectBaseData.new()
-	base_data.name = stat + " " + Type.keys()[type]
-	if type == Type.BUFF:
-		base_data.description = "Increases the " + stat.to_lower() + " stat by " + \
-			str(value)
-		base_data.icon = load("res://combat/effects/buffs/stat_buff_icon.tres")
-	elif type == Type.DEBUFF:
-		base_data.description = "Decreases the " + stat.to_lower() + " stat by " + \
-			str(value) 
-		base_data.icon = load("res://combat/effects/debuffs/stat_debuff_icon.tres")
+		base_data.name = stat + " " + Type.keys()[type]
+		if type == Type.BUFF:
+			base_data.description = "Increases the " + stat.to_lower() + " stat by " + \
+				str(value)
+			base_data.icon = load("res://combat/effects/buffs/stat_buff_icon.tres")
+		elif type == Type.DEBUFF:
+			base_data.description = "Decreases the " + stat.to_lower() + " stat by " + \
+				str(value) 
+			base_data.icon = load("res://combat/effects/debuffs/stat_debuff_icon.tres")
 
 func on_apply(target: Character):
 	var v = value
