@@ -483,11 +483,42 @@ base_critical = 0
 base_precision = 100
 base_evasion = 0
 
-[sub_resource type="Resource" id="Resource_pjvuc"]
+[sub_resource type="Resource" id="Resource_lcy6r"]
 script = ExtResource("10_3pe3x")
 graphic_name = "moving"
 offset = Vector2(0, 0)
 base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_uawlc"]
+script = ExtResource("12_wlsrm")
+type = 0
+percentage_ignored = 0.0
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_i1rlc"]
+script = ExtResource("14_u18j1")
+graphic_name = "moving"
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_fabjl"]
+script = ExtResource("7_8jd57")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_byytx"]
+script = ExtResource("11_24omm")
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_lcy6r"), SubResource("Resource_uawlc"), SubResource("Resource_i1rlc")])
+base_value = 1.0
+target_type = SubResource("Resource_fabjl")
+
+[sub_resource type="Resource" id="Resource_ct2mh"]
+resource_local_to_scene = true
+script = ExtResource("8_jdgy4")
+name = "Daño Ejemplo"
+description = "Skill de ejemplo para  debuggear"
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_byytx")])
+energy_cost = 5
 
 [sub_resource type="Resource" id="Resource_khi8x"]
 resource_local_to_scene = true
@@ -495,41 +526,6 @@ script = ExtResource("7_8jd57")
 number_of_targets = 1
 random = false
 allow_repetition = false
-
-[sub_resource type="Resource" id="Resource_ot1u8"]
-resource_local_to_scene = true
-script = ExtResource("12_wlsrm")
-type = 0
-percentage_ignored = 0.0
-base_data = ExtResource("11_4mfrn")
-base_value = 1.0
-target_type = SubResource("Resource_khi8x")
-
-[sub_resource type="Resource" id="Resource_o6yhn"]
-script = ExtResource("14_u18j1")
-graphic_name = "moving"
-base_value = 1.0
-
-[sub_resource type="Resource" id="Resource_nfgit"]
-script = ExtResource("7_8jd57")
-number_of_targets = 1
-random = false
-allow_repetition = false
-
-[sub_resource type="Resource" id="Resource_0ceox"]
-resource_local_to_scene = true
-script = ExtResource("11_24omm")
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_pjvuc"), SubResource("Resource_ot1u8"), SubResource("Resource_o6yhn")])
-base_value = 1.0
-target_type = SubResource("Resource_nfgit")
-
-[sub_resource type="Resource" id="Resource_ct2mh"]
-resource_local_to_scene = true
-script = ExtResource("8_jdgy4")
-name = "Daño Ejemplo"
-description = "Skill de ejemplo para  debuggear"
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_0ceox")])
-energy_cost = 5
 
 [sub_resource type="Resource" id="Resource_ria3p"]
 resource_local_to_scene = true

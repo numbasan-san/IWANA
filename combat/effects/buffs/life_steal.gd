@@ -7,8 +7,9 @@ func on_character_hit(who: Character, effect: Effect):
 	if effect is DamageEffect:
 		if effect.type == DamageEffect.DamageType.PHYSICAL:
 			var damage = effect.value
-			character_hit_effect.value = damage * value
-			# We are assuming that the caster of the intercepted effect is going
-			# to receive the heal
-			character_hit_effect.caster = effect.caster
+			for char_hit in character_hit_effects:
+				char_hit.value = damage * value
+				# We are assuming that the caster of the intercepted effect is going
+				# to receive the heal
+				char_hit.caster = effect.caster
 			hit = true

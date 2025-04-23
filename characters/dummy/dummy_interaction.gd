@@ -1,7 +1,10 @@
 extends GeneralInteractionArea
 
+var dummy: Character
+
 func _start_battle():
-	var dummy: Character = $"..".character
+	if !dummy:
+		dummy = $"..".character
 	var enemy_party = dummy.party
 	# In this case this is the first time we talk with the dummy and the
 	# party hasn't been filled
@@ -21,8 +24,14 @@ func _start_battle():
 	enemy_party.members[2].combat_handler.stats.base_damage = 4
 	enemy_party.members[3].combat_handler.stats.base_speed = 9
 	enemy_party.members[3].combat_handler.stats.base_damage = 1
-	ScreenManager.combat_screen.contents.start_battle(Player.party, enemy_party)
+	if !ScreenManager.combat_screen.contents.battle_ended.is_connected(replenish):
+		ScreenManager.combat_screen.contents.battle_ended.connect(replenish)
+	ScreenManager.combat_screen.contents.battle(Player.party.members, enemy_party.members)
 	print("Leaving start battle function")
+
+func replenish():
+	for m in dummy.party.members:
+		m.combat_handler.stats.replenish()
 
 # TODO: Temporary function that will be used to disable interactions on clones
 # of the dummy.

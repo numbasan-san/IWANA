@@ -32,4 +32,4 @@ script = ExtResource("1_7dya4")
 name = "Espinas a los ojos"
 description = "Tira espinas a los ojos, bajando la precisión del enemigo"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_cay54")])
-energy_cost = 0
+energy_cost = 5

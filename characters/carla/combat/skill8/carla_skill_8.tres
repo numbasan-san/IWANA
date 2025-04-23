@@ -26,4 +26,4 @@ script = ExtResource("1_8i4al")
 name = "NO TE METAS CONMIGO"
 description = "Paraliza al enemigo"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_5oxwc")])
-energy_cost = 0
+energy_cost = 5

@@ -47,11 +47,17 @@ func process_effect(
 		combat: CombatScreenControl,
 		parent_target: Character = null) -> Array[Effect]:
 	
-	var copies = super.process_effect(allies, enemies, combat, parent_target)
+	var copies = await super.process_effect(allies, enemies, combat, parent_target)
+	# Before processing the skill is set to NEW unless it failed some check.
+	# During processing it should still be NEW unless it was manually cancelled
+	# or something failed.
+	if skill.status != skill.Status.NEW:
+		return []
+	
 	var processed = copies.reduce(func(prev, next):
 		var eval = next.evaluate()
 		eval.caster = caster
-		return prev.append_array(eval.process_effect(allies, enemies, combat, next.target)),
+		return prev.append_array(await eval.process_effect(allies, enemies, combat, next.target)),
 	[])
 	return processed
 

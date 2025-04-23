@@ -22,12 +22,6 @@ var actor_queue: Array[Character]
 var enemy_area: CombatPartyArea = null
 var player_area: CombatPartyArea = null
 
-var showing_skills = false
-
-var selecting_action = false
-var selecting_skill = false
-var selecting_target = false
-
 enum Action {
 	NONE,
 	ATTACK,
@@ -53,20 +47,21 @@ func _input(_event):
 	if (Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and $text_box.visible:
 		$text_box.hide()
 		emit_signal("textbox_closed")
-	if Input.is_action_just_released("combat_menu_back"):
-		if skills_menu.visible:
-			show_party_menu()
-		else:
-			party_menu.select_previous_character()
 
 func battle(player_party: Array[Character], enemy_party: Array[Character]):
-	var running = false
+	var running = true
 	request_battle_end.connect(func():
 		running = false
 	, CONNECT_ONE_SHOT)
-	start_battle(player_party, enemy_party)
+	await start_battle(player_party, enemy_party)
+	# This loop controls the rounds. A round consists of 1 turn of each character.
 	while(running):
-		pass
+		prepare_new_round()
+		# This loop controls each turn. Because each turn could request the end
+		# of battle, we must again check the running variable or else we would
+		# have to wait for all turns in a round to pass before ending the battle.
+		while(running and !actor_queue.is_empty()):
+			await next_turn()
 	end_battle()
 
 # Fills the screen with the battling characters and their info and begins combat
@@ -93,17 +88,10 @@ func start_battle(player_party: Array[Character], enemy_party: Array[Character])
 		left_area.add_character(enemy)
 	await ScreenManager.push(ScreenManager.combat_screen, "Out", "In")
 	
-	show_party_menu()
-	prepare_new_round()
-	next_turn()
-
 # Called at the end of the battle to clean the screen
 func end_battle():
 	await ScreenManager.pop(ScreenManager.combat_screen, "Out", "In")
-	#TODO: replace this with more permanent solution to rebattle
-	# This assumes that the enemies are in the left area.
-	for m in left_area.characters:
-		m.combat_handler.stats.replenish()
+	
 	party_menu.clear()
 	right_area.clear()
 	left_area.clear()
@@ -129,45 +117,32 @@ func next_turn():
 	# would cause it to call next_turn on the next battle
 	if left_area.all_defeated() or right_area.all_defeated():
 		# request_battle_end.emit()
-		end_battle()
+		request_battle_end.emit()
+		return
 	
-	elif actor_queue.is_empty():
-		prepare_new_round()
-		next_turn()
 	else:
+		# Pop should always return a result as if the queue is empty, the loop
+		# will exit before calling this function and in the next loop the queue
+		# will be repopulated.
 		var next: Character = actor_queue.pop_front() as Character
 		next.combat_handler.start_turn()
 		# If the next character fainted due to an effect in the previous turn
-		# or at the star of its turn, we skip this turn
+		# or at the star of its turn, we skip this turn. We don't apply end of
+		# turn effects.
 		if next.combat_handler.stats.unconscious:
-			next_turn()
+			return
 		if next.combat_handler.incapacitated:
 			next.combat_handler.end_turn()
-			next_turn()
-			
-		# If the next character is in the player's party, we allow the player
-		# to pick an action
-		# We check in the party variable of Player and not in the party menu
-		# in the battle screen in case both battling parties are controled by
-		# the computer
-		elif Player.party.has(next):
-			party_menu.select_character(next)
-			_focus_action_list()
-		else:
-			var handler = next.combat_handler
-			var available_skills: Array[Skill] = handler.skills.filter(func(skill):
-				return skill.enabled)
-			if available_skills.size() > 0:
-				var skill: Skill = available_skills.pick_random()
-				handler.last_skill = skill
-				for eff in skill.effects:
-					if eff.target_type.is_manual_target():
-						var t_type = eff.target_type as TargetVariable
-						t_type.random = true
-				skill.process_effects(left_area.characters, right_area.characters, [])
-				await handler.execute(skill)
-			next.combat_handler.end_turn()
-			next_turn()
+			return
+		
+		# If we reach this point, we can run the character's turn and hand the
+		# execution to the selection module, which will be stuck in its loop
+		# until the character's turn ends, be it by defending or using a skill.
+		await selection_module.run_turn(next)
+		
+		# After run_turn returns, we are guaranteed that the character's turn
+		# has ended
+		next.combat_handler.end_turn()
 
 # Reorder the actor queue in response of the speed of a character changing
 func _reorder_from_speed_change(old, new):
@@ -185,14 +160,8 @@ func _reorder_queue():
 # Shows the party menu and hides the skills menu
 func show_party_menu():
 	if not party_menu.visible:
-		skills_menu.hide_targets()
 		change_menu_animation.play("HideSkills")
 		await change_menu_animation.animation_finished
-		# TODO: think of a better way to control in which state is the combat
-		# screen
-		selecting_action = true
-		selecting_skill = false
-		selecting_target = false
 		if party_menu.selected_character:
 			# TODO: change it so that we don't need to refer to the button
 			# directly
@@ -203,9 +172,6 @@ func show_skills_menu():
 	if party_menu.visible:
 		change_menu_animation.play("ShowSkills")
 		await change_menu_animation.animation_finished
-		selecting_action = false
-		selecting_skill = true
-		selecting_target = false
 		if skills_menu.skills_container.get_child_count() > 0:
 			skills_menu.skills_container.get_child(0).grab_focus()
 

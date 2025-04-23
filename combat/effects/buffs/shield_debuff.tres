@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://combat/effects/buffs/shield.gd" id="2_u7awh"]
 
 [resource]
-resource_local_to_scene = true
 script = ExtResource("2_u7awh")
 type = 0
 decrease_duration = 2

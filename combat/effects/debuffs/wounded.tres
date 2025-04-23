@@ -1,51 +1,43 @@
-[gd_resource type="Resource" script_class="Wounded" load_steps=12 format=3 uid="uid://c2r15raveo1cq"]
+[gd_resource type="Resource" script_class="Wounded" load_steps=8 format=3 uid="uid://c2r15raveo1cq"]
 
 [ext_resource type="Resource" uid="uid://co4103aibcp1f" path="res://combat/effects/debuffs/wounded_data.tres" id="1_2fwgg"]
 [ext_resource type="Script" path="res://combat/effects/debuffs/wounded.gd" id="2_3yosb"]
-[ext_resource type="Resource" uid="uid://dayloxpwj30t4" path="res://combat/effects/instant/damage_data.tres" id="2_gxaq7"]
 [ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="3_8rr3x"]
 [ext_resource type="Script" path="res://combat/effects/debuffs/bleeding.gd" id="3_hr8rh"]
 [ext_resource type="Resource" uid="uid://dxx1cepr7wwds" path="res://combat/effects/debuffs/bleeding_data.tres" id="4_87lcn"]
-[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="7_54wal"]
 
-[sub_resource type="Resource" id="Resource_jnjmc"]
-resource_local_to_scene = true
+[sub_resource type="Resource" id="Resource_7psyy"]
 script = ExtResource("3_8rr3x")
 type = 2
 percentage_ignored = 0.0
-base_data = ExtResource("2_gxaq7")
 base_value = 1.0
 
-[sub_resource type="Resource" id="Resource_em1g5"]
-script = ExtResource("7_54wal")
-number_of_targets = 1
-random = false
-allow_repetition = false
-
-[sub_resource type="Resource" id="Resource_cvdjj"]
+[sub_resource type="Resource" id="Resource_k1neq"]
 script = ExtResource("3_hr8rh")
-after_turn_effect = SubResource("Resource_jnjmc")
+before_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+after_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_7psyy")])
+unapply_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+incoming_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+outgoing_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+character_hit_effects = Array[Resource("res://combat/effects/effect.gd")]([])
 type = 1
 decrease_duration = 2
 duration = 2
 stacks = true
 base_data = ExtResource("4_87lcn")
 base_value = 1.0
-target_type = SubResource("Resource_em1g5")
-
-[sub_resource type="Resource" id="Resource_lh222"]
-script = ExtResource("7_54wal")
-number_of_targets = 1
-random = false
-allow_repetition = false
 
 [resource]
 script = ExtResource("2_3yosb")
-incoming_effect = SubResource("Resource_cvdjj")
+before_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+after_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+unapply_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+incoming_effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_k1neq")])
+outgoing_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+character_hit_effects = Array[Resource("res://combat/effects/effect.gd")]([])
 type = 1
 decrease_duration = 4
 duration = 1
 stacks = false
 base_data = ExtResource("1_2fwgg")
 base_value = 1.0
-target_type = SubResource("Resource_lh222")

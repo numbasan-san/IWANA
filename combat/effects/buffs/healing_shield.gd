@@ -13,4 +13,5 @@ func on_incoming(effect: Effect):
 		incoming_intercepted = true
 
 func on_unapply(target: Character):
-	unapply_effect.value = value
+	for un in unapply_effects:
+		un.value = value

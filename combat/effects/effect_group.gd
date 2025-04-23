@@ -45,15 +45,19 @@ func process_effect(
 		combat: CombatScreenControl,
 		parent_target: Character = null) -> Array[Effect]:
 	
-	var copies = super.process_effect(allies, enemies, combat, parent_target)
+	var copies = await super.process_effect(allies, enemies, combat, parent_target)
+	# Before processing the skill is set to NEW unless it failed some check.
+	# During processing it should still be NEW unless it was manually cancelled
+	# or something failed.
+	if skill.status != skill.Status.NEW:
+		return []
 	
 	var processed: Array[Effect] = []
 	# Each effect in copies should be a group, so we must flatten the sub effects
 	for group in copies:
 		# Each copy has its own target already set, we must pass them to each child.
 		for eff in group.effects:
-			eff.caster = caster
-			processed.append_array(eff.process_effect(allies, enemies, combat, group.target))
+			processed.append_array(await eff.process_effect(allies, enemies, combat, group.target))
 	
 	return processed
 

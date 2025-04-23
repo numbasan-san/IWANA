@@ -22,4 +22,4 @@ script = ExtResource("3_f23rf")
 name = "Tu no mete cabra"
 description = "Es un ataque normal, pero si daniela esta bajo un estado alterado, tiene distintos efectos"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_3alwa")])
-energy_cost = 8
+energy_cost = 999999

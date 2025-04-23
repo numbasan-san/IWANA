@@ -3,5 +3,6 @@ class_name BurningAttack extends ChainedEffect
 
 func on_character_hit(who: Character, effect: Effect):
 	if effect is DamageEffect:
-		character_hit_effect.caster = effect.caster
+		for char_hit in character_hit_effects:
+			char_hit.caster = effect.caster
 		hit = true

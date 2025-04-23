@@ -1,33 +1,34 @@
-[gd_resource type="Resource" script_class="EffectGroup" load_steps=12 format=3 uid="uid://dtbqduqjn5jq7"]
+[gd_resource type="Resource" script_class="EffectGroup" load_steps=11 format=3 uid="uid://dtbqduqjn5jq7"]
 
-[ext_resource type="Script" path="res://combat/effects/animation_effects/play_animation.gd" id="1_64jkd"]
-[ext_resource type="Resource" uid="uid://dmsj8enfrgptt" path="res://combat/effects/buffs/healing_shield_data.tres" id="2_0y3gp"]
-[ext_resource type="Script" path="res://combat/effects/buffs/healing_shield.gd" id="3_i4gn5"]
-[ext_resource type="Resource" uid="uid://cqkvtlmmen8kn" path="res://combat/effects/instant/heal_data.tres" id="4_h4vl7"]
-[ext_resource type="Script" path="res://combat/effects/instant/heal.gd" id="5_nrl5l"]
+[ext_resource type="Script" path="res://combat/effects/animation_effects/play_animation.gd" id="1_m1s6g"]
+[ext_resource type="Resource" uid="uid://dmsj8enfrgptt" path="res://combat/effects/buffs/healing_shield_data.tres" id="2_2n2dd"]
+[ext_resource type="Script" path="res://combat/effects/buffs/healing_shield.gd" id="3_ycldk"]
+[ext_resource type="Script" path="res://combat/effects/instant/heal.gd" id="4_g2eih"]
 [ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="6_rx3qw"]
 [ext_resource type="Script" path="res://combat/targets/target_self.gd" id="7_3i5bm"]
 
-[sub_resource type="Resource" id="Resource_pobou"]
-script = ExtResource("1_64jkd")
+[sub_resource type="Resource" id="Resource_youmg"]
+script = ExtResource("1_m1s6g")
 graphic_name = "backpack_shield"
 base_value = 1.0
 
-[sub_resource type="Resource" id="Resource_de5j0"]
-resource_local_to_scene = true
-script = ExtResource("5_nrl5l")
-base_data = ExtResource("4_h4vl7")
+[sub_resource type="Resource" id="Resource_m8rpd"]
+script = ExtResource("4_g2eih")
 base_value = 1.0
 
-[sub_resource type="Resource" id="Resource_mk2ra"]
-resource_local_to_scene = true
-script = ExtResource("3_i4gn5")
-unapply_effect = SubResource("Resource_de5j0")
+[sub_resource type="Resource" id="Resource_8if16"]
+script = ExtResource("3_ycldk")
+before_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+after_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+unapply_effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_m8rpd")])
+incoming_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+outgoing_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+character_hit_effects = Array[Resource("res://combat/effects/effect.gd")]([])
 type = 0
-decrease_duration = 1
+decrease_duration = 0
 duration = 1
 stacks = true
-base_data = ExtResource("2_0y3gp")
+base_data = ExtResource("2_2n2dd")
 base_value = 10.0
 
 [sub_resource type="Resource" id="Resource_iwt8r"]
@@ -35,6 +36,6 @@ script = ExtResource("7_3i5bm")
 
 [resource]
 script = ExtResource("6_rx3qw")
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_pobou"), SubResource("Resource_mk2ra")])
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_youmg"), SubResource("Resource_8if16")])
 base_value = 1.0
 target_type = SubResource("Resource_iwt8r")

@@ -104,9 +104,8 @@ func _on_run_pressed():
 
 # El ataque del jugador.
 func _on_attack_pressed():
-	combat.action_selected.emit(combat.Action.ATTACK)
 	combat.skills_menu.set_character(selected_character)
-	combat.show_skills_menu()
+	combat.action_selected.emit(combat.Action.ATTACK)
 
 # La defensa del jugador.
 func _on_defense_pressed():

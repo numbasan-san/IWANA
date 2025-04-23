@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EffectGroup" load_steps=20 format=3 uid="uid://c6ajavap7v8s3"]
+[gd_resource type="Resource" script_class="EffectGroup" load_steps=22 format=3 uid="uid://c6ajavap7v8s3"]
 
 [ext_resource type="Script" path="res://combat/effects/animation_effects/play_animation.gd" id="1_ek50g"]
 [ext_resource type="Script" path="res://combat/effects/animation_effects/projectile.gd" id="2_ngiv4"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://ch7gcblyuypqa" path="res://combat/effects/instant/life_switch_data.tres" id="5_yvs7v"]
 [ext_resource type="Script" path="res://combat/effects/instant/life_switch.gd" id="6_gpoo5"]
 [ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="7_215p5"]
+[ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="8_htpqs"]
 
 [sub_resource type="Resource" id="Resource_0015k"]
 script = ExtResource("1_ek50g")
@@ -84,7 +85,15 @@ script = ExtResource("1_ek50g")
 graphic_name = "noby_lose_heart"
 base_value = 1.0
 
+[sub_resource type="Resource" id="Resource_4xl8u"]
+script = ExtResource("8_htpqs")
+exclude_self = false
+number_of_targets = 1
+random = false
+allow_repetition = false
+
 [resource]
 script = ExtResource("7_215p5")
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_0015k"), SubResource("Resource_t613u"), SubResource("Resource_ifmww"), SubResource("Resource_xefvu")])
 base_value = 1.0
+target_type = SubResource("Resource_4xl8u")

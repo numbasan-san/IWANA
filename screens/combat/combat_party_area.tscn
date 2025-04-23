@@ -15,7 +15,6 @@ offset_bottom = 0.359985
 mouse_filter = 2
 script = ExtResource("1_duu0f")
 sprite_containers = [NodePath("SpriteContainer1"), NodePath("SpriteContainer2"), NodePath("SpriteContainer3"), NodePath("SpriteContainer4")]
-direction = -1
 
 [node name="SpriteContainer1" parent="." instance=ExtResource("2_tp4fr")]
 layout_mode = 1

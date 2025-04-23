@@ -15,5 +15,6 @@ class_name Wounded extends ChainedEffect
 func on_incoming(effect: Effect):
 	if effect is DamageEffect:
 		if effect.type == DamageEffect.DamageType.PHYSICAL:
-			incoming_effect.target = effect.target
+			for inc in incoming_effects:
+				inc.target = effect.target
 			incoming_intercepted = true

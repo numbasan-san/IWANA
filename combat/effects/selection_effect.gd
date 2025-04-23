@@ -61,7 +61,12 @@ func process_effect(
 		combat: CombatScreenControl,
 		parent_target: Character = null) -> Array[Effect]:
 	
-	var copies = super.process_effect(allies, enemies, combat, parent_target)
+	var copies = await super.process_effect(allies, enemies, combat, parent_target)
+	# Before processing the skill is set to NEW unless it failed some check.
+	# During processing it should still be NEW unless it was manually cancelled
+	# or something failed.
+	if skill.status != skill.Status.NEW:
+		return []
 	
 	var processed: Array[Effect] = []
 	for copy in copies:
@@ -75,7 +80,7 @@ func process_effect(
 			selection = await _manual_select(combat)
 		for eff in selection:
 			eff.caster = caster
-			processed.append_array(eff.process_effect(allies, enemies, combat, copy.target))
+			processed.append_array(await eff.process_effect(allies, enemies, combat, copy.target))
 		
 		# We only return the selected effects, not this effect itself.
 	return processed

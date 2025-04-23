@@ -71,9 +71,13 @@ func execute(
 		allies: Array[Character],
 		enemies: Array[Character],
 		combat: CombatScreenControl):
+	
+	skill.status = skill.Status.NEW
+	
 	if stats.unconscious:
 		skill.status = skill.Status.UNCONSCIOUS
 		return
+		
 	if stats.energy < skill.energy_cost:
 		printerr("Skill | " + character.name + " tried to use a skill without having" \
 			+ " the required energy of " + str(skill.energy_cost) + ". This shouldn't" \
@@ -81,6 +85,7 @@ func execute(
 			+ " selecting the skill")
 		skill.status = skill.Status.LOW_ENERGY
 		return
+		
 	# If the skill is disabled, it shouldn't have been selected in the first place
 	# and the code shouldn't reach this point, but this is here just in case something
 	# failed somewhere else.
@@ -92,12 +97,13 @@ func execute(
 		await eff.skill_used(skill)
 		end_of_duration(eff)
 	
-	var processed: Array[Effect] = skill.process_effects(allies, enemies, combat)
+	var processed: Array[Effect] = await skill.process_effects(allies, enemies, combat)
+	if skill.status != skill.Status.INITIALIZED:
+		return
 	
 	for effect in processed:
-		if effect.is_nullified:
-			continue
-		await send(effect)
+		if !effect.is_nullified:
+			await send(effect)
 		
 	character.combat_model.set_sprite("idle")
 	stats.energy -= skill.energy_cost
@@ -106,8 +112,10 @@ func execute(
 # Calculates the initial value of this effect, modifies it based on the caster
 # buffs and debuffs, and sends it to the target
 func send(effect: Effect):
+	var caster = effect.caster
+	var target = effect.target
 	# If everything went correctly, effect.caster == character
-	await effect.cast(effect.caster)
+	await effect.cast(caster)
 	
 	for out in lasting_effects:
 		await out.outgoing(effect)
@@ -116,28 +124,24 @@ func send(effect: Effect):
 	
 	if effect.is_nullified:
 		return
-	for t in effect.skill_targets:
-		# We calculate here if the target evades the effect as this allows for
-		# each target to evade independently.
-		# If the evasion is succesful the rest of the code is ignored, but maybe
-		# this should be changed to trigger some special animation or graphical
-		# effect to give feedback.
-		if not _hit(effect.caster, t):
-			# TODO: Change this so it isn't a dedicated code for the dodge effect.
-			# Maybe we should add an on_evade event that triggers on the caster
-			# and the target when an effect is evaded.
-			var dodge = t.combat_handler.lasting_effects.filter(func(eff):
-				return eff is Dodge)
-			if dodge.size() > 0:
-				t.combat_handler.remove_lasting_effect(dodge[0])
-			continue
 		
-		# We copy the effect for each of the target, so modifications to the
-		# effect sent to one target doesn't alter effects sent to others
-		var copy = effect.copy()
-		await copy.send(t)
-		
-		await t.combat_handler.receive(copy)
+	# We calculate here if the target evades the effect as this allows for
+	# each target to evade independently.
+	# If the evasion is succesful the rest of the code is ignored, but maybe
+	# this should be changed to trigger some special animation or graphical
+	# effect to give feedback.
+	if not _hit(caster, target):
+		# TODO: Change this so it isn't a dedicated code for the dodge effect.
+		# Maybe we should add an on_evade event that triggers on the caster
+		# and the target when an effect is evaded.
+		var dodge = target.combat_handler.lasting_effects.filter(func(eff):
+			return eff is Dodge)
+		if dodge.size() > 0:
+			target.combat_handler.remove_lasting_effect(dodge[0])
+		return
+	
+	await effect.send(target)
+	await target.combat_handler.receive(effect)
 
 # Receives an effect sent from a caster, modifies it based on the character's
 # buffs and debuffs, and if the effect survives it is applied.
@@ -147,33 +151,28 @@ func receive(effect: Effect):
 	# assumed that it is the intended target
 	effect.target = character
 	
-	# We flatten the received effect so that we don't have to recursively iterate
-	# over its possible sub effects.
-	var all_effects = effect._flatten()
-	
-	for eff in all_effects:
-		await eff.receive(eff.caster)
-		for inc in lasting_effects:
-			await inc.incoming(eff)
-			# We check if the interception reduced the duration of the interceptor
-			end_of_duration(inc)
-		if eff.is_nullified:
-			continue
-		# If we have reached this point, the effect has survived and must be applied.
-		# If it's a lasting effect, it must be added to the corresponding list
-		if eff is LastingEffect:
-			if not eff.stacks:
-				# We create a copy to safely remove elements from the original.
-				var copy = lasting_effects.duplicate()
-				for e in copy:
-					if eff.is_same_type(e):
-						remove_lasting_effect(e)
-			add_lasting_effect(eff)
-			
-		await eff.apply(character)
-		for hit in hit_animations:
-			await hit.incoming(eff)
-		eff.caster.combat_handler.after_character_hit(character, eff)
+	await effect.receive(effect.caster)
+	for inc in lasting_effects:
+		await inc.incoming(effect)
+		# We check if the interception reduced the duration of the interceptor
+		end_of_duration(inc)
+	if effect.is_nullified:
+		return
+	# If we have reached this point, the effect has survived and must be applied.
+	# If it's a lasting effect, it must be added to the corresponding list
+	if effect is LastingEffect:
+		if not effect.stacks:
+			# We create a copy to safely remove elements from the original.
+			var copy = lasting_effects.duplicate()
+			for e in copy:
+				if effect.is_same_type(e):
+					remove_lasting_effect(e)
+		add_lasting_effect(effect)
+		
+	await effect.apply(character)
+	for hit in hit_animations:
+		await hit.incoming(effect)
+	effect.caster.combat_handler.after_character_hit(character, effect)
 
 # This function should be called when the character's turn has just begun, and
 # it will trigger the before_turn function in all lasting effects

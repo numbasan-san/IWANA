@@ -10,16 +10,12 @@ class_name MultiConditionalEffect extends Effect
 ## to set the target of the evaluated effects. If the function is called somewhere
 ## else, the targets must be manually sent or it'll be an error.
 func evaluate() -> Array[Effect]:
-	var evaluated_effects = effect_pairs.map(func(pair: EffectConditionPair):
+	var evaluated_effects: Array[Effect]
+	for pair in effect_pairs:
 		if pair.effect_condition.evaluate(caster, target):
-			return pair.effect
-		else:
-			return null
-	)
-	# We remove all failed evaluations
-	return evaluated_effects.filter(func(eff: Effect):
-		return eff != null
-	)
+			evaluated_effects.append(pair.effect)
+	
+	return evaluated_effects
 	
 func on_cast(caster: Character):
 	for pair in effect_pairs:
@@ -35,13 +31,19 @@ func process_effect(
 		combat: CombatScreenControl,
 		parent_target: Character = null) -> Array[Effect]:
 	
-	var copies = super.process_effect(allies, enemies, combat, parent_target)
+	var copies = await super.process_effect(allies, enemies, combat, parent_target)
+	# Before processing the skill is set to NEW unless it failed some check.
+	# During processing it should still be NEW unless it was manually cancelled
+	# or something failed.
+	if skill.status != skill.Status.NEW:
+		return []
+	
 	var processed = copies.reduce(func(prev, next):
 		var eval = next.evaluate()
 		var arr: Array[Effect] = []
 		for eff in eval:
 			eff.caster = caster
-			arr.append_array(eff.process_effect(allies, enemies, combat, next.target))
+			arr.append_array(await eff.process_effect(allies, enemies, combat, next.target))
 		return prev.append_array(arr),
 	[])
 	

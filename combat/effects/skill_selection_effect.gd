@@ -37,6 +37,8 @@ var chosen: Array[Skill] = []:
 func is_valid():
 	return super.is_valid() and chosen.size() <= quantity
 
+#TODO: implement process_effect
+
 func _manual_select(combat: CombatScreenControl) -> Array[Skill]:
 	# Show selection box
 	return []

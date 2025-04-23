@@ -52,6 +52,7 @@ enum Status {
 	UNCONSCIOUS,
 	LOW_ENERGY,
 	DISABLED,
+	CANCELLED,
 	ERROR
 }
 
@@ -72,7 +73,11 @@ func process_effects(
 		# In that case, we will return an empty array and let the caller deal with it.
 		# TODO: add some kind of error system, maybe emiting error signals that
 		# can be listened to.
-		var processed = eff.process_effect(allies, enemies, combat)
+		var processed = await eff.process_effect(allies, enemies, combat)
+		# This status is set while manually selecting targets to indicate the
+		# player cancelled the selection.
+		if status == Status.CANCELLED:
+			return []
 		if processed.size() == 0:
 			status = Status.ERROR
 			return []

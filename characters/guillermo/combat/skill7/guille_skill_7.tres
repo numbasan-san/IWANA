@@ -1,14 +1,8 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=8 format=3 uid="uid://cgvcmj4buh4ib"]
+[gd_resource type="Resource" script_class="Skill" load_steps=6 format=3 uid="uid://cgvcmj4buh4ib"]
 
 [ext_resource type="Script" path="res://combat/effects/stat_moding_effect.gd" id="1_1plfy"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_rn1f5"]
-[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="1_w31ry"]
 [ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="2_6oxru"]
-
-[sub_resource type="Resource" id="Resource_m8rgc"]
-script = ExtResource("1_w31ry")
-name = ""
-description = ""
 
 [sub_resource type="Resource" id="Resource_jxnf3"]
 script = ExtResource("2_6oxru")
@@ -24,7 +18,6 @@ type = 0
 decrease_duration = 2
 duration = 2
 stacks = true
-base_data = SubResource("Resource_m8rgc")
 base_value = 40.0
 target_type = SubResource("Resource_jxnf3")
 

@@ -39,11 +39,6 @@ enum Decrease {
 # when applying the same kind of buff twice the oldest one is removed.
 @export var stacks: bool = false
 
-enum StackCathegory {
-	
-}
-@export var stack_cathegory: StackCathegory
-
 # Variable intended to be used in lasting effects that override the on_incoming
 # function. As these effects should only be able to intercept specific kinds of
 # effects, when that is the case this should be set to true so that the duration

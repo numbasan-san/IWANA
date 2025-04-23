@@ -93,13 +93,37 @@ func outgoing(effect: Effect):
 # ones, we need to call their copy methods to ensure they are also properly copied.
 func copy() -> Effect:
 	var new_chained = super.copy() as ChainedEffect
+	
 	var copies: Array[Effect] = []
-	new_chained.after_turn_effects = after_turn_effects.map(func(eff): eff.copy())
-	new_chained.before_turn_effects = before_turn_effects.map(func(eff): eff.copy())
-	new_chained.unapply_effects = unapply_effects.map(func(eff): eff.copy())
-	new_chained.incoming_effects = incoming_effects.map(func(eff): eff.copy())
-	new_chained.outgoing_effects = outgoing_effects.map(func(eff): eff.copy())
-	new_chained.character_hit_effects = character_hit_effects.map(func(eff): eff.copy())
+	for eff in after_turn_effects:
+		copies.append(eff.copy())
+	new_chained.after_turn_effects = copies
+	
+	copies = []
+	for eff in before_turn_effects:
+		copies.append(eff.copy())
+	new_chained.before_turn_effects = copies
+	
+	copies = []
+	for eff in unapply_effects:
+		copies.append(eff.copy())
+	new_chained.unapply_effects = copies
+	
+	copies = []
+	for eff in incoming_effects:
+		copies.append(eff.copy())
+	new_chained.incoming_effects = copies
+	
+	copies = []
+	for eff in outgoing_effects:
+		copies.append(eff.copy())
+	new_chained.outgoing_effects = copies
+	
+	copies = []
+	for eff in character_hit_effects:
+		copies.append(eff.copy())
+	new_chained.character_hit_effects = copies
+
 	return new_chained
 
 # The chain can't be flattened, so this function will return an array of chains.
@@ -109,24 +133,51 @@ func process_effect(
 		combat: CombatScreenControl,
 		parent_target: Character = null) -> Array[Effect]:
 	
-	var copies = super.process_effect(allies, enemies, combat, parent_target)
+	var copies = await super.process_effect(allies, enemies, combat, parent_target)
+	# Before processing the skill is set to NEW unless it failed some check.
+	# During processing it should still be NEW unless it was manually cancelled
+	# or something failed.
+	if skill.status != skill.Status.NEW:
+		return []
 	
 	# All the elements in the copies array should be a copy of this chain effect.
 	# Each sub effect is a copy of the original without processing
 	for chain in copies:
 		chain = chain as ChainedEffect
-		var process = func(prev, next):
-			next.caster = caster
-			return prev.append_array(next.process_effect(allies, enemies, combat, chain.target))
+		var process = func(eff):
+			return await eff.process_effect(allies, enemies, combat, chain.target)
 		# This will iterate over each effect, process it, and append it to the
 		# result of processing the previous one. We use the empty array as the
 		# first value to force the processing of the first element of the array
-		chain.after_turn_effects = chain.after_turn_effects.reduce(process, [])
-		chain.before_turn_effects = chain.before_turn_effects.reduce(process, [])
-		chain.unapply_effects = chain.unapply_effects.reduce(process, [])
-		chain.incoming_effects = chain.incoming_effects.reduce(process, [])
-		chain.outgoing_effects = chain.outgoing_effects.reduce(process, [])
-		chain.character_hit_effects = chain.character_hit_effects.reduce(process, [])
+		var processed: Array[Effect]
+		for eff in chain.after_turn_effects:
+			processed.append_array(process.call(eff))
+		chain.after_turn_effects = processed
+		
+		processed = []
+		for eff in chain.before_turn_effects:
+			processed.append_array(process.call(eff))
+		chain.before_turn_effects = processed
+		
+		processed = []
+		for eff in chain.unapply_effects:
+			processed.append_array(process.call(eff))
+		chain.unapply_effects = processed
+		
+		processed = []
+		for eff in chain.incoming_effects:
+			processed.append_array(process.call(eff))
+		chain.incoming_effects = processed
+		
+		processed = []
+		for eff in chain.outgoing_effects:
+			processed.append_array(process.call(eff))
+		chain.outgoing_effects = processed
+		
+		processed = []
+		for eff in chain.character_hit_effects:
+			processed.append_array(process.call(eff))
+		chain.character_hit_effects = processed
 		
 	return copies
 
@@ -146,7 +197,7 @@ func _set_caster(_caster: Character):
 		eff.caster = _caster
 	
 		
-func _set_skill_(_skill: Skill):
+func _set_skill(_skill: Skill):
 	super._set_skill(_skill)
 	for eff in after_turn_effects:
 		eff.skill = _skill

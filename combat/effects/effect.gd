@@ -143,6 +143,12 @@ func process_effect(
 		combat: CombatScreenControl,
 		parent_target: Character = null) -> Array[Effect]:
 	
+	# Before processing the skill is set to NEW unless it failed some check.
+	# During processing it should still be NEW unless it was manually cancelled
+	# or something failed.
+	if skill.status != skill.Status.NEW:
+		return []
+	
 	if !target_type:
 		var effect = self.copy()
 		# We make it null in case it was left with a value from a previous process.
@@ -155,10 +161,8 @@ func process_effect(
 				" and its parent target is null.")
 			return []
 	
-	var targets: Array[Character] = []
-	
 	# If we reach this point, this effect must set its own targets.
-	targets = _select_targets(allies, enemies, combat)
+	var targets: Array[Character] = await _select_targets(allies, enemies, combat)
 	
 	# This could happen if the player cancels the skill before selecting targets.
 	if targets.size() == 0:
@@ -187,14 +191,25 @@ func _select_targets(
 		combat: CombatScreenControl) -> Array[Character]:
 	
 	if target_type.is_manual_target():
-		# TODO: Array of manually selected targets, fill from combat screen.
-		var targets: Array[Character] = []
-		
-		return targets
+		return await _select_manual_targets(allies, enemies, combat)
 	else:
-		# TODO: this currently modifies the skill_targets in place. Change it so
-		# it returns an array of effects.
 		return _select_auto_targets(allies, enemies)
+
+func _select_manual_targets(
+		allies: Array[Character],
+		enemies: Array[Character],
+		combat: CombatScreenControl) -> Array[Character]:
+	
+	# The caster should have already been set recursively for all effects of the
+	# skill.
+	combat.selection_module.show_possible_targets(self)
+	var targets = await combat.selection_module.finished_targeting
+	
+	# If targets size is 0, the selection was interrupted
+	if targets.size() == 0:
+		skill.status == skill.Status.CANCELLED
+		return []
+	return targets
 
 func _select_auto_targets(allies: Array[Character], enemies: Array[Character]) -> Array[Character]:
 	if target_type is TargetSelf:

@@ -15,7 +15,12 @@ allow_repetition = false
 [resource]
 resource_local_to_scene = true
 script = ExtResource("3_tsl2a")
-incoming_effect = ExtResource("2_eaetn")
+before_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+after_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+unapply_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+incoming_effects = Array[Resource("res://combat/effects/effect.gd")]([ExtResource("2_eaetn")])
+outgoing_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+character_hit_effects = Array[Resource("res://combat/effects/effect.gd")]([])
 type = 0
 decrease_duration = 4
 duration = 1

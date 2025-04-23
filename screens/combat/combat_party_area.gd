@@ -1,7 +1,7 @@
 class_name CombatPartyArea extends Control
 
 @export var sprite_containers: Array[SpriteContainer]
-@export_range(-1, 1, 2) var direction: int
+@export var looking_left: bool = true
 
 ## If the player is controlling this group, it's characters will appear in the
 ## party menu and the skill menu will open to select skills.
@@ -12,6 +12,14 @@ var player_controled = false
 var characters: Array[Character]
 
 var combat: CombatScreenControl
+
+# When manually selecting the skill's targets, this will contain the characters
+# currently being selected.
+var current_targets: Array[Character]
+
+# If the character can be targeted, this signal will be emited when the container
+# is selected
+signal target_selected(character: Character)
 
 func _ready():
 	for container in sprite_containers:
@@ -27,7 +35,7 @@ func add_character(character: Character):
 	for s in sprite_containers:
 		if not s.character:
 			s.set_character(character)
-			s.set_direction(direction)
+			s.set_direction(looking_left)
 			characters.append(character)
 			# TODO: this could generate some errors if the queue is reordering while the
 			# next actor is being selected. This could happen if there is not enough time
@@ -67,8 +75,32 @@ func clear():
 func has(character: Character) -> bool:
 	return characters.has(character)
 
+## Returns the sprite container that is holding the given character, or null if
+## the character isn't in this area.
+func find(character: Character) -> SpriteContainer:
+	for container in sprite_containers:
+		if container.character == character:
+			return container
+	return null
+
 func all_defeated() -> bool:
 	for c in characters:
 		if not c.combat_handler.stats.unconscious:
 			return false
 	return true
+
+## Enables the targeting on all characters in this area, except those that make
+## the given callable return true.
+##
+## If no exclude function is given, all characters will be allowed.
+func show_targets(exclude: Callable = func(char): return false):
+	for character in characters:
+		if !character.combat_handler.stats.unconscious and !exclude.call(character):
+			var container = find(character)
+			container.targeting_enabled = true
+
+# Clears the target highlighting for every container and blocks the code that
+# allows for their selection
+func hide_targets():
+	for container in sprite_containers:
+		container.targeting_enabled = false
