@@ -80,10 +80,7 @@ func start_battle(player_party: Array[Character], enemy_party: Array[Character])
 	for member in player_party:
 		party_menu.add_character(member)
 		right_area.add_character(member)
-	# We start with no character selected in case one
-	# of the enemies attacks first
-	party_menu.select_character_index()
-	
+		
 	enemy_area = left_area
 	enemy_area.player_controled = false
 	turn_handler.left_area = left_area

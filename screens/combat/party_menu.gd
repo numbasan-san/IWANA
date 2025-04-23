@@ -13,6 +13,7 @@ var _selected_index = -1
 # Removes the characters loaded in the combat containers so that they stop
 # updating and to prepare for the next battle
 func clear():
+	clear_selection()
 	for c in party_slots:
 		c.set_character()
 
@@ -47,56 +48,19 @@ func select_character_index(index: int = -1):
 
 func select_character(char: Character):
 	var index = 0
+	# We start by removing the current selection, if any.
+	clear_selection()
 	while index < party_slots.size():
 		var found = party_slots[index].character
 		if found and found == char:
 			select_character_index(index)
 			return
 		index += 1
-	# If we reach this point, the character wasn't found
+	# If we reach this point, the character wasn't found and the menu is left
+	# with no selection
+
+func clear_selection():
 	select_character_index()
-
-# Selects the next character in the party. If the last character is selected,
-# if loop is true, the next one will be the first member of the party. If it's
-# false, it stays selected
-func select_next_character(loop: bool = false):
-	# We initialize as the last member of the party. The only case where this
-	# value isn't modified is when the last member of the party is selected and
-	# and we aren't looping, so the last member will stay selected
-	var next: int = Player.party.size - 1
-	# This condition is true if the selected character isn't the last member of
-	# the party. It also works when no one is selected
-	if _selected_index < Player.party.size - 1:
-		next = _selected_index + 1
-	# If the last member is selected
-	else:
-		if loop:
-			next = 0
-		else:
-			next = -1
-		
-	select_character_index(next)
-
-# Selects the previous character in the party. If the first character is selected,
-# if loop is true, the next one will be the last member of the party. If it's
-# false, the character is deselected
-func select_previous_character(loop: bool = false):
-	# We initialize as deselected. The only case where this value isn't modified
-	# is when we don't have any member selected and we aren't looping, so it
-	# will stay deselected
-	var previous: int = -1
-	# This condition is true if the selected character isn't the first member of
-	# the party or it's the first but we aren't looping. In this last case the
-	# result will be deselecting the character
-	if _selected_index > 0 or (_selected_index == 0 and not loop):
-		previous = _selected_index - 1
-	# If the first member is selected while looping or no character is selected
-	else:
-		if _selected_index == 0:
-			previous = Player.party.size - 1
-		# If we aren't looping, the characters stay deselected
-		
-	select_character_index(previous)
 
 # Para terminar el combate por la fuerza.
 func _on_run_pressed():
