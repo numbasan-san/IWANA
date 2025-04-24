@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://dsihg6mcq4ysb"]
+[gd_scene load_steps=6 format=3 uid="uid://dsihg6mcq4ysb"]
 
 [ext_resource type="Script" path="res://screens/dev/dev_mode.gd" id="1_cqayl"]
 [ext_resource type="LabelSettings" uid="uid://jda8so48mgcw" path="res://screens/dev/dev_mode_font.tres" id="2_0wr73"]
 [ext_resource type="Script" path="res://screens/dev/dev_mode_party_control.gd" id="2_lmq8p"]
+[ext_resource type="Script" path="res://screens/dev/dev_popup_menu.gd" id="3_okcxj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_fvbuo"]
 line_spacing = 6.0
@@ -57,6 +58,7 @@ theme_override_font_sizes/font_size = 35
 text = "Ninguno"
 flat = false
 alignment = 0
+script = ExtResource("3_okcxj")
 
 [node name="PartyControl" type="HBoxContainer" parent="Contents/VBoxContainer" node_paths=PackedStringArray("party_slots")]
 layout_mode = 2
@@ -188,6 +190,7 @@ theme_override_font_sizes/font_size = 35
 text = "Ninguna"
 flat = false
 alignment = 0
+script = ExtResource("3_okcxj")
 
 [node name="Scenes" type="MenuButton" parent="Contents/VBoxContainer/SceneDetails/Menus"]
 layout_mode = 2
@@ -195,6 +198,7 @@ theme_override_font_sizes/font_size = 35
 text = "Ninguna"
 flat = false
 alignment = 0
+script = ExtResource("3_okcxj")
 
 [node name="Units" type="MenuButton" parent="Contents/VBoxContainer/SceneDetails/Menus"]
 layout_mode = 2
@@ -202,6 +206,7 @@ theme_override_font_sizes/font_size = 35
 text = "Ninguna"
 flat = false
 alignment = 0
+script = ExtResource("3_okcxj")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Contents/VBoxContainer"]
 layout_mode = 2

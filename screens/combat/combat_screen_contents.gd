@@ -6,6 +6,7 @@ signal battle_ended
 signal request_battle_end
 signal action_selected(action: Action)
 signal skill_selected(skill: Skill)
+signal continue_round
 
 @export var right_area: CombatPartyArea
 @export var left_area: CombatPartyArea
@@ -24,6 +25,8 @@ var player_area: CombatPartyArea = null
 
 ## It should be true if the main loop of the combat controller is running.
 var running: bool = false
+
+var pause_before_round: bool = false
 
 enum Action {
 	NONE,
@@ -58,7 +61,9 @@ func battle(player_party: Array[Character], enemy_party: Array[Character]):
 	, CONNECT_ONE_SHOT)
 	await start_battle(player_party, enemy_party)
 	# This loop controls the rounds. A round consists of 1 turn of each character.
-	while(running):
+	while running:
+		if pause_before_round:
+			await continue_round
 		prepare_new_round()
 		# This loop controls each turn. Because each turn could request the end
 		# of battle, we must again check the running variable or else we would
