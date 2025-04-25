@@ -70,6 +70,9 @@ visible = false
 scale = Vector2(-1, 1)
 texture = ExtResource("4_43dl1")
 
+[node name="RPGModel" parent="." index="1"]
+visible = false
+
 [node name="Sprite2D" parent="RPGModel" index="0"]
 scale = Vector2(5, 5)
 texture = ExtResource("4_5wuw6")
@@ -86,6 +89,7 @@ visible = false
 combat_animation = NodePath("Sprites/CombatSprites")
 
 [node name="Basic" type="TextureRect" parent="CombatModel/Portraits" index="0"]
+visible = false
 offset_right = 562.0
 offset_bottom = 431.0
 texture = ExtResource("6_ugdgc")
@@ -93,6 +97,7 @@ expand_mode = 1
 stretch_mode = 2
 
 [node name="CombatSprites" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
+position = Vector2(-26, -105)
 sprite_frames = SubResource("SpriteFrames_5q2ra")
 animation = &"idle"
 

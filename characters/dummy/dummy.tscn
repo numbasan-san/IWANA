@@ -547,6 +547,9 @@ energy_cost = 5
 char_info = ExtResource("2_nwx1m")
 unique = false
 
+[node name="RPGModel" parent="." index="1"]
+visible = false
+
 [node name="Sprite2D" parent="RPGModel" index="0"]
 position = Vector2(0, -127)
 scale = Vector2(5, 5)
@@ -569,8 +572,9 @@ will_fight = true
 combat_animation = NodePath("Sprites/CombatSprites")
 
 [node name="CombatSprites" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
+position = Vector2(0, -96)
 sprite_frames = SubResource("SpriteFrames_ka6c2")
-animation = &"moving"
+animation = &"idle"
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_4c1gv")

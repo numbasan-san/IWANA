@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://ftvcnmtm10jp"]
 
 [ext_resource type="Script" path="res://screens/combat/combat_party_area.gd" id="1_duu0f"]
-[ext_resource type="PackedScene" uid="uid://3d6j1vup2i4s" path="res://screens/combat/sprite_container.tscn" id="2_tp4fr"]
+[ext_resource type="Script" path="res://screens/combat/combat_grid.gd" id="3_8ouvj"]
 
-[node name="CombatPartyArea" type="Control" node_paths=PackedStringArray("sprite_containers")]
+[node name="CombatPartyArea" type="Control" node_paths=PackedStringArray("combat_grid")]
 layout_mode = 3
 anchor_left = 0.654
 anchor_top = 0.35
@@ -12,56 +12,16 @@ anchor_bottom = 0.508
 offset_left = 0.319946
 offset_top = -3.05176e-05
 offset_bottom = 0.359985
-mouse_filter = 2
+mouse_filter = 1
 script = ExtResource("1_duu0f")
-sprite_containers = [NodePath("SpriteContainer1"), NodePath("SpriteContainer2"), NodePath("SpriteContainer3"), NodePath("SpriteContainer4")]
+combat_grid = NodePath("CombatGrid")
 
-[node name="SpriteContainer1" parent="." instance=ExtResource("2_tp4fr")]
+[node name="CombatGrid" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -149.5
-offset_right = 100.0
-offset_bottom = 150.5
-grow_vertical = 2
-
-[node name="SpriteContainer2" parent="." instance=ExtResource("2_tp4fr")]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -100.0
-offset_top = -150.0
-offset_right = 99.9999
-offset_bottom = 150.0
-grow_horizontal = 2
-
-[node name="SpriteContainer3" parent="." instance=ExtResource("2_tp4fr")]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -102.0
-offset_top = -151.0
-offset_right = 97.9999
-offset_bottom = 149.0
-grow_horizontal = 2
-grow_vertical = 0
-
-[node name="SpriteContainer4" parent="." instance=ExtResource("2_tp4fr")]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
+anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = -146.5
-offset_right = 100.0
-offset_bottom = 153.5
-grow_horizontal = 0
+anchor_bottom = 1.0
+grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("3_8ouvj")
+grid_size = Vector2i(3, 3)

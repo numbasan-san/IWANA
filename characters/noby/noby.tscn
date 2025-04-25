@@ -1354,6 +1354,9 @@ rotation = 3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("5_xv3aq")
 
+[node name="RPGModel" parent="." index="1"]
+visible = false
+
 [node name="Sprite2D" parent="RPGModel" index="0"]
 position = Vector2(0, -0.999999)
 scale = Vector2(5, 5)
@@ -1375,7 +1378,8 @@ texture = ExtResource("9_8n6x7")
 
 [node name="CombatSprites" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
 sprite_frames = SubResource("SpriteFrames_7mxob")
-animation = &"backpack_shield"
+animation = &"idle"
+offset = Vector2(0, -108)
 
 [node name="CombatHandler" parent="." index="3"]
 stats = ExtResource("2_yag6e")

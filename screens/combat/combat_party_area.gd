@@ -1,7 +1,31 @@
+## The area of the combat screen where all of the characters fighting on the same
+## team are placed.
 class_name CombatPartyArea extends Control
 
-@export var sprite_containers: Array[SpriteContainer]
+## The direction in which all the characters in the area will be looking.
+##
+## By default the characters on the left side look towards the right and viceversa.
 @export var looking_left: bool = true
+## All SpriteContainers are placed in a grid according to the formation variable.
+@export var combat_grid: CombatGrid
+## The potential positions of each SpriteContainer in the grid.
+##
+## Each element is the position of one character in the format (x, y), that is
+## (column, row).
+## The size of this array determines the maximum number of characters that can
+## be fighting at the same time, so a bigger grid can be used to fine tune the
+## positions of the characters without risking having too many using all the screen.
+## If the number of active characters is smaller than the size of this array,
+## new characters can be added later and they will take the first unoccupied position.
+@export var formation: Array[Vector2i]
+
+## This only includes the values in formation that actually fit inside the grid.
+##
+## We keep this separated and update it as formation or the grid size change, so
+## that we don't lose the values set by the user in case the grid changes again.
+var valid_formation: Array[Vector2i]:
+	get:
+		return formation.filter(func(v): return combat_grid.in_grid(v))
 
 ## If the player is controlling this group, it's characters will appear in the
 ## party menu and the skill menu will open to select skills.
@@ -9,6 +33,9 @@ class_name CombatPartyArea extends Control
 # we could change this later.
 var player_controled = false
 
+# TODO: For now, if the grid is shrunk and containers are removed, this list will
+# have more elements than the contents of the grid, which is an error. We must change
+# this so we remove those characters, or move them to another array.
 var characters: Array[Character]
 
 var combat: CombatScreenControl
@@ -22,9 +49,9 @@ var current_targets: Array[Character]
 signal target_selected(character: Character)
 
 func _ready():
-	for container in sprite_containers:
+	for container in combat_grid.contents.values():
 		container.area = self
-
+	
 # Adds a character's sprite.
 # TODO: we must determine if there are only going to be 4 slots to place a
 # character per area, so we can add them to the scene, or if there could be
@@ -32,27 +59,35 @@ func _ready():
 # appears to help the protagonists for a battle, in which case new containers
 # would have to be added
 func add_character(character: Character):
-	for s in sprite_containers:
-		if not s.character:
-			s.set_character(character)
-			s.set_direction(looking_left)
-			characters.append(character)
-			# TODO: this could generate some errors if the queue is reordering while the
-			# next actor is being selected. This could happen if there is not enough time
-			# between when the speed is changed and the next turn. We must add some waiting
-			# time after the skills are executed to prevent this.
-			character.combat_handler.stats.update_speed.connect(combat._reorder_from_speed_change)
-			return
-	# If we reach this point it means all the slots were full so we can't add
-	# the new character
-	printerr("CombatPartyArea | Couldn't add character " + character.name \
-		+ " cause the area is full.")
+	if !character:
+		return
+	if characters.has(character):
+		return
+	
+	# If we ran out of valid positions, we can't add more.
+	if characters.size() >= valid_formation.size():
+		printerr("CombatPartyArea | Couldn't add character " + character.name \
+			+ " cause the area is full.")
+		return
+	
+	# If we don't manually add SpriteContainers to the combat area in the editor,
+	# we are guaranteed that the characters match the sprite containers and the
+	# children of the grid.
+	var sprite_container: SpriteContainer = preload("res://screens/combat/sprite_container.tscn").instantiate()
+	# We need to add the containers to the scene tree first so that the
+	# set_character function works.
+	combat_grid.add_in_next_available(sprite_container, valid_formation)
+	sprite_container.set_character(character)
+	sprite_container.set_direction(looking_left)
+	characters.append(character)
+	character.combat_handler.stats.update_speed.connect(combat._reorder_from_speed_change)
+	
 
 # If that character is present in any of the containers, it's removed
 func remove_character(character: Character):
-	for s in sprite_containers:
+	for s in combat_grid.contents.values():
 		if s.character == character:
-			s.remove_character()
+			combat_grid.remove_element(s)
 			characters.erase(character)
 			character.combat_handler.stats.update_speed.disconnect(combat._reorder_from_speed_change)
 			character.combat_handler.clear_lasting_effects()
@@ -68,8 +103,8 @@ func add_all(characters: Array[Character]):
 
 # Remove every sprite in this area
 func clear():
-	for s in sprite_containers:
-		s.remove_character()
+	for char in characters:
+		remove_character(char)
 	characters.clear()
 
 func has(character: Character) -> bool:
@@ -78,7 +113,7 @@ func has(character: Character) -> bool:
 ## Returns the sprite container that is holding the given character, or null if
 ## the character isn't in this area.
 func find(character: Character) -> SpriteContainer:
-	for container in sprite_containers:
+	for container in combat_grid.contents.values():
 		if container.character == character:
 			return container
 	return null
@@ -102,5 +137,5 @@ func show_targets(exclude: Callable = func(char): return false):
 # Clears the target highlighting for every container and blocks the code that
 # allows for their selection
 func hide_targets():
-	for container in sprite_containers:
+	for container in combat_grid.contents.values():
 		container.targeting_enabled = false

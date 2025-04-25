@@ -75,6 +75,9 @@ texture = ExtResource("2_mrhog")
 scale = Vector2(-1, 1)
 texture = ExtResource("4_4aw6c")
 
+[node name="RPGModel" parent="." index="1"]
+visible = false
+
 [node name="Sprite2D" parent="RPGModel" index="0"]
 scale = Vector2(5, 5)
 texture = ExtResource("5_qbeq8")
@@ -98,6 +101,7 @@ offset_bottom = 40.0
 texture = ExtResource("7_k47t8")
 
 [node name="CombatSprite" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
+position = Vector2(-18, -105)
 sprite_frames = SubResource("SpriteFrames_0r282")
 animation = &"idle"
 
