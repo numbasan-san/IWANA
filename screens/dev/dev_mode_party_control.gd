@@ -2,8 +2,6 @@ class_name DevPartyControl extends HBoxContainer
 
 @export var party_slots: HBoxContainer
 
-var dev: DevMode
-
 func enable():
 	Player.control_changed.connect(func(char):
 		set_text(0, char.char_name.to_pascal_case()))

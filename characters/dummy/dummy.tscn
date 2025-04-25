@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://cxhb1pbyx1uwh"]
+[gd_scene load_steps=78 format=3 uid="uid://cxhb1pbyx1uwh"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_dme1k"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dwtt5f0nbnjrk" path="res://characters/dummy/combat/sombra_combate.png" id="4_ejgt2"]
 [ext_resource type="Texture2D" uid="uid://pa67arphlyky" path="res://characters/dummy/rpg/sombra.png" id="4_i5aca"]
 [ext_resource type="Texture2D" uid="uid://q6p2nbvfl777" path="res://characters/dummy/combat/fainted.png" id="4_s2m5x"]
+[ext_resource type="Texture2D" uid="uid://dc2r7hpc0p1io" path="res://characters/dummy/rpg/sombra_portrait.png" id="5_ofaxp"]
 [ext_resource type="Script" path="res://characters/dummy/dummy_interaction.gd" id="5_vdbvb"]
 [ext_resource type="Texture2D" uid="uid://c1bntettjgsi4" path="res://characters/dummy/combat/skill6-sprite.png" id="5_vqgvf"]
 [ext_resource type="Texture2D" uid="uid://7cx1xp1a807y" path="res://characters/dummy/combat/running.png" id="6_0a7cs"]
@@ -570,6 +571,12 @@ will_fight = true
 
 [node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
 combat_animation = NodePath("Sprites/CombatSprites")
+
+[node name="Basic" type="TextureRect" parent="CombatModel/Portraits" index="0"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("5_ofaxp")
 
 [node name="CombatSprites" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
 position = Vector2(0, -96)

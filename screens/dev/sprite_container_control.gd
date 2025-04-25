@@ -1,6 +1,6 @@
 ## Represents a character in the combat area and allows one to perform some
 ## operations on it.
-class_name CharacterControl extends HBoxContainer
+class_name CharacterControl extends Container
 
 @export var dev_combat_control: Control
 @export var empty_container: Control

@@ -106,3 +106,4 @@ offset = Vector2(-32, -105)
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_4hq1v")
 skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("10_5wqqk"), ExtResource("11_tpjcy"), ExtResource("12_bm1yd"), ExtResource("13_0o6jo"), ExtResource("14_xvl0x"), ExtResource("15_atl7k"), ExtResource("16_rc7xj"), ExtResource("17_lptqu")])
+manual_control = true

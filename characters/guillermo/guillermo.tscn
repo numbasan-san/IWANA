@@ -104,3 +104,4 @@ animation = &"idle"
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_csewl")
 skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("10_ahs5w"), ExtResource("11_3bxh1"), ExtResource("12_th4y3"), ExtResource("13_lw6qq"), ExtResource("14_vmg2i"), ExtResource("15_iy545"), ExtResource("16_hxhol"), ExtResource("17_q4xpq")])
+manual_control = true

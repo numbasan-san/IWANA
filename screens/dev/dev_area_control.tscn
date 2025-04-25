@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://8c8v1xlk62v7"]
+[gd_scene load_steps=4 format=3 uid="uid://8c8v1xlk62v7"]
 
-[ext_resource type="LabelSettings" uid="uid://jda8so48mgcw" path="res://screens/dev/dev_mode_font.tres" id="1_16ytt"]
 [ext_resource type="Script" path="res://screens/dev/dev_area_control.gd" id="1_npo2p"]
 [ext_resource type="PackedScene" uid="uid://dtebca8nfneo1" path="res://screens/dev/sprite_container_control.tscn" id="2_8rwtm"]
 [ext_resource type="Theme" uid="uid://beupgvq760u62" path="res://screens/dev/dev_mode_theme.tres" id="3_yd0wl"]
@@ -10,6 +9,7 @@ offset_left = 189.973
 offset_top = 258.417
 offset_right = 519.973
 offset_bottom = 546.417
+theme = ExtResource("3_yd0wl")
 script = ExtResource("1_npo2p")
 name_label = NodePath("HBoxContainer/Label")
 
@@ -20,12 +20,10 @@ layout_mode = 2
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
 text = "Area Name"
-label_settings = ExtResource("1_16ytt")
 
 [node name="MenuButton" type="MenuButton" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme = ExtResource("3_yd0wl")
 text = "+"
 flat = false
 

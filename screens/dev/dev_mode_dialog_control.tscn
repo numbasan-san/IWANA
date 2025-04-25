@@ -1,9 +1,79 @@
-[gd_scene format=3 uid="uid://dfhkspxqgotd1"]
+[gd_scene load_steps=4 format=3 uid="uid://dfhkspxqgotd1"]
 
-[node name="DevModeDialogControl" type="Control"]
+[ext_resource type="Script" path="res://screens/dev/dev_mode_dialog_control.gd" id="1_p8kaq"]
+[ext_resource type="Theme" uid="uid://beupgvq760u62" path="res://screens/dev/dev_mode_theme.tres" id="1_vt8y1"]
+[ext_resource type="Script" path="res://screens/dev/dev_popup_menu.gd" id="2_ly8yp"]
+
+[node name="DevModeDialogControl" type="Control" node_paths=PackedStringArray("scenes", "units", "line_number_label", "dialog_details")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_vt8y1")
+script = ExtResource("1_p8kaq")
+scenes = NodePath("VBoxContainer/SceneDetails/Menus/Scenes")
+units = NodePath("VBoxContainer/SceneDetails/Menus/Units")
+line_number_label = NodePath("DialogDetails/LineNumberLabel")
+dialog_details = NodePath("DialogDetails")
+
+[node name="DialogDetails" type="HBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 675.84
+offset_top = 762.8
+offset_right = 970.84
+offset_bottom = 820.8
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LineLabel" type="Label" parent="DialogDetails"]
+layout_mode = 2
+text = "Linea:
+"
+
+[node name="LineNumberLabel" type="Label" parent="DialogDetails"]
+layout_mode = 2
+text = "0"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ReloadButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Recargar"
+
+[node name="SceneDetails" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Labels" type="VBoxContainer" parent="VBoxContainer/SceneDetails"]
+layout_mode = 2
+alignment = 2
+
+[node name="SceneLabel" type="Label" parent="VBoxContainer/SceneDetails/Labels"]
+layout_mode = 2
+text = "Escena: "
+
+[node name="UnitLabel" type="Label" parent="VBoxContainer/SceneDetails/Labels"]
+layout_mode = 2
+text = "Unidad: "
+
+[node name="Menus" type="VBoxContainer" parent="VBoxContainer/SceneDetails"]
+layout_mode = 2
+
+[node name="Scenes" type="MenuButton" parent="VBoxContainer/SceneDetails/Menus"]
+layout_mode = 2
+text = "Ninguna"
+flat = false
+alignment = 0
+script = ExtResource("2_ly8yp")
+
+[node name="Units" type="MenuButton" parent="VBoxContainer/SceneDetails/Menus"]
+layout_mode = 2
+text = "Ninguna"
+flat = false
+alignment = 0
+script = ExtResource("2_ly8yp")

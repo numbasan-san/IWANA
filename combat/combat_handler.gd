@@ -2,6 +2,9 @@ class_name CombatHandler extends Node
 
 @export var stats: Stats
 @export var skills: Array[Skill]
+# If true, the human player will be able to control this character in combat and
+# select its skills.
+@export var manual_control: bool = false
 
 var character: Character
 

@@ -11,7 +11,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("4_o1mx7")
 script = ExtResource("1_duqi6")
+
+[node name="TopMenu" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="TopMenu"]
+layout_mode = 2
+text = "Paused"
 
 [node name="LeftArea" parent="." instance=ExtResource("2_6xrsm")]
 layout_mode = 0
@@ -36,5 +46,4 @@ offset_left = 176.503
 offset_top = 114.742
 offset_right = 184.503
 offset_bottom = 122.742
-theme = ExtResource("4_o1mx7")
 text = "Continue Round"

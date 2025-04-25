@@ -90,7 +90,7 @@ func run_turn(character: Character):
 		
 		elif current_state == combat.State.EXECUTING:
 			skill.status = skill.Status.NEW
-			if !current_area.player_controled:
+			if !character.combat_handler.manual_control:
 				# We turn all manual target types into random for computer characters.
 				skill = _turn_skill_auto(character, skill)
 			await character.combat_handler.execute(
@@ -155,7 +155,7 @@ func _loop_ended(character: Character):
 # or not.
 func _choose_skill(character: Character) -> Skill:
 	combat.skills_menu.set_character(character)
-	if current_area.player_controled:
+	if character.combat_handler.manual_control:
 		return await _choose_skill_manual(character)
 	else:
 		return _choose_skill_auto(character)

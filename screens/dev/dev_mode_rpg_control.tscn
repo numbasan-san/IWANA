@@ -1,9 +1,146 @@
-[gd_scene format=3 uid="uid://0ef3h8jdrgcn"]
+[gd_scene load_steps=5 format=3 uid="uid://0ef3h8jdrgcn"]
 
-[node name="DevModeRPGControl" type="Control"]
+[ext_resource type="Theme" uid="uid://beupgvq760u62" path="res://screens/dev/dev_mode_theme.tres" id="1_ryycm"]
+[ext_resource type="Script" path="res://screens/dev/dev_mode_rpg_control.gd" id="2_2xl2i"]
+[ext_resource type="Script" path="res://screens/dev/dev_popup_menu.gd" id="3_6gifn"]
+[ext_resource type="Script" path="res://screens/dev/dev_mode_party_control.gd" id="4_sb8jm"]
+
+[node name="DevModeRPGControl" type="Control" node_paths=PackedStringArray("characters", "zones", "party")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_ryycm")
+script = ExtResource("2_2xl2i")
+characters = NodePath("VBoxContainer/CurrentPlayerAndZone/Buttons/Characters")
+zones = NodePath("VBoxContainer/CurrentPlayerAndZone/Buttons/ZonesMenu")
+party = NodePath("VBoxContainer/PartyControl")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CurrentPlayerAndZone" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Labels" type="VBoxContainer" parent="VBoxContainer/CurrentPlayerAndZone"]
+layout_mode = 2
+
+[node name="ControlLabel" type="Label" parent="VBoxContainer/CurrentPlayerAndZone/Labels"]
+layout_mode = 2
+text = "Control: "
+
+[node name="ZonesLabel" type="Label" parent="VBoxContainer/CurrentPlayerAndZone/Labels"]
+layout_mode = 2
+text = "Zonas: "
+
+[node name="Buttons" type="VBoxContainer" parent="VBoxContainer/CurrentPlayerAndZone"]
+layout_mode = 2
+
+[node name="Characters" type="MenuButton" parent="VBoxContainer/CurrentPlayerAndZone/Buttons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Ninguno"
+flat = false
+alignment = 0
+script = ExtResource("3_6gifn")
+
+[node name="ZonesMenu" type="MenuButton" parent="VBoxContainer/CurrentPlayerAndZone/Buttons"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 35
+text = "Ninguna"
+flat = false
+alignment = 0
+script = ExtResource("3_6gifn")
+
+[node name="PartyControl" type="HBoxContainer" parent="VBoxContainer" node_paths=PackedStringArray("party_slots")]
+layout_mode = 2
+size_flags_horizontal = 0
+script = ExtResource("4_sb8jm")
+party_slots = NodePath("Members")
+
+[node name="PartyLabel" type="Label" parent="VBoxContainer/PartyControl"]
+layout_mode = 2
+text = "Party: "
+
+[node name="Members" type="HBoxContainer" parent="VBoxContainer/PartyControl"]
+layout_mode = 2
+
+[node name="Slot1" type="VBoxContainer" parent="VBoxContainer/PartyControl/Members"]
+layout_mode = 2
+
+[node name="Character" type="MenuButton" parent="VBoxContainer/PartyControl/Members/Slot1"]
+layout_mode = 2
+disabled = true
+text = "Lider"
+flat = false
+alignment = 0
+
+[node name="Heal" type="Button" parent="VBoxContainer/PartyControl/Members/Slot1"]
+layout_mode = 2
+text = "H"
+
+[node name="Remove" type="Button" parent="VBoxContainer/PartyControl/Members/Slot1"]
+layout_mode = 2
+focus_mode = 0
+disabled = true
+text = "-"
+
+[node name="Slot2" type="VBoxContainer" parent="VBoxContainer/PartyControl/Members"]
+layout_mode = 2
+
+[node name="Character" type="MenuButton" parent="VBoxContainer/PartyControl/Members/Slot2"]
+layout_mode = 2
+text = "Member2"
+flat = false
+alignment = 0
+
+[node name="Heal" type="Button" parent="VBoxContainer/PartyControl/Members/Slot2"]
+layout_mode = 2
+text = "H"
+
+[node name="Remove" type="Button" parent="VBoxContainer/PartyControl/Members/Slot2"]
+layout_mode = 2
+focus_mode = 0
+text = "-"
+
+[node name="Slot3" type="VBoxContainer" parent="VBoxContainer/PartyControl/Members"]
+layout_mode = 2
+
+[node name="Character" type="MenuButton" parent="VBoxContainer/PartyControl/Members/Slot3"]
+layout_mode = 2
+text = "Member3"
+flat = false
+alignment = 0
+
+[node name="Heal" type="Button" parent="VBoxContainer/PartyControl/Members/Slot3"]
+layout_mode = 2
+text = "H"
+
+[node name="Remove" type="Button" parent="VBoxContainer/PartyControl/Members/Slot3"]
+layout_mode = 2
+focus_mode = 0
+text = "-"
+
+[node name="Slot4" type="VBoxContainer" parent="VBoxContainer/PartyControl/Members"]
+layout_mode = 2
+
+[node name="Character" type="MenuButton" parent="VBoxContainer/PartyControl/Members/Slot4"]
+layout_mode = 2
+text = "Member4"
+flat = false
+alignment = 0
+
+[node name="Heal" type="Button" parent="VBoxContainer/PartyControl/Members/Slot4"]
+layout_mode = 2
+text = "H"
+
+[node name="Remove" type="Button" parent="VBoxContainer/PartyControl/Members/Slot4"]
+layout_mode = 2
+focus_mode = 0
+text = "-"
