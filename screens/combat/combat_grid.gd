@@ -19,6 +19,8 @@ var _h_offset: float
 ## The vertical distance between each element's anchor.
 var _v_offset: float
 
+signal size_changed(new_size: Vector2i)
+
 func _ready() -> void:
 	mouse_filter = Control.MOUSE_FILTER_STOP
 	gui_input
@@ -162,6 +164,7 @@ func resize(new_size: Vector2i, remove_elements: bool = false):
 	_h_offset = 1.0/_grid_size.x
 	_v_offset = 1.0/_grid_size.y
 	_recalculate_all_anchors()
+	size_changed.emit(new_size)
 
 ## Checks if the given vector falls within the grid.
 func in_grid(position: Vector2i) -> bool:

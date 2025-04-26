@@ -579,9 +579,9 @@ offset_bottom = 40.0
 texture = ExtResource("5_ofaxp")
 
 [node name="CombatSprites" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
-position = Vector2(0, -96)
 sprite_frames = SubResource("SpriteFrames_ka6c2")
 animation = &"idle"
+offset = Vector2(0, -96)
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_4c1gv")

@@ -1,5 +1,4 @@
-class_name SpriteContainer
-extends CharacterContainer
+class_name SpriteContainer extends CharacterContainer
 
 # TODO: rewrite to do it better, this is just a quick fix
 @export var combat_sprite: CombatSprite

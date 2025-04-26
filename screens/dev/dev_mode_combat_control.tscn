@@ -38,19 +38,24 @@ layout_mode = 2
 text = "Continuar ronda"
 
 [node name="LeftAreaControl" parent="." instance=ExtResource("2_6xrsm")]
-layout_mode = 0
-offset_left = 216.912
-offset_top = 292.091
-offset_right = 546.912
-offset_bottom = 580.091
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.121
+anchor_top = 0.174
+anchor_right = 0.293
+anchor_bottom = 0.441
+offset_left = -2.32001
+offset_top = 12.08
+offset_right = -2.56
+offset_bottom = 11.72
 area_name = "L. Area"
 
 [node name="RightAreaControl" parent="." node_paths=PackedStringArray("name_label") instance=ExtResource("2_6xrsm")]
 layout_mode = 0
-offset_left = 1267.54
-offset_top = 323.52
-offset_right = 1597.54
-offset_bottom = 611.52
+offset_left = 1300.0
+offset_top = 200.0
+offset_right = 1630.0
+offset_bottom = 488.0
 area_name = "R. Area"
 name_label = NodePath("../LeftAreaControl/HBoxContainer/Label")
 

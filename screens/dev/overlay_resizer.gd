@@ -12,10 +12,8 @@ signal moved(delta: float)
 func _on_gui_input(event: InputEvent) -> void:
 	if event.is_action_pressed("control_resize"):
 		click_hold = true
-		print("CLickHold: " + str(click_hold))
 	elif event.is_action_released("control_resize"):
 		click_hold = false
-		print("CLickHold: " + str(click_hold))
 	
 	if event is InputEventMouseMotion and click_hold:
 		var old: float
@@ -31,5 +29,4 @@ func _on_gui_input(event: InputEvent) -> void:
 			old = global_position.x
 			new = get_global_mouse_position().x
 		
-		print("Moved: " + str(new - old))
 		moved.emit(new - old)

@@ -1,12 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cm7cci2ke8vr2"]
+[gd_scene load_steps=9 format=3 uid="uid://cm7cci2ke8vr2"]
 
 [ext_resource type="Theme" uid="uid://beupgvq760u62" path="res://screens/dev/dev_mode_theme.tres" id="1_ljfyx"]
 [ext_resource type="Script" path="res://screens/dev/combat_area_overlay.gd" id="2_1qhd6"]
+[ext_resource type="Script" path="res://screens/dev/overlay_mover.gd" id="3_j5t7y"]
 [ext_resource type="StyleBox" uid="uid://uu6gv6ew8osq" path="res://screens/dev/overlay_resizer_color.tres" id="3_qoang"]
 [ext_resource type="Script" path="res://screens/dev/overlay_resizer.gd" id="3_tjao4"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_inv2l"]
-bg_color = Color(0, 0, 0, 0.298039)
+[ext_resource type="Script" path="res://screens/dev/overlay_cells_control.gd" id="6_ohnsd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sms8s"]
 bg_color = Color(0, 0, 0, 0.360784)
@@ -15,7 +14,7 @@ bg_color = Color(0, 0, 0, 0.360784)
 line_spacing = -5.0
 font_size = 11
 
-[node name="Overlay" type="Panel" node_paths=PackedStringArray("grid_control", "top_overlay", "left_overlay", "bottom_overlay", "right_overlay")]
+[node name="Overlay" type="Panel" node_paths=PackedStringArray("grid_control", "move_overlay", "top_overlay", "left_overlay", "bottom_overlay", "right_overlay", "cells_overlay")]
 anchors_preset = -1
 anchor_left = 0.261
 anchor_top = 0.629
@@ -30,10 +29,12 @@ grow_vertical = 2
 theme = ExtResource("1_ljfyx")
 script = ExtResource("2_1qhd6")
 grid_control = NodePath("GridControl")
+move_overlay = NodePath("GridControl/Move")
 top_overlay = NodePath("GridControl/OverlayTop")
 left_overlay = NodePath("GridControl/OverlayLeft")
 bottom_overlay = NodePath("GridControl/OverlayBottom")
 right_overlay = NodePath("GridControl/OverlayRight")
+cells_overlay = NodePath("GridControl/Cells")
 
 [node name="GridControl" type="Panel" parent="."]
 layout_mode = 1
@@ -42,7 +43,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_inv2l")
 
 [node name="Move" type="Panel" parent="GridControl"]
 layout_mode = 1
@@ -56,6 +56,7 @@ offset_bottom = -10.0
 grow_horizontal = 2
 pivot_offset = Vector2(20, 20)
 theme_override_styles/panel = SubResource("StyleBoxFlat_sms8s")
+script = ExtResource("3_j5t7y")
 
 [node name="Label" type="Label" parent="GridControl/Move"]
 layout_mode = 1
@@ -120,6 +121,17 @@ theme_override_styles/panel = ExtResource("3_qoang")
 script = ExtResource("3_tjao4")
 overlay_side = 3
 
+[node name="Cells" type="GridContainer" parent="GridControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 3
+script = ExtResource("6_ohnsd")
+
+[connection signal="gui_input" from="GridControl/Move" to="GridControl/Move" method="_on_gui_input"]
 [connection signal="gui_input" from="GridControl/OverlayTop" to="GridControl/OverlayTop" method="_on_gui_input"]
 [connection signal="item_rect_changed" from="GridControl/OverlayTop" to="GridControl/OverlayTop" method="_moved"]
 [connection signal="gui_input" from="GridControl/OverlayLeft" to="GridControl/OverlayLeft" method="_on_gui_input"]

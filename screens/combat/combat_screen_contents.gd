@@ -67,6 +67,12 @@ func battle(player_party: Array[Character], enemy_party: Array[Character]):
 		if pause_before_round:
 			await continue_round
 		prepare_new_round()
+		# This will happen when there are no characters fighting. This should only
+		# be possible when starting a new empty battle from the dev mode, but then
+		# we set pause_before_round to true, so it gives us a chance to add characters.
+		# If we unpause without adding any, this will end the combat.
+		if actor_queue.is_empty():
+			running = false
 		# This loop controls each turn. Because each turn could request the end
 		# of battle, we must again check the running variable or else we would
 		# have to wait for all turns in a round to pass before ending the battle.
