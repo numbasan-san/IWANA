@@ -335,19 +335,11 @@ formation = Array[Vector2i]([Vector2i(3, 2), Vector2i(2, 1), Vector2i(2, 3), Vec
 
 [node name="PartyMenu" parent="." node_paths=PackedStringArray("combat") instance=ExtResource("6_fnso2")]
 layout_mode = 1
-offset_left = -0.360001
-offset_top = 0.359985
-offset_right = 0.0
-offset_bottom = 0.0
 combat = NodePath("..")
 
 [node name="SkillsMenu" parent="." node_paths=PackedStringArray("combat") instance=ExtResource("7_djut6")]
 visible = false
 layout_mode = 1
-offset_left = -0.360001
-offset_top = 466.36
-offset_right = 0.0
-offset_bottom = 466.36
 combat = NodePath("..")
 
 [node name="TurnHandler" parent="." instance=ExtResource("7_tej7b")]

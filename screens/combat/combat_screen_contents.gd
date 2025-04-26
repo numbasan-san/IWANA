@@ -2,6 +2,7 @@ class_name CombatScreenControl
 extends Control
 
 signal textbox_closed
+signal battle_started
 signal battle_ended
 signal request_battle_end
 signal action_selected(action: Action)
@@ -55,6 +56,7 @@ func _input(_event):
 		emit_signal("textbox_closed")
 
 func battle(player_party: Array[Character], enemy_party: Array[Character]):
+	battle_started.emit()
 	running = true
 	request_battle_end.connect(func():
 		running = false

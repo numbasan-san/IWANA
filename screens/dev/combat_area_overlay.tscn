@@ -1,0 +1,127 @@
+[gd_scene load_steps=8 format=3 uid="uid://cm7cci2ke8vr2"]
+
+[ext_resource type="Theme" uid="uid://beupgvq760u62" path="res://screens/dev/dev_mode_theme.tres" id="1_ljfyx"]
+[ext_resource type="Script" path="res://screens/dev/combat_area_overlay.gd" id="2_1qhd6"]
+[ext_resource type="StyleBox" uid="uid://uu6gv6ew8osq" path="res://screens/dev/overlay_resizer_color.tres" id="3_qoang"]
+[ext_resource type="Script" path="res://screens/dev/overlay_resizer.gd" id="3_tjao4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_inv2l"]
+bg_color = Color(0, 0, 0, 0.298039)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sms8s"]
+bg_color = Color(0, 0, 0, 0.360784)
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ssy2"]
+line_spacing = -5.0
+font_size = 11
+
+[node name="Overlay" type="Panel" node_paths=PackedStringArray("grid_control", "top_overlay", "left_overlay", "bottom_overlay", "right_overlay")]
+anchors_preset = -1
+anchor_left = 0.261
+anchor_top = 0.629
+anchor_right = 0.562
+anchor_bottom = 0.844
+offset_left = -0.120026
+offset_top = -0.320007
+offset_right = -0.0400391
+offset_bottom = 0.47998
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_ljfyx")
+script = ExtResource("2_1qhd6")
+grid_control = NodePath("GridControl")
+top_overlay = NodePath("GridControl/OverlayTop")
+left_overlay = NodePath("GridControl/OverlayLeft")
+bottom_overlay = NodePath("GridControl/OverlayBottom")
+right_overlay = NodePath("GridControl/OverlayRight")
+
+[node name="GridControl" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_inv2l")
+
+[node name="Move" type="Panel" parent="GridControl"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = -50.0
+offset_right = 20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+pivot_offset = Vector2(20, 20)
+theme_override_styles/panel = SubResource("StyleBoxFlat_sms8s")
+
+[node name="Label" type="Label" parent="GridControl/Move"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = " ^
+<      >
+ v"
+label_settings = SubResource("LabelSettings_3ssy2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OverlayTop" type="Panel" parent="GridControl"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = -6.0
+offset_right = -0.00012207
+grow_horizontal = 2
+theme_override_styles/panel = ExtResource("3_qoang")
+script = ExtResource("3_tjao4")
+vertical_movement = true
+
+[node name="OverlayLeft" type="Panel" parent="GridControl"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = -6.0
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_qoang")
+script = ExtResource("3_tjao4")
+overlay_side = 1
+
+[node name="OverlayBottom" type="Panel" parent="GridControl"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -0.00012207
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = ExtResource("3_qoang")
+script = ExtResource("3_tjao4")
+vertical_movement = true
+overlay_side = 2
+
+[node name="OverlayRight" type="Panel" parent="GridControl"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 6.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_qoang")
+script = ExtResource("3_tjao4")
+overlay_side = 3
+
+[connection signal="gui_input" from="GridControl/OverlayTop" to="GridControl/OverlayTop" method="_on_gui_input"]
+[connection signal="item_rect_changed" from="GridControl/OverlayTop" to="GridControl/OverlayTop" method="_moved"]
+[connection signal="gui_input" from="GridControl/OverlayLeft" to="GridControl/OverlayLeft" method="_on_gui_input"]
+[connection signal="gui_input" from="GridControl/OverlayBottom" to="GridControl/OverlayBottom" method="_on_gui_input"]
+[connection signal="gui_input" from="GridControl/OverlayRight" to="GridControl/OverlayRight" method="_on_gui_input"]
