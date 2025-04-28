@@ -1,9 +1,13 @@
-class_name DevModeCombatControl extends Control
+class_name DevCombatMode extends Control
 
-@export var left_overlay: CombatAreaOverlay
-@export var right_overlay: CombatAreaOverlay
+@export var left_control: DevAreaControl
+@export var right_control: DevAreaControl
 
-var combat: CombatScreenControl
+var combat: CombatScreenControl:
+	set(value):
+		combat = value
+		left_control.combat_area = combat.left_area
+		right_control.combat_area = combat.right_area
 
 var enabled: bool = false
 
@@ -11,8 +15,21 @@ func enable():
 	if !enabled:
 		enabled = true
 		combat = ScreenManager.combat_screen.contents as CombatScreenControl
-		left_overlay.combat_area = combat.left_area
-		right_overlay.combat_area = combat.right_area
+		var fill_battle_characters = func():
+			for char in combat.left_area.characters:
+				var container = combat.left_area.find(char)
+				var coords = combat.left_area.combat_grid.contents.find_key(container)
+				left_control._add_character_at(char, coords)
+			for char in combat.right_area.characters:
+				var container = combat.right_area.find(char)
+				var coords = combat.right_area.combat_grid.contents.find_key(container)
+				right_control._add_character_at(char, coords)
+				
+		combat.battle_started.connect(fill_battle_characters)
+		# This is to fill the characters when this control is enabled after a
+		# battle hash already started
+		if combat.running:
+			fill_battle_characters.call()
 		_sync_area_controls()
 
 func _new_battle():
@@ -45,5 +62,5 @@ func _continue_combat():
 # they have the same initial size, and so we can alter the overlays to change the
 # shape of the areas.
 func _sync_area_controls():
-	left_overlay._sync_area_controls()
-	right_overlay._sync_area_controls()
+	left_control.grid_overlay._sync_area_controls()
+	right_control.grid_overlay._sync_area_controls()

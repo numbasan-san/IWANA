@@ -1,6 +1,15 @@
 class_name OverlayCellsControl extends GridContainer
 
+var combat_area: CombatPartyArea:
+	set(value):
+		combat_area = value
+		combat_grid = combat_area.combat_grid
+		_grid_resized(combat_grid._grid_size)
+		combat_grid.size_changed.connect(_grid_resized)
+
 var combat_grid: CombatGrid
+
+signal cell_selected(cell: CellOverlay)
 
 # The underlaying grid makes sure to handle its resizing correctly and handle
 # contents removal, so we can safely change this one.
@@ -33,3 +42,7 @@ func _sync_cells():
 		var coords = Vector2i((i % columns) + 1, (i / columns) + 1)
 		cell.cell_coords = coords
 		i += 1
+
+func _get_cell_with_coords(coords: Vector2i) -> CellOverlay:
+	var index = (coords.y - 1) * columns + coords.x
+	return get_child(index)

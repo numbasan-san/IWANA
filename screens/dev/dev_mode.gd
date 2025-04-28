@@ -3,7 +3,7 @@ class_name DevMode extends Control
 @export var tab_container: TabContainer
 @export var dialog_mode: DevModeDialogControl
 @export var rpg_mode: DevModeRPGControl
-@export var combat_mode: DevModeCombatControl
+@export var combat_mode: DevCombatMode
 
 func show_dev():
 	var tab_index: int

@@ -52,12 +52,8 @@ func _ready():
 	for container in combat_grid.contents.values():
 		container.area = self
 	
-# Adds a character's sprite.
-# TODO: we must determine if there are only going to be 4 slots to place a
-# character per area, so we can add them to the scene, or if there could be
-# more, for example enemy parties with more than 4 members or some character
-# appears to help the protagonists for a battle, in which case new containers
-# would have to be added
+# Adds a character's sprite at the next valid formation position. If there are no
+# more positions available, this does nothing.
 func add_character(character: Character):
 	if !character:
 		return
@@ -82,6 +78,34 @@ func add_character(character: Character):
 	characters.append(character)
 	character.combat_handler.stats.update_speed.connect(combat._reorder_from_speed_change)
 	
+# Adds a character at the given position. If there is already someone in there,
+# the replace argument determines if they're replaced or the function fails
+func add_character_at(character: Character, position: Vector2i, replace: bool = false):
+	if !character:
+		return
+	if characters.has(character):
+		return
+	
+	var old_char = combat_grid.contents.get(position)
+	if old_char:
+		if replace:
+			remove_character(old_char)
+		else:
+			printerr("CombatPartyArea | Couldn't add character " + character.name \
+				+ " cause the position is occupied.")
+			return
+	
+	# If we don't manually add SpriteContainers to the combat area in the editor,
+	# we are guaranteed that the characters match the sprite containers and the
+	# children of the grid.
+	var sprite_container: SpriteContainer = preload("res://screens/combat/sprite_container.tscn").instantiate()
+	# We need to add the containers to the scene tree first so that the
+	# set_character function works.
+	combat_grid.add(sprite_container, position)
+	sprite_container.set_character(character)
+	sprite_container.set_direction(looking_left)
+	characters.append(character)
+	character.combat_handler.stats.update_speed.connect(combat._reorder_from_speed_change)
 
 # If that character is present in any of the containers, it's removed
 func remove_character(character: Character):

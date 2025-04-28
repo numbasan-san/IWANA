@@ -8,7 +8,10 @@ class_name CombatAreaOverlay extends Panel
 @export var right_overlay: OverlayResizer
 @export var cells_overlay: OverlayCellsControl
 
-var combat_area: CombatPartyArea
+var combat_area: CombatPartyArea:
+	set(value):
+		combat_area = value
+		cells_overlay.combat_area = value
 
 enum SizeChange {
 	TOP,
@@ -31,8 +34,6 @@ func _sync_area_controls():
 		
 	sync.call(combat_area, grid_control)
 	grid_control.item_rect_changed.connect(sync.bind(grid_control, combat_area))
-	cells_overlay._grid_resized(combat_area.combat_grid._grid_size)
-	combat_area.combat_grid.size_changed.connect(cells_overlay._grid_resized)
 	
 # The size changers are children of the panel that's been resized so they move
 # with it when it changes, and we change the size of a child of this panel instead

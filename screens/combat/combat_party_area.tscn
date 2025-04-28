@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://screens/combat/combat_party_area.gd" id="1_duu0f"]
 [ext_resource type="Script" path="res://screens/combat/combat_grid.gd" id="3_8ouvj"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i6bk1"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1yscd"]
 
 [node name="CombatPartyArea" type="Control" node_paths=PackedStringArray("combat_grid")]
 layout_mode = 3
@@ -25,6 +25,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxEmpty_i6bk1")
+theme_override_styles/panel = SubResource("StyleBoxFlat_1yscd")
 script = ExtResource("3_8ouvj")
 grid_size = Vector2i(3, 3)

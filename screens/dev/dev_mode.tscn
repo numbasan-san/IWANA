@@ -5,7 +5,7 @@
 [ext_resource type="Theme" uid="uid://beupgvq760u62" path="res://screens/dev/dev_mode_theme.tres" id="2_nk3iq"]
 [ext_resource type="PackedScene" uid="uid://dfhkspxqgotd1" path="res://screens/dev/dev_mode_dialog_control.tscn" id="6_ujn76"]
 [ext_resource type="PackedScene" uid="uid://0ef3h8jdrgcn" path="res://screens/dev/dev_mode_rpg_control.tscn" id="7_4bns8"]
-[ext_resource type="PackedScene" uid="uid://byb8j5plrwbmh" path="res://screens/dev/dev_mode_combat_control.tscn" id="8_ios5r"]
+[ext_resource type="PackedScene" uid="uid://byb8j5plrwbmh" path="res://screens/dev/dev_combat_mode.tscn" id="8_ios5r"]
 
 [node name="DevMode" type="CanvasLayer" node_paths=PackedStringArray("contents")]
 layer = 100
