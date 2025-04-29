@@ -2,12 +2,17 @@ class_name DevCombatMode extends Control
 
 @export var left_control: DevAreaControl
 @export var right_control: DevAreaControl
+@export var left_stats_overlay: StatsOverlay
+@export var right_stats_overlay: StatsOverlay
 
 var combat: CombatScreenControl:
 	set(value):
 		combat = value
 		left_control.combat_area = combat.left_area
+		left_stats_overlay.combat_area = combat.left_area
 		right_control.combat_area = combat.right_area
+		right_stats_overlay.combat_area = combat.right_area
+		
 
 var enabled: bool = false
 

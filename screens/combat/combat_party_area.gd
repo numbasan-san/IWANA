@@ -73,6 +73,7 @@ func add_character(character: Character):
 	# We need to add the containers to the scene tree first so that the
 	# set_character function works.
 	combat_grid.add_in_next_available(sprite_container, valid_formation)
+	sprite_container.area = self
 	sprite_container.set_character(character)
 	sprite_container.set_direction(looking_left)
 	characters.append(character)
@@ -102,6 +103,7 @@ func add_character_at(character: Character, position: Vector2i, replace: bool = 
 	# We need to add the containers to the scene tree first so that the
 	# set_character function works.
 	combat_grid.add(sprite_container, position)
+	sprite_container.area = self
 	sprite_container.set_character(character)
 	sprite_container.set_direction(looking_left)
 	characters.append(character)

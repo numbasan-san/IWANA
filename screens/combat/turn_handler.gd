@@ -26,7 +26,7 @@ var enemy_area: CombatPartyArea
 
 var current_state: CombatScreenControl.State
 
-var loop_running = true
+var loop_running = false
 
 # TODO: temporary variable to hold targets. Move to a better place
 var current_targets: Array[Character] = []
@@ -35,7 +35,7 @@ var current_targets: Array[Character] = []
 # processing is already happened. We should only enable this when the player is
 # actually supposed to have control.
 func _input(_event):
-	if Input.is_action_just_released("combat_menu_back") and current_area.player_controled:
+	if loop_running and Input.is_action_just_released("combat_menu_back") and current_area.player_controled:
 		if current_state == combat.State.SELECTING_SKILL:
 			combat.skill_selected.emit(null)
 		elif current_state == combat.State.EXECUTING:

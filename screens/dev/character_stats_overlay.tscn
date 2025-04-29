@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=3 uid="uid://daog6vcfko0ae"]
+
+[ext_resource type="Script" path="res://screens/dev/character_stats_overlay.gd" id="1_402xx"]
+[ext_resource type="Theme" uid="uid://beupgvq760u62" path="res://screens/dev/dev_mode_theme.tres" id="1_mj4wm"]
+[ext_resource type="PackedScene" uid="uid://bgv41634tfryl" path="res://screens/dev/dev_stat_control.tscn" id="4_dwqye"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f6erj"]
+bg_color = Color(0.6, 0.6, 0.6, 0.454902)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.92549, 0.721569, 0.0470588, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a3qlb"]
+bg_color = Color(0, 0, 0, 0.490196)
+
+[node name="Selector" type="Panel" node_paths=PackedStringArray("stats")]
+offset_right = 189.0
+offset_bottom = 256.0
+theme = ExtResource("1_mj4wm")
+theme_override_styles/panel = SubResource("StyleBoxFlat_f6erj")
+script = ExtResource("1_402xx")
+stats = NodePath("StatsBackground/Stats")
+
+[node name="StatsBackground" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.085
+anchor_top = 0.027
+anchor_right = 1.085
+anchor_bottom = 0.027
+offset_left = -0.0650024
+offset_top = 0.0879998
+offset_right = 455.935
+offset_bottom = 350.088
+theme_override_styles/panel = SubResource("StyleBoxFlat_a3qlb")
+
+[node name="Stats" type="VBoxContainer" parent="StatsBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MaxHealth" parent="StatsBackground/Stats" instance=ExtResource("4_dwqye")]
+layout_mode = 2
+stat = "Max Health"
+label_text = "Salud max"
+
+[node name="MaxEnergy" parent="StatsBackground/Stats" instance=ExtResource("4_dwqye")]
+layout_mode = 2
+stat = "Max Energy"
+label_text = "Energia max"
+
+[node name="Damage" parent="StatsBackground/Stats" instance=ExtResource("4_dwqye")]
+layout_mode = 2
+stat = "Damage"
+label_text = "Daño"
+
+[node name="Defense" parent="StatsBackground/Stats" instance=ExtResource("4_dwqye")]
+layout_mode = 2
+stat = "Defense"
+label_text = "Defensa"
+
+[node name="Speed" parent="StatsBackground/Stats" instance=ExtResource("4_dwqye")]
+layout_mode = 2
+stat = "Speed"
+label_text = "Velocidad"
+
+[node name="Critical" parent="StatsBackground/Stats" instance=ExtResource("4_dwqye")]
+layout_mode = 2
+stat = "Critical"
+label_text = "Crítico (%)"
+
+[node name="Precision" parent="StatsBackground/Stats" instance=ExtResource("4_dwqye")]
+layout_mode = 2
+stat = "Precision"
+label_text = "Precisión (%)"
+
+[node name="Evasion" parent="StatsBackground/Stats" instance=ExtResource("4_dwqye")]
+layout_mode = 2
+stat = "Evasion"
+label_text = "Evasión (%)"
