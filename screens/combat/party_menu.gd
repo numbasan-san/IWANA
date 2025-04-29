@@ -10,6 +10,8 @@ var combat_party_area: CombatPartyArea
 var selected_character: Character
 var _selected_index = -1
 
+signal item_used
+
 # Removes the characters loaded in the combat containers so that they stop
 # updating and to prepare for the next battle
 func clear():
@@ -74,3 +76,25 @@ func _on_attack_pressed():
 # La defensa del jugador.
 func _on_defense_pressed():
 	combat.action_selected.emit(combat.Action.DEFEND)
+
+func _on_close_pressed():
+	$PartyMenu/Actions/ActionList.visible = true
+	$PartyMenu/Actions/ItemsAction.visible = false
+	$"../ItemsMenu".selected_card = null
+
+func _on_no_use_pressed():
+	var text = "se saltó de " + selected_character.name + " "
+	select_next_character(true)
+	$"../label".text = text + " a " + selected_character.name
+
+func _on_use_pressed():
+	var item = ($"../ItemsMenu".selected_card.item)
+	var txt = selected_character.name + " elegido para usar " + item.name 
+	$"../label".text = txt
+	$Actions/ActionList.visible = true
+	$Actions/ItemsAction.visible = false
+	if item.effect:
+		item.effect.on_apply(selected_character)
+		item_used.emit()
+	combat.select_to_use = false
+	combat.next_turn()
