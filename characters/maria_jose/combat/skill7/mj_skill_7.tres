@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=7 format=3 uid="uid://dlmqqv77fjvi6"]
+
+[ext_resource type="Resource" uid="uid://nngq0ihv8e8x" path="res://combat/effects/buffs/taunt_data.tres" id="1_43v3e"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_dx5x3"]
+[ext_resource type="Script" path="res://combat/effects/buffs/taunt.gd" id="2_1kj5x"]
+[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="3_1v20q"]
+
+[sub_resource type="Resource" id="Resource_fy6g4"]
+script = ExtResource("3_1v20q")
+
+[sub_resource type="Resource" id="Resource_eo3ko"]
+script = ExtResource("2_1kj5x")
+type = 0
+decrease_duration = 2
+duration = 2
+stacks = true
+base_data = ExtResource("1_43v3e")
+base_value = 5.0
+target_type = SubResource("Resource_fy6g4")
+
+[resource]
+script = ExtResource("1_dx5x3")
+name = "Prisma lunar"
+description = "se peina,mientras se pone linda uwu, con un peine que parece navaja mariposa y provoca a un enemigo para que lo ataque."
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_eo3ko")])
+energy_cost = 5

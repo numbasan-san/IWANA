@@ -105,7 +105,7 @@ func execute(
 		return
 	
 	for effect in processed:
-		if !effect.is_nullified:
+		if !effect.is_nullified and !effect.target.combat_handler.stats.unconscious:
 			await send(effect)
 		
 	character.combat_model.set_sprite("idle")
@@ -144,6 +144,8 @@ func send(effect: Effect):
 		return
 	
 	await effect.send(target)
+	if effect.is_nullified:
+		return
 	await target.combat_handler.receive(effect)
 
 # Receives an effect sent from a caster, modifies it based on the character's

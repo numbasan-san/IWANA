@@ -1,14 +1,28 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=8 format=3 uid="uid://d1acsh5awfpq6"]
+[gd_resource type="Resource" script_class="Skill" load_steps=12 format=3 uid="uid://d1acsh5awfpq6"]
 
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_di0wb"]
-[ext_resource type="Script" path="res://combat/effects/damage.gd" id="1_lenkw"]
+[ext_resource type="Resource" uid="uid://ch7mttfy6eafn" path="res://combat/effects/debuffs/silence_data.tres" id="1_l1tki"]
+[ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="1_lenkw"]
+[ext_resource type="Script" path="res://combat/effects/debuffs/silence.gd" id="2_06gcr"]
 [ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="2_byw4a"]
+[ext_resource type="Resource" uid="uid://dayloxpwj30t4" path="res://combat/effects/instant/damage_data.tres" id="3_hdnm4"]
 [ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="3_oybih"]
+
+[sub_resource type="Resource" id="Resource_8pby6"]
+script = ExtResource("2_06gcr")
+type = 1
+decrease_duration = 2
+duration = 2
+stacks = false
+base_data = ExtResource("1_l1tki")
+base_value = 1.0
 
 [sub_resource type="Resource" id="Resource_03w2j"]
 script = ExtResource("1_lenkw")
 type = 0
-value = 5.0
+percentage_ignored = 0.0
+base_data = ExtResource("3_hdnm4")
+base_value = 1.0
 
 [sub_resource type="Resource" id="Resource_6see7"]
 script = ExtResource("3_oybih")
@@ -18,8 +32,8 @@ allow_repetition = false
 
 [sub_resource type="Resource" id="Resource_7yi24"]
 script = ExtResource("2_byw4a")
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_03w2j")])
-value = 1.0
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_8pby6"), SubResource("Resource_03w2j")])
+base_value = 1.0
 target_type = SubResource("Resource_6see7")
 
 [resource]
@@ -27,4 +41,4 @@ script = ExtResource("1_di0wb")
 name = "Silencio en la biblioteca"
 description = "Bloquea la última habilidad usada por el enemigo y hace un poco de daño"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_7yi24")])
-energy_cost = 99999999999
+energy_cost = 5

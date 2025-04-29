@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://cx5fqgdysbxk2"]
+
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_p6kvd"]
+
+[resource]
+script = ExtResource("1_p6kvd")
+name = "¡Atrévete!"
+description = "se pone en posición y todo el daño que reciba hasta su próximo turno, lo devuelve en un porcentaje del daño recibido."
+effects = Array[Resource("res://combat/effects/effect.gd")]([])
+energy_cost = 99999999

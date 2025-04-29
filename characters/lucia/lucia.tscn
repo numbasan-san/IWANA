@@ -62,6 +62,9 @@ visible = false
 scale = Vector2(-1, 1)
 texture = ExtResource("3_ynhfv")
 
+[node name="RPGModel" parent="." index="1"]
+visible = false
+
 [node name="Sprite2D" parent="RPGModel" index="0"]
 position = Vector2(-2, -14)
 scale = Vector2(5, 5)
@@ -79,6 +82,7 @@ shape = SubResource("RectangleShape2D_v0pjf")
 combat_animation = NodePath("Sprites/AnimatedSprite2D")
 
 [node name="Basic" type="TextureRect" parent="CombatModel/Portraits" index="0"]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("6_dfefk")
@@ -86,7 +90,9 @@ texture = ExtResource("6_dfefk")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
 sprite_frames = SubResource("SpriteFrames_bnpoi")
 animation = &"idle"
+offset = Vector2(0, -110)
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_tyh81")
 skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("8_0lde6"), ExtResource("9_errqr"), ExtResource("10_ygvtd"), ExtResource("11_ltkwn"), ExtResource("12_5xgmh"), ExtResource("13_n8hj0"), ExtResource("14_tbquh"), ExtResource("15_gcq2i")])
+manual_control = true

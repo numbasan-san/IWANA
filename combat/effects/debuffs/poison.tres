@@ -8,7 +8,7 @@
 script = ExtResource("1_i5qdl")
 type = 3
 percentage_ignored = 0.0
-base_value = 1.0
+base_value = 4.0
 
 [resource]
 script = ExtResource("1_j542i")

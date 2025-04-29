@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://maeacjbhexlb"]
+[gd_scene load_steps=21 format=3 uid="uid://maeacjbhexlb"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_jrk70"]
@@ -6,10 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://d31y0igqd5jjx" path="res://characters/maria_jose/vn/mariajose.png" id="3_xswt3"]
 [ext_resource type="Texture2D" uid="uid://i2nyri0gtmgh" path="res://characters/maria_jose/vn/jm_neutral.png" id="4_bra5u"]
 [ext_resource type="Texture2D" uid="uid://c50cebss7r2lo" path="res://characters/maria_jose/rpg/movement_384x240.png" id="5_2187o"]
-[ext_resource type="AnimationLibrary" uid="uid://b4bbcb4ves016" path="res://characters/movement_animation_incomplete.res" id="6_wk3fa"]
 [ext_resource type="Texture2D" uid="uid://dy3elht7x5ofk" path="res://characters/maria_jose/rpg/mj_portrait.png" id="7_qbub8"]
 [ext_resource type="Texture2D" uid="uid://b0ainjfp61ope" path="res://characters/noby_combate.png" id="7_whste"]
-[ext_resource type="Resource" uid="uid://sy16m35jo4do" path="res://combat/skills/skill_ejemplo_daño.tres" id="10_hka1x"]
+[ext_resource type="Resource" uid="uid://c0xrtgp4mbu4b" path="res://characters/maria_jose/combat/skill1/mj_skill_1.tres" id="9_y7e2n"]
+[ext_resource type="Resource" uid="uid://v37rfmof5jyq" path="res://characters/maria_jose/combat/skill2/mj_skill_2.tres" id="10_so3u1"]
+[ext_resource type="Resource" uid="uid://bcchv8c5rajdu" path="res://characters/maria_jose/combat/skill3/mj_skill_3.tres" id="11_0bv4c"]
+[ext_resource type="Resource" uid="uid://bobnkjskemmtk" path="res://characters/maria_jose/combat/skill4/mj_skill_4.tres" id="12_3v8cy"]
+[ext_resource type="Resource" uid="uid://cx5fqgdysbxk2" path="res://characters/maria_jose/combat/skill5/mj_skill_5.tres" id="13_tgc1h"]
+[ext_resource type="Resource" uid="uid://dv38q4ooucfhw" path="res://characters/maria_jose/combat/skill6/mj_skill_6.tres" id="14_6s2ha"]
+[ext_resource type="Resource" uid="uid://dlmqqv77fjvi6" path="res://characters/maria_jose/combat/skill7/mj_skill_7.tres" id="15_mm8it"]
+[ext_resource type="Resource" uid="uid://c2xllq2oeeha" path="res://characters/maria_jose/combat/skill8/mj_skill_8.tres" id="16_wwrin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2bal8"]
 resource_local_to_scene = true
@@ -60,6 +66,9 @@ texture = ExtResource("3_xswt3")
 scale = Vector2(-1, 1)
 texture = ExtResource("4_bra5u")
 
+[node name="RPGModel" parent="." index="1"]
+visible = false
+
 [node name="Sprite2D" parent="RPGModel" index="0"]
 position = Vector2(0, 8)
 scale = Vector2(5, 5)
@@ -73,15 +82,11 @@ region_rect = Rect2(457, 660, 145, 300)
 position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_2bal8")
 
-[node name="Animation" parent="RPGModel" index="2"]
-libraries = {
-"": ExtResource("6_wk3fa")
-}
-
 [node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
 combat_animation = NodePath("Sprites/AnimatedSprite2D")
 
 [node name="Basic" type="TextureRect" parent="CombatModel/Portraits" index="0"]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("7_qbub8")
@@ -89,7 +94,9 @@ texture = ExtResource("7_qbub8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
 sprite_frames = SubResource("SpriteFrames_o8ufn")
 animation = &"idle"
+offset = Vector2(15, -105)
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_uay8k")
-skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("10_hka1x")])
+skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("9_y7e2n"), ExtResource("10_so3u1"), ExtResource("11_0bv4c"), ExtResource("12_3v8cy"), ExtResource("13_tgc1h"), ExtResource("14_6s2ha"), ExtResource("15_mm8it"), ExtResource("16_wwrin")])
+manual_control = true

@@ -1,18 +1,21 @@
 [gd_resource type="Resource" script_class="Riposte" load_steps=5 format=3 uid="uid://boqd67bov4np3"]
 
 [ext_resource type="Resource" uid="uid://daxv17uh8wt7h" path="res://combat/effects/buffs/riposte_data.tres" id="1_0qyft"]
+[ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="2_8w40t"]
 [ext_resource type="Script" path="res://combat/effects/buffs/riposte.gd" id="2_edp1b"]
-[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="3_w161e"]
 
-[sub_resource type="Resource" id="Resource_ont6d"]
-script = ExtResource("3_w161e")
+[sub_resource type="Resource" id="Resource_kjlio"]
+script = ExtResource("2_8w40t")
+type = 0
+percentage_ignored = 0.0
+base_value = 1.0
 
 [resource]
 script = ExtResource("2_edp1b")
 before_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
 after_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
 unapply_effects = Array[Resource("res://combat/effects/effect.gd")]([])
-incoming_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+incoming_effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_kjlio")])
 outgoing_effects = Array[Resource("res://combat/effects/effect.gd")]([])
 character_hit_effects = Array[Resource("res://combat/effects/effect.gd")]([])
 type = 0
@@ -21,4 +24,3 @@ duration = 1
 stacks = false
 base_data = ExtResource("1_0qyft")
 base_value = 1.0
-target_type = SubResource("Resource_ont6d")

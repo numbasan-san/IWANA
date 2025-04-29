@@ -28,7 +28,7 @@ base_value = 50.0
 resource_local_to_scene = true
 script = ExtResource("4_8dkm8")
 base_data = ExtResource("3_ogc23")
-base_value = 1.0
+base_value = 5.0
 
 [sub_resource type="Resource" id="Resource_m0wi6"]
 resource_local_to_scene = true

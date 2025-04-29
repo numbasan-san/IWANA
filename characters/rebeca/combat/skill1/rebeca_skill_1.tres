@@ -1,30 +1,34 @@
 [gd_resource type="Resource" script_class="Skill" load_steps=12 format=3 uid="uid://bh1355m3ns053"]
 
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_3c21b"]
-[ext_resource type="Script" path="res://combat/effects/damage.gd" id="1_d4w8x"]
+[ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="1_d4w8x"]
+[ext_resource type="Resource" uid="uid://dayloxpwj30t4" path="res://combat/effects/instant/damage_data.tres" id="1_umy3a"]
 [ext_resource type="Script" path="res://combat/effects/debuffs/sleep.gd" id="2_m1unn"]
 [ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="3_fk5jl"]
+[ext_resource type="Resource" uid="uid://dc2eona3nrx26" path="res://combat/effects/debuffs/sleep_data.tres" id="3_h8erm"]
 [ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="4_4ahwd"]
 
 [sub_resource type="Resource" id="Resource_fgprc"]
 script = ExtResource("1_d4w8x")
 type = 0
-value = 1.0
+percentage_ignored = 0.0
+base_data = ExtResource("1_umy3a")
+base_value = 1.0
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_5qypv"]
-load_path = "res://.godot/imported/lasting_effect_icons.png-77f127f496dd8238ff80ee35f581e8c1.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s32r3"]
-atlas = SubResource("CompressedTexture2D_5qypv")
-region = Rect2(270, 72, 48, 42)
-
-[sub_resource type="Resource" id="Resource_8crli"]
+[sub_resource type="Resource" id="Resource_wk8l7"]
 script = ExtResource("2_m1unn")
-icon = SubResource("AtlasTexture_s32r3")
+before_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+after_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+unapply_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+incoming_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+outgoing_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+character_hit_effects = Array[Resource("res://combat/effects/effect.gd")]([])
 type = 1
-decrease_duration = 3
+decrease_duration = 2
 duration = 3
-value = 1.0
+stacks = false
+base_data = ExtResource("3_h8erm")
+base_value = 1.0
 
 [sub_resource type="Resource" id="Resource_dqpw7"]
 script = ExtResource("4_4ahwd")
@@ -34,8 +38,8 @@ allow_repetition = false
 
 [sub_resource type="Resource" id="Resource_1lomv"]
 script = ExtResource("3_fk5jl")
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_fgprc"), SubResource("Resource_8crli")])
-value = 1.0
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_fgprc"), SubResource("Resource_wk8l7")])
+base_value = 1.0
 target_type = SubResource("Resource_dqpw7")
 
 [resource]
@@ -43,4 +47,4 @@ script = ExtResource("1_3c21b")
 name = "Mucho texto"
 description = "Lee un fanfic muy largo, hace daño y duerme al enemigo"
 effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_1lomv")])
-energy_cost = 0
+energy_cost = 5
