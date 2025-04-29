@@ -62,7 +62,7 @@ func add_in_next_available(container: SpriteContainer, positions: Array[Vector2i
 ## Returns the position the element occupies in the grid, or (-1, -1) if it wasn't
 ## found.
 func find_position(panel: SpriteContainer) -> Vector2i:
-	var position: Vector2i = contents.find_key(panel)
+	var position = contents.find_key(panel)
 	if !position:
 		position = Vector2i(0, 0)
 	return position

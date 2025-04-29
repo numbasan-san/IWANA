@@ -44,5 +44,5 @@ func _sync_cells():
 		i += 1
 
 func _get_cell_with_coords(coords: Vector2i) -> CellOverlay:
-	var index = (coords.y - 1) * columns + coords.x
+	var index = (coords.y - 1) * columns + coords.x - 1
 	return get_child(index)

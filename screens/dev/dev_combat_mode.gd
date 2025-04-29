@@ -16,15 +16,9 @@ func enable():
 		enabled = true
 		combat = ScreenManager.combat_screen.contents as CombatScreenControl
 		var fill_battle_characters = func():
-			for char in combat.left_area.characters:
-				var container = combat.left_area.find(char)
-				var coords = combat.left_area.combat_grid.contents.find_key(container)
-				left_control._add_character_at(char, coords)
-			for char in combat.right_area.characters:
-				var container = combat.right_area.find(char)
-				var coords = combat.right_area.combat_grid.contents.find_key(container)
-				right_control._add_character_at(char, coords)
-				
+			left_control.load_characters()
+			right_control.load_characters()
+			
 		combat.battle_started.connect(fill_battle_characters)
 		# This is to fill the characters when this control is enabled after a
 		# battle hash already started
@@ -47,10 +41,6 @@ func _new_battle():
 	combat.pause_before_round = true
 	combat.battle([], [])
 	
-
-func _add_character_left(character: Character):
-	if combat.left_area:
-		pass
 
 func _sync_combat_pause(paused: bool):
 	combat.pause_before_round = paused

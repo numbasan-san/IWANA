@@ -32,7 +32,11 @@ func _process(_delta):
 
 func enable():
 	if !enabled:
-		enabled = true
+		# TODO: for now, we only enable it after the game starts and the first scene
+		# is loaded, so that if we open the dev mode before the scenes are loaded,
+		# the next time we open it they are fixed.
+		if ScriptManager.current_scene:
+			enabled = true
 		fill_scenes_list()
 		# Esta función solo busca las unidades de la escena actual, por lo que
 		# siempre debería ser seguro llamarla

@@ -56,12 +56,12 @@ func _input(_event):
 		emit_signal("textbox_closed")
 
 func battle(player_party: Array[Character], enemy_party: Array[Character]):
-	battle_started.emit()
 	running = true
 	request_battle_end.connect(func():
 		running = false
 	, CONNECT_ONE_SHOT)
 	await start_battle(player_party, enemy_party)
+	battle_started.emit()
 	# This loop controls the rounds. A round consists of 1 turn of each character.
 	while running:
 		if pause_before_round:

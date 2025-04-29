@@ -142,6 +142,16 @@ func find(character: Character) -> SpriteContainer:
 			return container
 	return null
 
+func get_character_at(coords: Vector2i) -> Character:
+	var container = combat_grid.contents.get(coords)
+	if container:
+		return container.character
+	else:
+		return null
+
+func get_coords(character: Character) -> Vector2i:
+	return combat_grid.find_position(find(character))
+
 func all_defeated() -> bool:
 	for c in characters:
 		if not c.combat_handler.stats.unconscious:
