@@ -6,10 +6,8 @@
 
 [node name="StatsOverlay" type="Control" node_paths=PackedStringArray("character_overlay")]
 layout_mode = 3
-anchors_preset = 15
 anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
+anchor_bottom = 0.633
 grow_vertical = 2
 mouse_filter = 1
 theme = ExtResource("1_hy2ec")

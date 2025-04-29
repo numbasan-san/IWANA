@@ -74,6 +74,7 @@ func add_character(char: Character, replace: bool = false):
 		if old_control:
 			old_control.character = null
 		combat_area.combat_grid.switch_positions(old_coords, cell.cell_coords)
+		character = char
 		return
 	# At this point there wasn't any character in this cell, or the previous one
 	# was removed, so now we can use the same cell.
@@ -91,6 +92,7 @@ func remove_character():
 func delete():
 	if character:
 		combat_area.remove_character(character)
+		combat_area.remove_position(cell.cell_coords)
 	get_parent_control().remove_child(self)
 
 func _fill_character_list():

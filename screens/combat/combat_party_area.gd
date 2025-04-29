@@ -109,6 +109,10 @@ func add_character_at(character: Character, position: Vector2i, replace: bool = 
 	characters.append(character)
 	character.combat_handler.stats.update_speed.connect(combat._reorder_from_speed_change)
 
+# If that position is in the formation, we remove it.
+func remove_position(coords: Vector2i):
+	formation.erase(coords)
+
 # If that character is present in any of the containers, it's removed
 func remove_character(character: Character):
 	for s in combat_grid.contents.values():

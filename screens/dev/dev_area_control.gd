@@ -14,7 +14,7 @@ var combat_area: CombatPartyArea:
 	set(value):
 		combat_area = value
 		grid_overlay.combat_area = value
-		for char in $VBoxContainer/Characters.get_children():
+		for char in characters.get_children():
 			char.combat_area = value
 		load_characters()
 

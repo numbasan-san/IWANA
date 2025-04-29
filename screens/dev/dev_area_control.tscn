@@ -14,7 +14,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_npo2p")
 name_label = NodePath("VBoxContainer/HBoxContainer/AreaName")
-characters = NodePath("VBoxContainer/Characters")
+characters = NodePath("VBoxContainer/ScrollContainer/Characters")
 grid_overlay = NodePath("Overlay")
 add_button = NodePath("VBoxContainer/HBoxContainer/AddCharacter")
 
@@ -37,7 +37,13 @@ custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 text = "+"
 
-[node name="Characters" type="VBoxContainer" parent="VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="Characters" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
 layout_mode = 2
 
 [node name="Overlay" parent="." instance=ExtResource("4_gcpmx")]

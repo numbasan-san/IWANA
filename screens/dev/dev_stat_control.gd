@@ -64,8 +64,10 @@ func _delink_stats():
 		base.text = ""
 		mod.text = ""
 		final.text = ""
-		
-func _link_stats():
+
+# The arguments aren't used, they are only there because the stat updated signals
+# have them as arguments, and we must call a function with the same arguments
+func _link_stats(old = -1, new = -1):
 	base.text = str(_stats.get(_base_name))
 	mod.text = str(_stats.get(_mod_name))
 	final.text = str(_stats.get(_stat_name))
