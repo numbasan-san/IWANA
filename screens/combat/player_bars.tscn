@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://ceqe4yrlcfouu"]
 
 [ext_resource type="Script" path="res://screens/combat/player_bars.gd" id="1_wxgap"]
-[ext_resource type="FontFile" uid="uid://bvx3kwcljl1mv" path="res://assets/combat_sprites/font/IWANA.ttf" id="2_cmerm"]
+[ext_resource type="FontFile" uid="uid://bjh56wfvej2vg" path="res://assets/combat_sprites/font/IWANA.ttf" id="2_cmerm"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6w1dy"]
 resource_local_to_scene = true

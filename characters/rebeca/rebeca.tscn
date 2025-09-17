@@ -1,10 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://dykkm64a7u1j7"]
+[gd_scene load_steps=21 format=3 uid="uid://dykkm64a7u1j7"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Resource" uid="uid://mqfek00juk2e" path="res://script/characters/resource/rebeca.tres" id="2_w6kso"]
 [ext_resource type="Texture2D" uid="uid://prfcnbmofw2l" path="res://characters/rebeca/vn/neutral.png" id="3_c5xgg"]
 [ext_resource type="Texture2D" uid="uid://cnf4qfn1wadpj" path="res://characters/rebeca/rpg/movement_384x240.png" id="4_yiw83"]
-[ext_resource type="Texture2D" uid="uid://bhtqxh36hwckf" path="res://characters/rebeca/rpg/beca_portrait.png" id="6_3flp4"]
+[ext_resource type="Texture2D" uid="uid://b4p5rlv2f43aj" path="res://assets/combat_sprites/portraits.png" id="5_unpwk"]
 [ext_resource type="Texture2D" uid="uid://b0ainjfp61ope" path="res://characters/noby_combate.png" id="6_g3xgt"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="8_rmlj5"]
 [ext_resource type="Resource" uid="uid://bh1355m3ns053" path="res://characters/rebeca/combat/skill1/rebeca_skill_1.tres" id="9_u0nat"]
@@ -19,6 +19,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fq57j"]
 resource_local_to_scene = true
 size = Vector2(128, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31hi1"]
+atlas = ExtResource("5_unpwk")
+region = Rect2(279, 209, 36, 28)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0n6bl"]
 atlas = ExtResource("6_g3xgt")
@@ -84,7 +88,8 @@ combat_animation = NodePath("Sprites/CombatSprites")
 visible = false
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("6_3flp4")
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_31hi1")
 
 [node name="CombatSprites" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
 sprite_frames = SubResource("SpriteFrames_ago17")

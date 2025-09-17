@@ -36,9 +36,10 @@ func add_character(character: Character):
 func select_character_index(index: int = -1):
 	# In this case we clear the selected character
 	if index < 0:
-		party_slots[_selected_index].is_selected = false
-		selected_character = null
-		_selected_index = index
+		if _selected_index >= 0:
+			party_slots[_selected_index].is_selected = false
+			selected_character = null
+			_selected_index = index
 	elif index < Player.party.size:
 		selected_character = party_slots[index].character
 		party_slots[_selected_index].is_selected = false
@@ -78,17 +79,17 @@ func _on_defense_pressed():
 	combat.action_selected.emit(combat.Action.DEFEND)
 
 func _on_close_pressed():
-	$PartyMenu/Actions/ActionList.visible = true
-	$PartyMenu/Actions/ItemsAction.visible = false
-	$"../ItemsMenu".selected_card = null
+	$Actions/ActionList.visible = true
+	$Actions/ItemsAction.visible = false
+	combat.items_menu.selected_card = null
 
 func _on_no_use_pressed():
 	var text = "se saltó de " + selected_character.name + " "
-	select_next_character(true)
+	#select_next_character(true)
 	$"../label".text = text + " a " + selected_character.name
 
 func _on_use_pressed():
-	var item = ($"../ItemsMenu".selected_card.item)
+	var item = (combat.items_menu.selected_card.item)
 	var txt = selected_character.name + " elegido para usar " + item.name 
 	$"../label".text = txt
 	$Actions/ActionList.visible = true

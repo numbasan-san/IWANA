@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bh4ujh7wlpg0y"]
 
 [ext_resource type="Script" path="res://script/object_inventory/items/objects/lagarto.gd" id="1_4xjwa"]
-[ext_resource type="Resource" path="res://script/object_inventory/items/resources/frituras.tres" id="2_b805v"]
+[ext_resource type="Resource" uid="uid://cpf2t6uki5wyw" path="res://script/object_inventory/items/resources/frituras.tres" id="2_b805v"]
 [ext_resource type="Texture2D" uid="uid://b5xmecm4hhtj7" path="res://assets/inventory/items/frituras.png" id="3_h500j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_taxc2"]

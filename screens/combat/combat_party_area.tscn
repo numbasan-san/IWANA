@@ -19,6 +19,7 @@ script = ExtResource("1_duu0f")
 combat_grid = NodePath("CombatGrid")
 
 [node name="CombatGrid" type="Panel" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

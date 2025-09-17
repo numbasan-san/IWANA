@@ -10,7 +10,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bncsu"]
 resource_local_to_scene = true
-size = Vector2(128, 61)
+size = Vector2(25.3333, 9.33333)
 
 [node name="Character" type="Node"]
 script = ExtResource("1_wmqne")
@@ -20,6 +20,7 @@ script = ExtResource("3_ylprp")
 
 [node name="RPGModel" type="CharacterBody2D" parent="."]
 z_index = 1
+scale = Vector2(3, 3)
 motion_mode = 1
 script = ExtResource("4_khi8m")
 
@@ -28,7 +29,7 @@ hframes = 8
 region_rect = Rect2(468, 740, 140, 300)
 
 [node name="Collider" type="CollisionShape2D" parent="RPGModel"]
-position = Vector2(0, -31)
+position = Vector2(0, -2.66667)
 shape = SubResource("RectangleShape2D_bncsu")
 
 [node name="Animation" type="AnimationPlayer" parent="RPGModel"]

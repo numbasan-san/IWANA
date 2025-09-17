@@ -4,39 +4,38 @@
 [ext_resource type="Script" path="res://script/transparency.gd" id="2_rcv2k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf4yu"]
-size = Vector2(87, 32)
+size = Vector2(19, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pujgk"]
-size = Vector2(108, 36)
+size = Vector2(19, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b2dii"]
-size = Vector2(334, 92)
+size = Vector2(67, 61.6667)
 
 [node name="BrokenDivider1" instance=ExtResource("1_fmexp")]
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, -145)
-scale = Vector2(5, 5)
+position = Vector2(0, -37)
 region_rect = Rect2(2, 4, 64, 58)
 
 [node name="StaticBody2D" parent="." index="1"]
 position = Vector2(0, -10)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(-117.5, -6)
+position = Vector2(-22.8333, -1)
 shape = SubResource("RectangleShape2D_yf4yu")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" index="1"]
-position = Vector2(109, -8)
+position = Vector2(23, -1)
 shape = SubResource("RectangleShape2D_pujgk")
 
 [node name="ActivateTransparency" type="Area2D" parent="." index="2" node_paths=PackedStringArray("sprite")]
-position = Vector2(0, -21)
+position = Vector2(0, -10)
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("2_rcv2k")
 sprite = NodePath("../Sprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ActivateTransparency" index="0"]
-position = Vector2(-1, -25)
+position = Vector2(1.49012e-08, -26.5)
 shape = SubResource("RectangleShape2D_b2dii")

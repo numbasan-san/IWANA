@@ -13,6 +13,7 @@ signal continue_round
 @export var left_area: CombatPartyArea
 @export var party_menu: PartyMenu
 @export var skills_menu: SkillsMenu
+@export var items_menu: Control
 @export var turn_handler: TurnHandler
 @export var change_menu_animation: AnimationPlayer
 

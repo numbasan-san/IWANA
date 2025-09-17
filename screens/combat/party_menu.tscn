@@ -12,20 +12,12 @@
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4841x"]
 atlas = ExtResource("3_65mfp")
-region = Rect2(1271, 222, 396, 318)
+region = Rect2(498, 228, 132, 106)
 
 [node name="PartyMenu" type="Control" node_paths=PackedStringArray("party_slots")]
 layout_mode = 3
-anchor_left = 0.133
-anchor_top = 0.633
-anchor_right = 0.962
-anchor_bottom = 0.926
-offset_left = 255.0
-offset_top = 684.0
-offset_right = 255.36
-offset_bottom = 684.0
-grow_horizontal = 2
-grow_vertical = 0
+anchor_right = 0.85
+anchor_bottom = 0.359
 script = ExtResource("1_4qcev")
 party_slots = [NodePath("Characters/Character1"), NodePath("Characters/Character2"), NodePath("Characters/Character3"), NodePath("Characters/Character4")]
 
@@ -91,6 +83,7 @@ offset_bottom = 318.0
 texture = SubResource("AtlasTexture_4841x")
 
 [node name="ActionList" type="VBoxContainer" parent="Actions"]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -134,6 +127,37 @@ texture_pressed = ExtResource("9_r1ibd")
 texture_hover = ExtResource("9_r1ibd")
 texture_focused = ExtResource("9_r1ibd")
 
+[node name="ItemsAction" type="VBoxContainer" parent="Actions"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 105.6
+offset_top = 35.36
+offset_right = -36.4001
+offset_bottom = 88.36
+grow_vertical = 2
+rotation = -0.139626
+scale = Vector2(0.8, 0.8)
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Use" type="Button" parent="Actions/ItemsAction"]
+layout_mode = 2
+text = "Usar"
+
+[node name="NoUse" type="Button" parent="Actions/ItemsAction"]
+layout_mode = 2
+text = "No Usar"
+
+[node name="Close" type="Button" parent="Actions/ItemsAction"]
+layout_mode = 2
+text = "Cerrar"
+
 [connection signal="pressed" from="Actions/ActionList/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="Actions/ActionList/Defense" to="." method="_on_defense_pressed"]
 [connection signal="pressed" from="Actions/ActionList/Run" to="." method="_on_run_pressed"]
+[connection signal="pressed" from="Actions/ItemsAction/Use" to="." method="_on_use_pressed"]
+[connection signal="pressed" from="Actions/ItemsAction/NoUse" to="." method="_on_no_use_pressed"]
+[connection signal="pressed" from="Actions/ItemsAction/Close" to="." method="_on_close_pressed"]

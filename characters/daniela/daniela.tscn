@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d3ltulgb5a8do"]
+[gd_scene load_steps=24 format=3 uid="uid://d3ltulgb5a8do"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Resource" uid="uid://chcyry721t4nl" path="res://script/characters/resource/daniela.tres" id="2_kncc3"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b2fe5e2h7ytuw" path="res://characters/daniela/vn/danielaenojadapng.png" id="4_4aw6c"]
 [ext_resource type="Texture2D" uid="uid://cfwdpyaaq0cdl" path="res://characters/daniela/rpg/movement_384x240.png" id="5_qbeq8"]
 [ext_resource type="Texture2D" uid="uid://bl7vlhrf33l1" path="res://characters/daniela/combat/fainted.png" id="6_7wt8b"]
-[ext_resource type="Texture2D" uid="uid://b0wpoca15nrtu" path="res://characters/daniela/combat/cuernito.png" id="7_k47t8"]
+[ext_resource type="Texture2D" uid="uid://b4p5rlv2f43aj" path="res://assets/combat_sprites/portraits.png" id="6_id6rl"]
 [ext_resource type="Texture2D" uid="uid://b0ainjfp61ope" path="res://characters/noby_combate.png" id="9_ujn7e"]
 [ext_resource type="Resource" uid="uid://ctfi04ropl47o" path="res://characters/daniela/combat/skill1/daniela_skill_1.tres" id="10_uw2v6"]
 [ext_resource type="Resource" uid="uid://bkh1ox28jkmet" path="res://characters/daniela/combat/skill3/daniela_skill_3.tres" id="12_itpv5"]
@@ -21,6 +21,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fqsh1"]
 resource_local_to_scene = true
 size = Vector2(114, 48.5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_or2gm"]
+atlas = ExtResource("6_id6rl")
+region = Rect2(329, 86, 32, 27)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5mgkk"]
 atlas = ExtResource("6_7wt8b")
@@ -95,10 +99,10 @@ debug_color = Color(0, 0.6, 0.701961, 0.419608)
 combat_animation = NodePath("Sprites/CombatSprite")
 
 [node name="Basic" type="TextureRect" parent="CombatModel/Portraits" index="0"]
-visible = false
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("7_k47t8")
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_or2gm")
 
 [node name="CombatSprite" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
 position = Vector2(-18, -105)

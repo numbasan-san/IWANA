@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cbsenaqm4qe7m"]
+[gd_scene load_steps=23 format=3 uid="uid://cbsenaqm4qe7m"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Resource" uid="uid://csb8r8xe32g78" path="res://script/characters/resource/guillermo.tres" id="2_fj7it"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://hhs7i2sr3qc0" path="res://characters/guillermo/rpg/movement_384x240.png" id="4_5wuw6"]
 [ext_resource type="Texture2D" uid="uid://bjw3m76gpdtwe" path="res://characters/guillermo/vn/neutral.png" id="4_43dl1"]
 [ext_resource type="Texture2D" uid="uid://6fr2j3075r1f" path="res://characters/guillermo/combat/fainted.png" id="4_x4bf4"]
-[ext_resource type="Texture2D" uid="uid://dbsds7656htwx" path="res://characters/guillermo/rpg/guillermo_portrait.png" id="6_ugdgc"]
+[ext_resource type="Texture2D" uid="uid://b4p5rlv2f43aj" path="res://assets/combat_sprites/portraits.png" id="5_inh3a"]
 [ext_resource type="Texture2D" uid="uid://b0ainjfp61ope" path="res://characters/noby_combate.png" id="7_vcwol"]
 [ext_resource type="Resource" uid="uid://2qrcbncw64ml" path="res://characters/guillermo/combat/skill1/guille_skill_1.tres" id="10_ahs5w"]
 [ext_resource type="Resource" uid="uid://dcnqwmqync6py" path="res://characters/guillermo/combat/skill2/guille_skill_2.tres" id="11_3bxh1"]
@@ -20,6 +20,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ei4ua"]
 resource_local_to_scene = true
 size = Vector2(128, 61)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7bej6"]
+atlas = ExtResource("5_inh3a")
+region = Rect2(276, 125, 42, 31)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_25r7v"]
 atlas = ExtResource("4_x4bf4")
@@ -92,7 +96,8 @@ combat_animation = NodePath("Sprites/CombatSprites")
 visible = false
 offset_right = 562.0
 offset_bottom = 431.0
-texture = ExtResource("6_ugdgc")
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_7bej6")
 expand_mode = 1
 stretch_mode = 2
 

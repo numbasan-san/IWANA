@@ -4,16 +4,23 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eghr6"]
 resource_local_to_scene = true
-size = Vector2(185, 50)
+size = Vector2(43, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78l3l"]
 resource_local_to_scene = true
-size = Vector2(190, 60)
+size = Vector2(41, 6)
 
 [node name="ClassroomDoor" instance=ExtResource("1_vyrhv")]
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -33)
+scale = Vector2(1, 1)
 
 [node name="Collision" parent="." index="1"]
+position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_eghr6")
 
 [node name="CollisionShape2D" parent="ZoneChange" index="0"]
+position = Vector2(-0.5, -1)
 shape = SubResource("RectangleShape2D_78l3l")

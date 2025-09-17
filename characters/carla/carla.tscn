@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dorc15lxpd2w4"]
+[gd_scene load_steps=23 format=3 uid="uid://dorc15lxpd2w4"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Resource" uid="uid://dqghkllfgkd3g" path="res://script/characters/resource/carla.tres" id="2_g18jn"]
@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://boe2ejslup8co" path="res://characters/carla/vn/neutral.png" id="4_03jaf"]
 [ext_resource type="Texture2D" uid="uid://bwmjdrfbyflyo" path="res://characters/carla/combat/fainted.png" id="4_50y82"]
 [ext_resource type="Texture2D" uid="uid://dk1vdl2oqyw8r" path="res://characters/carla/rpg/movement_384x240.png" id="4_74ne1"]
-[ext_resource type="Texture2D" uid="uid://hrxhwymn3xxf" path="res://characters/carla/rpg/carla_portrait.png" id="6_m1qib"]
+[ext_resource type="Texture2D" uid="uid://b4p5rlv2f43aj" path="res://assets/combat_sprites/portraits.png" id="5_cnfhk"]
 [ext_resource type="Texture2D" uid="uid://b0ainjfp61ope" path="res://characters/noby_combate.png" id="7_yjqap"]
 [ext_resource type="Resource" uid="uid://dictbrxqi37wy" path="res://characters/carla/combat/skill1/carla_skill_1.tres" id="10_5wqqk"]
 [ext_resource type="Resource" uid="uid://c7ctd4sjh66jy" path="res://characters/carla/combat/skill2/carla_skill_2.tres" id="11_tpjcy"]
@@ -20,6 +20,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyij3"]
 resource_local_to_scene = true
 size = Vector2(98, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyoah"]
+atlas = ExtResource("5_cnfhk")
+region = Rect2(323, 167, 51, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dahf2"]
 atlas = ExtResource("4_50y82")
@@ -94,7 +98,8 @@ combat_animation = NodePath("Sprites/CombatSprite")
 visible = false
 offset_right = 790.0
 offset_bottom = 516.0
-texture = ExtResource("6_m1qib")
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_gyoah")
 expand_mode = 1
 stretch_mode = 2
 
