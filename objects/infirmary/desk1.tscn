@@ -8,7 +8,7 @@
 region_rect = Rect2(176, 96, 99, 56)
 
 [node name="StaticBody2D" parent="." index="1"]
-position = Vector2(-247, 140)
+position = Vector2(-49.3333, 28)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
-polygon = PackedVector2Array(0, 0, 265, 0, 265, -100, 434, -100, 434, -5, 494.5, -5, 494.5, -190, 179, -190, 179, -280, 0, -280)
+polygon = PackedVector2Array(0, 0, 53, 0, 53, -20, 87, -20, 87, -1, 99, -1, 99, -38, 36, -38, 36, -56, 0, -56)

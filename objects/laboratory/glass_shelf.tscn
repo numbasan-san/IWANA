@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://wj1qx5xeiuf3" path="res://objects/laboratory/base_lab_object.tscn" id="1_hrrin"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_enw16"]
-size = Vector2(164, 72)
+size = Vector2(33, 15)
 
 [node name="GlassShelf" instance=ExtResource("1_hrrin")]
 
@@ -11,5 +11,5 @@ size = Vector2(164, 72)
 region_rect = Rect2(96, 80, 33, 29)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0, 36)
+position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_enw16")

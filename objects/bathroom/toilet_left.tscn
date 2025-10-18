@@ -3,12 +3,12 @@
 [ext_resource type="PackedScene" uid="uid://dj1fgnd3hus27" path="res://objects/bathroom/base_bathroom_object.tscn" id="1_o1evd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pumgp"]
-size = Vector2(170, 67)
+size = Vector2(33.3333, 17.6667)
 
 [node name="ToiletLeft" instance=ExtResource("1_o1evd")]
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, -2)
+position = Vector2(0, 0.333333)
 offset = Vector2(0, -20)
 region_rect = Rect2(210, 43, 34, 40)
 
@@ -16,5 +16,5 @@ region_rect = Rect2(210, 43, 34, 40)
 position = Vector2(0, -112)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0, 78.5)
+position = Vector2(-1, 103.167)
 shape = SubResource("RectangleShape2D_pumgp")

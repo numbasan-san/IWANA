@@ -3,17 +3,17 @@
 [ext_resource type="PackedScene" uid="uid://c3hohlexko4k6" path="res://objects/art/base_art_object.tscn" id="1_mw3pp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0gc8t"]
-size = Vector2(180, 57)
+size = Vector2(38.6667, 21.6667)
 
 [node name="Easel1" instance=ExtResource("1_mw3pp")]
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, -98)
+position = Vector2(0, -26)
 region_rect = Rect2(268, 13, 40, 51)
 
 [node name="StaticBody2D" parent="." index="1"]
 position = Vector2(0, -98)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0, 99)
+position = Vector2(0.666667, 87.5)
 shape = SubResource("RectangleShape2D_0gc8t")

@@ -20,7 +20,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wons5"]
 resource_local_to_scene = true
-size = Vector2(128, 61)
+size = Vector2(26.6667, 10.6667)
 
 [sub_resource type="Animation" id="Animation_gci7i"]
 length = 0.001
@@ -548,16 +548,13 @@ energy_cost = 5
 char_info = ExtResource("2_nwx1m")
 unique = false
 
-[node name="RPGModel" parent="." index="1"]
-visible = false
-
 [node name="Sprite2D" parent="RPGModel" index="0"]
-position = Vector2(0, -127)
-scale = Vector2(5, 5)
+position = Vector2(0, -25)
 texture = ExtResource("4_i5aca")
 hframes = 1
 
 [node name="Collider" parent="RPGModel" index="1"]
+position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_wons5")
 
 [node name="Animation" parent="RPGModel" index="2"]
@@ -579,6 +576,7 @@ offset_bottom = 40.0
 texture = ExtResource("5_ofaxp")
 
 [node name="CombatSprites" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
+visible = false
 sprite_frames = SubResource("SpriteFrames_ka6c2")
 animation = &"idle"
 offset = Vector2(0, -96)

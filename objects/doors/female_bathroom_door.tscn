@@ -4,11 +4,11 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hdtjl"]
 resource_local_to_scene = true
-size = Vector2(185, 30)
+size = Vector2(40, 6.66667)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b2r4n"]
 resource_local_to_scene = true
-size = Vector2(190, 40)
+size = Vector2(43.6667, 11)
 
 [node name="FemaleBathroomDoor" instance=ExtResource("1_efrq7")]
 
@@ -16,7 +16,9 @@ size = Vector2(190, 40)
 region_rect = Rect2(119, 112, 37, 65)
 
 [node name="Collision" parent="." index="1"]
+position = Vector2(-0.333335, -2.33333)
 shape = SubResource("RectangleShape2D_hdtjl")
 
 [node name="CollisionShape2D" parent="ZoneChange" index="0"]
+position = Vector2(-0.166669, -2.5)
 shape = SubResource("RectangleShape2D_b2r4n")

@@ -4,23 +4,25 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aco3x"]
 resource_local_to_scene = true
-size = Vector2(185, 50)
+size = Vector2(40, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0tnko"]
 resource_local_to_scene = true
-size = Vector2(190, 60)
+size = Vector2(43, 10.3333)
 
 [node name="BlockedDoor" instance=ExtResource("1_12rmk")]
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(12, -163)
+position = Vector2(0.333334, -32.3333)
 region_rect = Rect2(292, 111, 71, 65)
 
 [node name="Collision" parent="." index="1"]
+position = Vector2(-1.66666, -1.83333)
 shape = SubResource("RectangleShape2D_aco3x")
 
 [node name="ZoneChange" parent="." index="2"]
 is_active = false
 
 [node name="CollisionShape2D" parent="ZoneChange" index="0"]
+position = Vector2(-1.83333, -1.83333)
 shape = SubResource("RectangleShape2D_0tnko")

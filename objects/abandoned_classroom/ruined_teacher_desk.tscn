@@ -5,11 +5,11 @@
 [node name="RuinedTeacherDesk" instance=ExtResource("1_1jtb8")]
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, -64)
+position = Vector2(0, -29.3333)
 region_rect = Rect2(272, 152, 86, 57)
 
 [node name="StaticBody2D" parent="." index="1"]
-position = Vector2(0, -64)
+position = Vector2(0, -29.3333)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
-polygon = PackedVector2Array(-205, 142, 205, 142, 205, 28, 55, 28, 55, -70, -55, -70, -55, 28, -205, 28)
+polygon = PackedVector2Array(-41, 29, 41, 29, 41, 6, 12, 6, 12, -11, -12, -11, -12, 6, -41, 6)

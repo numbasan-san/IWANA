@@ -5,7 +5,7 @@
 [node name="ComputerBack" instance=ExtResource("1_exepq")]
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, -48)
+position = Vector2(0, -16.3333)
 region_rect = Rect2(75, 15, 46, 32)
 
 [node name="StaticBody2D" parent="." index="1"]

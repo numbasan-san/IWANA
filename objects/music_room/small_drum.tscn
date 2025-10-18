@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cdkd5rptah77s" path="res://objects/music_room/base_music_room_object.tscn" id="1_400us"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3p6sx"]
-size = Vector2(120, 48)
+size = Vector2(23, 10)
 
 [node name="SmallDrum" instance=ExtResource("1_400us")]
 
@@ -11,5 +11,5 @@ size = Vector2(120, 48)
 region_rect = Rect2(343, 187, 36, 24)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(-18, 21)
+position = Vector2(-3.5, 4.33333)
 shape = SubResource("RectangleShape2D_3p6sx")

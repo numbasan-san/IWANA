@@ -19,7 +19,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2bal8"]
 resource_local_to_scene = true
-size = Vector2(128, 61)
+size = Vector2(26.6667, 9)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_arbi4"]
 atlas = ExtResource("6_hc54e")
@@ -70,12 +70,8 @@ texture = ExtResource("3_xswt3")
 scale = Vector2(-1, 1)
 texture = ExtResource("4_bra5u")
 
-[node name="RPGModel" parent="." index="1"]
-visible = false
-
 [node name="Sprite2D" parent="RPGModel" index="0"]
-position = Vector2(0, 8)
-scale = Vector2(5, 5)
+position = Vector2(0, 2)
 texture = ExtResource("5_2187o")
 offset = Vector2(0, -42)
 vframes = 8
@@ -83,7 +79,7 @@ frame = 16
 region_rect = Rect2(457, 660, 145, 300)
 
 [node name="Collider" parent="RPGModel" index="1"]
-position = Vector2(0, 0)
+position = Vector2(-0.333333, -2.5)
 shape = SubResource("RectangleShape2D_2bal8")
 
 [node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
@@ -97,6 +93,7 @@ scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_arbi4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
+visible = false
 sprite_frames = SubResource("SpriteFrames_o8ufn")
 animation = &"idle"
 offset = Vector2(15, -105)

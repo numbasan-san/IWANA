@@ -4,15 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://6i7xlato60w" path="res://objects/general/hallway_384x240.png" id="2_t8vk2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2wd2n"]
-size = Vector2(170, 136)
+size = Vector2(34, 34.3333)
 
 [node name="Locker" instance=ExtResource("1_mavtk")]
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, -173)
+position = Vector2(0, -34.3333)
 texture = ExtResource("2_t8vk2")
 region_rect = Rect2(144, 59, 34, 69)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0, -68)
+position = Vector2(0, -16.8333)
 shape = SubResource("RectangleShape2D_2wd2n")

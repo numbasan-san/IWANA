@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bexdhvmbe3drg" path="res://objects/infirmary/base_inf_object.tscn" id="1_spohn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3erlk"]
-size = Vector2(245, 144)
+size = Vector2(49, 31)
 
 [node name="Bookshelf" instance=ExtResource("1_spohn")]
 
@@ -11,5 +11,5 @@ size = Vector2(245, 144)
 region_rect = Rect2(16, 119, 49, 73)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0.5, 110)
+position = Vector2(0, 21)
 shape = SubResource("RectangleShape2D_3erlk")

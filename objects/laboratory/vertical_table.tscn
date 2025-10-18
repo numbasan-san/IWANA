@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://wj1qx5xeiuf3" path="res://objects/laboratory/base_lab_object.tscn" id="1_hn1le"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pxp84"]
-size = Vector2(180, 315)
+size = Vector2(36, 71)
 
 [node name="VerticalTable" instance=ExtResource("1_hn1le")]
 
@@ -11,5 +11,5 @@ size = Vector2(180, 315)
 region_rect = Rect2(95, 121, 36, 87)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0, 60.5)
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_pxp84")

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://biiwse0aflo38" path="res://objects/abandoned_bathroom/base_broken_bathroom_object.tscn" id="1_gm87g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pumgp"]
-size = Vector2(157, 71)
+size = Vector2(33.6667, 20.6667)
 
 [node name="BrokenToiletLeft3" instance=ExtResource("1_gm87g")]
 
@@ -15,5 +15,5 @@ region_rect = Rect2(174, 109, 36, 40)
 position = Vector2(0, -112)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(3.5, 77.5)
+position = Vector2(-0.5, 102.667)
 shape = SubResource("RectangleShape2D_pumgp")

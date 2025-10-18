@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bexdhvmbe3drg" path="res://objects/infirmary/base_inf_object.tscn" id="1_mt0ry"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrm2d"]
-size = Vector2(180, 80)
+size = Vector2(36, 16)
 
 [node name="Desk4" instance=ExtResource("1_mt0ry")]
 

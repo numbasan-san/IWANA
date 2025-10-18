@@ -3,17 +3,17 @@
 [ext_resource type="PackedScene" uid="uid://cwc3o8rysyn6q" path="res://objects/abandoned_classroom/base_abandoned_room_object.tscn" id="1_dkncy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1uh25"]
-size = Vector2(200, 104)
+size = Vector2(40, 20)
 
 [node name="RuinedDesk1" instance=ExtResource("1_dkncy")]
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, -43)
+position = Vector2(0, -19)
 region_rect = Rect2(14, 107, 42, 37)
 
 [node name="StaticBody2D" parent="." index="1"]
 position = Vector2(0, -43)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0, 43)
+position = Vector2(0, 36.3333)
 shape = SubResource("RectangleShape2D_1uh25")

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bhdwcwp1jcngf" path="res://objects/cafeteria/base_cafe_object.tscn" id="1_w7uht"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dx7eg"]
-size = Vector2(360, 155)
+size = Vector2(72, 29)
 
 [node name="CounterRight" instance=ExtResource("1_w7uht")]
 
@@ -11,5 +11,5 @@ size = Vector2(360, 155)
 region_rect = Rect2(230, 39, 72, 48)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0, 42.5)
+position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_dx7eg")

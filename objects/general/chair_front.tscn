@@ -4,14 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://bmnpiur6fnpci" path="res://objects/general/chairs_and_tables_384x240.png" id="2_oo4ew"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtqo8"]
-size = Vector2(96, 47.5)
+size = Vector2(20.3333, 15.3333)
 
 [node name="ChairFront" instance=ExtResource("1_f0ts6")]
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, -69)
+position = Vector2(0, -18.3333)
 texture = ExtResource("2_oo4ew")
 region_rect = Rect2(132, 91, 23, 37)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0.166668, -6.66667)
 shape = SubResource("RectangleShape2D_mtqo8")

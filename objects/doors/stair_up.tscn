@@ -5,16 +5,15 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8m6ej"]
 resource_local_to_scene = true
-size = Vector2(391, 192)
+size = Vector2(73.6667, 46.3333)
 
 [node name="StairUp" instance=ExtResource("1_ejrs0")]
 
 [node name="Sprite2D" parent="." index="0"]
-scale = Vector2(5, 5)
 texture = ExtResource("2_ti0cj")
 region_enabled = true
 region_rect = Rect2(236, 16, 83, 96)
 
 [node name="CollisionShape2D" parent="ZoneChange" index="0"]
-position = Vector2(12.5, 101)
+position = Vector2(0.5, 11.8333)
 shape = SubResource("RectangleShape2D_8m6ej")

@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://wbj1vo2sxovp"]
 
 [ext_resource type="PackedScene" uid="uid://bqvxhi7wt87t" path="res://zones/base_classroom_north.tscn" id="1_yabyw"]
-[ext_resource type="Resource" path="res://script/zones/zone_info/resources/room_f2n2.tres" id="2_jejk8"]
-[ext_resource type="Texture2D" uid="uid://clf42238t4vgq" path="res://assets/rpg_sprites/objects/floors_and_walls.png" id="3_uouwd"]
+[ext_resource type="Resource" uid="uid://cpd4w5o0o0bvl" path="res://script/zones/zone_info/resources/room_f2n2.tres" id="2_jejk8"]
+[ext_resource type="Texture2D" uid="uid://bvxm38e6wuv8e" path="res://zones/floors_and_walls_384x240.png" id="3_2cehm"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_sya36"]
 tile_data = PackedInt32Array(0, 65537, 1, 65536, 65537, 2, 131072, 65537, 3, 196608, 65537, 4, 1, 131073, 1, 65537, 131073, 2, 131073, 131073, 3, 196609, 131073, 4, 2, 196609, 1, 65538, 196609, 2, 131074, 196609, 3, 196610, 196609, 4, 3, 262145, 1, 65539, 262145, 2, 131075, 262145, 3, 196611, 262145, 4)
@@ -32,8 +32,7 @@ tile_data = PackedInt32Array(0, 524289, 2, 65536, 524289, 3, 131072, 524289, 4)
 tile_data = PackedInt32Array(0, 458753, 4, 1, 458753, 4, 2, 458753, 4, 3, 458753, 4, 4, 458753, 4)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bp53h"]
-texture = ExtResource("3_uouwd")
-texture_region_size = Vector2i(80, 80)
+texture = ExtResource("3_2cehm")
 1:1/0 = 0
 1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:1/0/physics_layer_0/angular_velocity = 0.0
@@ -130,9 +129,65 @@ texture_region_size = Vector2i(80, 80)
 5:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:1/0/physics_layer_0/angular_velocity = 0.0
 5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(15, -40, 40, -40, 40, 40, 15, 40)
+5:0/0 = 0
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+6:0/0 = 0
+6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:0/0/physics_layer_0/angular_velocity = 0.0
+7:0/0 = 0
+7:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:0/0/physics_layer_0/angular_velocity = 0.0
+9:5/0 = 0
+9:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+9:5/0/physics_layer_0/angular_velocity = 0.0
+10:5/0 = 0
+10:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+10:5/0/physics_layer_0/angular_velocity = 0.0
+11:5/0 = 0
+11:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+11:5/0/physics_layer_0/angular_velocity = 0.0
+12:5/0 = 0
+12:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+12:5/0/physics_layer_0/angular_velocity = 0.0
+9:6/0 = 0
+9:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+9:6/0/physics_layer_0/angular_velocity = 0.0
+10:6/0 = 0
+10:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+10:6/0/physics_layer_0/angular_velocity = 0.0
+11:6/0 = 0
+11:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+11:6/0/physics_layer_0/angular_velocity = 0.0
+12:6/0 = 0
+12:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+12:6/0/physics_layer_0/angular_velocity = 0.0
+9:7/0 = 0
+9:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+9:7/0/physics_layer_0/angular_velocity = 0.0
+10:7/0 = 0
+10:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+10:7/0/physics_layer_0/angular_velocity = 0.0
+11:7/0 = 0
+11:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+11:7/0/physics_layer_0/angular_velocity = 0.0
+12:7/0 = 0
+12:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+12:7/0/physics_layer_0/angular_velocity = 0.0
+9:8/0 = 0
+9:8/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+9:8/0/physics_layer_0/angular_velocity = 0.0
+10:8/0 = 0
+10:8/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+10:8/0/physics_layer_0/angular_velocity = 0.0
+11:8/0 = 0
+11:8/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+11:8/0/physics_layer_0/angular_velocity = 0.0
+12:8/0 = 0
+12:8/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+12:8/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_8cfmj"]
-tile_size = Vector2i(80, 80)
 physics_layer_0/collision_layer = 3
 sources/0 = SubResource("TileSetAtlasSource_bp53h")
 pattern_0 = SubResource("TileMapPattern_sya36")
@@ -151,7 +206,7 @@ room_info = ExtResource("2_jejk8")
 
 [node name="Door" parent="." index="0"]
 modulate = Color(1, 1, 1, 0.509804)
-position = Vector2(640, 2172)
+position = Vector2(385, 1306)
 zone = "f2n_hallway"
 spawn = "SpawnF2N2"
 
@@ -159,7 +214,7 @@ spawn = "SpawnF2N2"
 tile_set = SubResource("TileSet_8cfmj")
 
 [node name="SpawnHallway" parent="SpawnPoints" index="0"]
-position = Vector2(640, 2062)
+position = Vector2(385, 1196)
 
 [node name="Items" type="Node2D" parent="." index="5"]
 z_index = 1

@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dj1fgnd3hus27" path="res://objects/bathroom/base_bathroom_object.tscn" id="1_mhivs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glq66"]
-size = Vector2(115, 70)
+size = Vector2(23, 11.1667)
 
 [node name="SinkTop" instance=ExtResource("1_mhivs")]
 
@@ -16,5 +16,5 @@ region_rect = Rect2(282, 40, 23, 22)
 position = Vector2(0, -57)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0, 27)
+position = Vector2(0, 51.4167)
 shape = SubResource("RectangleShape2D_glq66")

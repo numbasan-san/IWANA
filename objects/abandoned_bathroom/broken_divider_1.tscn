@@ -15,11 +15,11 @@ size = Vector2(67, 61.6667)
 [node name="BrokenDivider1" instance=ExtResource("1_fmexp")]
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, -37)
+position = Vector2(0, -29)
 region_rect = Rect2(2, 4, 64, 58)
 
 [node name="StaticBody2D" parent="." index="1"]
-position = Vector2(0, -10)
+position = Vector2(0, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 position = Vector2(-22.8333, -1)
@@ -30,7 +30,7 @@ position = Vector2(23, -1)
 shape = SubResource("RectangleShape2D_pujgk")
 
 [node name="ActivateTransparency" type="Area2D" parent="." index="2" node_paths=PackedStringArray("sprite")]
-position = Vector2(0, -10)
+position = Vector2(0, -2)
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("2_rcv2k")
