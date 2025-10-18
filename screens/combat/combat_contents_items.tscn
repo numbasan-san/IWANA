@@ -1,22 +1,22 @@
-[gd_scene load_steps=28 format=3 uid="uid://f2oog5xfhsha"]
+[gd_scene load_steps=28 format=3]
 
 [ext_resource type="Script" path="res://screens/combat/combat_screen_contents.gd" id="1_o364i"]
-[ext_resource type="Texture2D" uid="uid://cb684s5oknex5" path="res://assets/combat_sprites/background1.png" id="2_lv2pp"]
-[ext_resource type="Texture2D" uid="uid://c1p2fcfrkfpt3" path="res://assets/combat_sprites/frame.png" id="3_qe1v6"]
+[ext_resource type="Texture2D" uid="uid://ddusl4u64qj4v" path="res://assets/combat_sprites/background1.png" id="2_lv2pp"]
+[ext_resource type="Texture2D" uid="uid://fmslxpw5ctsi" path="res://assets/combat_sprites/frame.png" id="3_qe1v6"]
 [ext_resource type="PackedScene" uid="uid://dbuixiuq0ijmx" path="res://screens/combat/portrait_container.tscn" id="3_v8xkj"]
 [ext_resource type="Script" path="res://screens/combat/combat_party_area.gd" id="4_fhsny"]
 [ext_resource type="PackedScene" uid="uid://3d6j1vup2i4s" path="res://screens/combat/sprite_container.tscn" id="4_vgjmr"]
-[ext_resource type="Texture2D" uid="uid://cywnvlli7m8hi" path="res://assets/combat_sprites/buttons/ataque_no_selecccionado.png" id="7_k3t3k"]
-[ext_resource type="Texture2D" uid="uid://c45y0kvlror7t" path="res://assets/combat_sprites/buttons/ataque_selecccionado.png" id="8_fewc1"]
+[ext_resource type="Texture2D" uid="uid://bptcs2n2oxrnv" path="res://assets/combat_sprites/buttons/ataque_no_selecccionado.png" id="7_k3t3k"]
+[ext_resource type="Texture2D" uid="uid://dkan7xpea78m2" path="res://assets/combat_sprites/buttons/ataque_selecccionado.png" id="8_fewc1"]
 [ext_resource type="Script" path="res://screens/combat/party_menu.gd" id="8_hf5qu"]
-[ext_resource type="Texture2D" uid="uid://cbbhha8rt1jyp" path="res://assets/combat_sprites/containers.png" id="9_1667j"]
-[ext_resource type="Texture2D" uid="uid://sokuuxg6v05t" path="res://assets/combat_sprites/buttons/defensa_no_selecccionado.png" id="9_j2r3x"]
-[ext_resource type="Texture2D" uid="uid://dg883m3xifkse" path="res://assets/combat_sprites/buttons/defensa_selecccionado.png" id="10_wpyws"]
-[ext_resource type="Texture2D" uid="uid://bu3ckktn8wcve" path="res://assets/combat_sprites/buttons/huir_no_selecccionado.png" id="11_wxol7"]
-[ext_resource type="Texture2D" uid="uid://bs54ua3nro6id" path="res://assets/combat_sprites/buttons/huir_selecccionado.png" id="12_1rras"]
-[ext_resource type="FontFile" uid="uid://bblsuwte4n5py" path="res://assets/combat_sprites/font/IWANA.ttf" id="15_5rv14"]
+[ext_resource type="Texture2D" uid="uid://cm64jidg3k4ae" path="res://assets/combat_sprites/containers.png" id="9_1667j"]
+[ext_resource type="Texture2D" uid="uid://qbx8ont43lkk" path="res://assets/combat_sprites/buttons/defensa_no_selecccionado.png" id="9_j2r3x"]
+[ext_resource type="Texture2D" uid="uid://w8agfh6y8rtq" path="res://assets/combat_sprites/buttons/defensa_selecccionado.png" id="10_wpyws"]
+[ext_resource type="Texture2D" uid="uid://bo7bc57ao6vyw" path="res://assets/combat_sprites/buttons/huir_no_selecccionado.png" id="11_wxol7"]
+[ext_resource type="Texture2D" uid="uid://bhovu86cekktn" path="res://assets/combat_sprites/buttons/huir_selecccionado.png" id="12_1rras"]
+[ext_resource type="FontFile" uid="uid://bjh56wfvej2vg" path="res://assets/combat_sprites/font/IWANA.ttf" id="15_5rv14"]
 [ext_resource type="Script" path="res://screens/combat/skills_menu.gd" id="16_3nacl"]
-[ext_resource type="Texture2D" uid="uid://df0cqu1kk8w50" path="res://assets/combat_sprites/skills_paper.png" id="17_n5htp"]
+[ext_resource type="Texture2D" uid="uid://4xwrses4uu7v" path="res://assets/combat_sprites/skills_paper.png" id="17_n5htp"]
 [ext_resource type="PackedScene" uid="uid://3a5ilvkkwddg" path="res://scenes/menus/game_menu/utilities/item_card.tscn" id="18_70n08"]
 [ext_resource type="Script" path="res://script/menus/game_menu/combat_items_menu.gd" id="18_w5txb"]
 
@@ -477,7 +477,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_qe1v6")
 
-[node name="RightArea" type="Control" parent="." node_paths=PackedStringArray("sprite_containers")]
+[node name="RightArea" type="Control" parent="."]
 layout_mode = 1
 anchor_left = 0.654
 anchor_top = 0.35
@@ -487,44 +487,38 @@ offset_left = 0.319946
 offset_top = -3.05176e-05
 offset_bottom = 0.359985
 script = ExtResource("4_fhsny")
-sprite_containers = [NodePath("SpriteContainer1"), NodePath("SpriteContainer2"), NodePath("SpriteContainer3"), NodePath("SpriteContainer4")]
-direction = -1
 
 [node name="SpriteContainer1" parent="RightArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
 anchors_preset = 4
+anchor_left = 0.0
 anchor_top = 0.5
+anchor_right = 0.0
 anchor_bottom = 0.5
 offset_left = -100.0
 offset_top = -149.5
 offset_right = 100.0
 offset_bottom = 150.5
+grow_horizontal = 1
 grow_vertical = 2
 
 [node name="SpriteContainer2" parent="RightArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
 anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
+anchor_top = 0.0
+anchor_bottom = 0.0
 offset_left = -100.0
 offset_top = -150.0
 offset_right = 99.9999
 offset_bottom = 150.0
-grow_horizontal = 2
+grow_vertical = 1
 
 [node name="SpriteContainer3" parent="RightArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
 offset_left = -102.0
 offset_top = -151.0
 offset_right = 97.9999
 offset_bottom = 149.0
-grow_horizontal = 2
-grow_vertical = 0
 
 [node name="SpriteContainer4" parent="RightArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
@@ -540,7 +534,7 @@ offset_bottom = 153.5
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="LeftArea" type="Control" parent="." node_paths=PackedStringArray("sprite_containers")]
+[node name="LeftArea" type="Control" parent="."]
 layout_mode = 1
 anchor_left = 0.165
 anchor_top = 0.35
@@ -550,7 +544,6 @@ offset_left = 0.199982
 offset_top = -3.05176e-05
 offset_right = -0.200073
 script = ExtResource("4_fhsny")
-sprite_containers = [NodePath("SpriteContainer1"), NodePath("SpriteContainer2"), NodePath("SpriteContainer3"), NodePath("SpriteContainer4")]
 
 [node name="SpriteContainer1" parent="LeftArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
@@ -569,37 +562,33 @@ grow_vertical = 2
 [node name="SpriteContainer2" parent="LeftArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
 anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
+anchor_top = 0.0
+anchor_bottom = 0.0
 offset_left = -102.0
 offset_top = -150.0
 offset_right = 98.0
 offset_bottom = 150.0
-grow_horizontal = 2
+grow_vertical = 1
 
 [node name="SpriteContainer3" parent="LeftArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
 offset_left = -100.0
 offset_top = -142.0
 offset_right = 100.0
 offset_bottom = 158.0
-grow_horizontal = 2
-grow_vertical = 0
 
 [node name="SpriteContainer4" parent="LeftArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
 anchors_preset = 4
+anchor_left = 0.0
 anchor_top = 0.5
+anchor_right = 0.0
 anchor_bottom = 0.5
 offset_left = -93.0
 offset_top = -142.0
 offset_right = 107.0
 offset_bottom = 158.0
+grow_horizontal = 1
 grow_vertical = 2
 
 [node name="PartyMenu" type="Control" parent="." node_paths=PackedStringArray("combat", "party_slots")]
@@ -608,8 +597,10 @@ anchor_left = 0.133
 anchor_top = 0.633
 anchor_right = 0.962
 anchor_bottom = 0.926
-offset_left = -0.360001
-offset_top = 0.359985
+offset_left = 255.0
+offset_top = 684.0
+offset_right = 1847.04
+offset_bottom = 1000.08
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("8_hf5qu")
@@ -770,9 +761,10 @@ anchor_left = 0.133
 anchor_top = 0.633
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -0.360001
-offset_top = 466.36
-offset_bottom = 466.36
+offset_left = 255.0
+offset_top = 1150.0
+offset_right = 255.36
+offset_bottom = 1150.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("16_3nacl")
@@ -833,8 +825,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 255.0
 offset_top = 1150.0
-offset_right = -27.0
-offset_bottom = 435.0
+offset_right = 1893.0
+offset_bottom = 1515.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("18_w5txb")
