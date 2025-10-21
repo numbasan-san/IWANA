@@ -6,6 +6,10 @@ extends CharacterBody2D
 
 var character: Character
 
+# TODO: this is the player controled character's speed. The followers' is set
+# in PartyFollower. Maybe they should be set in one place.
+var speed: float = 400
+
 var axis : Vector2
 var sprite_in_turn : Texture
 var anim = ''
@@ -34,8 +38,8 @@ func _process(_delta):
 		# Axis is currently only set from the player controler
 		# so this code only executes for the character currently
 		# controlled by the player
-		velocity.x = axis.x * 800
-		velocity.y = axis.y * 800
+		velocity.x = axis.x * speed
+		velocity.y = axis.y * speed
 		move_and_slide()
 	
 	# Animations depending of the player direction

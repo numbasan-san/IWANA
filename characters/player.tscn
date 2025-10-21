@@ -7,18 +7,18 @@
 [sub_resource type="CanvasTexture" id="CanvasTexture_pds3y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_p8wqi"]
-size = Vector2(42, 43)
+size = Vector2(32, 35)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tclry"]
 resource_local_to_scene = true
-size = Vector2(62, 61)
+size = Vector2(44, 47)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yq1h1"]
 resource_local_to_scene = true
-size = Vector2(38, 39)
+size = Vector2(28, 31)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nwfji"]
-size = Vector2(34, 35)
+size = Vector2(24, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2a8vr"]
 size = Vector2(30, 38)
@@ -33,7 +33,7 @@ general_interaction_area = NodePath("GeneralInteraction")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerControl"]
 position = Vector2(0, -0.5)
-zoom = Vector2(0.6, 0.6)
+zoom = Vector2(1.5, 1.5)
 
 [node name="TextureRect" type="TextureRect" parent="PlayerControl/Camera2D"]
 modulate = Color(0.0784314, 0.0784314, 0.0784314, 1)
@@ -57,7 +57,6 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerControl/Camera2D/CameraCollision"]
-position = Vector2(0, -9.53674e-07)
 shape = SubResource("RectangleShape2D_p8wqi")
 
 [node name="ItemCollection" type="Area2D" parent="PlayerControl"]

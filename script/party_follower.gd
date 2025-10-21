@@ -18,7 +18,7 @@ var distance: float
 # Inner variable to calculate the direction where the model should look
 var _PI_QRT = PI/4
 
-func _init(character: Character, speed: float = 800, distance: float = 200):
+func _init(character: Character, speed: float = 400, distance: float = 100):
 	self.character = character
 	self.speed = speed
 	self.distance = distance
