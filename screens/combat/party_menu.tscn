@@ -83,15 +83,14 @@ offset_bottom = 318.0
 texture = SubResource("AtlasTexture_4841x")
 
 [node name="ActionList" type="VBoxContainer" parent="Actions"]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 118.904
-offset_top = 20.056
-offset_right = -66.0958
-offset_bottom = 73.056
+offset_top = 36.056
+offset_right = -23.096
+offset_bottom = 89.056
 grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 theme_override_constants/separation = 10

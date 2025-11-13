@@ -261,6 +261,18 @@ tracks/11/keys = {
 "update": 1,
 "values": [0.0]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("ItemsMenu:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_pov82"]
 resource_name = "ShowItems"
@@ -451,16 +463,17 @@ offset_bottom = -0.440063
 looking_left = false
 formation = Array[Vector2i]([Vector2i(3, 2), Vector2i(2, 1), Vector2i(2, 3), Vector2i(1, 2)])
 
-[node name="PartyMenu" parent="." instance=ExtResource("6_fnso2")]
+[node name="PartyMenu" parent="." node_paths=PackedStringArray("combat") instance=ExtResource("6_fnso2")]
 layout_mode = 1
 anchor_left = 0.107
 anchor_top = 0.634
 anchor_right = 0.962
 anchor_bottom = 0.922
-offset_left = 255.0
-offset_top = 684.0
-offset_right = 255.36
-offset_bottom = 684.0
+offset_left = 49.56
+offset_top = -0.720032
+offset_right = 49.92
+offset_bottom = -1.08002
+combat = NodePath("..")
 
 [node name="SkillsMenu" parent="." node_paths=PackedStringArray("combat") instance=ExtResource("7_djut6")]
 visible = false
