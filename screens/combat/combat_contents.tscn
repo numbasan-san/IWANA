@@ -112,7 +112,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(0.42, 1),
 "update": 0,
-"values": [Vector2(255, 684), Vector2(255, 1150)]
+"values": [Vector2(0, 0), Vector2(0, 500)]
 }
 
 [sub_resource type="Animation" id="Animation_rmftu"]
@@ -469,10 +469,10 @@ anchor_left = 0.107
 anchor_top = 0.634
 anchor_right = 0.962
 anchor_bottom = 0.922
-offset_left = 49.56
-offset_top = -0.720032
-offset_right = 49.92
-offset_bottom = -1.08002
+offset_left = 255.0
+offset_top = 684.0
+offset_right = 255.36
+offset_bottom = 684.0
 combat = NodePath("..")
 
 [node name="SkillsMenu" parent="." node_paths=PackedStringArray("combat") instance=ExtResource("7_djut6")]
