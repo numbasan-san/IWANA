@@ -24,9 +24,9 @@ size = Vector2(19.3333, 8.66667)
 atlas = ExtResource("5_ai8td")
 region = Rect2(278, 166, 35, 30)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pts71"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_aavbc"]
 atlas = ExtResource("6_biehk")
-region = Rect2(440, 0, 220, 408)
+region = Rect2(136, 0, 68, 123)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bnpoi"]
 animations = [{
@@ -37,7 +37,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pts71")
+"texture": SubResource("AtlasTexture_aavbc")
 }],
 "loop": true,
 "name": &"idle",
@@ -89,10 +89,10 @@ scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_mx3w4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
-visible = false
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_bnpoi")
 animation = &"idle"
-offset = Vector2(0, -110)
+offset = Vector2(0, -44)
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_tyh81")

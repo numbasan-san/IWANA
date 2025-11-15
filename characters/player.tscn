@@ -33,7 +33,6 @@ general_interaction_area = NodePath("GeneralInteraction")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerControl"]
 position = Vector2(0, -0.5)
-zoom = Vector2(0.8, 0.8)
 
 [node name="TextureRect" type="TextureRect" parent="PlayerControl/Camera2D"]
 modulate = Color(0.0784314, 0.0784314, 0.0784314, 1)

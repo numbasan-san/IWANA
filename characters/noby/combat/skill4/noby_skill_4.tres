@@ -1,10 +1,17 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=11 format=3 uid="uid://7itin0wyy3p7"]
+[gd_resource type="Resource" script_class="Skill" load_steps=15 format=3 uid="uid://7itin0wyy3p7"]
 
+[ext_resource type="Script" path="res://combat/effects/animation_effects/play_animation.gd" id="1_83rak"]
 [ext_resource type="Script" path="res://combat/effects/conditions/stat_condition.gd" id="1_ybuca"]
 [ext_resource type="Script" path="res://combat/effects/conditional_effect.gd" id="2_7m8se"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="3_j4mow"]
 [ext_resource type="Script" path="res://combat/targets/target_party.gd" id="3_tn0hh"]
 [ext_resource type="Script" path="res://combat/effects/stat_moding_effect.gd" id="4_5vgtg"]
+[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="5_7rd2l"]
+
+[sub_resource type="Resource" id="Resource_ef7yt"]
+script = ExtResource("1_83rak")
+graphic_name = "buff_friends"
+base_value = 1.0
 
 [sub_resource type="Resource" id="Resource_vvmnh"]
 script = ExtResource("1_ybuca")
@@ -13,10 +20,6 @@ stat = "Health"
 operation = "<="
 value = 50.0
 percent = true
-
-[sub_resource type="Resource" id="Resource_3nxiq"]
-script = ExtResource("3_tn0hh")
-exclude_self = true
 
 [sub_resource type="Resource" id="Resource_41hlp"]
 script = ExtResource("4_5vgtg")
@@ -42,11 +45,20 @@ condition = SubResource("Resource_vvmnh")
 when_true = SubResource("Resource_77hf8")
 when_false = SubResource("Resource_41hlp")
 base_value = 1.0
-target_type = SubResource("Resource_3nxiq")
+
+[sub_resource type="Resource" id="Resource_hl5qo"]
+script = ExtResource("3_tn0hh")
+exclude_self = true
+
+[sub_resource type="Resource" id="Resource_wo1ig"]
+script = ExtResource("5_7rd2l")
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_ef7yt"), SubResource("Resource_2qfl6")])
+base_value = 1.0
+target_type = SubResource("Resource_hl5qo")
 
 [resource]
 script = ExtResource("3_j4mow")
 name = "Los quiero mucho amigos"
 description = "Alienta a sus aliados para que reciban un buff de daño o defensa, dependiendo de si sus aliados tienen menos del 50% de la vida (50%< daño, >50% defensa)"
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_2qfl6")])
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_wo1ig")])
 energy_cost = 5

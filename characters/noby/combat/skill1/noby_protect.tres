@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="ProtectedEffect" load_steps=5 format=3 uid="uid://bov2qupnk3otp"]
+[gd_resource type="Resource" script_class="ProtectedEffect" load_steps=6 format=3 uid="uid://bov2qupnk3otp"]
 
 [ext_resource type="Resource" uid="uid://c6qt2xhv3k323" path="res://combat/effects/buffs/protected_data.tres" id="1_jiqwq"]
+[ext_resource type="Resource" uid="uid://d0r6o36bar75v" path="res://characters/noby/combat/skill1/on_protect_animation.tres" id="2_eaetn"]
 [ext_resource type="Script" path="res://combat/effects/buffs/protected.gd" id="3_tsl2a"]
 [ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="4_bdjav"]
 
@@ -14,6 +15,12 @@ allow_repetition = false
 [resource]
 resource_local_to_scene = true
 script = ExtResource("3_tsl2a")
+before_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+after_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+unapply_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+incoming_effects = Array[Resource("res://combat/effects/effect.gd")]([ExtResource("2_eaetn")])
+outgoing_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+character_hit_effects = Array[Resource("res://combat/effects/effect.gd")]([])
 type = 0
 decrease_duration = 4
 duration = 1
