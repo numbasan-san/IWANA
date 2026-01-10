@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://6c3gisnld8sn" path="res://objects/bathroom/bathroom.png" id="2_pbh1r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glq66"]
-size = Vector2(115, 109)
+size = Vector2(23.3333, 22.0833)
 
 [node name="SinkMiddle" instance=ExtResource("1_6mgd6")]
 
@@ -17,5 +17,5 @@ region_rect = Rect2(1410, 314, 115, 109)
 position = Vector2(0, -69)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0, 5)
+position = Vector2(0, 56)
 shape = SubResource("RectangleShape2D_glq66")

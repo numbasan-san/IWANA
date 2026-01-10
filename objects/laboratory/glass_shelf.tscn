@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://choasg1uid36p" path="res://objects/laboratory/laboratory.png" id="2_tb6kp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_enw16"]
-size = Vector2(164, 72)
+size = Vector2(33, 15)
 
 [node name="GlassShelf" instance=ExtResource("1_hrrin")]
 
@@ -13,5 +13,5 @@ texture = ExtResource("2_tb6kp")
 region_rect = Rect2(480, 400, 165, 145)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0, 36)
+position = Vector2(0, 7)
 shape = SubResource("RectangleShape2D_enw16")

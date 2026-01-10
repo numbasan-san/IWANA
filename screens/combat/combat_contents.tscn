@@ -125,7 +125,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(0.42, 1),
 "update": 0,
-"values": [Vector2(255, 684), Vector2(255, 1150)]
+"values": [Vector2(0, 0), Vector2(0, 500)]
 }
 
 [sub_resource type="Animation" id="Animation_rmftu"]
@@ -286,6 +286,7 @@ tracks/12/keys = {
 "update": 1,
 "values": [false]
 }
+<<<<<<< Updated upstream
 tracks/13/type = "value"
 tracks/13/imported = false
 tracks/13/enabled = true
@@ -310,6 +311,8 @@ tracks/14/keys = {
 "update": 0,
 "values": [Vector2(1638, 365)]
 }
+=======
+>>>>>>> Stashed changes
 
 [sub_resource type="Animation" id="Animation_fajbd"]
 resource_name = "ShowItems"
@@ -552,6 +555,7 @@ offset_right = -0.200073
 script = ExtResource("4_fhsny")
 sprite_containers = [NodePath("SpriteContainer1"), NodePath("SpriteContainer2"), NodePath("SpriteContainer3"), NodePath("SpriteContainer4")]
 
+<<<<<<< Updated upstream
 [node name="SpriteContainer1" parent="LeftArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1
 anchors_preset = 6
@@ -565,6 +569,19 @@ offset_right = 100.0
 offset_bottom = 155.0
 grow_horizontal = 0
 grow_vertical = 2
+=======
+[node name="PartyMenu" parent="." node_paths=PackedStringArray("combat") instance=ExtResource("6_fnso2")]
+layout_mode = 1
+anchor_left = 0.107
+anchor_top = 0.634
+anchor_right = 0.962
+anchor_bottom = 0.922
+offset_left = 255.0
+offset_top = 684.0
+offset_right = 255.36
+offset_bottom = 684.0
+combat = NodePath("..")
+>>>>>>> Stashed changes
 
 [node name="SpriteContainer2" parent="LeftArea" instance=ExtResource("4_vgjmr")]
 layout_mode = 1

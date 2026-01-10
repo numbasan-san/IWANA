@@ -13,7 +13,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ei4ua"]
 resource_local_to_scene = true
-size = Vector2(128, 61)
+size = Vector2(27.3333, 11.6667)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rfv2y"]
 size = Vector2(144, 115)
@@ -22,9 +22,15 @@ size = Vector2(144, 115)
 atlas = ExtResource("4_x4bf4")
 region = Rect2(0, 0, 220, 320)
 
+<<<<<<< Updated upstream
 [sub_resource type="AtlasTexture" id="AtlasTexture_cnvdr"]
 atlas = ExtResource("4_43dl1")
 region = Rect2(0, 0, 603, 1732)
+=======
+[sub_resource type="AtlasTexture" id="AtlasTexture_wx7pe"]
+atlas = ExtResource("7_vcwol")
+region = Rect2(204, 0, 68, 123)
+>>>>>>> Stashed changes
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_5q2ra"]
 animations = [{
@@ -38,7 +44,11 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+<<<<<<< Updated upstream
 "texture": SubResource("AtlasTexture_cnvdr")
+=======
+"texture": SubResource("AtlasTexture_wx7pe")
+>>>>>>> Stashed changes
 }],
 "loop": true,
 "name": &"idle",
@@ -88,13 +98,18 @@ scale = Vector2(-1, 1)
 texture = ExtResource("4_43dl1")
 
 [node name="Sprite2D" parent="RPGModel" index="0"]
+<<<<<<< Updated upstream
 texture = ExtResource("3_1k3jo")
 offset = Vector2(0, -150)
+=======
+texture = ExtResource("4_5wuw6")
+offset = Vector2(0, -40)
+>>>>>>> Stashed changes
 vframes = 8
 frame = 16
 
 [node name="Collider" parent="RPGModel" index="1"]
-position = Vector2(0, 1)
+position = Vector2(0.666667, -3.16667)
 shape = SubResource("RectangleShape2D_ei4ua")
 
 [node name="GeneralInteraction" type="Area2D" parent="RPGModel" index="3"]
@@ -117,7 +132,12 @@ expand_mode = 1
 stretch_mode = 2
 
 [node name="CombatSprites" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
+<<<<<<< Updated upstream
 scale = Vector2(0.15, 0.15)
+=======
+position = Vector2(-26, -105)
+scale = Vector2(3, 3)
+>>>>>>> Stashed changes
 sprite_frames = SubResource("SpriteFrames_5q2ra")
 animation = &"fainted"
 

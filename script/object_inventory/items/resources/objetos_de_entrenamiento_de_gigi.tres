@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://obj015"]
+
+[ext_resource type="Script" path="res://script/object_inventory/items/item.gd" id="1_0xw5c"]
+[ext_resource type="Texture2D" uid="uid://c8knhlhrmgo4" path="res://assets/Assests de Pruebas/__glavenus_monster_hunter_drawn_by_milkpanda__sample-b42e3db21a9939973e0e50a33878d1ec.jpg" id="2_y64gx"]
+
+[resource]
+script = ExtResource("1_0xw5c")
+name = "Objetos de entrenamiento de Gigi"
+texture = ExtResource("2_y64gx")
+stack = 99
+cost = 0
+sellelable = true

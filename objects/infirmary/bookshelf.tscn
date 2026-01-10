@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bvnuys1snn1q2" path="res://objects/infirmary/infirmary.png" id="2_bii7g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3erlk"]
-size = Vector2(245, 144)
+size = Vector2(49, 31)
 
 [node name="Bookshelf" instance=ExtResource("1_spohn")]
 
@@ -13,5 +13,5 @@ texture = ExtResource("2_bii7g")
 region_rect = Rect2(80, 595, 245, 365)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0.5, 110)
+position = Vector2(0, 21)
 shape = SubResource("RectangleShape2D_3erlk")

@@ -1,5 +1,5 @@
 class_name Character
-extends Node
+extends Node2D
 
 var char_name: String
 

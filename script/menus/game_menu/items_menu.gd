@@ -1,3 +1,4 @@
+# items_menu.gd
 extends Control
 
 @onready var inventory : Inventory = preload("res://script/object_inventory/inventory/resources/inventory.tres")

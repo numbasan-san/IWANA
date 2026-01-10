@@ -7,7 +7,7 @@ func menus_setting(default, characters, maps, items, contacts):
 	$selected_menu/characters_menu.visible = characters
 	$selected_menu/maps_menu.visible = maps
 	$selected_menu/items_menu.visible = items
-	$selected_menu/contacts_menu.visible = contacts
+	$selected_menu/quests_menu.visible = contacts
 
 func _ready():
 	menus_setting(true, false, false, false, false)

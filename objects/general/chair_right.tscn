@@ -4,15 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://cqdr74313ya52" path="res://objects/general/chairs_and_tables.png" id="2_nuxwk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtqo8"]
-size = Vector2(87, 47.5)
+size = Vector2(17.3333, 15)
 
 [node name="ChairRight" instance=ExtResource("1_4arlo")]
 
 [node name="Sprite2D" parent="." index="0"]
+<<<<<<< Updated upstream
 position = Vector2(0, -69)
 texture = ExtResource("2_nuxwk")
 region_rect = Rect2(210, 211, 85, 185)
+=======
+position = Vector2(0, -18.3333)
+texture = ExtResource("2_k0w5x")
+region_rect = Rect2(95, 59, 17, 37)
+>>>>>>> Stashed changes
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0.5, 0)
+position = Vector2(-0.333332, -5.5)
 shape = SubResource("RectangleShape2D_mtqo8")

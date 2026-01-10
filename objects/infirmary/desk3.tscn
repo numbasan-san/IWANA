@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bvnuys1snn1q2" path="res://objects/infirmary/infirmary.png" id="2_2tsem"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrm2d"]
-size = Vector2(65, 185)
+size = Vector2(13, 48)
 
 [node name="Desk3" instance=ExtResource("1_acmih")]
 
@@ -16,5 +16,5 @@ region_rect = Rect2(1600, 515, 65, 240)
 position = Vector2(-247, 140)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(247, -112.5)
+position = Vector2(247, -140)
 shape = SubResource("RectangleShape2D_wrm2d")

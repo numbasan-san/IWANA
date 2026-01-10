@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bvnuys1snn1q2" path="res://objects/infirmary/infirmary.png" id="2_0n51y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrm2d"]
-size = Vector2(180, 80)
+size = Vector2(36, 16)
 
 [node name="Desk4" instance=ExtResource("1_mt0ry")]
 

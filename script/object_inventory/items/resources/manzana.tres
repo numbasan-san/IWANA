@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://obj002"]
+
+[ext_resource type="Script" path="res://script/object_inventory/items/item.gd" id="1_0xw5c"]
+[ext_resource type="Texture2D" uid="uid://cnccd3c5if3jp" path="res://assets/rpg_sprites/items/normal/manzana.png" id="2_8t70a"]
+[ext_resource type="Texture2D" uid="uid://cu1ieskfb2jwx" path="res://assets/rpg_sprites/items/hover/objetossss - hover.png" id="3_i4ehf"]
+
+[resource]
+script = ExtResource("1_0xw5c")
+name = "Manzana"
+texture = ExtResource("2_8t70a")
+max_stack = 999
+cost = 0
+sellable = true
+consumable = true
+description = "Juan se las come."
+rarity = 1
+item_type = "consumable"
+texture_atlas = ExtResource("3_i4ehf")
+atlas_grid_x = 2
+atlas_grid_y = 0

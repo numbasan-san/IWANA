@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://obj022"]
+
+[ext_resource type="Script" path="res://script/object_inventory/items/item.gd" id="1_0xw5c"]
+[ext_resource type="Texture2D" uid="uid://c2tkyxmmvy3ce" path="res://assets/Assests de Pruebas/bb56eac1fda2fd330332104e061d7f92.jpg" id="2_3upn1"]
+
+[resource]
+script = ExtResource("1_0xw5c")
+name = "Don Piedra"
+texture = ExtResource("2_3upn1")
+stack = 99
+cost = 1
+sellelable = true

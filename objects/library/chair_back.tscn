@@ -3,17 +3,22 @@
 [ext_resource type="PackedScene" uid="uid://deec72o7wrnl0" path="res://objects/library/base_lib_object.tscn" id="1_g1a8q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pkqe8"]
-size = Vector2(99, 96)
+size = Vector2(20, 13.3333)
 
 [node name="ChairBack" instance=ExtResource("1_g1a8q")]
 
 [node name="Sprite2D" parent="." index="0"]
+<<<<<<< Updated upstream
 position = Vector2(0, -48)
 region_rect = Rect2(955, 70, 100, 195)
+=======
+position = Vector2(0, -19.3333)
+region_rect = Rect2(312, 116, 20, 39)
+>>>>>>> Stashed changes
 
 [node name="StaticBody2D" parent="." index="1"]
-position = Vector2(0, -48)
+position = Vector2(0, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0.5, 49)
+position = Vector2(0, -5.33333)
 shape = SubResource("RectangleShape2D_pkqe8")

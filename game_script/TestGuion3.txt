@@ -35,4 +35,14 @@ Carla: ¡No soy una tsundere!
 Noby: *Está callado*
 [Fin: Dialogo Noby]
 
+[Asignar: Dialogo Dummy Thicc -> Dummy Thicc]
+[Unidad: Dialogo Dummy Thicc]
+Dummy Thicc: ¿What are you buying?
+[Fin: Dialogo Dummy Thicc]
+
+[Asignar: Dialogo Dummy Juan -> Dummy Juan]
+[Unidad: Dialogo Dummy Juan]
+Dummy Juan: - M A N Z A N A S - 
+[Fin: Dialogo Dummy Juan]
+
 [Fin: escena 1]

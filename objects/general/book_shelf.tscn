@@ -4,18 +4,24 @@
 [ext_resource type="Texture2D" uid="uid://b5ujeqaf0xwif" path="res://objects/general/hallway.png" id="2_mst85"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oaupd"]
-size = Vector2(486, 97)
+size = Vector2(97.3333, 28)
 
 [node name="BookShelf" instance=ExtResource("1_psag4")]
 
 [node name="Sprite2D" parent="." index="0"]
+<<<<<<< Updated upstream
 position = Vector2(0, -66)
 texture = ExtResource("2_mst85")
 region_rect = Rect2(80, 195, 485, 230)
+=======
+position = Vector2(0, -23.3333)
+texture = ExtResource("2_kp0cx")
+region_rect = Rect2(16, 39, 97, 46)
+>>>>>>> Stashed changes
 
 [node name="StaticBody2D" parent="." index="1"]
-position = Vector2(0, -66)
+position = Vector2(0, -23.3333)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0, 66.5)
+position = Vector2(-1.90735e-06, 9.33334)
 shape = SubResource("RectangleShape2D_oaupd")

@@ -10,6 +10,7 @@ var processed_items = []  # Lista para llevar el control de los ítems procesado
 func clean():
 	$background/item_icon/icon.texture = null
 	$background/item_info.text = ''
+	$background/Panel/gold.text = "Gold: " + str(inventory.gold)
 
 # Función para cargar y mostrar los ítems en el menú.
 func load_items():
@@ -92,9 +93,8 @@ func _on_maps_btn_pressed():
 	maps_menu.visible = true
 	maps_menu.load_maps()
 
-func _on_contacts_btn_pressed():
+func _on_quests_btn_pressed():
 	self.visible = false
 	var selected_menu = self.get_parent()
-	var contacts_menu = selected_menu.get_node('contacts_menu')
-	contacts_menu.visible = true
-	contacts_menu.load_characters()
+	var quests_menu = selected_menu.get_node('quests_menu')
+	quests_menu.visible = true

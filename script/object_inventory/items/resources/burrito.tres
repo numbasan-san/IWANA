@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://obj005"]
+
+[ext_resource type="Script" path="res://script/object_inventory/items/item.gd" id="1_0xw5c"]
+[ext_resource type="Texture2D" uid="uid://dovuegsgww6ef" path="res://assets/rpg_sprites/items/normal/burrito.png" id="2_td15o"]
+[ext_resource type="Texture2D" uid="uid://cu1ieskfb2jwx" path="res://assets/rpg_sprites/items/hover/objetossss - hover.png" id="3_ru0bv"]
+
+[resource]
+script = ExtResource("1_0xw5c")
+name = "Burrito"
+texture = ExtResource("2_td15o")
+max_stack = 99
+cost = 1
+sellable = true
+consumable = true
+description = "Con mi burrito sabanero..."
+rarity = 1
+item_type = "consumable"
+texture_atlas = ExtResource("3_ru0bv")
+atlas_grid_x = 0
+atlas_grid_y = 0

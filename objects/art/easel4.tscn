@@ -3,17 +3,22 @@
 [ext_resource type="PackedScene" uid="uid://c3hohlexko4k6" path="res://objects/art/base_art_object.tscn" id="1_uy8hc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0gc8t"]
-size = Vector2(180, 57)
+size = Vector2(38, 20.6667)
 
 [node name="Easel4" instance=ExtResource("1_uy8hc")]
 
 [node name="Sprite2D" parent="." index="0"]
+<<<<<<< Updated upstream
 position = Vector2(0, -100)
 region_rect = Rect2(855, 385, 200, 255)
+=======
+position = Vector2(0, -25.3333)
+region_rect = Rect2(332, 77, 40, 51)
+>>>>>>> Stashed changes
 
 [node name="StaticBody2D" parent="." index="1"]
 position = Vector2(0, -100)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0, 99)
+position = Vector2(0, 90.3333)
 shape = SubResource("RectangleShape2D_0gc8t")

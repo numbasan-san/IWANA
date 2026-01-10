@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://choasg1uid36p" path="res://objects/laboratory/laboratory.png" id="2_m1kww"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m10on"]
-size = Vector2(1550, 105)
+size = Vector2(313, 26)
 
 [node name="BigTable" instance=ExtResource("1_lt4xf")]
 
@@ -13,5 +13,5 @@ texture = ExtResource("2_m1kww")
 region_rect = Rect2(155, 80, 1560, 240)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0, 67.5)
+position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_m10on")

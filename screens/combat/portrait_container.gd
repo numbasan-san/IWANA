@@ -7,9 +7,11 @@ extends CharacterContainer
 @export var character_name: Label
 @export var animations: AnimationPlayer
 
-# Region that selects the background icon for the 1st and 3rd
-# character slots
-var _bg_region_1: Rect2 = Rect2(32, 249, 294, 318)
+# Regions that select the background icon
+var _bg_region_1: Rect2 = Rect2(85, 237, 98, 106)
+var _bg_region_2: Rect2 = Rect2(192, 238, 94, 103)
+var _bg_region_3: Rect2 = Rect2(293, 236, 98, 106)
+var _bg_region_4: Rect2 = Rect2(394, 238, 93, 103)
 # Position of the name label for the 1st and 3rd
 # character slots
 var _name_label_pos_1: Vector2 = Vector2(12, 256)
@@ -18,8 +20,6 @@ var _name_label_pos_1: Vector2 = Vector2(12, 256)
 var _name_label_rot_1 = 3
 # Position for bars for 1st and 3rd character slots
 var _bar_pos_1: Vector2 = Vector2(21, -15)
-# Region for the 2nd and 4th character slot
-var _bg_region_2: Rect2 = Rect2(353, 252, 282, 309)
 # Position of the name label for the 1st and 3rd
 # character slots
 var _name_label_pos_2: Vector2 = Vector2(22, 270)

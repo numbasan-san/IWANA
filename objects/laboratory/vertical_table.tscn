@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://choasg1uid36p" path="res://objects/laboratory/laboratory.png" id="2_ibowj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pxp84"]
-size = Vector2(180, 315)
+size = Vector2(36, 71)
 
 [node name="VerticalTable" instance=ExtResource("1_hn1le")]
 
@@ -13,5 +13,5 @@ texture = ExtResource("2_ibowj")
 region_rect = Rect2(475, 605, 180, 435)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0, 60.5)
+position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_pxp84")

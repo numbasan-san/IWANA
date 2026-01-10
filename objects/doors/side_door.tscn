@@ -4,11 +4,11 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rvvcv"]
 resource_local_to_scene = true
-size = Vector2(30, 185)
+size = Vector2(8, 44)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vsi3u"]
 resource_local_to_scene = true
-size = Vector2(40, 190)
+size = Vector2(12, 50)
 
 [node name="SideDoor" instance=ExtResource("1_6afww")]
 
@@ -16,7 +16,9 @@ size = Vector2(40, 190)
 region_rect = Rect2(0, 0, 0, 0)
 
 [node name="Collision" parent="." index="1"]
+position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_rvvcv")
 
 [node name="CollisionShape2D" parent="ZoneChange" index="0"]
+position = Vector2(0, 0)
 shape = SubResource("RectangleShape2D_vsi3u")

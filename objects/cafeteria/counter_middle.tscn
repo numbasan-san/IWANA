@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b2q5aewf5arsp" path="res://objects/cafeteria/cafeteria.png" id="2_m6qew"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dx7eg"]
-size = Vector2(368, 155)
+size = Vector2(74, 29)
 
 [node name="CounterMiddle" instance=ExtResource("1_25hwt")]
 
@@ -13,5 +13,5 @@ texture = ExtResource("2_m6qew")
 region_rect = Rect2(774, 195, 368, 240.688)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0, 42.5)
+position = Vector2(0, 9)
 shape = SubResource("RectangleShape2D_dx7eg")

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://obj020"]
+
+[ext_resource type="Script" path="res://script/object_inventory/items/item.gd" id="1_0xw5c"]
+[ext_resource type="Texture2D" uid="uid://bn4ktvl2ogxbb" path="res://assets/Assests de Pruebas/snapshot_136.jpg" id="2_2sbh0"]
+
+[resource]
+script = ExtResource("1_0xw5c")
+name = "Lima de uñas de José María"
+texture = ExtResource("2_2sbh0")
+stack = 99
+cost = 0
+sellelable = true

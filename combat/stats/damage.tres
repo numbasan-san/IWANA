@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Stat" load_steps=2 format=3 uid="uid://dxy8k84ul7fd7"]
+
+[ext_resource type="Script" path="res://combat/stats/stat.gd" id="1_umnks"]
+
+[resource]
+script = ExtResource("1_umnks")
+min_base = 0
+min_mod = 0.0
+min_value = 0
+max_base = 9223372036854775807
+max_mod = 9.22337e+18
+max_value = 9223372036854775807
+base = 0
+modifier = 1.0

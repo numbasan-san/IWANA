@@ -10,11 +10,11 @@ room_info = ExtResource("2_1s1wj")
 
 [node name="MaleBathroomDoor" parent="." index="0" instance=ExtResource("2_204y4")]
 modulate = Color(1, 1, 1, 0.509804)
-position = Vector2(560, 1466)
+position = Vector2(335, 879)
 zone = "f1n_hallway"
 spawn = "SpawnF1MB"
 spawn_direction = "down"
 transparent = true
 
 [node name="SpawnHallway" parent="SpawnPoints" index="0"]
-position = Vector2(560, 1356)
+position = Vector2(335, 769)

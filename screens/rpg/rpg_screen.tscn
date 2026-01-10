@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://oc5oqpk3nprt"]
+[gd_scene load_steps=22 format=3 uid="uid://oc5oqpk3nprt"]
 
 [ext_resource type="Script" path="res://screens/screen.gd" id="1_3am72"]
 [ext_resource type="PackedScene" uid="uid://c0fgo3tb7g1ao" path="res://scenes/zones/world.tscn" id="1_jlw57"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c6r4b6vsbtube" path="res://scenes/inventory/inventory_gui.tscn" id="3_tjsd1"]
 [ext_resource type="PackedScene" uid="uid://4iyphsfraq11" path="res://scenes/menus/pause_menu/pause_menu.tscn" id="5_y5v2l"]
 [ext_resource type="PackedScene" uid="uid://d7w5brnj1hi1" path="res://scenes/menus/game_menu/game_menu.tscn" id="6_bkiw3"]
+[ext_resource type="PackedScene" uid="uid://ck38hsl6l5t2y" path="res://scenes/menus/game_menu/shop_menu.tscn" id="6_s70y7"]
 [ext_resource type="PackedScene" uid="uid://dx8ovcjbdy6m8" path="res://screens/screen_audio.tscn" id="7_cceoh"]
 [ext_resource type="PackedScene" uid="uid://bos8qlbwslebl" path="res://scenes/menus/game_menu/zone_layer.tscn" id="7_u0u1g"]
 [ext_resource type="Resource" uid="uid://bjryq23ok6dv7" path="res://music_tracks/halls_track.tres" id="8_em7p5"]
@@ -151,16 +152,24 @@ offset_bottom = 5.0
 scale = Vector2(2, 2)
 metadata/_edit_use_anchors_ = true
 
-[node name="pause_layer" type="CanvasLayer" parent="."]
+[node name="zone_layer" type="CanvasLayer" parent="."]
 process_mode = 3
 
-[node name="pause_menu" parent="pause_layer" instance=ExtResource("5_y5v2l")]
-visible = false
+[node name="zone_layer" parent="zone_layer" instance=ExtResource("7_u0u1g")]
 
 [node name="game_layer" type="CanvasLayer" parent="."]
 process_mode = 3
 
+[node name="shop_menu" parent="game_layer" instance=ExtResource("6_s70y7")]
+visible = false
+
 [node name="game_menu" parent="game_layer" instance=ExtResource("6_bkiw3")]
+visible = false
+
+[node name="pause_layer" type="CanvasLayer" parent="."]
+process_mode = 3
+
+[node name="pause_menu" parent="pause_layer" instance=ExtResource("5_y5v2l")]
 visible = false
 
 [node name="Audio" parent="." instance=ExtResource("7_cceoh")]
@@ -176,10 +185,5 @@ libraries = {
 
 [node name="AudioPlayer" parent="Audio" index="1"]
 volume_db = -15.0
-
-[node name="zone_layer" type="CanvasLayer" parent="."]
-process_mode = 3
-
-[node name="zone_layer" parent="zone_layer" instance=ExtResource("7_u0u1g")]
 
 [editable path="Audio"]

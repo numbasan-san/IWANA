@@ -1,0 +1,10 @@
+WIP Agregadas habilidades de Rebeca, MJ y Lucia, y algunos arreglos.
+
+- Agregadas habilidades de Lucia, Rebeca (excepto 4) y MJ (excepto 5 y 6).
+- Arreglados los sprites de las 3 para que se coloquen bien en la cuadrícula.
+- Al ejecutar una habilidad, solo trata de enviar un efecto cuando el objetivo
+    sigue consciente.
+- Cambiado Protected para que no genere un nuevo daño si no que devuelva el
+    recibido.
+- Implementado ReverseProtection (sin probar)
+- Cambiado Riposte para que devuelva el efecto recibido.

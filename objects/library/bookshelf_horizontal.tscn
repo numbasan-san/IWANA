@@ -3,17 +3,30 @@
 [ext_resource type="PackedScene" uid="uid://deec72o7wrnl0" path="res://objects/library/base_lib_object.tscn" id="1_hnaa1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hsogt"]
+<<<<<<< Updated upstream:objects/library/bookshelf_horizontal.tscn
 size = Vector2(609, 166)
+=======
+size = Vector2(96, 25)
+>>>>>>> Stashed changes:objects/library/bookshelf.tscn
 
 [node name="BookshelfHorizontal" instance=ExtResource("1_hnaa1")]
 
 [node name="Sprite2D" parent="." index="0"]
+<<<<<<< Updated upstream:objects/library/bookshelf_horizontal.tscn
 position = Vector2(0, -112)
 region_rect = Rect2(1295, 355, 610, 390)
+=======
+position = Vector2(0, -43.6667)
+region_rect = Rect2(271, 9, 96, 87)
+>>>>>>> Stashed changes:objects/library/bookshelf.tscn
 
 [node name="StaticBody2D" parent="." index="1"]
-position = Vector2(0, -112)
+position = Vector2(0, -43.6667)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+<<<<<<< Updated upstream:objects/library/bookshelf_horizontal.tscn
 position = Vector2(-0.5, 114)
+=======
+position = Vector2(0, 31.5)
+>>>>>>> Stashed changes:objects/library/bookshelf.tscn
 shape = SubResource("RectangleShape2D_hsogt")

@@ -4,16 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://cqdr74313ya52" path="res://objects/general/chairs_and_tables.png" id="2_h5coj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x1oey"]
-size = Vector2(265.833, 66.6667)
+size = Vector2(53.6667, 16.3333)
 
 [node name="SmallRoundTable" instance=ExtResource("1_y7gin")]
-scale = Vector2(1.2, 1.2)
 
 [node name="Sprite2D" parent="." index="0"]
+<<<<<<< Updated upstream
 position = Vector2(0, -53.3333)
 texture = ExtResource("2_h5coj")
 region_rect = Rect2(1150, 426, 265, 130)
+=======
+position = Vector2(0, -13.3333)
+texture = ExtResource("2_xjbon")
+region_rect = Rect2(283, 102, 53, 26)
+>>>>>>> Stashed changes
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(0.416665, -21.6667)
+position = Vector2(-0.166667, -7.83333)
 shape = SubResource("RectangleShape2D_x1oey")

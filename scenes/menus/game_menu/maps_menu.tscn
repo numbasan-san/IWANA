@@ -9,9 +9,11 @@
 
 [node name="maps_menu" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e7eyw")
@@ -46,7 +48,6 @@ offset_left = 5.0
 offset_top = 104.5
 offset_right = 40.0
 offset_bottom = 154.5
-texture_hover = ExtResource("3_0gv0p")
 stretch_mode = 0
 
 [node name="items_btn" type="TextureButton" parent="background"]
@@ -58,7 +59,7 @@ offset_bottom = 209.5
 texture_hover = ExtResource("3_0gv0p")
 stretch_mode = 0
 
-[node name="contacts_btn" type="TextureButton" parent="background"]
+[node name="quests_btn" type="TextureButton" parent="background"]
 layout_mode = 0
 offset_left = 10.0
 offset_top = 225.5
@@ -365,6 +366,6 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="background/characters_btn" to="." method="_on_characters_btn_pressed"]
 [connection signal="pressed" from="background/items_btn" to="." method="_on_items_btn_pressed"]
-[connection signal="pressed" from="background/contacts_btn" to="." method="_on_contacts_btn_pressed"]
+[connection signal="pressed" from="background/quests_btn" to="." method="_on_quests_btn_pressed"]
 [connection signal="pressed" from="background/floor1_btn" to="." method="_on_floor_1_btn_pressed"]
 [connection signal="pressed" from="background/floor1_btn2" to="." method="_on_floor_1_btn_2_pressed"]

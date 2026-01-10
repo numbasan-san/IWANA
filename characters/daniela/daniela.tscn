@@ -17,7 +17,7 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fqsh1"]
 resource_local_to_scene = true
-size = Vector2(114, 48.5)
+size = Vector2(26, 8.66667)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_moyr0"]
 size = Vector2(144, 115)
@@ -26,9 +26,15 @@ size = Vector2(144, 115)
 atlas = ExtResource("6_7wt8b")
 region = Rect2(0, 0, 220, 320)
 
+<<<<<<< Updated upstream
 [sub_resource type="AtlasTexture" id="AtlasTexture_mt0r0"]
 atlas = ExtResource("8_h0dso")
 region = Rect2(0, 0, 290, 399)
+=======
+[sub_resource type="AtlasTexture" id="AtlasTexture_02djr"]
+atlas = ExtResource("9_ujn7e")
+region = Rect2(340, 0, 68, 123)
+>>>>>>> Stashed changes
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_0r282"]
 animations = [{
@@ -42,7 +48,11 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+<<<<<<< Updated upstream
 "texture": SubResource("AtlasTexture_mt0r0")
+=======
+"texture": SubResource("AtlasTexture_02djr")
+>>>>>>> Stashed changes
 }],
 "loop": true,
 "name": &"idle",
@@ -93,14 +103,19 @@ scale = Vector2(-1, 1)
 texture = ExtResource("4_4aw6c")
 
 [node name="Sprite2D" parent="RPGModel" index="0"]
+<<<<<<< Updated upstream
 texture = ExtResource("6_xh8t3")
 offset = Vector2(0, -136)
+=======
+texture = ExtResource("5_qbeq8")
+offset = Vector2(0, -40)
+>>>>>>> Stashed changes
 vframes = 8
 frame = 16
 region_rect = Rect2(630, 144, 135, 270)
 
 [node name="Collider" parent="RPGModel" index="1"]
-position = Vector2(0, -0.75)
+position = Vector2(-3.17891e-07, -2)
 shape = SubResource("RectangleShape2D_fqsh1")
 
 [node name="GeneralInteraction" type="Area2D" parent="RPGModel" index="3"]
@@ -112,6 +127,7 @@ shape = SubResource("RectangleShape2D_moyr0")
 debug_color = Color(0.992157, 0, 0.254902, 0.419608)
 
 [node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
+visible = false
 combat_animation = NodePath("Sprites/CombatSprite")
 
 [node name="Basic" type="TextureRect" parent="CombatModel/Portraits" index="0"]
@@ -121,6 +137,11 @@ offset_bottom = 40.0
 texture = ExtResource("7_k47t8")
 
 [node name="CombatSprite" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
+<<<<<<< Updated upstream
+=======
+position = Vector2(-18, -105)
+scale = Vector2(3, 3)
+>>>>>>> Stashed changes
 sprite_frames = SubResource("SpriteFrames_0r282")
 animation = &"fainted"
 

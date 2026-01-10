@@ -5,11 +5,16 @@
 [node name="RuinedDesk6" instance=ExtResource("1_grth1")]
 
 [node name="Sprite2D" parent="." index="0"]
+<<<<<<< Updated upstream
 position = Vector2(0, -16)
 region_rect = Rect2(540, 860, 195, 95)
+=======
+position = Vector2(0, -8)
+region_rect = Rect2(108, 172, 39, 19)
+>>>>>>> Stashed changes
 
 [node name="StaticBody2D" parent="." index="1"]
-position = Vector2(0, -16)
+position = Vector2(0, -8)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" index="0"]
-polygon = PackedVector2Array(-90, 30, -20, 55, 10, 7, 92, 34, 104, -5, 11, -22, -94, -31)
+polygon = PackedVector2Array(-21.3333, 5, -4.66667, 12.3333, 2.66667, 0.666666, 19, 7.66667, 21.6667, 3, 4, -8, -15.3333, -9.66667)

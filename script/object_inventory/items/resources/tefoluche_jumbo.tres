@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://obj014"]
+
+[ext_resource type="Script" path="res://script/object_inventory/items/item.gd" id="1_0xw5c"]
+[ext_resource type="Texture2D" uid="uid://tex014" path="res://assets/items/tefoluche_jumbo.png" id="2_xxxxx"]
+
+[resource]
+script = ExtResource("1_0xw5c")
+name = "Tefoluche jumbo"
+texture = ExtResource("2_xxxxx")
+stack = 99
+efecto = {"tipo": "escudar", "objetivo": "dos_aliados", "cantidad": 40, "calidad": "caro"}

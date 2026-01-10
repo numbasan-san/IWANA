@@ -6,6 +6,10 @@
 z_index = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+<<<<<<< Updated upstream
+=======
+texture = ExtResource("1_7hfjh")
+>>>>>>> Stashed changes
 region_enabled = true
 region_rect = Rect2(272, 152, 48, 48)
 
