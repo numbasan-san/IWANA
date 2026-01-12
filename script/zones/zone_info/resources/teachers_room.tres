@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="zone_info" load_steps=2 format=3 uid="uid://cdleqmcy5n3dc"]
-
-[ext_resource type="Script" path="res://script/zones/zone_info/zone_info.gd" id="1_j4xf7"]
-
-[resource]
-script = ExtResource("1_j4xf7")
-name = "Salón de Profesores"
-description = "Es el salón de profesores."
-dumb = true
