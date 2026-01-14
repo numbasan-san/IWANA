@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EffectBaseData" load_steps=3 format=3 uid="uid://b08i77oxgv52d"]
+
+[ext_resource type="Texture2D" uid="uid://cfr8ewppcgmpo" path="res://combat/effects/buffs/life_steal_icon.tres" id="1_dp71d"]
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="1_jniy6"]
+
+[resource]
+script = ExtResource("1_jniy6")
+name = "Life steal"
+description = "Every time this character does physical damage to the oponent it heals by that amount."
+icon = ExtResource("1_dp71d")

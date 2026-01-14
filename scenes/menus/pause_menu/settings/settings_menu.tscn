@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=3 uid="uid://1vuniuexlffu"]
+
+[ext_resource type="Script" path="res://script/menus/pause_menu/settings_menu.gd" id="1_aw6xi"]
+[ext_resource type="PackedScene" uid="uid://cv7wbbidjf3sn" path="res://scenes/menus/pause_menu/settings/video_settings.tscn" id="2_28qv8"]
+[ext_resource type="PackedScene" uid="uid://b4u7qdt8ah3nv" path="res://scenes/menus/pause_menu/settings/audio_settings.tscn" id="2_ddiqu"]
+[ext_resource type="PackedScene" uid="uid://cj18bmg05hq7v" path="res://scenes/menus/pause_menu/settings/inputs_settings.tscn" id="4_ixw6g"]
+
+[node name="settings_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_aw6xi")
+
+[node name="Panel" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -191.0
+offset_top = -142.0
+offset_right = 191.0
+offset_bottom = -111.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 2
+
+[node name="buttons" type="HBoxContainer" parent="Panel/VContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.0
+
+[node name="audio" type="Button" parent="Panel/VContainer/buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Audio"
+
+[node name="video" type="Button" parent="Panel/VContainer/buttons"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Video"
+
+[node name="controls" type="Button" parent="Panel/VContainer/buttons"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+text = "Controls"
+
+[node name="settings" type="VBoxContainer" parent="Panel/VContainer"]
+layout_mode = 2
+
+[node name="Audio" parent="Panel/VContainer/settings" instance=ExtResource("2_ddiqu")]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 1
+size_flags_vertical = 3
+
+[node name="Video" parent="Panel/VContainer/settings" instance=ExtResource("2_28qv8")]
+visible = false
+layout_mode = 2
+
+[node name="Inputs" parent="Panel/VContainer/settings" instance=ExtResource("4_ixw6g")]
+visible = false
+layout_mode = 2
+
+[connection signal="pressed" from="Panel/VContainer/buttons/audio" to="." method="_on_audio_pressed"]
+[connection signal="pressed" from="Panel/VContainer/buttons/video" to="." method="_on_video_pressed"]
+[connection signal="pressed" from="Panel/VContainer/buttons/controls" to="." method="_on_controls_pressed"]

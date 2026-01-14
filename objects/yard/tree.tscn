@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6oggrccmjth"]
+
+[ext_resource type="PackedScene" uid="uid://cahhguph112nt" path="res://objects/yard/base_yard_object.tscn" id="1_545b7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtqo8"]
+size = Vector2(117, 85.3333)
+
+[node name="Tree" instance=ExtResource("1_545b7")]
+y_sort_enabled = true
+
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(1, 1)
+region_rect = Rect2(241, 22, 143, 179)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(-11.8333, 47.6667)
+shape = SubResource("RectangleShape2D_mtqo8")

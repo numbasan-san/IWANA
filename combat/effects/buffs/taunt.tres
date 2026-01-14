@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Taunt" load_steps=3 format=3 uid="uid://hen87gwbrxuu"]
+
+[ext_resource type="Script" path="res://combat/effects/buffs/taunt.gd" id="1_fd4nj"]
+[ext_resource type="Resource" uid="uid://nngq0ihv8e8x" path="res://combat/effects/buffs/taunt_data.tres" id="1_ju4t4"]
+
+[resource]
+script = ExtResource("1_fd4nj")
+type = 0
+decrease_duration = 1
+duration = 2
+stacks = true
+base_data = ExtResource("1_ju4t4")
+base_value = 5.0

@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://daf4jjtejhoif"]
+
+[ext_resource type="Texture2D" uid="uid://bfxwl7g6lwx5t" path="res://combat/effects/lasting_effect_icons.png" id="1_gafbr"]
+
+[resource]
+atlas = ExtResource("1_gafbr")
+region = Rect2(1, 64, 14, 16)

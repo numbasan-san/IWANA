@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://hed2eep7147o"]
+
+[ext_resource type="Script" path="res://script/door/zone_change.gd" id="1_2qge8"]
+[ext_resource type="Script" path="res://script/door/portal.gd" id="1_6dlhj"]
+[ext_resource type="Texture2D" uid="uid://dauqya4i8u8vl" path="res://objects/doors/doors_384x240.png" id="2_cexoh"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_346tc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_808ni"]
+resource_local_to_scene = true
+size = Vector2(38.3333, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i26qx"]
+resource_local_to_scene = true
+size = Vector2(41.3333, 9)
+
+[node name="BaseDoor" type="StaticBody2D"]
+z_index = 1
+scale = Vector2(3, 3)
+physics_material_override = SubResource("PhysicsMaterial_346tc")
+script = ExtResource("1_6dlhj")
+spawn_direction = "up"
+transparency_value = 0.6
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -32.3333)
+texture = ExtResource("2_cexoh")
+region_enabled = true
+region_rect = Rect2(16, 113, 37, 65)
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(-0.166664, -1.16667)
+shape = SubResource("RectangleShape2D_808ni")
+
+[node name="ZoneChange" type="Area2D" parent="."]
+z_index = 1
+y_sort_enabled = true
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("1_2qge8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneChange"]
+position = Vector2(-0.333336, -1.5)
+shape = SubResource("RectangleShape2D_i26qx")
+debug_color = Color(0.235294, 0.705882, 0.235294, 0.419608)

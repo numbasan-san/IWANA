@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://44lvvvlceql1"]
+
+[ext_resource type="Texture2D" uid="uid://h0864yptgbh7" path="res://objects/conserje/conserje_384x216.png" id="1_2u460"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_346tc"]
+
+[node name="BaseConsjObject" type="Node2D"]
+z_index = 1
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(5, 5)
+texture = ExtResource("1_2u460")
+region_enabled = true
+region_rect = Rect2(272, 152, 48, 48)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_346tc")

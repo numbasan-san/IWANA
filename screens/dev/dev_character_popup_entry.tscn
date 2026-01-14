@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqe7q5t6cy1d6"]
+
+[ext_resource type="Script" path="res://screens/dev/dev_character_popup_entry.gd" id="1_2djnt"]
+
+[node name="DevCharacterPopupEntry" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_2djnt")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 2
+text = "Char Name"
+
+[node name="Clone" type="Button" parent="."]
+layout_mode = 2
+text = "Clone"
+
+[node name="Move" type="Button" parent="."]
+layout_mode = 2
+text = "Move"

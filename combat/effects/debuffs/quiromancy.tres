@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Quiromancy" load_steps=3 format=3 uid="uid://brwd1djn3rnue"]
+
+[ext_resource type="Resource" uid="uid://degfqqsjbsc2e" path="res://combat/effects/debuffs/quiromancy_data.tres" id="1_0pepo"]
+[ext_resource type="Script" path="res://combat/effects/debuffs/quiromancy.gd" id="2_nwjem"]
+
+[resource]
+script = ExtResource("2_nwjem")
+damage_per_turn = 1.0
+type = 1
+decrease_duration = 0
+duration = 1
+stacks = false
+base_data = ExtResource("1_0pepo")
+base_value = 1.0

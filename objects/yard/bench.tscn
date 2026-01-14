@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://vihbkwcp447g"]
+
+[ext_resource type="PackedScene" uid="uid://cahhguph112nt" path="res://objects/yard/base_yard_object.tscn" id="1_w3vgl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mtqo8"]
+size = Vector2(24, 48)
+
+[node name="Bench" instance=ExtResource("1_w3vgl")]
+y_sort_enabled = true
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(120, 133, 32, 56)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_mtqo8")

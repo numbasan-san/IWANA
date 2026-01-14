@@ -1,0 +1,71 @@
+[gd_resource type="Resource" script_class="SelectionEffect" load_steps=14 format=3 uid="uid://3vsg27wlp0pp"]
+
+[ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="1_6vrrg"]
+[ext_resource type="Resource" uid="uid://dxx1cepr7wwds" path="res://combat/effects/debuffs/bleeding_data.tres" id="2_64oh1"]
+[ext_resource type="Script" path="res://combat/effects/debuffs/bleeding.gd" id="3_ih2kp"]
+[ext_resource type="Resource" uid="uid://vvn3c4it7p7o" path="res://combat/effects/debuffs/poison_data.tres" id="4_dxfp1"]
+[ext_resource type="Script" path="res://combat/effects/debuffs/poison.gd" id="5_qh51s"]
+[ext_resource type="Script" path="res://combat/effects/selection_effect.gd" id="7_iad02"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="8_ocs7u"]
+
+[sub_resource type="Resource" id="Resource_7psyy"]
+script = ExtResource("1_6vrrg")
+type = 2
+percentage_ignored = 0.0
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_42d78"]
+script = ExtResource("3_ih2kp")
+before_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+after_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_7psyy")])
+unapply_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+incoming_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+outgoing_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+character_hit_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+type = 1
+decrease_duration = 2
+duration = 2
+stacks = true
+base_data = ExtResource("2_64oh1")
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_m5ryc"]
+script = ExtResource("1_6vrrg")
+type = 0
+percentage_ignored = 0.0
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_1jaqw"]
+script = ExtResource("1_6vrrg")
+type = 3
+percentage_ignored = 0.0
+base_value = 4.0
+
+[sub_resource type="Resource" id="Resource_t2rn3"]
+script = ExtResource("5_qh51s")
+before_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+after_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_1jaqw")])
+unapply_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+incoming_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+outgoing_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+character_hit_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+type = 1
+decrease_duration = 2
+duration = 3
+stacks = true
+base_data = ExtResource("4_dxfp1")
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_mggy2"]
+script = ExtResource("8_ocs7u")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[resource]
+script = ExtResource("7_iad02")
+list = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_42d78"), SubResource("Resource_m5ryc"), SubResource("Resource_t2rn3")])
+select_random = true
+quantity = 1
+base_value = 1.0
+target_type = SubResource("Resource_mggy2")

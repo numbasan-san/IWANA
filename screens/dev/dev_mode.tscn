@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://dsihg6mcq4ysb"]
+
+[ext_resource type="Script" path="res://screens/screen.gd" id="1_7lfrh"]
+[ext_resource type="Script" path="res://screens/dev/dev_mode.gd" id="1_cqayl"]
+[ext_resource type="Theme" uid="uid://beupgvq760u62" path="res://screens/dev/dev_mode_theme.tres" id="2_nk3iq"]
+[ext_resource type="PackedScene" uid="uid://dfhkspxqgotd1" path="res://screens/dev/dev_mode_dialog_control.tscn" id="6_ujn76"]
+[ext_resource type="PackedScene" uid="uid://0ef3h8jdrgcn" path="res://screens/dev/dev_mode_rpg_control.tscn" id="7_4bns8"]
+[ext_resource type="PackedScene" uid="uid://byb8j5plrwbmh" path="res://screens/dev/dev_combat_mode.tscn" id="8_ios5r"]
+
+[node name="DevMode" type="CanvasLayer" node_paths=PackedStringArray("contents")]
+layer = 100
+script = ExtResource("1_7lfrh")
+contents = NodePath("Contents")
+
+[node name="Contents" type="Control" parent="." node_paths=PackedStringArray("tab_container", "dialog_mode", "rpg_mode", "combat_mode")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("2_nk3iq")
+script = ExtResource("1_cqayl")
+tab_container = NodePath("TabContainer")
+dialog_mode = NodePath("TabContainer/Dialog Mode")
+rpg_mode = NodePath("TabContainer/RPG Mode")
+combat_mode = NodePath("TabContainer/Combat Mode")
+
+[node name="TabContainer" type="TabContainer" parent="Contents"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+tab_alignment = 1
+
+[node name="Dialog Mode" parent="Contents/TabContainer" instance=ExtResource("6_ujn76")]
+layout_mode = 2
+
+[node name="RPG Mode" parent="Contents/TabContainer" instance=ExtResource("7_4bns8")]
+visible = false
+layout_mode = 2
+
+[node name="Combat Mode" parent="Contents/TabContainer" instance=ExtResource("8_ios5r")]
+visible = false
+layout_mode = 2
+
+[connection signal="tab_selected" from="Contents/TabContainer" to="Contents" method="_on_tab_container_tab_selected"]

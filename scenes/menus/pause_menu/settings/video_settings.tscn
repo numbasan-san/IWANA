@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://cv7wbbidjf3sn"]
+
+[ext_resource type="Script" path="res://script/menus/pause_menu/settings/video.gd" id="1_7k18u"]
+
+[node name="Video" type="Control"]
+layout_mode = 3
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+script = ExtResource("1_7k18u")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_top = 4.0
+offset_right = 327.0
+offset_bottom = 65.0
+
+[node name="fullscreen" type="CheckBox" parent="VBoxContainer"]
+layout_mode = 2
+action_mode = 0
+text = "fullscreen"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Resolutions
+"
+
+[node name="resolution" type="OptionButton" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[connection signal="toggled" from="VBoxContainer/fullscreen" to="." method="_on_fullscreen_toggled"]
+[connection signal="item_selected" from="VBoxContainer/HBoxContainer/resolution" to="." method="_on_resolution_item_selected"]

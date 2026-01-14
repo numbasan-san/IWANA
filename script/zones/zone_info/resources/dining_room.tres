@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="zone_info" load_steps=2 format=3 uid="uid://4fhwnxaewr6f"]
+
+[ext_resource type="Script" path="res://script/zones/zone_info/zone_info.gd" id="1_f668r"]
+
+[resource]
+script = ExtResource("1_f668r")
+name = "Cafetería"
+description = "Es la cafetería."
+dumb = true

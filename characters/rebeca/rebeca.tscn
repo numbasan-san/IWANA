@@ -1,0 +1,99 @@
+[gd_scene load_steps=21 format=3 uid="uid://dykkm64a7u1j7"]
+
+[ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
+[ext_resource type="Resource" uid="uid://mqfek00juk2e" path="res://script/characters/resource/rebeca.tres" id="2_w6kso"]
+[ext_resource type="Texture2D" uid="uid://prfcnbmofw2l" path="res://characters/rebeca/vn/neutral.png" id="3_c5xgg"]
+[ext_resource type="Texture2D" uid="uid://cnf4qfn1wadpj" path="res://characters/rebeca/rpg/movement_384x240.png" id="4_yiw83"]
+[ext_resource type="Texture2D" uid="uid://b4p5rlv2f43aj" path="res://assets/combat_sprites/portraits.png" id="5_unpwk"]
+[ext_resource type="Texture2D" uid="uid://b0ainjfp61ope" path="res://characters/noby_combate.png" id="6_g3xgt"]
+[ext_resource type="Script" path="res://combat/stats.gd" id="8_rmlj5"]
+[ext_resource type="Resource" uid="uid://bh1355m3ns053" path="res://characters/rebeca/combat/skill1/rebeca_skill_1.tres" id="9_u0nat"]
+[ext_resource type="Resource" uid="uid://d2yn3ndyf2vk4" path="res://characters/rebeca/combat/skill2/rebeca_skill_2.tres" id="10_cog8o"]
+[ext_resource type="Resource" uid="uid://dk71niqdnaxym" path="res://characters/rebeca/combat/skill3/rebeca_skill_3.tres" id="11_5x32w"]
+[ext_resource type="Resource" uid="uid://dvomnx82s73uu" path="res://characters/rebeca/combat/skill4/rebeca_skill_4.tres" id="12_45wwq"]
+[ext_resource type="Resource" uid="uid://kdu0qkpipef2" path="res://characters/rebeca/combat/skill5/rebeca_skill_5.tres" id="13_cfw72"]
+[ext_resource type="Resource" uid="uid://c177yrcp3pnra" path="res://characters/rebeca/combat/skill6/rebeca_skill_6.tres" id="14_iktp1"]
+[ext_resource type="Resource" uid="uid://jmdx3dv0rbse" path="res://characters/rebeca/combat/skill7/rebeca_skill_7.tres" id="15_f6jb1"]
+[ext_resource type="Resource" uid="uid://d1acsh5awfpq6" path="res://characters/rebeca/combat/skill8/rebeca_skill_8.tres" id="16_j46l7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fq57j"]
+resource_local_to_scene = true
+size = Vector2(26, 9.33333)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_31hi1"]
+atlas = ExtResource("5_unpwk")
+region = Rect2(279, 209, 36, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4w7i2"]
+atlas = ExtResource("6_g3xgt")
+region = Rect2(68, 0, 68, 123)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ago17"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"fainted",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4w7i2")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_hwklp"]
+script = ExtResource("8_rmlj5")
+base_max_health = 10
+base_max_energy = 40
+base_damage = 4
+base_defense = 0
+base_speed = 3
+base_critical = 0
+base_precision = 100
+base_evasion = 0
+
+[node name="Rebeca" instance=ExtResource("1_begxf")]
+char_info = ExtResource("2_w6kso")
+
+[node name="DialogModel" parent="." index="0"]
+visible = false
+
+[node name="Neutral" type="Sprite2D" parent="DialogModel" index="0"]
+scale = Vector2(-1, 1)
+texture = ExtResource("3_c5xgg")
+
+[node name="Sprite2D" parent="RPGModel" index="0"]
+position = Vector2(0, 2)
+texture = ExtResource("4_yiw83")
+offset = Vector2(0, -42)
+vframes = 8
+frame = 16
+region_rect = Rect2(347, 740, 120, 325)
+
+[node name="Collider" parent="RPGModel" index="1"]
+position = Vector2(-0.333333, -2.66667)
+shape = SubResource("RectangleShape2D_fq57j")
+
+[node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
+combat_animation = NodePath("Sprites/CombatSprites")
+
+[node name="Basic" type="TextureRect" parent="CombatModel/Portraits" index="0"]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_31hi1")
+
+[node name="CombatSprites" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_ago17")
+animation = &"idle"
+offset = Vector2(0, -33)
+
+[node name="CombatHandler" parent="." index="3"]
+stats = SubResource("Resource_hwklp")
+skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("9_u0nat"), ExtResource("10_cog8o"), ExtResource("11_5x32w"), ExtResource("12_45wwq"), ExtResource("13_cfw72"), ExtResource("14_iktp1"), ExtResource("15_f6jb1"), ExtResource("16_j46l7")])
+manual_control = true

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dskmeawxq5q1c"]
+
+[ext_resource type="PackedScene" uid="uid://44lvvvlceql1" path="res://objects/conserje/base_consj_object.tscn" id="1_er0n6"]
+
+[node name="Garbage4" instance=ExtResource("1_er0n6")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(98, 83, 13, 13)

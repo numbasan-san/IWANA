@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=9 format=3 uid="uid://sotak7dpn74e"]
+
+[ext_resource type="Script" path="res://combat/effects/instant/heal.gd" id="1_iohne"]
+[ext_resource type="Script" path="res://combat/effects/buffs/life_steal.gd" id="1_rtvb8"]
+[ext_resource type="Resource" uid="uid://b08i77oxgv52d" path="res://combat/effects/buffs/life_steal_data.tres" id="1_skxg8"]
+[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="2_so1d2"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="3_ymvr7"]
+
+[sub_resource type="Resource" id="Resource_8motg"]
+script = ExtResource("1_iohne")
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_mcx67"]
+script = ExtResource("2_so1d2")
+
+[sub_resource type="Resource" id="Resource_l788t"]
+script = ExtResource("1_rtvb8")
+before_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+after_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+unapply_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+incoming_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+outgoing_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+character_hit_effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_8motg")])
+type = 0
+decrease_duration = 5
+duration = 3
+stacks = false
+base_data = ExtResource("1_skxg8")
+base_value = 1.0
+target_type = SubResource("Resource_mcx67")
+
+[resource]
+script = ExtResource("3_ymvr7")
+name = "Amenaza"
+description = "Daniela amenaza al grupo enemigo y buffea sus siguientes 3 golpes para curarse un porcentaje del daño infligido
+"
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_l788t")])
+energy_cost = 5

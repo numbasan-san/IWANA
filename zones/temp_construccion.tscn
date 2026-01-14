@@ -1,0 +1,58 @@
+[gd_scene load_steps=14 format=3 uid="uid://dlbca1r0l1j88"]
+
+[ext_resource type="PackedScene" uid="uid://4jpj8tqg88j5" path="res://zones/room_f1n1.tscn" id="1_merun"]
+[ext_resource type="PackedScene" uid="uid://dt44crya5spso" path="res://zones/room_f1n2.tscn" id="2_82edb"]
+[ext_resource type="PackedScene" uid="uid://dnjubi70m176s" path="res://zones/f1n_hallway.tscn" id="3_gok78"]
+[ext_resource type="PackedScene" uid="uid://2yngnccatdr1" path="res://zones/f1_female_bathroom.tscn" id="4_io0q7"]
+[ext_resource type="PackedScene" uid="uid://20fpp4endaui" path="res://zones/f1_male_bathroom.tscn" id="5_ygbv7"]
+[ext_resource type="PackedScene" uid="uid://c5rfe52h3mrus" path="res://zones/laboratory.tscn" id="6_4atw4"]
+[ext_resource type="PackedScene" uid="uid://b7busewu2ru3v" path="res://zones/yard.tscn" id="7_hvtad"]
+[ext_resource type="PackedScene" uid="uid://dsxqd1ubb8a0s" path="res://zones/dining_room.tscn" id="8_p8656"]
+[ext_resource type="PackedScene" uid="uid://q2icfu5so7mo" path="res://zones/art_room.tscn" id="9_2g5fw"]
+[ext_resource type="PackedScene" uid="uid://bc2cyot7ikw0c" path="res://zones/room_f1s1.tscn" id="10_p3h0k"]
+[ext_resource type="PackedScene" uid="uid://c8nw6b0otnpwo" path="res://zones/room_f1s2.tscn" id="11_2p6c5"]
+[ext_resource type="PackedScene" uid="uid://cc2ugroyx36il" path="res://zones/infirmary.tscn" id="12_sx475"]
+[ext_resource type="PackedScene" uid="uid://dps3xgkcv1s7n" path="res://zones/f1s_hallway.tscn" id="13_1r1qh"]
+
+[node name="temp_construccion" type="Node2D"]
+
+[node name="PasilloP1N" parent="." instance=ExtResource("3_gok78")]
+position = Vector2(-3792, 1332)
+
+[node name="SalaP1N1" parent="." instance=ExtResource("1_merun")]
+position = Vector2(1089, -203)
+
+[node name="SalaP1N2" parent="." instance=ExtResource("2_82edb")]
+position = Vector2(3579, -203)
+
+[node name="BañoP1M" parent="." instance=ExtResource("4_io0q7")]
+y_sort_enabled = false
+position = Vector2(5595, 507)
+
+[node name="BañoP1H" parent="." instance=ExtResource("5_ygbv7")]
+y_sort_enabled = false
+position = Vector2(5925, 507)
+
+[node name="Laboratory" parent="." instance=ExtResource("6_4atw4")]
+position = Vector2(-1833, 524)
+
+[node name="Yard" parent="." instance=ExtResource("7_hvtad")]
+position = Vector2(2843, 2643)
+
+[node name="DiningRoom" parent="." instance=ExtResource("8_p8656")]
+position = Vector2(-1979, 4886)
+
+[node name="ArtRoom" parent="." instance=ExtResource("9_2g5fw")]
+position = Vector2(-510, 8936)
+
+[node name="RoomF1S1" parent="." instance=ExtResource("10_p3h0k")]
+position = Vector2(1082, 8863)
+
+[node name="RoomF1S2" parent="." instance=ExtResource("11_2p6c5")]
+position = Vector2(3571, 8849)
+
+[node name="Infirmary" parent="." instance=ExtResource("12_sx475")]
+position = Vector2(5001, 8789)
+
+[node name="HallwayF1S" parent="." instance=ExtResource("13_1r1qh")]
+position = Vector2(-3791, 7388)

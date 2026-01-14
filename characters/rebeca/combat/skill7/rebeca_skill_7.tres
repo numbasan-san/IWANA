@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=12 format=3 uid="uid://jmdx3dv0rbse"]
+
+[ext_resource type="Script" path="res://combat/effects/instant/heal.gd" id="1_ev4qk"]
+[ext_resource type="Resource" uid="uid://bl0r7e8rgffet" path="res://combat/effects/buffs/reverse_protection_data.tres" id="1_raq7u"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_xu6ef"]
+[ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="2_r1sy2"]
+[ext_resource type="Script" path="res://combat/effects/buffs/reverse_protection.gd" id="2_t1w78"]
+[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="3_ywq51"]
+
+[sub_resource type="Resource" id="Resource_2wueh"]
+script = ExtResource("2_t1w78")
+type = 0
+decrease_duration = 4
+duration = 1
+stacks = false
+base_data = ExtResource("1_raq7u")
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_5cdbk"]
+script = ExtResource("2_r1sy2")
+exclude_self = false
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_3tpl0"]
+resource_local_to_scene = true
+script = ExtResource("1_ev4qk")
+base_value = 1.0
+target_type = SubResource("Resource_5cdbk")
+
+[sub_resource type="Resource" id="Resource_redrp"]
+script = ExtResource("2_r1sy2")
+exclude_self = true
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_rjk8o"]
+script = ExtResource("3_ywq51")
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_2wueh"), SubResource("Resource_3tpl0")])
+base_value = 1.0
+target_type = SubResource("Resource_redrp")
+
+[resource]
+script = ExtResource("1_xu6ef")
+name = "Ratona de biblioteca"
+description = "Los ataques que vaya a recibir, los redirige a un aliado( le applica guardia inversa) y lo cura una cantidad fija"
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_rjk8o")])
+energy_cost = 5

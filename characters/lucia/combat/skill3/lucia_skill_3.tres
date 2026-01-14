@@ -1,0 +1,57 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=12 format=3 uid="uid://e6b5hks1txr"]
+
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_mkkvq"]
+[ext_resource type="Resource" uid="uid://bq1xq1qyl6520" path="res://combat/effects/buffs/frightening_data.tres" id="1_yi2wt"]
+[ext_resource type="Script" path="res://combat/effects/stat_moding_effect.gd" id="2_qhf2k"]
+[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="3_ryujx"]
+[ext_resource type="Script" path="res://combat/effects/buffs/frightening.gd" id="4_6cu4k"]
+[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="5_so7ak"]
+
+[sub_resource type="Resource" id="Resource_hb2q2"]
+script = ExtResource("2_qhf2k")
+stat = "Damage"
+type = 1
+decrease_duration = 2
+duration = 2
+stacks = true
+base_value = 2.0
+
+[sub_resource type="Resource" id="Resource_otj6w"]
+script = ExtResource("2_qhf2k")
+stat = "Defense"
+type = 1
+decrease_duration = 2
+duration = 2
+stacks = true
+base_value = 2.0
+
+[sub_resource type="Resource" id="Resource_xrv48"]
+script = ExtResource("3_ryujx")
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_hb2q2"), SubResource("Resource_otj6w")])
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_6kxb8"]
+script = ExtResource("5_so7ak")
+
+[sub_resource type="Resource" id="Resource_2p6av"]
+script = ExtResource("4_6cu4k")
+before_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+after_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+unapply_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+incoming_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+outgoing_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+character_hit_effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_xrv48")])
+type = 0
+decrease_duration = 2
+duration = 2
+stacks = false
+base_data = ExtResource("1_yi2wt")
+base_value = 1.0
+target_type = SubResource("Resource_6kxb8")
+
+[resource]
+script = ExtResource("1_mkkvq")
+name = "Influencia del más allá"
+description = "Hace un falso ritual satánico, que aplica se aplica atemorizante (cuando el afectado es objetivo de un ataque, el enemigo recibe un debuff al ataque y a la defensa)"
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_2p6av")])
+energy_cost = 5

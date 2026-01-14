@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyneef04rixu"]
+
+[ext_resource type="Script" path="res://script/menus/pause_menu/default_menu.gd" id="2_qanlg"]
+
+[node name="default_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_qanlg")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -149.0
+offset_right = 2.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+alignment = 1
+
+[node name="resume" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "reanudar"
+
+[node name="restart" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "reiniciar"
+
+[node name="options" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "configuración"
+
+[node name="quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "salir"
+
+[connection signal="pressed" from="VBoxContainer/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/quit" to="." method="_on_quit_pressed"]

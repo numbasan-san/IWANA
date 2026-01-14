@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="Sleep" load_steps=9 format=3 uid="uid://bvf4ck6rpqybw"]
+
+[ext_resource type="Script" path="res://combat/effects/instant/heal.gd" id="2_4qb8t"]
+[ext_resource type="Texture2D" uid="uid://dxm2w7h5yilb3" path="res://combat/effects/debuffs/sleep_icon.tres" id="3_eujr6"]
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="4_r0oyi"]
+[ext_resource type="Script" path="res://combat/effects/debuffs/sleep.gd" id="5_d8gkm"]
+[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="6_2ap5n"]
+
+[sub_resource type="Resource" id="Resource_la2kv"]
+script = ExtResource("2_4qb8t")
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_r1fyr"]
+script = ExtResource("4_r0oyi")
+name = "Healing sleep"
+description = "The target is sleeping and can't act, but will regenerate some health each turn. Any received damage will wake it up."
+icon = ExtResource("3_eujr6")
+
+[sub_resource type="Resource" id="Resource_444td"]
+script = ExtResource("6_2ap5n")
+
+[resource]
+script = ExtResource("5_d8gkm")
+before_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+after_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_la2kv")])
+unapply_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+incoming_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+outgoing_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+character_hit_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+type = 0
+decrease_duration = 2
+duration = 3
+stacks = false
+base_data = SubResource("Resource_r1fyr")
+base_value = 1.0
+target_type = SubResource("Resource_444td")

@@ -1,0 +1,143 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck38hsl6l5t2y"]
+
+[ext_resource type="Texture2D" uid="uid://bgmm5t6f1gyge" path="res://assets/inventory/inventory2.png" id="1_ukb70"]
+[ext_resource type="Texture2D" uid="uid://d4ga2cbo5mfov" path="res://assets/menus/mascara.png" id="2_k14iy"]
+[ext_resource type="PackedScene" uid="uid://ikr3d1omcq3d" path="res://scenes/menus/game_menu/utilities/item_tarjeta.tscn" id="3_awprh"]
+[ext_resource type="Texture2D" uid="uid://bijt407dbbadm" path="res://assets/inventory/inventory_slot.png" id="4_4x8dy"]
+
+[node name="background2" type="TextureRect"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -595.0
+offset_top = -372.5
+offset_right = 595.0
+offset_bottom = 372.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ukb70")
+
+[node name="characters_btn" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 49.5
+offset_right = 55.0
+offset_bottom = 99.5
+texture_hover = ExtResource("2_k14iy")
+
+[node name="maps_btn" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 104.5
+offset_right = 40.0
+offset_bottom = 154.5
+texture_hover = ExtResource("2_k14iy")
+
+[node name="items_btn" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 15.0
+offset_top = 160.5
+offset_right = 51.0
+offset_bottom = 210.5
+texture_hover = ExtResource("2_k14iy")
+
+[node name="contacts_btn" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 219.5
+offset_right = 44.0
+offset_bottom = 269.5
+texture_hover = ExtResource("2_k14iy")
+
+[node name="items_bar" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 649.0
+offset_top = 68.0
+offset_right = 1129.0
+offset_bottom = 674.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="items_bar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 19.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 46
+
+[node name="item_tarjeta" parent="items_bar/VBoxContainer" instance=ExtResource("3_awprh")]
+layout_mode = 2
+
+[node name="item_tarjeta2" parent="items_bar/VBoxContainer" instance=ExtResource("3_awprh")]
+layout_mode = 2
+
+[node name="item_tarjeta3" parent="items_bar/VBoxContainer" instance=ExtResource("3_awprh")]
+layout_mode = 2
+
+[node name="item_tarjeta4" parent="items_bar/VBoxContainer" instance=ExtResource("3_awprh")]
+layout_mode = 2
+
+[node name="item_tarjeta5" parent="items_bar/VBoxContainer" instance=ExtResource("3_awprh")]
+layout_mode = 2
+
+[node name="item_tarjeta6" parent="items_bar/VBoxContainer" instance=ExtResource("3_awprh")]
+layout_mode = 2
+
+[node name="item_tarjeta7" parent="items_bar/VBoxContainer" instance=ExtResource("3_awprh")]
+layout_mode = 2
+
+[node name="item_tarjeta8" parent="items_bar/VBoxContainer" instance=ExtResource("3_awprh")]
+layout_mode = 2
+
+[node name="item_icon" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 115.0
+offset_top = 139.5
+offset_right = 548.0
+offset_bottom = 379.5
+
+[node name="icon" type="TextureRect" parent="item_icon"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_4x8dy")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -492.0
+offset_top = 55.5
+offset_right = -42.0
+offset_bottom = 322.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="item_info" type="RichTextLabel" parent="panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -203.5
+offset_top = -116.0
+offset_right = 203.5
+offset_bottom = 116.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 30
+text = "sdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasda"

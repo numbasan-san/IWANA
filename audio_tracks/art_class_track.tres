@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Track" load_steps=3 format=3 uid="uid://bjsdoixib1f4l"]
+
+[ext_resource type="Script" path="res://audio_tracks/track_control.gd" id="1_cjo7g"]
+[ext_resource type="AudioStream" uid="uid://cpd1urlbcspxi" path="res://assets/audio/ArtClass.mp3" id="2_7a0u5"]
+
+[resource]
+script = ExtResource("1_cjo7g")
+track_name = "ArtClass"
+stream = ExtResource("2_7a0u5")
+segments = {}

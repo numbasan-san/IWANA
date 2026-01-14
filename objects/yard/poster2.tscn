@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkdhs3t5q4731"]
+
+[ext_resource type="PackedScene" uid="uid://cahhguph112nt" path="res://objects/yard/base_yard_object.tscn" id="1_bb64s"]
+
+[node name="Poster2" instance=ExtResource("1_bb64s")]
+y_sort_enabled = true
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(16, 62, 26, 31)

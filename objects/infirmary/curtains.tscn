@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbu2nhj2835jj"]
+
+[ext_resource type="PackedScene" uid="uid://bexdhvmbe3drg" path="res://objects/infirmary/base_inf_object.tscn" id="1_58e58"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fphti"]
+size = Vector2(7, 5)
+
+[node name="Curtains" instance=ExtResource("1_58e58")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(32, 18, 77, 62)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(-35, 28.9)
+shape = SubResource("RectangleShape2D_fphti")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" index="1"]
+position = Vector2(35, 29)
+shape = SubResource("RectangleShape2D_fphti")

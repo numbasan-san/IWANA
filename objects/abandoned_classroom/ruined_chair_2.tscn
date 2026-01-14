@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bjurxi44hex4x"]
+
+[ext_resource type="PackedScene" uid="uid://cwc3o8rysyn6q" path="res://objects/abandoned_classroom/base_abandoned_room_object.tscn" id="1_osnaf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k4q3k"]
+size = Vector2(24, 20.3333)
+
+[node name="RuinedChair2" instance=ExtResource("1_osnaf")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -18.6667)
+region_rect = Rect2(53, 36, 23, 37)
+
+[node name="StaticBody2D" parent="." index="1"]
+position = Vector2(0, 1.01328e-05)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(-0.333333, -9.5)
+shape = SubResource("RectangleShape2D_k4q3k")

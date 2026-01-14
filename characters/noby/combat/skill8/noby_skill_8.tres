@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=3 format=3 uid="uid://dh0djp8kvvo8l"]
+
+[ext_resource type="Resource" uid="uid://c6ajavap7v8s3" path="res://characters/noby/combat/skill8/animated_switch.tres" id="1_6jded"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="3_i5072"]
+
+[resource]
+script = ExtResource("3_i5072")
+name = "No es para tanto"
+description = "Si un aliado tiene menos del 10% de vida, intercambia vida con este"
+effects = Array[Resource("res://combat/effects/effect.gd")]([ExtResource("1_6jded")])
+energy_cost = 5

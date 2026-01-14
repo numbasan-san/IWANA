@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbrpal8fvvdd"]
+
+[ext_resource type="PackedScene" uid="uid://dj1fgnd3hus27" path="res://objects/bathroom/base_bathroom_object.tscn" id="1_6mgd6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_glq66"]
+size = Vector2(23.3333, 22.0833)
+
+[node name="SinkMiddle" instance=ExtResource("1_6mgd6")]
+
+[node name="Sprite2D" parent="." index="0"]
+offset = Vector2(0, -13)
+region_rect = Rect2(282, 62, 23, 22)
+
+[node name="StaticBody2D" parent="." index="1"]
+position = Vector2(0, -69)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0, 56)
+shape = SubResource("RectangleShape2D_glq66")

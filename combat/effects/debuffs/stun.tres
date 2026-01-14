@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Stun" load_steps=3 format=3 uid="uid://dkarhajuep2p0"]
+
+[ext_resource type="Resource" uid="uid://cqudm6yd60ho3" path="res://combat/effects/debuffs/stun_data.tres" id="1_u61km"]
+[ext_resource type="Script" path="res://combat/effects/debuffs/stun.gd" id="1_vdi42"]
+
+[resource]
+script = ExtResource("1_vdi42")
+type = 1
+decrease_duration = 2
+duration = 1
+stacks = false
+base_data = ExtResource("1_u61km")
+base_value = 1.0

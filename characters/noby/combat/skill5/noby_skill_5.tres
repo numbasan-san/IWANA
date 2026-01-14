@@ -1,0 +1,73 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=16 format=3 uid="uid://b7fxwd6xs8en2"]
+
+[ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="1_ot3m2"]
+[ext_resource type="Script" path="res://combat/effects/stat_moding_effect.gd" id="2_ed2q0"]
+[ext_resource type="Script" path="res://combat/effects/animation_effects/play_animation.gd" id="3_6btju"]
+[ext_resource type="Script" path="res://combat/effects/selection_effect.gd" id="3_7dwky"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="3_o0kkp"]
+[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="4_2r6hj"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="5_56m76"]
+
+[sub_resource type="Resource" id="Resource_2s5i5"]
+script = ExtResource("2_ed2q0")
+stat = "Damage"
+type = 1
+decrease_duration = 2
+duration = 2
+stacks = true
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_ip8bp"]
+script = ExtResource("2_ed2q0")
+stat = "Defense"
+type = 1
+decrease_duration = 2
+duration = 2
+stacks = true
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_ndo46"]
+script = ExtResource("2_ed2q0")
+stat = "Speed"
+type = 1
+decrease_duration = 2
+duration = 2
+stacks = true
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_nu4e4"]
+script = ExtResource("3_7dwky")
+list = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_2s5i5"), SubResource("Resource_ip8bp"), SubResource("Resource_ndo46")])
+select_random = false
+quantity = 1
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_m1nun"]
+script = ExtResource("3_6btju")
+graphic_name = "swiss_knife"
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_ofyqt"]
+script = ExtResource("1_ot3m2")
+type = 0
+percentage_ignored = 0.0
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_e4ort"]
+script = ExtResource("5_56m76")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_jgbmt"]
+script = ExtResource("4_2r6hj")
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_nu4e4"), SubResource("Resource_m1nun"), SubResource("Resource_ofyqt")])
+base_value = 1.0
+target_type = SubResource("Resource_e4ort")
+
+[resource]
+script = ExtResource("3_o0kkp")
+name = "Navaja suiza"
+description = "Selecciona un debuff. Noby ataca al oponente, inflige daño y aplica el debuff"
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_jgbmt")])
+energy_cost = 5

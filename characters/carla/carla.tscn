@@ -1,0 +1,112 @@
+[gd_scene load_steps=23 format=3 uid="uid://dorc15lxpd2w4"]
+
+[ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
+[ext_resource type="Resource" uid="uid://dqghkllfgkd3g" path="res://script/characters/resource/carla.tres" id="2_g18jn"]
+[ext_resource type="Script" path="res://combat/stats.gd" id="2_vglxn"]
+[ext_resource type="Texture2D" uid="uid://boe2ejslup8co" path="res://characters/carla/vn/neutral.png" id="4_03jaf"]
+[ext_resource type="Texture2D" uid="uid://bwmjdrfbyflyo" path="res://characters/carla/combat/fainted.png" id="4_50y82"]
+[ext_resource type="Texture2D" uid="uid://dk1vdl2oqyw8r" path="res://characters/carla/rpg/movement_384x240.png" id="4_74ne1"]
+[ext_resource type="Texture2D" uid="uid://b4p5rlv2f43aj" path="res://assets/combat_sprites/portraits.png" id="5_cnfhk"]
+[ext_resource type="Texture2D" uid="uid://b0ainjfp61ope" path="res://characters/noby_combate.png" id="7_yjqap"]
+[ext_resource type="Resource" uid="uid://dictbrxqi37wy" path="res://characters/carla/combat/skill1/carla_skill_1.tres" id="10_5wqqk"]
+[ext_resource type="Resource" uid="uid://c7ctd4sjh66jy" path="res://characters/carla/combat/skill2/carla_skill_2.tres" id="11_tpjcy"]
+[ext_resource type="Resource" uid="uid://7x7yb7nln5n7" path="res://characters/carla/combat/skill3/carla_skill_3.tres" id="12_bm1yd"]
+[ext_resource type="Resource" uid="uid://c01m60qj02xxd" path="res://characters/carla/combat/skill4/carla_skill_4.tres" id="13_0o6jo"]
+[ext_resource type="Resource" uid="uid://lc58o03rwf5i" path="res://characters/carla/combat/skill5/carla_skill_5.tres" id="14_xvl0x"]
+[ext_resource type="Resource" uid="uid://cow8xqqtaylai" path="res://characters/carla/combat/skill6/carla_skill_6.tres" id="15_atl7k"]
+[ext_resource type="Resource" uid="uid://tng2hnsmo7qg" path="res://characters/carla/combat/skill7/carla_skill_7.tres" id="16_rc7xj"]
+[ext_resource type="Resource" uid="uid://bijh26ssy4mxy" path="res://characters/carla/combat/skill8/carla_skill_8.tres" id="17_lptqu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eyij3"]
+resource_local_to_scene = true
+size = Vector2(21.6667, 10.6667)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyoah"]
+atlas = ExtResource("5_cnfhk")
+region = Rect2(323, 167, 51, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dahf2"]
+atlas = ExtResource("4_50y82")
+region = Rect2(0, 0, 220, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4x57r"]
+atlas = ExtResource("7_yjqap")
+region = Rect2(272, 0, 68, 123)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qgx6d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dahf2")
+}],
+"loop": true,
+"name": &"fainted",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4x57r")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_4hq1v"]
+resource_local_to_scene = true
+script = ExtResource("2_vglxn")
+base_max_health = 20
+base_max_energy = 40
+base_damage = 10
+base_defense = 0
+base_speed = 10
+base_critical = 5
+base_precision = 100
+base_evasion = 0
+
+[node name="Carla" instance=ExtResource("1_begxf")]
+char_info = ExtResource("2_g18jn")
+
+[node name="DialogModel" parent="." index="0"]
+visible = false
+
+[node name="Neutral" type="Sprite2D" parent="DialogModel" index="0"]
+scale = Vector2(-1, 1)
+texture = ExtResource("4_03jaf")
+
+[node name="Sprite2D" parent="RPGModel" index="0"]
+position = Vector2(0, 3)
+texture = ExtResource("4_74ne1")
+offset = Vector2(0, -43)
+vframes = 8
+frame = 16
+region_rect = Rect2(364, 595, 195, 240)
+
+[node name="Collider" parent="RPGModel" index="1"]
+position = Vector2(-0.5, -2.66667)
+shape = SubResource("RectangleShape2D_eyij3")
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
+
+[node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
+visible = false
+combat_animation = NodePath("Sprites/CombatSprite")
+
+[node name="Basic" type="TextureRect" parent="CombatModel/Portraits" index="0"]
+visible = false
+offset_right = 790.0
+offset_bottom = 516.0
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_gyoah")
+expand_mode = 1
+stretch_mode = 2
+
+[node name="CombatSprite" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_qgx6d")
+animation = &"idle"
+offset = Vector2(0, -34)
+
+[node name="CombatHandler" parent="." index="3"]
+stats = SubResource("Resource_4hq1v")
+skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("10_5wqqk"), ExtResource("11_tpjcy"), ExtResource("12_bm1yd"), ExtResource("13_0o6jo"), ExtResource("14_xvl0x"), ExtResource("15_atl7k"), ExtResource("16_rc7xj"), ExtResource("17_lptqu")])
+manual_control = true

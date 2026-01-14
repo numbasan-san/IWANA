@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EffectBaseData" load_steps=3 format=3 uid="uid://dayloxpwj30t4"]
+
+[ext_resource type="Texture2D" uid="uid://d245uyo2kmp7m" path="res://combat/effects/instant/damage_icon.tres" id="1_yyj57"]
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="2_b5jtl"]
+
+[resource]
+script = ExtResource("2_b5jtl")
+name = "Damage"
+description = "Basic effect that uses the attacker's damage stat and the defender's defense stat to calculate the damage done."
+icon = ExtResource("1_yyj57")

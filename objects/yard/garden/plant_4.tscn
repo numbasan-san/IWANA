@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://6rkyoj7avnxf"]
+
+[ext_resource type="PackedScene" uid="uid://b2ayos3quuo4t" path="res://objects/yard/garden/base_greenhouse_object.tscn" id="1_4nrbw"]
+
+[node name="Plant4" instance=ExtResource("1_4nrbw")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(292, 179, 8, 13)

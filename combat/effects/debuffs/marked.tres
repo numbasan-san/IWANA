@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Marked" load_steps=3 format=3 uid="uid://ghwuqh7qac47"]
+
+[ext_resource type="Resource" uid="uid://bybws0h2klgpd" path="res://combat/effects/debuffs/marked_data.tres" id="1_8jfl2"]
+[ext_resource type="Script" path="res://combat/effects/debuffs/marked.gd" id="1_gkiyx"]
+
+[resource]
+script = ExtResource("1_gkiyx")
+type = 1
+decrease_duration = 4
+duration = 1
+stacks = false
+base_data = ExtResource("1_8jfl2")
+base_value = 1.0

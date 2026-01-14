@@ -1,0 +1,98 @@
+[gd_scene load_steps=5 format=3 uid="uid://byb8j5plrwbmh"]
+
+[ext_resource type="PackedScene" uid="uid://8c8v1xlk62v7" path="res://screens/dev/dev_area_control.tscn" id="2_6xrsm"]
+[ext_resource type="Script" path="res://screens/dev/dev_combat_mode.gd" id="2_phc2u"]
+[ext_resource type="PackedScene" uid="uid://brcf7mmbpd2h4" path="res://screens/dev/stats_overlay.tscn" id="4_4cilf"]
+[ext_resource type="Theme" uid="uid://beupgvq760u62" path="res://screens/dev/dev_mode_theme.tres" id="4_o1mx7"]
+
+[node name="DevCombatMode" type="Control" node_paths=PackedStringArray("left_control", "right_control", "left_stats_overlay", "right_stats_overlay")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("4_o1mx7")
+script = ExtResource("2_phc2u")
+left_control = NodePath("SubMode/AreaMode/LeftAreaControl")
+right_control = NodePath("SubMode/AreaMode/RightAreaControl")
+left_stats_overlay = NodePath("SubMode/StatMode/LeftStatsOverlay")
+right_stats_overlay = NodePath("SubMode/StatMode/RightStatsOverlay")
+
+[node name="TopMenu" type="HBoxContainer" parent="."]
+layout_mode = 1
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 784.0
+offset_bottom = 65.0
+
+[node name="NewBattle" type="Button" parent="TopMenu"]
+layout_mode = 2
+text = "Nueva pelea"
+
+[node name="PauseOnNewRound" type="Button" parent="TopMenu"]
+layout_mode = 2
+toggle_mode = true
+text = "Pausar antes de ronda"
+
+[node name="NextRound" type="Button" parent="TopMenu"]
+layout_mode = 2
+text = "Continuar ronda"
+
+[node name="SubMode" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.074
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="AreaMode" type="Control" parent="SubMode"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="LeftAreaControl" parent="SubMode/AreaMode" instance=ExtResource("2_6xrsm")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.016
+anchor_top = 0.018
+anchor_right = 0.188
+anchor_bottom = 0.284
+offset_left = -0.320007
+offset_top = -0.0419159
+offset_right = -0.320007
+offset_bottom = -0.0419312
+area_name = "L. Area"
+
+[node name="RightAreaControl" parent="SubMode/AreaMode" instance=ExtResource("2_6xrsm")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.481
+anchor_top = 0.018
+anchor_right = 0.653
+anchor_bottom = 0.284
+offset_left = 0.319885
+offset_top = -0.0419159
+offset_right = 0.319824
+offset_bottom = -0.0419312
+grow_horizontal = 1
+grow_vertical = 1
+area_name = "R. Area"
+
+[node name="StatMode" type="Control" parent="SubMode"]
+visible = false
+layout_mode = 2
+mouse_filter = 2
+
+[node name="LeftStatsOverlay" parent="SubMode/StatMode" instance=ExtResource("4_4cilf")]
+layout_mode = 1
+anchor_right = 0.5
+
+[node name="RightStatsOverlay" parent="SubMode/StatMode" instance=ExtResource("4_4cilf")]
+layout_mode = 1
+anchor_left = 0.5
+
+[connection signal="pressed" from="TopMenu/NewBattle" to="." method="_new_battle"]
+[connection signal="toggled" from="TopMenu/PauseOnNewRound" to="." method="_sync_combat_pause"]
+[connection signal="pressed" from="TopMenu/NextRound" to="." method="_continue_combat"]

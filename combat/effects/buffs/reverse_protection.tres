@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="ReverseProtectionEffect" load_steps=3 format=3 uid="uid://bxln7k6oumyt"]
+
+[ext_resource type="Script" path="res://combat/effects/buffs/reverse_protection.gd" id="1_ei7dv"]
+[ext_resource type="Resource" uid="uid://bl0r7e8rgffet" path="res://combat/effects/buffs/reverse_protection_data.tres" id="1_y7ukm"]
+
+[resource]
+script = ExtResource("1_ei7dv")
+type = 0
+decrease_duration = 4
+duration = 1
+stacks = false
+base_data = ExtResource("1_y7ukm")
+base_value = 1.0

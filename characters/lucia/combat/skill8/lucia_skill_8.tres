@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=15 format=3 uid="uid://1ycnifpc07hb"]
+
+[ext_resource type="Script" path="res://combat/effects/debuffs/marked.gd" id="1_qxbus"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_s53sv"]
+[ext_resource type="Script" path="res://combat/effects/conditions/effect_condition.gd" id="2_86mpc"]
+[ext_resource type="Script" path="res://combat/effects/conditional_effect.gd" id="3_w628w"]
+[ext_resource type="Resource" uid="uid://bybws0h2klgpd" path="res://combat/effects/debuffs/marked_data.tres" id="4_fy7fm"]
+[ext_resource type="Resource" uid="uid://vdoyjayyhxnm" path="res://combat/effects/debuffs/controled_data.tres" id="5_dl6ar"]
+[ext_resource type="Script" path="res://combat/effects/debuffs/controled.gd" id="6_44qh6"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="7_spok6"]
+
+[sub_resource type="Resource" id="Resource_8cyqk"]
+script = ExtResource("1_qxbus")
+type = 0
+decrease_duration = 0
+duration = 0
+stacks = false
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_uhh1n"]
+script = ExtResource("2_86mpc")
+character = "Target"
+has = true
+effects = Array[Resource("res://combat/effects/lasting_effect.gd")]([SubResource("Resource_8cyqk")])
+
+[sub_resource type="Resource" id="Resource_bx54p"]
+script = ExtResource("1_qxbus")
+type = 1
+decrease_duration = 4
+duration = 1
+stacks = false
+base_data = ExtResource("4_fy7fm")
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_j7jy1"]
+script = ExtResource("7_spok6")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_4k7it"]
+script = ExtResource("6_44qh6")
+select_random = false
+quantity = 1
+type = 1
+decrease_duration = 2
+duration = 1
+stacks = false
+base_data = ExtResource("5_dl6ar")
+base_value = null
+target_type = SubResource("Resource_j7jy1")
+
+[sub_resource type="Resource" id="Resource_gyl0q"]
+script = ExtResource("3_w628w")
+condition = SubResource("Resource_uhh1n")
+when_true = SubResource("Resource_4k7it")
+when_false = SubResource("Resource_bx54p")
+base_value = 1.0
+
+[resource]
+script = ExtResource("1_s53sv")
+name = "Muñeca de clavos"
+description = "Marca un enemigo,(asegura crítico), si un enemigo ya esta marcado, puedes seleccionar la siguiente habilidad que va a usar el enemigo."
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_gyl0q")])
+energy_cost = 5

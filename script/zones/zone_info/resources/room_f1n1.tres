@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="zone_info" load_steps=2 format=3 uid="uid://d3m1k3ynfdasd"]
+
+[ext_resource type="Script" path="res://script/zones/zone_info/zone_info.gd" id="1_qr7cj"]
+
+[resource]
+script = ExtResource("1_qr7cj")
+name = "Aula 1-A"
+description = "Es el salón A del primer piso."
+dumb = true

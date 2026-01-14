@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=7 format=3 uid="uid://bijh26ssy4mxy"]
+
+[ext_resource type="Resource" uid="uid://cqudm6yd60ho3" path="res://combat/effects/debuffs/stun_data.tres" id="1_3arkr"]
+[ext_resource type="Script" path="res://combat/effects/debuffs/stun.gd" id="1_6somf"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_8i4al"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="2_7y1mb"]
+
+[sub_resource type="Resource" id="Resource_2g3w1"]
+script = ExtResource("2_7y1mb")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_5oxwc"]
+script = ExtResource("1_6somf")
+type = 1
+decrease_duration = 2
+duration = 1
+stacks = false
+base_data = ExtResource("1_3arkr")
+base_value = 1.0
+target_type = SubResource("Resource_2g3w1")
+
+[resource]
+script = ExtResource("1_8i4al")
+name = "NO TE METAS CONMIGO"
+description = "Paraliza al enemigo"
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_5oxwc")])
+energy_cost = 5

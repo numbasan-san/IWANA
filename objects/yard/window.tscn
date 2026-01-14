@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvq6mst6apqy2"]
+
+[ext_resource type="PackedScene" uid="uid://cahhguph112nt" path="res://objects/yard/base_yard_object.tscn" id="1_6e5vs"]
+
+[node name="Window" instance=ExtResource("1_6e5vs")]
+y_sort_enabled = true
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(138, 70, 100, 50)

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EffectBaseData" load_steps=3 format=3 uid="uid://daxv17uh8wt7h"]
+
+[ext_resource type="Texture2D" uid="uid://p4q5vsut8oci" path="res://combat/effects/buffs/riposte_icon.tres" id="1_euxsp"]
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="1_p08wy"]
+
+[resource]
+script = ExtResource("1_p08wy")
+name = "Riposte"
+description = "When receiving a physical attack, this character returns some damage depending on it's damage stat."
+icon = ExtResource("1_euxsp")

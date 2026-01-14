@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=3 format=3 uid="uid://h7lwhs1snj1r"]
+
+[ext_resource type="Resource" uid="uid://bvf4ck6rpqybw" path="res://characters/guillermo/combat/skill4/healing_sleep.tres" id="1_e0b0n"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_fj11o"]
+
+[resource]
+script = ExtResource("1_fj11o")
+name = "Me vale vrga"
+description = "Se duerme, cada turno con el efecto se cura una cantidad"
+effects = Array[Resource("res://combat/effects/effect.gd")]([ExtResource("1_e0b0n")])
+energy_cost = 5

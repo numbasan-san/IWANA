@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://cj18bmg05hq7v"]
+
+[ext_resource type="Script" path="res://script/menus/pause_menu/settings/input_settings.gd" id="1_vt4tf"]
+[ext_resource type="PackedScene" uid="uid://hqtxql4kfw8g" path="res://scenes/menus/pause_menu/settings/input_button.tscn" id="2_t4bgm"]
+
+[node name="Inputs" type="Control"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_vt4tf")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -267.5
+offset_right = 267.5
+offset_bottom = 430.0
+grow_horizontal = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="actions_list" type="VBoxContainer" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="input_button" parent="Panel/MarginContainer/VBoxContainer/ScrollContainer/actions_list" instance=ExtResource("2_t4bgm")]
+layout_mode = 2
+
+[node name="ResetButton" type="Button" parent="Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+text = "Restablecer a Predeterminado"
+
+[connection signal="pressed" from="Panel/MarginContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]

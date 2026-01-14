@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqr0kq03kk35s"]
+
+[ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_1k6hl"]
+[ext_resource type="Texture2D" uid="uid://msttj3ecaxgl" path="res://characters/others/rpg/npcs.png" id="2_7grc4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1y18m"]
+resource_local_to_scene = true
+size = Vector2(128, 61)
+
+[node name="Barbara" instance=ExtResource("1_1k6hl")]
+
+[node name="Neutral" type="Sprite2D" parent="DialogModel" index="0"]
+scale = Vector2(-1, 1)
+
+[node name="Sprite2D" parent="RPGModel" index="0"]
+position = Vector2(0, -163)
+texture = ExtResource("2_7grc4")
+hframes = 1
+region_enabled = true
+region_rect = Rect2(820, 635, 125, 325)
+
+[node name="Collider" parent="RPGModel" index="1"]
+shape = SubResource("RectangleShape2D_1y18m")

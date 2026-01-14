@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="LifeSteal" load_steps=5 format=3 uid="uid://c3wkwm5kqaykp"]
+
+[ext_resource type="Script" path="res://combat/effects/buffs/life_steal.gd" id="1_8cxjw"]
+[ext_resource type="Script" path="res://combat/effects/instant/heal.gd" id="1_oaimd"]
+[ext_resource type="Resource" uid="uid://b08i77oxgv52d" path="res://combat/effects/buffs/life_steal_data.tres" id="1_qufqe"]
+
+[sub_resource type="Resource" id="Resource_8motg"]
+script = ExtResource("1_oaimd")
+base_value = 1.0
+
+[resource]
+script = ExtResource("1_8cxjw")
+before_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+after_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+unapply_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+incoming_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+outgoing_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+character_hit_effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_8motg")])
+type = 0
+decrease_duration = 5
+duration = 3
+stacks = false
+base_data = ExtResource("1_qufqe")
+base_value = 1.0

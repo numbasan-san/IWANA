@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EffectBaseData" load_steps=3 format=3 uid="uid://cqkvtlmmen8kn"]
+
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="1_ge4q5"]
+[ext_resource type="Texture2D" uid="uid://cogl66heyamqp" path="res://combat/effects/instant/heal_icon.tres" id="1_ucutv"]
+
+[resource]
+script = ExtResource("1_ge4q5")
+name = "Heal"
+description = "Recovers a fixed amount of health on the target."
+icon = ExtResource("1_ucutv")

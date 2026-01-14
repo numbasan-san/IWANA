@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo5xhb7vuo755"]
+
+[ext_resource type="PackedScene" uid="uid://bp2h1wt8f4kow" path="res://objects/yard/garden/base_garden_object.tscn" id="1_uqovt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87u6e"]
+size = Vector2(41, 42)
+
+[node name="Flower4" instance=ExtResource("1_uqovt")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(94, 189, 10, 15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(5.5, 20)
+shape = SubResource("RectangleShape2D_87u6e")

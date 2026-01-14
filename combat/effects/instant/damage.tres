@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DamageEffect" load_steps=3 format=3 uid="uid://ctjrx2gjowqg4"]
+
+[ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="1_iyc3j"]
+[ext_resource type="Resource" uid="uid://dayloxpwj30t4" path="res://combat/effects/instant/damage_data.tres" id="1_umk0v"]
+
+[resource]
+script = ExtResource("1_iyc3j")
+type = 0
+percentage_ignored = 0.0
+base_data = ExtResource("1_umk0v")
+base_value = 1.0

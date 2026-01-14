@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=3 format=3 uid="uid://dictbrxqi37wy"]
+
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_1v8p5"]
+[ext_resource type="Resource" uid="uid://c1ydb1tmh44kv" path="res://characters/carla/combat/skill1/buffs.tres" id="1_dc8p2"]
+
+[resource]
+script = ExtResource("1_1v8p5")
+name = "Cota de espinas"
+description = "Consigue espinas, aumenta su defensa."
+effects = Array[Resource("res://combat/effects/effect.gd")]([ExtResource("1_dc8p2")])
+energy_cost = 5

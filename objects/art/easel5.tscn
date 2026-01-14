@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bos22ouiirnql"]
+
+[ext_resource type="PackedScene" uid="uid://c3hohlexko4k6" path="res://objects/art/base_art_object.tscn" id="1_j5a5m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gc8t"]
+size = Vector2(37, 20.3333)
+
+[node name="Easel5" instance=ExtResource("1_j5a5m")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -25.3333)
+region_rect = Rect2(332, 141, 40, 51)
+
+[node name="StaticBody2D" parent="." index="1"]
+position = Vector2(0, -25.3333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0.166667, 15.8333)
+shape = SubResource("RectangleShape2D_0gc8t")

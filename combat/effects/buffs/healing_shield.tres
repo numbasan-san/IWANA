@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="HealingShield" load_steps=5 format=3 uid="uid://d0bmk7hu6t2tm"]
+
+[ext_resource type="Script" path="res://combat/effects/buffs/healing_shield.gd" id="1_5w8nj"]
+[ext_resource type="Resource" uid="uid://dmsj8enfrgptt" path="res://combat/effects/buffs/healing_shield_data.tres" id="1_v6gqx"]
+[ext_resource type="Script" path="res://combat/effects/instant/heal.gd" id="2_jwf3y"]
+
+[sub_resource type="Resource" id="Resource_m8rpd"]
+script = ExtResource("2_jwf3y")
+base_value = 1.0
+
+[resource]
+script = ExtResource("1_5w8nj")
+before_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+after_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+unapply_effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_m8rpd")])
+incoming_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+outgoing_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+character_hit_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+type = 0
+decrease_duration = 0
+duration = 1
+stacks = true
+base_data = ExtResource("1_v6gqx")
+base_value = 10.0

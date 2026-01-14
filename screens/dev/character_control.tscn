@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6prgvsx020dl"]
+
+[ext_resource type="Theme" uid="uid://beupgvq760u62" path="res://screens/dev/dev_mode_theme.tres" id="1_b8nev"]
+[ext_resource type="Script" path="res://screens/dev/character_control.gd" id="2_ru12l"]
+[ext_resource type="Script" path="res://screens/dev/dev_popup_menu.gd" id="3_vmbcw"]
+
+[node name="CharacterControl" type="HBoxContainer" node_paths=PackedStringArray("characters", "name_label", "auto", "auto_enabled", "remove_button")]
+theme = ExtResource("1_b8nev")
+script = ExtResource("2_ru12l")
+characters = NodePath("Coord")
+name_label = NodePath("Name")
+auto = NodePath("Auto")
+auto_enabled = NodePath("Auto/AutoEnabled")
+remove_button = NodePath("Remove")
+
+[node name="Remove" type="Button" parent="."]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme = ExtResource("1_b8nev")
+text = "-"
+
+[node name="Coord" type="MenuButton" parent="."]
+layout_mode = 2
+text = "(0, 0)"
+flat = false
+script = ExtResource("3_vmbcw")
+
+[node name="Name" type="Label" parent="."]
+visible = false
+layout_mode = 2
+theme = ExtResource("1_b8nev")
+text = "Char 1"
+
+[node name="Auto" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="AutoLabel" type="Label" parent="Auto"]
+layout_mode = 2
+text = "Auto"
+
+[node name="AutoEnabled" type="CheckBox" parent="Auto"]
+layout_mode = 2
+
+[connection signal="pressed" from="Remove" to="." method="delete"]

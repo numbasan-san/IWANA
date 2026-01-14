@@ -1,0 +1,162 @@
+[gd_scene load_steps=11 format=3 uid="uid://b8el7o7t4udjg"]
+
+[ext_resource type="Script" path="res://screens/combat/party_menu.gd" id="1_4qcev"]
+[ext_resource type="PackedScene" uid="uid://dbuixiuq0ijmx" path="res://screens/combat/portrait_container.tscn" id="2_o5dy8"]
+[ext_resource type="Texture2D" uid="uid://cm64jidg3k4ae" path="res://assets/combat_sprites/containers.png" id="3_65mfp"]
+[ext_resource type="Texture2D" uid="uid://bptcs2n2oxrnv" path="res://assets/combat_sprites/buttons/ataque_no_selecccionado.png" id="4_apar3"]
+[ext_resource type="Texture2D" uid="uid://dkan7xpea78m2" path="res://assets/combat_sprites/buttons/ataque_selecccionado.png" id="5_dr18p"]
+[ext_resource type="Texture2D" uid="uid://qbx8ont43lkk" path="res://assets/combat_sprites/buttons/defensa_no_selecccionado.png" id="6_id63k"]
+[ext_resource type="Texture2D" uid="uid://w8agfh6y8rtq" path="res://assets/combat_sprites/buttons/defensa_selecccionado.png" id="7_3e7io"]
+[ext_resource type="Texture2D" uid="uid://bo7bc57ao6vyw" path="res://assets/combat_sprites/buttons/huir_no_selecccionado.png" id="8_1fw0i"]
+[ext_resource type="Texture2D" uid="uid://bhovu86cekktn" path="res://assets/combat_sprites/buttons/huir_selecccionado.png" id="9_r1ibd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4841x"]
+atlas = ExtResource("3_65mfp")
+region = Rect2(498, 228, 132, 106)
+
+[node name="PartyMenu" type="Control" node_paths=PackedStringArray("party_slots")]
+layout_mode = 3
+anchor_right = 0.85
+anchor_bottom = 0.359
+script = ExtResource("1_4qcev")
+party_slots = [NodePath("Characters/Character1"), NodePath("Characters/Character2"), NodePath("Characters/Character3"), NodePath("Characters/Character4")]
+
+[node name="Characters" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 1208.0
+grow_vertical = 2
+
+[node name="Character1" parent="Characters" instance=ExtResource("2_o5dy8")]
+layout_mode = 1
+anchor_right = 0.24
+anchor_bottom = 1.0
+offset_right = 0.0299988
+offset_bottom = 0.0
+slot = 1
+
+[node name="Character2" parent="Characters" instance=ExtResource("2_o5dy8")]
+layout_mode = 1
+anchor_left = 0.25
+anchor_right = 0.49
+anchor_bottom = 1.0
+slot = 2
+
+[node name="Character3" parent="Characters" instance=ExtResource("2_o5dy8")]
+layout_mode = 1
+anchor_left = 0.5
+anchor_right = 0.74
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+slot = 3
+
+[node name="Character4" parent="Characters" instance=ExtResource("2_o5dy8")]
+layout_mode = 1
+anchor_left = 0.75
+anchor_right = 0.99
+anchor_bottom = 1.0
+offset_left = 10.1046
+offset_top = 0.00799561
+offset_right = 10.9446
+offset_bottom = 0.40799
+grow_horizontal = 2
+grow_vertical = 2
+slot = 4
+
+[node name="Actions" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -353.0
+offset_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="ActionsBackground" type="TextureRect" parent="Actions"]
+layout_mode = 0
+offset_right = 396.0
+offset_bottom = 318.0
+texture = SubResource("AtlasTexture_4841x")
+
+[node name="ActionList" type="VBoxContainer" parent="Actions"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 118.904
+offset_top = 36.056
+offset_right = -23.096
+offset_bottom = 89.056
+grow_vertical = 2
+scale = Vector2(0.8, 0.8)
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Attack" type="TextureButton" parent="Actions/ActionList"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../Run")
+focus_neighbor_bottom = NodePath("../Defense")
+texture_normal = ExtResource("4_apar3")
+texture_pressed = ExtResource("5_dr18p")
+texture_hover = ExtResource("5_dr18p")
+texture_focused = ExtResource("5_dr18p")
+
+[node name="Defense" type="TextureButton" parent="Actions/ActionList"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../Attack")
+focus_neighbor_bottom = NodePath("../Run")
+texture_normal = ExtResource("6_id63k")
+texture_pressed = ExtResource("7_3e7io")
+texture_hover = ExtResource("7_3e7io")
+texture_focused = ExtResource("7_3e7io")
+
+[node name="Run" type="TextureButton" parent="Actions/ActionList"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../Defense")
+focus_neighbor_bottom = NodePath("../Attack")
+texture_normal = ExtResource("8_1fw0i")
+texture_pressed = ExtResource("9_r1ibd")
+texture_hover = ExtResource("9_r1ibd")
+texture_focused = ExtResource("9_r1ibd")
+
+[node name="ItemsAction" type="VBoxContainer" parent="Actions"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 105.6
+offset_top = 35.36
+offset_right = -36.4001
+offset_bottom = 88.36
+grow_vertical = 2
+rotation = -0.139626
+scale = Vector2(0.8, 0.8)
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Use" type="Button" parent="Actions/ItemsAction"]
+layout_mode = 2
+text = "Usar"
+
+[node name="NoUse" type="Button" parent="Actions/ItemsAction"]
+layout_mode = 2
+text = "No Usar"
+
+[node name="Close" type="Button" parent="Actions/ItemsAction"]
+layout_mode = 2
+text = "Cerrar"
+
+[connection signal="pressed" from="Actions/ActionList/Attack" to="." method="_on_attack_pressed"]
+[connection signal="pressed" from="Actions/ActionList/Defense" to="." method="_on_defense_pressed"]
+[connection signal="pressed" from="Actions/ActionList/Run" to="." method="_on_run_pressed"]
+[connection signal="pressed" from="Actions/ItemsAction/Use" to="." method="_on_use_pressed"]
+[connection signal="pressed" from="Actions/ItemsAction/NoUse" to="." method="_on_no_use_pressed"]
+[connection signal="pressed" from="Actions/ItemsAction/Close" to="." method="_on_close_pressed"]

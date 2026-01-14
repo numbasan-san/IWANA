@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EffectBaseData" load_steps=3 format=3 uid="uid://blv2ww70x2hv"]
+
+[ext_resource type="Texture2D" uid="uid://bg3crs4rpjv0k" path="res://combat/effects/buffs/dodge_icon.tres" id="1_034sd"]
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="1_ubvex"]
+
+[resource]
+script = ExtResource("1_ubvex")
+name = "Dodge"
+description = "Guarantees that the next attack targeting this character always misses."
+icon = ExtResource("1_034sd")

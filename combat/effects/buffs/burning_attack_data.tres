@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EffectBaseData" load_steps=3 format=3 uid="uid://dpoli8wo1ymvf"]
+
+[ext_resource type="Texture2D" uid="uid://ql4ni73x0vna" path="res://combat/effects/buffs/burning_attack_icon.tres" id="1_4u76e"]
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="1_ejf60"]
+
+[resource]
+script = ExtResource("1_ejf60")
+name = "Burning Attack"
+description = "The next time the character hits an enemy, it applies the burning debuff."
+icon = ExtResource("1_4u76e")

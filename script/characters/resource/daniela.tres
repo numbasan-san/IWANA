@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterInfo" load_steps=3 format=3 uid="uid://chcyry721t4nl"]
+
+[ext_resource type="Texture2D" uid="uid://qkyokiyg8yjb" path="res://characters/daniela/rpg/daniela_portrait.png" id="1_8w4c2"]
+[ext_resource type="Script" path="res://script/characters/character_info.gd" id="2_cwvf8"]
+
+[resource]
+script = ExtResource("2_cwvf8")
+name = "Daniela"
+portrait = ExtResource("1_8w4c2")
+description = "Ella me inquieta cuando hay luces estroboscópicas y música electrónica."
+affinity = ""

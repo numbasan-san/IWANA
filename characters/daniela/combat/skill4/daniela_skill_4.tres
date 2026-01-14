@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=11 format=3 uid="uid://eepmyvydnl4"]
+
+[ext_resource type="Script" path="res://combat/effects/stat_moding_effect.gd" id="2_o7mai"]
+[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="3_s073g"]
+[ext_resource type="Resource" uid="uid://dayloxpwj30t4" path="res://combat/effects/instant/damage_data.tres" id="4_c61hu"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="4_wjfcd"]
+[ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="5_46dcg"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="5_aid8m"]
+
+[sub_resource type="Resource" id="Resource_cphyq"]
+script = ExtResource("3_s073g")
+
+[sub_resource type="Resource" id="Resource_oika7"]
+script = ExtResource("2_o7mai")
+stat = "Damage"
+type = 0
+decrease_duration = 2
+duration = 1
+stacks = false
+base_value = 4.0
+target_type = SubResource("Resource_cphyq")
+
+[sub_resource type="Resource" id="Resource_khi8x"]
+resource_local_to_scene = true
+script = ExtResource("4_wjfcd")
+number_of_targets = 3
+random = true
+allow_repetition = true
+
+[sub_resource type="Resource" id="Resource_3k2tc"]
+script = ExtResource("5_46dcg")
+type = 0
+percentage_ignored = 0.0
+base_data = ExtResource("4_c61hu")
+base_value = 1.0
+target_type = SubResource("Resource_khi8x")
+
+[resource]
+script = ExtResource("5_aid8m")
+name = "Liberar frustración"
+description = "Intenta dibujar, pero no le sale, le da un buff y golpea 3 veces de forma aleatoria,enemigo (Berserker)"
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_oika7"), SubResource("Resource_3k2tc")])
+energy_cost = 8

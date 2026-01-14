@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://ikr3d1omcq3d"]
+
+[ext_resource type="Script" path="res://scenes/menus/game_menu/utilities/item_tarjeta.gd" id="1_m5s2x"]
+
+[node name="item_tarjeta" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 251.0
+offset_bottom = 31.0
+script = ExtResource("1_m5s2x")
+
+[node name="button" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 125.0
+offset_top = 15.0
+offset_right = 125.0
+offset_bottom = 15.0
+
+[node name="container" type="CenterContainer" parent="button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -125.0
+offset_top = -15.0
+offset_right = -125.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="button/container"]
+layout_mode = 2
+
+[node name="icon" type="TextureRect" parent="button/container/HBoxContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="button" to="." method="_on_button_pressed"]

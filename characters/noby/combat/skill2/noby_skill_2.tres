@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=3 format=3 uid="uid://fwun0t61uohl"]
+
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_3mjya"]
+[ext_resource type="Resource" uid="uid://dtbqduqjn5jq7" path="res://characters/noby/combat/skill2/noby_shield.tres" id="1_hunef"]
+
+[resource]
+script = ExtResource("1_3mjya")
+name = "Inquebrantable"
+description = "Se coloca un escudo que recibe daño en vez del personaje. Si al siguiente turno el escudo no se ha roto, cura al personaje."
+effects = Array[Resource("res://combat/effects/effect.gd")]([ExtResource("1_hunef")])
+energy_cost = 5
