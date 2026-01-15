@@ -1,10 +1,33 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=10 format=3 uid="uid://grb2j13upg08"]
+[gd_resource type="Resource" script_class="Skill" load_steps=17 format=3 uid="uid://grb2j13upg08"]
 
+[ext_resource type="Script" path="res://combat/effects/animation_effects/move_towards_target.gd" id="1_4lmlt"]
 [ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="1_o4l8f"]
 [ext_resource type="Script" path="res://combat/effects/stat_moding_effect_attack.gd" id="2_uhnl4"]
 [ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="3_67x1s"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="3_83yos"]
 [ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="4_rsc0h"]
+[ext_resource type="Script" path="res://combat/effects/animation_effects/return.gd" id="5_3pm2x"]
+
+[sub_resource type="Resource" id="Resource_8m3m8"]
+script = ExtResource("1_4lmlt")
+graphic_name = "swipe_jump_rise"
+offset = Vector2(500, -100)
+speed = 600
+base_value = null
+
+[sub_resource type="Resource" id="Resource_icyya"]
+script = ExtResource("1_4lmlt")
+graphic_name = "swipe_jump_fall"
+offset = Vector2(300, 0)
+speed = 600
+base_value = null
+
+[sub_resource type="Resource" id="Resource_3g01r"]
+script = ExtResource("1_4lmlt")
+graphic_name = "swipe"
+offset = Vector2(100, 0)
+speed = 600
+base_value = 1.0
 
 [sub_resource type="Resource" id="Resource_ijosl"]
 script = ExtResource("1_o4l8f")
@@ -21,6 +44,20 @@ duration = 1
 stacks = false
 base_value = 1.0
 
+[sub_resource type="Resource" id="Resource_cyi8r"]
+script = ExtResource("5_3pm2x")
+graphic_name = "swipe_ret_rise"
+offset = Vector2(500, -100)
+speed = 1200
+base_value = null
+
+[sub_resource type="Resource" id="Resource_jgc7d"]
+script = ExtResource("5_3pm2x")
+graphic_name = "swipe_ret_fall"
+offset = Vector2(0, 0)
+speed = 1200
+base_value = null
+
 [sub_resource type="Resource" id="Resource_eiipi"]
 script = ExtResource("4_rsc0h")
 number_of_targets = 1
@@ -29,7 +66,7 @@ allow_repetition = false
 
 [sub_resource type="Resource" id="Resource_b3fph"]
 script = ExtResource("3_67x1s")
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_ijosl"), SubResource("Resource_xufm1")])
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_8m3m8"), SubResource("Resource_icyya"), SubResource("Resource_3g01r"), SubResource("Resource_ijosl"), SubResource("Resource_xufm1"), SubResource("Resource_cyi8r"), SubResource("Resource_jgc7d")])
 base_value = 1.0
 target_type = SubResource("Resource_eiipi")
 

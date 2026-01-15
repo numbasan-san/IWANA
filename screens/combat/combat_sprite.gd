@@ -1,13 +1,14 @@
 class_name CombatSprite extends Node2D
 
 # TODO: Should this be here or in the effects? 
-@export var speed: int = 600
+@export var default_speed: int = 1000
 @export var projectiles: ProjectileSpawner
 
 var sprite: AnimatedSprite2D
 
 var actual_position: Vector2 = Vector2(0, 0)
 var target_position: Vector2
+var speed: int = default_speed
 
 # This should be set to true when the sprite is returning to its original
 # position to indicate it should be flipped. When it reaches its destination it
@@ -29,6 +30,7 @@ func _process(delta):
 			if returning:
 				sprite.apply_scale(Vector2(-1, 1))
 				returning = false
+			speed = default_speed
 			finished_moving.emit()
 	
 
@@ -48,21 +50,29 @@ func set_sprite(new_sprite: AnimatedSprite2D = null):
 			await sprite.animation_finished
 			sprite_animation_ended.emit()
 
-func move_to_target(target: Character, offset: Vector2):
+func move_to_target(target: Character, offset: Vector2, graphic: String = "", effect_speed: int = 0):
 	var target_position = target.combat_model.current_container.combat_sprite.global_position
+	# If going from left to right, the offset should be subtracted
+	if global_position.x < target_position.x:
+		offset = offset * Vector2(-1, 1)
 	var diff = target_position - global_position + offset
-	move_to(diff)
+	move_to(diff, graphic, effect_speed)
 
-func move_to(position: Vector2):
+func move_to(position: Vector2, graphic: String, effect_speed: int = 0):
 	if sprite:
+		if effect_speed == 0:
+			effect_speed = default_speed
+		speed = effect_speed
 		target_position = position * scale.sign()
-		sprite.play("moving")
+		sprite.play(graphic)
 
-func return_to_origin():
+func return_to_origin(offset: Vector2 = Vector2(0, 0), graphic: String = "", effect_speed: int = 0):
 	if not returning:
 		returning = true
 		sprite.apply_scale(Vector2(-1, 1))
-		move_to(Vector2(0, 0))
+		if global_position.x < 0:
+			offset = offset * Vector2(-1, 1)
+		move_to(offset, graphic, effect_speed)
 	
 func spawn_projectile(
 		proj: Projectile,

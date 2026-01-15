@@ -15,6 +15,9 @@ visible = false
 scale = Vector2(-1, 1)
 texture = ExtResource("3_yy0v8")
 
+[node name="RPGModel" parent="." index="1"]
+scale = Vector2(0.7, 0.7)
+
 [node name="Sprite2D" parent="RPGModel" index="0"]
 position = Vector2(0, -172)
 texture = ExtResource("3_l1v4q")

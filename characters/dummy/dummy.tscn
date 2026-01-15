@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://7cx1xp1a807y" path="res://characters/dummy/combat/running.png" id="6_0a7cs"]
 [ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="7_8jd57"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="8_jdgy4"]
-[ext_resource type="Script" path="res://combat/effects/animation_effects/run_towards_target.gd" id="10_3pe3x"]
+[ext_resource type="Script" path="res://combat/effects/animation_effects/move_towards_target.gd" id="10_3pe3x"]
 [ext_resource type="Resource" uid="uid://dayloxpwj30t4" path="res://combat/effects/instant/damage_data.tres" id="11_4mfrn"]
 [ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="11_24omm"]
 [ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="12_wlsrm"]
@@ -488,6 +488,7 @@ base_evasion = 0
 script = ExtResource("10_3pe3x")
 graphic_name = "moving"
 offset = Vector2(0, 0)
+speed = 0
 base_value = 1.0
 
 [sub_resource type="Resource" id="Resource_uawlc"]
@@ -499,6 +500,8 @@ base_value = 1.0
 [sub_resource type="Resource" id="Resource_i1rlc"]
 script = ExtResource("14_u18j1")
 graphic_name = "moving"
+offset = Vector2(0, 0)
+speed = 0
 base_value = 1.0
 
 [sub_resource type="Resource" id="Resource_fabjl"]
@@ -578,7 +581,7 @@ texture = ExtResource("5_ofaxp")
 [node name="CombatSprites" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_ka6c2")
-animation = &"idle"
+animation = &"moving"
 offset = Vector2(0, -96)
 
 [node name="CombatHandler" parent="." index="3"]
