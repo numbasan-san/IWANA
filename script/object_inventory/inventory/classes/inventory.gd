@@ -4,6 +4,8 @@ extends Resource
 class_name Inventory
 
 @export var slots : Array[Slot]
+var gold = 1000
+
 signal update
 
 func insert(item : Item):

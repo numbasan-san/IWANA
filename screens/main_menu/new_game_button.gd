@@ -38,7 +38,12 @@ func _on_pressed():
 	
 	var dummy = CharacterManager.load("dummy")
 	var dev_zone = ZoneManager.load("dev_testing")
+	
+	var dummy_thicc = CharacterManager.load("dummy_thicc")
+	var lab = ZoneManager.load("laboratory")
+	
 	world.spawn(dummy, dev_zone)
+	world.reposition_character(dummy_thicc, lab, Vector2(8, 8))
 	# We pop the menu screen which leaves the stack empty. The script manager
 	# then pushes the dialog screen, which in turn should push the rpg screen
 	await ScreenManager.pop(ScreenManager.main_menu_screen, "Out", "Hide")

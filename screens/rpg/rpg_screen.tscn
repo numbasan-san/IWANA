@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://oc5oqpk3nprt"]
+[gd_scene load_steps=22 format=3 uid="uid://oc5oqpk3nprt"]
 
 [ext_resource type="PackedScene" uid="uid://c0fgo3tb7g1ao" path="res://zones/world.tscn" id="1_jlw57"]
 [ext_resource type="Script" path="res://screens/rpg/rpg_screen.gd" id="1_r0pdi"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://4iyphsfraq11" path="res://scenes/menus/pause_menu/pause_menu.tscn" id="5_y5v2l"]
 [ext_resource type="PackedScene" uid="uid://d7w5brnj1hi1" path="res://scenes/menus/game_menu/game_menu.tscn" id="6_bkiw3"]
 [ext_resource type="PackedScene" uid="uid://dx8ovcjbdy6m8" path="res://screens/screen_audio.tscn" id="7_cceoh"]
+[ext_resource type="PackedScene" uid="uid://dm64bvle5gmq3" path="res://scenes/menus/shop_menu.tscn" id="7_espwg"]
 [ext_resource type="PackedScene" uid="uid://bos8qlbwslebl" path="res://scenes/menus/game_menu/zone_layer.tscn" id="7_u0u1g"]
 [ext_resource type="Resource" uid="uid://bjryq23ok6dv7" path="res://audio_tracks/halls_track.tres" id="8_em7p5"]
 [ext_resource type="AnimationLibrary" uid="uid://b423bn5ptarkn" path="res://music_play_animations.res" id="9_hcj0u"]
@@ -161,6 +162,9 @@ visible = false
 process_mode = 3
 
 [node name="game_menu" parent="game_layer" instance=ExtResource("6_bkiw3")]
+visible = false
+
+[node name="shop_menu" parent="game_layer" instance=ExtResource("7_espwg")]
 visible = false
 
 [node name="Audio" parent="." instance=ExtResource("7_cceoh")]
