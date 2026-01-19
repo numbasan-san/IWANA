@@ -15,7 +15,8 @@ func load(character_name: String) -> Character:
 	if characters.has(character_name):
 		character = characters[character_name]
 	else:
-		var scn = load(folder + character_name + "/" + character_name + ".tscn")
+		var path = folder + character_name + "/" + character_name + ".tscn"
+		var scn = load(path)
 		if scn:
 			character = scn.instantiate()
 			character.char_name = character_name
