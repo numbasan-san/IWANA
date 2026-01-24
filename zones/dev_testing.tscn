@@ -48,7 +48,7 @@ position = Vector2(-1156, -1085)
 scale = Vector2(4, 4)
 
 [node name="lagarto" parent="Items" index="0" instance=ExtResource("7_a5m8c")]
-position = Vector2(183, 211)
+position = Vector2(172.75, 151.5)
 
 [node name="lagarto2" parent="Items" index="1" instance=ExtResource("7_a5m8c")]
 position = Vector2(433, 352)
@@ -130,3 +130,12 @@ layer_0/tile_data = PackedInt32Array(-327686, 2, 0, -262150, 2, 0, -196614, 2, 0
 
 [node name="SpawnHallway" type="Node2D" parent="SpawnPoints" index="0"]
 position = Vector2(-211, 987)
+
+[node name="SpawnDummy1" type="Node2D" parent="SpawnPoints" index="1"]
+position = Vector2(-500, -96)
+
+[node name="SpawnDummy2" type="Node2D" parent="SpawnPoints" index="2"]
+position = Vector2(0, -96)
+
+[node name="SpawnDummy3" type="Node2D" parent="SpawnPoints" index="3"]
+position = Vector2(500, -96)

@@ -1,6 +1,10 @@
 class_name Character
 extends Node
 
+# A unique name to store and load this character in the registry.
+var id: String
+
+# A name to be displayed in descriptions and dialogs.
 var char_name: String
 
 @export var char_info : Resource
@@ -8,7 +12,8 @@ var char_name: String
 
 var is_clone: bool = false:
 	get:
-		return CharacterManager.is_clone(self)
+		return original != self
+var original: Character = self
 
 var dialog_model: DialogModel
 var rpg_model: RPGModel

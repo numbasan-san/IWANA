@@ -104,8 +104,8 @@ func _fill_character_list():
 	# or it can be left empty to save the formation array, so that it can be used
 	# later to add characters in a predetermined location.
 	dict["Empty"] = null
-	for char_name in CharacterManager.characters:
-		dict[char_name.to_pascal_case()] = CharacterManager.characters[char_name]
+	for character in CharacterManager.characters.values():
+		dict[character.char_name.to_pascal_case()] = character
 	
 	var add_character = func(char: Character):
 		if status == Status.EMPTY:

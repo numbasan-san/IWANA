@@ -101,6 +101,7 @@ expand_mode = 1
 stretch_mode = 2
 
 [node name="CombatSprite" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
+visible = false
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_qgx6d")
 animation = &"idle"

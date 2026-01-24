@@ -131,12 +131,11 @@ func fill_characters_list(idx: int):
 	# asignar manualmente un id y obtener el índice a través de ese id
 	var item_id = 0
 	CharacterManager.load_all()
-	for char_name in CharacterManager.characters:
-		var char = CharacterManager.load(char_name)
-		popup.add_item(char.char_name.to_pascal_case(), item_id)
+	for character in CharacterManager.characters.values():
+		popup.add_item(character.char_name.to_pascal_case(), item_id)
 		var index = popup.get_item_index(item_id)
 		item_id += 1
-		popup.set_item_metadata(index, char)
+		popup.set_item_metadata(index, character)
 		
 	# Al conectar esta señal asumimos que nunca se conectará a otra función fuera de este script.
 	# Si esto cambia en algún momento, necesitamos arreglar este código

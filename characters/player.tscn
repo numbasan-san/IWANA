@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://characters/player_control.gd" id="1_cfkfe"]
 [ext_resource type="Script" path="res://script/player.gd" id="1_oj7ea"]
-[ext_resource type="Resource" uid="uid://dfuucb5spinx8" path="res://script/object_inventory/inventory/resources/inventory.tres" id="2_ks6fo"]
+[ext_resource type="Resource" uid="uid://ob52rmu6wvt3" path="res://script/object_inventory/inventory/resources/inventory.tres" id="3_xnocr"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_pds3y"]
 
@@ -28,11 +28,12 @@ script = ExtResource("1_oj7ea")
 
 [node name="PlayerControl" type="Node2D" parent="." node_paths=PackedStringArray("general_interaction_area")]
 script = ExtResource("1_cfkfe")
-inventory = ExtResource("2_ks6fo")
+inventory = ExtResource("3_xnocr")
 general_interaction_area = NodePath("GeneralInteraction")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerControl"]
 position = Vector2(0, -0.5)
+zoom = Vector2(0.8, 0.8)
 
 [node name="TextureRect" type="TextureRect" parent="PlayerControl/Camera2D"]
 modulate = Color(0.0784314, 0.0784314, 0.0784314, 1)

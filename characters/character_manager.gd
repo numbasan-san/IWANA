@@ -9,22 +9,23 @@ var characters: Dictionary
 
 # Obtains a reference to a previously loaded character, or loads it if it hasn't
 # been loaded yet. If a character with this name can't be found, null is returned
-func load(character_name: String) -> Character:
-	character_name = character_name.to_snake_case()
+func load(character_id: String) -> Character:
+	character_id = character_id.to_snake_case()
 	var character: Character = null
-	if characters.has(character_name):
-		character = characters[character_name]
+	if characters.has(character_id):
+		character = characters[character_id]
 	else:
-		var path = folder + character_name + "/" + character_name + ".tscn"
+		var path = folder + character_id + "/" + character_id + ".tscn"
 		var scn = load(path)
 		if scn:
 			character = scn.instantiate()
-			character.char_name = character_name
-			characters[character_name] = character
+			character.id = character_id
+			character.char_name = character_id.to_pascal_case()
+			characters[character_id] = character
 			add_child(character)
 		else:
 			printerr("We couldn't find a character with name " \
-				+ character_name + " in the folder " + folder)
+				+ character_id + " in the folder " + folder)
 		
 	return character
 
@@ -48,7 +49,7 @@ func load_all():
 # If force is true, it will also destroy unique characters and remove them from
 # the manager, so they would have to be loaded again if one wants to use them.
 func destroy(character: Character, force: bool = false):
-	if (not force and is_clone) or force:
+	if (not force and character.is_clone) or force:
 		character.party.remove(character, false)
 		# dialog and rpg models are freed independently because they might be
 		# attached to other nodes
@@ -58,7 +59,7 @@ func destroy(character: Character, force: bool = false):
 		# If we reach this condition the character is not a clone, so it will be
 		# in characters
 		if force:
-			characters.erase(character.char_name)
+			characters.erase(character.id)
 
 # Creates a copy of a previously loaded non unique character. This is used to
 # easily create generic npcs to populate the world and to use them in combat.
@@ -67,18 +68,15 @@ func destroy(character: Character, force: bool = false):
 # outside of the one that created the clone, and they should be assumed to be
 # temporary
 func clone(character: Character) -> Character:
-	var char_name = character.char_name
+	var id = character.id
 	var copy: Character = null
-	if characters.has(char_name) and not character.unique:
-		var scn = load(folder + char_name + "/" + char_name + ".tscn")
+	if characters.has(id) and not character.unique:
+		var scn = load(folder + id + "/" + id + ".tscn")
 		if scn:
 			copy = scn.instantiate()
 			copy._link_components()
-			copy.char_name = char_name
+			copy.id = id
+			copy.char_name = character.char_name
+			copy.original = character
 	
 	return copy
-
-func is_clone(character: Character) -> bool:
-	var char_name = character.char_name
-	var original = characters[char_name]
-	return character != original

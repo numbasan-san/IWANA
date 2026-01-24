@@ -1803,9 +1803,6 @@ rotation = 3.14159
 scale = Vector2(1, -1)
 texture = ExtResource("5_xv3aq")
 
-[node name="RPGModel" parent="." index="1"]
-visible = false
-
 [node name="Sprite2D" parent="RPGModel" index="0"]
 position = Vector2(0, 9.68575e-07)
 texture = ExtResource("4_gkvo8")
@@ -1818,6 +1815,7 @@ position = Vector2(-0.166669, -3.5)
 shape = SubResource("RectangleShape2D_el1kc")
 
 [node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
+visible = false
 combat_animation = NodePath("Sprites/CombatSprites")
 
 [node name="Basic" type="TextureRect" parent="CombatModel/Portraits" index="0"]
@@ -1826,6 +1824,7 @@ scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_gby30")
 
 [node name="CombatSprites" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
+visible = false
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_7mxob")
 animation = &"swipe_ret_rise"

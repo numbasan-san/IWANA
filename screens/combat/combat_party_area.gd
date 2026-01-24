@@ -133,7 +133,8 @@ func add_all(characters: Array[Character]):
 
 # Remove every sprite in this area
 func clear():
-	for char in characters:
+	var chars_copy = characters.duplicate()
+	for char in chars_copy:
 		remove_character(char)
 	characters.clear()
 

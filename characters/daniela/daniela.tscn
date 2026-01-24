@@ -103,6 +103,7 @@ scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_or2gm")
 
 [node name="CombatSprite" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
+visible = false
 position = Vector2(-18, -105)
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_0r282")

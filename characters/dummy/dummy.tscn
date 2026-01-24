@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://cxhb1pbyx1uwh"]
+[gd_scene load_steps=80 format=3 uid="uid://cxhb1pbyx1uwh"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_dme1k"]
@@ -16,6 +16,7 @@
 [ext_resource type="Resource" uid="uid://dayloxpwj30t4" path="res://combat/effects/instant/damage_data.tres" id="11_4mfrn"]
 [ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="11_24omm"]
 [ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="12_wlsrm"]
+[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="14_feq2g"]
 [ext_resource type="Script" path="res://combat/effects/animation_effects/return.gd" id="14_u18j1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wons5"]
@@ -477,9 +478,9 @@ resource_local_to_scene = true
 script = ExtResource("2_dme1k")
 base_max_health = 20
 base_max_energy = 999
-base_damage = 2
+base_damage = 5
 base_defense = 0
-base_speed = 9
+base_speed = 0
 base_critical = 0
 base_precision = 100
 base_evasion = 0
@@ -497,12 +498,16 @@ type = 0
 percentage_ignored = 0.0
 base_value = 1.0
 
+[sub_resource type="Resource" id="Resource_f4hpm"]
+script = ExtResource("14_feq2g")
+
 [sub_resource type="Resource" id="Resource_i1rlc"]
 script = ExtResource("14_u18j1")
 graphic_name = "moving"
 offset = Vector2(0, 0)
 speed = 0
 base_value = 1.0
+target_type = SubResource("Resource_f4hpm")
 
 [sub_resource type="Resource" id="Resource_fabjl"]
 script = ExtResource("7_8jd57")

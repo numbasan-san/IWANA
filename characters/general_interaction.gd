@@ -11,9 +11,15 @@ func _ready():
 
 	if not ScriptManager.chain_ended.is_connected(_after_dialog):
 		ScriptManager.chain_ended.connect(_after_dialog)
-	character = $"../.."
+	# TODO: this works but maybe should be changed to something more stable later
+	var parent = $".."
+	character = parent.character
 
 func interaction(_player: PlayerControl):
+	if !character:
+		#TODO: quick fix cause sometimes it doesn't enter the _ready function. This should
+		# be changed to something more stable
+		character = $"..".character
 	# Si este personaje tiene una unidad de diálogo asociada, esperaremos
 	# a que termine de hablar
 	if $"..".character.dialog_unit:
