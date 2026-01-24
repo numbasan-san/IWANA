@@ -1,10 +1,15 @@
-[gd_resource type="Resource" script_class="Heal" load_steps=3 format=3 uid="uid://bugxgmphyjucg"]
+[gd_resource type="Resource" script_class="Heal" load_steps=5 format=3 uid="uid://bugxgmphyjucg"]
 
 [ext_resource type="Script" path="res://combat/effects/instant/heal.gd" id="1_t4tn7"]
 [ext_resource type="Resource" uid="uid://cqkvtlmmen8kn" path="res://combat/effects/instant/heal_data.tres" id="1_y5sru"]
+[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="3_q81e2"]
+
+[sub_resource type="Resource" id="Resource_hnxiv"]
+script = ExtResource("3_q81e2")
 
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_t4tn7")
 base_data = ExtResource("1_y5sru")
 base_value = 1.0
+target_type = SubResource("Resource_hnxiv")

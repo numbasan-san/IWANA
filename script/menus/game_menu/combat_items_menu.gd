@@ -1,8 +1,6 @@
-extends Control
+class_name ItemsMenu extends Control
 
-@onready var inventory : Inventory = preload(
-	"res://script/object_inventory/inventory/resources/inventory.tres"
-)
+@export var inventory: Inventory
 @onready var item_card_scene : PackedScene = preload(
 	'res://scenes/menus/game_menu/utilities/item_card.tscn'
 )
@@ -14,6 +12,7 @@ var processed_items = [] # List to keep track of processed items.
 var selected_card = null
 
 signal select_to_use
+signal window_closed
 
 # Function to load and display items in the menu.
 func load_items():
@@ -75,21 +74,24 @@ func get_selected_item():
 func _on_item_card_pressed(item_card_instance):
 	# Update the icon and information of the selected item.
 	selected_card = item_card_instance
-	$"../label".text = selected_card.text + " seleccionado"
+	$"../label".text = selected_card.text
 
 # Function that checks if the item has already been processed.
 func is_item_already_processed(item):
 	return item in processed_items
 	
 func _on_use_pressed():
-	$"../label".text = selected_card.text + " usado"
-	select_to_use.emit()
+	if selected_card:
+		$"../label".visible = false
+		window_closed.emit()
 
 func _on_inspect_pressed():
-	$"../label".text = selected_card.text
+	if selected_card:
+		$"../label".text = selected_card.text
+		$"../label".visible = true
 
 # To reduce the amount/stock of the used item.
-func _on_party_menu_item_used():
+func _on_item_used():
 	for i in range(inventory.slots.size()): # Inventory load.
 		var slot = inventory.slots[i]
 		# Item amount/stock reduced.
@@ -100,15 +102,7 @@ func _on_party_menu_item_used():
 			slot.amount = 0
 			slot.item = null
 
-func _on_item_pressed():
-	# print('Deber<C3><AD>a aparecer el men<C3><BA> de los objetos.')
-	$MenuChangeAnimation.play("ShowItems")
-	var items_menu = $ItemsMenu
-	items_menu.load_items()
-
+# This should be called when closing the window without using the item
 func _on_close_pressed():
-	$MenuChangeAnimation.play("HideItems")
-
-func _on_select_to_use():
-	$"..".select_to_use = true
-	$"..".show_party_menu()
+	selected_card = null
+	window_closed.emit()

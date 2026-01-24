@@ -1,8 +1,6 @@
 extends Control
 
-@onready var inventory : Inventory = (
-	load("res://script/object_inventory/inventory/resources/inventory.tres")
-)
+@export var inventory: Inventory
 @onready var item_card_scene : PackedScene = (
 	preload("res://scenes/menus/game_menu/item_tarjeta.tscn")
 )

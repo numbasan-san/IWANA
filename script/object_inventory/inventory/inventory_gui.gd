@@ -5,7 +5,7 @@ var is_open : bool = false
 signal opened
 signal closed
 
-@onready var inventory : Inventory = preload("res://script/object_inventory/inventory/resources/inventory.tres")
+@export var inventory: Inventory
 @onready var item_stack_gui_class = preload("res://scenes/inventory/item_stack_gui.tscn")
 @onready var slots : Array = $NinePatchRect/Container.get_children()
 
@@ -16,6 +16,8 @@ var locked : bool = false
 # Se actualiza el inventario cada que este sea abierto.
 func _ready():
 	connnect_slots()
+	var isit = inventory is Inventory
+	var inv = inventory as Inventory
 	inventory.update.connect(update)
 	update()
 
@@ -102,7 +104,7 @@ func swap_items(slot):
 # El "stackeo" de objetos.
 func stack_items(slot):
 	var slot_item : ItemStackGui = slot.item_stack_gui
-	var max_amount = slot_item.inventorySlot.item.stack
+	var max_amount = slot_item.inventorySlot.item.max_stack
 	var total_amount = slot_item.inventorySlot.amount + item_in_hand.inventorySlot.amount
 	
 	if slot_item.inventorySlot.amount == max_amount: # Cuando ya hay un stack completo.

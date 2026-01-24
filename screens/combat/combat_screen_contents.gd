@@ -13,7 +13,7 @@ signal continue_round
 @export var left_area: CombatPartyArea
 @export var party_menu: PartyMenu
 @export var skills_menu: SkillsMenu
-@export var items_menu: Control
+@export var items_menu: ItemsMenu
 @export var turn_handler: TurnHandler
 @export var change_menu_animation: AnimationPlayer
 
@@ -34,6 +34,7 @@ enum Action {
 	NONE,
 	ATTACK,
 	DEFEND,
+	ITEM,
 	RUN
 }
 
@@ -42,6 +43,7 @@ enum State {
 	SELECTING_SKILL, # The character is selecting a skill to use.
 	FILLING_DATA, # The character is selecting targets, effects and evaluating conditions.
 	EXECUTING, # The skill has been processed and can now be applied.
+	SELECTING_ITEM, # The character is selecting an item to use.
 	END # The process for the current character has stopped and a new character must be chosen.
 }
 
@@ -188,6 +190,21 @@ func show_skills_menu():
 		await change_menu_animation.animation_finished
 		if skills_menu.skills_container.get_child_count() > 0:
 			skills_menu.skills_container.get_child(0).grab_focus()
+
+# Shows the items menu and hides the party menu
+func show_items_menu():
+	if not items_menu.visible:
+		items_menu.load_items()
+		change_menu_animation.play("ShowItems")
+		await change_menu_animation.animation_finished
+		if items_menu.items_bar.get_child_count() > 0:
+			items_menu.items_bar.get_child(0).grab_focus()
+
+# Hides the items menu and shows the party menu
+func hide_items_menu():
+	if items_menu.visible:
+		change_menu_animation.play("HideItems")
+		await change_menu_animation.animation_finished
 
 func _focus_action_list():
 	$PartyMenu/Actions/ActionList/Attack.grab_focus()

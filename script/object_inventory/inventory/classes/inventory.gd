@@ -12,7 +12,7 @@ func insert(item : Item):
 	# Para poder crear stacks.
 	for slot in slots:
 		if slot.item == item:
-			if slot.amount >= slot.item.stack:
+			if slot.amount >= slot.item.max_stack:
 				continue
 			slot.amount += 1
 			update.emit()
@@ -49,6 +49,6 @@ func count_stacks() -> bool:
 	var stack = true
 	if count_empty_slot() == 0:
 		var last_slot = slots[(slots.size() - 1)]
-		if last_slot.amount >= last_slot.item.stack:
+		if last_slot.amount >= last_slot.item.max_stack:
 			stack = false
 	return stack

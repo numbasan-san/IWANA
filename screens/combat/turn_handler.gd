@@ -80,7 +80,12 @@ func run_turn(character: Character):
 				_action_defend(character)
 			elif action == combat.Action.ATTACK:
 				_action_attack()
-
+			elif action == combat.Action.ITEM:
+				_action_item()
+		
+		elif current_state == combat.State.SELECTING_ITEM:
+			var item = await _choose_item(character)
+			
 		elif current_state == combat.State.SELECTING_SKILL:
 			skill = await _choose_skill(character)
 			if !skill:
@@ -133,6 +138,10 @@ func _action_defend(character: Character):
 	# TODO: maybe turn defense into a skill
 	await Defense.new().execute(character)
 	current_state = combat.State.END
+
+## Called when the character wants to select an item to use
+func _action_item():
+	current_state = combat.State.SELECTING_ITEM
 
 ## Called when the character has chosen to run.
 # TODO: we must decide if running only makes the character rescape or the entire
@@ -242,3 +251,24 @@ func _cancel_target_selection():
 	current_targets = []
 	finished_targeting.emit(current_targets)
 	hide_targets()
+
+# Prepares and shows the item selection panel
+func _choose_item(character: Character):
+	# TODO: maybe the panel showing and hiding must be in the same place that emits the window closing signal
+	await combat.show_items_menu()
+	await combat.items_menu.window_closed
+	await combat.hide_items_menu()
+	if combat.items_menu.selected_card:
+		var item = combat.items_menu.selected_card.item
+		if item.effect:
+			# TODO: finish testing this with an actual effect (healing). Consider adding targeting.
+			item.effect.caster = character
+			item.effect.apply(character)
+			# TODO: use a better name or call it from somewhere else
+			combat.items_menu._on_item_used()
+		# Every item should have an effect, but in case it doesn't, we end anyways to continue with the next character
+		current_state = combat.State.END
+	
+	else:
+		current_state = combat.State.SELECTING_ACTION
+	

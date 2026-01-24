@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://f2oog5xfhsha"]
+[gd_scene load_steps=17 format=3 uid="uid://f2oog5xfhsha"]
 
 [ext_resource type="Script" path="res://screens/combat/combat_screen_contents.gd" id="1_o364i"]
 [ext_resource type="Texture2D" uid="uid://ddusl4u64qj4v" path="res://assets/combat_sprites/background1.png" id="2_lv2pp"]
@@ -6,9 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://ftvcnmtm10jp" path="res://screens/combat/combat_party_area.tscn" id="4_524bj"]
 [ext_resource type="PackedScene" uid="uid://b8el7o7t4udjg" path="res://screens/combat/party_menu.tscn" id="6_fnso2"]
 [ext_resource type="PackedScene" uid="uid://o2kmt3v50ans" path="res://screens/combat/skills_menu.tscn" id="7_djut6"]
-[ext_resource type="Script" path="res://script/menus/game_menu/combat_items_menu.gd" id="7_g088y"]
+[ext_resource type="PackedScene" uid="uid://mxyo8onfmeq6" path="res://screens/combat/items_menu.tscn" id="7_mfkrn"]
 [ext_resource type="PackedScene" uid="uid://qa4ifsu44f7f" path="res://screens/combat/turn_handler.tscn" id="7_tej7b"]
-[ext_resource type="PackedScene" uid="uid://3a5ilvkkwddg" path="res://scenes/menus/game_menu/utilities/item_card.tscn" id="8_e1lg0"]
 [ext_resource type="PackedScene" uid="uid://dus506xg66heq" path="res://scenes/sfx.tscn" id="18_l7cxu"]
 
 [sub_resource type="Animation" id="Animation_fi158"]
@@ -41,26 +40,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ItemsMenu:visible")
+tracks/2/path = NodePath("ItemsMenu:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, true]
+"update": 0,
+"values": [Vector2(255, 694), Vector2(255, 1150)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ItemsMenu:position")
+tracks/3/path = NodePath("ItemsMenu:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(255, 684), Vector2(255, 1150)]
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_lhdi0"]
@@ -273,6 +272,30 @@ tracks/12/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("ItemsMenu:position")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(255, 1150)]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("ItemsMenu:size")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1659, 361)]
+}
 
 [sub_resource type="Animation" id="Animation_pov82"]
 resource_name = "ShowItems"
@@ -308,10 +331,10 @@ tracks/2/path = NodePath("ItemsMenu:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true, true]
+"values": [true]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -323,19 +346,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.6),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(255, 1150), Vector2(255, 684)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("ItemsMenu:size")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0.6),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1638, 365)]
+"values": [Vector2(255, 1150), Vector2(255, 694)]
 }
 
 [sub_resource type="Animation" id="Animation_tpyeb"]
@@ -469,10 +480,10 @@ anchor_left = 0.107
 anchor_top = 0.634
 anchor_right = 0.962
 anchor_bottom = 0.922
-offset_left = 205.0
-offset_top = 684.0
-offset_right = 205.36
-offset_bottom = 684.0
+offset_left = -0.440002
+offset_top = -0.720032
+offset_right = -0.0799561
+offset_bottom = -1.08002
 combat = NodePath("..")
 
 [node name="SkillsMenu" parent="." node_paths=PackedStringArray("combat") instance=ExtResource("7_djut6")]
@@ -484,203 +495,9 @@ offset_right = 255.36
 offset_bottom = 1150.0
 combat = NodePath("..")
 
-[node name="ItemsMenu" type="Control" parent="."]
+[node name="ItemsMenu" parent="." instance=ExtResource("7_mfkrn")]
 visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 255.0
-offset_top = 684.0
-offset_right = -27.0
-offset_bottom = -31.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("7_g088y")
-
-[node name="HBoxContainer" type="HBoxContainer" parent="ItemsMenu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-alignment = 1
-
-[node name="ItemsArea" type="Panel" parent="ItemsMenu/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MarginContainer" type="MarginContainer" parent="ItemsMenu/HBoxContainer/ItemsArea"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="items" type="VScrollBar" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer"]
-layout_mode = 2
-size_flags_horizontal = 1
-
-[node name="NinePatchRect" type="NinePatchRect" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items"]
-layout_mode = 2
-offset_top = 3.0
-offset_right = 984.0
-offset_bottom = 410.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="GridContainer" type="GridContainer" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-theme_override_constants/h_separation = 90
-theme_override_constants/v_separation = 85
-columns = 12
-
-[node name="item_card" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card2" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card3" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card4" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card5" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card6" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card7" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card8" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card9" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card10" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card11" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card12" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card13" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card14" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card15" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card16" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card17" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card18" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card19" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card20" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card21" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card22" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card23" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card24" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card25" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card26" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card27" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card28" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card29" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card30" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card31" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card32" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card33" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card34" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card35" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="item_card36" parent="ItemsMenu/HBoxContainer/ItemsArea/MarginContainer/items/NinePatchRect/GridContainer" instance=ExtResource("8_e1lg0")]
-layout_mode = 2
-
-[node name="Panel" type="Panel" parent="ItemsMenu/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_stretch_ratio = 0.5
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ItemsMenu/HBoxContainer/Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -54.5
-offset_top = -21.5
-offset_right = 54.5
-offset_bottom = 21.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Use" type="Button" parent="ItemsMenu/HBoxContainer/Panel/VBoxContainer"]
-layout_mode = 2
-text = "Usar"
-
-[node name="Inspect" type="Button" parent="ItemsMenu/HBoxContainer/Panel/VBoxContainer"]
-layout_mode = 2
-text = "Inspeccionar"
-
-[node name="Close" type="Button" parent="ItemsMenu/HBoxContainer/Panel/VBoxContainer"]
-layout_mode = 2
-text = "Cerrar"
 
 [node name="label" type="Label" parent="."]
 visible = false
@@ -735,7 +552,3 @@ theme_override_font_sizes/font_size = 40
 text = "asdadasdas"
 
 [node name="SFX" parent="." instance=ExtResource("18_l7cxu")]
-
-[connection signal="select_to_use" from="ItemsMenu" to="ItemsMenu" method="_on_select_to_use"]
-[connection signal="pressed" from="ItemsMenu/HBoxContainer/Panel/VBoxContainer/Use" to="ItemsMenu" method="_on_use_pressed"]
-[connection signal="pressed" from="ItemsMenu/HBoxContainer/Panel/VBoxContainer/Inspect" to="ItemsMenu" method="_on_inspect_pressed"]

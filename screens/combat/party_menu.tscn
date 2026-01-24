@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://b8el7o7t4udjg"]
+[gd_scene load_steps=13 format=3 uid="uid://b8el7o7t4udjg"]
 
 [ext_resource type="Script" path="res://screens/combat/party_menu.gd" id="1_4qcev"]
 [ext_resource type="PackedScene" uid="uid://dbuixiuq0ijmx" path="res://screens/combat/portrait_container.tscn" id="2_o5dy8"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://qbx8ont43lkk" path="res://assets/combat_sprites/buttons/defensa_no_selecccionado.png" id="6_id63k"]
 [ext_resource type="Texture2D" uid="uid://w8agfh6y8rtq" path="res://assets/combat_sprites/buttons/defensa_selecccionado.png" id="7_3e7io"]
 [ext_resource type="Texture2D" uid="uid://bo7bc57ao6vyw" path="res://assets/combat_sprites/buttons/huir_no_selecccionado.png" id="8_1fw0i"]
+[ext_resource type="Texture2D" uid="uid://belqn15sp0i5o" path="res://assets/combat_sprites/buttons/item_no_selecccionado.png" id="8_3rd5i"]
+[ext_resource type="Texture2D" uid="uid://dptgh7onmt1n4" path="res://assets/combat_sprites/buttons/item_selecccionado.png" id="9_6svtk"]
 [ext_resource type="Texture2D" uid="uid://bhovu86cekktn" path="res://assets/combat_sprites/buttons/huir_selecccionado.png" id="9_r1ibd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4841x"]
@@ -110,53 +112,33 @@ texture_focused = ExtResource("5_dr18p")
 layout_mode = 2
 size_flags_horizontal = 0
 focus_neighbor_top = NodePath("../Attack")
-focus_neighbor_bottom = NodePath("../Run")
+focus_neighbor_bottom = NodePath("../Item")
 texture_normal = ExtResource("6_id63k")
 texture_pressed = ExtResource("7_3e7io")
 texture_hover = ExtResource("7_3e7io")
 texture_focused = ExtResource("7_3e7io")
 
-[node name="Run" type="TextureButton" parent="Actions/ActionList"]
+[node name="Item" type="TextureButton" parent="Actions/ActionList"]
 layout_mode = 2
 size_flags_horizontal = 0
 focus_neighbor_top = NodePath("../Defense")
+focus_neighbor_bottom = NodePath("../Run")
+texture_normal = ExtResource("8_3rd5i")
+texture_pressed = ExtResource("9_6svtk")
+texture_hover = ExtResource("9_6svtk")
+texture_focused = ExtResource("9_6svtk")
+
+[node name="Run" type="TextureButton" parent="Actions/ActionList"]
+layout_mode = 2
+size_flags_horizontal = 0
+focus_neighbor_top = NodePath("../Item")
 focus_neighbor_bottom = NodePath("../Attack")
 texture_normal = ExtResource("8_1fw0i")
 texture_pressed = ExtResource("9_r1ibd")
 texture_hover = ExtResource("9_r1ibd")
 texture_focused = ExtResource("9_r1ibd")
 
-[node name="ItemsAction" type="VBoxContainer" parent="Actions"]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 105.6
-offset_top = 35.36
-offset_right = -36.4001
-offset_bottom = 88.36
-grow_vertical = 2
-rotation = -0.139626
-scale = Vector2(0.8, 0.8)
-theme_override_constants/separation = 10
-alignment = 1
-
-[node name="Use" type="Button" parent="Actions/ItemsAction"]
-layout_mode = 2
-text = "Usar"
-
-[node name="NoUse" type="Button" parent="Actions/ItemsAction"]
-layout_mode = 2
-text = "No Usar"
-
-[node name="Close" type="Button" parent="Actions/ItemsAction"]
-layout_mode = 2
-text = "Cerrar"
-
 [connection signal="pressed" from="Actions/ActionList/Attack" to="." method="_on_attack_pressed"]
 [connection signal="pressed" from="Actions/ActionList/Defense" to="." method="_on_defense_pressed"]
+[connection signal="pressed" from="Actions/ActionList/Item" to="." method="_on_item_pressed"]
 [connection signal="pressed" from="Actions/ActionList/Run" to="." method="_on_run_pressed"]
-[connection signal="pressed" from="Actions/ItemsAction/Use" to="." method="_on_use_pressed"]
-[connection signal="pressed" from="Actions/ItemsAction/NoUse" to="." method="_on_no_use_pressed"]
-[connection signal="pressed" from="Actions/ItemsAction/Close" to="." method="_on_close_pressed"]

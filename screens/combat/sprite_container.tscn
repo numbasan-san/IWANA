@@ -315,7 +315,6 @@ metadata/_edit_vertical_guides_ = [-435.0]
 [node name="CombatSprite" type="Node2D" parent="." node_paths=PackedStringArray("projectiles")]
 position = Vector2(140, 260)
 script = ExtResource("2_qoxvr")
-speed = 1200
 projectiles = NodePath("ProjectileSpawner")
 
 [node name="ProjectileSpawner" type="Node2D" parent="CombatSprite"]
