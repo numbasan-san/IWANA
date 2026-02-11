@@ -3,13 +3,15 @@
 [ext_resource type="PackedScene" uid="uid://dgwqqhay2fl5f" path="res://objects/teachers_room/base_teachers_room_object.tscn" id="1_rxrr5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_scfvc"]
-size = Vector2(194, 329)
+size = Vector2(44.3333, 67)
 
 [node name="Sofa" instance=ExtResource("1_rxrr5")]
 
 [node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -0.333333)
+offset = Vector2(0, -41)
 region_rect = Rect2(77, 13, 44, 83)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(6, 43.5)
+position = Vector2(-0.166669, -33.8333)
 shape = SubResource("RectangleShape2D_scfvc")

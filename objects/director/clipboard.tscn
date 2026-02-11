@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdo5ak562dkw8"]
+
+[ext_resource type="PackedScene" uid="uid://b731ywwehnj4o" path="res://objects/director/director_base_object.tscn" id="1_3ylqm"]
+
+[node name="Clipboard" instance=ExtResource("1_3ylqm")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(33, 29, 9, 14)

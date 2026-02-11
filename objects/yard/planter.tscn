@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://451bxjrmfeil"]
+
+[ext_resource type="PackedScene" uid="uid://cahhguph112nt" path="res://objects/yard/base_yard_object.tscn" id="1_ulmuf"]
+[ext_resource type="Texture2D" uid="uid://b6aorllw6nxnh" path="res://objects/yard/yard2_384x240.png" id="2_qcvma"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8pxe"]
+size = Vector2(90.3333, 51.3333)
+
+[node name="Planter" instance=ExtResource("1_ulmuf")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_qcvma")
+offset = Vector2(0, -32)
+region_rect = Rect2(35, 153, 90, 63)
+
+[node name="StaticBody2D" parent="." index="1"]
+position = Vector2(0, -32.3333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(-0.166668, 6.66667)
+shape = SubResource("RectangleShape2D_j8pxe")

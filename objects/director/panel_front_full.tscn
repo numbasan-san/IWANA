@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwf8diu12u01"]
+
+[ext_resource type="PackedScene" uid="uid://d0cgwgerxc5o4" path="res://objects/director/panel_front.tscn" id="1_pmuxu"]
+[ext_resource type="PackedScene" uid="uid://gfibea0hdw8j" path="res://objects/director/panel_front_top.tscn" id="2_qn1qf"]
+[ext_resource type="PackedScene" uid="uid://bkr83xqsb4mgf" path="res://objects/director/panel_front_middle.tscn" id="3_qfte8"]
+[ext_resource type="PackedScene" uid="uid://cyoubqa7fngo7" path="res://objects/director/panel_front_bottom.tscn" id="4_ivkot"]
+
+[node name="PanelFrontFull" type="Node2D"]
+
+[node name="PanelFront" parent="." instance=ExtResource("1_pmuxu")]
+position = Vector2(0, -168)
+
+[node name="PanelFrontTop" parent="." instance=ExtResource("2_qn1qf")]
+position = Vector2(0, -120)
+
+[node name="PanelFrontMiddle" parent="." instance=ExtResource("3_qfte8")]
+position = Vector2(0, -72)
+
+[node name="PanelFrontBottom" parent="." instance=ExtResource("4_ivkot")]
+position = Vector2(0, -24)

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://daar6ddluep5k"]
+
+[ext_resource type="PackedScene" uid="uid://b731ywwehnj4o" path="res://objects/director/director_base_object.tscn" id="1_r1t0u"]
+
+[node name="Lamp" instance=ExtResource("1_r1t0u")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(64, 19, 16, 29)

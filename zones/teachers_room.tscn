@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c87alqfstlpet"]
+[gd_scene load_steps=23 format=3 uid="uid://c87alqfstlpet"]
 
 [ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://zones/base_zone.tscn" id="1_5g13a"]
 [ext_resource type="Resource" uid="uid://cdleqmcy5n3dc" path="res://script/zones/zone_info/resources/teachers_room.tres" id="2_ruevi"]
@@ -8,6 +8,13 @@
 [ext_resource type="PackedScene" uid="uid://bjox03w6juoit" path="res://objects/teachers_room/table_middle.tscn" id="12_11n26"]
 [ext_resource type="PackedScene" uid="uid://3kcx7o5spiy6" path="res://objects/library/lamp.tscn" id="13_eiu3g"]
 [ext_resource type="PackedScene" uid="uid://dloydcrk1g3hk" path="res://objects/teachers_room/table_bottom.tscn" id="13_fypd8"]
+[ext_resource type="PackedScene" uid="uid://d0stv3ewtjgbv" path="res://objects/teachers_room/microwave.tscn" id="14_mwock"]
+[ext_resource type="PackedScene" uid="uid://dnde3gtutjnfb" path="res://objects/teachers_room/coffee_machine.tscn" id="15_78m3t"]
+[ext_resource type="PackedScene" uid="uid://dpnrgk1q2d65o" path="res://objects/teachers_room/fridge.tscn" id="16_8iqhh"]
+[ext_resource type="PackedScene" uid="uid://ba4n0uh6ienki" path="res://objects/teachers_room/lockers.tscn" id="17_1vnu4"]
+[ext_resource type="PackedScene" uid="uid://bytopg1xx8gf4" path="res://objects/teachers_room/l_table.tscn" id="18_ayspx"]
+[ext_resource type="PackedScene" uid="uid://blaudtx7mqt2j" path="res://objects/teachers_room/sofa.tscn" id="19_v5brt"]
+[ext_resource type="PackedScene" uid="uid://bu3tn4qc5i4hx" path="res://objects/teachers_room/vending_machine.tscn" id="20_4rh12"]
 [ext_resource type="PackedScene" uid="uid://cvh60llremaob" path="res://objects/library/chair_front.tscn" id="27_7d1p1"]
 [ext_resource type="PackedScene" uid="uid://xuafmq51x84u" path="res://objects/library/chair_left.tscn" id="28_2d2qi"]
 [ext_resource type="PackedScene" uid="uid://fqxle8e2h70a" path="res://objects/library/chair_right.tscn" id="29_jsi5b"]
@@ -237,25 +244,49 @@ position = Vector2(0, 48)
 [node name="LongTable" type="Node2D" parent="Objects" index="2"]
 
 [node name="TableTop" parent="Objects/LongTable" index="0" instance=ExtResource("11_38s75")]
-position = Vector2(681, -412)
+position = Vector2(941.33, -497)
 
 [node name="TableMiddle" parent="Objects/LongTable" index="1" instance=ExtResource("12_11n26")]
-position = Vector2(681, -349)
+position = Vector2(941.33, -434)
 
 [node name="TableMiddle2" parent="Objects/LongTable" index="2" instance=ExtResource("12_11n26")]
-position = Vector2(681, -286)
+position = Vector2(941.33, -371)
 
 [node name="TableMiddle3" parent="Objects/LongTable" index="3" instance=ExtResource("12_11n26")]
-position = Vector2(681, -223)
+position = Vector2(941.33, -308)
 
 [node name="TableMiddle4" parent="Objects/LongTable" index="4" instance=ExtResource("12_11n26")]
-position = Vector2(681, -160)
+position = Vector2(941.33, -245)
 
 [node name="TableMiddle5" parent="Objects/LongTable" index="5" instance=ExtResource("12_11n26")]
-position = Vector2(681, -97)
+position = Vector2(941.33, -182)
 
 [node name="TableBottom" parent="Objects/LongTable" index="6" instance=ExtResource("13_fypd8")]
-position = Vector2(681, 1)
+position = Vector2(941.33, -84)
+
+[node name="Microwave" parent="Objects/LongTable" index="7" instance=ExtResource("14_mwock")]
+position = Vector2(900, -415.668)
+
+[node name="CoffeeMachine" parent="Objects/LongTable" index="8" instance=ExtResource("15_78m3t")]
+position = Vector2(994.287, -303.422)
+
+[node name="Fridge" parent="Objects" index="3" instance=ExtResource("16_8iqhh")]
+position = Vector2(586, -463)
+
+[node name="Lockers" parent="Objects" index="4" instance=ExtResource("17_1vnu4")]
+position = Vector2(777, -462)
+
+[node name="LTable" parent="Objects" index="5" instance=ExtResource("18_ayspx")]
+position = Vector2(-105, -310)
+
+[node name="Sofa" parent="Objects" index="6" instance=ExtResource("19_v5brt")]
+position = Vector2(879.876, 369.748)
+
+[node name="VendingMachine" parent="Objects" index="7" instance=ExtResource("20_4rh12")]
+position = Vector2(440, -462)
 
 [node name="SpawnF2NH" type="Node2D" parent="SpawnPoints" index="0"]
 position = Vector2(219, -392)
+
+[node name="PartyPath" parent="." index="4"]
+position = Vector2(99, 83)

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvlay3b1yt4c2"]
+
+[ext_resource type="PackedScene" uid="uid://b731ywwehnj4o" path="res://objects/director/director_base_object.tscn" id="1_moai1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6g7wf"]
+size = Vector2(42, 24.3333)
+
+[node name="Shelf" instance=ExtResource("1_moai1")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(242, 133, 42, 75)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0, 25.8333)
+shape = SubResource("RectangleShape2D_6g7wf")

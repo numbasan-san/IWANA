@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkr83xqsb4mgf"]
+
+[ext_resource type="PackedScene" uid="uid://b731ywwehnj4o" path="res://objects/director/director_base_object.tscn" id="1_r55nx"]
+
+[node name="PanelFrontMiddle" instance=ExtResource("1_r55nx")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(64, 111, 32, 16)

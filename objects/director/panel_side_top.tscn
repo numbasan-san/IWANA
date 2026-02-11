@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d02xk3gsol0ap"]
+
+[ext_resource type="PackedScene" uid="uid://b731ywwehnj4o" path="res://objects/director/director_base_object.tscn" id="1_m7pha"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sdjpf"]
+size = Vector2(2, 16)
+
+[node name="PanelSideTop" instance=ExtResource("1_m7pha")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(97, 94, 2, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+shape = SubResource("RectangleShape2D_sdjpf")

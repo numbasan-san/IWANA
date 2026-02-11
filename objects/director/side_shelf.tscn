@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdy7rs3swecyv"]
+
+[ext_resource type="PackedScene" uid="uid://b731ywwehnj4o" path="res://objects/director/director_base_object.tscn" id="1_xpdaf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1x8kx"]
+size = Vector2(20, 45.3333)
+
+[node name="SideShelf" instance=ExtResource("1_xpdaf")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(352, 25, 19, 119)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0, 37)
+shape = SubResource("RectangleShape2D_1x8kx")

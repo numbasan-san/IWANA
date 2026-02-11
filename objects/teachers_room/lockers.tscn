@@ -3,13 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://dgwqqhay2fl5f" path="res://objects/teachers_room/base_teachers_room_object.tscn" id="1_thpxv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_le5lx"]
-size = Vector2(135, 116)
+size = Vector2(26.6667, 23.6667)
 
 [node name="Lockers" instance=ExtResource("1_thpxv")]
 
 [node name="Sprite2D" parent="." index="0"]
+offset = Vector2(0, -26)
 region_rect = Rect2(162, 12, 27, 52)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
-position = Vector2(-0.5, 72)
+position = Vector2(0, -11.5)
 shape = SubResource("RectangleShape2D_le5lx")

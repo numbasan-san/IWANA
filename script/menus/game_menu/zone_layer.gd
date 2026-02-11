@@ -11,7 +11,8 @@ func intro():
 			$Animation.stop()
 			$Animation.play("intro")
 			intro_played = true
-		$Panel/Label.text = zone.room_info.name
+		if zone.room_info:
+			$Panel/Label.text = zone.room_info.name
 	else:
 		print('No zone.')
 
@@ -26,7 +27,7 @@ func _process(delta):
 		intro()
 	else:
 		# Update label text without playing animation
-		if zone:
+		if zone and zone.room_info:
 			$Panel/Label.text = zone.room_info.name
 		else:
 			print('No zone.')

@@ -19,7 +19,7 @@ var member_distance: float
 # The party asociated to this path
 var party: Party
 
-func _init(party: Party, start: Vector2, min_point_distance: float = 10):
+func _init(party: Party, start: Vector2, min_point_distance: float = 50):
 	self.party = party
 	self.min_point_distance = min_point_distance
 	position = Vector2(0, 0)

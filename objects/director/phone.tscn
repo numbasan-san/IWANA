@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dno33lftir5rs"]
+
+[ext_resource type="PackedScene" uid="uid://b731ywwehnj4o" path="res://objects/director/director_base_object.tscn" id="1_48mbm"]
+
+[node name="Phone" instance=ExtResource("1_48mbm")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(88, 33, 15, 15)

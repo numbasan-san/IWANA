@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://1drhwo17rta8" path="res://script/zones/zone_info/resources/library.tres" id="2_ucnle"]
 [ext_resource type="Texture2D" uid="uid://bvxm38e6wuv8e" path="res://zones/floors_and_walls_384x240.png" id="3_522x5"]
 [ext_resource type="PackedScene" uid="uid://nh6axq4payaf" path="res://objects/doors/yard_door.tscn" id="4_s5am8"]
-[ext_resource type="PackedScene" uid="uid://bosobbnf1uyko" path="res://objects/library/big_desk_1.tscn" id="5_6tcc1"]
+[ext_resource type="PackedScene" uid="uid://3e2m6gvuq6pb" path="res://objects/library/big_desk_1.tscn" id="5_6tcc1"]
 [ext_resource type="PackedScene" uid="uid://0cgcmif06j4q" path="res://objects/library/poster_ufo.tscn" id="6_bgd12"]
 [ext_resource type="PackedScene" uid="uid://cktnmx723uca7" path="res://objects/library/computer_back.tscn" id="6_yb1r7"]
 [ext_resource type="PackedScene" uid="uid://ct4nq8eqirqrh" path="res://objects/library/computer_side.tscn" id="8_4n4qp"]
@@ -220,29 +220,29 @@ position = Vector2(-48, -637)
 y_sort_enabled = true
 position = Vector2(-21.3494, -253.282)
 
-[node name="PencilHolder" parent="Objects/BigDesk" index="2" instance=ExtResource("8_50nht")]
-position = Vector2(-15.5502, -46.906)
+[node name="PencilHolder" parent="Objects/BigDesk/BigDesk1Bottom" index="2" instance=ExtResource("8_50nht")]
+position = Vector2(16.8166, -44.9687)
 scale = Vector2(1, 1)
 
-[node name="ComputerSide" parent="Objects/BigDesk" index="3" instance=ExtResource("8_4n4qp")]
-position = Vector2(21.4498, -76.906)
+[node name="ComputerSide" parent="Objects/BigDesk/BigDesk1Bottom" index="3" instance=ExtResource("8_4n4qp")]
+position = Vector2(20.4833, -78.9687)
 scale = Vector2(1, 1)
 
-[node name="Phone" parent="Objects/BigDesk" index="4" instance=ExtResource("10_880b1")]
-position = Vector2(-17.5502, -102.573)
+[node name="Phone" parent="Objects/BigDesk/BigDesk1Bottom" index="4" instance=ExtResource("10_880b1")]
+position = Vector2(-11.1834, -42.191)
 scale = Vector2(1, 1)
 
-[node name="PaperTray" parent="Objects/BigDesk" index="5" instance=ExtResource("11_rrxi1")]
-position = Vector2(18.4498, -43.5727)
+[node name="PaperTray" parent="Objects/BigDesk/BigDesk1Bottom" index="5" instance=ExtResource("11_rrxi1")]
+position = Vector2(27.4833, -41.1909)
 scale = Vector2(1, 1)
 
-[node name="ChairRight" parent="Objects/BigDesk" index="6" instance=ExtResource("31_ltaqu")]
+[node name="Notebook" parent="Objects/BigDesk/BigDesk1Bottom" index="6" instance=ExtResource("12_wmhs5")]
+position = Vector2(6.03882, -39.302)
+scale = Vector2(1, 1)
+
+[node name="ChairRight" parent="Objects/BigDesk/BigDesk1Top" index="2" instance=ExtResource("31_ltaqu")]
 z_index = 0
-position = Vector2(-4.5502, -42.5727)
-scale = Vector2(1, 1)
-
-[node name="Notebook" parent="Objects/BigDesk" index="7" instance=ExtResource("12_wmhs5")]
-position = Vector2(2.11647, -101.906)
+position = Vector2(-6.85007, 20.4758)
 scale = Vector2(1, 1)
 
 [node name="BigDesk2" parent="Objects" index="2" instance=ExtResource("13_7y0eh")]
@@ -332,7 +332,7 @@ position = Vector2(-152.958, -21.2448)
 position = Vector2(-0.958435, -5.24475)
 
 [node name="ComputerBack" parent="Objects/TableSet1" index="4" instance=ExtResource("6_yb1r7")]
-position = Vector2(8.92041, -103.47)
+position = Vector2(8.92041, -76.47)
 
 [node name="ChairBack" parent="Objects/TableSet1" index="5" instance=ExtResource("28_8adwq")]
 position = Vector2(-0.958435, 42.7552)
@@ -385,3 +385,5 @@ position = Vector2(217, -432)
 
 [node name="CatPoster" parent="." index="5" instance=ExtResource("33_l88p5")]
 position = Vector2(-294, -669)
+
+[editable path="Objects/BigDesk"]

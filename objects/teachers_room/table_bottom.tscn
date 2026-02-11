@@ -8,7 +8,11 @@ size = Vector2(71, 44)
 [node name="TableBottom" instance=ExtResource("1_1mi5l")]
 
 [node name="Sprite2D" parent="." index="0"]
+offset = Vector2(0, -22)
 region_rect = Rect2(16, 170, 71, 44)
+
+[node name="StaticBody2D" parent="." index="1"]
+position = Vector2(0, -22)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
 shape = SubResource("RectangleShape2D_4cjwr")

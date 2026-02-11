@@ -480,10 +480,10 @@ anchor_left = 0.107
 anchor_top = 0.634
 anchor_right = 0.962
 anchor_bottom = 0.922
-offset_left = -0.440002
-offset_top = -0.720032
-offset_right = -0.0799561
-offset_bottom = -1.08002
+offset_left = 205.0
+offset_top = 684.0
+offset_right = 205.36
+offset_bottom = 684.0
 combat = NodePath("..")
 
 [node name="SkillsMenu" parent="." node_paths=PackedStringArray("combat") instance=ExtResource("7_djut6")]
@@ -498,6 +498,8 @@ combat = NodePath("..")
 [node name="ItemsMenu" parent="." instance=ExtResource("7_mfkrn")]
 visible = false
 layout_mode = 1
+offset_right = 1914.0
+offset_bottom = 1511.0
 
 [node name="label" type="Label" parent="."]
 visible = false

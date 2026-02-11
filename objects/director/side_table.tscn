@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://crw8o4fkulwo7"]
+
+[ext_resource type="PackedScene" uid="uid://b731ywwehnj4o" path="res://objects/director/director_base_object.tscn" id="1_8leu2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_asecu"]
+size = Vector2(29, 33)
+
+[node name="SideTable" instance=ExtResource("1_8leu2")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(195, 144, 29, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0.166666, 13.5)
+shape = SubResource("RectangleShape2D_asecu")

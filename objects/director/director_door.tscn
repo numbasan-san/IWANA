@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://uwiaxsrdoawc"]
+
+[ext_resource type="PackedScene" uid="uid://hed2eep7147o" path="res://objects/doors/base_door.tscn" id="1_0vgbp"]
+[ext_resource type="Texture2D" uid="uid://b18ew6sm23shh" path="res://objects/director/director_384x240.png" id="2_r6ej4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gmbr"]
+resource_local_to_scene = true
+size = Vector2(38.3333, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_axx72"]
+resource_local_to_scene = true
+size = Vector2(41.3333, 9)
+
+[node name="DirectorDoor" instance=ExtResource("1_0vgbp")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -24)
+texture = ExtResource("2_r6ej4")
+region_rect = Rect2(31, 96, 32, 48)
+
+[node name="Collision" parent="." index="1"]
+shape = SubResource("RectangleShape2D_7gmbr")
+
+[node name="CollisionShape2D" parent="ZoneChange" index="0"]
+shape = SubResource("RectangleShape2D_axx72")
