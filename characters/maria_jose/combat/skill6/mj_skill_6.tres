@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://dv38q4ooucfhw"]
+
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_qg7fa"]
+
+[resource]
+script = ExtResource("1_qg7fa")
+name = "El barrio los respalda"
+description = "Golpea a un enemigo, en cuanto menor porcentaje de vida tenga el enemigo aplica la curación al aliado con menos salud."
+effects = Array[Resource("res://combat/effects/effect.gd")]([])
+energy_cost = 99999999

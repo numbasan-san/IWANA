@@ -12,7 +12,9 @@ class_name StatCondition extends Condition
 	"Damage",
 	"Defense",
 	"Speed",
-	"Critical"
+	"Critical",
+	"Precision",
+	"Evasion"
 ) var stat: String = "Health"
 
 ## The operation used to compare the values

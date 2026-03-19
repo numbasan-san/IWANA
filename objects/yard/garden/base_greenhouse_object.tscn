@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2ayos3quuo4t"]
+
+[ext_resource type="Texture2D" uid="uid://c3vejueygp0b5" path="res://objects/yard/garden/new_garden_384x240.png" id="1_x462n"]
+
+[node name="BaseGreenhouseObject" type="Node2D"]
+scale = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_x462n")
+region_enabled = true
+region_rect = Rect2(0, 0, 98, 65)
+
+[node name="CollisionShape2D" type="StaticBody2D" parent="."]

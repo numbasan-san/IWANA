@@ -1,12 +1,11 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://dw7vb5datukbc"]
 
 [ext_resource type="Script" path="res://script/object_inventory/items/item.gd" id="1_1n6dh"]
-[ext_resource type="Texture2D" uid="uid://6fu3el34v24w" path="res://assets/Assests de Pruebas/Sin título.jpg" id="2_6egfx"]
+[ext_resource type="Texture2D" uid="uid://dcv3my6dkv5is" path="res://assets/Assests de Pruebas/Sin título.jpg" id="2_6egfx"]
 
 [resource]
 script = ExtResource("1_1n6dh")
 name = "llave"
 texture = ExtResource("2_6egfx")
 stack = 99
-cost = 15
-sellelable = true
+description = ""

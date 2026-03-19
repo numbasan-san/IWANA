@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bixune13sdb3"]
+
+[ext_resource type="PackedScene" uid="uid://cfdyhbhxemjsc" path="res://objects/abandoned_bathroom/broken_toilet_left_3.tscn" id="1_2fu01"]
+[ext_resource type="PackedScene" uid="uid://b8ckbnfefa0cl" path="res://objects/abandoned_bathroom/broken_divider_1.tscn" id="2_n56yt"]
+
+[node name="BrokenStall" type="Node2D"]
+
+[node name="BrokenToiletLeft3" parent="." instance=ExtResource("1_2fu01")]
+
+[node name="BrokenDivider1" parent="." instance=ExtResource("2_n56yt")]

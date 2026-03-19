@@ -8,18 +8,22 @@ extends Node2D
 # It should be set by the Player when this controler is attached to a character
 var attached = false
 
+var is_enabled = false
+
 # While the player's GeneralInteraction node is intersecting the
-# GeneralInteractionArea node of an object or npc, this variable is set to that
-# node so that one can perform actions on the target
-var _target_interaction_area: GeneralInteractionArea
+# GeneralInteractionArea node of an object or npc, that node is added to this
+# array so that one can perform actions on the target. Only the first element
+# will be interacted with, but more can be added in case there is an overlap.
+var _target_interaction_areas: Array[GeneralInteractionArea]
 
 func _unhandled_input(event):
-	if event.is_action_released("rpg_interact") and _target_interaction_area:
-		_target_interaction_area.interaction(self)
+	if event.is_action_released("rpg_interact") and is_enabled:
+		if not _target_interaction_areas.is_empty():
+			_target_interaction_areas[0].interaction(self)
 
 # Avatar movement
 func _process(_delta):
-	if attached:
+	if attached and is_enabled:
 		var x = int(Input.is_action_pressed('rpg_right')) - int(Input.is_action_pressed('rpg_left'))
 		var y = int(Input.is_action_pressed('rpg_down')) - int(Input.is_action_pressed('rpg_up'))
 		
@@ -38,7 +42,7 @@ func _process(_delta):
 # The collision with items on the ground
 func _on_item_contact(area):
 	# Collision with a ground item
-	if area.has_method('collect'):
+	if area.has_method('collect') and is_enabled:
 		# Case where there is an empty space in the inventory
 		if inventory.count_empty_slot() >= 1:
 			area.collect(inventory)
@@ -50,18 +54,18 @@ func _on_item_contact(area):
 
 # Contact with the interaction area of a door
 func _on_door_contact(area):
-	if area.has_method('change_zone'):
+	if area.has_method('change_zone') and is_enabled:
 		area.change_zone(get_parent().character)
 
 # Enter the interaction area of an object or npc
 func _on_interaction_area_enter(area):
-	if area is GeneralInteractionArea:
-		_target_interaction_area = area
+	if area is GeneralInteractionArea and not _target_interaction_areas.has(area):
+		_target_interaction_areas.push_front(area)
 		
 # Exit the interaction area of an object or npc
 func _on_interaction_area_exit(area):
-	if area is GeneralInteractionArea:
-		_target_interaction_area = null
+	if area is GeneralInteractionArea and _target_interaction_areas.has(area):
+		_target_interaction_areas.erase(area)
 
 # Enter the interaction area of an object with transparency
 func _on_transparency_enter(area):

@@ -31,6 +31,8 @@ texture = SubResource("GradientTexture2D_s0c0c")
 [node name="ZoneChange" type="Area2D" parent="."]
 z_index = 1
 y_sort_enabled = true
+collision_layer = 8
+collision_mask = 8
 script = ExtResource("3_2pbxo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneChange"]

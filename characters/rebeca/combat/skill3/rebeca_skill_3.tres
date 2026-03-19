@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=9 format=3 uid="uid://dk71niqdnaxym"]
+
+[ext_resource type="Script" path="res://combat/effects/instant/heal.gd" id="1_x8d6d"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_xdw2i"]
+[ext_resource type="Script" path="res://combat/effects/buffs/regen.gd" id="2_gqqfn"]
+[ext_resource type="Resource" uid="uid://b55e4sulfykil" path="res://combat/effects/buffs/regen_data.tres" id="3_5ixyw"]
+[ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="3_gu6np"]
+
+[sub_resource type="Resource" id="Resource_qvxpr"]
+script = ExtResource("1_x8d6d")
+base_value = 3.0
+
+[sub_resource type="Resource" id="Resource_j8o7q"]
+script = ExtResource("3_gu6np")
+exclude_self = true
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_e0ash"]
+script = ExtResource("2_gqqfn")
+before_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+after_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_qvxpr")])
+unapply_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+incoming_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+outgoing_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+character_hit_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+type = 0
+decrease_duration = 2
+duration = 3
+stacks = true
+base_data = ExtResource("3_5ixyw")
+base_value = 1.0
+target_type = SubResource("Resource_j8o7q")
+
+[resource]
+script = ExtResource("1_xdw2i")
+name = "Abracito dulce"
+description = "Apapacho, da regeneración a un aliado."
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_e0ash")])
+energy_cost = 5

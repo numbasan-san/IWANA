@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdkd5rptah77s"]
+
+[ext_resource type="PackedScene" uid="uid://bgxrmquotmvg3" path="res://objects/base_object.tscn" id="1_7x6s2"]
+[ext_resource type="Texture2D" uid="uid://bmddllwn7f5sv" path="res://objects/music_room/music_room_384x240.png" id="2_kxujv"]
+
+[node name="BaseMusicRoomObject" instance=ExtResource("1_7x6s2")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_kxujv")

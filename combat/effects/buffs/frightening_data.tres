@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EffectBaseData" load_steps=3 format=3 uid="uid://bq1xq1qyl6520"]
+
+[ext_resource type="Texture2D" uid="uid://b18832l6tbn3n" path="res://combat/effects/buffs/frightening_icon.tres" id="1_ejast"]
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="1_nkhh3"]
+
+[resource]
+script = ExtResource("1_nkhh3")
+name = "Frightening"
+description = "When this character attacks, the target receives a damage and defense debuff."
+icon = ExtResource("1_ejast")

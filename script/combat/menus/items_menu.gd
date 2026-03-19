@@ -10,7 +10,6 @@ var processed_items = []  # Lista para llevar el control de los ítems procesado
 func clean():
 	$background/item_icon/icon.texture = null
 	$background/item_info.text = ''
-	$background/Panel/gold.text = "Gold: " + str(inventory.gold)
 
 # Función para cargar y mostrar los ítems en el menú.
 func load_items():
@@ -98,3 +97,4 @@ func _on_quests_btn_pressed():
 	var selected_menu = self.get_parent()
 	var quests_menu = selected_menu.get_node('quests_menu')
 	quests_menu.visible = true
+	quests_menu.load_quests()

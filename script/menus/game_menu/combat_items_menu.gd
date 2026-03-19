@@ -99,3 +99,16 @@ func _on_party_menu_item_used():
 		if slot.amount <= 0:
 			slot.amount = 0
 			slot.item = null
+
+func _on_item_pressed():
+	# print('Deber<C3><AD>a aparecer el men<C3><BA> de los objetos.')
+	$MenuChangeAnimation.play("ShowItems")
+	var items_menu = $ItemsMenu
+	items_menu.load_items()
+
+func _on_close_pressed():
+	$MenuChangeAnimation.play("HideItems")
+
+func _on_select_to_use():
+	$"..".select_to_use = true
+	$"..".show_party_menu()

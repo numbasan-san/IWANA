@@ -80,4 +80,7 @@ func remove_character():
 	super.remove_character()
 
 func _update_portrait(_old: TextureRect, new: TextureRect):
-	portrait.texture = new.texture
+	if new:
+		portrait.texture = new.texture
+	else:
+		portrait.texture = null

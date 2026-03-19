@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="EffectGroup" load_steps=11 format=3 uid="uid://c1ydb1tmh44kv"]
+
+[ext_resource type="Script" path="res://combat/effects/stat_moding_effect.gd" id="2_36l51"]
+[ext_resource type="Resource" uid="uid://wulcp83et30s" path="res://combat/effects/buffs/spikes_data.tres" id="3_2dsvf"]
+[ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="5_ef76q"]
+[ext_resource type="Script" path="res://combat/effects/buffs/spikes.gd" id="6_i6yah"]
+[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="7_ihkx3"]
+[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="8_1kbbl"]
+
+[sub_resource type="Resource" id="Resource_724rg"]
+script = ExtResource("2_36l51")
+stat = "Defense"
+type = 0
+decrease_duration = 2
+duration = 3
+stacks = true
+base_value = 4.0
+
+[sub_resource type="Resource" id="Resource_blv2l"]
+script = ExtResource("5_ef76q")
+type = 0
+percentage_ignored = 0.0
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_6d4kd"]
+script = ExtResource("6_i6yah")
+before_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+after_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+unapply_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+incoming_effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_blv2l")])
+outgoing_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+character_hit_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+type = 0
+decrease_duration = 1
+duration = 3
+stacks = false
+base_data = ExtResource("3_2dsvf")
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_yfnec"]
+script = ExtResource("8_1kbbl")
+
+[resource]
+script = ExtResource("7_ihkx3")
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_724rg"), SubResource("Resource_6d4kd")])
+base_value = 1.0
+target_type = SubResource("Resource_yfnec")

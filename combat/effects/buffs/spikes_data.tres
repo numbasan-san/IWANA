@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EffectBaseData" load_steps=3 format=3 uid="uid://wulcp83et30s"]
+
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="1_kpaku"]
+[ext_resource type="Texture2D" uid="uid://i7pmubh6lyh2" path="res://combat/effects/buffs/spikes_icon.tres" id="1_o3bgn"]
+
+[resource]
+script = ExtResource("1_kpaku")
+name = "Spikes"
+description = "When receiving a physical attack, this character returns some damage depending on it's defense stat."
+icon = ExtResource("1_o3bgn")

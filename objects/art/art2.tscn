@@ -5,4 +5,4 @@
 [node name="Art2" instance=ExtResource("1_oqirq")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(150, 305, 175, 175)
+region_rect = Rect2(127, 13, 35, 35)

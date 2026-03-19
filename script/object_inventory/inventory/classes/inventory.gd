@@ -4,14 +4,15 @@ extends Resource
 class_name Inventory
 
 @export var slots : Array[Slot]
-@export var gold : int = 1000
+var gold = 1000
+
 signal update
 
 func insert(item : Item):
 	# Para poder crear stacks.
 	for slot in slots:
 		if slot.item == item:
-			if slot.amount >= slot.item.stack:
+			if slot.amount >= slot.item.max_stack:
 				continue
 			slot.amount += 1
 			update.emit()

@@ -5,4 +5,4 @@
 [node name="SushiMaki" instance=ExtResource("1_0h5sd")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1800, 335, 30, 35)
+region_rect = Rect2(360, 67, 6, 8)

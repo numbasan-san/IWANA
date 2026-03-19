@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=2 format=3 uid="uid://be0hqm8k35fwc"]
+
+[ext_resource type="Script" path="res://script/quests/quest.gd" id="1_288vm"]
+
+[resource]
+script = ExtResource("1_288vm")
+name = "Juan come Manzanas"
+description = "Debo conseguir manzanas para Juan. Según sus propias palabras: \"MM AA NN ZZ AA NN AA SS\".		"
+brief_description = "Consigue 5 manzanas."
+quantity_collected = 0
+quantity_goal = 5
+quest_status = ""
+quest_type = 1
+quest_item = 1
+quest_person = 0
+to = 0

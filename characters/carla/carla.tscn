@@ -1,197 +1,37 @@
-[gd_scene load_steps=30 format=3 uid="uid://dorc15lxpd2w4"]
+[gd_scene load_steps=23 format=3 uid="uid://dorc15lxpd2w4"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Resource" uid="uid://dqghkllfgkd3g" path="res://script/characters/resource/carla.tres" id="2_g18jn"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="2_vglxn"]
 [ext_resource type="Texture2D" uid="uid://boe2ejslup8co" path="res://characters/carla/vn/neutral.png" id="4_03jaf"]
 [ext_resource type="Texture2D" uid="uid://bwmjdrfbyflyo" path="res://characters/carla/combat/fainted.png" id="4_50y82"]
-[ext_resource type="Script" path="res://characters/carla/carla_interaction.gd" id="4_kadpm"]
-[ext_resource type="Texture2D" uid="uid://d3rs37jucja0n" path="res://characters/carla/rpg/carla.png" id="5_h4af0"]
-[ext_resource type="Script" path="res://combat/effects/damage.gd" id="5_lkpum"]
-[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="6_85i0v"]
-[ext_resource type="Script" path="res://combat/skills/skill.gd" id="7_2u0rd"]
+[ext_resource type="Texture2D" uid="uid://dk1vdl2oqyw8r" path="res://characters/carla/rpg/movement_384x240.png" id="4_74ne1"]
+[ext_resource type="Texture2D" uid="uid://b4p5rlv2f43aj" path="res://assets/combat_sprites/portraits.png" id="5_cnfhk"]
+[ext_resource type="Texture2D" uid="uid://b0ainjfp61ope" path="res://characters/noby_combate.png" id="7_yjqap"]
+[ext_resource type="Resource" uid="uid://dictbrxqi37wy" path="res://characters/carla/combat/skill1/carla_skill_1.tres" id="10_5wqqk"]
+[ext_resource type="Resource" uid="uid://c7ctd4sjh66jy" path="res://characters/carla/combat/skill2/carla_skill_2.tres" id="11_tpjcy"]
+[ext_resource type="Resource" uid="uid://7x7yb7nln5n7" path="res://characters/carla/combat/skill3/carla_skill_3.tres" id="12_bm1yd"]
+[ext_resource type="Resource" uid="uid://c01m60qj02xxd" path="res://characters/carla/combat/skill4/carla_skill_4.tres" id="13_0o6jo"]
+[ext_resource type="Resource" uid="uid://lc58o03rwf5i" path="res://characters/carla/combat/skill5/carla_skill_5.tres" id="14_xvl0x"]
+[ext_resource type="Resource" uid="uid://cow8xqqtaylai" path="res://characters/carla/combat/skill6/carla_skill_6.tres" id="15_atl7k"]
+[ext_resource type="Resource" uid="uid://tng2hnsmo7qg" path="res://characters/carla/combat/skill7/carla_skill_7.tres" id="16_rc7xj"]
+[ext_resource type="Resource" uid="uid://bijh26ssy4mxy" path="res://characters/carla/combat/skill8/carla_skill_8.tres" id="17_lptqu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eyij3"]
 resource_local_to_scene = true
 size = Vector2(21.6667, 10.6667)
 
-[sub_resource type="Animation" id="Animation_6r54w"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(364, 595, 195, 240)]
-}
-
-[sub_resource type="Animation" id="Animation_isa85"]
-resource_name = "stop_player_down"
-length = 0.1
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(364, 595, 195, 240)]
-}
-
-[sub_resource type="Animation" id="Animation_fti76"]
-resource_name = "stop_player_left"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(129, 315, 205, 245)]
-}
-
-[sub_resource type="Animation" id="Animation_yrixg"]
-resource_name = "stop_player_right"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(594, 315, 205, 245)]
-}
-
-[sub_resource type="Animation" id="Animation_lmcn6"]
-resource_name = "stop_player_up"
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(364, 30, 195, 240)]
-}
-
-[sub_resource type="Animation" id="Animation_o77ny"]
-resource_name = "walk_player_down"
-length = 0.7
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(364, 595, 195, 240)]
-}
-
-[sub_resource type="Animation" id="Animation_km0b2"]
-resource_name = "walk_player_left"
-length = 0.7
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(129, 315, 205, 245)]
-}
-
-[sub_resource type="Animation" id="Animation_aeago"]
-resource_name = "walk_player_right"
-length = 0.7
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(594, 315, 205, 245)]
-}
-
-[sub_resource type="Animation" id="Animation_b30q8"]
-resource_name = "walk_player_up"
-length = 0.8
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:region_rect")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(364, 30, 195, 240)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_hsahp"]
-_data = {
-"RESET": SubResource("Animation_6r54w"),
-"stop_down": SubResource("Animation_isa85"),
-"stop_left": SubResource("Animation_fti76"),
-"stop_right": SubResource("Animation_yrixg"),
-"stop_up": SubResource("Animation_lmcn6"),
-"walk_down": SubResource("Animation_o77ny"),
-"walk_left": SubResource("Animation_km0b2"),
-"walk_right": SubResource("Animation_aeago"),
-"walk_up": SubResource("Animation_b30q8")
-}
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_wu2rc"]
-size = Vector2(144, 115)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gyoah"]
+atlas = ExtResource("5_cnfhk")
+region = Rect2(323, 167, 51, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dahf2"]
 atlas = ExtResource("4_50y82")
 region = Rect2(0, 0, 220, 320)
 
-<<<<<<< Updated upstream
-[sub_resource type="AtlasTexture" id="AtlasTexture_jareu"]
-atlas = ExtResource("4_03jaf")
-region = Rect2(0, 0, 848, 1375)
-=======
 [sub_resource type="AtlasTexture" id="AtlasTexture_4x57r"]
 atlas = ExtResource("7_yjqap")
 region = Rect2(272, 0, 68, 123)
->>>>>>> Stashed changes
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_qgx6d"]
 animations = [{
@@ -205,11 +45,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-<<<<<<< Updated upstream
-"texture": SubResource("AtlasTexture_jareu")
-=======
 "texture": SubResource("AtlasTexture_4x57r")
->>>>>>> Stashed changes
 }],
 "loop": true,
 "name": &"idle",
@@ -223,30 +59,10 @@ base_max_health = 20
 base_max_energy = 40
 base_damage = 10
 base_defense = 0
-base_speed = 4
+base_speed = 10
 base_critical = 5
-
-[sub_resource type="Resource" id="Resource_o0vmu"]
-resource_local_to_scene = true
-script = ExtResource("6_85i0v")
-number_of_targets = 2
-random = false
-allow_repetition = false
-
-[sub_resource type="Resource" id="Resource_rdmvj"]
-resource_local_to_scene = true
-script = ExtResource("5_lkpum")
-type = 0
-value = 1.0
-target_type = SubResource("Resource_o0vmu")
-
-[sub_resource type="Resource" id="Resource_nacnq"]
-resource_local_to_scene = true
-script = ExtResource("7_2u0rd")
-name = "Daño Ejemplo"
-description = "Skill de ejemplo para  debuggear"
-effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_rdmvj")])
-energy_cost = 5
+base_precision = 100
+base_evasion = 0
 
 [node name="Carla" instance=ExtResource("1_begxf")]
 char_info = ExtResource("2_g18jn")
@@ -259,37 +75,17 @@ scale = Vector2(-1, 1)
 texture = ExtResource("4_03jaf")
 
 [node name="Sprite2D" parent="RPGModel" index="0"]
-<<<<<<< Updated upstream
-position = Vector2(0, 14)
-texture = ExtResource("5_h4af0")
-offset = Vector2(0, -121)
-hframes = 1
-region_enabled = true
-=======
 position = Vector2(0, 3)
 texture = ExtResource("4_74ne1")
 offset = Vector2(0, -43)
 vframes = 8
 frame = 16
->>>>>>> Stashed changes
 region_rect = Rect2(364, 595, 195, 240)
 
 [node name="Collider" parent="RPGModel" index="1"]
 position = Vector2(-0.5, -2.66667)
 shape = SubResource("RectangleShape2D_eyij3")
-
-[node name="Animation" parent="RPGModel" index="2"]
-libraries = {
-"": SubResource("AnimationLibrary_hsahp")
-}
-
-[node name="GeneralInteraction" type="Area2D" parent="RPGModel" index="3"]
-script = ExtResource("4_kadpm")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RPGModel/GeneralInteraction" index="0"]
-position = Vector2(-2, -47.5)
-shape = SubResource("RectangleShape2D_wu2rc")
-debug_color = Color(0.992157, 0, 0.254902, 0.419608)
+debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
 [node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
 visible = false
@@ -299,22 +95,18 @@ combat_animation = NodePath("Sprites/CombatSprite")
 visible = false
 offset_right = 790.0
 offset_bottom = 516.0
-texture = ExtResource("4_03jaf")
+scale = Vector2(3, 3)
+texture = SubResource("AtlasTexture_gyoah")
 expand_mode = 1
 stretch_mode = 2
 
 [node name="CombatSprite" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
-<<<<<<< Updated upstream
-scale = Vector2(0.15, 0.15)
-sprite_frames = SubResource("SpriteFrames_qgx6d")
-animation = &"fainted"
-=======
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_qgx6d")
 animation = &"idle"
 offset = Vector2(0, -34)
->>>>>>> Stashed changes
 
 [node name="CombatHandler" parent="." index="3"]
 stats = SubResource("Resource_4hq1v")
-skills = Array[ExtResource("7_2u0rd")]([SubResource("Resource_nacnq")])
+skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("10_5wqqk"), ExtResource("11_tpjcy"), ExtResource("12_bm1yd"), ExtResource("13_0o6jo"), ExtResource("14_xvl0x"), ExtResource("15_atl7k"), ExtResource("16_rc7xj"), ExtResource("17_lptqu")])
+manual_control = true

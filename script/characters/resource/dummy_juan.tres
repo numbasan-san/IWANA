@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="CharacterInfo" load_steps=3 format=3 uid="uid://bp7hubt73rxmu"]
+[gd_resource type="Resource" script_class="CharacterInfo" load_steps=3 format=3 uid="uid://0y8fnhch06qs"]
 
-[ext_resource type="Texture2D" uid="uid://dcxyb0u20c7h8" path="res://characters/dummy_juan/rpg/sombra_portrait.png" id="1_lfyry"]
-[ext_resource type="Script" path="res://script/characters/character_info.gd" id="2_8phc4"]
+[ext_resource type="Texture2D" uid="uid://dolaioma3n5pm" path="res://characters/dummy_juan/rpg/sombra_portrait.png" id="1_78swm"]
+[ext_resource type="Script" path="res://script/characters/character_info.gd" id="2_ajs6a"]
 
 [resource]
-script = ExtResource("2_8phc4")
+script = ExtResource("2_ajs6a")
 name = "Dummy Juan"
-portrait = ExtResource("1_lfyry")
-description = "Solo pide cosas."
-affinity = "Quest"
+portrait = ExtResource("1_78swm")
+description = "En sus propias palabras: \"MM AA NN ZZ AA NN AA SS\"."
+affinity = "neutral"
+satiety = 0
+person = 0

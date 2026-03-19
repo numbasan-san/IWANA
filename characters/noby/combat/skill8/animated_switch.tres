@@ -1,0 +1,99 @@
+[gd_resource type="Resource" script_class="EffectGroup" load_steps=22 format=3 uid="uid://c6ajavap7v8s3"]
+
+[ext_resource type="Script" path="res://combat/effects/animation_effects/play_animation.gd" id="1_ek50g"]
+[ext_resource type="Script" path="res://combat/effects/animation_effects/projectile.gd" id="2_ngiv4"]
+[ext_resource type="Texture2D" uid="uid://b5hjdykoolcbh" path="res://characters/noby/combat/skill8/corazon.png" id="3_1qjyp"]
+[ext_resource type="Script" path="res://combat/effects/animation_effects/spawn_projectile.gd" id="4_hme6i"]
+[ext_resource type="Resource" uid="uid://ch7gcblyuypqa" path="res://combat/effects/instant/life_switch_data.tres" id="5_yvs7v"]
+[ext_resource type="Script" path="res://combat/effects/instant/life_switch.gd" id="6_gpoo5"]
+[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="7_215p5"]
+[ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="8_htpqs"]
+
+[sub_resource type="Resource" id="Resource_0015k"]
+script = ExtResource("1_ek50g")
+graphic_name = "noby_throw_heart"
+base_value = 1.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nxh0j"]
+atlas = ExtResource("3_1qjyp")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imw25"]
+atlas = ExtResource("3_1qjyp")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yn5y8"]
+atlas = ExtResource("3_1qjyp")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2pop"]
+atlas = ExtResource("3_1qjyp")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imii3"]
+atlas = ExtResource("3_1qjyp")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y24bf"]
+atlas = ExtResource("3_1qjyp")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_74hat"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nxh0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imw25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yn5y8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2pop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imii3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y24bf")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_mqxe5"]
+script = ExtResource("2_ngiv4")
+sprite = SubResource("SpriteFrames_74hat")
+
+[sub_resource type="Resource" id="Resource_t613u"]
+script = ExtResource("4_hme6i")
+projectile = SubResource("Resource_mqxe5")
+speed = 1000.0
+target_offset = Vector2(0, -100)
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_ifmww"]
+script = ExtResource("6_gpoo5")
+base_data = ExtResource("5_yvs7v")
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_xefvu"]
+script = ExtResource("1_ek50g")
+graphic_name = "noby_lose_heart"
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_4xl8u"]
+script = ExtResource("8_htpqs")
+exclude_self = false
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[resource]
+script = ExtResource("7_215p5")
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_0015k"), SubResource("Resource_t613u"), SubResource("Resource_ifmww"), SubResource("Resource_xefvu")])
+base_value = 1.0
+target_type = SubResource("Resource_4xl8u")

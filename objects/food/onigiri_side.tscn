@@ -5,4 +5,4 @@
 [node name="OnigiriSide" instance=ExtResource("1_vlyw1")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1660, 375, 25, 25)
+region_rect = Rect2(332, 75, 5, 5)

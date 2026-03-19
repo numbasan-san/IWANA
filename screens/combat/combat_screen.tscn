@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://screens/screen.gd" id="1_4fqb4"]
 [ext_resource type="PackedScene" uid="uid://f2oog5xfhsha" path="res://screens/combat/combat_contents.tscn" id="2_sodoh"]
 [ext_resource type="PackedScene" uid="uid://dx8ovcjbdy6m8" path="res://screens/screen_audio.tscn" id="3_xslkh"]
-[ext_resource type="Resource" uid="uid://bwhsk03orbdut" path="res://music_tracks/fight_track.tres" id="4_ma48e"]
+[ext_resource type="Resource" uid="uid://bwhsk03orbdut" path="res://audio_tracks/fight_track.tres" id="4_qg7qg"]
 [ext_resource type="AnimationLibrary" uid="uid://b423bn5ptarkn" path="res://music_play_animations.res" id="5_cw3vg"]
 [ext_resource type="AnimationLibrary" uid="uid://k7u1xrby60xn" path="res://music_stop_animations.res" id="6_fys3f"]
 
@@ -180,8 +180,8 @@ grow_vertical = 2
 texture = SubResource("CanvasTexture_aw2b8")
 
 [node name="Audio" parent="." instance=ExtResource("3_xslkh")]
-music = Array[Resource("res://music_tracks/track_control.gd")]([ExtResource("4_ma48e")])
-current_track = ExtResource("4_ma48e")
+music = Array[Resource("res://audio_tracks/track_control.gd")]([ExtResource("4_qg7qg")])
+current_track = ExtResource("4_qg7qg")
 
 [node name="AudioAnimator" parent="Audio" index="0"]
 libraries = {

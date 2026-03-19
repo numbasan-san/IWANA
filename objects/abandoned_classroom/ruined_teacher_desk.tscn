@@ -5,13 +5,8 @@
 [node name="RuinedTeacherDesk" instance=ExtResource("1_1jtb8")]
 
 [node name="Sprite2D" parent="." index="0"]
-<<<<<<< Updated upstream
-position = Vector2(0, -64)
-region_rect = Rect2(1360, 760, 430, 285)
-=======
 position = Vector2(0, -29.3333)
 region_rect = Rect2(272, 152, 86, 57)
->>>>>>> Stashed changes
 
 [node name="StaticBody2D" parent="." index="1"]
 position = Vector2(0, -29.3333)

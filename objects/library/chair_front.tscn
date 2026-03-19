@@ -8,13 +8,8 @@ size = Vector2(20, 14.3333)
 [node name="ChairFront" instance=ExtResource("1_pwal2")]
 
 [node name="Sprite2D" parent="." index="0"]
-<<<<<<< Updated upstream
-position = Vector2(0, -56)
-region_rect = Rect2(950, 375, 100, 195)
-=======
 position = Vector2(0, -19.6667)
 region_rect = Rect2(312, 169, 20, 39)
->>>>>>> Stashed changes
 
 [node name="StaticBody2D" parent="." index="1"]
 position = Vector2(0, -19.6667)

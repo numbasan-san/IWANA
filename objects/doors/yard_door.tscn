@@ -13,13 +13,8 @@ size = Vector2(90, 10)
 [node name="YardDoor" instance=ExtResource("1_5dtag")]
 
 [node name="Sprite2D" parent="." index="0"]
-<<<<<<< Updated upstream
-position = Vector2(0, -161)
-region_rect = Rect2(940, 560, 370, 320)
-=======
 position = Vector2(0, -32)
 region_rect = Rect2(188, 112, 74, 64)
->>>>>>> Stashed changes
 
 [node name="Collision" parent="." index="1"]
 shape = SubResource("RectangleShape2D_3113k")

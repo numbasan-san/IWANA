@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Sleep" load_steps=3 format=3 uid="uid://ddlfj3bexjilk"]
+
+[ext_resource type="Resource" uid="uid://dc2eona3nrx26" path="res://combat/effects/debuffs/sleep_data.tres" id="1_idil4"]
+[ext_resource type="Script" path="res://combat/effects/debuffs/sleep.gd" id="1_iglal"]
+
+[resource]
+script = ExtResource("1_iglal")
+before_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+after_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+unapply_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+incoming_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+outgoing_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+character_hit_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+type = 1
+decrease_duration = 2
+duration = 3
+stacks = false
+base_data = ExtResource("1_idil4")
+base_value = 1.0

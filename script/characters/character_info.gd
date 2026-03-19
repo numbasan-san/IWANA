@@ -7,3 +7,5 @@ class_name CharacterInfo
 @export var portrait : Texture2D
 @export var description : String = ''
 @export var affinity : String = ''
+@export var satiety : int = 0
+@export var person : QuestsManager.PERSON

@@ -2,12 +2,12 @@ extends Control
 
 
 # menu and menu's elements settings
-func menus_setting(default, characters, maps, items, contacts):
+func menus_setting(default, characters, maps, items, quests):
 	$selected_menu/default_menu.visible = default
 	$selected_menu/characters_menu.visible = characters
 	$selected_menu/maps_menu.visible = maps
 	$selected_menu/items_menu.visible = items
-	$selected_menu/quests_menu.visible = contacts
+	$selected_menu/quests_menu.visible = quests
 
 func _ready():
 	menus_setting(true, false, false, false, false)

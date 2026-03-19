@@ -5,4 +5,4 @@
 [node name="Apple" instance=ExtResource("1_g00pp")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1625, 335, 35, 35)
+region_rect = Rect2(325, 67, 7, 7)

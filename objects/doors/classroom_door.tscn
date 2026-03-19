@@ -4,20 +4,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eghr6"]
 resource_local_to_scene = true
-<<<<<<< Updated upstream
-size = Vector2(185, 50)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_78l3l"]
-resource_local_to_scene = true
-size = Vector2(190, 60)
-
-[node name="ClassroomDoor" instance=ExtResource("1_vyrhv")]
-
-[node name="Collision" parent="." index="1"]
-shape = SubResource("RectangleShape2D_eghr6")
-
-[node name="CollisionShape2D" parent="ZoneChange" index="0"]
-=======
 size = Vector2(40, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78l3l"]
@@ -35,5 +21,4 @@ shape = SubResource("RectangleShape2D_eghr6")
 
 [node name="CollisionShape2D" parent="ZoneChange" index="0"]
 position = Vector2(0, -1)
->>>>>>> Stashed changes
 shape = SubResource("RectangleShape2D_78l3l")

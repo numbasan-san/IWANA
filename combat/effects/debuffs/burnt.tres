@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Burnt" load_steps=5 format=3 uid="uid://7pcxx208qqpx"]
+
+[ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="1_rd27d"]
+[ext_resource type="Script" path="res://combat/effects/debuffs/burnt.gd" id="3_gaf2o"]
+[ext_resource type="Resource" uid="uid://bh60aic7tvtqn" path="res://combat/effects/debuffs/burnt_data.tres" id="3_u0miw"]
+
+[sub_resource type="Resource" id="Resource_16wu3"]
+script = ExtResource("1_rd27d")
+type = 4
+percentage_ignored = 0.0
+base_value = 1.0
+
+[resource]
+script = ExtResource("3_gaf2o")
+before_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+after_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_16wu3")])
+unapply_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+incoming_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+outgoing_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+character_hit_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+type = 1
+decrease_duration = 2
+duration = 3
+stacks = true
+base_data = ExtResource("3_u0miw")
+base_value = 1.0

@@ -39,12 +39,34 @@ func copy() -> Effect:
 	new_group.effects = effects_copy
 	return new_group
 
+func process_effect(
+		allies: Array[Character],
+		enemies: Array[Character],
+		handler: TurnHandler,
+		parent_target: Character = null) -> Array[Effect]:
+	
+	var copies = await super.process_effect(allies, enemies, handler, parent_target)
+	# Before processing the skill is set to NEW unless it failed some check.
+	# During processing it should still be NEW unless it was manually cancelled
+	# or something failed.
+	if skill.status != skill.Status.NEW:
+		return []
+	
+	var processed: Array[Effect] = []
+	# Each effect in copies should be a group, so we must flatten the sub effects
+	for group in copies:
+		# Each copy has its own target already set, we must pass them to each child.
+		for eff in group.effects:
+			processed.append_array(await eff.process_effect(allies, enemies, handler, group.target))
+	
+	return processed
+
 func _set_caster(_caster: Character):
 	super._set_caster(_caster)
 	for eff in effects:
 		eff.caster = _caster
 
-func _set_skill_targets(_targets: Array[Character]):
-	super._set_skill_targets(_targets)
+func _set_skill(_skill: Skill):
+	super._set_skill(_skill)
 	for eff in effects:
-		eff.skill_targets = _targets
+		eff.skill = _skill

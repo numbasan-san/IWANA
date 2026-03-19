@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://8c8v1xlk62v7"]
+
+[ext_resource type="Script" path="res://screens/dev/dev_area_control.gd" id="1_npo2p"]
+[ext_resource type="Theme" uid="uid://beupgvq760u62" path="res://screens/dev/dev_mode_theme.tres" id="3_yd0wl"]
+[ext_resource type="PackedScene" uid="uid://cm7cci2ke8vr2" path="res://screens/dev/combat_area_overlay.tscn" id="4_gcpmx"]
+
+[node name="DevAreaControl" type="Control" node_paths=PackedStringArray("name_label", "characters", "grid_overlay", "add_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_npo2p")
+name_label = NodePath("VBoxContainer/HBoxContainer/AreaName")
+characters = NodePath("VBoxContainer/ScrollContainer/Characters")
+grid_overlay = NodePath("Overlay")
+add_button = NodePath("VBoxContainer/HBoxContainer/AddCharacter")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 412.0
+offset_bottom = 288.0
+theme = ExtResource("3_yd0wl")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="AreaName" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Area Name"
+
+[node name="AddCharacter" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "+"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="Characters" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="Overlay" parent="." instance=ExtResource("4_gcpmx")]
+layout_mode = 2
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 68.0
+offset_top = 195.0
+offset_right = 395.0
+offset_bottom = 394.0
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/AddCharacter" to="." method="_add_empty_character_control"]

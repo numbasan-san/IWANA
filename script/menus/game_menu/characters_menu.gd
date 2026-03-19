@@ -78,6 +78,12 @@ func _on_get_out_btn_pressed():
 
 
 # Menu buttons
+func _on_quests_btn_pressed():
+	self.visible = false
+	var selected_menu = self.get_parent()
+	var quests_menu = selected_menu.get_node('quests_menu')
+	quests_menu.visible = true
+	quests_menu.load_quests()
 
 func _on_maps_btn_pressed():
 	self.visible = false
@@ -92,10 +98,3 @@ func _on_items_btn_pressed():
 	var items_menu = selected_menu.get_node('items_menu')
 	items_menu.visible = true
 	items_menu.load_items()
-
-
-func _on_quests_btn_pressed():
-	self.visible = false
-	var selected_menu = self.get_parent()
-	var quests_menu = selected_menu.get_node('quests_menu')
-	quests_menu.visible = true

@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="CharacterInfo" load_steps=3 format=3 uid="uid://p8ulkfyptq1w"]
+[gd_resource type="Resource" script_class="CharacterInfo" load_steps=3 format=3 uid="uid://cdnepytpr85a5"]
 
-[ext_resource type="Texture2D" uid="uid://ckxdrw63na8k4" path="res://characters/dummy_thicc/rpg/sombra_portrait.png" id="1_echwx"]
-[ext_resource type="Script" path="res://script/characters/character_info.gd" id="2_dq0x4"]
+[ext_resource type="Texture2D" uid="uid://hal2vev16hb7" path="res://characters/dummy_thicc/rpg/sombra_portrait.png" id="1_rn647"]
+[ext_resource type="Script" path="res://script/characters/character_info.gd" id="2_geyxe"]
 
 [resource]
-script = ExtResource("2_dq0x4")
+script = ExtResource("2_geyxe")
 name = "Dummy Thicc"
-portrait = ExtResource("1_echwx")
-description = "Me genera desconfianza, pero me deja comprar cosas."
-affinity = "comerciante"
+portrait = ExtResource("1_rn647")
+description = "Ofrece cosas a según qué precio."
+affinity = "Comerciante"
+satiety = 0
+person = 1

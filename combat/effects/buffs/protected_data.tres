@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EffectBaseData" load_steps=3 format=3 uid="uid://c6qt2xhv3k323"]
+
+[ext_resource type="Texture2D" uid="uid://daf4jjtejhoif" path="res://combat/effects/buffs/shield_icon.tres" id="1_d0u43"]
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="1_mdihs"]
+
+[resource]
+script = ExtResource("1_mdihs")
+name = "Protection"
+description = "When this character is going to receive an attack, it is instead redirected to the caster of this buff."
+icon = ExtResource("1_d0u43")

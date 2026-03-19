@@ -1,18 +1,17 @@
 class_name HealingShield extends ChainedEffect
 
-func on_intercept(effect: Effect):
+func on_incoming(effect: Effect):
 	if effect is DamageEffect:
-		if effect.type == DamageEffect.DamageType.PHYSICAL:
-			if effect.value <= value:
-				effect.is_nullified
-				value -= effect.value
-			else:
-				effect.value -= value
-				value = 0
-			interception = true
+		if effect.value <= value:
+			effect.is_nullified = true
+			value -= effect.value
+		else:
+			effect.value -= value
+			value = 0
+		if value == 0:
+			target.combat_handler.remove_lasting_effect(self)
+		incoming_intercepted = true
 
-# TODO: this should be changed so it casts a healing effect instead. This
-# could be done by creating a new type of effect called a LinkedEffect that
-# triggers a second effect
 func on_unapply(target: Character):
-	unapply_effect.value = value
+	for un in unapply_effects:
+		un.value = value

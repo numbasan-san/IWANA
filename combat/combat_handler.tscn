@@ -11,7 +11,13 @@ base_damage = 0
 base_defense = 0
 base_speed = 0
 base_critical = 0
+base_precision = 100
+base_evasion = 0
 
 [node name="CombatHandler" type="Node"]
 script = ExtResource("1_8kyfw")
 stats = SubResource("Resource_n0dch")
+
+[node name="CombatAudio" type="AnimationPlayer" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

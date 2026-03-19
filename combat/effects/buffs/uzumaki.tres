@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Uzumaki" load_steps=3 format=3 uid="uid://cn3qxeboq2kvq"]
+
+[ext_resource type="Script" path="res://combat/effects/buffs/uzumaki.gd" id="1_gi14o"]
+[ext_resource type="Resource" uid="uid://knhk0l8u4wst" path="res://combat/effects/buffs/uzumaki_data.tres" id="1_vbb68"]
+
+[resource]
+script = ExtResource("1_gi14o")
+type = 0
+decrease_duration = 0
+duration = 1
+stacks = false
+base_data = ExtResource("1_vbb68")
+base_value = 0.0

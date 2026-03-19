@@ -1,0 +1,47 @@
+[gd_resource type="Resource" script_class="EffectGroup" load_steps=12 format=3 uid="uid://bi2wsyy3pwtcu"]
+
+[ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="2_f6x4l"]
+[ext_resource type="Resource" uid="uid://vvn3c4it7p7o" path="res://combat/effects/debuffs/poison_data.tres" id="3_epouo"]
+[ext_resource type="Script" path="res://combat/effects/debuffs/poison.gd" id="4_fu4sa"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="5_2iuvv"]
+[ext_resource type="Resource" uid="uid://c1ghsxvct30fp" path="res://combat/effects/instant/consume_poison_data.tres" id="6_d7atb"]
+[ext_resource type="Script" path="res://combat/effects/instant/consume_poison.gd" id="7_cir81"]
+[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="8_mhy7u"]
+
+[sub_resource type="Resource" id="Resource_1jaqw"]
+script = ExtResource("2_f6x4l")
+type = 3
+percentage_ignored = 0.0
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_78ig1"]
+script = ExtResource("4_fu4sa")
+before_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+after_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_1jaqw")])
+unapply_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+incoming_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+outgoing_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+character_hit_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+type = 1
+decrease_duration = 2
+duration = 3
+stacks = true
+base_data = ExtResource("3_epouo")
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_u4bml"]
+script = ExtResource("7_cir81")
+base_data = ExtResource("6_d7atb")
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_1rg5c"]
+script = ExtResource("5_2iuvv")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[resource]
+script = ExtResource("8_mhy7u")
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_78ig1"), SubResource("Resource_u4bml")])
+base_value = 1.0
+target_type = SubResource("Resource_1rg5c")

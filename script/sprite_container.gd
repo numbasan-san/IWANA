@@ -1,5 +1,4 @@
-class_name SpriteContainer
-extends CharacterContainer
+class_name SpriteContainer extends CharacterContainer
 
 # TODO: rewrite to do it better, this is just a quick fix
 @export var combat_sprite: CombatSprite
@@ -14,10 +13,6 @@ extends CharacterContainer
 
 # This should be set by the containing area when this container is added.
 var area: CombatPartyArea
-
-# If the character can be targeted, this signal will be emited when the container
-# is selected
-signal target_selected
 
 var targeting_enabled: bool = false:
 	set(value):
@@ -75,15 +70,14 @@ func remove_character():
 	super.remove_character()
 
 # Changes the direction towards which sprites in this container will be looking.
-# A negative number makes them look left (assuming original sprites are looking
-# left, when the direction is negative we must leave the actual scale value of
-# the sprite positive. We do this to mantain a standard that negative numbers
-# represent left).
-func set_direction(dir: int):
-	# If dir is left and sprite is looking right, or if dir is right and sprite
-	# is looking left, we flip the value
-	if (dir < 0 and combat_sprite.scale.x < 0
-		or dir >= 0 and combat_sprite.scale.x > 0):
+# Character combat sprites should all be drawn looking left by default, which means
+# a positive x scale is looking left and negative x scale is looking right.
+func set_direction(set_looking_left: bool):
+	# The scale should never be 0 or else the sprite isn't rendered, but we ask
+	# >= anyways to consider all cases, and we assume 0 means looking left.
+	var currently_looking_left = combat_sprite.scale.x >= 0
+	if (set_looking_left and !currently_looking_left
+			or !set_looking_left and currently_looking_left):
 		combat_sprite.scale.x *= -1
 
 # This function should be called when a signal is emited indicating that the
@@ -103,4 +97,4 @@ func _on_gui_input(event: InputEvent):
 		targeting_animation.stop()
 		targeting_animation.play("RESET")
 		targeting_animation.play("GUI/Selected")
-		target_selected.emit(character)
+		area.target_selected.emit(character)

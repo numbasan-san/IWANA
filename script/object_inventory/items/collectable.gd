@@ -1,4 +1,4 @@
-
+					
 extends Area2D
 
 @export var item_res : Item
@@ -6,4 +6,5 @@ extends Area2D
 # Called when the node enters the scene tree for the first time.
 func collect(inventory : Inventory):
 	inventory.insert(item_res)
+	QuestsManager.collect_quest(item_res.item, 1)
 	queue_free()

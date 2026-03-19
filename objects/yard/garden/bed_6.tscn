@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://d7od8n4chuka"]
+
+[ext_resource type="PackedScene" uid="uid://b2ayos3quuo4t" path="res://objects/yard/garden/base_greenhouse_object.tscn" id="1_gjsvt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_guf6f"]
+size = Vector2(40, 48)
+
+[node name="Bed6" instance=ExtResource("1_gjsvt")]
+
+[node name="Sprite2D" parent="." index="0"]
+region_rect = Rect2(192, 24, 64, 72)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionShape2D" index="0"]
+shape = SubResource("RectangleShape2D_guf6f")

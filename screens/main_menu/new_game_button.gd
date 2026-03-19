@@ -14,12 +14,6 @@ func _on_pressed():
 	var beca = CharacterManager.load("rebeca")
 	var lucia = CharacterManager.load("lucia")
 	
-<<<<<<< Updated upstream
-	var hallway_north = ZoneManager.load("f1n_hallway")
-	world.reposition_character(mj, hallway_north, Vector2(6600, 900))
-	world.reposition_character(beca, hallway_north, Vector2(6900, 900))
-	world.reposition_character(lucia, hallway_north, Vector2(7200, 900))
-=======
 	# Teachers
 	#var rosario = CharacterManager.load("rosario")
 	#var atena = CharacterManager.load("atena")
@@ -34,7 +28,6 @@ func _on_pressed():
 	#world.reposition_character(atena, hallway_north, Vector2(7800, 900))
 	#world.reposition_character(whalter, hallway_north, Vector2(8100, 900))
 	#world.reposition_character(barbara, hallway_north, Vector2(8400, 900))
->>>>>>> Stashed changes
 	var starting_zone = ZoneManager.load("room_f1n1")
 	world.spawn(noby, starting_zone)
 	Player.control(noby)
@@ -50,10 +43,11 @@ func _on_pressed():
 	var lab = ZoneManager.load("laboratory")
 	
 	var dummy_juan = CharacterManager.load("dummy_juan")
-	world.reposition_character(dummy_juan, starting_zone, Vector2(609, 9))
-	
+
 	world.spawn(dummy, dev_zone)
 	world.reposition_character(dummy_thicc, lab, Vector2(8, 8))
+	
+	world.reposition_character(dummy_juan, starting_zone, Vector2(100, 100))
 	# We pop the menu screen which leaves the stack empty. The script manager
 	# then pushes the dialog screen, which in turn should push the rpg screen
 	await ScreenManager.pop(ScreenManager.main_menu_screen, "Out", "Hide")

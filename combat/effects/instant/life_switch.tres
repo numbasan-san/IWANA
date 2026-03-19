@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="LifeSwitch" load_steps=3 format=3 uid="uid://emu3ysxvmrbu"]
+
+[ext_resource type="Script" path="res://combat/effects/instant/life_switch.gd" id="1_lbl7x"]
+[ext_resource type="Resource" uid="uid://ch7gcblyuypqa" path="res://combat/effects/instant/life_switch_data.tres" id="1_stx1f"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_lbl7x")
+base_data = ExtResource("1_stx1f")
+base_value = 1.0

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="SFXResource" load_steps=3 format=3 uid="uid://cb3n3de2b1vdt"]
+
+[ext_resource type="Script" path="res://audio_tracks/sfx_resource.gd" id="1_p52jq"]
+[ext_resource type="AudioStream" uid="uid://mx2v22u7tqbe" path="res://assets/audio/daño1.11.mp3" id="2_w3cnm"]
+
+[resource]
+script = ExtResource("1_p52jq")
+track_name = "Attack1"
+stream = ExtResource("2_w3cnm")

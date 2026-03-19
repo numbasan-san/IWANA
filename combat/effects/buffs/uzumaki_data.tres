@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EffectBaseData" load_steps=3 format=3 uid="uid://knhk0l8u4wst"]
+
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="1_2wd5b"]
+[ext_resource type="Texture2D" uid="uid://cogl66heyamqp" path="res://combat/effects/instant/heal_icon.tres" id="1_gar0o"]
+
+[resource]
+script = ExtResource("1_2wd5b")
+name = "Uzumaki"
+description = "The caster accumulates charges for every skill used, and when applying this eeffect again it does damage based on the collected ammount."
+icon = ExtResource("1_gar0o")

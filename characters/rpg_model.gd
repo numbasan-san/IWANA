@@ -2,6 +2,7 @@ class_name RPGModel
 extends CharacterBody2D
 
 @onready var collider: CollisionShape2D = $Collider
+@onready var interaction_area: GeneralInteractionArea = $GeneralInteraction
 
 var character: Character
 
@@ -54,11 +55,10 @@ func _process(_delta):
 	anim = "walk_" + direction
 	stop_anim = "stop_" + direction
 	if has_node("Animation"):
-		$Animation.play(anim)
-	if  axis.x == 0 and axis.y == 0 and has_node("Animation"):
-		# Stoping animation depending on the last direction the character was
-		# moving
-		$Animation.play(stop_anim)
+		if  axis.x == 0 and axis.y == 0:
+			$Animation.play(stop_anim)
+		else:
+			$Animation.play(anim)
 
 func set_axis(x, y):
 	axis = Vector2(x, y).normalized()
@@ -89,3 +89,9 @@ func enable_collisions():
 
 func disable_collisions():
 	collider.disabled = true
+
+func enable_interactions():
+	interaction_area.enable()
+
+func disable_interactions():
+	interaction_area.disable()

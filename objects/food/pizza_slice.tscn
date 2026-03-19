@@ -5,4 +5,4 @@
 [node name="PizzaSlice" instance=ExtResource("1_yv1ms")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1695, 615, 65, 55)
+region_rect = Rect2(339, 123, 13, 11)

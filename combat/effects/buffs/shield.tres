@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Shield" load_steps=3 format=3 uid="uid://ck8sk1boeunmr"]
+
+[ext_resource type="Resource" uid="uid://b7807k5ix7mc2" path="res://combat/effects/buffs/shield_data.tres" id="1_1yhbc"]
+[ext_resource type="Script" path="res://combat/effects/buffs/shield.gd" id="1_bl15m"]
+
+[resource]
+script = ExtResource("1_bl15m")
+type = 0
+decrease_duration = 2
+duration = 3
+stacks = true
+base_data = ExtResource("1_1yhbc")
+base_value = 10.0

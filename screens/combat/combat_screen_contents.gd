@@ -2,84 +2,116 @@ class_name CombatScreenControl
 extends Control
 
 signal textbox_closed
+signal battle_started
+signal battle_ended
+signal request_battle_end
+signal action_selected(action: Action)
+signal skill_selected(skill: Skill)
+signal continue_round
 
 @export var right_area: CombatPartyArea
 @export var left_area: CombatPartyArea
 @export var party_menu: PartyMenu
 @export var skills_menu: SkillsMenu
+@export var items_menu: Control
+@export var turn_handler: TurnHandler
 @export var change_menu_animation: AnimationPlayer
 
 # The turn order is decided at the beginning of the round according to the
 # actors' speed stat and buffs. This is where they will be stored, and they
 # will be removed as they perform their actions
 var actor_queue: Array[Character]
-var select_to_use = false
 
-var enemy_party: Party = null
 var enemy_area: CombatPartyArea = null
-
-var player_party: Party = null
 var player_area: CombatPartyArea = null
 
-var showing_skills = false
+## It should be true if the main loop of the combat controller is running.
+var running: bool = false
 
-var selecting_action = false
-var selecting_skill = false
-var selecting_target = false
+var pause_before_round: bool = false
+
+enum Action {
+	NONE,
+	ATTACK,
+	DEFEND,
+	RUN
+}
+
+enum State {
+	SELECTING_ACTION, # The character is deciding to attack, defend or run.
+	SELECTING_SKILL, # The character is selecting a skill to use.
+	FILLING_DATA, # The character is selecting targets, effects and evaluating conditions.
+	EXECUTING, # The skill has been processed and can now be applied.
+	END # The process for the current character has stopped and a new character must be chosen.
+}
 
 func _ready():
 	left_area.combat = self
 	right_area.combat = self
+	turn_handler.combat = self
 
 func _input(_event):
 	# Para poder cerrar los cuadros de texto.
-	if (Input.is_action_just_pressed("ui_accept") or 
-	Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and $text_box.visible:
+	if (Input.is_action_just_pressed("ui_accept") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)) and $text_box.visible:
 		$text_box.hide()
 		emit_signal("textbox_closed")
-	if Input.is_action_just_released("combat_menu_back"):
-		if skills_menu.visible:
-			show_party_menu()
-		else:
-			party_menu.select_previous_character()
+
+func battle(player_party: Array[Character], enemy_party: Array[Character]):
+	running = true
+	request_battle_end.connect(func():
+		running = false
+	, CONNECT_ONE_SHOT)
+	await start_battle(player_party, enemy_party)
+	battle_started.emit()
+	# This loop controls the rounds. A round consists of 1 turn of each character.
+	while running:
+		if pause_before_round:
+			await continue_round
+		prepare_new_round()
+		# This will happen when there are no characters fighting. This should only
+		# be possible when starting a new empty battle from the dev mode, but then
+		# we set pause_before_round to true, so it gives us a chance to add characters.
+		# If we unpause without adding any, this will end the combat.
+		if actor_queue.is_empty():
+			running = false
+		# This loop controls each turn. Because each turn could request the end
+		# of battle, we must again check the running variable or else we would
+		# have to wait for all turns in a round to pass before ending the battle.
+		while(running and !actor_queue.is_empty()):
+			await next_turn()
+	end_battle()
 
 # Fills the screen with the battling characters and their info and begins combat
-func start_battle(player_party: Party, enemy_party: Party):
+func start_battle(player_party: Array[Character], enemy_party: Array[Character]):
 	# This is here to fix a bug where the menus of the combat screen would move
 	# out of their default place sometimes after opening the editor
 	change_menu_animation.play("RESET")
 	# TODO: change this so that we can control which area corresponds with which
 	# party
 	player_area = right_area
-	self.player_party = player_party
-	for member in player_party.members:
+	player_area.player_controled = true
+	turn_handler.right_area = right_area
+	for member in player_party:
 		party_menu.add_character(member)
 		right_area.add_character(member)
-	# We start with no character selected in case one
-	# of the enemies attacks first
-	party_menu.select_character_index()
-	
+		
 	enemy_area = left_area
-	self.enemy_party = enemy_party
-	for enemy in enemy_party.members:
+	enemy_area.player_controled = false
+	turn_handler.left_area = left_area
+	for enemy in enemy_party:
 		left_area.add_character(enemy)
 	await ScreenManager.push(ScreenManager.combat_screen, "Out", "In")
-	show_party_menu()
-	prepare_new_round()
-	next_turn()
-
+	
 # Called at the end of the battle to clean the screen
 func end_battle():
 	await ScreenManager.pop(ScreenManager.combat_screen, "Out", "In")
+	
 	party_menu.clear()
 	right_area.clear()
 	left_area.clear()
-	#TODO: replace this with more permanent solution to rebattle
-	for m in enemy_party.members:
-		m.combat_handler.stats.replenish()
-	enemy_party = null
-	player_party = null
+	
 	actor_queue.clear()
+	battle_ended.emit()
 
 # This function should be called at the start of the combat or after
 # everyone has acted to sort every character's turn for the next round
@@ -90,10 +122,7 @@ func prepare_new_round():
 	for character in right_area.characters:
 		if not character.combat_handler.stats.unconscious:
 			actor_queue.append(character)
-	actor_queue.sort_custom(func(a: Character, b: Character):
-		var a_handler = a.combat_handler
-		var b_handler = b.combat_handler
-		return a_handler.stats.speed > b_handler.stats.speed)
+	_reorder_queue()
 	
 func next_turn():
 	# We check here if one party has been defeated and end the battle to fix
@@ -101,52 +130,52 @@ func next_turn():
 	# button of a player character before it can call scene animations, which
 	# would cause it to call next_turn on the next battle
 	if left_area.all_defeated() or right_area.all_defeated():
-		end_battle()
+		# request_battle_end.emit()
+		request_battle_end.emit()
+		return
 	
-	elif actor_queue.is_empty():
-		prepare_new_round()
-		next_turn()
 	else:
+		# Pop should always return a result as if the queue is empty, the loop
+		# will exit before calling this function and in the next loop the queue
+		# will be repopulated.
 		var next: Character = actor_queue.pop_front() as Character
 		next.combat_handler.start_turn()
 		# If the next character fainted due to an effect in the previous turn
-		# or at the star of its turn, we skip this turn
+		# or at the star of its turn, we skip this turn. We don't apply end of
+		# turn effects.
 		if next.combat_handler.stats.unconscious:
-			next_turn()
-			
-		# If the next character is in the player's party, we allow the player
-		# to pick an action
-		# We check in the party variable of Player and not in the party menu
-		# in the battle screen in case both battling parties are controled by
-		# the computer
-		elif Player.party.has(next):
-			party_menu.select_character(next)
-			_focus_action_list()
-		else:
-			var handler = next.combat_handler
-			var skill: Skill = handler.skills.pick_random()
-			for eff in skill.effects:
-				if eff.target_type.is_manual_target():
-					var t_type = eff.target_type as TargetVariable
-					t_type.random = true
-			skill.process_effects(enemy_party, player_party, [])
-			await handler.execute(skill)
+			return
+		if next.combat_handler.incapacitated:
 			next.combat_handler.end_turn()
-			next_turn()
+			return
+		
+		# If we reach this point, we can run the character's turn and hand the
+		# execution to the selection module, which will be stuck in its loop
+		# until the character's turn ends, be it by defending or using a skill.
+		await turn_handler.run_turn(next)
+		
+		# After run_turn returns, we are guaranteed that the character's turn
+		# has ended
+		next.combat_handler.end_turn()
+
+# Reorder the actor queue in response of the speed of a character changing
+func _reorder_from_speed_change(old, new):
+	# We ignore the arguments. This is only required because the speed change
+	# signal calls functions with 2 parameters
+	_reorder_queue()
+
+# Called when the actor queue must be reordered
+func _reorder_queue():
+	actor_queue.sort_custom(func(a: Character, b: Character):
+		var a_handler = a.combat_handler
+		var b_handler = b.combat_handler
+		return a_handler.stats.speed > b_handler.stats.speed)
 
 # Shows the party menu and hides the skills menu
 func show_party_menu():
-	if not party_menu.visible or select_to_use:
-		if select_to_use:
-			$ItemsMenu.visible = false
-			$PartyMenu/Actions/ActionList.visible = false
-			$PartyMenu/Actions/ItemsAction.visible = true
-		skills_menu.hide_targets()
+	if not party_menu.visible:
 		change_menu_animation.play("HideSkills")
 		await change_menu_animation.animation_finished
-		# TODO: think of a better way to control in which state is the combat
-		# screen
-		selecting_set(true, false, false)
 		if party_menu.selected_character:
 			# TODO: change it so that we don't need to refer to the button
 			# directly
@@ -157,14 +186,8 @@ func show_skills_menu():
 	if party_menu.visible:
 		change_menu_animation.play("ShowSkills")
 		await change_menu_animation.animation_finished
-		selecting_set(false, true, false)
 		if skills_menu.skills_container.get_child_count() > 0:
 			skills_menu.skills_container.get_child(0).grab_focus()
-
-func selecting_set(selecting_action, selecting_skill, selecting_target):
-	selecting_action = selecting_action
-	selecting_skill = selecting_skill
-	selecting_target = selecting_target
 
 func _focus_action_list():
 	$PartyMenu/Actions/ActionList/Attack.grab_focus()
@@ -173,17 +196,3 @@ func _focus_action_list():
 func display_text(text):
 	$text_box.show()
 	$text_box/label.text = text
-
-func _on_item_pressed():
-#	print('Debería aparecer el menú de los objetos.')
-	$MenuChangeAnimation.play("ShowItems")
-	var items_menu = $ItemsMenu
-	items_menu.load_items()
-
-func _on_close_pressed():
-	$MenuChangeAnimation.play("HideItems")
-	pass # Replace with function body.
-
-func _on_items_menu_select_to_use():
-	select_to_use = true
-	show_party_menu()

@@ -1,4 +1,3 @@
-# character_card.gd
 extends Control
 
 @onready var portrait : Texture

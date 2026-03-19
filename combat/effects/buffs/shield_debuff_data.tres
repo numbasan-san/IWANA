@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EffectBaseData" load_steps=3 format=3 uid="uid://b3ugfh2gclmb5"]
+
+[ext_resource type="Texture2D" uid="uid://daf4jjtejhoif" path="res://combat/effects/buffs/shield_icon.tres" id="1_s6lhb"]
+[ext_resource type="Script" path="res://combat/effects/base_data.gd" id="2_4xubl"]
+
+[resource]
+script = ExtResource("2_4xubl")
+name = "Debuff blocking shield"
+description = "Blocks an amount of incoming damage from any source. If this character receives a debuff, it is prevented and the shield dissipates."
+icon = ExtResource("1_s6lhb")

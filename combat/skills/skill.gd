@@ -20,68 +20,84 @@ class_name Skill extends Resource
 ##
 ## Each group has its own possible targets, and when using this skill it should
 ## prompt to choose targets for each one that isn't chosen automatically.
-@export var effects: Array[Effect]
+@export var effects: Array[Effect]:
+	set(new_effects):
+		effects = new_effects
+		for eff in effects:
+			eff.skill = self
 
 ## How much energy using this skill consumes.
 ##
 ## If the character doesn't have enough energy they can't perform the skill.
 @export var energy_cost: int
 
-# Which is the character that is performing the skill.
+## Who is the character that is performing the skill.
+##
+## This value will propagate to every effect and sub-effect in the skill, so if
+## any effect should have a different caster it must be changed in its own script.
 var caster: Character:
 	set(value):
 		caster = value
 		for eff in effects:
 			eff.caster = caster
 
-# Performs some initialization before applying the skill.
-# Some skills might have special conditions and effects that can't be easily
-# represented by this system and they need to extend this script and override
-# this function
-# TODO: For now this assumes one-target skills. It has to be fixed later
-func setup(caster: Character, target: Character):
-	pass
+# If this is false, the skill has been disabled by some other skill, a debuff or
+# some other external condition, and it cannot be used.
+var enabled: bool = true
 
-# Returns a list with all the target types of the groups that require manual
-# target selection. This can be used to prompt the player to pick the targets
-# Currently, the only types of target that could need to be picked manually are
-# of TargetVariable type
-func get_manual_targets() -> Array[TargetVariable]:
-	var types: Array[TargetVariable] = []
-	for eff in effects:
-		if eff.target_type.is_manual_target():
-			types.append(eff.target_type as TargetVariable)
-	return types
+enum Status {
+	NEW, ## 
+	INITIALIZED,
+	EXECUTED,
+	UNCONSCIOUS,
+	LOW_ENERGY,
+	DISABLED,
+	CANCELLED,
+	ERROR
+}
 
-# Calling this function will fill caster and target data for each effect group.
-# Before calling this, one should get the list of targets by calling
-# get_manual_targets.
-# targets should be an array of arrays. Each element of targets will be passed
-# in order to an effect group that requires manual targeting, while all other
-# groups will be processed with caster and parties info.
-func process_effects(allies: Party, enemies: Party, targets: Array):
-	# If these two sizes don't match, something has gone wrong or a step has been
-	# ignored, so we stop the process altogether
-	if get_manual_targets().size() != targets.size():
-		return
-	for eff in effects:
-		if eff.target_type.is_manual_target():
-			eff.skill_targets = targets.pop_front()
-		else:
-			eff.select_targets(allies, enemies)
+var status: Status
+
+# Calling this function will fill caster and target data for each effect. and return
+# an array with all the effects and sub effects already processed. All the returned
+# effects will be copies so none of the originals will be changed.
+func process_effects(
+		allies: Array[Character],
+		enemies: Array[Character],
+		handler: TurnHandler) -> Array[Effect]:
 	
-# After processing all the groups with target info, this should be called to
-# verify if all the caster and target data has been loaded in the groups. If not,
-# the skill invocation should be canceled and attempted again.
-func is_valid() -> bool:
-	for group in effects:
-		if not group.is_valid():
-			return false
-	return true
+	var result: Array[Effect] = []
+	for eff in effects:
+		# Note that in this first call, the parent_target argument is null. That means
+		# that the first effects in the skill need a target type or it will be an error.
+		# In that case, we will return an empty array and let the caller deal with it.
+		# TODO: add some kind of error system, maybe emiting error signals that
+		# can be listened to.
+		var processed = await eff.process_effect(allies, enemies, handler)
+		# This status is set while manually selecting targets to indicate the
+		# player cancelled the selection.
+		if status == Status.CANCELLED:
+			return []
+		if processed.size() == 0:
+			status = Status.ERROR
+			return []
+		result.append_array(processed)
+	
+	# We verify that every effect has their caster and target set.
+	for eff in result:
+		if !eff.is_valid():
+			status = Status.ERROR
+			return []
+	
+	status = Status.INITIALIZED
+	return result
 
 # Creates a deep copy of this skill and all its effects. This is necesary in case
 # the same skill is added to different characters or a character is cloned, so
-# that changing the values in one effect don't affect the others
+# that changing the values in one effect don't affect the others.
+# We need this custom function because a resource duplicate method won't deep copy
+# the effects array, and the array's duplicate method won't deep copy it's effect
+# resources.
 func copy() -> Skill:
 	var new_skill = self.duplicate(true) as Skill
 	var new_effects: Array[Effect] = []

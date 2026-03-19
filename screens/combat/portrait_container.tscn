@@ -1,18 +1,16 @@
 [gd_scene load_steps=15 format=3 uid="uid://dbuixiuq0ijmx"]
 
 [ext_resource type="Script" path="res://screens/combat/portrait_container.gd" id="1_bqrju"]
+[ext_resource type="Texture2D" uid="uid://cm64jidg3k4ae" path="res://assets/combat_sprites/containers.png" id="2_ul7il"]
 [ext_resource type="PackedScene" uid="uid://ceqe4yrlcfouu" path="res://screens/combat/player_bars.tscn" id="2_vx11a"]
-[ext_resource type="FontFile" uid="uid://bvx3kwcljl1mv" path="res://assets/combat_sprites/font/IWANA.ttf" id="3_rttqh"]
+[ext_resource type="FontFile" uid="uid://bjh56wfvej2vg" path="res://assets/combat_sprites/font/IWANA.ttf" id="3_rttqh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h3i3n"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_a45eo"]
-load_path = "res://.godot/imported/containers.png-43c18ca909d2accf454f28ca2acd80d1.ctex"
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_km83t"]
 resource_local_to_scene = true
-atlas = SubResource("CompressedTexture2D_a45eo")
-region = Rect2(32, 249, 294, 318)
+atlas = ExtResource("2_ul7il")
+region = Rect2(85, 237, 98, 106)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_s5qax"]
 
@@ -119,6 +117,7 @@ fill_bars = NodePath("PlayerBars")
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(3, 3)
 texture = SubResource("AtlasTexture_km83t")
 
 [node name="Portrait" type="TextureRect" parent="."]

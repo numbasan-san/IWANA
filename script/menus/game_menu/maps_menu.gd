@@ -63,6 +63,7 @@ func _on_quests_btn_pressed():
 	var selected_menu = self.get_parent()
 	var quests_menu = selected_menu.get_node('quests_menu')
 	quests_menu.visible = true
+	quests_menu.load_quests()
 
 
 func _on_floor_1_btn_2_pressed():

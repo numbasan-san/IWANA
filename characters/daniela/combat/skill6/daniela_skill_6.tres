@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=3 format=3 uid="uid://dy8iao35wkjdn"]
+
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_50alj"]
+[ext_resource type="Resource" uid="uid://bi2wsyy3pwtcu" path="res://characters/daniela/combat/skill6/consume_poison.tres" id="1_y23qq"]
+
+[resource]
+script = ExtResource("1_50alj")
+name = "A veces me siento"
+description = "Aplica veneno, ataca al enemigo, consumiendo el efecto de veneno del enemigo y lo convierte en daño."
+effects = Array[Resource("res://combat/effects/effect.gd")]([ExtResource("1_y23qq")])
+energy_cost = 5

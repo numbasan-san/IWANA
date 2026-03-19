@@ -51,6 +51,6 @@ libraries = {
 }
 
 [node name="AudioPlayer" parent="Audio" index="1"]
-volume_db = -10.0
+volume_db = -15.0
 
 [editable path="Audio"]

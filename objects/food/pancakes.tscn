@@ -5,4 +5,4 @@
 [node name="Pancakes" instance=ExtResource("1_s1wtd")]
 
 [node name="Sprite2D" parent="." index="0"]
-region_rect = Rect2(1605, 595, 75, 70)
+region_rect = Rect2(321, 119, 15, 14)

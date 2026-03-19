@@ -8,13 +8,8 @@ size = Vector2(40.3333, 18.6667)
 [node name="RuinedDesk2" instance=ExtResource("1_7nvsq")]
 
 [node name="Sprite2D" parent="." index="0"]
-<<<<<<< Updated upstream
-position = Vector2(0, -43)
-region_rect = Rect2(440, 535, 210, 185)
-=======
 position = Vector2(0, -19)
 region_rect = Rect2(88, 107, 42, 37)
->>>>>>> Stashed changes
 
 [node name="StaticBody2D" parent="." index="1"]
 position = Vector2(0, -43)
