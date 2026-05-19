@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://de2qo3u2jeq1"]
 
 [ext_resource type="Script" path="res://script/menus/game_menu/quests_menu.gd" id="1_ti8x5"]
-[ext_resource type="Texture2D" uid="uid://bu7mb5qvbay2m" path="res://assets/menus/game menu/libreta_misiones.png" id="2_7p3xo"]
-[ext_resource type="Texture2D" uid="uid://c8bc5fdvpohv0" path="res://assets/menus/btn.png" id="3_u1l7r"]
-[ext_resource type="Texture2D" uid="uid://cavh2jribhxeq" path="res://assets/menus/mascara.png" id="4_tv4lk"]
+[ext_resource type="Texture2D" uid="uid://dv5e6jj8rclm" path="res://assets/menus/game menu/libreta_misiones.png" id="2_7p3xo"]
+[ext_resource type="Texture2D" uid="uid://c4mavtmdhlj4x" path="res://assets/menus/btn.png" id="3_u1l7r"]
+[ext_resource type="Texture2D" uid="uid://b8p5xmdeu7xkw" path="res://assets/menus/mascara.png" id="4_tv4lk"]
 [ext_resource type="PackedScene" uid="uid://dyhglt05o47mu" path="res://scenes/menus/game_menu/utilities/quest_card.tscn" id="5_yx1as"]
 
 [node name="quests_menu" type="Control"]

@@ -73,7 +73,8 @@ func execute(
 		skill: Skill,
 		allies: Array[Character],
 		enemies: Array[Character],
-		handler: TurnHandler):
+		handler: TurnHandler
+	):
 	
 	skill.status = skill.Status.NEW
 	

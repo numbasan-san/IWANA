@@ -104,6 +104,67 @@ func iniciar_rpg(args: Array[String]):
 		_close("Out", "Hide")
 		await ScreenManager.push(ScreenManager.rpg_screen, "Hide", "In")
 
+func mision(args: Array[String]):
+	_open()
+	if args.size() < 1:
+		error("ScriptCommands | El comando 'mision' requiere al menos un argumento")
+		return
+	var quest_id = args[0]
+	print("ScriptCommands | Activando misión: " + quest_id)
+
+	# Buscar el recurso de la misión
+	var quest_path = "res://script/quests/resources/" + quest_id + ".tres"
+	var quest = load(quest_path)
+
+	if quest:
+		QuestsManager.add_quest(quest)
+		print("ScriptCommands | Misión activada: ", quest.name if quest.has_method("get_quest_name") else quest_id)
+	else:
+		error("ScriptCommands | No se encontró la misión: " + quest_id + " en " + quest_path)
+
+# Completa una misión activa
+# Uso en diálogo: [CompletarMision: nombre_de_la_mision]
+# Ejemplo: [CompletarMision: recolectar_manzanas]
+func completar_mision(args: Array[String]):
+	_open()
+	if args.size() < 1:
+		error("ScriptCommands | El comando 'completar_mision' requiere al menos un argumento")
+		return
+	
+	var quest_id = args[0]
+	print("ScriptCommands | Completando misión: " + quest_id)
+	
+	# Buscar la misión en las misiones activas
+	var quest = QuestsManager.get_active_quest_by_id(quest_id)
+	
+	if quest:
+		QuestsManager.complete_quest(quest)
+		print("ScriptCommands | Misión completada: ", quest.name if quest.has_method("get_quest_name") else quest_id)
+	else:
+		error("ScriptCommands | No se encontró la misión activa: " + quest_id)
+
+
+# Avanza el progreso de una misión (para misiones de recolección, etc.)
+# Uso en diálogo: [ProgresoMision: nombre_de_la_mision, cantidad]
+# Ejemplo: [ProgresoMision: recolectar_manzanas, 3]
+func progreso_mision(args: Array[String]):
+	_open()
+	if args.size() < 2:
+		error("ScriptCommands | El comando 'progreso_mision' requiere 2 argumentos: [nombre_mision, cantidad]")
+		return
+	
+	var quest_id = args[0]
+	var amount = int(args[1])
+	
+	print("ScriptCommands | Añadiendo " + str(amount) + " de progreso a misión: " + quest_id)
+	
+	var quest = QuestsManager.get_active_quest_by_id(quest_id)
+	if quest:
+		QuestsManager.update_quest_progress(quest_id, amount)
+		print("ScriptCommands | Progreso actualizado")
+	else:
+		error("ScriptCommands | No se encontró la misión activa: " + quest_id)
+
 # This instruction does nothing by itself, but it's used as a tag by units so
 # they know to pause their execution and wait for user input when encountering it
 func esperar():

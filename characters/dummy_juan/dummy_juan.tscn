@@ -2,15 +2,15 @@
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_srrpm"]
 [ext_resource type="Resource" uid="uid://0y8fnhch06qs" path="res://script/characters/resource/dummy_juan.tres" id="2_bnecg"]
-[ext_resource type="Texture2D" uid="uid://cigv8ksq7hegt" path="res://characters/dummy_juan/rpg/sombra.png" id="3_ud84x"]
+[ext_resource type="Texture2D" uid="uid://m4peomrdeawx" path="res://characters/dummy_juan/rpg/sombra.png" id="3_ud84x"]
 [ext_resource type="Script" path="res://characters/dummy_juan/dummy_juan_interaction.gd" id="4_4ac0q"]
-[ext_resource type="Resource" uid="uid://be0hqm8k35fwc" path="res://script/quests/resources/collect_quest.tres" id="5_0rlyv"]
-[ext_resource type="Texture2D" uid="uid://dolaioma3n5pm" path="res://characters/dummy_juan/rpg/sombra_portrait.png" id="5_r6bqu"]
-[ext_resource type="Texture2D" uid="uid://q6p2nbvfl777" path="res://characters/dummy/combat/fainted.png" id="6_gxu1f"]
+[ext_resource type="Resource" uid="uid://c6deunvf7tl1u" path="res://script/quests/resources/recolectar_manzanas.tres" id="5_hxfb8"]
+[ext_resource type="Texture2D" uid="uid://cjm6f3u5px0l" path="res://characters/dummy_juan/rpg/sombra_portrait.png" id="5_r6bqu"]
+[ext_resource type="Texture2D" uid="uid://b2lcctbopfbgn" path="res://characters/dummy/combat/fainted.png" id="6_gxu1f"]
 [ext_resource type="Resource" uid="uid://ccjcevaqfyfhn" path="res://script/quests/resources/talk_quest.tres" id="6_lqk1c"]
-[ext_resource type="Texture2D" uid="uid://dwtt5f0nbnjrk" path="res://characters/dummy/combat/sombra_combate.png" id="7_4mepk"]
-[ext_resource type="Texture2D" uid="uid://7cx1xp1a807y" path="res://characters/dummy/combat/running.png" id="8_t5tho"]
-[ext_resource type="Texture2D" uid="uid://c1bntettjgsi4" path="res://characters/dummy/combat/skill6-sprite.png" id="9_t1gin"]
+[ext_resource type="Texture2D" uid="uid://wdiik4k1ryfa" path="res://characters/dummy/combat/sombra_combate.png" id="7_4mepk"]
+[ext_resource type="Texture2D" uid="uid://df3ksgcjof0x6" path="res://characters/dummy/combat/running.png" id="8_t5tho"]
+[ext_resource type="Texture2D" uid="uid://cycmq1gson338" path="res://characters/dummy/combat/skill6-sprite.png" id="9_t1gin"]
 [ext_resource type="Script" path="res://combat/stats.gd" id="10_3h5sy"]
 [ext_resource type="Script" path="res://combat/effects/animation_effects/run_towards_target.gd" id="11_8nm17"]
 [ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="12_etg60"]
@@ -565,7 +565,7 @@ libraries = {
 
 [node name="GeneralInteraction" parent="RPGModel" index="3"]
 script = ExtResource("4_4ac0q")
-test_quest = Array[Resource("res://script/quests/quest.gd")]([ExtResource("5_0rlyv"), ExtResource("6_lqk1c")])
+test_quests = Array[Resource("res://script/quests/quest.gd")]([ExtResource("5_hxfb8"), ExtResource("6_lqk1c")])
 will_fight = true
 
 [node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]

@@ -9,10 +9,12 @@ class_name Quest extends Resource
 @export_category("Quest Process")
 @export var quantity_collected := 0
 @export var quantity_goal := 0
-@export var quest_status : String
 @export var quest_type : QuestsManager.QuestType
 @export var quest_item : QuestsManager.ITEM
 @export var quest_person : QuestsManager.PERSON
+
+@export_category("Quest Status")
+@export var quest_status : QuestsManager.STATUS = QuestsManager.STATUS.LOCKED
 
 @export_category("Quest Completion")
 @export var to: QuestsManager.PERSON
@@ -41,4 +43,3 @@ func get_quest_target():
 			return quest_item
 		QuestsManager.QuestType.TALK:
 			return quest_person
-

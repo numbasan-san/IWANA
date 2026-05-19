@@ -43,6 +43,9 @@ Dummy Thicc: What are you buying?
 [Asignar: Dialogo Dummy Juan -> Dummy Juan]
 [Unidad: Dialogo Dummy Juan]
 Dummy Juan: ¡ ¡ ¡ ¡ ¡ M A N Z A N A S ! ! ! ! !
+Dummy Juan: Según los acuerdos de dios, debería darte una misión justo después de este diálogo.
+[Mision: recolectar_manzanas]
+Dummy Juan: ¡Te he dado una misión! Recolecta 5 manzanas para mí.
 [Fin: Dialogo Dummy Juan]
 
 [Fin: escena 1]

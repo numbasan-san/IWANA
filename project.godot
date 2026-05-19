@@ -28,6 +28,7 @@ AudioManager="res://scenes/audio_manager.tscn"
 ItemsMenuCaller="*res://script/menus/items_menu_caller.gd"
 ProcessedCharacters="*res://script/menus/processed_characters.gd"
 QuestsManager="*res://script/quests/quests_manager.gd"
+EventBus="*res://script/globals/event_bus.gd"
 
 [display]
 

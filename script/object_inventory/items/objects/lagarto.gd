@@ -1,4 +1,4 @@
-
+# res://script/object_inventory/items/objects/lagarto.gd
 extends "res://script/object_inventory/items/collectable.gd"
 
 @onready var anim = $AnimationPlayer

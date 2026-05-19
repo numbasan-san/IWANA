@@ -1,3 +1,4 @@
+# res://script/game_script/script_unit.gd
 class_name Unit
 
 # A unit is a set of script instructions that are run sequentialy. The

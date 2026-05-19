@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://combat/effects/instant/heal.gd" id="1_b86gn"]
 [ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="2_hn4sk"]
 [ext_resource type="Script" path="res://script/object_inventory/items/item.gd" id="3_p5iwq"]
-[ext_resource type="Texture2D" uid="uid://yi55144ssahn" path="res://assets/inventory/items/refresco.png" id="4_kawvm"]
+[ext_resource type="Texture2D" uid="uid://cqa1wu7fwq5bx" path="res://assets/inventory/items/refresco.png" id="4_kawvm"]
 
 [sub_resource type="Resource" id="Resource_mx3f6"]
 script = ExtResource("2_hn4sk")

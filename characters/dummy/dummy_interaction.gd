@@ -11,7 +11,7 @@ func _start_battle():
 	if enemy_party.size == 1:
 		var i = 0
 		while i < 3:
-			var d: Character = dummy.clone()
+			var d : Character = dummy.clone()
 			d.combat_handler.stats.replenish()
 			d.rpg_model.get_node("GeneralInteraction").disable
 			d.disable_collisions()
