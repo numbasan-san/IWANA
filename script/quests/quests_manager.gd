@@ -39,7 +39,7 @@ enum STATUS {LOCKED, AVAILABLE, ACTIVE, COMPLETED, DELIVERED}
 # VARIABLES
 # =============================================================================
 var active_quests: Array[Quest] = []     # Missions in progress
-var finished_quests: Array[Quest] = []   # Completed missions
+var delivered_quests: Array[Quest] = []   # Completed missions
 
 @onready var inventory: Inventory = preload("res://script/object_inventory/inventory/resources/inventory.tres")
 
@@ -59,8 +59,14 @@ func add_quest(quest: Quest):
 	for active in active_quests:
 		if active.name == quest.name:
 			return
+	for delivered in delivered_quests:
+		if delivered.name == quest.name:
+			if delivered.quest_status == STATUS.DELIVERED:
+				print(delivered.name, " entregada")
+				return
 	
 	var quest_copy = quest.duplicate()
+	update_quest_status(quest_copy)
 	sync_collect_quest_with_inventory(quest_copy)
 	active_quests.append(quest_copy)
 	quest_changed.emit(quest_copy)
@@ -70,7 +76,7 @@ func collect_quest(item: ITEM):
 	for quest in active_quests:
 		if quest.quest_type == QuestType.COLLECT and quest.quest_item == item:
 			quest.quantity_collected = _count_quantity(item)
-	
+			update_quest_status(quest)
 	quest_changed.emit()
 	item_collected.emit()
 
@@ -79,9 +85,16 @@ func talk_quest(person: PERSON):
 	for quest in active_quests:
 		if quest.quest_type == QuestType.TALK and quest.quest_person == person:
 			quest.quantity_collected += 1
-	
+			update_quest_status(quest)
+
 	quest_changed.emit()
 	person_talked.emit()
+
+func update_quest_status(quest: Quest):
+	if quest.quantity_collected >= quest.quantity_goal:
+		quest.quest_status = STATUS.COMPLETED
+	else:
+		quest.quest_status = STATUS.ACTIVE
 
 # Checks if there's a completed mission ready to deliver to an NPC
 # Returns the mission if exists, otherwise null
@@ -93,8 +106,9 @@ func own_quest_done(person: PERSON):
 
 # Marks a mission as delivered and moves it to completed history
 func quest_done(quest: Quest):
+	quest.quest_status = STATUS.DELIVERED
 	active_quests.erase(quest)
-	finished_quests.append(quest)
+	delivered_quests.append(quest)
 	quest_changed.emit()
 
 # =============================================================================

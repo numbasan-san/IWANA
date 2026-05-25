@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://de2qo3u2jeq1"]
 
 [ext_resource type="Script" path="res://script/menus/game_menu/quests_menu.gd" id="1_ti8x5"]
-[ext_resource type="Texture2D" uid="uid://dv5e6jj8rclm" path="res://assets/menus/game menu/libreta_misiones.png" id="2_7p3xo"]
-[ext_resource type="Texture2D" uid="uid://c4mavtmdhlj4x" path="res://assets/menus/btn.png" id="3_u1l7r"]
-[ext_resource type="Texture2D" uid="uid://b8p5xmdeu7xkw" path="res://assets/menus/mascara.png" id="4_tv4lk"]
+[ext_resource type="Texture2D" uid="uid://dv5e6jj8rclm" path="res://assets/Menus/game menu/libreta_misiones.png" id="2_7p3xo"]
+[ext_resource type="Texture2D" uid="uid://c4mavtmdhlj4x" path="res://assets/Menus/btn.png" id="3_u1l7r"]
+[ext_resource type="Texture2D" uid="uid://b8p5xmdeu7xkw" path="res://assets/Menus/mascara.png" id="4_tv4lk"]
 [ext_resource type="PackedScene" uid="uid://dyhglt05o47mu" path="res://scenes/menus/game_menu/utilities/quest_card.tscn" id="5_yx1as"]
 
 [node name="quests_menu" type="Control"]
@@ -31,6 +31,22 @@ offset_bottom = 372.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_7p3xo")
+
+[node name="active_quests" type="Button" parent="background"]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 30.5
+offset_right = 528.0
+offset_bottom = 61.5
+text = "active_quests"
+
+[node name="delivered_quests" type="Button" parent="background"]
+layout_mode = 0
+offset_left = 404.0
+offset_top = 75.5
+offset_right = 543.0
+offset_bottom = 106.5
+text = "delivered_quests"
 
 [node name="quests_btn" type="TextureButton" parent="background"]
 layout_mode = 0
@@ -146,6 +162,8 @@ theme_override_font_sizes/normal_font_size = 30
 text = "sdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasda"
 fit_content = true
 
+[connection signal="pressed" from="background/active_quests" to="." method="_on_active_quests_pressed"]
+[connection signal="pressed" from="background/delivered_quests" to="." method="_on_delivered_quests_pressed"]
 [connection signal="pressed" from="background/maps_btn" to="." method="_on_maps_btn_pressed"]
 [connection signal="pressed" from="background/items_btn" to="." method="_on_items_btn_pressed"]
 [connection signal="pressed" from="background/characters_btn" to="." method="_on_characters_btn_pressed"]

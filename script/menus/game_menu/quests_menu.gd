@@ -9,44 +9,53 @@ extends Control
 @onready var quest_description = $background/quests_details/VBoxContainer/quests_description
 @onready var brief_description = $background/quests_details/VBoxContainer/brief_description
 
+var current_quest_list = "active"  # "active" or "delivered"
+
 func load_quests():
-	
 	print("MENÚ DE MISIONES ACTIVADO")
-
 	QuestsManager.quest_changed.connect(load_quests)
+	display_quests(QuestsManager.active_quests)
+	clear()
 
-	# Limpiar las tarjetas existentes
+# MAIN FUNCTION - Displays any quest array
+func display_quests(quests_array: Array):
+	# Clear existing cards
 	for child in quest_bar.get_children():
 		child.queue_free()
-
-	# Crear nuevas tarjetas para cada misión activa
-	for quest in QuestsManager.active_quests:
+	
+	# Create new cards for each quest
+	for quest in quests_array:
 		var quest_card = quest_card_scene.instantiate()
 		quest_card.quest = quest
-		# Conectar la señal de pressed para seleccionar la misión
 		quest_card.get_node("Panel/Button").pressed.connect(_on_quest_card_pressed.bind(quest))
 		quest_bar.add_child(quest_card)
 
-	clear()
+# Button handlers
+func _on_active_quests_pressed():
+	current_quest_list = "active"
+	display_quests(QuestsManager.active_quests)
+
+func _on_delivered_quests_pressed():
+	current_quest_list = "delivered"
+	display_quests(QuestsManager.delivered_quests)
 
 func _on_quest_card_pressed(quest: Quest):
 	update_quest_details(quest)
 
-func update_quest_details(current_selected_quest):
-	if current_selected_quest:
-		quest_title.text = current_selected_quest.name
-		quest_status.text = ":P" # current_selected_quest.status
-		brief_description.text = current_selected_quest.get_brief_description()
-		quest_description.text = current_selected_quest.description
-		# quest_details_panel.show()
+func update_quest_details(current_quest: Quest):
+	if current_quest:
+		quest_title.text = current_quest.name
+		quest_status.text = QuestsManager.STATUS.keys()[current_quest.quest_status]
+		brief_description.text = current_quest.get_brief_description()
+		quest_description.text = current_quest.description
 
 func clear():
 	quest_title.text = ""
 	quest_status.text = ""
 	quest_description.text = ""
 	brief_description.text = ""
-	# quest_details_panel.show()
 
+# Navigation buttons
 func _on_maps_btn_pressed():
 	self.visible = false
 	var selected_menu = self.get_parent()

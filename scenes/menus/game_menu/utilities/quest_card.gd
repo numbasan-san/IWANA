@@ -20,7 +20,7 @@ func _ready():
 func update_quest_display():
 	if quest:
 		name_label.text = quest.name
-		status_label.text = ":P" # quest.status
+		status_label.text = QuestsManager.STATUS.keys()[quest.quest_status]
 
 func _on_gui_input(event: InputEvent):
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
