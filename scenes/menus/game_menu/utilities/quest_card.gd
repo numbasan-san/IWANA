@@ -11,7 +11,7 @@ signal pressed(quest: Quest)
 func _ready():
 	if quest:
 		update_quest_display()
-	
+
 	# Hacer que el panel sea clickeable
 	panel.gui_input.connect(_on_gui_input)
 	panel.mouse_entered.connect(_on_mouse_entered)

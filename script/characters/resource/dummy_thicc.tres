@@ -8,6 +8,6 @@ script = ExtResource("2_geyxe")
 name = "Dummy Thicc"
 portrait = ExtResource("1_rn647")
 description = "Ofrece cosas a según qué precio."
-affinity = "Comerciante"
+affinity = null
 satiety = 0
 person = 2

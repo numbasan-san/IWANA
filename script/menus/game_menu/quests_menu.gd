@@ -9,7 +9,6 @@ extends Control
 @onready var quest_description = $background/quests_details/VBoxContainer/quests_description
 @onready var brief_description = $background/quests_details/VBoxContainer/brief_description
 
-var current_quest_list = "active"  # "active" or "delivered"
 
 func load_quests():
 	print("MENÚ DE MISIONES ACTIVADO")
@@ -22,7 +21,7 @@ func display_quests(quests_array: Array):
 	# Clear existing cards
 	for child in quest_bar.get_children():
 		child.queue_free()
-	
+
 	# Create new cards for each quest
 	for quest in quests_array:
 		var quest_card = quest_card_scene.instantiate()
@@ -32,11 +31,9 @@ func display_quests(quests_array: Array):
 
 # Button handlers
 func _on_active_quests_pressed():
-	current_quest_list = "active"
 	display_quests(QuestsManager.active_quests)
 
 func _on_delivered_quests_pressed():
-	current_quest_list = "delivered"
 	display_quests(QuestsManager.delivered_quests)
 
 func _on_quest_card_pressed(quest: Quest):

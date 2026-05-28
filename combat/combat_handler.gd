@@ -57,6 +57,12 @@ func init():
 		character.combat_model.set_sprite("fainted")
 		for eff in lasting_effects:
 			removed_lasting_effect.emit(eff)
+		
+		# Check if the one killed is an enemy and a target.
+		if character.char_info.person != QuestsManager.PERSON.NONE:
+			print(character.char_info.name, " derrotado")
+			QuestsManager.kill_quest(character.char_info.person, character.char_info.affinity)
+		
 		lasting_effects.clear()
 	)
 	var hit = load("res://combat/effects/animation_effects/graphical_hit_effect.tres").duplicate()

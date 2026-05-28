@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://characters/player_control.gd" id="1_cfkfe"]
 [ext_resource type="Script" path="res://script/player.gd" id="1_oj7ea"]
-[ext_resource type="Resource" uid="uid://dfuucb5spinx8" path="res://script/object_inventory/inventory/resources/inventory.tres" id="2_ks6fo"]
+[ext_resource type="Resource" uid="uid://dbl52mi68rm8n" path="res://script/object_inventory/inventory/resources/inventory.tres" id="2_ks6fo"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_pds3y"]
 
