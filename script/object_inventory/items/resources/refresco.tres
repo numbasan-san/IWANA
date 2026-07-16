@@ -26,6 +26,7 @@ effect = SubResource("Resource_ghoqw")
 cost = 1
 sellable = true
 consumable = true
+satiety = 1
 description = ""
 rarity = 1
 item_type = "consumable"

@@ -9,6 +9,7 @@ class_name Item
 @export var cost: int = 1
 @export var sellable: bool = true
 @export var consumable: bool = true
+@export var satiety: int = 0
 @export var description: String = ""
 @export var rarity: int = 1
 @export var item_type: String = "consumable"

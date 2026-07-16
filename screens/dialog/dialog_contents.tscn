@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://screens/dialog/dialog_contents.gd" id="1_08ccm"]
 [ext_resource type="LabelSettings" uid="uid://cdswba3l3ge7m" path="res://screens/dialog/dialog_font.tres" id="2_2hkqp"]
-[ext_resource type="Texture2D" uid="uid://wqxps3pmunho" path="res://assets/menus/dialogos.png" id="2_xsjuw"]
+[ext_resource type="Texture2D" uid="uid://cq2mftyitdkk1" path="res://assets/menus/dialogos.png" id="2_xsjuw"]
 
 [node name="DialogContents" type="Control" node_paths=PackedStringArray("background", "left_area", "center_area", "right_area", "name_label", "text_label")]
 layout_mode = 3

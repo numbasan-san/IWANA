@@ -6,6 +6,7 @@ class_name Stats extends Resource
 # of the product
 signal update_max_health
 signal update_max_energy
+signal update_max_satiation
 signal update_damage
 signal update_defense
 signal update_speed
@@ -14,6 +15,7 @@ signal update_precision
 signal update_evasion
 signal update_health
 signal update_energy
+signal update_satiation
 
 signal damage_received
 signal health_recovered
@@ -61,6 +63,20 @@ signal raised
 		# triggers an update_energy signal
 		if energy > new:
 			energy = new
+
+# Satiation influences how many items the character can consume
+@export var base_max_satiation: int = 0:
+	set(value):
+		var old = max_satiation
+		# This guarantees a minimum value of 0. If max_energy where less than 0,
+		# there could be errors when executing skills or recovering energy
+		base_max_satiation = _clampi_min(value, 0)
+		var new = max_satiation
+		update_max_satiation.emit(old, new)
+		# This ensures that energy stays at or below the max energy, and it also
+		# triggers an update_energy signal
+		if satiation > new:
+			satiation = new
 
 # How much damage the character can do with their skills
 @export var base_damage: int = 0:
@@ -141,6 +157,17 @@ var max_energy_modifier: float = 0:
 		# triggers an update_energy signal
 		if energy > new:
 			energy = new
+
+var max_satiation_modifier: float = 0:
+	set(value):
+		var old = max_satiation
+		max_satiation_modifier = value
+		var new = max_satiation
+		update_max_satiation.emit(old, new)
+		# This ensures that satiation stays at or below the max satiation, and it also
+		# triggers an update_satiation signal
+		if satiation > new:
+			satiation = new
 		
 var damage_modifier: float = 0:
 	set(value):
@@ -192,6 +219,9 @@ var max_health: int:
 var max_energy: int:
 	get:
 		return _clampi_min(round(base_max_energy + max_energy_modifier), 0)
+var max_satiation: int:
+	get:
+		return _clampi_min(round(base_max_satiation + max_satiation_modifier), 0)
 var damage: int:
 	get:
 		return _clampi_min(round(base_damage + damage_modifier), 0)
@@ -268,6 +298,19 @@ var energy: int:
 			# We use value in case the character recovered beyond its max energy
 			# to show the full recovery value
 			energy_recovered.emit(value - old)
+
+# Can't go above max_satiation or below 0. If the character has less satiation than
+# required by an item, they can't use it
+var satiation: int:
+	set(value):
+		var old = satiation
+		satiation = clamp(value, 0, max_satiation)
+		var new = satiation
+		# If the values are the same we return to prevent emitting signals. We
+		# don't use value as that doesn't include the clamping.
+		if old == new:
+			return
+		update_satiation.emit(old, new)
 
 # When a character's health has reached 0 or is affected by some equivalent
 # condition, the fainted signal is emited and this is set to true. When recovered

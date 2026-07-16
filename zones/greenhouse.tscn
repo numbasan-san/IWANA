@@ -416,7 +416,7 @@ position = Vector2(724, 306)
 position = Vector2(498, 326)
 
 [node name="WateringCan" parent="Node2D" instance=ExtResource("12_7qhom")]
-position = Vector2(621, 216)
+position = Vector2(1234.98, 373.074)
 
 [node name="Bed8" parent="Node2D" instance=ExtResource("5_jtlo2")]
 position = Vector2(816, 311)
@@ -447,9 +447,6 @@ position = Vector2(724, 882)
 
 [node name="Vegetable2" parent="Node2D" instance=ExtResource("11_0tsiq")]
 position = Vector2(498, 902)
-
-[node name="WateringCan2" parent="Node2D" instance=ExtResource("12_7qhom")]
-position = Vector2(621, 792)
 
 [node name="Bed11" parent="Node2D" instance=ExtResource("5_jtlo2")]
 position = Vector2(816, 887)
