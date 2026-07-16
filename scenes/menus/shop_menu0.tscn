@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dm64bvle5gmq3"]
+[gd_scene load_steps=4 format=3 uid="uid://dm64bvle5gmq3"]
 
-[ext_resource type="Texture2D" uid="uid://bl7ou4wcdbinp" path="res://assets/menus/shop/shop.png" id="1_dae78"]
+<<<<<<<< HEAD:scenes/menus/shop_menu.tscn
+[ext_resource type="Texture2D" uid="uid://bnyxnryo5dmu1" path="res://assets/menus/shop/shop.png" id="1_dae78"]
 [ext_resource type="Script" path="res://script/menus/shop_menu.gd" id="1_oybvg"]
+[ext_resource type="Resource" uid="uid://ob52rmu6wvt3" path="res://script/object_inventory/inventory/resources/inventory.tres" id="2_2yxli"]
+========
+[ext_resource type="Texture2D" uid="uid://c7e3avhej40t6" path="res://assets/inventory/shop.png" id="1_2px8p"]
+[ext_resource type="Script" path="res://script/menus/game_menu/shop_menu.gd" id="2_asggp"]
+>>>>>>>> Jazz:scenes/menus/shop_menu0.tscn
 
 [node name="shop_menu" type="Control"]
 layout_mode = 3
@@ -11,6 +17,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_oybvg")
+inventory = ExtResource("2_2yxli")
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -101,6 +108,7 @@ offset_top = 223.0
 offset_right = 905.0
 offset_bottom = 463.0
 
+<<<<<<<< HEAD:scenes/menus/shop_menu.tscn
 [node name="ItemIcon" type="TextureRect" parent="SelectedItemIcon"]
 layout_mode = 1
 anchors_preset = 15
@@ -112,6 +120,9 @@ expand_mode = 2
 stretch_mode = 5
 
 [node name="ItemInfoPanel" type="Panel" parent="."]
+========
+[node name="item_info" type="Panel" parent="."]
+>>>>>>>> Jazz:scenes/menus/shop_menu0.tscn
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

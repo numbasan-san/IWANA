@@ -1,68 +1,69 @@
-[gd_resource type="Resource" script_class="Inventory" load_steps=18 format=3 uid="uid://ob52rmu6wvt3"]
+[gd_resource type="Resource" script_class="Inventory" load_steps=18 format=3 uid="uid://dbl52mi68rm8n"]
 
-[ext_resource type="Script" path="res://script/object_inventory/inventory/classes/inventory.gd" id="1_l7unn"]
-[ext_resource type="Script" path="res://script/object_inventory/inventory/classes/slot.gd" id="2_184hn"]
+[ext_resource type="Script" path="res://script/object_inventory/inventory/classes/inventory.gd" id="1_qlrup"]
+[ext_resource type="Script" path="res://script/object_inventory/inventory/classes/slot.gd" id="2_ge7br"]
 
-[sub_resource type="Resource" id="Resource_yjwi0"]
-script = ExtResource("2_184hn")
+[sub_resource type="Resource" id="Resource_gx24h"]
+script = ExtResource("2_ge7br")
 amount = 0
 
-[sub_resource type="Resource" id="Resource_cktd6"]
-script = ExtResource("2_184hn")
+[sub_resource type="Resource" id="Resource_vnchn"]
+script = ExtResource("2_ge7br")
 amount = 0
 
-[sub_resource type="Resource" id="Resource_pwesp"]
-script = ExtResource("2_184hn")
+[sub_resource type="Resource" id="Resource_hmbee"]
+script = ExtResource("2_ge7br")
 amount = 0
 
-[sub_resource type="Resource" id="Resource_yxhyd"]
-script = ExtResource("2_184hn")
+[sub_resource type="Resource" id="Resource_rkhrv"]
+script = ExtResource("2_ge7br")
 amount = 0
 
-[sub_resource type="Resource" id="Resource_rjkax"]
-script = ExtResource("2_184hn")
+[sub_resource type="Resource" id="Resource_m1yyh"]
+script = ExtResource("2_ge7br")
 amount = 0
 
-[sub_resource type="Resource" id="Resource_ntlou"]
-script = ExtResource("2_184hn")
+[sub_resource type="Resource" id="Resource_tgso0"]
+script = ExtResource("2_ge7br")
 amount = 0
 
-[sub_resource type="Resource" id="Resource_kooni"]
-script = ExtResource("2_184hn")
+[sub_resource type="Resource" id="Resource_x5hbg"]
+script = ExtResource("2_ge7br")
 amount = 0
 
-[sub_resource type="Resource" id="Resource_3iqbe"]
-script = ExtResource("2_184hn")
+[sub_resource type="Resource" id="Resource_rtks7"]
+script = ExtResource("2_ge7br")
 amount = 0
 
-[sub_resource type="Resource" id="Resource_if6ab"]
-script = ExtResource("2_184hn")
+[sub_resource type="Resource" id="Resource_mgixj"]
+script = ExtResource("2_ge7br")
 amount = 0
 
-[sub_resource type="Resource" id="Resource_4xp0u"]
-script = ExtResource("2_184hn")
+[sub_resource type="Resource" id="Resource_23b36"]
+script = ExtResource("2_ge7br")
 amount = 0
 
-[sub_resource type="Resource" id="Resource_piilm"]
-script = ExtResource("2_184hn")
+[sub_resource type="Resource" id="Resource_of686"]
+script = ExtResource("2_ge7br")
 amount = 0
 
-[sub_resource type="Resource" id="Resource_smvsm"]
-script = ExtResource("2_184hn")
+[sub_resource type="Resource" id="Resource_htfbk"]
+script = ExtResource("2_ge7br")
 amount = 0
 
-[sub_resource type="Resource" id="Resource_versj"]
-script = ExtResource("2_184hn")
+[sub_resource type="Resource" id="Resource_lqy6g"]
+script = ExtResource("2_ge7br")
 amount = 0
 
-[sub_resource type="Resource" id="Resource_bed3u"]
-script = ExtResource("2_184hn")
+[sub_resource type="Resource" id="Resource_y6clr"]
+script = ExtResource("2_ge7br")
 amount = 0
 
-[sub_resource type="Resource" id="Resource_8k2sv"]
-script = ExtResource("2_184hn")
+[sub_resource type="Resource" id="Resource_hjpwq"]
+script = ExtResource("2_ge7br")
 amount = 0
 
 [resource]
-script = ExtResource("1_l7unn")
-slots = Array[ExtResource("2_184hn")]([SubResource("Resource_yjwi0"), SubResource("Resource_cktd6"), SubResource("Resource_pwesp"), SubResource("Resource_yxhyd"), SubResource("Resource_rjkax"), SubResource("Resource_ntlou"), SubResource("Resource_kooni"), SubResource("Resource_3iqbe"), SubResource("Resource_if6ab"), SubResource("Resource_4xp0u"), SubResource("Resource_piilm"), SubResource("Resource_smvsm"), SubResource("Resource_versj"), SubResource("Resource_bed3u"), SubResource("Resource_8k2sv")])
+script = ExtResource("1_qlrup")
+slots = Array[ExtResource("2_ge7br")]([SubResource("Resource_gx24h"), SubResource("Resource_vnchn"), SubResource("Resource_hmbee"), SubResource("Resource_rkhrv"), SubResource("Resource_m1yyh"), SubResource("Resource_tgso0"), SubResource("Resource_x5hbg"), SubResource("Resource_rtks7"), SubResource("Resource_mgixj"), SubResource("Resource_23b36"), SubResource("Resource_of686"), SubResource("Resource_htfbk"), SubResource("Resource_lqy6g"), SubResource("Resource_y6clr"), SubResource("Resource_hjpwq")])
+gold = 1000

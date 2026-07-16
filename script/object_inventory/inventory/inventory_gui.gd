@@ -15,6 +15,10 @@ var locked : bool = false
 
 # Se actualiza el inventario cada que este sea abierto.
 func _ready():
+	if slots.is_empty():
+		slots.resize(15)
+		for i in range(15):
+			slots[i] = Slot.new()
 	connnect_slots()
 	var isit = inventory is Inventory
 	var inv = inventory as Inventory

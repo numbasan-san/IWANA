@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Quest" load_steps=2 format=3 uid="uid://dla1rjvqmeku7"]
+
+[ext_resource type="Script" path="res://script/quests/quest.gd" id="1_0vr3h"]
+
+[resource]
+script = ExtResource("1_0vr3h")
+name = "Mata a Dummy"
+description = "A Thicc le deben dinero."
+brief_description = "Mata a 2 Dummy."
+quest_prerequisite = ""
+quantity_collected = 0
+quantity_goal = 2
+quest_type = 0
+quest_item = 1
+quest_person = 2
+quest_pray = 3
+quest_status = 0
+to = 2

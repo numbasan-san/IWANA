@@ -38,6 +38,17 @@ Noby: *Está callado*
 [Asignar: Dialogo Dummy Thicc -> Dummy Thicc]
 [Unidad: Dialogo Dummy Thicc]
 Dummy Thicc: What are you buying?
+[Mision: caza_dummies]
+Dummy Thicc: Me debe plata.
 [Fin: Dialogo Dummy Thicc]
+
+[Asignar: Dialogo Dummy Juan -> Dummy Juan]
+[Unidad: Dialogo Dummy Juan]
+Dummy Juan: ¡ ¡ ¡ ¡ ¡ M A N Z A N A S ! ! ! ! !
+Dummy Juan: Según los acuerdos de dios, debería darte una misión justo después de este diálogo.
+[Mision: juan_habla_de_manzanas]
+[Mision: recolectar_manzanas]
+Dummy Juan: ¡Te he dado una misión! Habla con Thicc.
+[Fin: Dialogo Dummy Juan]
 
 [Fin: escena 1]

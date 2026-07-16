@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="Item" load_steps=7 format=3 uid="uid://diealv3bkff1m"]
+
+[ext_resource type="Script" path="res://combat/effects/instant/heal.gd" id="1_b86gn"]
+[ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="2_hn4sk"]
+[ext_resource type="Script" path="res://script/object_inventory/items/item.gd" id="3_p5iwq"]
+[ext_resource type="Texture2D" uid="uid://cqa1wu7fwq5bx" path="res://assets/inventory/items/refresco.png" id="4_kawvm"]
+
+[sub_resource type="Resource" id="Resource_mx3f6"]
+script = ExtResource("2_hn4sk")
+exclude_self = false
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_ghoqw"]
+script = ExtResource("1_b86gn")
+base_value = 1.0
+target_type = SubResource("Resource_mx3f6")
+
+[resource]
+script = ExtResource("3_p5iwq")
+name = "manzana"
+texture = ExtResource("4_kawvm")
+max_stack = 999
+effect = SubResource("Resource_ghoqw")
+cost = 1
+sellable = true
+consumable = true
+description = ""
+rarity = 1
+item_type = "consumable"
+satiety = 1
+item = 1

@@ -29,3 +29,5 @@ consumable = true
 description = ""
 rarity = 1
 item_type = "consumable"
+satiety = 0
+item = 0

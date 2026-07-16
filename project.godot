@@ -27,6 +27,8 @@ Player="*res://characters/player.tscn"
 AudioManager="res://scenes/audio_manager.tscn"
 ItemsMenuCaller="*res://script/menus/items_menu_caller.gd"
 ProcessedCharacters="*res://script/menus/processed_characters.gd"
+QuestsManager="*res://script/quests/quests_manager.gd"
+EventBus="*res://script/globals/event_bus.gd"
 
 [display]
 
@@ -108,7 +110,7 @@ combat_grid_cell_selected={
 }
 pause_button={
 "deadzone": 0.5,
-"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":80,"key_label":0,"unicode":112,"echo":false,"script":null)
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194306,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 game_menu={

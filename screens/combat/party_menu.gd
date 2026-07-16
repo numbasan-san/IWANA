@@ -77,7 +77,26 @@ func _on_attack_pressed():
 # La defensa del jugador.
 func _on_defense_pressed():
 	combat.action_selected.emit(combat.Action.DEFEND)
-	
-# Use an item
-func _on_item_pressed():
-	combat.action_selected.emit(combat.Action.ITEM)
+
+func _on_close_pressed():
+	$Actions/ActionList.visible = true
+	$Actions/ItemsAction.visible = false
+	combat.items_menu.selected_card = null
+
+func _on_no_use_pressed():
+	var text = "se saltó de " + selected_character.name + " "
+	#select_next_character(true)
+	$"../label".text = text + " a " + selected_character.name
+
+func _on_use_pressed():
+	var item = (combat.items_menu.selected_card.item)
+	var txt = selected_character.name + " elegido para usar " + item.name 
+	$"../label".text = txt
+	$Actions/ActionList.visible = true
+	$Actions/ItemsAction.visible = false
+	if item.effect:
+		item.effect.on_apply(selected_character)
+		item_used.emit()
+		selected_character.satiety += item.satiety
+	combat.select_to_use = false
+	combat.next_turn()

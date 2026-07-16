@@ -12,6 +12,8 @@ class_name Item
 @export var description: String = ""
 @export var rarity: int = 1
 @export var item_type: String = "consumable"
+@export var satiety: int = 0
+@export var item: QuestsManager.ITEM
 
 
 func _init():

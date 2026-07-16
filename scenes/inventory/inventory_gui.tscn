@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://c6r4b6vsbtube"]
 
-[ext_resource type="Texture2D" uid="uid://iuad6swb2dhu" path="res://assets/inventory/asset_inventario_marco-removebg-preview.png" id="1_eja77"]
+[ext_resource type="Texture2D" uid="uid://cgyafp7mtpcvp" path="res://assets/inventory/asset_inventario_marco-removebg-preview.png" id="1_eja77"]
 [ext_resource type="Script" path="res://script/object_inventory/inventory/inventory_gui.gd" id="1_x4ji1"]
 [ext_resource type="Resource" uid="uid://ob52rmu6wvt3" path="res://script/object_inventory/inventory/resources/inventory.tres" id="2_ryot8"]
 [ext_resource type="PackedScene" uid="uid://mxj2l2ctogvy" path="res://scenes/inventory/slot.tscn" id="2_y5jdi"]

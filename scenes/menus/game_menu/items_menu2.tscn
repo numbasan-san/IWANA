@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://ck38hsl6l5t2y"]
 
-[ext_resource type="Texture2D" uid="uid://bgmm5t6f1gyge" path="res://assets/inventory/inventory2.png" id="1_ukb70"]
-[ext_resource type="Texture2D" uid="uid://d4ga2cbo5mfov" path="res://assets/menus/mascara.png" id="2_k14iy"]
+[ext_resource type="Texture2D" uid="uid://bg6t1j6vsmlkr" path="res://assets/inventory/inventory2.png" id="1_ukb70"]
+[ext_resource type="Texture2D" uid="uid://cavh2jribhxeq" path="res://assets/menus/mascara.png" id="2_k14iy"]
 [ext_resource type="PackedScene" uid="uid://ikr3d1omcq3d" path="res://scenes/menus/game_menu/utilities/item_tarjeta.tscn" id="3_awprh"]
-[ext_resource type="Texture2D" uid="uid://bijt407dbbadm" path="res://assets/inventory/inventory_slot.png" id="4_4x8dy"]
+[ext_resource type="Texture2D" uid="uid://b7xxmj85u1yav" path="res://assets/inventory/inventory_slot.png" id="4_4x8dy"]
 
 [node name="background2" type="TextureRect"]
 visible = false
