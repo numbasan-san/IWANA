@@ -42,6 +42,6 @@ func _init(name_arg: String, args: Variant = null):
 	else:
 		_callable = Callable(ScriptCommands, name).bind(args)
 
-# Runs the stored callable
+# Runs the stored callable.
 func run():
-	_callable.call()
+	await _callable.call()

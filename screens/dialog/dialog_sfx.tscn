@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://screens/combat/SFX.gd" id="1_dsfx"]
+[ext_resource type="Resource" path="res://audio_tracks/sfx_dialog_cajon.tres" id="2_dsfx"]
+[ext_resource type="Resource" path="res://audio_tracks/sfx_dialog_interruptor.tres" id="3_dsfx"]
+[ext_resource type="Resource" path="res://audio_tracks/sfx_dialog_golpe.tres" id="4_dsfx"]
+
+[sub_resource type="AudioStreamPolyphonic" id="AudioStreamPolyphonic_dsfx"]
+
+[node name="SFX" type="Node" node_paths=PackedStringArray("stream_player")]
+script = ExtResource("1_dsfx")
+stream_player = NodePath("AudioStreamPlayer")
+sounds = Array[Resource("res://audio_tracks/sfx_resource.gd")]([ExtResource("2_dsfx"), ExtResource("3_dsfx"), ExtResource("4_dsfx")])
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamPolyphonic_dsfx")
+max_polyphony = 16
+bus = &"Sfx"

@@ -10,6 +10,11 @@ extends CanvasLayer
 # Handles the audio separately from the transition animator
 @export var audio: AudioPlayer
 
+# Handles one-shot sound effects for this screen (as opposed to "audio", which
+# handles music tracks). Optional: screens that don't need sound effects (like
+# menus) can simply leave this unassigned.
+@export var sfx: SFXPlayer
+
 var is_active: bool = false:
 	set(value):
 		if value != is_active:

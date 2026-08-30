@@ -121,6 +121,13 @@ func quest_done(quest: Quest):
 	delivered_quests.append(quest)
 	quest_changed.emit()
 
+func get_active_quest_by_id(quest_id):
+	for quest in active_quests:
+		if quest_id == quest.name and quest.quest_status == STATUS.COMPLETED:
+			print("la misión " + quest.name + " fue entregada a su dueño pertinente")
+			return quest
+	return null
+
 # =============================================================================
 # VALIDATION METHODS
 # =============================================================================

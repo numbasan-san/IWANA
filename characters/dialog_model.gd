@@ -12,6 +12,17 @@ var dialog_position: DialogContents.Position = DialogContents.Position.NONE
 
 var active_image: Sprite2D
 
+# The position this model should snap/slide to inside its current area, as
+# computed the last time DialogContents._reorder() ran. Used by
+# DialogContents.move_character() to know where to tween to.
+var target_offset: Vector2 = Vector2.ZERO
+
+# While true, DialogContents._reorder() won't snap this model to its
+# target_offset automatically. It's set to true by place_offscreen() (and by
+# any other code that wants to slide the character into place manually with
+# move_character()) and cleared once that movement finishes.
+var _animating_in: bool = false
+
 func _ready():
 	scale = Vector2(initial_scale, initial_scale)
 	

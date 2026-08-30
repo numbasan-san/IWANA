@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://dljth7jwfmjlx"]
+[gd_scene load_steps=5 format=3 uid="uid://dljth7jwfmjlx"]
 
 [ext_resource type="Script" path="res://screens/dialog/dialog_contents.gd" id="1_08ccm"]
 [ext_resource type="LabelSettings" uid="uid://cdswba3l3ge7m" path="res://screens/dialog/dialog_font.tres" id="2_2hkqp"]
 [ext_resource type="Texture2D" uid="uid://wqxps3pmunho" path="res://assets/menus/dialogos.png" id="2_xsjuw"]
+[ext_resource type="FontFile" uid="uid://baskkib7drrh" path="res://assets/menus/BRADHI.ttf" id="3_titlefont"]
 
-[node name="DialogContents" type="Control" node_paths=PackedStringArray("background", "left_area", "center_area", "right_area", "name_label", "text_label")]
+[node name="DialogContents" type="Control" node_paths=PackedStringArray("background", "left_area", "center_area", "right_area", "name_label", "text_label", "stage", "overlay_layer", "prop_layer", "curtain", "title_card", "title_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,22 +15,21 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_08ccm")
 background_folder = "assets/dialog_drawings/backgrounds"
-background = NodePath("Background")
-left_area = NodePath("CharacterArea/Left")
-center_area = NodePath("CharacterArea/Center")
-right_area = NodePath("CharacterArea/Right")
+prop_folder = "assets/dialog_drawings/props"
+background = NodePath("Stage/Background")
+left_area = NodePath("Stage/CharacterArea/Left")
+center_area = NodePath("Stage/CharacterArea/Center")
+right_area = NodePath("Stage/CharacterArea/Right")
 name_label = NodePath("DialogPanel/NameLabel")
 text_label = NodePath("DialogPanel/Text")
+stage = NodePath("Stage")
+overlay_layer = NodePath("Stage/OverlayLayer")
+prop_layer = NodePath("Stage/PropLayer")
+curtain = NodePath("Curtain")
+title_card = NodePath("TitleCard")
+title_label = NodePath("TitleCard/TitleLabel")
 
-[node name="Background" type="TextureRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="CharacterArea" type="Control" parent="."]
+[node name="Stage" type="Control" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -38,7 +38,44 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="Left" type="Control" parent="CharacterArea"]
+[node name="Background" type="TextureRect" parent="Stage"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OverlayLayer" type="Control" parent="Stage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Noche" type="ColorRect" parent="Stage/OverlayLayer"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.10, 0.16, 0.45, 0.45)
+
+[node name="CharacterArea" type="Control" parent="Stage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Left" type="Control" parent="Stage/CharacterArea"]
 layout_mode = 1
 anchor_right = 0.4
 anchor_bottom = 1.0
@@ -46,7 +83,7 @@ offset_bottom = 60.0
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="Center" type="Control" parent="CharacterArea"]
+[node name="Center" type="Control" parent="Stage/CharacterArea"]
 layout_mode = 1
 anchor_left = 0.3
 anchor_right = 0.7
@@ -54,7 +91,7 @@ anchor_bottom = 1.0
 offset_bottom = 60.0
 mouse_filter = 1
 
-[node name="Right" type="Control" parent="CharacterArea"]
+[node name="Right" type="Control" parent="Stage/CharacterArea"]
 layout_mode = 1
 anchor_left = 0.6
 anchor_right = 1.0
@@ -63,6 +100,15 @@ offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
+
+[node name="PropLayer" type="Control" parent="Stage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
 [node name="DialogPanel" type="Panel" parent="."]
 self_modulate = Color(1, 1, 1, 0)
@@ -111,7 +157,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="Text" type="Label" parent="DialogPanel"]
+[node name="Text" type="RichTextLabel" parent="DialogPanel"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.079
@@ -125,7 +171,39 @@ offset_bottom = 12.668
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 0.010472
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/line_separation = -5
+theme_override_fonts/normal_font = ExtResource("3_titlefont")
+theme_override_font_sizes/normal_font_size = 50
+bbcode_enabled = true
 text = "Texto de ejemplo. Se orientó el texto y cambió  su espaciado de manera que las palabras quepan en las lineas como si hubieran sido escritas a mano. Tratar de no escribir más de 3 lineas."
-label_settings = ExtResource("2_2hkqp")
-autowrap_mode = 2
-clip_text = true
+fit_content = false
+scroll_active = false
+
+[node name="Curtain" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="TitleCard" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TitleLabel" type="Label" parent="TitleCard"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_titlefont")
+theme_override_font_sizes/font_size = 96
+text = "Fin"
+horizontal_alignment = 1
+vertical_alignment = 1

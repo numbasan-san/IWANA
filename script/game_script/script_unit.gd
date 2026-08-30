@@ -4,7 +4,8 @@ class_name Unit
 # A unit is a set of script instructions that are run sequentialy. The
 # instructions are run immediately one after the other, except for the "esperar"
 # or "wait" instruction, which pauses the execution of the unit until the player
-# presses a key.
+# presses a key, and except for instructions that internally use "await" (like
+# camera movements, fades or timed waits), which pause the unit until they finish.
 
 # The name of this unit. It can be used as a reference from inside other units
 # or elsewhere in the game code
@@ -41,7 +42,12 @@ func run():
 		if current >= instructions.size():
 			_done = true
 			return
-		instructions[current].run()
+		# We await here so that instructions that internally take some time
+		# (camera movements, fades, screen shakes, timed waits, etc.) block the
+		# progression of the unit by default, the same way it's described in the
+		# dialog system: an instruction waits for the previous one to finish
+		# unless that instruction was explicitly marked as asynchronous.
+		await instructions[current].run()
 		
 		# TODO: add code to animate the dialog being written and to wait till it
 		# is done animating. A click should finish the animation immediately and

@@ -45,10 +45,12 @@ Dummy Thicc: Me debe plata.
 [Asignar: Dialogo Dummy Juan -> Dummy Juan]
 [Unidad: Dialogo Dummy Juan]
 Dummy Juan: ¡ ¡ ¡ ¡ ¡ M A N Z A N A S ! ! ! ! !
-Dummy Juan: Según los acuerdos de dios, debería darte una misión justo después de este diálogo.
-[Mision: juan_habla_de_manzanas]
 [Mision: recolectar_manzanas]
-Dummy Juan: ¡Te he dado una misión! Habla con Thicc.
+Dummy Juan: ¡Te he dado una misión! Consigue manzanas.
+
+[CompletarMision: recolectar_manzanas]
+Dummy Juan: Conseguiste manzanas.
+
 [Fin: Dialogo Dummy Juan]
 
 [Fin: escena 1]

@@ -1,0 +1,71 @@
+[Escena: ejemplo sistema completo]
+[Inicial: escena robo]
+[Final: escena robo]
+
+[Unidad: escena robo]
+
+# --- El fondo se carga ANTES del fundido, para que ya esté listo cuando se revele ---
+[Fondo: bosquejoIntro1]
+[Escenario mostrar: noche]
+
+# --- Fundido de entrada, 2 segundos ---
+[Fundido: negro, 2]
+
+[Audio: ArtClass]
+
+[Cara instantanea: Daniela, izquierda]
+[Imagen: Daniela -> Neutral]
+
+# --- La cámara se acerca en 2 segundos mientras el personaje mira a los lados ---
+[Camara velocidad: 2]
+[Camara zoom: Daniela, asincrono]
+[Imagen: Daniela -> Neutral]
+[Esperar segundos: 0.4]
+[Imagen: Daniela -> Neutral]
+[Esperar segundos: 0.4]
+[Imagen: Daniela -> Neutral]
+[Camara esperar]
+
+Daniela: estoy segura de que está guardada por aquí...
+
+[Camara velocidad por defecto]
+[Camara reiniciar]
+
+[Audio efecto: cajon]
+[Esperar segundos: 1]
+
+# --- Se enciende la luz: desaparece el filtro de noche y aparece Carla, que estaba presente pero invisible ---
+[Audio efecto: interruptor]
+[Escenario ocultar: noche]
+[Esperar segundos: 0.5]
+
+[Cara instantanea: Carla, derecha]
+[Cara invisible: Carla]
+Carla: ¿quién anda ahí?
+
+[Cara visible: Carla]
+Daniela: <tiembla>¡mierda!</tiembla>
+
+[Pantalla sacudir: 0.5, 8]
+Daniela: <tiembla>¡No es lo que parece!</tiembla>
+
+Carla: ¿Parecer qué? ¿que estamos como ejemplo de un sistema de diálogos que está medio hecho con las patas porque la cámara se enfocó demás en ti y descentralizada? ¿O crees tú que es un <ola>genjutsu</ola>?
+
+Daniela: Espera, ¿qué vrg acabas de decir? ¿cómo que esto no es <tiembla>real...?</tiembla>
+
+[Carla sacudir: 0.5, 8]
+Carla: <tiembla>¡AY, MIERDA! ¡HABLÉ DEMÁS!</tiembla>
+Carla: <tiembla>¡RÁPIDO, TERMINA LA ESCENA!</tiembla>
+
+[Titulo mostrar: "Al toque, mi tsundere", sin numero]
+
+[Carla sacudir: 5, 8]
+Carla: <tiembla>¡¿CÓMO ME DIJISTE, HDP?!</tiembla>
+
+[Esperar]
+[Titulo ocultar]
+
+[Salida]
+[Fin: escena robo]
+
+[Fin: ejemplo sistema completo]

@@ -22,12 +22,16 @@ var current_scene: Scene:
 
 var running: bool = false
 
+var _busy: bool = false
+
 func _process(_delta):
-	if running:
+	if running and not _busy:
 		if _scene_pointer >= _scenes.size():
 			running = false
 		else:
+			_busy = true
 			await _current_scene.run()
+			_busy = false
 			if _current_scene.done:
 				_scene_pointer += 1
 				if _scene_pointer < _scenes.size():

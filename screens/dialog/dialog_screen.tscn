@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://daav23mkgp6gf"]
+[gd_scene load_steps=18 format=3 uid="uid://daav23mkgp6gf"]
 
 [ext_resource type="PackedScene" uid="uid://dljth7jwfmjlx" path="res://screens/dialog/dialog_contents.tscn" id="1_fds5q"]
 [ext_resource type="Script" path="res://screens/dialog/dialog_screen.gd" id="1_u4nrd"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://bjsdoixib1f4l" path="res://audio_tracks/art_class_track.tres" id="4_jjff8"]
 [ext_resource type="AnimationLibrary" uid="uid://b423bn5ptarkn" path="res://music_play_animations.res" id="5_8rx53"]
 [ext_resource type="AnimationLibrary" uid="uid://k7u1xrby60xn" path="res://music_stop_animations.res" id="6_cflxr"]
+[ext_resource type="PackedScene" path="res://screens/dialog/dialog_sfx.tscn" id="7_dsfx"]
 
 [sub_resource type="Animation" id="Animation_juibn"]
 resource_name = "Hide"
@@ -208,11 +209,12 @@ _data = {
 "RESET": SubResource("Animation_g8fph")
 }
 
-[node name="DialogScreen" type="CanvasLayer" node_paths=PackedStringArray("contents", "transitions", "audio")]
+[node name="DialogScreen" type="CanvasLayer" node_paths=PackedStringArray("contents", "transitions", "audio", "sfx")]
 script = ExtResource("1_u4nrd")
 contents = NodePath("DialogContents")
 transitions = NodePath("Transition")
 audio = NodePath("Audio")
+sfx = NodePath("SFX")
 
 [node name="DialogContents" parent="." instance=ExtResource("1_fds5q")]
 modulate = Color(0, 0, 0, 1)
@@ -234,5 +236,7 @@ libraries = {
 
 [node name="AudioPlayer" parent="Audio" index="1"]
 volume_db = -15.0
+
+[node name="SFX" parent="." instance=ExtResource("7_dsfx")]
 
 [editable path="Audio"]

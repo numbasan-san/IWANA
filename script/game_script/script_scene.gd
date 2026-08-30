@@ -80,7 +80,10 @@ func _init(
 
 func run():
 	if _running and not done:
-		current_unit.run()
+		# We await the unit's execution so that instructions that block (camera
+		# movements, fades, timed waits...) also block the scene, and by
+		# extension the ScriptManager, until they're finished.
+		await current_unit.run()
 		if current_unit.is_done():
 			# If the unit that just finished is the last one, the scene is
 			# marked done so that the script manager will switch to the next one
@@ -161,4 +164,3 @@ func link(source: String, target: String):
 func pause(pausa = true):
 	_running = not pausa
 	current_unit.pause(pausa)
-
