@@ -21,7 +21,11 @@ class_name Effect extends Resource
 ## What this number means and how it is calculated depends on the specifics of
 ## the effect. That script is responsible of calculating this value correctly and
 ## restoring it if the base value changes.
-var value: float = base_value
+var value: float = base_value:
+	set(new):
+		_before_value_change()
+		value = new
+		_after_value_change()
 
 ## The character that triggered this effect.
 ##
@@ -266,3 +270,9 @@ func _set_caster(_caster: Character):
 # the container.
 func _set_skill(_skill: Skill):
 	self._skill = _skill
+
+func _before_value_change():
+	pass
+	
+func _after_value_change():
+	pass

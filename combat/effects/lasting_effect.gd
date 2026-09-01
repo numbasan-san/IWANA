@@ -6,8 +6,10 @@ class_name LastingEffect extends Effect
 # getting hit or attacking
 
 enum Type {
-	BUFF, ## This effect has a positive outcome for the target.
-	DEBUFF ## This effect has a negative outcome for the target.
+	BUFF, ## This effect changes stats in a positive maner.
+	DEBUFF, ## This effect changes stats in a negative maner.
+	BLESSING, ## This has a positive effect that doesn't change stats.
+	CURSE ## This has a negative effect that doesn't change stats.
 }
 
 ## Used to identify a lasting effect as being positive or negative towards
@@ -15,7 +17,7 @@ enum Type {
 ##
 ## Some skills might target only one of these types, and enhance or
 ## diminish them.
-@export var type: Type = Type.BUFF
+@export var type: Type = Type.BLESSING
 
 enum Decrease {
 	NEVER, ## The duration can only be reduced in a script or the effect must be removed directly.
@@ -168,3 +170,9 @@ func skill_used(skill: Skill):
 		on_skill_used(skill)
 		if decrease_duration == Decrease.ON_SKILL_USED:
 			duration -= 1
+
+func _before_value_change():
+	unapply(target)
+
+func _after_value_change():
+	apply(target)

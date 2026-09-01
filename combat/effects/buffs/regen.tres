@@ -1,12 +1,17 @@
-[gd_resource type="Resource" script_class="Regen" load_steps=5 format=3 uid="uid://c2vrp5x7v58na"]
+[gd_resource type="Resource" script_class="Regen" load_steps=7 format=3 uid="uid://c2vrp5x7v58na"]
 
 [ext_resource type="Script" path="res://combat/effects/buffs/regen.gd" id="1_aorgj"]
 [ext_resource type="Script" path="res://combat/effects/instant/heal.gd" id="1_guo1q"]
 [ext_resource type="Resource" uid="uid://b55e4sulfykil" path="res://combat/effects/buffs/regen_data.tres" id="3_8scmc"]
+[ext_resource type="Script" path="res://combat/targets/target_party.gd" id="4_nec6b"]
 
 [sub_resource type="Resource" id="Resource_qvxpr"]
 script = ExtResource("1_guo1q")
 base_value = 3.0
+
+[sub_resource type="Resource" id="Resource_oy6v4"]
+script = ExtResource("4_nec6b")
+exclude_self = true
 
 [resource]
 script = ExtResource("1_aorgj")
@@ -16,9 +21,10 @@ unapply_effects = Array[Resource("res://combat/effects/effect.gd")]([])
 incoming_effects = Array[Resource("res://combat/effects/effect.gd")]([])
 outgoing_effects = Array[Resource("res://combat/effects/effect.gd")]([])
 character_hit_effects = Array[Resource("res://combat/effects/effect.gd")]([])
-type = 0
+type = 2
 decrease_duration = 2
 duration = 3
 stacks = true
 base_data = ExtResource("3_8scmc")
 base_value = 1.0
+target_type = SubResource("Resource_oy6v4")
