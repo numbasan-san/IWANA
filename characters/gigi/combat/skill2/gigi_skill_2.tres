@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://cwiad8lbr5h5p"]
+
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_p0afx"]
+
+[resource]
+script = ExtResource("1_p0afx")
+name = "Liberar vapor"
+description = "se limpia el fuego, el enemigo recibe daño, este daño aumenta en relación con la cantidad de stats limpiados y la cantidad de vida que le falte a gigi"
+effects = Array[Resource("res://combat/effects/effect.gd")]([])
+energy_cost = 0

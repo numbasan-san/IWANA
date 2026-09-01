@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://ib707op5k13k"]
+
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_8fqk0"]
+
+[resource]
+script = ExtResource("1_8fqk0")
+name = "Quitar el limitador"
+description = "Obtienes un buffo de critico y precisicion que escala cuando menos vida tienes (menos de la mitad), además de stacks de fuego sobre ti mismo. mientras mas vida tengas obtienes robo de vida (mientras tengas mas de la mitad)."
+effects = Array[Resource("res://combat/effects/effect.gd")]([])
+energy_cost = 0

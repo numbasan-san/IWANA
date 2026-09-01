@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://b3x4ehg5c8yil"]
+
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_uihla"]
+
+[resource]
+script = ExtResource("1_uihla")
+name = "A bocajarro"
+description = "realiza ataques, mientras mas vida tenga, mas atauqes hara y mas le baja la defensa"
+effects = Array[Resource("res://combat/effects/effect.gd")]([])
+energy_cost = 0

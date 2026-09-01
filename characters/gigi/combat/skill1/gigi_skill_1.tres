@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=9 format=3 uid="uid://822xo1aie1i6"]
+
+[ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="1_04w1e"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_nfk33"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="2_gxrox"]
+[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="3_o0s63"]
+
+[sub_resource type="Resource" id="Resource_k0rq2"]
+script = ExtResource("2_gxrox")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_76evh"]
+script = ExtResource("1_04w1e")
+type = 0
+percentage_ignored = 0.0
+base_value = 1.0
+target_type = SubResource("Resource_k0rq2")
+
+[sub_resource type="Resource" id="Resource_d67jp"]
+script = ExtResource("3_o0s63")
+
+[sub_resource type="Resource" id="Resource_lm86y"]
+script = ExtResource("1_04w1e")
+type = 0
+percentage_ignored = 0.0
+base_value = 1.0
+target_type = SubResource("Resource_d67jp")
+
+[resource]
+script = ExtResource("1_nfk33")
+name = "Calentamiento"
+description = "ataca al enemigo, se baja un porcentaje de vida y se deja stats de fuego, el daño de la habilidad va en aumento en relación con la cantidad de veces consecutivas que se a usado."
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_76evh"), SubResource("Resource_lm86y"), null])
+energy_cost = 5

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://cuah1frf0q278"]
+
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_rknau"]
+
+[resource]
+script = ExtResource("1_rknau")
+name = "Hora de cambiar"
+description = "gigi le otorga su turno a un aliado y gigi va de ultima y no podrás utilizar esta habilidad otra vez"
+effects = Array[Resource("res://combat/effects/effect.gd")]([])
+energy_cost = 0

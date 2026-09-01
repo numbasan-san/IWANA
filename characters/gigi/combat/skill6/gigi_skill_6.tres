@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://blorbkb0wysfi"]
+
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_24qfj"]
+
+[resource]
+script = ExtResource("1_24qfj")
+name = "Golpe de metal"
+description = "Haces daño y aplica veneno, si tienes más de la vida, aumentas el daño, si el enemigo tiene sangrado, aumentas el daño del veneno"
+effects = Array[Resource("res://combat/effects/effect.gd")]([])
+energy_cost = 0

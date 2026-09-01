@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="Skill" load_steps=12 format=3 uid="uid://bl1s8klucm3bd"]
+
+[ext_resource type="Script" path="res://combat/effects/conditions/stat_condition.gd" id="1_fx4kj"]
+[ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_yrdsu"]
+[ext_resource type="Script" path="res://combat/effects/conditional_effect.gd" id="2_pbsmu"]
+[ext_resource type="Resource" uid="uid://bugxgmphyjucg" path="res://combat/effects/instant/heal.tres" id="3_mhgue"]
+[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="4_dvs0y"]
+[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="5_modx3"]
+[ext_resource type="Resource" uid="uid://c2vrp5x7v58na" path="res://combat/effects/buffs/regen.tres" id="6_au6k2"]
+
+[sub_resource type="Resource" id="Resource_ia7k1"]
+script = ExtResource("1_fx4kj")
+character = "Caster"
+stat = "Health"
+operation = ">"
+value = 50.0
+percent = true
+
+[sub_resource type="Resource" id="Resource_2ji0s"]
+script = ExtResource("5_modx3")
+
+[sub_resource type="Resource" id="Resource_w65t5"]
+script = ExtResource("4_dvs0y")
+effects = Array[Resource("res://combat/effects/effect.gd")]([ExtResource("3_mhgue"), null])
+base_value = 1.0
+target_type = SubResource("Resource_2ji0s")
+
+[sub_resource type="Resource" id="Resource_e482l"]
+script = ExtResource("2_pbsmu")
+condition = SubResource("Resource_ia7k1")
+when_true = ExtResource("6_au6k2")
+when_false = SubResource("Resource_w65t5")
+base_value = 1.0
+
+[resource]
+script = ExtResource("1_yrdsu")
+name = "Liquido refrigerante"
+description = "si tiene mas de la mitad de la vida, aplica regeneración a sus aliados, si tienes menos de la mitad de la vida te curas y te limpias los stats de fuego"
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_e482l")])
+energy_cost = 5
