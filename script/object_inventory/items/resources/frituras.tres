@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Item" load_steps=8 format=3 uid="uid://cpf2t6uki5wyw"]
+[gd_resource type="Resource" load_steps=8 format=3 uid="uid://cpf2t6uki5wyw"]
 
 [ext_resource type="Resource" uid="uid://cqkvtlmmen8kn" path="res://combat/effects/instant/heal_data.tres" id="1_dhe8a"]
 [ext_resource type="Script" path="res://script/object_inventory/items/item.gd" id="1_v37t1"]
