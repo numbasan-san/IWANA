@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://lxi3xlxkc6yo"]
+
+[ext_resource type="Texture2D" uid="uid://cqi2nllsseel2" path="res://assets/Assests de Pruebas/arcade pixel art.png" id="1_fdxsj"]
+[ext_resource type="Script" path="res://script/combat/undyne.gd" id="2_uckmr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vvite"]
+size = Vector2(271.112, 168.889)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_m6gej"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufiyq"]
+size = Vector2(257.778, 153.333)
+
+[node name="arcade" type="Node2D"]
+
+[node name="png" type="Sprite2D" parent="."]
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("1_fdxsj")
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.45, 0.45)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("2_uckmr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_vvite")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+scale = Vector2(0.45, 0.45)
+physics_material_override = SubResource("PhysicsMaterial_m6gej")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2.22217, 145.556)
+shape = SubResource("RectangleShape2D_ufiyq")

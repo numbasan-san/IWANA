@@ -40,6 +40,7 @@ Daniela: estoy segura de que está guardada por aquí...
 [Esperar segundos: 0.5]
 
 [Cara instantanea: Carla, derecha]
+[Cara instantanea: Noby, centro]
 [Cara invisible: Carla]
 Carla: ¿quién anda ahí?
 

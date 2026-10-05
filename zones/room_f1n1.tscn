@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bqvxhi7wt87t" path="res://zones/base_classroom_north.tscn" id="1_p0tah"]
 [ext_resource type="Resource" uid="uid://d3m1k3ynfdasd" path="res://script/zones/zone_info/resources/room_f1n1.tres" id="2_e6pjl"]
-[ext_resource type="Texture2D" uid="uid://bvxm38e6wuv8e" path="res://zones/floors_and_walls_384x240.png" id="3_jr1ev"]
+[ext_resource type="Texture2D" uid="uid://c3m5my4vtflo8" path="res://zones/floors_and_walls_384x240.png" id="3_jr1ev"]
 [ext_resource type="PackedScene" uid="uid://burrs3pbu6tyr" path="res://scenes/inventory/items/manzana.tscn" id="4_wxthf"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_6eplc"]

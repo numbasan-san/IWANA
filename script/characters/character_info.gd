@@ -9,3 +9,9 @@ class_name CharacterInfo
 @export var affinity : QuestsManager.AFFINITY = QuestsManager.AFFINITY.NEUTRAL
 @export var satiety : int = 0
 @export var person : QuestsManager.PERSON = QuestsManager.PERSON.NONE
+var emotions = []
+
+func load_emotions():
+	for i in range(15):
+		emotions[i] = Texture2D.new()
+

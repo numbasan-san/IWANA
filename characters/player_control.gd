@@ -76,3 +76,7 @@ func _on_transparency_enter(area):
 func _on_transparency_exit(area):
 	if area is TransparencyControl:
 		area.disable_transparency()
+
+func _on_arcade_interaction_area_entered(area):
+	if area.has_method('arcade_area'):
+		area.arcade_area()

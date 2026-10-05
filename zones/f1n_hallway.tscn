@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://dnjubi70m176s"]
+[gd_scene load_steps=13 format=3 uid="uid://dnjubi70m176s"]
 
 [ext_resource type="PackedScene" uid="uid://bwyvbv6hrcyk" path="res://zones/base_zone.tscn" id="1_wq0ga"]
 [ext_resource type="Resource" uid="uid://5xdnh81gn5f6" path="res://script/zones/zone_info/resources/f1n_hallway.tres" id="2_asqt2"]
@@ -8,7 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://8adovfeebq66" path="res://objects/doors/female_bathroom_door.tscn" id="6_6gxcv"]
 [ext_resource type="PackedScene" uid="uid://nh6axq4payaf" path="res://objects/doors/yard_door.tscn" id="6_jkrm3"]
 [ext_resource type="PackedScene" uid="uid://cd4c21dp0up02" path="res://objects/doors/stair_up.tscn" id="8_i14ia"]
-[ext_resource type="Texture2D" uid="uid://bvxm38e6wuv8e" path="res://zones/floors_and_walls_384x240.png" id="9_5m5bg"]
+[ext_resource type="Texture2D" uid="uid://c3m5my4vtflo8" path="res://zones/floors_and_walls_384x240.png" id="9_5m5bg"]
+[ext_resource type="PackedScene" uid="uid://lxi3xlxkc6yo" path="res://objects/arcade.tscn" id="10_vu080"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbk1h"]
 texture = ExtResource("9_5m5bg")
@@ -305,3 +306,6 @@ position = Vector2(2219, 470)
 
 [node name="SpawnYard" type="Node2D" parent="SpawnPoints" index="7"]
 position = Vector2(3982, 669)
+
+[node name="arcade" parent="." index="7" instance=ExtResource("10_vu080")]
+position = Vector2(3195, 315)

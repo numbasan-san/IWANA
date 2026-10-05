@@ -5,6 +5,10 @@ extends Node2D
 # make sure that the sprite is initially looking right by default
 
 @export var initial_scale = 0.5
+@export var motions = {
+	"Neutral" : "",
+	"Enojo" : ""
+}
 
 var character: Character
 

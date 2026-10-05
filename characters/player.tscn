@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dvwsbxa7kdgob"]
+[gd_scene load_steps=11 format=3 uid="uid://dvwsbxa7kdgob"]
 
 [ext_resource type="Script" path="res://characters/player_control.gd" id="1_cfkfe"]
 [ext_resource type="Script" path="res://script/player.gd" id="1_oj7ea"]
@@ -23,6 +23,9 @@ size = Vector2(24, 27)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2a8vr"]
 size = Vector2(30, 38)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rbgei"]
+size = Vector2(38, 39)
+
 [node name="Player" type="Node"]
 script = ExtResource("1_oj7ea")
 
@@ -32,6 +35,7 @@ inventory = ExtResource("2_ks6fo")
 general_interaction_area = NodePath("GeneralInteraction")
 
 [node name="Camera2D" type="Camera2D" parent="PlayerControl"]
+visible = false
 position = Vector2(0, -0.5)
 
 [node name="TextureRect" type="TextureRect" parent="PlayerControl/Camera2D"]
@@ -98,9 +102,19 @@ position = Vector2(0, 11)
 shape = SubResource("RectangleShape2D_2a8vr")
 debug_color = Color(0.992157, 0, 0.254902, 0.419608)
 
+[node name="ArcadeInteraction" type="Area2D" parent="PlayerControl"]
+position = Vector2(0, -30)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerControl/ArcadeInteraction"]
+position = Vector2(0, 15.5)
+shape = SubResource("RectangleShape2D_rbgei")
+
 [connection signal="area_entered" from="PlayerControl/ItemCollection" to="PlayerControl" method="_on_item_contact"]
 [connection signal="area_entered" from="PlayerControl/DoorInteraction" to="PlayerControl" method="_on_door_contact"]
 [connection signal="area_entered" from="PlayerControl/TransparencyActivation" to="PlayerControl" method="_on_transparency_enter"]
 [connection signal="area_exited" from="PlayerControl/TransparencyActivation" to="PlayerControl" method="_on_transparency_exit"]
 [connection signal="area_entered" from="PlayerControl/GeneralInteraction" to="PlayerControl" method="_on_interaction_area_enter"]
 [connection signal="area_exited" from="PlayerControl/GeneralInteraction" to="PlayerControl" method="_on_interaction_area_exit"]
+[connection signal="area_entered" from="PlayerControl/ArcadeInteraction" to="PlayerControl" method="_on_arcade_interaction_area_entered"]
