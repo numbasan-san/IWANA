@@ -1,9 +1,9 @@
 [gd_scene load_steps=14 format=3 uid="uid://ugiuyfsy1rtl"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
-[ext_resource type="Texture2D" uid="uid://db8axvdfs8xxv" path="res://characters/gigi/vn/gigi4.png" id="3_3fwy7"]
-[ext_resource type="Texture2D" uid="uid://b7j705eiphq41" path="res://characters/gigi/rpg/movement_384x240.png" id="3_uveb5"]
-[ext_resource type="Texture2D" uid="uid://b15sx0ps4eqln" path="res://characters/gigi/combat/gigi_animation_stand_11-Sheet.png" id="4_rihj7"]
+[ext_resource type="Texture2D" uid="uid://sbxcb184ku65" path="res://characters/gigi/vn/gigi4.png" id="3_3fwy7"]
+[ext_resource type="Resource" uid="uid://822xo1aie1i6" path="res://characters/gigi/combat/skill1/gigi_skill_1.tres" id="4_nw6m5"]
+[ext_resource type="Texture2D" uid="uid://b372187f7o7vd" path="res://characters/gigi/combat/gigi_animation_stand_11-Sheet.png" id="4_rihj7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iw4gg"]
 resource_local_to_scene = true
@@ -76,7 +76,6 @@ scale = Vector2(-1, 1)
 texture = ExtResource("3_3fwy7")
 
 [node name="Sprite2D" parent="RPGModel" index="0"]
-texture = ExtResource("3_uveb5")
 offset = Vector2(0, -40)
 vframes = 8
 frame = 16
@@ -91,3 +90,6 @@ visible = false
 [node name="CombatSprites" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
 sprite_frames = SubResource("SpriteFrames_lbeps")
 animation = &"idle"
+
+[node name="CombatHandler" parent="." index="3"]
+skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("4_nw6m5")])

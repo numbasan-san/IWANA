@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="HealthSacrificeEffect" load_steps=4 format=3 uid="uid://dnlvi1i28iyan"]
+
+[ext_resource type="Script" path="res://characters/gigi/combat/skill1/HealthSacrificeEffect.gd" id="1_leuej"]
+[ext_resource type="Script" path="res://combat/targets/target_self.gd" id="2_loocg"]
+
+[sub_resource type="Resource" id="Resource_i6klu"]
+script = ExtResource("2_loocg")
+
+[resource]
+script = ExtResource("1_leuej")
+health_percentage = 10.0
+base_value = 1.0
+target_type = SubResource("Resource_i6klu")

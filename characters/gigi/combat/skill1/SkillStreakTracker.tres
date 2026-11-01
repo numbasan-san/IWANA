@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SkillStreakTracker" load_steps=2 format=3 uid="uid://wrs4bjsmh8xe"]
+
+[ext_resource type="Script" path="res://characters/gigi/combat/skill1/SkillStreakTracker.gd" id="1_5wx6l"]
+
+[resource]
+script = ExtResource("1_5wx6l")
+type = 2
+decrease_duration = 0
+duration = 0
+stacks = false
+base_value = 1.0

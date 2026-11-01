@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="Projectile" load_steps=28 format=3 uid="uid://j15r24hfj0sn"]
 
 [ext_resource type="Script" path="res://combat/effects/animation_effects/projectile.gd" id="1_ixi4y"]
-[ext_resource type="Texture2D" uid="uid://dxrkwx1h24nmm" path="res://characters/noby/combat/skill3/landing_backpack.png" id="2_n250r"]
-[ext_resource type="Texture2D" uid="uid://dapuli1ykh5gs" path="res://characters/noby/combat/skill3/backpack.png" id="3_vedbg"]
+[ext_resource type="Texture2D" uid="uid://dkt0efmeenwen" path="res://characters/noby/combat/skill3/landing_backpack.png" id="2_n250r"]
+[ext_resource type="Texture2D" uid="uid://bjrt0a4o1c6cm" path="res://characters/noby/combat/skill3/backpack.png" id="3_vedbg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u2ueh"]
 atlas = ExtResource("2_n250r")

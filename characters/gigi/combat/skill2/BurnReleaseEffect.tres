@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BurnReleaseEffect" load_steps=4 format=3 uid="uid://bl1ym23k1miim"]
+
+[ext_resource type="Script" path="res://characters/gigi/combat/skill2/BurnReleaseEffect.gd" id="1_oryl7"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="2_p414d"]
+
+[sub_resource type="Resource" id="Resource_ksbu4"]
+script = ExtResource("2_p414d")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[resource]
+script = ExtResource("1_oryl7")
+bonus_per_burn = 25.0
+missing_health_bonus = 100.0
+max_health_property = &"max_health"
+type = 0
+percentage_ignored = 0.0
+base_value = 1.0
+target_type = SubResource("Resource_ksbu4")
