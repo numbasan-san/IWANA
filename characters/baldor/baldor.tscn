@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://btxhdarnkvl4h"]
+
+[ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_itwe4"]
+[ext_resource type="Texture2D" uid="uid://bm6e7x8y4yh5i" path="res://characters/others/profe rosaria.png" id="2_8ugea"]
+[ext_resource type="Texture2D" uid="uid://b0o2ix8gw0b2y" path="res://characters/personajes.png" id="3_8jh1i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1y18m"]
+resource_local_to_scene = true
+size = Vector2(22.6667, 12.3333)
+
+[node name="Rosaria" instance=ExtResource("1_itwe4")]
+
+[node name="Neutral" type="Sprite2D" parent="DialogModel" index="0"]
+visible = false
+scale = Vector2(-1, 1)
+texture = ExtResource("2_8ugea")
+
+[node name="Sprite2D" parent="RPGModel" index="0"]
+position = Vector2(0, -38.3333)
+texture = ExtResource("3_8jh1i")
+hframes = 1
+region_enabled = true
+region_rect = Rect2(292, 101, 31, 76)
+
+[node name="Collider" parent="RPGModel" index="1"]
+position = Vector2(0, -3.5)
+shape = SubResource("RectangleShape2D_1y18m")
+
+[node name="GeneralInteraction" parent="RPGModel" index="3"]
+position = Vector2(0, 3)

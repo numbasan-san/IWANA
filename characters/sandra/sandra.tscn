@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dv8fcqvo4emsd"]
+[gd_scene load_steps=4 format=3 uid="uid://dv8fcqvo4emsd"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
-[ext_resource type="Texture2D" uid="uid://dphe4g3q4bwjm" path="res://assets/dialog_drawings/characters/sandra1.png" id="3_tvq42"]
+[ext_resource type="Texture2D" uid="uid://b55krbqntdulh" path="res://assets/dialog_drawings/characters/sandra1.png" id="3_tvq42"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q2fsp"]
 resource_local_to_scene = true

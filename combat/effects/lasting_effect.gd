@@ -172,7 +172,9 @@ func skill_used(skill: Skill):
 			duration -= 1
 
 func _before_value_change():
-	unapply(target)
+	if target:
+		unapply(target)
 
 func _after_value_change():
-	apply(target)
+	if target:
+		apply(target)

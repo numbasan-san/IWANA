@@ -1,26 +1,23 @@
 [gd_scene load_steps=5 format=3 uid="uid://d3gl0tmkxj5vt"]
 
-[ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
-[ext_resource type="Texture2D" uid="uid://msttj3ecaxgl" path="res://characters/others/rpg/npcs.png" id="3_l1v4q"]
-[ext_resource type="Texture2D" uid="uid://bm6e7x8y4yh5i" path="res://characters/others/profe rosaria.png" id="3_yy0v8"]
+[ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_hcujq"]
+[ext_resource type="Texture2D" uid="uid://bm6e7x8y4yh5i" path="res://characters/others/profe rosaria.png" id="2_i65do"]
+[ext_resource type="Texture2D" uid="uid://msttj3ecaxgl" path="res://characters/others/rpg/npcs.png" id="3_hlvnd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1y18m"]
 resource_local_to_scene = true
 size = Vector2(128, 61)
 
-[node name="Rosaria" instance=ExtResource("1_begxf")]
+[node name="Rosaria" instance=ExtResource("1_hcujq")]
 
 [node name="Neutral" type="Sprite2D" parent="DialogModel" index="0"]
 visible = false
 scale = Vector2(-1, 1)
-texture = ExtResource("3_yy0v8")
-
-[node name="RPGModel" parent="." index="1"]
-scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_i65do")
 
 [node name="Sprite2D" parent="RPGModel" index="0"]
 position = Vector2(0, -172)
-texture = ExtResource("3_l1v4q")
+texture = ExtResource("3_hlvnd")
 hframes = 1
 region_enabled = true
 region_rect = Rect2(665, 260, 115, 340)

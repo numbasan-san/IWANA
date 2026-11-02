@@ -57,6 +57,7 @@ resource_local_to_scene = true
 script = ExtResource("2_vglxn")
 base_max_health = 20
 base_max_energy = 40
+base_max_satiation = 0
 base_damage = 10
 base_defense = 0
 base_speed = 10

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ckhcjgsxoefab"]
+
+[ext_resource type="PackedScene" uid="uid://cahhguph112nt" path="res://objects/yard/base_yard_object.tscn" id="1_sj7vs"]
+[ext_resource type="Texture2D" uid="uid://ct0stv4j0gcc3" path="res://zones/basketball_384x240.png" id="2_g3qql"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4kfs"]
+size = Vector2(28, 20.6667)
+
+[node name="BasketHoopBack" instance=ExtResource("1_sj7vs")]
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_g3qql")
+offset = Vector2(0, -42)
+region_rect = Rect2(77, 5, 54, 103)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_e4kfs")
