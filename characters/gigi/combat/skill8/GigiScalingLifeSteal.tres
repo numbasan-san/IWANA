@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="GigiScalingLifeSteal" load_steps=4 format=3 uid="uid://c6obhk7penxu8"]
+
+[ext_resource type="Script" path="res://characters/gigi/combat/skill8/GigiScalingLifeSteal.gd" id="1_48cm1"]
+[ext_resource type="Script" path="res://combat/effects/instant/heal.gd" id="1_htgvb"]
+
+[sub_resource type="Resource" id="Resource_wty4x"]
+script = ExtResource("1_htgvb")
+base_value = 1.0
+
+[resource]
+script = ExtResource("1_48cm1")
+min_lifesteal = 0.1
+max_lifesteal = 0.3
+before_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+after_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+unapply_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+incoming_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+outgoing_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+character_hit_effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_wty4x")])
+type = 2
+decrease_duration = 2
+duration = 3
+stacks = false
+base_value = 1.0

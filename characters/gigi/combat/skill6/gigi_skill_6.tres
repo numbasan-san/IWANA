@@ -1,10 +1,60 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://blorbkb0wysfi"]
+[gd_resource type="Resource" script_class="Skill" load_steps=15 format=3 uid="uid://blorbkb0wysfi"]
 
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_24qfj"]
+[ext_resource type="Script" path="res://combat/effects/conditions/stat_condition.gd" id="1_xlmoh"]
+[ext_resource type="Script" path="res://combat/effects/conditional_effect.gd" id="2_hcipq"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="3_ru7eb"]
+[ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="4_kole4"]
+[ext_resource type="Resource" uid="uid://dffk1yuids0s3" path="res://characters/gigi/combat/skill6/BleedingBoostPoison.tres" id="5_rmjxb"]
+[ext_resource type="Script" path="res://combat/effects/effect_group.gd" id="6_ydro0"]
+
+[sub_resource type="Resource" id="Resource_uwlhk"]
+script = ExtResource("1_xlmoh")
+character = "Caster"
+stat = "Health"
+operation = ">"
+value = 50.0
+percent = true
+
+[sub_resource type="Resource" id="Resource_nwqn2"]
+script = ExtResource("3_ru7eb")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[sub_resource type="Resource" id="Resource_hh01p"]
+script = ExtResource("4_kole4")
+type = 0
+percentage_ignored = 0.0
+base_value = 2.0
+
+[sub_resource type="Resource" id="Resource_dosn6"]
+script = ExtResource("6_ydro0")
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_hh01p"), ExtResource("5_rmjxb")])
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_427n0"]
+script = ExtResource("4_kole4")
+type = 0
+percentage_ignored = 0.0
+base_value = 3.0
+
+[sub_resource type="Resource" id="Resource_h1txc"]
+script = ExtResource("6_ydro0")
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_427n0"), ExtResource("5_rmjxb")])
+base_value = 1.0
+
+[sub_resource type="Resource" id="Resource_6hprd"]
+script = ExtResource("2_hcipq")
+condition = SubResource("Resource_uwlhk")
+when_true = SubResource("Resource_h1txc")
+when_false = SubResource("Resource_dosn6")
+base_value = 1.0
+target_type = SubResource("Resource_nwqn2")
 
 [resource]
 script = ExtResource("1_24qfj")
 name = "Golpe de metal"
 description = "Haces daño y aplica veneno, si tienes más de la vida, aumentas el daño, si el enemigo tiene sangrado, aumentas el daño del veneno"
-effects = Array[Resource("res://combat/effects/effect.gd")]([])
+effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_6hprd")])
 energy_cost = 0

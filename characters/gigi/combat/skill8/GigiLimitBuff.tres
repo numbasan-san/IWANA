@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="GigiLimitBuff" load_steps=2 format=3 uid="uid://b0w1ufy8ikgsn"]
+
+[ext_resource type="Script" path="res://characters/gigi/combat/skill8/GigiLimitBuff.gd" id="1_x6i8g"]
+
+[resource]
+script = ExtResource("1_x6i8g")
+base_critical_bonus = 10.0
+critical_bonus_low_hp = 30.0
+critical_per_burn = 5.0
+base_precision_bonus = 10
+precision_bonus_low_hp = 20
+precision_per_burn = 5
+type = 2
+decrease_duration = 0
+duration = 0
+stacks = false
+base_value = 1.0

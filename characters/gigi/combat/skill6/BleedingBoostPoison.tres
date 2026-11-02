@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="BleedingBoostPoison" load_steps=4 format=3 uid="uid://dffk1yuids0s3"]
+
+[ext_resource type="Script" path="res://combat/effects/instant/damage.gd" id="1_r7br5"]
+[ext_resource type="Script" path="res://characters/gigi/combat/skill6/BleedingBoostPoison.gd" id="1_vpcd8"]
+
+[sub_resource type="Resource" id="Resource_t5fwt"]
+script = ExtResource("1_r7br5")
+type = 3
+percentage_ignored = 0.0
+base_value = 10.0
+
+[resource]
+script = ExtResource("1_vpcd8")
+bleeding_damage_bonus = 50.0
+before_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+after_turn_effects = Array[Resource("res://combat/effects/effect.gd")]([SubResource("Resource_t5fwt")])
+unapply_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+incoming_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+outgoing_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+character_hit_effects = Array[Resource("res://combat/effects/effect.gd")]([])
+type = 1
+decrease_duration = 2
+duration = 3
+stacks = false
+base_value = 3.0

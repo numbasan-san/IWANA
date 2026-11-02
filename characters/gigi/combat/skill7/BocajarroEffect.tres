@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="BocajarroEffect" load_steps=5 format=3 uid="uid://cl1rox2rm6jbm"]
+
+[ext_resource type="Resource" uid="uid://sxnmcxay6ni6" path="res://characters/gigi/combat/skill7/BocajarroDefenseDebuff.tres" id="1_056g5"]
+[ext_resource type="Script" path="res://characters/gigi/combat/skill7/BocajarroEffect.gd" id="1_nursk"]
+[ext_resource type="Script" path="res://combat/targets/target_enemy.gd" id="3_k5lif"]
+
+[sub_resource type="Resource" id="Resource_mgy1h"]
+script = ExtResource("3_k5lif")
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[resource]
+script = ExtResource("1_nursk")
+max_hits = 5
+defense_debuff = ExtResource("1_056g5")
+type = 0
+percentage_ignored = 0.0
+base_value = 0.5
+target_type = SubResource("Resource_mgy1h")

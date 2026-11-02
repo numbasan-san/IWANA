@@ -20,7 +20,7 @@ character_hit_effects = Array[Resource("res://combat/effects/effect.gd")]([])
 type = 2
 decrease_duration = 0
 duration = 0
-stacks = false
+stacks = true
 base_value = 1.0
 target_type = SubResource("Resource_3cx1o")
 

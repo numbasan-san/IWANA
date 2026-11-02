@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="CleanseBurntEffect" load_steps=2 format=3 uid="uid://bj3yvv7ntexop"]
+
+[ext_resource type="Script" path="res://characters/gigi/combat/skill3/CleanseBurntEffect.gd" id="1_nbjvx"]
+
+[resource]
+script = ExtResource("1_nbjvx")
+base_value = 1.0

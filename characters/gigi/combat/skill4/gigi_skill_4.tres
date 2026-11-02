@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="Skill" load_steps=2 format=3 uid="uid://cuah1frf0q278"]
+[gd_resource type="Resource" script_class="Skill" load_steps=3 format=3 uid="uid://cuah1frf0q278"]
 
+[ext_resource type="Resource" uid="uid://dqumpf58hhsyp" path="res://characters/gigi/combat/skill4/TurnExchangeEffect.tres" id="1_4kg36"]
 [ext_resource type="Script" path="res://combat/skills/skill.gd" id="1_rknau"]
 
 [resource]
 script = ExtResource("1_rknau")
 name = "Hora de cambiar"
 description = "gigi le otorga su turno a un aliado y gigi va de ultima y no podrás utilizar esta habilidad otra vez"
-effects = Array[Resource("res://combat/effects/effect.gd")]([])
+effects = Array[Resource("res://combat/effects/effect.gd")]([ExtResource("1_4kg36")])
 energy_cost = 0

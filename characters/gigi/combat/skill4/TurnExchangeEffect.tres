@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="TurnExchangeEffect" load_steps=4 format=3 uid="uid://dqumpf58hhsyp"]
+
+[ext_resource type="Script" path="res://characters/gigi/combat/skill4/TurnExchangeEffect.gd" id="1_fjfai"]
+[ext_resource type="Script" path="res://combat/targets/target_friend.gd" id="2_q8lgv"]
+
+[sub_resource type="Resource" id="Resource_amfx1"]
+script = ExtResource("2_q8lgv")
+exclude_self = true
+number_of_targets = 1
+random = false
+allow_repetition = false
+
+[resource]
+script = ExtResource("1_fjfai")
+base_value = 1.0
+target_type = SubResource("Resource_amfx1")
