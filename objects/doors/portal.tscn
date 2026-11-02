@@ -25,7 +25,7 @@ spawn_direction = "up"
 transparency_value = 0.6
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2, -2)
+position = Vector2(7.45058e-08, 1.49012e-08)
 texture = SubResource("GradientTexture2D_s0c0c")
 
 [node name="ZoneChange" type="Area2D" parent="."]
@@ -36,6 +36,5 @@ collision_mask = 8
 script = ExtResource("3_2pbxo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneChange"]
-position = Vector2(-0.666664, -1)
 shape = SubResource("RectangleShape2D_i26qx")
 debug_color = Color(0.235294, 0.705882, 0.235294, 0.419608)

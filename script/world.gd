@@ -37,6 +37,10 @@ func spawn(
 		new_direction: String = 'down',
 		fallback = SpawnFallback.ZERO):
 	
+	if not new_zone:
+		printerr("World | Target zone not specified")
+		return
+	
 	var spawn_node = new_zone.spawn_points.get_node(spawn_point)
 	var new_position: Vector2
 	

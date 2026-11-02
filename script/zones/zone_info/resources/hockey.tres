@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="zone_info" load_steps=2 format=3 uid="uid://bfw21qp7fl3n4"]
+
+[ext_resource type="Script" path="res://script/zones/zone_info/zone_info.gd" id="1_gidat"]
+
+[resource]
+script = ExtResource("1_gidat")
+name = "Cancha de hockeyl"
+description = "La cancha de hockey"
+dumb = true

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://upmxma84weta"]
+
+[ext_resource type="PackedScene" uid="uid://cahhguph112nt" path="res://objects/yard/base_yard_object.tscn" id="1_s30qx"]
+[ext_resource type="Texture2D" uid="uid://crkhgt71wtpv8" path="res://zones/hockey_384x240.png" id="2_gya2c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4kfs"]
+size = Vector2(89, 42)
+
+[node name="HockeyGoalBack" instance=ExtResource("1_s30qx")]
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, 1.19209e-07)
+texture = ExtResource("2_gya2c")
+offset = Vector2(0, -15)
+region_rect = Rect2(290, 71, 88, 42)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(0.166666, -14.6667)
+shape = SubResource("RectangleShape2D_e4kfs")
