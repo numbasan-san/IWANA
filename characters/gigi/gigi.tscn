@@ -1,9 +1,17 @@
-[gd_scene load_steps=14 format=3 uid="uid://ugiuyfsy1rtl"]
+[gd_scene load_steps=22 format=3 uid="uid://ugiuyfsy1rtl"]
 
 [ext_resource type="PackedScene" uid="uid://dqycf3lwlo2d0" path="res://characters/character.tscn" id="1_begxf"]
 [ext_resource type="Texture2D" uid="uid://sbxcb184ku65" path="res://characters/gigi/vn/gigi4.png" id="3_3fwy7"]
+[ext_resource type="Resource" uid="uid://c4yincf4d3bet" path="res://characters/gigi/gigi_stats.tres" id="4_na4h4"]
 [ext_resource type="Resource" uid="uid://822xo1aie1i6" path="res://characters/gigi/combat/skill1/gigi_skill_1.tres" id="4_nw6m5"]
 [ext_resource type="Texture2D" uid="uid://b372187f7o7vd" path="res://characters/gigi/combat/gigi_animation_stand_11-Sheet.png" id="4_rihj7"]
+[ext_resource type="Resource" uid="uid://cwiad8lbr5h5p" path="res://characters/gigi/combat/skill2/gigi_skill_2.tres" id="5_mqpa3"]
+[ext_resource type="Resource" uid="uid://bl1s8klucm3bd" path="res://characters/gigi/combat/skill3/gigi_skill_3.tres" id="6_4spys"]
+[ext_resource type="Resource" uid="uid://cuah1frf0q278" path="res://characters/gigi/combat/skill4/gigi_skill_4.tres" id="7_153x6"]
+[ext_resource type="Resource" uid="uid://bf3afvhjycfmw" path="res://characters/gigi/combat/skill5/gigi_skill_5.tres" id="8_ks0a3"]
+[ext_resource type="Resource" uid="uid://blorbkb0wysfi" path="res://characters/gigi/combat/skill6/gigi_skill_6.tres" id="9_x4qac"]
+[ext_resource type="Resource" uid="uid://b3x4ehg5c8yil" path="res://characters/gigi/combat/skill7/gigi_skill_7.tres" id="10_cwwxm"]
+[ext_resource type="Resource" uid="uid://ib707op5k13k" path="res://characters/gigi/combat/skill8/gigi_skill_8.tres" id="11_7io0f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iw4gg"]
 resource_local_to_scene = true
@@ -84,12 +92,17 @@ frame = 16
 position = Vector2(-0.666669, -6.16667)
 shape = SubResource("RectangleShape2D_iw4gg")
 
-[node name="CombatModel" parent="." index="2"]
+[node name="CombatModel" parent="." index="2" node_paths=PackedStringArray("combat_animation")]
 visible = false
+combat_animation = NodePath("Sprites/CombatSprites")
 
 [node name="CombatSprites" type="AnimatedSprite2D" parent="CombatModel/Sprites" index="0"]
 sprite_frames = SubResource("SpriteFrames_lbeps")
 animation = &"idle"
+frame = 1
+frame_progress = 0.784003
 
 [node name="CombatHandler" parent="." index="3"]
-skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("4_nw6m5")])
+stats = ExtResource("4_na4h4")
+skills = Array[Resource("res://combat/skills/skill.gd")]([ExtResource("4_nw6m5"), ExtResource("5_mqpa3"), ExtResource("6_4spys"), ExtResource("7_153x6"), ExtResource("8_ks0a3"), ExtResource("9_x4qac"), ExtResource("10_cwwxm"), ExtResource("11_7io0f")])
+manual_control = true

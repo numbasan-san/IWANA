@@ -12,5 +12,9 @@ allow_repetition = false
 
 [resource]
 script = ExtResource("1_fjfai")
+type = 2
+decrease_duration = 0
+duration = 0
+stacks = false
 base_value = 1.0
 target_type = SubResource("Resource_amfx1")

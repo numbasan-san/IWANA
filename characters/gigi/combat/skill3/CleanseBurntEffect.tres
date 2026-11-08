@@ -1,7 +1,13 @@
-[gd_resource type="Resource" script_class="CleanseBurntEffect" load_steps=2 format=3 uid="uid://bj3yvv7ntexop"]
+[gd_resource type="Resource" script_class="CleanseBurntEffect" load_steps=4 format=3 uid="uid://bj3yvv7ntexop"]
 
 [ext_resource type="Script" path="res://characters/gigi/combat/skill3/CleanseBurntEffect.gd" id="1_nbjvx"]
+[ext_resource type="Script" path="res://combat/targets/target_party.gd" id="2_ydu8d"]
+
+[sub_resource type="Resource" id="Resource_ogesy"]
+script = ExtResource("2_ydu8d")
+exclude_self = false
 
 [resource]
 script = ExtResource("1_nbjvx")
-base_value = 1.0
+base_value = 2.0
+target_type = SubResource("Resource_ogesy")

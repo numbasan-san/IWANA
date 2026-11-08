@@ -1827,7 +1827,7 @@ texture = SubResource("AtlasTexture_gby30")
 visible = false
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_7mxob")
-animation = &"swipe_ret_rise"
+animation = &"attack"
 offset = Vector2(0, -40)
 
 [node name="CombatHandler" parent="." index="3"]

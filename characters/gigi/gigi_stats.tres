@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=2 format=3 uid="uid://c4yincf4d3bet"]
+
+[ext_resource type="Script" path="res://combat/stats.gd" id="1_y2718"]
+
+[resource]
+script = ExtResource("1_y2718")
+base_max_health = 50
+base_max_energy = 40
+base_max_satiation = 0
+base_damage = 10
+base_defense = 2
+base_speed = 5
+base_critical = 0
+base_precision = 100
+base_evasion = 0

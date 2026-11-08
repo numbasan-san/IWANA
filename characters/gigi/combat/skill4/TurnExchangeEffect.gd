@@ -1,5 +1,5 @@
 
-class_name TurnExchangeEffect extends Effect
+class_name TurnExchangeEffect extends LastingEffect
 
 var combat: CombatScreenControl
 
@@ -45,10 +45,10 @@ func process_effect(
 
 		# Solo permitimos adelantar aliados que aún
 		# no hayan realizado su turno en esta ronda.
-		if not handler.combat.actor_queue.has(exchange.target):
-			push_warning("Este aliado ya realizó su turno.")
-			skill.status = skill.Status.ERROR
-			return []
+		#if not handler.combat.actor_queue.has(exchange.target):
+		#	push_warning("Este aliado ya realizó su turno.")
+		#	skill.status = skill.Status.ERROR
+		#	return []
 
 	return copies
 
@@ -61,9 +61,9 @@ func on_cast(_caster: Character):
 	var queue = combat.actor_queue
 
 	# Verificamos que el aliado siga pendiente.
-	if not queue.has(target):
-		is_nullified = true
-		return
+	#if not queue.has(target):
+	#	is_nullified = true
+	#	return
 
 	# 1. Retiramos al aliado de su posición original.
 	queue.erase(target)
@@ -77,6 +77,11 @@ func on_cast(_caster: Character):
 
 	# 4. La habilidad queda deshabilitada.
 	skill.enabled = false
+	
+	print("Nuevo orden de turnos:")
+
+	for character in combat.actor_queue:
+		print(" - ", character.name)
 
 	# No necesitamos enviar ni aplicar ningún
 	# efecto convencional sobre el objetivo.

@@ -8,6 +8,6 @@ script = ExtResource("2_loocg")
 
 [resource]
 script = ExtResource("1_leuej")
-health_percentage = 10.0
+health_percentage = 2.0
 base_value = 1.0
 target_type = SubResource("Resource_i6klu")
